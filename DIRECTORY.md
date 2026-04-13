@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-13 20:03 UTC*
+*Last updated: 2026-04-13 22:05 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 689,349 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 689,379 | IRS EO Business Master File | ✅ Complete |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 DIRECTORY_EC.md (EC) | ~9 | Field Research | ✅ |
 | 🌐 Guatemala (GT) | ~13 | Field Research | ✅ |
@@ -15,6 +15,7 @@
 | 🌐 DIRECTORY_HN.md (HN) | ~10 | Field Research | ✅ |
 | 🌐 Kenya (KE) | ~53 | Field Research | ✅ |
 | 🌐 DIRECTORY_NG.md (NG) | ~9 | Field Research | ✅ |
+| 🌐 Nicaragua (NI) | ~13 | Field Research | ✅ |
 | 🌐 Phase 2: (??) | ~41 | Field Research | ✅ |
 | 🌐 DIRECTORY_PY.md (PY) | ~10 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
@@ -22,14 +23,14 @@
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 689,349+ organizations indexed** across 13 countries
+**Total: 689,379+ organizations indexed** across 14 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*689,349 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*689,379 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1629,6 +1630,77 @@ Model: nonprofit
 - This research adds: 51 Nigerian organizations
 - Framework coverage: democracy(30), cooperatives(3), education(2), housing_land(2), energy_digital(8), conflict(3), food(1), ecology(2)
 - Recommended follow-up: Contact NNNGO, Nigeria CSO Network for formal registry
+
+
+---
+
+# 🌐 Nicaragua (NI) Civil Society Directory
+
+*Compiled: 2026-04-13 | Source: Web research | Organizations: 12*
+
+---
+
+## Organizations
+
+### List of NGOs, Charities and Nonprofits in Managua - NGO Base
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NGOs, Charities and Nonprofits in Managua. Browse organizations by their focus work areas. Page 1 of 2
+
+### MA/managua-ngos
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NGOs, Charities and Nonprofits in Managua. Browse organizations by their focus work areas. Page 1 of 2
+
+### Directorio completo de ONGs en Nicaragua: ¡Conoce las asociaciones sin 
+Framework: democracy
+Model: nonprofit
+> Descubre las principales asociaciones sin fines de lucro en Nicaragua y apoya sus nobles causas. ¡Ayuda a hacer una diferencia en tu comunidad!
+
+### ONGs y Fundaciones en Nicaragua 2024 - Proyectos sociales
+Framework: democracy
+Model: nonprofit
+> ONGs y Fundaciones en Nicaragua 2024 variedad de Organizaciones en diversos sectores la salud, la educación, medio ambiente. Camoapa.
+
+### Seguimos Organizadas - La Plataforma de Redes de ONG
+Framework: democracy
+Model: nonprofit
+> Quiénes Somos La Plataforma Nicaragüense de Redes de ONG Con presencia en toda Nicaragua aportando al desarrollo económico en comunidades empobrecidas, donde el Estado no ha logrado resolver los princ
+
+### List Of Non-profit organizations in Nicaragua
+Framework: democracy
+Model: nonprofit
+> There are 201 Non-profit organizations in Nicaragua as of August 15, 2024; which is an 3.06% increase from 2023. Of these locations, 197 Non-profit organizations which is 98.01% of all Non-profit orga
+
+### Non-profit organizations which
+Framework: democracy
+Model: nonprofit
+> ## NGO Directory - Caribbean Policy Development Centre
+
+### NGO Directory - Caribbean Policy Development Centre
+Framework: democracy
+Model: nonprofit
+> Our NGO Directory provides a comprehensive list on non-governmental organizations (NGOs) from across the Eastern and Southern Caribbean (ESC). This Directory allows fellow NGOs, partners, donors and c
+
+### Our NGO Directory provides a comprehensive list on non
+Framework: democracy
+Model: nonprofit
+> ## Nicaragua - NGO Explorer
+
+### Nicaragua - NGO Explorer
+Framework: healthcare
+Model: nonprofit
+> How NGOs describe themselves Most common words from the description of a random set of 30 NGOs matching your search. people latin work world development education poverty projects support health small
+
+### United Nations Civil Society Participation
+Framework: democracy
+Model: nonprofit
+> Advanced search for Civil Society Organizations Please use any of the search combinations below to find organizations in our database. You can also expand the headings "Areas of Expertise & Fields of 
+
+### Welcome to Sos Nicaragua
+Framework: democracy
+Model: nonprofit
+> Sos Nicaragua i
 
 
 ---
