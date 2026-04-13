@@ -1,25 +1,28 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-13 13:39 UTC*
+*Last updated: 2026-04-13 14:05 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 689,170 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 689,262 | IRS EO Business Master File | ✅ Complete |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
+| 🌐 DIRECTORY_EC.md (EC) | ~9 | Field Research | ✅ |
+| 🌐 Kenya (KE) | ~53 | Field Research | ✅ |
 | 🌐 DIRECTORY_NG.md (NG) | ~9 | Field Research | ✅ |
+| 🌐 Phase 2: (??) | ~41 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 689,170+ organizations indexed** across 3 countries
+**Total: 689,262+ organizations indexed** across 6 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*689,170 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*689,262 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -742,6 +745,338 @@
 
 ---
 
+# Ecuador (EC) -- Regional Directory
+
+**Searches conducted:** 22
+**Organizations found:** 102
+**Generated:** ECO-66 Researcher run
+
+*Note: These orgs were found via web search and need verification. Most are NOT in the IRS bulk data (Ecuador is non-US). Quality varies -- treat as leads for human review.*
+
+---
+
+## Conflict (13 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| FENOCIN - Organización de la sociedad civil que reivindica los derechos ... | Found via: Ecuador soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Ecuador soberania alimentari |
+| Derechos Humanos y Justicia Juvenil Restaurativa | Found via: Ecuador justicia restaurativa paz derechos humanos |  | Web search: Ecuador justicia restaurativ |
+| Justicia Restaurativa - Derecho Ecuador | Found via: Ecuador justicia restaurativa paz derechos humanos |  | Web search: Ecuador justicia restaurativ |
+| Terre des hommes y una década del proyecto &quot;Justicia juvenil ... | Found via: Ecuador justicia restaurativa paz derechos humanos |  | Web search: Ecuador justicia restaurativ |
+| Justicia juvenil restaurativa y garantías constitucionales en Ecuador ... | Found via: Ecuador justicia restaurativa paz derechos humanos |  | Web search: Ecuador justicia restaurativ |
+| Restorative justice, a means of dealing with juvenile delinquency in ... | Found via: Ecuador justicia restaurativa paz derechos humanos |  | Web search: Ecuador justicia restaurativ |
+| Educación popular en comunidades de Guayaquil 2021 - 2023 - Comité ... | Este trabajo se realizó con la finalidad de describir la vulneración de derechos laborales de los educadores populares c |  | Web search: Ecuador educacion popular es |
+| Cedhu - Comisión Ecuménica De Derechos Humanos |  | cedhu.org | Targeted: CEDHU Ecuador derechos humanos |
+| cedhu - Alianza por los Derechos Humanos - ddhhecuador.org |  | ddhhecuador.org/org/cedhu | Targeted: CEDHU Ecuador derechos humanos |
+| Comisión Ecuménica Derechos Humanos - Facebook |  | www.facebook.com/CEDerechosHUmanos/ | Targeted: CEDHU Ecuador derechos humanos |
+| CDES - Centro de Derechos Económicos y Sociales | El caso Furukawa revela décadas de explotación laboral y servidumbre en  Ecuador . Justicia económica y ambiental para l | cdes.org.ec | Targeted: CDES Centro Derechos Economico |
+| CDES -Centro de Derechos Economicos y Sociales- Home | CDES&#x27;s mission is to promote ESCR in social movements and organizations to promote the discussion, development, and | www.ecuanex.net.ec/cdes/index.html | Targeted: CDES Centro Derechos Economico |
+| CDES - Quito - Facebook |  | www.facebook.com/cdesderechos/ | Targeted: CDES Centro Derechos Economico |
+
+## Cooperatives (12 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Federación Nacional de Cooperativas de Ahorro y Crédito | El cooperativismo en  Ecuador  ha sido una de las herramientas cruciales para el crecimiento económico y social del país |  | Web search: Ecuador cooperativas organiz |
+| Todo lo que no sabías sobre las cooperativas en Ecuador | Found via: Ecuador cooperativas organizaciones trabajadores federacion |  | Web search: Ecuador cooperativas organiz |
+| TOP 10 Mejores Cooperativas en Ecuador en 2026 - Biblioteca Cooperativa | Found via: Ecuador cooperativas organizaciones trabajadores federacion |  | Web search: Ecuador cooperativas organiz |
+| La disolución y liquidación de cooperativas de vivienda en el Ecuador | Found via: Ecuador vivienda cooperativa tierra comunidad |  | Web search: Ecuador vivienda cooperativa |
+| La vida cooperativa ante la crisis de vivienda: &quot;Me decían que iba a ... | Found via: Ecuador vivienda cooperativa tierra comunidad |  | Web search: Ecuador vivienda cooperativa |
+| Cooperativa de vivienda en Ecuador: qué es y cómo funciona | Found via: Ecuador vivienda cooperativa tierra comunidad |  | Web search: Ecuador vivienda cooperativa |
+| Qué es la Cooperativa de Ahorro Mujeres Unidas - Cooperativas en Ecuador | Microcréditos Simulador de Crédito Inversiones  Ahorro  Cesantía Deposito a Plazo Fijo Simulador de Inversiones Servicio |  | Web search: Ecuador mujeres organizacion |
+| agenciasCacmu - CACMU Cooperativa de Ahorro y Crédito Mujeres Unidas | Found via: Ecuador mujeres organizaciones cooperativa ahorro |  | Web search: Ecuador mujeres organizacion |
+| Cooperativa De Ahorro Y Credito Mujeres Lideres Ltda - Organizaciones ... | Found via: Ecuador mujeres organizaciones cooperativa ahorro |  | Web search: Ecuador mujeres organizacion |
+| La 29 - Cooperativa de Ahorro y Crédito - Mujer Líder | Found via: Ecuador mujeres organizaciones cooperativa ahorro |  | Web search: Ecuador mujeres organizacion |
+| Cooperativa CACMU - Ecuador — MCE Social Capital | Found via: Ecuador mujeres organizaciones cooperativa ahorro |  | Web search: Ecuador mujeres organizacion |
+| Home - Mundo Mujer Cooperativa de Ahorro y Credito | Found via: Ecuador mujeres organizaciones cooperativa ahorro |  | Web search: Ecuador mujeres organizacion |
+
+## Democracy (51 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| SUIOS - Sistema Unificado de Información de Organizaciones Sociales | Comprehensive list of NGOs, Charities and Nonprofits in  Ecuador . Browse organizations by their focus work areas. Page  |  | Web search: Ecuador ONGs directorio orga |
+| Secretaría General &gt; sadye &gt; orsc &gt; organizaciones sociedad civil &gt;  | GlobalGiving Atlas makes it easy to access the database of 68,037 nonprofits in  Ecuador . Use our standardized API or J |  | Web search: Ecuador ONGs directorio orga |
+| CEOSC - Confederación Ecuatoriana de Organizaciones de la Sociedad Civil | 10 Casa de Acogida para mujeres víctimas de violencia de género &quot;Manos Unidas Tejiendo Progreso&quot; Telf. Emergen |  | Web search: Ecuador ONGs directorio orga |
+| List of Ngos, Charities and non-profits in Ecuador - NGO Base | Found via: Ecuador ONGs directorio organizaciones sociedad civil |  | Web search: Ecuador ONGs directorio orga |
+| ¿Cómo encontrar una base de datos de fundaciones y ONGs en Ecuador ... | Found via: Ecuador ONGs directorio organizaciones sociedad civil |  | Web search: Ecuador ONGs directorio orga |
+| Asociaciones y ONG en Ecuador - Expat.com | Found via: Ecuador ONGs directorio organizaciones sociedad civil |  | Web search: Ecuador ONGs directorio orga |
+| Ecuador - 4.2 Organizaciones Humanitarias Lista de Contactos | Found via: Ecuador ONGs directorio organizaciones sociedad civil |  | Web search: Ecuador ONGs directorio orga |
+| List of NGOs in Ecuador - GlobalGiving Atlas | Found via: Ecuador ONGs directorio organizaciones sociedad civil |  | Web search: Ecuador ONGs directorio orga |
+| Federación de Trabajadores y Organizaciones Gremiales del Ecuador | Found via: Ecuador cooperativas organizaciones trabajadores federacion |  | Web search: Ecuador cooperativas organiz |
+| El Cooperativismo en Ecuador: actualidad y perspectivas - SciELO | Found via: Ecuador cooperativas organizaciones trabajadores federacion |  | Web search: Ecuador cooperativas organiz |
+| Colectivo Agroecológico - Colectivo Agroecológico del Ecuador | Found via: Ecuador soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Ecuador soberania alimentari |
+| Agroecología política - IEE | Found via: Ecuador soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Ecuador soberania alimentari |
+| Llacta! - Organizaciones Indígenas y Sociales del Ecuador | Found via: Ecuador salud comunitaria organizaciones pueblos indigenas |  | Web search: Ecuador salud comunitaria or |
+| Vea cómo las comunidades indígenas amazónicas de Ecuador abordan la ... | Found via: Ecuador salud comunitaria organizaciones pueblos indigenas |  | Web search: Ecuador salud comunitaria or |
+| FOA Ecuador - Organización comunitaria | Found via: Ecuador salud comunitaria organizaciones pueblos indigenas |  | Web search: Ecuador salud comunitaria or |
+| Plataforma Nacional de Participación Ciudadana Digital del Ecuador. | Found via: Ecuador democracia participacion ciudadana organizaciones |  | Web search: Ecuador democracia participa |
+| La participación ciudadana: fundamento esencial de la democracia en Ecuador | Found via: Ecuador democracia participacion ciudadana organizaciones |  | Web search: Ecuador democracia participa |
+| 5 claves para comprender la democracia en Ecuador | Found via: Ecuador democracia participacion ciudadana organizaciones |  | Web search: Ecuador democracia participa |
+| Representación y participación ciudadana en el Ecuador: tensiones y ... | Found via: Ecuador democracia participacion ciudadana organizaciones |  | Web search: Ecuador democracia participa |
+| Sistema de Participación Ciudadana - Gob | Found via: Ecuador democracia participacion ciudadana organizaciones |  | Web search: Ecuador democracia participa |
+| Ecuador: con potencial en renovables y comunidades rurales a oscuras | Found via: Ecuador energia renovable cooperativa solar comunidad |  | Web search: Ecuador energia renovable co |
+| Ecuador, un país con enorme potencial en energías renovables, pero con ... | Found via: Ecuador energia renovable cooperativa solar comunidad |  | Web search: Ecuador energia renovable co |
+| Ecuador - IWGIA - International Work Group for Indigenous Affairs | Found via: Ecuador pueblos indigenas organizaciones Kichwa Shuar derechos |  | Web search: Ecuador pueblos indigenas or |
+| Pueblos indígenas de Ecuador - Pueblos Indigenas | Found via: Ecuador pueblos indigenas organizaciones Kichwa Shuar derechos |  | Web search: Ecuador pueblos indigenas or |
+| Organizaciones Indígenas - Territorio Indígena y Gobernanza | Found via: Ecuador pueblos indigenas organizaciones Kichwa Shuar derechos |  | Web search: Ecuador pueblos indigenas or |
+| Ecuador: Representante se reunió con líderes indígenas kichwa para ... | Found via: Ecuador pueblos indigenas organizaciones Kichwa Shuar derechos |  | Web search: Ecuador pueblos indigenas or |
+| El acceso al crédito transforma la vida de las mujeres ecuatorianas y ... | Found via: Ecuador mujeres organizaciones cooperativa ahorro |  | Web search: Ecuador mujeres organizacion |
+| Economía Solidaria - Fomenta las capacidades y actividades productivas ... | The notion of &quot;social enterprise&quot; is unusual in  Ecuador . So far, social actors and practitioners engaged in  |  | Web search: Ecuador economia solidaria m |
+| Social and Solidarity Economy in Ecuador: Fostering an ... - MDPI | Found via: Ecuador economia solidaria mutual aid network |  | Web search: Ecuador economia solidaria m |
+| Segundo Bosquejo del Ecosistema de la Economía Solidaria en Ecuador ... | Found via: Ecuador economia solidaria mutual aid network |  | Web search: Ecuador economia solidaria m |
+| Economía solidaria en el Ecuador: institucionalización y tipos de ... | Found via: Ecuador economia solidaria mutual aid network |  | Web search: Ecuador economia solidaria m |
+| - Fundación Openlab Ecuador | Quito, 03 de junio de 2025. Este 3 de junio de 2025 se presentó EduCPCCS, la primera plataforma virtual gratuita de form |  | Web search: Ecuador tecnologia civica op |
+| Ecuador lanza su primera plataforma virtual gratuita para formar ... | Found via: Ecuador tecnologia civica open source organizaciones |  | Web search: Ecuador tecnologia civica op |
+| Requisitos para Corporaciones y Fundaciones - Ministerio de ... - Gob | Found via: Ecuador registro ONG MIES organizaciones base datos |  | Web search: Ecuador registro ONG MIES or |
+| Registro de Fundaciones y Corporaciones Civiles | Found via: Ecuador registro ONG MIES organizaciones base datos |  | Web search: Ecuador registro ONG MIES or |
+| ¿Cómo puedo acceder a una base de datos de fundaciones y ONGs en Ecuador? | Found via: Ecuador registro ONG MIES organizaciones base datos |  | Web search: Ecuador registro ONG MIES or |
+| &quot;CEDEP&quot; Centro de Educación Popular | Este problema, que ha afectado a los educadores comunitarios por varios años, es una deuda heredada de administraciones  |  | Web search: Ecuador educacion popular es |
+| Buenas noticias para nuestros educadores comunitarios | Found via: Ecuador educacion popular escuela comunitaria federacion |  | Web search: Ecuador educacion popular es |
+| Educadores Populares. Realidad Social Y Jurídica En El Ecuador | Found via: Ecuador educacion popular escuela comunitaria federacion |  | Web search: Ecuador educacion popular es |
+| Una experiencia de Educación Popular. Caso de estudio INEPE | Found via: Ecuador educacion popular escuela comunitaria federacion |  | Web search: Ecuador educacion popular es |
+| Descubre la biodiversidad de Ecuador: Galápagos y más | Found via: Ecuador medio ambiente conservacion ecologia Amazonia Galapagos |  | Web search: Ecuador medio ambiente conse |
+| Ecuador amplía Reserva de Biósfera Galápagos - prensa.ec | Found via: Ecuador medio ambiente conservacion ecologia Amazonia Galapagos |  | Web search: Ecuador medio ambiente conse |
+| Las Islas Galápagos de Ecuador enfrentan el cambio climático y las ... | Found via: Ecuador medio ambiente conservacion ecologia Amazonia Galapagos |  | Web search: Ecuador medio ambiente conse |
+| Página de inicio - Conservación Internacional Ecuador | Found via: Ecuador medio ambiente conservacion ecologia Amazonia Galapagos |  | Web search: Ecuador medio ambiente conse |
+| Siete Reservas de biosfera en Ecuador - UNESCO | Found via: Ecuador medio ambiente conservacion ecologia Amazonia Galapagos |  | Web search: Ecuador medio ambiente conse |
+| Inicio - CONAIE |  | conaie.org | Targeted: CONAIE Confederacion Nacionali |
+| Confederation of Indigenous Nationalities of Ecuador - Wikipedia |  | en.wikipedia.org/wiki/Confederation_of_Indigenous_Nationalit | Targeted: CONAIE Confederacion Nacionali |
+| Conaie Ecuador - Quito - Facebook |  | www.facebook.com/conaie.org/ | Targeted: CONAIE Confederacion Nacionali |
+| Inicio - FLACSO Ecuador :: Universidad Latinoamericana de Postgrado ... | Nuestro propósito es mantener estándares de excelencia en la enseñanza de posgrado y vincular a la Sede en la discusión  | www.flacso.edu.ec | Targeted: FLACSO Ecuador sociedad civil  |
+| Área de Investigación - FLACSO | Pensar, investigar, formar y transformar Forjando el futuro de América Latina y el Caribe. Ejes Estratégicos Áreas prior | www.flacso.org/o-que-fazemos/investigacion/sobre-area-invest | Targeted: FLACSO Ecuador sociedad civil  |
+| FlacsoAndes - Biblioteca Digital de Vanguardia en Ciencias Sociales | Muestra el registro Dublin Core completo del ítem Ver Estadísticas Este ítem está sujeto a una licencia Attribution NonC | www.flacsoandes.edu.ec | Targeted: FLACSO Ecuador sociedad civil  |
+
+## Ecology (4 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Ecuador - Conservation International | El colapso del Arco de Darwin en 2021 puso de relieve la fragilidad de las Islas  Galápagos . A medida que el cambio cli |  | Web search: Ecuador medio ambiente conse |
+| Home - Acción Ecológica | Organización ecologista ecuatoriana en defensa de los derechos de las personas, los pueblos y la naturaleza frente al mo | www.accionecologica.org | Targeted: Accion Ecologica Ecuador ambie |
+| Acción Ecológica - Wikipedia |  | en.wikipedia.org/wiki/Acción_Ecológica | Targeted: Accion Ecologica Ecuador ambie |
+| Acción Ecológica: 39 años de cuidado ambiental desde el activismo |  | www.lahora.com.ec/sociedad/Accion-Ecologica-39-anos-de-cuida | Targeted: Accion Ecologica Ecuador ambie |
+
+## Energy Digital (7 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| TECHO Ecuador | Found via: Ecuador vivienda cooperativa tierra comunidad |  | Web search: Ecuador vivienda cooperativa |
+| Personas en zonas rurales accederán a energía solar en Ecuador | Found via: Ecuador energia renovable cooperativa solar comunidad |  | Web search: Ecuador energia renovable co |
+| Ecuador lanza Mapa Solar con 7 proyectos de 1.5 ... - Energía Estratégica | Found via: Ecuador energia renovable cooperativa solar comunidad |  | Web search: Ecuador energia renovable co |
+| Energía Solar Fotovoltaica Transforma La Vida De Comunidades Rurales En ... | Found via: Ecuador energia renovable cooperativa solar comunidad |  | Web search: Ecuador energia renovable co |
+| Genera Renovables - Energía Solar en Ecuador | Found via: Ecuador energia renovable cooperativa solar comunidad |  | Web search: Ecuador energia renovable co |
+| Soluciones pioneras de energía solar en Ecuador | Found via: Ecuador energia renovable cooperativa solar comunidad |  | Web search: Ecuador energia renovable co |
+| Casos de Éxito: Proyectos con Energía Solar en Ecuador - LinkedIn | Found via: Ecuador energia renovable cooperativa solar comunidad |  | Web search: Ecuador energia renovable co |
+
+## Food (10 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Ecuador - Soberanía alimentaria y agroecología en Ecuador | Found via: Ecuador soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Ecuador soberania alimentari |
+| Ley Orgánica del Régimen de la Soberanía Alimentaria de Ecuador - SciELO | Found via: Ecuador soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Ecuador soberania alimentari |
+| REACTIVAR AL AGRO PARA QUIÉN: Organizaciones campesinas y ... - Ocaru | Found via: Ecuador soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Ecuador soberania alimentari |
+| Título Soberanía Alimentaria Y Organización Campesina Para Enfrentar La ... | Found via: Ecuador soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Ecuador soberania alimentari |
+| Movimiento Nacional Campesino Ecuador - Soberanía Alimentaria. | Found via: Ecuador soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Ecuador soberania alimentari |
+| Diario Correo - El diario de todos |  | diariocorreo.com.ec/120444/nacional/paro-nacional-fenocin-an | Targeted: FENOCIN Ecuador campesinos ind |
+| FENOCIN - Quito - Facebook |  | www.facebook.com/fenocinEC/ | Targeted: FENOCIN Ecuador campesinos ind |
+| Ministerio de Agricultura, Ganadería y Pesca - Ministerio de ... | Contacto Ciudadano Digital Portal Trámites Ciudadanos Sistema  Nacional  de Información (SNI) | www.agricultura.gob.ec | Targeted: Coordinadora Agraria Nacional  |
+| Acuerdo Nº 67 - La Autoridad Agraria Nacional delega y desconcentra ... | Organigrama del Ministerio de Agricultura, Ganadería, Acuacultura y Pesca que detalla su estructura organizativa y funci | rimisp.org/wp-content/uploads/2021/04/Plan-Nacional-Agropecu | Targeted: Coordinadora Agraria Nacional  |
+| Manifiesto de la Coordinadora Agraria Nacional - NativeWeb | Ministerio de Agricultura, Ganadería, Acuacultura y Pesca - El MAGAP a través de sus programas y servicios impulsa el fo | leap.unep.org/en/countries/ec/national-legislation/acuerdo-n | Targeted: Coordinadora Agraria Nacional  |
+
+## Healthcare (4 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Fortalecemos la salud intercultural en Ecuador - OPS/OMS - Organización ... | Found via: Ecuador salud comunitaria organizaciones pueblos indigenas |  | Web search: Ecuador salud comunitaria or |
+| MSP desarrolló simposio sobre el rol de los profesionales de salud de ... | Found via: Ecuador salud comunitaria organizaciones pueblos indigenas |  | Web search: Ecuador salud comunitaria or |
+| Interculturalidad En Los Servicios De Salud Del Ecuador | Found via: Ecuador salud comunitaria organizaciones pueblos indigenas |  | Web search: Ecuador salud comunitaria or |
+| Salud y pueblos indígenas en la república del Ecuador - PUCE | Found via: Ecuador salud comunitaria organizaciones pueblos indigenas |  | Web search: Ecuador salud comunitaria or |
+
+## Housing Land (1 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Cooperativas de vivienda en Ecuador: situación actual y estrategias ... | Housing cooperatives in  Ecuador  face significant challenges in a context of rapid urbanization and socioeconomic inequ |  | Web search: Ecuador vivienda cooperativa |
+
+---
+
+## Coverage Assessment
+
+- IRS BMF records for EC: 0 (expected -- US-only database)
+- This research adds: 102 Ecuadorian organizations
+- Framework coverage: democracy(51), cooperatives(12), conflict(13), food(10), healthcare(4), housing_land(1), energy_digital(7), ecology(4)
+- Recommended follow-up: Contact MIES registry, CONAIE for indigenous org directory
+
+
+---
+
+# 🌐 Kenya (KE) Civil Society Directory
+
+*Compiled: 2026-04-13 | Source: Web research via DuckDuckGo | Task: Research: Kenya (KE)*
+
+**52 organizations identified**
+
+---
+
+## Organizations
+
+### Mercy Corps
+> - **** â€” operates since 2008, reaching over 905,000 people annually across peace and development programs - **Amnesty International**
+
+### Amnesty International
+> - **** - **Oxfam International**
+
+### Oxfam International
+> - **** - **Save the Children**
+
+### Save the Children
+> - **** - **Kenya Red Cross Society** â€” officially recognized as the only National Red Cross Society in Kenya
+
+### Kenya Red Cross Society
+> - **** â€” officially recognized as the only National Red Cross Society in Kenya
+
+### NGO Coordination Board
+> - **** â€” maintains official compliance records with 530+ registered NGOs as of January 2024[3] - **The NGO Portal** â€” lists 422 registered non-profit organizations across Kenya, searchable by sect
+
+### The NGO Portal
+> - **** â€” lists 422 registered non-profit organizations across Kenya, searchable by sector and location[4] - **GlobalGiving** â€” features over 426 vetted and verified non-profits in Kenya[8]
+
+### GlobalGiving
+> - **** â€” features over 426 vetted and verified non-profits in Kenya[8] - **Lusha Database** â€” tracks 160 civic and social organizations companies in Kenya[1]
+
+### Lusha Database
+> - **** â€” tracks 160 civic and social organizations companies in Kenya[1]
+
+### Top Civic and social organizations companies in Kenya
+> -  - Lusha   h
+
+### compliant registered NGOs
+> The official directory of **** (including nonprofits and charities) in Kenya is maintained by the **NGOs Coordination Board** under the Ministry of Interior and Coordination of National Government. Th
+
+### NGOs Coordination Board compliant list (PDF)
+> - ****: Comprehensive alphabetical roster of registered and compliant NGOs.[2] - **NGO Portal listings**: Searchable directory with details on location, focus areas (e.g., human rights, poverty allevi
+
+### NGO Portal listings
+> - ****: Searchable directory with details on location, focus areas (e.g., human rights, poverty alleviation, health), and social impact scores. Examples include Centre for Women in Enterprise Developm
+
+### KENPRO contacts list
+> - ****: Provides emails and websites for registered NGOs, such as Caring for Kenyaâ€™s Kids (chuck@savedbygodsgrace.org) and Carolina for Kibera Organization (salim@unc.edu).[3]
+
+### Ngobase.org
+> - ****: Directory of 90 major active Kenyan NGOs with work focus details.[5] - **Wikipedia overview**: Alphabetical list of prominent NGOs like African Wildlife Foundation, Amref Health Africa, and Ag
+
+### Wikipedia overview
+> - ****: Alphabetical list of prominent NGOs like African Wildlife Foundation, Amref Health Africa, and Aga Khan Foundation.[6] - **GlobalGiving**: 431+ vetted Kenyan nonprofits by theme (e.g., educati
+
+### UK-based charities operating in Kenya
+> For the most current and authoritative verification, contact the NGOs Coordination Board directly or check their portal, as registrations and compliance status change.[1][2]  (e.g., 2,500+ listed) are
+
+### Listings
+> -  - The NGO Portal   https://ngos.ke/listing/
+
+### [PDF] compliant ngos as at 9th january, 2024
+> -  - NGOs Coordination
+
+### The primary database for Kenyan NGOs and civil society organizations (CSOs) is the CSO Data Kenya portal at data.csodata.ke/organizations, which lists organizations like ICRH Kenya, Open Institute, Groots Kenya, and KEWASNET, with details on their datasets and activities
+
+### NGO Coordination Board's compliant NGOs list
+> - ****, a PDF of over 500 registered organizations as of January 2024, such as Association of Former International Civil Servants-Kenya and Centre for Environment Stewardship.[4] - **UN Office of the
+
+### UN Office of the Special Adviser on Africa (OSAA) NGO database
+> - ****, searchable by criteria like location (Kenya) for Africa-focused CSOs.[2] - **UN Civil Society Participation advanced search**, allowing filters for Kenyan organizations by expertise, activitie
+
+### UN Civil Society Participation advanced search
+> - ****, allowing filters for Kenyan organizations by expertise, activities, or participation.[3]
+
+### CSO Data Kenya is the most current for data
+> These platforms enable searching by name, topic, or activity; -sharing CSOs.[1]
+
+### COMPLIANT-NGOs-AS-AT-JANUARY
+> https://ngobureau.go.ke/wp-content/uploads/2024/01/-9-2024.pdf - Regulatory Compliance for NGOs & Foundations in Kenya
+
+### Kenya Organization for Environmental Education (KOEE)
+> - ****: Promotes sustainability education, training, and capacity building as part of the Foundation for Environmental Education International; inspired by UN Agenda 21.[3] - **Environment Institute o
+
+### Environment Institute of Kenya (EIK)
+> - ****: Advances environmental professionalism through education, advocacy, policy training, biodiversity conservation, and climate change workshops.[6] - **KENVO (Kenya Forest Communities Network)**:
+
+### KENVO (Kenya Forest Communities Network)
+> - ****: Empowers forest communities with resources, knowledge, and advocacy for sustainable resource management and rights protection.[2] - **Blue Earth Organization** (Mombasa): Leads mangrove restor
+
+### Blue Earth Organization
+> - **** (Mombasa): Leads mangrove restoration (e.g., 30,000+ planted), climate advocacy, and youth networking for conservation.[2] - **CANCO**: Focuses on environmental advocacy, biodiversity protectio
+
+### Others from directories
+> - : Molo Constituency Forest Association, Together4Trees Kenya, Leafy Communities, Kijabe Forest Trust.[1]
+
+### Wildlife and Conservation
+> ### -Focused Groups Many target endangered species, habitat restoration, and community conservancies in areas like Tsavo.[4][5]
+
+### Sheldrick Wildlife Trust
+> - ****, **Tsavo Trust**, **WildlifeDirect**, **William Holden Wildlife Foundation** (Wikipedia category).[4] - **African Wildlife Foundation (AWF)**: Supports conservancies like LUMO, restores rangela
+
+### African Wildlife Foundation (AWF)
+> - ****: Supports conservancies like LUMO, restores rangelands and forests for elephants, lions, and other species; partners with Kenya Wildlife Service and others.[5] - **The Nature Conservancy (TNC)*
+
+### The Nature Conservancy (TNC)
+> - ****: Addresses governance, economies, and resource management to build resilience against drought and shocks.[7]
+
+### Key human rights organizations in Kenya include Amnesty Kenya, Kenya Human Rights Commission (KHRC), Kenya National Commission on Human Rights (KNCHR), National Coalition of Human Rights Defenders â€“ Kenya, Human Rights Agenda (HURIA), and others like EACHRights and Cemiride
+> **.**[1][2][3][4][6][8][10]
+
+### Amnesty Kenya
+> - **** campaigns against abuses as part of Amnesty International's global network, mobilizing members to pressure governments.[1] - **Kenya Human Rights Commission (KHRC)** promotes human rights and d
+
+### Kenya Human Rights Commission (KHRC)
+> - **** promotes human rights and democratic values through strategies like monitoring, support for communities, and recent critiques of police actions.[2][4][10] - **Kenya National Commission on Human
+
+### Kenya National Commission on Human Rights (KNCHR)
+> - **** acts as a government watchdog, investigating violations (e.g., police shootings and teargassing), and addressing issues like elections and forced evictions.[6][9] - **National Coalition of Huma
+
+### National Coalition of Human Rights Defenders â€“ Kenya
+> - **** supports defenders, based in Nairobi with contact details: Focus Homes Limited, 2nd Floor Unit 10 Kiambere Road Upperhill; http://www.hrdcoalition.org; info@hrdcoalition.org; +254 721 632 390.[
+
+### Human Rights Agenda (HURIA)
+> - **** advances rights by building capacities of state and non-state actors for equal enjoyment of freedoms.[2] - **EACHRights (East African Centre for Human Rights)** targets economic, social, and cu
+
+### EACHRights (East African Centre for Human Rights)
+> - **** targets economic, social, and cultural rights in areas like education, health, and environmental justice, using research and litigation for vulnerable groups.[8]
+
+### International Commission of Jurists-Kenya
+> Additional groups from records include  (ICJ-Kenya) for advocacy and publications, International Federation of Women Lawyers-Kenya (FIDA-K), and Cemiride for minority/indigenous rights.[4][5][7] Wikip
+
+### community-focused nonprofit organizations
+> Several prominent **** operate in Kenya, addressing issues like education, poverty alleviation, child rights, health, and girls' empowerment through local partnerships and grassroots initiatives.[1][2
+
+### Raising Futures Kenya
+> - ****: Provides vocational training, business skills, meals, menstrual hygiene products, and mental health counseling to ~900 youth annually, serving 2,500 students over 21 years to break poverty cyc
+
+### Team Kenya
+> - ****: Works with communities around primary schools to promote girls' education, rights advocacy, safe environments, and legal support for sexual violence survivors; has impacted over 80,000 people,
+
+### Asante Africa Foundation
+> - ****: Empowers rural youth through education in 300+ schools via programs on livelihoods, accelerated learning, financial literacy, leadership, and job readiness; collaborates with local governments
+
+### Amref Health Africa
+> - ****: Delivers healthcare services across 36 African countries, including Kenya, with a focus on eye treatment, community health, and partnerships to combat child abuse through parenting classes and
+
+### Kenya Community Development Foundation (KCDF)
+> - ****: Supports sustainable, community-driven development initiatives since 1997.[8] - **For the Good**: Partners with rural Maasai communities in southern Kenya to boost girls' school retention by a
+
+### For the Good
+> - ****: Partners with rural Maasai communities in southern Kenya to boost girls' school retention by addressing resource shortages, menstrual hygiene, infrastructure, and cultural barriers like early
+
+### Nuru Kenya
+> - ****: Assists farmers with crop yield improvements and management to lift families out of poverty.[1] - **Tiba Foundation**: Funds grassroots projects by local leaders for rural quality-of-life impr
+
+### Tiba Foundation
+> - ****: Funds grassroots projects by local leaders for rural quality-of-life improvements, benefiting 48,000+ via a level-4 hospital annually.[1] - **Food for Education Organization Kenya (FEOK)**: Fe
+
+### Food for Education Organization Kenya (FEOK)
+> - ****: Feeds low-income children to improve school attendance, nutrition, physic
+
+
+---
+
 # Nigeria (NG) -- Regional Directory
 
 **Searches conducted:** 22
@@ -851,6 +1186,137 @@
 - This research adds: 51 Nigerian organizations
 - Framework coverage: democracy(30), cooperatives(3), education(2), housing_land(2), energy_digital(8), conflict(3), food(1), ecology(2)
 - Recommended follow-up: Contact NNNGO, Nigeria CSO Network for formal registry
+
+
+---
+
+# 🌐 Phase 2: (P2) Civil Society Directory
+
+*Compiled: 2026-04-13 | Source: Web research via DuckDuckGo | Task: Phase 2: Download and ingest UK Charity Commission data*
+
+**40 organizations identified**
+
+---
+
+## Organizations
+
+### Civil society organizations
+> (CSOs), including NGOs and nonprofits, are voluntary groups independent of government that advance shared goals like human rights, education, and humanitarian aid.[3][6] "Phase 2" likely refers to a s
+
+### Key Examples from UN
+> ### -Approved NGO/CSO Lists These are drawn from searchable UN-related compilations of accredited or admitted organizations:
+
+### These are drawn from searchable UN
+> -related compilations of accredited or admitted organizations:
+
+### Global Focus (from Global Education Magazine list)
+> - ****: Business Humanitarian Forum (Switzerland), Global Green Environmental Network (Ghana), Global Health Council (United States), Transparency International (Germany), Human Rights First (United S
+
+### Refugees/Migrants Preparatory Process (UN List)
+> - ****: Includes NGOs, CSOs, academic institutions, private sector, diaspora, and migrant groups approved for UN participation (full PDF downloadable, ~378 KB).[1] - **ECOSOC Consultative Status (Wiki
+
+### ECOSOC Consultative Status (Wikipedia Extract)
+> - ****: A.K. Munshi Yojana (2012), ACT Alliance (2012), EcoHealth Alliance (2018), Save the Children (implied via global presence), World Heart Federation.[4] - **Major Accredited UN Partners**: Confe
+
+### Major Accredited UN Partners
+> - ****: Conference of NGOs in Consultative Relationship with the UN, Coalition for the International Criminal Court, UN Partner Portal for CSOs.[3]
+
+### Prominent Global NGOs
+> ###  (Largest by Reach) | NGO | Established | Global Presence | Focus Areas |
+
+### Save the Children
+> | **** | 1919 | 120 countries | Child healthcare, education, emergency aid, hunger, climate.[5] | | **Oxfam International** | 1942 | 90+ countries | Anti-poverty, water/sanitation, gender justice, dis
+
+### Oxfam International
+> | **** | 1942 | 90+ countries | Anti-poverty, water/sanitation, gender justice, disasters (e.g., Yemen, Syria).[5] | | **Danish Refugee Council** | 1956 | 40+ countries | Refugee aid, protection, disp
+
+### Danish Refugee Council
+> | **** | 1956 | 40+ countries | Refugee aid, protection, displacement stages.[5] |
+
+### NGO list for refugees/migrants
+> - Download UN's  (378 KB PDF).[1] -
+
+### The most authoritative directory for registered U.S. nonprofits and charities is the IRS Tax Exempt Organization Search tool, which provides official data on over 1.8 million tax-exempt organizations, including 501(c)(3) status, filings, and eligibility for tax-deductible contributions.[5][9][1][7]
+
+### Use these free, official tools to search by name, EIN
+> (Tax ID), location, or keywords for verified registered nonprofits:
+
+### IRS Tax Exempt Organization Search
+> | **** | Official IRS database for tax-exempt status, Form 990 filings, Pub 78 data (deductible contributions), and revocation lists.[5][9] | Name, EIN, city/state/ZIP; bulk downloads available. | IRS
+
+### GuideStar by Candid
+> | **** | Comprehensive profiles with financials, leadership, and mission data for 1.8M+ organizations.[6][7] | Keyword, geography, financials, subject area; free basic access. | IRS data + additional
+
+### Melissa Nonprofit Lookup
+> | **** | Details on 1.5M+ U.S. nonprofits including names, addresses, assets, income, and IRS subsections.[1] | 5-digit ZIP, name, or 9-digit EIN. | IRS filings (updated Feb 2026). |
+
+### North Carolina
+> - ****: State Secretary of State Charities Registry for licensed charities; NC Center for Nonprofits member directory; Cause IQ lists 64K+ NC nonprofits by city/revenue (e.g., Charlotte: 14K orgs, $12
+
+### If seeking local or cause
+> For verification, prioritize IRS tools as they confirm legal registration and tax status directly; third-party sites aggregate this data but may lag.[5][9] -specific lists, combine with state registri
+
+### NGO database
+> The primary **** for **civil society organizations (CSOs)** is the **United Nations Integrated Civil Society Organizations (iCSO) System**, accessible via the UN's ESANGO platform at https://esango.un
+
+### Advanced Search Capabilities
+> - ****: Filter CSOs by areas of expertise, fields of activity, meeting participation, and more; choose "All criteria" for exact matches or "Any criteria" for broader results.[1] - **Functions**: Suppo
+
+### Functions
+> - ****: Supports online profiles (address, contacts, activities), ECOSOC consultative status applications, quadrennial reports, and representative designations.[2][6][7] - **Scope**: Includes 5,591 or
+
+### World Bank Civil Society Cooperation
+> - ****: Engages thousands of CSOs (NGOs, community groups, unions) via consultations, starting from 1970s environmental dialogues.[2] - **OAS Registry**: 223 accredited CSOs as of 2007.[2]
+
+### OAS Registry
+> - ****: 223 accredited CSOs as of 2007.[2] - **GNDR Network**: Database-like network of 850+ CSOs across 140 countries for disaster resilience (Phase 2: 2017-2019).[3]
+
+### GNDR Network
+> - ****: Database-like network of 850+ CSOs across 140 countries for disaster resilience (Phase 2: 2017-2019).[3] - **Data Platforms**: AidData, Humanitarian Data Exchange, and others provide project-l
+
+### Data Platforms
+> - ****: AidData, Humanitarian Data Exchange, and others provide project-level NGO data; V-Dem's Civil Society Participation Index measures CSO activity (0-1 scale).[4][5]
+
+### PennFuture
+> **** is a prominent environmental organization in Pennsylvania focused on advancing clean air, pure water, climate action, and environmental justice through advocacy, legal action, and civic engagemen
+
+### Eastwick United Community Development Corporation
+> - ****: Collaborated with university students on environmental justice initiatives, such as the "Making Eastwick Whole" project, which won recognition in the EPA's Environmental Justice Video Challeng
+
+### Groundwork USA
+> - ****: Co-sponsored the EPA's Environmental Justice Video Challenge, supporting student-community collaborations on local environmental health issues.[4] - **Pre-qualified land trusts and nonprofit c
+
+### Pre-qualified land trusts and nonprofit conservation organizations
+> - ****: Eligible for Pennsylvania's DCNR Community Conservation Partnerships Program (C2P2) grants; must be 501(c)(3) registered nonprofits in existence for at least five years, approved by DCNR's Bur
+
+### Incorporated conservation and education organizations
+> - ****: Eligible applicants for Pennsylvania's 2026 Environmental Education Grants, funding projects from $5,001 to $65,000 for environmental education, with emphasis on environmental justice areas.[7
+
+### Assisting Communities Together (ACT) Project
+> Based on the search results provided, I can see one reference to "Phase 2" in the context of the ****[1], which is a joint initiative by the UN Office of the High Commissioner for Human Rights and the
+
+### Assisting Communities Together (ACT)
+> - : Grants to civil society ...   https://www.ohchr.org/en/resources/educators/human-rights-education-training/assisting-communities-together-act-grants-civil-society-organizations-human-rights-educat
+
+### Human Rights Commission funding opportunities
+> -  - SF.gov   https://www.sf.gov/information--human-rights-commission-funding-opportunities
+
+### LADWP's Community Partnership Outreach Grants Program awards Phase 2 grants to one 501(c)(3) nonprofit organization per Los Angeles Council District (and one in Owens Valley), focusing on categories like water conservation, water quality, community solar, electric vehicles, electrification, and under-represented program areas
+
+### Bank of America Neighborhood BuildersÂ®
+> | **** | Nonprofit leadership development, economic mobility | $346M+ invested since 2004; 2025 applications open May 1â€“June 1 for 501(c)(3)s; includes training and peer networks. [2] | | **LADWP Co
+
+### LADWP Community Partnership (Phase 1 example)
+> | **** | Sustainability outreach in 15 LA districts + Owens Valley | One nonprofit per district; complements Phase 2. [1] | | **Chicago Commitment: Advancing Leadership Grant (MacArthur Foundation)**
+
+### Chicago Commitment: Advancing Leadership Grant (MacArthur Foundation)
+> | **** | Civic leadership, equity for marginalized communities | Supports diverse leaders in Chicago; unspecified amounts. [3] | | **Communityworks Grant Competition (Kankakee River Valley)** | Early
+
+### Communityworks Grant Competition (Kankakee River Valley)
+> | **** | Early childhood, land protection, workforce development | Up to $10,000 for nonprofits in specific IL counties. [3] | | **Neighbor to Neighbor Special Project (CFSJC)** | Immigrant/refugee su
+
+### Neighbor to Neighbor Special Project (CFSJC)
+> | **** | Immigrant/refugee support, social services | $50,000 for expansion (Phase 2 of project); serves South Bend. [5] |
 
 
 ---

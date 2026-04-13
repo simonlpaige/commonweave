@@ -20,20 +20,38 @@ DB_PATH = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_direct
 REGIONAL_DIR = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data\regional"
 WORKSPACE_DIR = r"C:\Users\simon\.openclaw\workspace"
 
+SKIP_PATTERNS = ['Phase 1', 'Phase 2', 'Phase 3', 'Download', 'Ingest', 'Schema', 'Setup', 'Deploy']
+
+def is_country_issue(issue):
+    title = issue.get('title', '')
+    if any(p.lower() in title.lower() for p in SKIP_PATTERNS):
+        return False
+    # Must match country pattern
+    if re.search(r'[A-Za-z][A-Za-z\s]+\s*\([A-Z]{2,3}\)', title):
+        return True
+    return False
+
 def get_next_issue():
-    """Get highest priority todo issue assigned to researcher."""
-    r = requests.get(f"{BASE_URL}/api/companies/{COMPANY_ID}/issues?limit=200&status=todo", headers=HEADERS)
-    issues = r.json()
-    if not issues:
-        # Fall back to backlog
-        r = requests.get(f"{BASE_URL}/api/companies/{COMPANY_ID}/issues?limit=200&status=backlog", headers=HEADERS)
+    """Get highest priority country research todo issue."""
+    for status in ['todo', 'backlog']:
+        r = requests.get(f"{BASE_URL}/api/companies/{COMPANY_ID}/issues?limit=300&status={status}", headers=HEADERS)
         issues = r.json()
-    if not issues:
-        print("No issues found")
-        return None
-    # Sort by priority (lower = higher priority), then by issue number
-    sorted_issues = sorted(issues, key=lambda x: (x.get('priority', 99), x.get('identifier', 'Z')))
-    return sorted_issues[0]
+        country_issues = [i for i in issues if is_country_issue(i)]
+        # Filter out already-done countries
+        pending = []
+        for issue in country_issues:
+            m = re.search(r'\(([A-Z]{2,3})\)', issue.get('title', ''))
+            if m:
+                cc = m.group(1)
+                md_path = os.path.join(REGIONAL_DIR, f'DIRECTORY_{cc}.md')
+                if not os.path.exists(md_path):
+                    pending.append(issue)
+        if pending:
+            # Sort by issue number ascending (lower = older = do first)
+            pending.sort(key=lambda x: x.get('identifier', 'ZZZ'))
+            return pending[0]
+    print('No pending country issues found')
+    return None
 
 def search_country_orgs(country_name, country_code):
     """Search for civil society orgs in a country using DuckDuckGo."""
@@ -169,14 +187,15 @@ def main():
     identifier = issue.get('identifier', '')
     print(f"Working on: {identifier} - {title}")
     
-    # Extract country from title: "ECO-65: Bolivia (BO)" or similar
-    m = re.search(r'([A-Za-z\s]+)\s*\(([A-Z]{2,3})\)', title)
+    # Extract country from title: "ECO-65: Bolivia (BO)" or "Research: Bolivia (BO)" formats
+    m = re.search(r'([A-Za-z][A-Za-z\s]+?)\s*\(([A-Z]{2,3})\)', title)
     if m:
         country_name = m.group(1).strip()
         country_code = m.group(2)
     else:
-        # Try to extract just from title
-        parts = title.replace('Research:', '').replace('Directory:', '').strip().split()
+        # Try to extract just from title words
+        clean = re.sub(r'(?i)(Research:|Directory:|ECO-\d+:?|Civil Society)', '', title).strip()
+        parts = clean.split()
         country_name = ' '.join(parts[:2]) if parts else title
         country_code = ''.join(w[0] for w in country_name.split()[:2]).upper()
     
@@ -218,7 +237,7 @@ def main():
         print(f"Export warning: {e}")
     
     # Mark done
-    with open(out_path) as f:
+    with open(out_path, encoding='utf-8') as f:
         org_count = len(re.findall(r'^### ', f.read(), re.MULTILINE))
     mark_issue_done(issue_id, f"Completed: {org_count} organizations found for {country_name}. Output: data/regional/DIRECTORY_{country_code}.md")
     

@@ -1,0 +1,18 @@
+{
+  "source": "IRS_EO_BMF",
+  "total_read": 1952238,
+  "total_inserted": 688429,
+  "total_skipped": 1263809,
+  "final_db_count": 688429,
+  "framework_breakdown": {
+    "education": 183471,
+    "recreation_arts": 117144,
+    "democracy": 113011,
+    "healthcare": 92799,
+    "ecology": 69738,
+    "cooperatives": 41790,
+    "housing_land": 30703,
+    "food": 20105,
+    "conflict": 19668
+  }
+}
