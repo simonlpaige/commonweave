@@ -1,14 +1,14 @@
 {
-  "total": 13918,
+  "total": 13930,
   "us_count": 13752,
-  "intl_count": 166,
+  "intl_count": 178,
   "by_area": {
     "healthcare": 2771,
     "food": 2567,
     "housing_land": 1884,
     "education": 1809,
+    "democracy": 1322,
     "recreation_arts": 1321,
-    "democracy": 1310,
     "ecology": 986,
     "cooperatives": 724,
     "conflict": 534,
@@ -20,6 +20,7 @@
     "KE": 51,
     "SR": 32,
     "VE": 13,
+    "GT": 12,
     "HN": 12
   },
   "by_state": {
