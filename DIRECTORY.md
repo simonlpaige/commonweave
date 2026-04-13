@@ -1,28 +1,31 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-13 14:05 UTC*
+*Last updated: 2026-04-13 16:04 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 689,262 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 689,320 | IRS EO Business Master File | ✅ Complete |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 DIRECTORY_EC.md (EC) | ~9 | Field Research | ✅ |
+| 🌐 DIRECTORY_GY.md (GY) | ~12 | Field Research | ✅ |
 | 🌐 Kenya (KE) | ~53 | Field Research | ✅ |
 | 🌐 DIRECTORY_NG.md (NG) | ~9 | Field Research | ✅ |
 | 🌐 Phase 2: (??) | ~41 | Field Research | ✅ |
+| 🌐 DIRECTORY_PY.md (PY) | ~10 | Field Research | ✅ |
+| 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 689,262+ organizations indexed** across 6 countries
+**Total: 689,320+ organizations indexed** across 9 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*689,262 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*689,320 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -909,6 +912,198 @@
 
 ---
 
+# Guyana (GY) -- Regional Directory
+
+**Searches conducted:** 22
+**Organizations found:** 114
+**Generated:** ECO-68 Researcher run
+
+*Organizations found via web search. Prioritized: indigenous-led (Amerindian), mutual aid, grassroots. Needs human verification.*
+
+---
+
+## Conflict (2 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Solidarity Economy Association - Supporting the growth of the ... | Our Projects We support people and communities who are committed to economic and social justice to create or join initia |  | Search: Guyana solidarity economy mutual aid netwo |
+| Three women-led NGOs awarded US$75,000 for climate justice | The Caribbean Feminist  Climate   Justice  Movement is a collective of gender specialists, researchers and  organization |  | Search: Guyana environmental justice climate chang |
+
+## Cooperatives (11 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Co-Ops - Ministry of Labour and Manpower Planning | The  Cooperative  Department of the Ministry of Labour and Manpower Planning is dedicated to promoting and regulating  c |  | Search: Guyana cooperative federation worker coope |
+| Almost 3,000 co-ops, friendly societies ... - The Guyana Chronicle | The department intends to continue its work with the Forestry Commission to convert all Friendly Societies that were gra |  | Search: Guyana cooperative federation worker coope |
+| Many of Guyana&#x27;s cooperative and friendly societies defunct - Labour ... | The  Cooperatives  Department of the Ministry of Labour has reported that there are 2,999 registered societies across  G |  | Search: Guyana cooperative federation worker coope |
+| Presentation on the Cooperative Movement in Guyana at the Commission ... | Thank you for the opportunity to share some information on the  cooperative  movement in  Guyana . As you just heard,  G |  | Search: Guyana cooperative federation worker coope |
+| Co-operative Movement in Guyana: Overview - PDF - Cooperative - Guyana | This move to  cooperative  economy was pivotal for community development, involving tasks like digging trenches and buil |  | Search: Guyana cooperative federation worker coope |
+| AGRICULTURAL COOPERATIVES - Ministry of Labour and Manpower Planning | Agricultural  cooperatives  are organized to help farmers gain market power by joining together to market their crops, i |  | Search: Guyana cooperative federation worker coope |
+| Guyana reports gains on women empowerment, inclusion | Minister of Human Services and Social Security Co-operative Republic of  Guyana  The Ministry of Human Services and Soci |  | Search: Guyana women organization empowerment mutu |
+| Guyana Housing co-operation - About us - Google Sites | At  Housing  in  Guyana , we believe that  housing  is a fundamental human  right  and a cornerstone of thriving communi |  | Search: Guyana housing land rights organizations |
+| About Us - GUYANA PUBLIC SERVICE CO-OPERATIVE CREDIT UNION | To promote thrift amongst our members through  co-operative  principles and prudent  financial  solutions with our vario | mygpsccu.com/about/ | Targeted: Guyana Cooperative Financial Institution |
+| the cooperative Financial institution Act | National Assembly of the Parliament of  Guyana . Mission Statement of the Parliament Office - To provide objective, admi | parliament.gov.gy/publications/subsidiary-legislation/regulations/the-cooperativ | Targeted: Guyana Cooperative Financial Institution |
+| List of banks in Guyana - Bankinfobook | Official Name:  Co-operative  Republic of  Guyana  Capital City: Georgetown Currency: Guyanese dollar (GYD) Welcome to t | www.bankinfobook.com/list-of-banks-in-guyana/ | Targeted: Guyana Cooperative Financial Institution |
+
+## Democracy (35 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Non-Governmental Organizations in Guyana - WorldPlaces | Non-Governmental  Organizations  in  Guyana  United Nations Association of  Guyana  - UNAG Lacytown 215 King Street, Lac |  | Search: Guyana NGO civil society organizations dir |
+| NGO Base | NGO  Base |  | Search: Guyana NGO civil society organizations dir |
+| List of Non-profit organizations in Guyana in 2026 | There are 49 Non-profit  organizations  in  Guyana  as of March, 2026. Download latest business data with contact info,  |  | Search: Guyana NGO civil society organizations dir |
+| civil society organizations (CSOs) - Department of Public Information ... | Posts about  civil   society   organizations  (CSOs) written by Staff Reporter |  | Search: Guyana NGO civil society organizations dir |
+| Guyana - NGO Explorer | also advancement projects organisations poor provide world worldwide capacity worship christian meetings organisation  s |  | Search: Guyana NGO civil society organizations dir |
+| Majority of Guyanese women have access to social aid programmes | Thousands of  women  are benefitting from programmes and policies implemented by the Ministry of Human Services and Soci |  | Search: Guyana women organization empowerment mutu |
+| Guyanese women driving national progress - Guyana Times | The early 1970s marked the mainstreaming of  women&#x27;s   empowerment  in  Guyana , with protection and gender equalit |  | Search: Guyana women organization empowerment mutu |
+| How Guyana Quietly Became the World&#x27;s Only Self-Sufficient Food Nation ... | As global supply chains strain under the weight of war, climate shocks, and political unrest,  Guyana&#x27;s  quiet  foo |  | Search: Guyana food sovereignty agriculture farmin |
+| Guyana - World Health Organization (WHO) | National Hotlines This guide lists  community  resources for all regions in  Guyana . For  health  resources, please cal |  | Search: Guyana community health organizations prim |
+| Land Rights - Conversation Tree | admin February 3, 2018 Foreign Relations,  Guyana -Venezuela Border Dispute,  Land   Rights , Legal ban ki moon, border, |  | Search: Guyana housing land rights organizations |
+| Indigenous association works to secure land rights and sustainably ... | The South Central People&#x27;s Development Association (SCPDA) is a federation of 17 indigenous Wapichan communities in |  | Search: Guyana housing land rights organizations |
+| Class, Colonialism and the State of Guyana&#x27;s Democracy | At the core of  Guyana&#x27;s  political dysfunction lies the flawed  governance  model codified by the 1980 Constitutio |  | Search: Guyana civic democracy governance organiza |
+| Guyana - The Carter Center | Since 1992, The Carter Center has worked in  Guyana  to help deepen  democracy , strengthen civil society, encourage sus |  | Search: Guyana civic democracy governance organiza |
+| Guyana - The Global State of Democracy | Guyana  exhibits mid-range performance across all four categories of the Global State of  Democracy  framework. It is am |  | Search: Guyana civic democracy governance organiza |
+| Strengthening Trust in Democracy: UNDP&#x27;s Support to Guyana&#x27;s 2025 ... | These efforts reinforced  Guyana&#x27;s  democratic values, ensuring that every citizen - across its multicultural and r |  | Search: Guyana civic democracy governance organiza |
+| APNU Warns of Political Takeover Undermining Local Governance - Guyana ... | Article 13 of the  Guyana  Constitution states, &quot;The principal objective of the political system of the State is to |  | Search: Guyana civic democracy governance organiza |
+| Preservation of Guyana&#x27;s democracy a top priority | Summary: In service to U.S. citizens and interests in  Guyana , the Mission strives for a stronger bilateral partnership |  | Search: Guyana civic democracy governance organiza |
+| Guyana: Country Profile - Freedom House | The call to action is clear; it&#x27;s a defence of local  democracy  that resonates deeply amidst escalating concerns o |  | Search: Guyana civic democracy governance organiza |
+| Civil Society Issues Dire Warning: &quot;The Time to Save Guyana&#x27;s Democracy ... | The following is a recap of the government&#x27;s efforts to safeguard and promote  democracy : The restoration of confi |  | Search: Guyana civic democracy governance organiza |
+| CARICOM solidarity - Guyana Chronicle | As the death toll rises and communities struggle to confront an estimated US$8 billion in physical damage, the response  |  | Search: Guyana solidarity economy mutual aid netwo |
+| Re-imagining Aid and Development: Lessons from Mutual Aid Networks | Solidarity  and justice should be at the heart of re-imagining  aid  and development. Community driven approaches for re |  | Search: Guyana solidarity economy mutual aid netwo |
+| U.S. Relations With Guyana - United States Department of State | U.S. policy towards  Guyana  seeks to develop robust and sustainable democratic institutions, laws, and political practi |  | Search: Guyana solidarity economy mutual aid netwo |
+| Climate Council | Our Story The  Climate  Council was formed in response to the urgency we face regarding  climate   change , and in recog |  | Search: Guyana environmental justice climate chang |
+| SASOD launches &#x27;Guyana Together&#x27;, aims at law reform for LGBTQ ... | - increased acceptance and tolerance recorded throughout  Guyana  - SASOD Head The Society Against Sexual Orientation Di |  | Search: Guyana LGBTQ rights social justice organiz |
+| Guyana&#x27;s political parties commit to supporting gay rights | GEORGETOWN ,  Guyana  (CMC) - Five of the six political parties contesting Guyana&amp;amp;#039;s upcoming elections have |  | Search: Guyana LGBTQ rights social justice organiz |
+| Guyana&#x27;s Queer Community Knows What&#x27;s at Stake ... - Pulitzer Center | Guyana&#x27;s  constitution doesn&#x27;t include  rights  for queer people, but it does explicitly name the  right  to a |  | Search: Guyana LGBTQ rights social justice organiz |
+| Guyana: Political commitment to rights of LGBT community | Stock photo of a crowd waving  LGBTQ  rainbow flags by Inkdrop via Canva.  GEORGETOWN ,  Guyana , CMC - Five of the six  |  | Search: Guyana LGBTQ rights social justice organiz |
+| Advocating for the rights and protection of the LGBTIQ+ ... - Guyana | Achieving equal  rights , non-discrimination and protection from violence and abuse for millions of lesbian, gay, bisexu |  | Search: Guyana LGBTQ rights social justice organiz |
+| LGBTQ+ community making commendable progress in ... - Guyana Standard | The Co-Operative Republic of  Guyana  ( Guyana ) fails to uphold its obligations under the International Covenant on Civ |  | Search: Guyana LGBTQ rights social justice organiz |
+| (no title) | In the News Statement in Defense of  Red   Thread   Women&#x27;s   Organization  in  Guyana  August 14, 2023August 25, 2 | redthreadguyana.org | Targeted: Red Thread Guyana women organization |
+| Red Thread Women: Crossroads Women&#x27;s Centre - Facebook | A &quot;Beautiful Christmas&quot; in  Guyana , 2025 By Stabroek News On December 22, 2025 @ 2:01 am In In The Diaspora - | www.facebook.com/RedThreadWomenGuyana/ | Targeted: Red Thread Guyana women organization |
+| Red Thread — Gender and Development Network | Red   Thread  is a  women&#x27;s  organisation based in  Guyana  aimed to offer greater opportunities for grassroots  wo | gadnetwork.org/global-database-feminists-working-on-macroeconomic-issues/apmdd-h | Targeted: Red Thread Guyana women organization |
+| Guyana Human Rights Association - Facebook | Guyana   Human   Rights   Association , Georgetown. 917 likes · 3 were here. Since 1979, the  GHRA  have been working to | www.facebook.com/guyanahumanrights/ | Targeted: Guyana Human Rights Association GHRA |
+| The GHRA and the history of Guyana - Stabroek News | The  Guyana   Human   Rights   Association  marks its forty-fifth anniversary this year and it is fitting to reflect on  | www.stabroeknews.com/2024/11/14/features/the-ghra-and-the-history-of-guyana/ | Targeted: Guyana Human Rights Association GHRA |
+| Does GHRA understand its role in society? - Guyana Chronicle | THE  Guyana   Human   Rights   Association  ( GHRA ) has long presented itself as a defender of civil society and a watc | guyanachronicle.com/2025/04/05/does-ghra-understand-its-role-in-society/ | Targeted: Guyana Human Rights Association GHRA |
+
+## Ecology (11 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Guyana Conservation Network - GuyCoN - Guyana, conservation ... | The  Guyana   Conservation  Network is a shared resource for  conservation  practitioners and academic researchers worki |  | Search: Guyana environmental ecology conservation  |
+| Conservation International Guyana - 30 Years of Conservation | Celebrating 30 years of  Conservation  in  Guyana  We are celebrating three decades, of working alongside people, commun |  | Search: Guyana environmental ecology conservation  |
+| Guyana - Conservation International | One of our first field offices, CI- Guyana  has worked for decades to conserve nature for the benefit of people in  Guya |  | Search: Guyana environmental ecology conservation  |
+| Environmental NGOs in Guyana - Biodiversity, Forests ... - EcoHubMap | Environmental  NGOs in  Guyana : Guardians of the Amazonian Frontier  Guyana&#x27;s   environmental  NGOs play a pivotal |  | Search: Guyana environmental ecology conservation  |
+| Guyana - Global Environmental Education Partnership (GEEP) | The  Guyana  Marine  Conservation  Society (GMCS) is a non-governmental  organization  dedicated to marine  conservation |  | Search: Guyana environmental ecology conservation  |
+| About CI-Guyana - Conservation International Guyana | Investing in Sustainable Solutions The CBF champions the development of sustainable financing mechanisms for  conservati |  | Search: Guyana environmental ecology conservation  |
+| Guyana - Global Climate Pledge | Guyana  Partners The Breadfruit Collective The Breadfruit Collective is guyanese  organization  that works at the inters |  | Search: Guyana environmental justice climate chang |
+| Youth Groups in the Caribbean Are Working Towards Stronger Climate ... | One example is The Breadfruit Collective (TBC), a gender and  environmental   justice  registered non-profit  organizati |  | Search: Guyana environmental justice climate chang |
+| home - CANARI | The  Caribbean   Natural   Resources   Institute  ( CANARI ) is an independent technical  institute  that promotes and f | canari.org | Targeted: Caribbean Natural Resources Institute CA |
+| Caribbean Natural Resources Institute - Barataria - Facebook | Caribbean   Natural   Resources   Institute  Apr 15, 2025󰞋󱟠 󳄫 Exciting news: our new website is live! . This refreshed p | www.facebook.com/CANARICARIBBEAN/ | Targeted: Caribbean Natural Resources Institute CA |
+| Caribbean Natural Resources Institute (CANARI) - LinkedIn | The  Caribbean   Natural   Resources   Institute  ( CANARI ) is a regional technical non-profit  institute  which has be | tt.linkedin.com/company/canari-caribbean | Targeted: Caribbean Natural Resources Institute CA |
+
+## Education (8 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Civil Society Organizations Registered to the OAS | Civil   Society   Organizations  Registered to the OAS  Guyana  List of Registered  Organizations   Organizations  regis |  | Search: Guyana NGO civil society organizations dir |
+| Efforts for Improving Women&#x27;s Empowerment in Guyana | This commitment includes protecting  women  from violence, ensuring equal pay for equal work, enhancing education and tr |  | Search: Guyana women organization empowerment mutu |
+| Green Roots Guyana - A nonprofit organization in Guyana dedicated to ... | Get Involved Mission To address environmental  education  gaps in  Guyana  through  youth   education , school and commu |  | Search: Guyana youth organizations education grass |
+| Youth Challenge Guyana (YCG) - NGO National Coordinating Coalition Inc. | Youth  Challenge International began conducting projects in  Guyana  in 1989 with Guyanese and Canadian  youth . In 1991 |  | Search: Guyana youth organizations education grass |
+| Guyanese Outreach :: Making a Difference in Guyana | Guyanese Outreach (GO) invites you to join with us in our Mission to  Guyana . GO&#x27;s emphasis is on  education  whic |  | Search: Guyana youth organizations education grass |
+| Youth Action Network - U.S. Embassy in Guyana | This was the first of many opportunities for Guyanese  Youth  Action Network Members to participate in networking and tr |  | Search: Guyana youth organizations education grass |
+| Volunteer Youth Corps Inc. Guyana | Grant Assistance for  Grassroots  Human Security Projects - Volunteer  Youth  Corps  Guyana  June 21, 2021 Signing Agree |  | Search: Guyana youth organizations education grass |
+| Guyana Youth &amp; Environment Network - Facebook | At the  Guyana  Youth Environment Network (GYEN),  environmental  education is at the heart of our work. With a strong f |  | Search: Guyana environmental justice climate chang |
+
+## Energy Digital (7 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Guyana Solar Investment: A Greener Future for 21 Villages | The Government of  Guyana  has officially approved a GYD 885 million investment to bring enhanced  solar  power to 21 Am |  | Search: Guyana renewable energy solar community in |
+| Increased electricity access in Region Nine: Government-led 30,000 ... | The 30,000  Solar  PV Home  Energy  Systems (SHE) Project aims to expand  renewable   energy  access in Hinterland and r |  | Search: Guyana renewable energy solar community in |
+| Guyana Utility Scale Solar Photovoltaic Program | The Program is administered by the Inter-American Development Bank ( IDB), and aligns with  Guyana&#x27;s  Low Carbon De |  | Search: Guyana renewable energy solar community in |
+| New Solar Farm Sets Pace in Guyana&#x27;s Transitions to Green-Power | This  initiative  is part of a broader government strategy to extend  renewable   energy  access to every major  communi |  | Search: Guyana renewable energy solar community in |
+| Solar farms, home energy system project accelerating community ... | IN Mahdia, Region Eight (Potaro-Siparuni), the 37,000  Solar  Home  Energy  Systems Project and the 0.65 MW grid-forming |  | Search: Guyana renewable energy solar community in |
+| Guyana Solar Energy Installation: 4.8 MW Power Expansion | In a remarkable leap toward  renewable   energy  accessibility,  Guyana  has successfully installed 4.8 MW of  solar  ca |  | Search: Guyana renewable energy solar community in |
+| GUYANA&#x27;S LOW CARBON DEVELOPMENT STRATEGY (LCDS) 2030 October 2024 ... | With its focus on expanding carbon markets, transitioning to renewable energy, and promoting inclusive development,  Guy |  | Search: Guyana environmental justice climate chang |
+
+## Food (6 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Transforming fields: How Guyana&#x27;s investments fuel agricultural growth | Under the dynamic leadership of President Dr Mohamed Irfaan Ali,  Guyana  is claiming its place as the  food  basket of  |  | Search: Guyana food sovereignty agriculture farmin |
+| Guyana Powers Regional Food Security Goals - The Caribbean Camera | Guyana  is leading the Caribbean&#x27;s  food  revolution with bold investments, modern  farming , and a regional hub tr |  | Search: Guyana food sovereignty agriculture farmin |
+| Global Food Security Revolution: Guyana&#x27;s Agricultural Leadership Meets ... | The minister&#x27;s confidence stems from quantifiable successes across multiple agricultural sectors.  Guyana&#x27;s  a |  | Search: Guyana food sovereignty agriculture farmin |
+| Guyana positions itself as a global leader in agriculture | Dear Editor,  GUYANA  is rapidly emerging as a formidable force in global  agriculture , with the government taking deli |  | Search: Guyana food sovereignty agriculture farmin |
+| The Web of Globalism: Is Guyana Truly Food Self-Sufficient? The Role of ... | China and Vietnam come closest to  Guyana&#x27;s  achievement, producing sufficient quantities in six of the seven  food |  | Search: Guyana food sovereignty agriculture farmin |
+| Guyana Becomes the World&#x27;s Only Nation with 100% Food Self-Sufficiency | Experts credit  Guyana&#x27;s   food  success to a combination of government policy, investment in local  farming , and  |  | Search: Guyana food sovereignty agriculture farmin |
+
+## Healthcare (9 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| CARE&#x27;s Humanitarian Work in Guyana - CARE | CONTEXT &amp; URGENCY improvements in national representation and legal frameworks,  women  across Guyana—especially sin |  | Search: Guyana women organization empowerment mutu |
+| Guyana Advances Gender Equality &amp; Women&#x27;s Empowerment | How does CARE help in  Guyana ? CARE works with partners to strengthen emergency response and  women&#x27;s  economic  e |  | Search: Guyana women organization empowerment mutu |
+| Ministry of Health and PAHO Collaborate to Strengthen Primary Health ... | As part of its ongoing efforts to enhance the delivery of  primary   health   care  services across the country, the Min |  | Search: Guyana community health organizations prim |
+| MoH, PAHO collaborate to strengthen primary healthcare in Guyana | As part of its ongoing efforts to enhance the delivery of  primary   health   care  services across the country, the Min |  | Search: Guyana community health organizations prim |
+| An Overview of the Healthcare System in Guyana | Explore the complex healthcare system in  Guyana , which combines public and private providers to address the  health  n |  | Search: Guyana community health organizations prim |
+| Directory - Organizations/Businesses - Pacific Region Resources | This compounds years of cooperation between  Guyana  and PAHO. While the Government continues efforts for an overall imp |  | Search: Guyana community health organizations prim |
+| Guyana Responsible Parenthood Association - Georgetown | The  Guyana   Responsible   Parenthood   Association  ( GRPA ), in partnership with Merundoi Incorporated and with suppo | www.facebook.com/grpagy/ | Targeted: Guyana Responsible Parenthood Associatio |
+| GRPA keen on expanding reproductive health services | Advancing reproductive healthcare in  Guyana  is a priority of the  Guyana   Responsible   Parenthood   Association  ( G | newsroom.gy/2026/04/08/grpa-keen-on-expanding-reproductive-health-services/ | Targeted: Guyana Responsible Parenthood Associatio |
+| GRPA celebrates 50 years of service today - Guyana Chronicle | THE  Guyana   Responsible   Parenthood   Association  ( GRPA ),  Guyana&#x27;s  leading sexual and reproductive health a | guyanachronicle.com/2025/10/04/grpa-celebrates-50-years-of-service-today/ | Targeted: Guyana Responsible Parenthood Associatio |
+
+## Housing Land (6 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Home - CHPA - Central Housing &amp; Planning Authority | The Central  Housing  and Planning Authority (CH&amp;PA), was established in 1948, via the  Housing  Act, Chapter 36:20, |  | Search: Guyana housing land rights organizations |
+| Right to Housing in Guyana - Urban and Cities Platform | Under the  Housing  Act, the Central  Housing  and Planning Authority (CH&amp;PA) was established to address the  housin |  | Search: Guyana housing land rights organizations |
+| Housing Ministry working to allocate lands to over ... - INews Guyana | Countrywide, he said the Ministry of  Housing  allocated 50,295 house lots, while the  Guyana   Lands  and Surveys Commi |  | Search: Guyana housing land rights organizations |
+| Home - Ministry of Housing | Ministry of  Housing  and Water has under its remit, responsibility for the Central  Housing  &amp; Planning Authority ( |  | Search: Guyana housing land rights organizations |
+| Home - Policy Forum Guyana | Policy Forum  Guyana  (PFG) is a non-governmental  organization  that was established on the 22nd of April 2015 with the |  | Search: Guyana environmental justice climate chang |
+| Home - Guyana Together | The  Guyana  Together campaign aims to achieve greater acceptance levels among Guyanese and reduce the level of stigma a |  | Search: Guyana LGBTQ rights social justice organiz |
+
+## Indigenous (17 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Guyana NGO Sector - NGO Handbook | The formation of non-profit  organizations  in  Guyana  is rooted in the country&#x27;s cultural and ethnic history.  Gu |  | Search: Guyana NGO civil society organizations dir |
+| Home - Amerindian Peoples Association | Carbon Credits- What you need to know  Amerindian   Peoples  Association Join the Mission Today! The APA is dedicated to |  | Search: Guyana indigenous peoples organizations Am |
+| A Push to Enshrine Greater Rights for Guyana&#x27;s Indigenous Peoples | Guyana&#x27;s   indigenous   peoples  are pushing for revisions to the  Amerindian  Act, the federal law that outlines t |  | Search: Guyana indigenous peoples organizations Am |
+| UN - Amerindians of Guyana Have No Rights to Land Title, Forum Says | At the 24th Session of the United Nations Permanent Forum on  Indigenous  Issues (UNPFII), it was reported that  Amerind |  | Search: Guyana indigenous peoples organizations Am |
+| aboutus - AMERINDIAN PEOPLES ASSOCIATION (APA) | The  Amerindian   Peoples  Association (APA) is a non-governmental  Indigenous   Peoples   organization  in  Guyana . Me |  | Search: Guyana indigenous peoples organizations Am |
+| Indigenous peoples in Guyana - Minority Rights Group | Many  Amerindian  groups, NGOs, and the parliamentary opposition parties opposed the new bill. Furthermore the three lar |  | Search: Guyana indigenous peoples organizations Am |
+| Amerindian Peoples Association tells UN Forum rights of Indigenous ... | The President of the  Amerindian   Peoples  Association (APA), Mario Hastings, slammed the Government of  Guyana  and it |  | Search: Guyana indigenous peoples organizations Am |
+| The Indigenous World 2025: Guyana - iwgia.org | Indigenous   peoples  in  Guyana   Indigenous   peoples  - or  Amerindians  as they are identified both collectively and |  | Search: Guyana indigenous peoples organizations Am |
+| About Us - Amerindian Peoples Association | About the  Amerindian   People&#x27;s  Association (APA) The  Amerindian   People&#x27;s  Association (APA) was establis |  | Search: Guyana indigenous peoples organizations Am |
+| Active Projects - Amerindian Peoples Association | To ensure that District and  Village   Councils  are well-versed in their rights and the legal framework governing Indig |  | Search: Guyana Amerindian village council organiza |
+| Amerindian Villages - Ministry of Amerindian Affairs | Here is a list of the Indigenous  villages  in  Guyana . |  | Search: Guyana Amerindian village council organiza |
+| $9B dedicated to developing Amerindian communities - The Guyana Chronicle | Amerindian  Peoples Association Units Our Units form the basis of our membership in  Villages  and Regions in  Guyana .  |  | Search: Guyana Amerindian village council organiza |
+| Chapter 24 - the Amerindians | Additionally, according to the  Amerindian  Affairs Minister, elected villagers at the  village  level have established  |  | Search: Guyana Amerindian village council organiza |
+| Flying drones and chasing data, Indigenous women in Guyana join fight ... | Village / Community  Administration 24.IV.2.35 A general set of  community  regulations will be established by the Minis |  | Search: Guyana Amerindian village council organiza |
+| Capital Projects - Ministry of Amerindian Affairs | RUBY  VILLAGE ,  Guyana  (AP) — A small group of Indigenous women in northern  Guyana  are the latest weapon in the figh |  | Search: Guyana Amerindian village council organiza |
+| Amerindian Peoples Association (APA) - Bourda - Facebook | Amerindian   Peoples   Association  ( APA ), Bourda. 13,114 likes · 535 talking about this · 50 were here. The  Amerindi | www.facebook.com/APAGuyana/ | Targeted: Amerindian Peoples Association Guyana AP |
+| Guyanese Organisation of Indigenous Peoples (Affiliate) | The Macushi tribe is an  Indigenous   people  primarily residing in  Guyana , with additional populations in Brazil and  | www.facebook.com/groups/143785723127230/ | Targeted: Guyana Organization of Indigenous People |
+
+## Recreation Arts (2 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Guyana - Where We Work - Caribbean Biodiversity Fund | In 2011 the PA Act was made law and provided for the protection and  conservation  of  Guyana&#x27;s  natural heritage a |  | Search: Guyana environmental ecology conservation  |
+| Our Story - U.S. Solidarity Economy Network | The  Solidarity   Economy  is all about building these connections; reminding us that, amidst our wonderful diversity, w |  | Search: Guyana solidarity economy mutual aid netwo |
+
+---
+
+## Coverage Assessment
+
+- IRS BMF records for GY: 0 (US-only database)
+- This research adds: 114 Guyanese organizations
+- Framework coverage: democracy(35), indigenous(17), education(8), cooperatives(11), ecology(11), recreation_arts(2), healthcare(9), food(6), housing_land(6), energy_digital(7), conflict(2)
+- Key areas: Amerindian/indigenous orgs, environmental (rainforest), cooperative sector
+- Recommended follow-up: Amerindian Peoples Association, Red Thread, GHRA directories
+
+
+---
+
 # 🌐 Kenya (KE) Civil Society Directory
 
 *Compiled: 2026-04-13 | Source: Web research via DuckDuckGo | Task: Research: Kenya (KE)*
@@ -1317,6 +1512,377 @@
 
 ### Neighbor to Neighbor Special Project (CFSJC)
 > | **** | Immigrant/refugee support, social services | $50,000 for expansion (Phase 2 of project); serves South Bend. [5] |
+
+
+---
+
+# Paraguay (PY) -- Regional Directory
+
+**Searches conducted:** 23
+**Organizations found:** 122
+**Generated:** ECO-67 Researcher run
+
+*Note: These orgs were found via web search and need verification. Most are NOT in the IRS bulk data (Paraguay is non-US). Quality varies -- treat as leads for human review.*
+
+---
+
+## Conflict (6 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| SERPAJ Paraguay - Servicio Paz y Justicia | Found via: Paraguay justicia restaurativa construccion paz organizaciones |  | Web search: Paraguay justicia restaurati |
+| Ministerio de Justicia se convierte en referente regional en Justicia ... | Found via: Paraguay justicia restaurativa construccion paz organizaciones |  | Web search: Paraguay justicia restaurati |
+| &quot;Más vale reparar que castigar&quot;: la apuesta de la justicia restaurativ | Found via: Paraguay justicia restaurativa construccion paz organizaciones |  | Web search: Paraguay justicia restaurati |
+| articulo_periodismo_constructivo_justicia_restaurativa_paraguay ... | Found via: Paraguay justicia restaurativa construccion paz organizaciones |  | Web search: Paraguay justicia restaurati |
+| Costa Rica y Paraguay fortalecen la Justicia Juvenil Restaurativa ... | Found via: Paraguay justicia restaurativa construccion paz organizaciones |  | Web search: Paraguay justicia restaurati |
+| Paraguay reafirma compromiso con la justicia restaurativa en cumbre ... | Found via: Paraguay justicia restaurativa construccion paz organizaciones |  | Web search: Paraguay justicia restaurati |
+
+## Cooperatives (17 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Fecoprod Ltda. - Federación de Cooperativas de Producción Limitada | Fecoprod Ltda. es una  federación  paraguaya que impulsa el desarrollo cooperativo y brinda servicios de apoyo a product |  | Web search: Paraguay cooperativas federa |
+| Las fuentes documentales cooperativas para el estudio del ... | Datos Estadisticos Usted está aquí: Inicio Datos Estadisticos Registro de  Cooperativas |  | Web search: Paraguay cooperativas federa |
+| Federación de Cooperativas de Producción - Fecoprod Ltda. - Asunción | Found via: Paraguay cooperativas federacion nacional trabajadores |  | Web search: Paraguay cooperativas federa |
+| Paraguay. Cooperativas de Vivienda: una solución colectiva y ... | Tema desarrolla un breve análisis de la historia del cooperativismo y su desarrollo en el  Paraguay , espero ayude princ |  | Web search: Paraguay vivienda cooperativ |
+| Paraguay: Cooperativas de vivienda emergen como solución comunitaria ... | Found via: Paraguay vivienda cooperativa tierra comunidad |  | Web search: Paraguay vivienda cooperativ |
+| Listado de Cooperativas e Instituciones Financieras. | Found via: Paraguay vivienda cooperativa tierra comunidad |  | Web search: Paraguay vivienda cooperativ |
+| Vivienda cooperativa: ¿Una forma de vida más verde y sostenible? | Found via: Paraguay vivienda cooperativa tierra comunidad |  | Web search: Paraguay vivienda cooperativ |
+| Cooperativas de Vivienda en Paraguay: Avances y Desafíos | Found via: Paraguay vivienda cooperativa tierra comunidad |  | Web search: Paraguay vivienda cooperativ |
+| Cooperativa Chortitzer inaugura el parque solar más grande de Paraguay ... | Found via: Paraguay energia renovable solar comunitaria cooperativa |  | Web search: Paraguay energia renovable s |
+| Mujeres lideran el sector de ahorro y crédito en cooperativas ... | Found via: Paraguay organizaciones mujeres cooperativa ahorro grupo |  | Web search: Paraguay organizaciones muje |
+| FECOAC - Federación de Cooperativas de Ahorro y Crédito LTDA | Found via: Paraguay organizaciones mujeres cooperativa ahorro grupo |  | Web search: Paraguay organizaciones muje |
+| Grupos de Ahorro - Diaconía | Found via: Paraguay organizaciones mujeres cooperativa ahorro grupo |  | Web search: Paraguay organizaciones muje |
+| Las 50 Cooperativas &quot;más valiosas&quot; de Paraguay - Forbes Paraguay | Found via: Paraguay organizaciones mujeres cooperativa ahorro grupo |  | Web search: Paraguay organizaciones muje |
+| Grupos de ahorro mujeres que fortalecen economias locales y su ... | Found via: Paraguay organizaciones mujeres cooperativa ahorro grupo |  | Web search: Paraguay organizaciones muje |
+| Cooperativa de Soluciones Libres del Paraguay Limitada | Found via: Paraguay tecnologia civica software libre organizaciones |  | Web search: Paraguay tecnologia civica s |
+| Fecopar LTDA - Federación de Cooperativas del Paraguay | INCOOP Dirección: Avda. Fernando  de  la Mora N° 988 c/ Amancio González, B° Vista Alegre, Asunción. Teléfono: (021) 729 | fecopar.coop.py | Targeted: Federacion Nacional de Coopera |
+| Fenacoop Ltda - Facebook |  | www.facebook.com/p/Fenacoop-Ltda-100066467178193/ | Targeted: Federacion Nacional de Coopera |
+
+## Democracy (49 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Directorio de Organizaciones de la Sociedad Civil | Nuevas  Organizaciones  Sin Fines de Lucro incorporadas en el Anexo de la Ley N° 7408/2024 «Que aprueba el Presupuesto G |  | Web search: Paraguay organizaciones soci |
+| ONG | Found via: Paraguay organizaciones sociedad civil directorio ONG |  | Web search: Paraguay organizaciones soci |
+| Directorio de Organizaciones Civiles PY | Found via: Paraguay organizaciones sociedad civil directorio ONG |  | Web search: Paraguay organizaciones soci |
+| Directorio Temático - facso.una.py | Found via: Paraguay organizaciones sociedad civil directorio ONG |  | Web search: Paraguay organizaciones soci |
+| Crean directorio de organizaciones de la sociedad civil que ya suman ... | Found via: Paraguay organizaciones sociedad civil directorio ONG |  | Web search: Paraguay organizaciones soci |
+| Presentaron directorio de organizaciones sociales y es de acceso libre | Found via: Paraguay organizaciones sociedad civil directorio ONG |  | Web search: Paraguay organizaciones soci |
+| Lista ONG - Ministerio de Economía y Finanzas | Found via: Paraguay organizaciones sociedad civil directorio ONG |  | Web search: Paraguay organizaciones soci |
+| Secretaría General &gt; sadye &gt; orsc &gt; organizaciones sociedad civil &gt;  | Found via: Paraguay organizaciones sociedad civil directorio ONG |  | Web search: Paraguay organizaciones soci |
+| Instituto Nacional de Cooperativismo - INCOOP | Basado en la Guía estándar para sitios web del Gobierno Dirección de Tecnología de la Información y Comunicación - INCOO |  | Web search: Paraguay cooperativas federa |
+| Nosotros - Fecopar LTDA | Found via: Paraguay cooperativas federacion nacional trabajadores |  | Web search: Paraguay cooperativas federa |
+| Logros y Avances del INCOOP - Instituto Nacional de Cooperativismo | Found via: Paraguay cooperativas federacion nacional trabajadores |  | Web search: Paraguay cooperativas federa |
+| La Soberanía Alimentaria como eje central de encuentro entre ... | Found via: Paraguay soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Paraguay soberania alimentar |
+| Economía Alimentaria - Plataforma de Derecho y Ciencias Sociales | Found via: Paraguay soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Paraguay soberania alimentar |
+| La atención primaria es clave frentea las enfermedades no transmisibles | Found via: Paraguay salud comunitaria organizaciones atencion primaria |  | Web search: Paraguay salud comunitaria o |
+| La participación ciudadana en Paraguay. Análisis a partir de la ... | El Ministerio de Tecnologías de la Información y Comunicación (MITIC) invita cordialmente a la ciudadanía, empresas, pro |  | Web search: Paraguay democracia particip |
+| En la participación ciudadana activa radica la fortaleza de la democracia | Documento de trabajo que describe las experiencias de cada caso concreto y sistematiza los principales avances y desafío |  | Web search: Paraguay democracia particip |
+| Participación Ciudadana - Decidamos | Found via: Paraguay democracia participacion ciudadana organizaciones |  | Web search: Paraguay democracia particip |
+| Democracia en Paraguay: Elecciones, Partidos y Ciudadanía | Found via: Paraguay democracia participacion ciudadana organizaciones |  | Web search: Paraguay democracia particip |
+| Inicio - Energía Alternativa | Found via: Paraguay energia renovable solar comunitaria cooperativa |  | Web search: Paraguay energia renovable s |
+| FAPI / Federación por la Autodeterminación de los Pueblos Indígenas | Found via: Paraguay pueblos indigenas organizaciones derechos Guarani |  | Web search: Paraguay pueblos indigenas o |
+| Quienes Somos - FAPI | Found via: Paraguay pueblos indigenas organizaciones derechos Guarani |  | Web search: Paraguay pueblos indigenas o |
+| Mujeres transformadoras: generando soluciones económicas en comunidad ... | Found via: Paraguay organizaciones mujeres cooperativa ahorro grupo |  | Web search: Paraguay organizaciones muje |
+| Coomecipar | Found via: Paraguay ayuda mutua red economia solidaria |  | Web search: Paraguay ayuda mutua red eco |
+| Economía solidaria fortalecida - Revista FOCO | Found via: Paraguay ayuda mutua red economia solidaria |  | Web search: Paraguay ayuda mutua red eco |
+| Realizan Foro de Investigadores sobre Economía Social y Solidaria | Found via: Paraguay ayuda mutua red economia solidaria |  | Web search: Paraguay ayuda mutua red eco |
+| TEDIC - Asociación para el Progreso de las Comunicaciones | Found via: Paraguay tecnologia civica software libre organizaciones |  | Web search: Paraguay tecnologia civica s |
+| Inicio - Civilab | Found via: Paraguay tecnologia civica software libre organizaciones |  | Web search: Paraguay tecnologia civica s |
+| Asociación TEDIC - Conévio - PRO ONG | Found via: Paraguay tecnologia civica software libre organizaciones |  | Web search: Paraguay tecnologia civica s |
+| Ley antiong: paso a paso del registro obligatorio en el SIARA | Found via: Paraguay registro ONGs directorio organizaciones sin fines de lucro |  | Web search: Paraguay registro ONGs direc |
+| Conévio - Hacer mejor el bien, conectados. | Found via: Paraguay registro ONGs directorio organizaciones sin fines de lucro |  | Web search: Paraguay registro ONGs direc |
+| El MEF habilita sistema para el registro obligatorio de organizaciones ... | Found via: Paraguay registro ONGs directorio organizaciones sin fines de lucro |  | Web search: Paraguay registro ONGs direc |
+| MEF habilita el sistema SIARA para el registro obligatorio de ... | Found via: Paraguay registro ONGs directorio organizaciones sin fines de lucro |  | Web search: Paraguay registro ONGs direc |
+| Registro De Organizaciones Sin Fines De Lucro - Osfl | Found via: Paraguay registro ONGs directorio organizaciones sin fines de lucro |  | Web search: Paraguay registro ONGs direc |
+| Organización no gubernamental (ONG) en Asunción - Página 1 | Found via: Paraguay registro ONGs directorio organizaciones sin fines de lucro |  | Web search: Paraguay registro ONGs direc |
+| SIARA: Registro obligatorio para Organizaciones Sin Fines de Lucro ... | Found via: Paraguay registro ONGs directorio organizaciones sin fines de lucro |  | Web search: Paraguay registro ONGs direc |
+| Juntos por la Educación - Hagamos de la educación una causa nacional | Espacio para establecer dentro de la comunidad hispanohablante un sistema educativo que promueva el desarrollo del propó |  | Web search: Paraguay educacion comunitar |
+| 22 años de Fundación Alda: una historia de educación que transforma ... | Found via: Paraguay educacion comunitaria escuela federacion |  | Web search: Paraguay educacion comunitar |
+| Organización de las Naciones Unidas para la Alimentación y la ... | Found via: Paraguay medio ambiente ecologia conservacion organizaciones |  | Web search: Paraguay medio ambiente ecol |
+| Decidamos - Campaña por la Expresión Ciudadana |  | decidamos.org.py | Targeted: Decidamos Paraguay democracia  |
+| Decidamos Campaña por la Expresión Ciudadana - Asunción |  | www.facebook.com/decidamos.paraguay/ | Targeted: Decidamos Paraguay democracia  |
+| Codehupy - Coordinadora de Derechos Humanos del Paraguay |  | www.codehupy.org.py | Targeted: CODEHUPY derechos humanos Para |
+| Codehupy - Asunción - Facebook |  | www.facebook.com/codehupy/ | Targeted: CODEHUPY derechos humanos Para |
+| Codehupy (@codehupy) • Instagram photos and videos |  | www.instagram.com/codehupy/ | Targeted: CODEHUPY derechos humanos Para |
+| Coordinación de Mujeres del Paraguay - Wikipedia |  | en.wikipedia.org/wiki/Coordinación_de_Mujeres_del_Paraguay | Targeted: Coordinadora de Mujeres del Pa |
+| Cmp Coordinación De Mujeres del Paraguay - Asunción - Facebook |  | www.facebook.com/CMPParaguay/ | Targeted: Coordinadora de Mujeres del Pa |
+| CMP celebró ayer 28 años de grandes luchas y conquistas |  | www.abc.com.py/edicion-impresa/locales/cmp-celebro-ayer-28-a | Targeted: Coordinadora de Mujeres del Pa |
+| Inicio - baseis.org.py | AGRONEGOCIOS Observatorio de Tierra, Agronegocios y Derechos Humanos AGRICULTURA CAMPESINA | www.baseis.org.py | Targeted: BASE Investigaciones Sociales  |
+| Base Investigaciones Sociales - Asunción - Facebook | Etelvina GONZALEZ, Antonio CAGNA, mars 1996 Acompañamiento de una microexperiencia en  Paraguay  Luis CAPUTO, mars 1996  | www.facebook.com/baseispy/ | Targeted: BASE Investigaciones Sociales  |
+| Base Investigaciones Sociales, Asunción (2025) - govern1.com |  | www.govern1.com/PY/Asunción/1381936375370074/Base-Investigac | Targeted: BASE Investigaciones Sociales  |
+
+## Ecology (31 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Paraguay - coops4dev.coop - ICA | En el salón auditorio institucional, funcionarios del Instituto  Nacional  de Cooperativismo participaron de la jornada  |  | Web search: Paraguay cooperativas federa |
+| Paraguay es el segundo país más cooperativizado del mundo, afirma ... | Found via: Paraguay cooperativas federacion nacional trabajadores |  | Web search: Paraguay cooperativas federa |
+| Paraguay: &quot;Partimos de la soberanía alimentaria para llegar a la ... | Found via: Paraguay soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Paraguay soberania alimentar |
+| Paraguay: &quot;Ya no tenemos miedo y luchamos contra este sistema opresor&quot; | Found via: Paraguay soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Paraguay soberania alimentar |
+| Declaración final Encuentro OAF Paraguay - Leisa | Found via: Paraguay soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Paraguay soberania alimentar |
+| Liderazgo y Soberanía Alimentaria en Paraguay | Found via: Paraguay soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Paraguay soberania alimentar |
+| Mapeo de Atención Primaria en Paraguay | Found via: Paraguay salud comunitaria organizaciones atencion primaria |  | Web search: Paraguay salud comunitaria o |
+| Participa Paraguay - | El libro analiza la evolución democrática, electoral y partidaria de  Paraguay  desde la caída de la dictadura de Alfred |  | Web search: Paraguay democracia particip |
+| El Sistema Político Paraguayo: Evolución, Estructura y Desafíos ... | Found via: Paraguay democracia participacion ciudadana organizaciones |  | Web search: Paraguay democracia particip |
+| Gobernanza Participativa en Paraguay - Programa De Las Naciones Unidas ... | Found via: Paraguay democracia participacion ciudadana organizaciones |  | Web search: Paraguay democracia particip |
+| Cooperativismo en el Paraguay - Monografias.com | Found via: Paraguay vivienda cooperativa tierra comunidad |  | Web search: Paraguay vivienda cooperativ |
+| APER - Asociación Paraguaya de Energías Renovables | Found via: Paraguay energia renovable solar comunitaria cooperativa |  | Web search: Paraguay energia renovable s |
+| Asociación Indigenista del Paraguay | Found via: Paraguay pueblos indigenas organizaciones derechos Guarani |  | Web search: Paraguay pueblos indigenas o |
+| Paraguay, pueblos y lenguas indígenas - Última Hora | Found via: Paraguay pueblos indigenas organizaciones derechos Guarani |  | Web search: Paraguay pueblos indigenas o |
+| Los indígenas del Paraguay y los Derechos Humanos - AVA GUARANI PARANAENSE | Found via: Paraguay pueblos indigenas organizaciones derechos Guarani |  | Web search: Paraguay pueblos indigenas o |
+| El Mundo Indígena 2023: Paraguay - International Work Group for ... | Found via: Paraguay pueblos indigenas organizaciones derechos Guarani |  | Web search: Paraguay pueblos indigenas o |
+| La fuerza silenciosa de la economía: Cooperativismo en Paraguay ... | Found via: Paraguay organizaciones mujeres cooperativa ahorro grupo |  | Web search: Paraguay organizaciones muje |
+| Comienza encuentro regional de Redes de Economía Solidaria (Paraguay) | Found via: Paraguay ayuda mutua red economia solidaria |  | Web search: Paraguay ayuda mutua red eco |
+| Cuando la tecnología promueve la participación cívica - paraguay.com | Found via: Paraguay tecnologia civica software libre organizaciones |  | Web search: Paraguay tecnologia civica s |
+| Paraguay y su elección por el Software Libre - somoslibres.org | Found via: Paraguay tecnologia civica software libre organizaciones |  | Web search: Paraguay tecnologia civica s |
+| La educación como método de transformación social en Paraguay | Found via: Paraguay educacion comunitaria escuela federacion |  | Web search: Paraguay educacion comunitar |
+| Educación Formal - Fundación Jesuitas del Paraguay | Found via: Paraguay educacion comunitaria escuela federacion |  | Web search: Paraguay educacion comunitar |
+| OPADES - Organización Paraguaya de conservación y desarrollo sostenible. | La Organización Paraguaya de  Conservación  y Desarrollo Sustentable (OPADES) fue fundada el 12 de octubre del 2015. Es  |  | Web search: Paraguay medio ambiente ecol |
+| Ministerio del Ambiente y Desarrollo Sostenible | Este cambio reflejó el compromiso del Estado paraguayo con la sostenibilidad y el reconocimiento de la dimensión transve |  | Web search: Paraguay medio ambiente ecol |
+| Organización Paraguaya de Conservación y Desarrollo Sostenible | Found via: Paraguay medio ambiente ecologia conservacion organizaciones |  | Web search: Paraguay medio ambiente ecol |
+| Protección ambiental y biodiversidad de Paraguay | Found via: Paraguay medio ambiente ecologia conservacion organizaciones |  | Web search: Paraguay medio ambiente ecol |
+| Ministerio del Ambiente en Paraguay busca acelerar la acción por el ... | Found via: Paraguay medio ambiente ecologia conservacion organizaciones |  | Web search: Paraguay medio ambiente ecol |
+| Política Ambiental Nacional del Paraguay - Consenso de Montevideo sobre ... | Found via: Paraguay medio ambiente ecologia conservacion organizaciones |  | Web search: Paraguay medio ambiente ecol |
+| Programa acroegología - Alter Vida | Objetivo: Promueve el desarrollo sostenible, con énfasis en la producción orgánica y agroecológica, seguridad alimentari | www.altervida.org.py/v6/grograma-agroecologia/ | Targeted: Alter Vida Paraguay agroecolog |
+| Alter Vida - Conévio - PRO ONG | El proyecto contribuye a la digitalización de la agricultura familiar campesina de  Paraguay  a partir de la implementac | ong.com.py/organizacion/alter-vida/ | Targeted: Alter Vida Paraguay agroecolog |
+| Agroecología en Paraguay: &quot;Única vía para restaurar el ... - Bioguia |  | www.bioguia.com/ambiente/agroecologia-resiliencia-sustentabi | Targeted: Alter Vida Paraguay agroecolog |
+
+## Education (4 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| &quot;Voy a la escuela&quot;: proyecto comunitario en Paraguay | El Programa de  Educación  Formal atiende a 43 centros educativos y 99 centros de atención educativa, ubicados en zonas  |  | Web search: Paraguay educacion comunitar |
+| Sistema educativo de Paraguay - Wikipedia, la enciclopedia libre | Introducción El sistema educativo paraguayo teniendo como referencia sociohistórica los planteamientos formulados por la | es.wikipedia.org/wiki/Sistema_educativo_de_Paraguay | Targeted: SEDUPO educacion popular Parag |
+| Decidamos, promoviendo la participación ciudadana - Pojoaju | Antes de 1950, Una visión histórica del Sistema Educativo paraguayo nos llevará a abordar su evolución a partir del perí | www.pojoaju.org.py/decidamos-promoviendo-la-participacion-ci | Targeted: SEDUPO educacion popular Parag |
+| Educación Popular en Paraguay.doc - Google Drive |  | docs.google.com/open?id=1zCUVUk6hsKi6jNUVDIKUFY8ea5qHFgraCT4 | Targeted: SEDUPO educacion popular Parag |
+
+## Energy Digital (5 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| APES - Asociación Paraguaya de Energía Solar | We are a flexible organization with a high growth capability, constantly looking for expansion opportunities on a global |  | Web search: Paraguay energia renovable s |
+| Energía solar y tecnología: el dúo que impulsará la transición ... | Found via: Paraguay energia renovable solar comunitaria cooperativa |  | Web search: Paraguay energia renovable s |
+| Paraguay: Avances, Proyectos Con Energía Solar | Found via: Paraguay energia renovable solar comunitaria cooperativa |  | Web search: Paraguay energia renovable s |
+| El Chaco Avanza presentará esta noche la nueva planta solar de la ... | Found via: Paraguay energia renovable solar comunitaria cooperativa |  | Web search: Paraguay energia renovable s |
+| Energías Renovables Paraguay Suelo Solar | Found via: Paraguay energia renovable solar comunitaria cooperativa |  | Web search: Paraguay energia renovable s |
+
+## Food (4 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Ecología Social. Organizaciones campesinas del Paraguay denuncian ... | Found via: Paraguay soberania alimentaria agroecologia organizaciones campesinas |  | Web search: Paraguay soberania alimentar |
+| Partido Popular Tekojoja - Wikipedia, la enciclopedia libre | Todas las noticias con la etiqueta &quot; Tekojoja &quot; en La Nación. | es.wikipedia.org/wiki/Partido_Popular_Tekojoja | Targeted: Tekojoja Paraguay movimiento c |
+| Tekojoja, vida en común, proyecto del pueblo | Partido Popular  Tekojoja . 6,359 likes · 906 talking about this. P.P.T. Nace como herramienta política para construir e | www.komiteinternazionalistak.org/index.php/es/blogs/brigada- | Targeted: Tekojoja Paraguay movimiento c |
+| La guerra de la soja contra los campesinos en Tekojoja |  | novapolis.pyglobal.com/10/tekojoja.php | Targeted: Tekojoja Paraguay movimiento c |
+
+## Healthcare (4 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Agente comunitario, pilar fundamental de la Atención Primaria de la Salud | Found via: Paraguay salud comunitaria organizaciones atencion primaria |  | Web search: Paraguay salud comunitaria o |
+| El Sistema de Salud en Paraguay: estructura, funcionamiento y desafíos ... | Found via: Paraguay salud comunitaria organizaciones atencion primaria |  | Web search: Paraguay salud comunitaria o |
+| Atención Primaria en Salud - BVS Paraguay - bvsalud.org | Found via: Paraguay salud comunitaria organizaciones atencion primaria |  | Web search: Paraguay salud comunitaria o |
+| Atención Primaria en Salud en Paraguay: panorámica y perspectiva | Found via: Paraguay salud comunitaria organizaciones atencion primaria |  | Web search: Paraguay salud comunitaria o |
+
+## Housing Land (2 orgs)
+
+| Name | Description | Website | Source |
+|---|---|---|---|
+| Paraguay: una solución cooperativa a la problemática de la vivienda | Independencia Nacional esq Manuel Dominguez. Ministerio Urbanismo  Vivienda  y Habitat (MUVH). (+595 21) -413 3000 consu |  | Web search: Paraguay vivienda cooperativ |
+| TIERRA INMOBILIARIA S.A de Casas y Departamentos Aptas para Vivienda ... | Found via: Paraguay vivienda cooperativa tierra comunidad |  | Web search: Paraguay vivienda cooperativ |
+
+---
+
+## Coverage Assessment
+
+- IRS BMF records for PY: 0 (expected -- US-only database)
+- This research adds: 122 Paraguayan organizations
+- Framework coverage: conflict(6), cooperatives(17), democracy(49), ecology(31), education(4), energy_digital(5), food(4), healthcare(4), housing_land(2)
+- Recommended follow-up: Contact Decidamos, CODEHUPY, FENACOOP for formal registries
+
+
+---
+
+# 🌐 South Africa (ZA) Civil Society Directory
+
+*Compiled: 2026-04-13 | Source: Web research via DuckDuckGo | Task: Research: South Africa (ZA)*
+
+**58 organizations identified**
+
+---
+
+## Organizations
+
+### 283,000 civil society organizations (CSOs), NGOs, and nonprofits
+> South Africa hosts over ****, with comprehensive databases available for access.[1] Key sources provide lists ranging from full directories to curated examples focused on specific sectors like health,
+
+### GlobalGiving Atlas
+> - ****: Tracks **283,246 verified nonprofits** in South Africa, drawing from government data and public sources. Data is downloadable via API, JSON, or CSV for all organizations.[1] - **Ngobase.org**:
+
+### Ngobase.org
+> - ****: Lists **168 major active NGOs and charities**, categorized by focus areas such as environment (e.g., WWF South Africa, African Parks), child rights (e.g., UNICEF South Africa, Save the Childre
+
+### Wikipedia Category
+> - ****: Enumerates **53 notable nonprofits**, including Action Society, Africa Check, Ahmed Kathrada Foundation, AmaBhungane, and Social Justice Coalition.[5]
+
+### AIDS Foundation of South Africa
+> | **** | HIV/AIDS support | [2] | | **CHOSA South Africa** | Child poverty, community empowerment | [2] |
+
+### CHOSA South Africa
+> | **** | Child poverty, community empowerment | [2] | | **World Vision South Africa** | Child welfare, poverty | [2] |
+
+### World Vision South Africa
+> | **** | Child welfare, poverty | [2] | | **South African Red Cross Society** | Health, disaster relief, first aid | [2] |
+
+### South African Red Cross Society
+> | **** | Health, disaster relief, first aid | [2] | | **Human Rights Institute of South Africa (HURISA)** | Human rights education for vulnerable groups | [2] |
+
+### Human Rights Institute of South Africa (HURISA)
+> | **** | Human rights education for vulnerable groups | [2] | | **NACOSA** | HIV/AIDS, TB network of 1,800+ CSOs | [4] |
+
+### NACOSA
+> | **** | HIV/AIDS, TB network of 1,800+ CSOs | [4] | | **DeafBlind South Africa** | Support for deafblind individuals | [4] |
+
+### DeafBlind South Africa
+> | **** | Support for deafblind individuals | [4] | | **Community Development Resource Association (CDRA)** | Community development, training | [4] |
+
+### Community Development Resource Association (CDRA)
+> | **** | Community development, training | [4] |
+
+### Additional sector
+> -specific examples from directories include Afrika Tikkun (community development), PLAAS (poverty research), and Cheetah Outreach (wildlife preservation).[3][4]
+
+### The official directory for registered nonprofits (NPOs) in South Africa is the Nonprofit Organisations (NPO) Register managed by the Department of Social Development, accessible via their searchable database for free using unique ZA-NPO identifiers (without adding "NPO" to the end)
+
+### NGO Base
+> | **** [1] | Comprehensive list of active NGOs and charities, browsable by work areas (e.g., 39 in Education, 48 in Rights). | 168 | Sector filters (e.g., Animals, Poverty Alleviation); examples inclu
+
+### CharitySA
+> | **** [3] | Alphabetical list of organizations, including hospices, rescue institutes, and community centers. | Hundreds (partial list shown) | Examples: National Sea Rescue Institute (NSRI), Diabete
+
+### WANGO Directory
+> | **** [6] | Regional list focused on Southern Africa nonprofits. | 452 | Alphabetical browse; examples: Africa Institute of South Africa, African Conservation Tillage Network. | | **NGO Explorer** [7
+
+### NGO Explorer
+> | **** [7] | UK-based NGOs operating in South Africa. | 1,708 | Focuses on international orgs like Oxfam GB, Save the Children UK. | | **GlobalGiving Projects** [10] |
+
+### GlobalGiving Projects
+> | **** [10] |
+
+### Register of Nonprofit Organisations (NPOs)
+> The primary database for South African NGOs and civil society organizations (CSOs) is the **** maintained by the NPO Directorate in the Department of Social Development (DSD).[1][2][4][6]
+
+### Registration and Scope
+> - ****: Governed by the Nonprofit Organisations Act No. 71 of 1997, registration is voluntary but enhances credibility through governance, accountability, and transparency standards. It covers volunta
+
+### Current Scale
+> - ****: As of February 23 (recent data), 270,313 NGOs were registered, up from 221,000 in 2019; earlier 2025 figures showed 289,964 registered but 15,625 de-registered (many dormant).[2][4] In Septemb
+
+### Access
+> - ****: Searchable via the DSD website (e.g., under NPO registration tools).[4] - **Organizational Forms and Numbers** (from 2025 risk assessment): Voluntary associations (276,183), non-profit trusts
+
+### Organizational Forms and Numbers
+> - **** (from 2025 risk assessment): Voluntary associations (276,183), non-profit trusts (38,838), non-profit companies (82,875).[2]
+
+### UN iCSO/OSAA NGO Database
+> - ****: Filters NGOs active in Africa, including South Africa, by criteria like branch, ECOSOC status, and activities; supports collaboration with UN partners.[3][9] - **Commonwealth of Nations Direct
+
+### Commonwealth of Nations Directory
+> - ****: Lists civil society expertise, noting over 100,000 NGOs active in health, education, governance, and development; highlights SANGOCO as the largest umbrella body.[1] - **Other Sector-Specific*
+
+### Other Sector-Specific
+> - ****: Eastern Cape NGO Coalition (ECNGOC) for provincial development NGOs; NSTF members list for civil society/NGOs in science/tech.[5][8]
+
+### Find Civil Society expertise in South Africa
+> -  - Commonwealth of N
+
+### environmental organizations
+> South Africa has numerous **** working across conservation, advocacy, education, and sustainable development. Here are the major ones:
+
+### Non-profit Organizations and NGOs
+
+### WESSA (Wildlife & Environment Society of South Africa)
+> - ****[1] operates education centers, conservation programs, and a training academy offering accredited courses in conservation, tourism guiding, wildlife management, and environmental education.
+
+### Environmental Monitoring Group (EMG)
+> - ****[2] is a Cape Town-based non-profit focusing on climate change, water, and agroecology through community-driven solutions and participatory action research.
+
+### groundWork
+> - ****[6] is an environmental justice organization with active campaigns in climate and energy justice, coal, environmental health, healthy hospitals, and waste. It also runs an annual Environmental J
+
+### SAFCEI (Southern African Faith Communities' Environment Institute)
+> - ****[5] is a multi-faith environmental justice organization supporting faith leaders and communities in environmental action.
+
+### Birdlife South Africa, Centre for Environmental Rights, Endangered Wildlife Trust, and WWF South Africa
+> - ****[3] are additional established NGOs addressing specific conservation and environmental governance areas.
+
+### Research and Professional Organizations
+
+### SAEON (South African Environmental Observation Network)
+> - ****[9] is a long-term environmental observation and research facility of the National Research Foundation conducting environmental research and monitoring.
+
+### EAPASA
+> - ****[8] safeguards the environment through assessment practices and professional consultation.
+
+### Environmental Consulting Firms
+
+### ERM (Environmental Resources Management)
+> - ****[4] operates offices in Cape Town, Durban, and Johannesburg, providing environmental, health, safety, and sustainability consulting services.
+
+### SAS Environmental Group
+> - ****[7] specializes in aquatic and terrestrial ecological assessments across southern Africa.
+
+### People Against Suffering, Oppression and Poverty (PASSOP)
+> - ****: A Cape Town-based grassroots non-profit founded in 2007, advocating for refugees, immigrants, and asylum seekers, with early work on anti-immigrant violence in areas like Du Noon.[1] - **Lawye
+
+### Lawyers for Human Rights (LHR)
+> - ****: Established in 1979 in Pretoria, it fights human rights abuses, acts as a constitutional watchdog, supports voter education, and develops policies for disadvantaged groups.[1] - **Centre for H
+
+### Centre for Human Rights (University of Pretoria)
+> - ****: Founded in 1986 as an academic NGO, it specializes in human rights education, research on vulnerable groups (e.g., women, HIV-affected people, indigenous communities), and hosts the African Hu
+
+### Foundation for Human Rights (FHR)
+> - ****: A non-profit since 1996 promoting constitutional values and human rights protection.[2] - **Southern Africa Litigation Centre (SALC)**: Advances human rights and rule of law through strategic
+
+### Southern Africa Litigation Centre (SALC)
+> - ****: Advances human rights and rule of law through strategic litigation, capacity-building for lawyers and grassroots groups, and small grants; supports work in South Africa and neighboring countri
+
+### Southern African Human Rights Defenders Network (Southern Defenders)
+> - ****: Regional network since 2013 protecting human rights defenders across Southern Africa, hosted by the International Commission of Jurists' South Africa office.[4] - **Black Sash**: Veteran organ
+
+### Black Sash
+> - ****: Veteran organization established in 1955 advocating for social justice, social protection, and poverty alleviation, with a focus on vulnerable populations.[5] - **South African Human Rights Co
+
+### South African Human Rights Commission (SAHRC)
+> - ****: National statutory body promoting constitutional democracy, respect for human rights, and addressing priorities like equality, anti-racism, gender, and land righ
+
+### South Africa has numerous nonprofit community organizations focused on development, education, health, environment, and poverty alleviation, operating across provinces like Limpopo, Mpumalanga, Gauteng, Western Cape, and others.[1][2][3]
+
+### A Spring of Hope
+> - ****: Provides clean water, sanitation, school gardens, health programs, small-enterprise mentorship, community gardens, and afterschool activities in rural Limpopo and Mpumalanga to promote food se
+
+### Afrika Tikkun Services
+> - ****: Focuses on community development and anti-corruption efforts in Bloemfontein.[2] - **Equal Education**: Works on education, literacy, legal aid, and community development in Boksburg.[2]
+
+### Equal Education
+> - ****: Works on education, literacy, legal aid, and community development in Boksburg.[2] - **Ubuntu Education Fund**: Supports underprivileged rural communities with programs for children and youth
+
+### Ubuntu Education Fund
+> - ****: Supports underprivileged rural communities with programs for children and youth in education, health, emotional well-being, and skills development.[3] - **Trevor Noah Foundation**: Enhances yo
+
+### Trevor Noah Foundation
+> - ****: Enhances youth access to high-quality education and workforce preparedness.[7] - **Self Help Africa**: Aids smallholder farmers with sustainable agriculture, training, and poverty reduction.[3
+
+### Self Help Africa
+> - ****: Aids smallholder farmers with sustainable agriculture, training, and poverty reduction.[3]
+
+### NGOs by focus areas
+> - Ngobase.org lists 168  (e.g., 33 in development, 39 in education) and provinces like Gauteng and Western Cape.[2] - CharitySA.co.za offers an alphabetical directory including groups like Amy Biehl F
+
+### Western Cape NPO database includes youth
+> - -focused groups like 9Miles Project and Beautiful Gate for after-school support and family empowerment.[6]
 
 
 ---

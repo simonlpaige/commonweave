@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecolibrium — Global Directory</title>
+<meta name="description" content="Search 689,000+ civil society organizations worldwide.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1a0d;--surface:#132013;--s2:#192819;--s3:#1f321f;
+  --border:#253825;--border2:#30483a;
+  --text:#cce8b0;--muted:#5e8a52;--dim:#3d5e35;
+  --accent:#78c87a;--a2:#56a85a;--warm:#a8c87e;--teal:#4fc4b0;--earth:#c4a55d;
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Georgia,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px;min-height:100vh}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--warm);text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(13,26,13,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:50px}
+.nav-logo{font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:lowercase;color:var(--accent);text-decoration:none}
+.nav-links{display:flex;gap:0;align-items:center}
+.nav-links a{padding:0 12px;height:50px;display:flex;align-items:center;font-size:13px;color:var(--muted);border-bottom:2px solid transparent;transition:color .15s,border-color .15s;text-decoration:none}
+.nav-links a:hover,.nav-links a.active{color:var(--text);border-bottom-color:var(--accent)}
+
+/* LAYOUT */
+.page{max-width:1200px;margin:0 auto;padding:24px 20px}
+
+/* HERO STATS */
+.stats-bar{display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 20px;flex:1;min-width:140px}
+.stat-num{font-size:24px;font-weight:800;color:var(--accent);letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-label{font-size:11px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.06em}
+
+/* SEARCH & FILTERS */
+.search-row{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+#search-input{flex:1;min-width:200px;background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:10px 14px;color:var(--text);font-size:14px;font-family:inherit;outline:none;transition:border-color .15s}
+#search-input:focus{border-color:var(--teal)}
+#search-input::placeholder{color:var(--dim)}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+.filter-label{font-size:12px;color:var(--muted);white-space:nowrap;margin-right:2px}
+select{background:var(--surface);border:1px solid var(--border2);border-radius:7px;padding:7px 12px;color:var(--text);font-size:13px;font-family:inherit;outline:none;cursor:pointer;transition:border-color .15s;appearance:none;-webkit-appearance:none;padding-right:28px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235e8a52'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+select:focus{border-color:var(--teal)}
+.clear-btn{background:transparent;border:1px solid var(--border);border-radius:7px;color:var(--muted);padding:7px 14px;cursor:pointer;font-size:13px;font-family:inherit;transition:all .15s}
+.clear-btn:hover{border-color:var(--border2);color:var(--text)}
+
+/* RESULTS */
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.results-count{font-size:13px;color:var(--muted)}
+.results-count strong{color:var(--warm)}
+.sort-select{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:5px 28px 5px 10px;color:var(--muted);font-size:12px;font-family:inherit;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235e8a52'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center}
+
+/* EMPTY / LOADING */
+.state-msg{text-align:center;padding:60px 20px;color:var(--muted)}
+.state-msg .big{font-size:36px;margin-bottom:10px}
+.state-msg p{font-size:14px;line-height:1.7;max-width:420px;margin:0 auto}
+.state-msg a{color:var(--accent)}
+.loader{display:flex;justify-content:center;padding:40px;color:var(--muted);font-size:13px}
+.loader::after{content:'';width:18px;height:18px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;margin-left:10px;display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ORG CARDS */
+#results-list{display:flex;flex-direction:column;gap:8px}
+.org-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;cursor:default;transition:border-color .15s}
+.org-card:hover{border-color:var(--border2)}
+.org-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.org-name{font-size:14px;font-weight:700;color:var(--text);line-height:1.35}
+.org-name a{color:var(--text)}
+.org-name a:hover{color:var(--accent);text-decoration:none}
+.org-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+.tag{font-size:10px;padding:2px 7px;border-radius:4px;font-weight:600;letter-spacing:.03em}
+.tag-country{background:#132b1a;color:#6abf7a;border:1px solid #1a4025}
+.tag-state{background:#0e1e2a;color:#5aadcf;border:1px solid #1a3045}
+.tag-ntee{background:#1e1a2a;color:#9a8adf;border:1px solid #2a2040}
+.tag-revenue{background:#1e1a10;color:#c4a55d;border:1px solid #35280a}
+.tag-source{background:#1a1a1a;color:#5e6e5e;border:1px solid #2a2a2a}
+.org-desc{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.5;max-height:2.9em;overflow:hidden}
+.org-loc{font-size:11px;color:var(--dim);margin-top:3px}
+.org-link{font-size:11px;color:var(--accent);word-break:break-all}
+
+/* PAGINATION */
+.pagination{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:24px;padding-bottom:40px;flex-wrap:wrap}
+.page-btn{background:var(--surface);border:1px solid var(--border);border-radius:7px;color:var(--muted);padding:7px 14px;cursor:pointer;font-size:13px;font-family:inherit;transition:all .15s;min-width:40px;text-align:center}
+.page-btn:hover{border-color:var(--border2);color:var(--text)}
+.page-btn.active{background:var(--s3);border-color:var(--accent);color:var(--accent);font-weight:700}
+.page-btn:disabled{opacity:.35;cursor:not-allowed}
+.page-info{font-size:12px;color:var(--dim);padding:0 4px}
+
+/* COUNTRY PROMPT (show when no country selected) */
+.country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin-top:8px}
+.country-card{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:12px 14px;cursor:pointer;transition:all .15s;text-align:left}
+.country-card:hover{border-color:var(--border2);background:var(--s2)}
+.country-card .cc-name{font-size:13px;font-weight:600;color:var(--text)}
+.country-card .cc-count{font-size:11px;color:var(--muted);margin-top:2px}
+.country-card .cc-source{font-size:10px;color:var(--dim);margin-top:1px}
+
+/* US state selector */
+.state-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;margin-top:8px;max-height:300px;overflow-y:auto;padding-right:4px}
+.state-grid::-webkit-scrollbar{width:4px}
+.state-grid::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.state-btn{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 10px;cursor:pointer;font-size:12px;font-family:inherit;color:var(--muted);transition:all .15s;text-align:left}
+.state-btn:hover{border-color:var(--border2);color:var(--text)}
+.state-btn.active{background:var(--s2);border-color:var(--accent);color:var(--accent)}
+.state-btn .sn{font-weight:600}
+.state-btn .sc{font-size:10px;color:var(--dim);display:block}
+.section-title{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:8px;margin-top:4px;text-transform:uppercase;letter-spacing:.05em}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .stats-bar{gap:8px}
+  .stat{padding:10px 14px;min-width:120px}
+  .stat-num{font-size:20px}
+  .search-row,.filter-row{gap:6px}
+  .country-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">ecolibrium</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="directory.html" class="active">Directory</a>
+    <a href="map.html">Map</a>
+    <a href="doc.html?file=README">Docs</a>
+  </div>
+</nav>
+
+<div class="page">
+  <!-- Stats -->
+  <div class="stats-bar" id="stats-bar">
+    <div class="stat"><div class="stat-num" id="stat-total">—</div><div class="stat-label">Organizations</div></div>
+    <div class="stat"><div class="stat-num" id="stat-countries">—</div><div class="stat-label">Countries</div></div>
+    <div class="stat"><div class="stat-num" id="stat-loaded">—</div><div class="stat-label">Currently showing</div></div>
+  </div>
+
+  <!-- Search & Filters -->
+  <div class="search-row">
+    <input type="search" id="search-input" placeholder="Search by name, city, category…" autocomplete="off" spellcheck="false">
+    <button class="clear-btn" id="clear-btn" style="display:none">✕ Clear</button>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">Country:</span>
+    <select id="country-select"><option value="">— select country —</option></select>
+    <span id="state-wrap" style="display:none">
+      <select id="state-select"><option value="">All states</option></select>
+    </span>
+    <select id="ntee-select" style="display:none"><option value="">All categories</option></select>
+    <select id="sort-select">
+      <option value="name">Sort: Name A–Z</option>
+      <option value="revenue">Sort: Revenue ↓</option>
+      <option value="relevance">Sort: Relevance</option>
+    </select>
+  </div>
+
+  <!-- Content area -->
+  <div id="content">
+    <div class="state-msg">
+      <div class="big">🌍</div>
+      <p>Select a country to browse organizations,<br>or type a name in the search box above.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const BASE = 'data/search/';
+const PAGE_SIZE = 50;
+
+let indexData = null;      // { countries, total_orgs, ... }
+let countryData = null;    // currently loaded country/state JSON
+let filteredOrgs = [];     // current filtered+sorted list
+let currentPage = 1;
+let currentCountry = '';
+let currentState = '';
+let currentNtee = '';
+let searchQuery = '';
+let sortBy = 'name';
+let usStateMeta = null;
+
+const $ = id => document.getElementById(id);
+const content = $('content');
+
+// ── Load index ──────────────────────────────────────────────────────────────
+async function loadIndex() {
+  try {
+    const r = await fetch(BASE + 'index.json?_=' + Date.now());
+    indexData = await r.json();
+    populateCountrySelect();
+    $('stat-total').textContent = indexData.total_orgs.toLocaleString();
+    $('stat-countries').textContent = indexData.total_countries;
+    $('stat-loaded').textContent = '0';
+    showPrompt();
+  } catch(e) {
+    content.innerHTML = '<div class="state-msg"><div class="big">⚠️</div><p>Could not load directory index. Make sure <code>data/search/index.json</code> exists.</p></div>';
+  }
+}
+
+function populateCountrySelect() {
+  const sel = $('country-select');
+  const countries = indexData.countries;
+  // Sort: research countries first, then US, then others alphabetically
+  const codes = Object.keys(countries).sort((a,b) => {
+    if (a === 'US') return 1;
+    if (b === 'US') return -1;
+    const aRes = countries[a].source === 'research';
+    const bRes = countries[b].source === 'research';
+    if (aRes && !bRes) return -1;
+    if (!aRes && bRes) return 1;
+    return (countries[a].name||a).localeCompare(countries[b].name||b);
+  });
+  // Research countries group
+  const researchGroup = document.createElement('optgroup');
+  researchGroup.label = '🌐 Field Research';
+  const registryGroup = document.createElement('optgroup');
+  registryGroup.label = '📋 Official Registry';
+  for (const code of codes) {
+    const c = countries[code];
+    const opt = document.createElement('option');
+    opt.value = code;
+    opt.textContent = `${c.name || code} (${(c.count||0).toLocaleString()})`;
+    if (c.source === 'research' || (c.count < 1000 && code !== 'US')) {
+      researchGroup.appendChild(opt);
+    } else {
+      registryGroup.appendChild(opt);
+    }
+  }
+  sel.appendChild(researchGroup);
+  sel.appendChild(registryGroup);
+}
+
+function showPrompt() {
+  if (!indexData) return;
+  const countries = indexData.countries;
+  const researchCodes = Object.keys(countries).filter(c => countries[c].source === 'research' || (countries[c].count < 5000 && c !== 'US'));
+  let html = '<div class="section-title">Browse by country</div><div class="country-grid">';
+  // Show research countries first
+  for (const code of researchCodes) {
+    const c = countries[code];
+    const n = c.count || c.research_count || 0;
+    html += `<button class="country-card" onclick="selectCountry('${code}')">
+      <div class="cc-name">${c.name || code}</div>
+      <div class="cc-count">${n.toLocaleString()} orgs</div>
+      <div class="cc-source">🔬 Field research</div>
+    </button>`;
+  }
+  // US
+  html += `<button class="country-card" onclick="selectCountry('US')">
+    <div class="cc-name">🇺🇸 United States</div>
+    <div class="cc-count">${(countries.US?.count||0).toLocaleString()} orgs</div>
+    <div class="cc-source">📋 IRS EO Registry</div>
+  </button>`;
+  html += '</div>';
+  content.innerHTML = html;
+}
+
+// ── Country selection ────────────────────────────────────────────────────────
+async function selectCountry(code) {
+  currentCountry = code;
+  currentState = '';
+  currentPage = 1;
+  $('country-select').value = code;
+  $('state-wrap').style.display = 'none';
+  $('ntee-select').style.display = 'none';
+  content.innerHTML = '<div class="loader">Loading</div>';
+
+  if (code === 'US') {
+    await loadUSMeta();
+  } else {
+    await loadCountryData(code);
+  }
+}
+
+async function loadUSMeta() {
+  if (!usStateMeta) {
+    const r = await fetch(BASE + 'US_meta.json?_=' + Date.now());
+    usStateMeta = await r.json();
+  }
+  // Show NTEE filter and state selector
+  populateNteeSelect();
+  $('ntee-select').style.display = '';
+  showUSStateSelector();
+}
+
+function showUSStateSelector() {
+  const states = usStateMeta.states;
+  let html = '<div class="section-title">Select a state to browse</div><div class="state-grid">';
+  for (const [code, info] of Object.entries(states)) {
+    html += `<button class="state-btn" id="sb-${code}" onclick="selectState('${code}')">
+      <span class="sn">${info.name}</span>
+      <span class="sc">${info.count.toLocaleString()} orgs</span>
+    </button>`;
+  }
+  html += '</div>';
+  content.innerHTML = html;
+  $('stat-loaded').textContent = '0';
+}
+
+async function selectState(code) {
+  currentState = code;
+  currentPage = 1;
+  // Highlight active state button
+  document.querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('sb-' + code);
+  if (btn) btn.classList.add('active');
+  // Populate state dropdown
+  $('state-wrap').style.display = '';
+  if (!$('state-select').querySelector(`option[value="${code}"]`)) {
+    const opt = document.createElement('option');
+    opt.value = code;
+    opt.textContent = usStateMeta.states[code]?.name || code;
+    $('state-select').appendChild(opt);
+  }
+  $('state-select').value = code;
+  content.innerHTML = '<div class="loader">Loading ' + (usStateMeta.states[code]?.name||code) + '</div>';
+  const r = await fetch(BASE + `US_${code}.json?_=` + Date.now());
+  countryData = await r.json();
+  applyFilters();
+}
+
+async function loadCountryData(code) {
+  try {
+    const r = await fetch(BASE + `${code}.json?_=` + Date.now());
+    countryData = await r.json();
+    applyFilters();
+  } catch(e) {
+    content.innerHTML = `<div class="state-msg"><div class="big">📭</div><p>No data file found for ${code}. Research may be in progress.</p></div>`;
+  }
+}
+
+function populateNteeSelect() {
+  const sel = $('ntee-select');
+  sel.innerHTML = '<option value="">All categories</option>';
+  for (const [letter, name] of Object.entries(indexData.ntee_categories)) {
+    const cnt = usStateMeta?.ntee_counts?.[letter] || 0;
+    if (cnt === 0) continue;
+    const opt = document.createElement('option');
+    opt.value = letter;
+    opt.textContent = `${name} (${cnt.toLocaleString()})`;
+    sel.appendChild(opt);
+  }
+}
+
+// ── Filtering & rendering ────────────────────────────────────────────────────
+function applyFilters() {
+  if (!countryData) return;
+  let orgs = countryData.orgs || [];
+  const q = searchQuery.toLowerCase().trim();
+
+  // Text search
+  if (q) {
+    orgs = orgs.filter(o => {
+      const name = (o.name || o.n || '').toLowerCase();
+      const city = (o.city || o.c || '').toLowerCase();
+      const ntee = (o.ntee_code || o.t || '').toLowerCase();
+      const desc = (o.description || o.d || '').toLowerCase();
+      return name.includes(q) || city.includes(q) || ntee.includes(q) || desc.includes(q);
+    });
+  }
+
+  // NTEE filter (US only)
+  if (currentNtee) {
+    orgs = orgs.filter(o => (o.ntee_code || o.t || '').startsWith(currentNtee));
+  }
+
+  // Sort
+  if (sortBy === 'revenue') {
+    orgs = [...orgs].sort((a,b) => (b.annual_revenue||b.r||0) - (a.annual_revenue||a.r||0));
+  } else if (sortBy === 'relevance' && q) {
+    orgs = [...orgs].sort((a,b) => {
+      const an = (a.name||a.n||'').toLowerCase().includes(q) ? 1 : 0;
+      const bn = (b.name||b.n||'').toLowerCase().includes(q) ? 1 : 0;
+      return bn - an;
+    });
+  } else {
+    orgs = [...orgs].sort((a,b) => (a.name||a.n||'').localeCompare(b.name||b.n||''));
+  }
+
+  filteredOrgs = orgs;
+  currentPage = 1;
+  renderResults();
+}
+
+function renderResults() {
+  const total = filteredOrgs.length;
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const end = Math.min(start + PAGE_SIZE, total);
+  const page = filteredOrgs.slice(start, end);
+
+  $('stat-loaded').textContent = total.toLocaleString();
+
+  const isUS = currentCountry === 'US';
+  const countryLabel = isUS
+    ? (usStateMeta?.states?.[currentState]?.name || 'United States')
+    : (indexData?.countries?.[currentCountry]?.name || currentCountry);
+
+  let html = `<div class="results-header">
+    <div class="results-count">Showing <strong>${start+1}–${end}</strong> of <strong>${total.toLocaleString()}</strong> orgs in ${countryLabel}</div>
+  </div>`;
+
+  if (total === 0) {
+    html += '<div class="state-msg"><div class="big">🔍</div><p>No organizations match your search. Try broader terms or clear filters.</p></div>';
+    content.innerHTML = html;
+    return;
+  }
+
+  html += '<div id="results-list">';
+  for (const org of page) {
+    const name = org.name || org.n || '';
+    const city = org.city || org.c || '';
+    const ntee = org.ntee_code || org.t || '';
+    const website = org.website || org.w || '';
+    const revenue = org.annual_revenue || org.r || 0;
+    const desc = org.description || org.d || '';
+    const nteeLabel = ntee ? (indexData?.ntee_categories?.[ntee[0]] || ntee) : '';
+
+    let tags = '';
+    if (currentCountry && currentCountry !== 'US') {
+      tags += `<span class="tag tag-country">${indexData?.countries?.[currentCountry]?.name||currentCountry}</span>`;
+    }
+    if (currentState) tags += `<span class="tag tag-state">${currentState}</span>`;
+    if (city) tags += `<span class="tag tag-state">${city}</span>`;
+    if (nteeLabel) tags += `<span class="tag tag-ntee">${nteeLabel}</span>`;
+    if (revenue > 1000000) tags += `<span class="tag tag-revenue">$${(revenue/1000000).toFixed(1)}M/yr</span>`;
+
+    const displayName = website
+      ? `<a href="${website.startsWith('http')?website:'https://'+website}" target="_blank" rel="noopener">${escHtml(name)}</a>`
+      : escHtml(name);
+
+    html += `<div class="org-card">
+      <div class="org-top">
+        <div>
+          <div class="org-name">${displayName}</div>
+          ${tags ? `<div class="org-tags">${tags}</div>` : ''}
+          ${desc ? `<div class="org-desc">${escHtml(desc)}</div>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }
+  html += '</div>';
+
+  // Pagination
+  const totalPages = Math.ceil(total / PAGE_SIZE);
+  if (totalPages > 1) {
+    html += '<div class="pagination">';
+    html += `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage<=1?'disabled':''}>‹ Prev</button>`;
+    // Show up to 7 page buttons
+    const range = pageRange(currentPage, totalPages);
+    let lastWas = false;
+    for (const p of range) {
+      if (p === '...') {
+        if (!lastWas) html += '<span class="page-info">…</span>';
+        lastWas = true;
+      } else {
+        html += `<button class="page-btn ${p===currentPage?'active':''}" onclick="goPage(${p})">${p}</button>`;
+        lastWas = false;
+      }
+    }
+    html += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage>=totalPages?'disabled':''}>Next ›</button>`;
+    html += `<span class="page-info">Page ${currentPage} of ${totalPages}</span>`;
+    html += '</div>';
+  }
+
+  content.innerHTML = html;
+  content.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function pageRange(cur, total) {
+  if (total <= 7) return Array.from({length:total},(_,i)=>i+1);
+  const pages = [];
+  if (cur <= 4) {
+    for (let i=1;i<=5;i++) pages.push(i);
+    pages.push('...'); pages.push(total);
+  } else if (cur >= total-3) {
+    pages.push(1); pages.push('...');
+    for (let i=total-4;i<=total;i++) pages.push(i);
+  } else {
+    pages.push(1); pages.push('...');
+    for (let i=cur-1;i<=cur+1;i++) pages.push(i);
+    pages.push('...'); pages.push(total);
+  }
+  return pages;
+}
+
+function goPage(p) {
+  const totalPages = Math.ceil(filteredOrgs.length / PAGE_SIZE);
+  if (p < 1 || p > totalPages) return;
+  currentPage = p;
+  renderResults();
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Event listeners ──────────────────────────────────────────────────────────
+let searchTimer;
+$('search-input').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  $('clear-btn').style.display = searchQuery ? '' : 'none';
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    if (countryData) applyFilters();
+    else if (searchQuery.length >= 3) {
+      // No country selected but user is typing - show prompt to select one
+    }
+  }, 250);
+});
+
+$('clear-btn').addEventListener('click', () => {
+  searchQuery = '';
+  $('search-input').value = '';
+  $('clear-btn').style.display = 'none';
+  if (countryData) applyFilters();
+});
+
+$('country-select').addEventListener('change', e => {
+  if (e.target.value) selectCountry(e.target.value);
+  else {
+    currentCountry = '';
+    countryData = null;
+    $('state-wrap').style.display = 'none';
+    $('ntee-select').style.display = 'none';
+    showPrompt();
+  }
+});
+
+$('state-select').addEventListener('change', e => {
+  if (e.target.value) selectState(e.target.value);
+});
+
+$('ntee-select').addEventListener('change', e => {
+  currentNtee = e.target.value;
+  if (countryData) applyFilters();
+});
+
+$('sort-select').addEventListener('change', e => {
+  sortBy = e.target.value;
+  if (countryData) applyFilters();
+});
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+loadIndex();
+</script>
+</body>
+</html>
