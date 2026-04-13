@@ -13,6 +13,8 @@ QUEUE_FILE = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\QUEUE.txt'
 REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\regional'
 DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
 WORKSPACE_DIR = r'C:\Users\simon\.openclaw\workspace'
+sys.path.insert(0, os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data'))
+from native_queries import get_queries
 
 def get_next_country():
     """Read QUEUE.txt, return first country without a DIRECTORY_CC.md."""
@@ -31,63 +33,22 @@ def get_next_country():
     return None, None
 
 def search(query):
-    """Run a single DuckDuckGo search via puter-search.js."""
+    """Run a single DuckDuckGo search via ddg-search.js (free, no API key)."""
     try:
         result = subprocess.run(
-            ['node', os.path.join(WORKSPACE_DIR, 'tools', 'puter-search.js'), query],
-            capture_output=True, text=True, timeout=30, cwd=WORKSPACE_DIR
+            ['node', os.path.join(WORKSPACE_DIR, 'tools', 'ddg-search.js'), query],
+            capture_output=True, text=True, timeout=30, cwd=WORKSPACE_DIR,
+            encoding='utf-8', errors='replace'
         )
-        return result.stdout[:2000] if result.returncode == 0 else ''
+        return result.stdout[:3000] if result.returncode == 0 else ''
     except Exception as e:
         print(f'  search error: {e}')
         return ''
 
 def research_country(cc, country_name):
-    """Run 15+ searches for a country, return raw text."""
-    print(f'Searching: {country_name} ({cc})')
-    queries = [
-        f'civil society organizations {country_name} NGO nonprofit directory',
-        f'{country_name} nonprofit registry charities database',
-        f'{country_name} cooperative federation worker-owned solidarity economy',
-        f'{country_name} environmental organizations ecology',
-        f'{country_name} food sovereignty agroecology peasant organizations',
-        f'{country_name} community health organizations',
-        f'{country_name} democratic governance citizen participation',
-        f'{country_name} housing land trust community organizations',
-        f'{country_name} restorative justice peacebuilding organizations',
-        f'{country_name} renewable energy community cooperative',
-        f'{country_name} indigenous peoples organizations rights',
-        f'{country_name} women cooperative self-help solidarity',
-        f'{country_name} mutual aid solidarity economy network',
-        f'{country_name} open source civic tech digital rights',
-        f'{country_name} nonprofit social enterprise directory',
-    ]
-
-    # Add local-language queries
-    latam = ['CO','AR','MX','PE','CL','UY','PY','VE','HN','GT','NI','CR','PA','CU','DO','BO','EC']
-    francophone = ['SN','CI','CM','MG','TN','MA']
-    if cc in latam:
-        queries += [
-            f'organizaciones sociedad civil {country_name} directorio',
-            f'{country_name} organizaciones comunitarias cooperativas',
-            f'{country_name} movimientos sociales organizaciones populares',
-        ]
-    elif cc in francophone:
-        queries += [
-            f'organisations société civile {country_name} annuaire',
-            f'{country_name} coopératives organisations communautaires',
-        ]
-    elif cc == 'BR':
-        queries += [
-            f'organizações sociedade civil {country_name} diretório',
-            f'{country_name} cooperativas movimentos sociais',
-        ]
-    elif cc == 'PT':
-        queries += [f'organizações sociedade civil Portugal']
-    elif cc in ['CN', 'TW']:
-        queries += [f'{country_name} civil society NGO organizations English']
-    elif cc in ['JP', 'KR']:
-        queries += [f'{country_name} NPO NGO civil society organizations English list']
+    """Run searches for a country using English + native language queries."""
+    queries = get_queries(cc, country_name)
+    print(f'Searching: {country_name} ({cc}) — {len(queries)} queries ({len(queries)-15} native)')
 
     results = []
     for i, q in enumerate(queries):
@@ -110,6 +71,7 @@ def extract_orgs(search_text, cc, country_name):
             continue
 
         patterns = [
+            r'^## (.{5,100})$',
             r'\*\*([^*]{5,80})\*\*',
             r'^\d+\.\s+([A-Z][^.\n]{5,80}?)(?:\s*[-–—:]|\s*$)',
             r'^[-•·]\s+([A-Z][^.\n]{5,80}?)(?:\s*[-–—:]|\s*$)',
