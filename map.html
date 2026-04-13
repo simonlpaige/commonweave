@@ -6,38 +6,79 @@
 <title>Ecolibrium Directory — World Map</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a100a;color:#e2e8f0}
-#app{display:flex;height:100vh}
-#sidebar{width:260px;min-width:260px;background:#121d12;border-right:1px solid #1a2a1a;display:flex;flex-direction:column;overflow-y:auto;z-index:10}
-#sidebar::-webkit-scrollbar{width:6px}
+html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a100a;color:#cce8b0}
+
+/* ── Desktop layout ── */
+#app{display:flex;height:100vh;flex-direction:row}
+#sidebar{width:260px;min-width:260px;background:#121d12;border-right:1px solid #1a2a1a;display:flex;flex-direction:column;overflow-y:auto;z-index:10;flex-shrink:0}
+#sidebar::-webkit-scrollbar{width:5px}
 #sidebar::-webkit-scrollbar-track{background:#121d12}
 #sidebar::-webkit-scrollbar-thumb{background:#253825;border-radius:3px}
-#sidebar-header{padding:24px 20px 16px;border-bottom:1px solid #1a2a1a}
-#sidebar-header h1{font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.3px}
-#sidebar-header p{font-size:12px;color:#64748b;margin-top:4px}
-#count{font-size:13px;color:#94a3b8;padding:12px 20px 8px;font-weight:500}
-#filters{padding:4px 12px 20px;display:flex;flex-direction:column;gap:4px}
-.filter-btn{display:flex;align-items:center;gap:10px;padding:8px 12px;border:1.5px solid transparent;border-radius:8px;background:#162016;cursor:pointer;transition:all .15s;font-size:13px;color:#cbd5e1;font-family:inherit;text-align:left}
-.filter-btn:hover{background:#1e2838}
-.filter-btn.active{border-color:var(--clr);box-shadow:0 0 12px -2px var(--clr)}
-.filter-btn .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.filter-btn .label{flex:1}
-.filter-btn .cnt{font-size:11px;color:#64748b;min-width:20px;text-align:right}
+#sidebar-header{padding:20px 18px 14px;border-bottom:1px solid #1a2a1a}
+#sidebar-header h1{font-size:16px;font-weight:700;color:#cce8b0;letter-spacing:-0.2px}
+#sidebar-header p{font-size:11px;color:#4a7040;margin-top:3px;line-height:1.4}
+#count{font-size:12px;color:#5e8a52;padding:10px 18px 6px;font-weight:500}
+#filters{padding:4px 10px 16px;display:flex;flex-direction:column;gap:3px}
+.filter-btn{display:flex;align-items:center;gap:9px;padding:7px 10px;border:1.5px solid transparent;border-radius:7px;background:transparent;cursor:pointer;transition:all .15s;font-size:12px;color:#8aaa7a;font-family:inherit;text-align:left}
+.filter-btn:hover{background:#192819;color:#cce8b0}
+.filter-btn.active{background:#192819;border-color:var(--clr);color:#cce8b0;box-shadow:0 0 10px -3px var(--clr)}
+.filter-btn .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.filter-btn .label{flex:1;line-height:1.3}
+.filter-btn .cnt{font-size:10px;color:#3d5e35;min-width:18px;text-align:right}
+.filter-btn.active .cnt{color:#5e8a52}
+
+/* ── Mobile: chips across top ── */
+#chip-bar{display:none}
+
+@media(max-width:640px){
+  #app{flex-direction:column}
+  #sidebar{display:none}
+  #chip-bar{
+    display:flex;overflow-x:auto;gap:6px;
+    padding:8px 10px;background:#121d12;
+    border-bottom:1px solid #1a2a1a;
+    flex-shrink:0;z-index:10;
+    scrollbar-width:none;
+  }
+  #chip-bar::-webkit-scrollbar{display:none}
+  .chip{
+    display:inline-flex;align-items:center;gap:5px;
+    padding:5px 11px;border-radius:20px;
+    border:1.5px solid #253825;background:#192819;
+    font-size:11px;font-weight:600;color:#7aaa6a;
+    white-space:nowrap;cursor:pointer;flex-shrink:0;
+    font-family:inherit;transition:all .15s;
+  }
+  .chip.active{border-color:var(--clr);color:#cce8b0;box-shadow:0 0 8px -2px var(--clr)}
+  .chip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+  #map-container{flex:1;min-height:0}
+  #reset-btn{top:8px;right:8px;padding:5px 10px;font-size:11px}
+  #count-mobile{
+    position:absolute;bottom:6px;left:50%;transform:translateX(-50%);
+    background:#121d12cc;backdrop-filter:blur(6px);
+    border:1px solid #253825;border-radius:20px;
+    padding:3px 12px;font-size:11px;color:#5e8a52;
+    pointer-events:none;z-index:5;white-space:nowrap;
+  }
+  #tooltip{max-width:calc(100vw - 24px);font-size:12px}
+}
+
 #map-container{flex:1;position:relative;background:#0a100a;overflow:hidden}
 svg{display:block}
-#reset-btn{position:absolute;top:14px;right:14px;background:#162016;border:1px solid #253825;color:#94a3b8;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px;font-family:inherit;z-index:5;transition:all .15s}
-#reset-btn:hover{background:#253825;color:#fff}
-#tooltip{position:absolute;pointer-events:none;background:#162016ee;border:1px solid #253825;border-radius:10px;padding:12px 14px;max-width:280px;font-size:13px;line-height:1.45;z-index:20;display:none;box-shadow:0 8px 32px #0008}
+#reset-btn{position:absolute;top:12px;right:12px;background:#162016dd;backdrop-filter:blur(4px);border:1px solid #253825;color:#6b9e5e;padding:6px 13px;border-radius:6px;cursor:pointer;font-size:12px;font-family:inherit;z-index:5;transition:all .15s}
+#reset-btn:hover{background:#253825;color:#cce8b0}
+#tooltip{position:absolute;pointer-events:none;background:#162016f0;backdrop-filter:blur(8px);border:1px solid #253825;border-radius:10px;padding:12px 14px;max-width:280px;font-size:13px;line-height:1.45;z-index:20;display:none;box-shadow:0 8px 32px #0009}
 #tooltip .t-name{font-weight:700;font-size:14px;margin-bottom:2px}
-#tooltip .t-meta{font-size:11px;color:#64748b;margin-bottom:6px}
-#tooltip .t-desc{color:#cbd5e1;margin-bottom:6px}
-#tooltip .t-link{font-size:11px;color:#60a5fa;text-decoration:none;pointer-events:auto}
+#tooltip .t-meta{font-size:11px;color:#4a7040;margin-bottom:6px}
+#tooltip .t-desc{color:#8aaa7a;margin-bottom:6px}
+#tooltip .t-link{font-size:11px;color:#78c87a;text-decoration:none;pointer-events:auto}
 #tooltip .t-link:hover{text-decoration:underline}
 .graticule{fill:none;stroke:#162016;stroke-width:.4}
 .country{fill:#1a2a1a;stroke:#253825;stroke-width:.5}
 </style>
 </head>
 <body>
+<div id="chip-bar"></div>
 <div id="app">
 <div id="sidebar">
 <div id="sidebar-header">
@@ -48,7 +89,8 @@ svg{display:block}
 <div id="filters"></div>
 </div>
 <div id="map-container">
-<button id="reset-btn">↻ Reset View</button>
+<button id="reset-btn">↻ Reset</button>
+<div id="count-mobile"></div>
 <div id="tooltip">
 <div class="t-name"></div>
 <div class="t-meta"></div>
@@ -263,13 +305,32 @@ function makeBtn(id,label,color,count){
 }
 
 const sectionCounts=sections.map(s=>({...s,count:orgs.filter(o=>o.s===s.id).length}));
-const allBtn=makeBtn(null,"All Sections","#94a3b8",orgs.length);
+const allBtn=makeBtn(null,"All","#78c87a",orgs.length);
 sectionCounts.forEach(s=>makeBtn(s.id,s.name,s.color,s.count));
+
+// Build mobile chip bar
+const chipBar=document.getElementById("chip-bar");
+const countMobile=document.getElementById("count-mobile");
+function makeChip(id,label,color){
+  const c=document.createElement("button");
+  c.className="chip"+(id===null?" active":"");
+  c.style.setProperty("--clr",color||"#78c87a");
+  c.dataset.id=id===null?"all":id;
+  c.innerHTML=`<span class="chip-dot" style="background:${color||'#78c87a'}"></span>${label}`;
+  c.onclick=()=>setFilter(id);
+  chipBar.appendChild(c);
+}
+makeChip(null,"All","#78c87a");
+sectionCounts.forEach(s=>makeChip(s.id,s.name.split(" &")[0].split(" /")[0],s.color));
 
 function setFilter(id){
   activeFilter=id;
   document.querySelectorAll(".filter-btn").forEach((b,i)=>{
     b.classList.toggle("active",i===0?id===null:sections[i-1].id===id);
+  });
+  document.querySelectorAll(".chip").forEach(c=>{
+    const cid=c.dataset.id;
+    c.classList.toggle("active",id===null?cid==="all":String(id)===cid);
   });
   updateDots();
 }
@@ -277,6 +338,7 @@ function setFilter(id){
 function updateDots(){
   const vis=activeFilter===null?orgs.length:orgs.filter(o=>o.s===activeFilter).length;
   countEl.textContent=`Showing ${vis} of ${orgs.length} organizations`;
+  if(countMobile)countMobile.textContent=`${vis} organizations`;
   d3.selectAll(".org-dot").transition().duration(300)
     .attr("opacity",d=>activeFilter===null||d.s===activeFilter?0.85:0.08)
     .attr("r",d=>activeFilter===null||d.s===activeFilter?7:5);

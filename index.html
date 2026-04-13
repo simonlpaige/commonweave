@@ -271,10 +271,32 @@ footer {
 footer a { color: var(--dim); }
 footer a:hover { color: var(--muted); }
 
-@media (max-width: 600px) {
-  .stat-item { padding: 20px 24px; }
-  nav { padding: 0 16px; }
-  .nav-links a { padding: 0 10px; font-size: 12px; }
+@media (max-width: 700px) {
+  .stat-item { padding: 18px 20px; }
+  nav { padding: 0 14px; }
+  .nav-links a { padding: 0 8px; font-size: 12px; }
+  .nav-links a.nav-cta { display: none; }
+  .hero { padding: 48px 20px 40px; }
+  .hero h1 { font-size: 28px; }
+  .hero-lead { font-size: 15px; }
+  .start-here { grid-template-columns: 1fr; padding: 0 16px 40px; }
+  .map-box iframe { height: 360px; }
+  .map-wrap { padding: 40px 16px 0; }
+  .sections-wrap { padding: 40px 16px 0; }
+  .sections-grid { grid-template-columns: 1fr 1fr; }
+  .docs-wrap { padding: 40px 16px 0; }
+  .docs-grid { grid-template-columns: 1fr; }
+  .about-wrap { padding: 48px 16px 0; }
+  .honesty-wrap { padding: 36px 16px 0; }
+  .wiser-wrap { padding: 0 16px 40px; }
+  .stats { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+  .stat-item { flex-shrink: 0; }
+  .cta { padding: 48px 20px; }
+  footer { padding: 20px 16px; }
+}
+@media (max-width: 400px) {
+  .sections-grid { grid-template-columns: 1fr; }
+  .map-box iframe { height: 300px; }
 }
 </style>
 </head>
