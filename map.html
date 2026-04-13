@@ -2,334 +2,838 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Ecolibrium — Mapping the Networks of Change</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css" rel="stylesheet">
 <script src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js"></script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #0a100a;
-    color: #cce8b0;
-    overflow: hidden;
-    height: 100vh;
-    width: 100vw;
+:root {
+  --bg-deep: #060b06;
+  --bg-base: #0d1a0d;
+  --bg-surface: #0f1e0f;
+  --bg-elevated: #132413;
+  --border: #1a2e1a;
+  --border-bright: #2a4a2a;
+  --text-primary: #d4ecc0;
+  --text-secondary: #8aaa7a;
+  --text-dim: #4a6a3a;
+  --text-muted: #2d4a2d;
+  --accent: #78c87a;
+  --accent-glow: rgba(120, 200, 122, 0.4);
+  --earth: #c4a55d;
+  --teal: #4fc4b0;
+  --sidebar-w: 300px;
+}
+
+html, body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══════════════════════════ LOADING SCREEN ═══════════════════════════ */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#loading.fade-out { opacity: 0; pointer-events: none; }
+
+.loading-mycelium {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.loading-mycelium svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.myc-path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: 0;
+  filter: drop-shadow(0 0 4px var(--accent-glow));
+}
+
+.myc-path:nth-child(1) { animation: myc-grow 2s ease-out 0.0s infinite; }
+.myc-path:nth-child(2) { animation: myc-grow 2s ease-out 0.3s infinite; }
+.myc-path:nth-child(3) { animation: myc-grow 2s ease-out 0.6s infinite; }
+.myc-path:nth-child(4) { animation: myc-grow 2s ease-out 0.9s infinite; }
+.myc-path:nth-child(5) { animation: myc-grow 2s ease-out 1.2s infinite; }
+.myc-path:nth-child(6) { animation: myc-grow 2s ease-out 0.15s infinite; }
+.myc-path:nth-child(7) { animation: myc-grow 2s ease-out 0.45s infinite; }
+.myc-path:nth-child(8) { animation: myc-grow 2s ease-out 0.75s infinite; }
+
+@keyframes myc-grow {
+  0% { opacity: 0; stroke-dashoffset: 100; }
+  20% { opacity: 0.8; }
+  50% { opacity: 1; stroke-dashoffset: 0; }
+  80% { opacity: 0.3; }
+  100% { opacity: 0; stroke-dashoffset: -100; }
+}
+
+.myc-node {
+  fill: var(--accent);
+  opacity: 0;
+  filter: drop-shadow(0 0 6px var(--accent));
+}
+.myc-node:nth-child(9)  { animation: myc-pulse 2s ease-in-out 0.5s infinite; }
+.myc-node:nth-child(10) { animation: myc-pulse 2s ease-in-out 1.0s infinite; }
+.myc-node:nth-child(11) { animation: myc-pulse 2s ease-in-out 1.5s infinite; }
+.myc-node:nth-child(12) { animation: myc-pulse 2s ease-in-out 0.2s infinite; }
+.myc-node:nth-child(13) { animation: myc-pulse 2s ease-in-out 0.8s infinite; }
+
+@keyframes myc-pulse {
+  0%, 100% { opacity: 0; r: 1; }
+  50% { opacity: 1; r: 3; }
+}
+
+.loading-title {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 6px;
+  color: var(--accent);
+  text-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(120,200,122,0.15);
+  margin-bottom: 8px;
+}
+.loading-sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-dim);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.loading-progress {
+  margin-top: 24px;
+  width: 160px;
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.loading-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--teal));
+  border-radius: 1px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* ═══════════════════════════ LAYOUT ═══════════════════════════ */
+#layout {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+#map {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: var(--sidebar-w);
+  right: 0;
+}
+
+/* ═══════════════════════════ SIDEBAR ═══════════════════════════ */
+#sidebar {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--bg-base);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Film grain overlay */
+#sidebar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px;
+}
+
+.sb-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #253825 transparent;
+}
+.sb-scroll::-webkit-scrollbar { width: 4px; }
+.sb-scroll::-webkit-scrollbar-thumb { background: #253825; border-radius: 2px; }
+
+/* Header */
+.sb-header {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.sb-title {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: var(--accent);
+  text-shadow: 0 0 24px var(--accent-glow);
+}
+.sb-sub {
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  margin-top: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Stats dashboard */
+.sb-stats {
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.stat-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.4;
+}
+.stat-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+.stat-label {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-dim);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.stat-card.visible .stat-value { font-size: 20px; }
+
+/* Search */
+.sb-search {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.search-input {
+  width: 100%;
+  padding: 9px 12px 9px 34px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-input::placeholder { color: var(--text-muted); }
+.search-input:focus {
+  border-color: var(--border-bright);
+  box-shadow: 0 0 0 3px rgba(120,200,122,0.08);
+}
+.search-wrap {
+  position: relative;
+}
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 13px;
+  pointer-events: none;
+}
+
+/* Section labels */
+.sb-label {
+  padding: 14px 20px 8px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Filter pills */
+#filters {
+  padding: 0 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  text-align: left;
+  transition: all 0.2s ease;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.filter-btn:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+.filter-btn.active {
+  background: var(--bg-elevated);
+  border-color: var(--border-bright);
+  color: var(--text-primary);
+}
+.filter-btn.active::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+}
+
+.filter-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+}
+.filter-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.filter-btn.active .filter-dot::after { opacity: 0.3; }
+
+.filter-label { flex: 1; font-size: 11px; font-weight: 500; }
+.filter-count {
+  font-size: 10px;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+.filter-btn.active .filter-count { color: var(--text-secondary); }
+
+/* Regions */
+#regions {
+  padding: 0 12px 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.region-btn {
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+.region-btn:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-bright);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.region-btn.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Footer hint */
+.sb-hint {
+  padding: 14px 20px;
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════ FLOATING LEGEND ═══════════════════════════ */
+#legend {
+  position: absolute;
+  bottom: 28px;
+  left: calc(var(--sidebar-w) + 16px);
+  background: rgba(13, 26, 13, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  z-index: 15;
+  font-size: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  max-width: 420px;
+  transition: opacity 0.3s, transform 0.3s;
+}
+#legend.hidden { opacity: 0; transform: translateY(8px); pointer-events: none; }
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  font-weight: 500;
+}
+.legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+#legend-toggle {
+  position: absolute;
+  bottom: 28px;
+  left: calc(var(--sidebar-w) + 16px);
+  z-index: 14;
+  background: rgba(13, 26, 13, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: var(--text-dim);
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+/* ═══════════════════════════ POPUPS ═══════════════════════════ */
+.maplibregl-popup-content {
+  background: linear-gradient(145deg, rgba(15, 30, 15, 0.96), rgba(10, 20, 10, 0.98));
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-bright);
+  border-radius: 14px;
+  padding: 0;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  max-width: 300px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.7), 0 0 0 1px rgba(120,200,122,0.05);
+  overflow: hidden;
+}
+.maplibregl-popup-tip {
+  border-top-color: rgba(15, 30, 15, 0.96) !important;
+}
+.maplibregl-popup-close-button {
+  color: var(--text-dim);
+  font-size: 18px;
+  padding: 8px 10px;
+  line-height: 1;
+  z-index: 1;
+  transition: color 0.15s;
+}
+.maplibregl-popup-close-button:hover { color: var(--accent); background: transparent; }
+
+.pop-inner { padding: 16px 18px 14px; }
+.pop-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.pop-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.pop-name {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.pop-meta {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pop-meta-sep { opacity: 0.3; }
+.pop-revenue {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: rgba(196, 165, 93, 0.1);
+  border: 1px solid rgba(196, 165, 93, 0.2);
+  border-radius: 4px;
+  font-size: 10px;
+  color: var(--earth);
+  font-weight: 600;
+}
+.pop-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.pop-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 0;
+  transition: color 0.15s;
+}
+.pop-link:hover { color: #a0e8a2; text-decoration: underline; }
+.pop-link svg { width: 12px; height: 12px; }
+
+/* Hover highlight popup (tooltip) */
+.hover-popup .maplibregl-popup-content {
+  padding: 8px 12px;
+  border-radius: 8px;
+  max-width: 220px;
+  pointer-events: none;
+}
+.hover-popup .maplibregl-popup-tip {
+  display: none;
+}
+
+/* ═══════════════════════════ MOBILE ═══════════════════════════ */
+@media (max-width: 768px) {
+  :root { --sidebar-w: 0px; }
+  #sidebar { display: none; }
+  #map { left: 0; }
+  #legend { left: 12px; bottom: 80px; max-width: calc(100vw - 80px); }
+  #legend-toggle { left: 12px; bottom: 80px; }
+
+  /* FAB */
+  #mobile-fab {
+    display: flex;
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    z-index: 30;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #4fc4b0);
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(120,200,122,0.3), 0 0 0 0 rgba(120,200,122,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    color: var(--bg-deep);
+    font-size: 22px;
   }
+  #mobile-fab:active { transform: scale(0.92); }
+  #mobile-fab.open { transform: rotate(45deg); }
 
-  #layout {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-  }
-
-  /* ── Sidebar ── */
-  #sidebar {
-    position: absolute;
-    top: 0; left: 0; bottom: 0;
-    width: 260px;
-    background: #0d160d;
-    border-right: 1px solid #1e2e1e;
+  /* Bottom sheet */
+  #mobile-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 25;
+    background: var(--bg-base);
+    border-top: 1px solid var(--border-bright);
+    border-radius: 20px 20px 0 0;
+    max-height: 70vh;
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+  }
+  #mobile-sheet.open { transform: translateY(0); }
+  #mobile-sheet::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 128px;
+  }
+
+  .sheet-handle {
+    width: 36px;
+    height: 4px;
+    background: var(--border-bright);
+    border-radius: 2px;
+    margin: 10px auto;
+    flex-shrink: 0;
+  }
+  .sheet-content {
+    padding: 8px 16px 24px;
     overflow-y: auto;
-    overflow-x: hidden;
-    z-index: 10;
-    scrollbar-width: thin;
-    scrollbar-color: #253825 transparent;
+    flex: 1;
   }
-  #sidebar::-webkit-scrollbar { width: 4px; }
-  #sidebar::-webkit-scrollbar-thumb { background: #253825; border-radius: 2px; }
+  .sheet-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .sheet-stats .stat-card { padding: 10px; }
+  .sheet-stats .stat-value { font-size: 18px; }
 
-  .sb-header {
-    padding: 20px 16px 14px;
-    border-bottom: 1px solid #1e2e1e;
-  }
-  .sb-title {
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: #78c87a;
-    text-shadow: 0 0 20px rgba(120,200,122,0.4);
-  }
-  .sb-sub {
-    font-size: 10px;
-    color: #4a7040;
-    letter-spacing: 1px;
-    margin-top: 3px;
-    text-transform: uppercase;
-  }
-
-  .sb-stats {
-    padding: 12px 16px;
-    font-size: 12px;
-    color: #6a9060;
-    line-height: 1.8;
-  }
-  .sb-stats span {
-    color: #78c87a;
-    font-weight: 700;
-    font-size: 14px;
-  }
-
-  .sb-divider {
-    height: 1px;
-    background: #1e2e1e;
-    margin: 4px 0;
-  }
-
-  .sb-label {
-    padding: 10px 16px 6px;
+  .sheet-section-label {
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 2px;
-    color: #3d5a3d;
+    color: var(--text-muted);
     text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-top: 8px;
   }
 
-  #filters {
-    padding: 4px 10px 8px;
+  .sheet-filters {
     display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .filter-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 8px;
-    border-radius: 6px;
-    cursor: pointer;
-    border: 1px solid transparent;
-    background: transparent;
-    color: #8aaa7a;
-    font-size: 12px;
-    text-align: left;
-    transition: all 0.15s ease;
-    width: 100%;
-  }
-  .filter-btn:hover {
-    background: #162016;
-    border-color: #253825;
-    color: #cce8b0;
-  }
-  .filter-btn.active {
-    background: #162016;
-    border-color: #3a5a3a;
-    color: #cce8b0;
-  }
-  .filter-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    box-shadow: 0 0 6px currentColor;
-  }
-  .filter-label { flex: 1; font-size: 11px; }
-  .filter-count {
-    font-size: 10px;
-    color: #4a7040;
-    font-variant-numeric: tabular-nums;
-  }
-  .filter-btn.active .filter-count { color: #6a9060; }
-
-  #regions {
-    padding: 4px 10px 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .region-btn {
-    padding: 7px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    border: 1px solid #1e2e1e;
-    background: #111811;
-    color: #6a9060;
-    font-size: 11px;
-    text-align: left;
-    transition: all 0.15s ease;
-    width: 100%;
-  }
-  .region-btn:hover {
-    background: #162016;
-    border-color: #253825;
-    color: #cce8b0;
-  }
-
-  .sb-hint {
-    margin-top: auto;
-    padding: 12px 16px;
-    font-size: 10px;
-    color: #2d3d2d;
-    line-height: 1.7;
-    border-top: 1px solid #1e2e1e;
-  }
-
-  /* ── Map ── */
-  #map {
-    flex: 1;
-    height: 100vh;
-  }
-
-  /* ── Loading overlay ── */
-  #loading {
-    position: fixed;
-    inset: 0;
-    background: #0a100a;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    transition: opacity 0.5s ease;
-  }
-  #loading.fade-out { opacity: 0; pointer-events: none; }
-
-  .spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid #1e2e1e;
-    border-top-color: #78c87a;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+    flex-wrap: wrap;
+    gap: 6px;
     margin-bottom: 16px;
   }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .loading-title {
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: 4px;
-    color: #78c87a;
-    text-shadow: 0 0 30px rgba(120,200,122,0.5);
-    margin-bottom: 6px;
-  }
-  .loading-sub {
+  .sheet-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--bg-surface);
+    color: var(--text-secondary);
+    font-family: 'Inter', sans-serif;
     font-size: 11px;
-    color: #4a7040;
-    letter-spacing: 2px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .sheet-chip.active {
+    border-color: var(--border-bright);
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+  }
+  .sheet-chip-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
   }
 
-  /* ── MapLibre Popup ── */
-  .maplibregl-popup-content {
-    background: #162016f0;
-    backdrop-filter: blur(8px);
-    border: 1px solid #253825;
-    border-radius: 10px;
-    padding: 12px 14px;
-    color: #cce8b0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    max-width: 280px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  .sheet-regions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
   }
-  .maplibregl-popup-tip { border-top-color: #162016 !important; }
-  .maplibregl-popup-close-button {
-    color: #5e8a52;
-    font-size: 16px;
-    padding: 4px 8px;
-    line-height: 1;
-  }
-  .maplibregl-popup-close-button:hover { color: #78c87a; background: transparent; }
+  .sheet-regions .region-btn { font-size: 11px; padding: 8px; }
+}
 
-  .pop-name { font-weight: 700; font-size: 14px; margin-bottom: 3px; }
-  .pop-meta { font-size: 11px; color: #4a7040; margin-bottom: 6px; }
-  .pop-desc { font-size: 12px; color: #8aaa7a; margin-bottom: 6px; line-height: 1.5; }
-  .pop-link { font-size: 11px; color: #78c87a; text-decoration: none; display: inline-block; margin-top: 2px; }
-  .pop-link:hover { text-decoration: underline; }
+@media (min-width: 769px) {
+  #mobile-fab, #mobile-sheet { display: none !important; }
+}
 
-  /* ── Mobile ── */
-  @media (max-width: 640px) {
-    #sidebar { display: none; }
+/* ═══════════════════════════ MAPLIBRE OVERRIDES ═══════════════════════════ */
+.maplibregl-ctrl-group {
+  background: rgba(13, 26, 13, 0.85) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important;
+  overflow: hidden;
+}
+.maplibregl-ctrl-group button {
+  width: 34px !important;
+  height: 34px !important;
+  border-color: var(--border) !important;
+}
+.maplibregl-ctrl-group button + button {
+  border-top: 1px solid var(--border) !important;
+}
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: brightness(0.5) sepia(1) hue-rotate(80deg) saturate(2);
+}
 
-    #mobile-bar {
-      display: flex;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 20;
-      background: #0d160dec;
-      backdrop-filter: blur(12px);
-      border-top: 1px solid #1e2e1e;
-      padding: 8px 10px;
-      gap: 6px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    #mobile-bar::-webkit-scrollbar { display: none; }
+/* ═══════════════════════════ ANIMATIONS ═══════════════════════════ */
+@keyframes counter-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.stat-animate {
+  animation: counter-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
 
-    .mobile-chip {
-      flex-shrink: 0;
-      padding: 5px 10px;
-      border-radius: 20px;
-      border: 1px solid #253825;
-      background: #111811;
-      color: #8aaa7a;
-      font-size: 11px;
-      cursor: pointer;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.15s;
-    }
-    .mobile-chip.active {
-      background: #162016;
-      border-color: #3a5a3a;
-      color: #cce8b0;
-    }
-    .mobile-chip-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-  }
-
-  @media (min-width: 641px) {
-    #mobile-bar { display: none; }
-  }
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(120,200,122,0); }
+  50% { box-shadow: 0 0 0 4px rgba(120,200,122,0.15); }
+}
 </style>
 </head>
 <body>
 
-<!-- Loading -->
+<!-- ═══════════ LOADING ═══════════ -->
 <div id="loading">
-  <div class="spinner"></div>
+  <div class="loading-mycelium">
+    <svg viewBox="0 0 120 120">
+      <!-- Mycelium tendrils -->
+      <path class="myc-path" d="M60,60 Q45,40 30,25" stroke-dasharray="60"/>
+      <path class="myc-path" d="M60,60 Q75,35 95,20" stroke-dasharray="70"/>
+      <path class="myc-path" d="M60,60 Q40,65 15,70" stroke-dasharray="65"/>
+      <path class="myc-path" d="M60,60 Q80,70 100,85" stroke-dasharray="60"/>
+      <path class="myc-path" d="M60,60 Q55,80 50,105" stroke-dasharray="55"/>
+      <path class="myc-path" d="M60,60 Q35,50 10,50" stroke-dasharray="65"/>
+      <path class="myc-path" d="M60,60 Q70,45 90,55" stroke-dasharray="50"/>
+      <path class="myc-path" d="M60,60 Q65,85 75,110" stroke-dasharray="60"/>
+      <!-- Spore nodes at tendril tips -->
+      <circle class="myc-node" cx="30" cy="25" r="2"/>
+      <circle class="myc-node" cx="95" cy="20" r="2"/>
+      <circle class="myc-node" cx="15" cy="70" r="2"/>
+      <circle class="myc-node" cx="100" cy="85" r="2"/>
+      <circle class="myc-node" cx="50" cy="105" r="2"/>
+      <!-- Center spore -->
+      <circle cx="60" cy="60" r="4" fill="var(--accent)" opacity="0.8" filter="url(#glow)"/>
+      <circle cx="60" cy="60" r="2" fill="#fff" opacity="0.9"/>
+      <defs>
+        <filter id="glow"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+    </svg>
+  </div>
   <div class="loading-title">ECOLIBRIUM</div>
-  <div class="loading-sub">loading networks of change…</div>
+  <div class="loading-sub">mapping the networks of change</div>
+  <div class="loading-progress"><div class="loading-progress-bar" id="progress-bar"></div></div>
 </div>
 
+<!-- ═══════════ MAIN LAYOUT ═══════════ -->
 <div id="layout">
+  <!-- Sidebar -->
   <div id="sidebar">
     <div class="sb-header">
       <div class="sb-title">ECOLIBRIUM</div>
       <div class="sb-sub">mapping the networks of change</div>
     </div>
-    <div class="sb-stats">
-      <span id="total-count">—</span> organizations<br>
-      <span id="country-count">—</span> countries
+    <div class="sb-scroll">
+      <div class="sb-stats">
+        <div class="stat-card">
+          <div class="stat-value" id="stat-orgs">—</div>
+          <div class="stat-label">Organizations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-countries">—</div>
+          <div class="stat-label">Countries</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-visible">—</div>
+          <div class="stat-label">Visible</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-networks">—</div>
+          <div class="stat-label">Networks</div>
+        </div>
+      </div>
+
+      <div class="sb-search">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input type="text" class="search-input" id="search-input" placeholder="Search organizations…" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+
+      <div class="sb-label">Networks</div>
+      <div id="filters"></div>
+
+      <div class="sb-label">Explore Regions</div>
+      <div id="regions"></div>
     </div>
-    <div class="sb-divider"></div>
-    <div class="sb-label">Filter by Network</div>
-    <div id="filters"></div>
-    <div class="sb-divider"></div>
-    <div class="sb-label">Explore Regions</div>
-    <div id="regions"></div>
     <div class="sb-hint">scroll to zoom · click clusters to expand · click orgs for details</div>
   </div>
 
-  <div id="map" style="position:absolute;top:0;bottom:0;left:260px;right:0;"></div>
+  <!-- Map -->
+  <div id="map"></div>
+
+  <!-- Legend -->
+  <div id="legend"></div>
 </div>
 
-<!-- Mobile bottom bar -->
-<div id="mobile-bar"></div>
+<!-- ═══════════ MOBILE ═══════════ -->
+<button id="mobile-fab" aria-label="Open filters">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="6" r="2" fill="currentColor"/><circle cx="15" cy="12" r="2" fill="currentColor"/><circle cx="9" cy="18" r="2" fill="currentColor"/></svg>
+</button>
+<div id="mobile-sheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-content" id="sheet-content"></div>
+</div>
 
 <script>
-// ── Constants ──────────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════════
+// CONSTANTS
+// ══════════════════════════════════════════════════════════════════════════
 
 const AREA_COLORS = {
   democracy:      '#4da6ff',
@@ -343,11 +847,10 @@ const AREA_COLORS = {
   recreation_arts:'#e040fb',
   ecology:        '#69ff47'
 };
-const DEFAULT_COLOR = '#aaaaaa';
 
 const AREA_NAMES = {
   democracy:      'Democratic Infrastructure',
-  cooperatives:   'Cooperatives & Solidarity Economy',
+  cooperatives:   'Cooperatives & Solidarity',
   healthcare:     'Healthcare',
   food:           'Food & Agriculture',
   education:      'Education',
@@ -358,15 +861,43 @@ const AREA_NAMES = {
   ecology:        'Ecological Restoration'
 };
 
+const AREA_SHORT = {
+  democracy: 'Democracy', cooperatives: 'Cooperatives', healthcare: 'Healthcare',
+  food: 'Food', education: 'Education', housing_land: 'Housing',
+  conflict: 'Conflict', energy_digital: 'Energy/Digital',
+  recreation_arts: 'Arts', ecology: 'Ecology'
+};
+
+const AREAS_ORDERED = Object.keys(AREA_COLORS);
+
 const REGIONS = [
-  { name: '🌐 World',    center: [0, 20],    zoom: 1.5 },
-  { name: '🌎 Americas', center: [-80, 10],  zoom: 2.5 },
-  { name: '🌍 Africa',   center: [20, 5],    zoom: 3   },
-  { name: '🌏 Asia',     center: [100, 25],  zoom: 3   },
-  { name: '🇪🇺 Europe',  center: [15, 52],   zoom: 4   },
+  { name: 'World',    emoji: '🌐', center: [0, 20],    zoom: 1.5, full: true },
+  { name: 'Americas', emoji: '🌎', center: [-80, 10],  zoom: 2.8 },
+  { name: 'Europe',   emoji: '🇪🇺', center: [15, 52],   zoom: 3.8 },
+  { name: 'Africa',   emoji: '🌍', center: [20, 5],    zoom: 3 },
+  { name: 'Asia',     emoji: '🌏', center: [100, 25],  zoom: 3 },
 ];
 
-// ── Jitter ─────────────────────────────────────────────────────────────────
+const colorExpr = ['match', ['get', 'f'],
+  ...AREAS_ORDERED.flatMap(a => [a, AREA_COLORS[a]]),
+  '#aaaaaa'
+];
+
+// ══════════════════════════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════════════════════════
+
+let allPoints = [];
+let currentGeojson = null;
+let activeFilter = null;
+let searchTerm = '';
+let mapReady = false;
+let dataReady = false;
+let hoverPopup = null;
+
+// ══════════════════════════════════════════════════════════════════════════
+// UTILITY
+// ══════════════════════════════════════════════════════════════════════════
 
 function jitter(name, la, lo) {
   let seed = 0;
@@ -374,20 +905,115 @@ function jitter(name, la, lo) {
     seed = (seed * 31 + name.charCodeAt(i)) & 0xffffffff;
   const r1 = Math.abs(((seed * 1664525 + 1013904223) & 0xffffffff) / 2147483648);
   const r2 = Math.abs(((seed * 22695477 + 1) & 0xffffffff) / 2147483648);
-  const spread = 1.8;
-  return [la + (r1 - 0.5) * spread, lo + (r2 - 0.5) * spread];
+  return [la + (r1 - 0.5) * 1.8, lo + (r2 - 0.5) * 1.8];
 }
 
-// ── State ──────────────────────────────────────────────────────────────────
+function formatNum(n) {
+  if (n >= 1e9) return (n / 1e9).toFixed(1) + 'B';
+  if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+  if (n >= 1e3) return (n / 1e3).toFixed(0) + 'K';
+  return n.toLocaleString();
+}
 
-let currentGeojson = null;
-let activeFilter = null;
-let mapReady = false;
-let dataReady = false;
+function animateCounter(el, target, duration = 800) {
+  const start = performance.now();
+  const from = 0;
+  el.classList.add('stat-animate');
+  function tick(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(from + (target - from) * ease).toLocaleString();
+    if (t < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
 
-// ── Map init ───────────────────────────────────────────────────────────────
+function setProgress(pct) {
+  const bar = document.getElementById('progress-bar');
+  if (bar) bar.style.width = pct + '%';
+}
 
-// Dark style using CARTO dark tiles via tile.openstreetmap.org proxy (no auth needed)
+// ══════════════════════════════════════════════════════════════════════════
+// DONUT CLUSTER RENDERING
+// ══════════════════════════════════════════════════════════════════════════
+
+const donutCache = new Map();
+
+function makeDonutImage(props) {
+  const total = props.point_count;
+  const counts = AREAS_ORDERED.map(a => props[a + '_c'] || 0);
+  const key = counts.join(',') + ':' + total;
+  if (donutCache.has(key)) return donutCache.get(key);
+
+  // Size based on count
+  const r = total < 10 ? 18 : total < 50 ? 24 : total < 200 ? 32 : total < 1000 ? 40 : 48;
+  const size = r * 2 + 16; // extra for glow
+  const cx = size / 2, cy = size / 2;
+  const outerR = r;
+  const innerR = r * 0.55;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = size * 2; // retina
+  canvas.height = size * 2;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(2, 2);
+
+  // Outer glow
+  const grd = ctx.createRadialGradient(cx, cy, innerR, cx, cy, outerR + 6);
+  grd.addColorStop(0, 'rgba(120,200,122,0.0)');
+  grd.addColorStop(0.7, 'rgba(120,200,122,0.05)');
+  grd.addColorStop(1, 'rgba(120,200,122,0.0)');
+  ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, size, size);
+
+  // Donut segments
+  let angle = -Math.PI / 2;
+  for (let i = 0; i < AREAS_ORDERED.length; i++) {
+    if (counts[i] === 0) continue;
+    const slice = (counts[i] / total) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, outerR, angle, angle + slice);
+    ctx.closePath();
+    ctx.fillStyle = AREA_COLORS[AREAS_ORDERED[i]];
+    ctx.globalAlpha = 0.85;
+    ctx.fill();
+    angle += slice;
+  }
+
+  // Inner circle (dark center)
+  ctx.globalAlpha = 1;
+  ctx.beginPath();
+  ctx.arc(cx, cy, innerR, 0, Math.PI * 2);
+  ctx.fillStyle = '#0a140a';
+  ctx.fill();
+
+  // Subtle ring
+  ctx.beginPath();
+  ctx.arc(cx, cy, outerR, 0, Math.PI * 2);
+  ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // Count text
+  const label = total >= 1000 ? formatNum(total) : total.toString();
+  ctx.font = `${total >= 1000 ? 9 : total >= 100 ? 10 : 11}px Inter, system-ui, sans-serif`;
+  ctx.fontWeight = '700';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#ffffff';
+  ctx.globalAlpha = 0.95;
+  ctx.fillText(label, cx, cy + 0.5);
+
+  const result = { data: ctx.getImageData(0, 0, canvas.width, canvas.height), width: size, height: size };
+  donutCache.set(key, result);
+  return result;
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// MAP SETUP
+// ══════════════════════════════════════════════════════════════════════════
+
 const DARK_STYLE = {
   version: 8,
   name: 'Ecolibrium Dark',
@@ -395,28 +1021,30 @@ const DARK_STYLE = {
     'osm-dark': {
       type: 'raster',
       tiles: [
-        'https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-        'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-        'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-        'https://d.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+        'https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+        'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+        'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+        'https://d.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
       ],
       tileSize: 256,
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> © <a href="https://carto.com/attributions">CARTO</a>',
       maxzoom: 19
     }
   },
   layers: [{
     id: 'background',
     type: 'background',
-    paint: { 'background-color': '#060d06' }
+    paint: { 'background-color': '#050a05' }
   }, {
     id: 'osm-dark-tiles',
     type: 'raster',
     source: 'osm-dark',
-    paint: { 'raster-opacity': 1.0 }
+    paint: { 'raster-opacity': 0.85, 'raster-brightness-max': 0.75 }
   }],
   glyphs: 'https://fonts.openmaptiles.org/{fontstack}/{range}.pbf'
 };
+
+setProgress(10);
 
 const map = new maplibregl.Map({
   container: 'map',
@@ -425,28 +1053,15 @@ const map = new maplibregl.Map({
   zoom: 1.5,
   minZoom: 1,
   maxZoom: 14,
-  attributionControl: false
+  attributionControl: false,
+  fadeDuration: 300
 });
 
 map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right');
 
-// ── Color expression ───────────────────────────────────────────────────────
-
-const colorExpr = ['match', ['get', 'f'],
-  'democracy',      '#4da6ff',
-  'cooperatives',   '#00e87a',
-  'healthcare',     '#ff6eb4',
-  'food',           '#ff9500',
-  'education',      '#b388ff',
-  'housing_land',   '#ffe066',
-  'conflict',       '#ff6b6b',
-  'energy_digital', '#00e5ff',
-  'recreation_arts','#e040fb',
-  'ecology',        '#69ff47',
-  '#aaaaaa'
-];
-
-// ── Build GeoJSON from raw points ──────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════════
+// BUILD GEOJSON
+// ══════════════════════════════════════════════════════════════════════════
 
 function buildGeojson(points) {
   return {
@@ -462,87 +1077,80 @@ function buildGeojson(points) {
   };
 }
 
-// ── Add map sources & layers ───────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════════
+// LAYERS
+// ══════════════════════════════════════════════════════════════════════════
 
 function addLayers(geojson) {
   map.addSource('orgs', {
     type: 'geojson',
     data: geojson,
     cluster: true,
-    clusterMaxZoom: 9,
-    clusterRadius: 40,
-    clusterProperties: {
-      democracy_c:      ['+', ['case', ['==', ['get', 'f'], 'democracy'],      1, 0]],
-      cooperatives_c:   ['+', ['case', ['==', ['get', 'f'], 'cooperatives'],   1, 0]],
-      healthcare_c:     ['+', ['case', ['==', ['get', 'f'], 'healthcare'],     1, 0]],
-      food_c:           ['+', ['case', ['==', ['get', 'f'], 'food'],           1, 0]],
-      education_c:      ['+', ['case', ['==', ['get', 'f'], 'education'],      1, 0]],
-      housing_land_c:   ['+', ['case', ['==', ['get', 'f'], 'housing_land'],   1, 0]],
-      conflict_c:       ['+', ['case', ['==', ['get', 'f'], 'conflict'],       1, 0]],
-      energy_digital_c: ['+', ['case', ['==', ['get', 'f'], 'energy_digital'], 1, 0]],
-      recreation_arts_c:['+', ['case', ['==', ['get', 'f'], 'recreation_arts'],1, 0]],
-      ecology_c:        ['+', ['case', ['==', ['get', 'f'], 'ecology'],        1, 0]],
-    }
+    clusterMaxZoom: 11,
+    clusterRadius: 50,
+    clusterProperties: Object.fromEntries(
+      AREAS_ORDERED.map(a => [
+        a + '_c',
+        ['+', ['case', ['==', ['get', 'f'], a], 1, 0]]
+      ])
+    )
   });
 
-  // Heatmap (behind clusters)
+  // ── Heatmap: ambient glow ──
   map.addLayer({
     id: 'heatmap',
     type: 'heatmap',
     source: 'orgs',
-    maxzoom: 8,
+    maxzoom: 9,
     paint: {
-      'heatmap-weight': ['interpolate', ['linear'], ['zoom'], 0, 0.3, 6, 1],
-      'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 0, 0.8, 6, 2],
+      'heatmap-weight': ['interpolate', ['linear'], ['zoom'], 0, 0.4, 6, 1],
+      'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 0, 0.6, 6, 2.5],
       'heatmap-color': [
         'interpolate', ['linear'], ['heatmap-density'],
-        0,   'rgba(4,9,4,0)',
-        0.1, 'rgba(0,232,122,0.3)',
-        0.3, 'rgba(77,166,255,0.5)',
-        0.5, 'rgba(255,110,180,0.6)',
-        0.7, 'rgba(255,149,0,0.7)',
-        1.0, 'rgba(255,255,150,0.9)'
+        0,    'rgba(4,9,4,0)',
+        0.05, 'rgba(40,120,60,0.15)',
+        0.15, 'rgba(0,232,122,0.25)',
+        0.3,  'rgba(77,166,255,0.35)',
+        0.5,  'rgba(79,196,176,0.5)',
+        0.7,  'rgba(255,149,0,0.55)',
+        0.85, 'rgba(255,110,180,0.65)',
+        1.0,  'rgba(255,255,180,0.85)'
       ],
-      'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 20, 6, 40],
-      'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 5, 0.8, 8, 0]
+      'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 18, 4, 35, 8, 50],
+      'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 6, 0.7, 9, 0]
     }
   });
 
-  // Cluster circles
+  // ── Glow halo behind unclustered points ──
   map.addLayer({
-    id: 'clusters',
+    id: 'point-glow-outer',
     type: 'circle',
     source: 'orgs',
-    filter: ['has', 'point_count'],
+    filter: ['!', ['has', 'point_count']],
     paint: {
-      'circle-color': '#78c87a',
-      'circle-radius': ['step', ['get', 'point_count'], 12, 10, 18, 50, 24, 200, 32],
-      'circle-opacity': 0.85,
-      'circle-blur': 0.3,
-      'circle-stroke-width': 1.5,
-      'circle-stroke-color': '#ffffff',
-      'circle-stroke-opacity': 0.2
+      'circle-color': colorExpr,
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 10, 12, 18, 14, 24],
+      'circle-opacity': 0,
+      'circle-blur': 1,
+      'circle-stroke-width': 0,
     }
   });
 
-  // Cluster count labels
+  // ── Medium glow ring ──
   map.addLayer({
-    id: 'cluster-count',
-    type: 'symbol',
+    id: 'point-glow-mid',
+    type: 'circle',
     source: 'orgs',
-    filter: ['has', 'point_count'],
-    layout: {
-      'text-field': ['get', 'point_count_abbreviated'],
-      'text-font': ['Open Sans Semibold', 'Arial Unicode MS Regular'],
-      'text-size': 11
-    },
+    filter: ['!', ['has', 'point_count']],
     paint: {
-      'text-color': '#ffffff',
-      'text-opacity': 0.9
+      'circle-color': colorExpr,
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 5, 12, 10, 14, 14],
+      'circle-opacity': ['interpolate', ['linear'], ['zoom'], 9, 0.12, 12, 0.18],
+      'circle-blur': 0.8,
     }
   });
 
-  // Individual unclustered points
+  // ── Core unclustered points ──
   map.addLayer({
     id: 'unclustered-point',
     type: 'circle',
@@ -550,236 +1158,557 @@ function addLayers(geojson) {
     filter: ['!', ['has', 'point_count']],
     paint: {
       'circle-color': colorExpr,
-      'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 3, 12, 6, 14, 8],
-      'circle-opacity': 0.8,
-      'circle-blur': 0.2,
-      'circle-stroke-width': 0.5,
-      'circle-stroke-color': '#000000',
-      'circle-stroke-opacity': 0.3
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 3, 12, 5.5, 14, 7],
+      'circle-opacity': 0.9,
+      'circle-blur': 0.05,
+      'circle-stroke-width': ['interpolate', ['linear'], ['zoom'], 9, 0.5, 14, 1],
+      'circle-stroke-color': 'rgba(255,255,255,0.15)',
     }
   });
+
+  // ── Cluster donut layer (symbol, rendered from canvas) ──
+  // We update cluster images on each render
+  map.addLayer({
+    id: 'clusters',
+    type: 'circle',
+    source: 'orgs',
+    filter: ['has', 'point_count'],
+    paint: {
+      'circle-color': 'rgba(0,0,0,0)',
+      'circle-radius': 0
+    }
+  });
+
+  setProgress(80);
 }
 
-// ── Interactions ───────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════════
+// DONUT CLUSTER RENDERER
+// ══════════════════════════════════════════════════════════════════════════
 
-function setupInteractions() {
-  // Click cluster → zoom in
-  map.on('click', 'clusters', (e) => {
-    const features = map.queryRenderedFeatures(e.point, { layers: ['clusters'] });
-    const clusterId = features[0].properties.cluster_id;
+const clusterMarkers = {};
+let clusterMarkersOnScreen = {};
+
+function updateDonuts() {
+  const newMarkers = {};
+  const features = map.querySourceFeatures('orgs');
+
+  for (const f of features) {
+    const props = f.properties;
+    if (!props.cluster) continue;
+    const id = props.cluster_id;
+    let marker = clusterMarkers[id];
+    if (!marker) {
+      const el = createDonutElement(props);
+      marker = clusterMarkers[id] = new maplibregl.Marker({ element: el })
+        .setLngLat(f.geometry.coordinates);
+    }
+    newMarkers[id] = marker;
+
+    if (!clusterMarkersOnScreen[id]) {
+      marker.addTo(map);
+    }
+  }
+
+  // Remove off-screen
+  for (const id in clusterMarkersOnScreen) {
+    if (!newMarkers[id]) {
+      clusterMarkersOnScreen[id].remove();
+    }
+  }
+  clusterMarkersOnScreen = newMarkers;
+}
+
+function createDonutElement(props) {
+  const total = props.point_count;
+  const counts = AREAS_ORDERED.map(a => {
+    const v = props[a + '_c'];
+    return typeof v === 'string' ? parseInt(v) || 0 : v || 0;
+  });
+
+  const r = total < 10 ? 16 : total < 50 ? 22 : total < 200 ? 28 : total < 1000 ? 36 : 44;
+  const size = r * 2;
+  const outerR = r;
+  const innerR = r * 0.55;
+
+  const el = document.createElement('div');
+  el.style.cssText = `width:${size}px;height:${size}px;cursor:pointer;position:relative;`;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = size * 2;
+  canvas.height = size * 2;
+  canvas.style.cssText = `width:${size}px;height:${size}px;`;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(2, 2);
+
+  const cx = r, cy = r;
+
+  // Draw donut segments
+  let angle = -Math.PI / 2;
+  for (let i = 0; i < AREAS_ORDERED.length; i++) {
+    if (counts[i] === 0) continue;
+    const slice = (counts[i] / total) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, outerR - 1, angle, angle + slice);
+    ctx.closePath();
+    ctx.fillStyle = AREA_COLORS[AREAS_ORDERED[i]];
+    ctx.globalAlpha = 0.85;
+    ctx.fill();
+
+    // Segment border
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, outerR - 1, angle, angle + slice);
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+    ctx.lineWidth = 0.5;
+    ctx.globalAlpha = 1;
+    ctx.stroke();
+
+    angle += slice;
+  }
+
+  // Inner circle
+  ctx.globalAlpha = 1;
+  ctx.beginPath();
+  ctx.arc(cx, cy, innerR, 0, Math.PI * 2);
+  ctx.fillStyle = '#0b150b';
+  ctx.fill();
+
+  // Subtle outer ring
+  ctx.beginPath();
+  ctx.arc(cx, cy, outerR - 1, 0, Math.PI * 2);
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // Count text
+  const label = total >= 1000 ? formatNum(total) : total.toString();
+  const fontSize = total >= 10000 ? 8 : total >= 1000 ? 9 : total >= 100 ? 10 : 11;
+  ctx.font = `600 ${fontSize}px Inter, system-ui, sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = 'rgba(255,255,255,0.92)';
+  ctx.fillText(label, cx, cy + 0.5);
+
+  el.appendChild(canvas);
+
+  // Hover glow effect
+  el.addEventListener('mouseenter', () => {
+    canvas.style.filter = 'drop-shadow(0 0 6px rgba(120,200,122,0.4))';
+    canvas.style.transition = 'filter 0.2s';
+  });
+  el.addEventListener('mouseleave', () => {
+    canvas.style.filter = 'none';
+  });
+
+  // Click to expand
+  el.addEventListener('click', () => {
+    const clusterId = props.cluster_id;
     map.getSource('orgs').getClusterExpansionZoom(clusterId, (err, zoom) => {
       if (err) return;
-      map.easeTo({
-        center: features[0].geometry.coordinates,
-        zoom: zoom + 1,
-        duration: 600
-      });
+      // Find current position from marker
+      const marker = clusterMarkers[clusterId];
+      if (marker) {
+        map.easeTo({
+          center: marker.getLngLat(),
+          zoom: Math.min(zoom + 1, 14),
+          duration: 600
+        });
+      }
     });
   });
 
-  // Click org → popup
-  map.on('click', 'unclustered-point', (e) => {
+  return el;
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// INTERACTIONS
+// ══════════════════════════════════════════════════════════════════════════
+
+function setupInteractions() {
+  hoverPopup = new maplibregl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+    offset: 12,
+    className: 'hover-popup'
+  });
+
+  // Hover on unclustered point
+  map.on('mouseenter', 'unclustered-point', (e) => {
+    map.getCanvas().style.cursor = 'pointer';
     const props = e.features[0].properties;
     const coords = e.features[0].geometry.coordinates.slice();
-    const color = AREA_COLORS[props.f] || DEFAULT_COLOR;
-    const areaName = AREA_NAMES[props.f] || props.f || '';
+    const color = AREA_COLORS[props.f] || '#aaa';
+    const area = AREA_SHORT[props.f] || props.f || '';
 
-    // Ensure popup stays in view when near antimeridian
+    hoverPopup.setLngLat(coords).setHTML(
+      `<div style="font-size:12px;font-weight:600;color:${color};margin-bottom:2px">${(props.n || 'Organization').slice(0, 60)}</div>` +
+      `<div style="font-size:10px;color:#6a9060">${area}${props.cc ? ' · ' + props.cc : ''}</div>`
+    ).addTo(map);
+
+    // Pulse effect via paint
+    map.setPaintProperty('point-glow-outer', 'circle-opacity', [
+      'case',
+      ['==', ['get', 'n'], props.n],
+      0.25,
+      0
+    ]);
+  });
+
+  map.on('mouseleave', 'unclustered-point', () => {
+    map.getCanvas().style.cursor = '';
+    hoverPopup.remove();
+    map.setPaintProperty('point-glow-outer', 'circle-opacity', 0);
+  });
+
+  // Click org → rich popup
+  map.on('click', 'unclustered-point', (e) => {
+    hoverPopup.remove();
+    const props = e.features[0].properties;
+    const coords = e.features[0].geometry.coordinates.slice();
+    const color = AREA_COLORS[props.f] || '#aaa';
+    const areaName = AREA_NAMES[props.f] || props.f || '';
+    const areaShort = AREA_SHORT[props.f] || props.f || '';
+
     while (Math.abs(e.lngLat.lng - coords[0]) > 180)
       coords[0] += e.lngLat.lng > coords[0] ? 360 : -360;
 
     const desc = props.d && props.d !== 'null' ? props.d : '';
     const website = props.w && props.w !== 'null' ? props.w : '';
-    const country = props.cc && props.cc !== 'null' ? props.cc : 'US';
+    const country = props.cc && props.cc !== 'null' ? props.cc : '';
+    const model = props.m && props.m !== 'null' ? props.m : '';
+    const revenue = props.r && props.r !== 'null' && props.r > 0 ? props.r : 0;
 
-    const descHtml = desc
-      ? `<div class="pop-desc">${desc.slice(0, 150)}${desc.length > 150 ? '…' : ''}</div>`
-      : '';
-    const linkHtml = website
-      ? `<a class="pop-link" href="${website.startsWith('http') ? website : 'https://' + website}" target="_blank" rel="noopener">↗ ${website.replace(/^https?:\/\//, '').split('/')[0]}</a>`
-      : '';
+    const badgeBg = color + '18';
+    const badgeBorder = color + '30';
 
-    new maplibregl.Popup({ className: 'org-popup', offset: 10 })
+    let html = `<div class="pop-inner">`;
+    html += `<div class="pop-badge" style="background:${badgeBg};border:1px solid ${badgeBorder};color:${color}">`;
+    html += `<span class="pop-badge-dot" style="background:${color};box-shadow:0 0 6px ${color}"></span>`;
+    html += `${areaShort}</div>`;
+    html += `<div class="pop-name">${props.n || 'Organization'}</div>`;
+    html += `<div class="pop-meta">`;
+    if (country) html += `<span>${country}</span>`;
+    if (model) html += `<span class="pop-meta-sep">·</span><span style="text-transform:capitalize">${model}</span>`;
+    html += `</div>`;
+    if (revenue) {
+      html += `<div style="margin-bottom:10px"><span class="pop-revenue">$ ${formatNum(revenue)}</span></div>`;
+    }
+    if (desc) {
+      html += `<div class="pop-desc">${desc.slice(0, 180)}${desc.length > 180 ? '…' : ''}</div>`;
+    }
+    if (website) {
+      const href = website.startsWith('http') ? website : 'https://' + website;
+      const display = website.replace(/^https?:\/\//, '').split('/')[0];
+      html += `<a class="pop-link" href="${href}" target="_blank" rel="noopener">`;
+      html += `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+      html += `${display}</a>`;
+    }
+    html += `</div>`;
+
+    new maplibregl.Popup({ offset: 14, maxWidth: '300px' })
       .setLngLat(coords)
-      .setHTML(`
-        <div class="pop-name" style="color:${color}">${props.n || 'Organization'}</div>
-        <div class="pop-meta">${country} · ${areaName}</div>
-        ${descHtml}
-        ${linkHtml}
-      `)
+      .setHTML(html)
       .addTo(map);
   });
 
-  // Cursors
-  map.on('mouseenter', 'clusters', () => { map.getCanvas().style.cursor = 'pointer'; });
-  map.on('mouseleave', 'clusters', () => { map.getCanvas().style.cursor = ''; });
-  map.on('mouseenter', 'unclustered-point', () => { map.getCanvas().style.cursor = 'pointer'; });
-  map.on('mouseleave', 'unclustered-point', () => { map.getCanvas().style.cursor = ''; });
+  // Update donuts on map movement
+  map.on('render', () => {
+    if (!map.isSourceLoaded('orgs')) return;
+    updateDonuts();
+  });
+
+  // Update visible count
+  map.on('moveend', updateVisibleCount);
+  map.on('zoomend', updateVisibleCount);
 }
 
-// ── Filter logic ───────────────────────────────────────────────────────────
+function updateVisibleCount() {
+  try {
+    const features = map.queryRenderedFeatures({ layers: ['unclustered-point'] });
+    const el = document.getElementById('stat-visible');
+    if (el && features) {
+      el.textContent = features.length.toLocaleString();
+    }
+  } catch(e) {}
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// FILTERING
+// ══════════════════════════════════════════════════════════════════════════
+
+function applyFilters() {
+  let filtered = allPoints;
+
+  if (activeFilter) {
+    filtered = filtered.filter(p => p.f === activeFilter);
+  }
+
+  if (searchTerm) {
+    const q = searchTerm.toLowerCase();
+    filtered = filtered.filter(p =>
+      (p.n && p.n.toLowerCase().includes(q)) ||
+      (p.d && p.d.toLowerCase().includes(q)) ||
+      (p.cc && p.cc.toLowerCase().includes(q))
+    );
+  }
+
+  currentGeojson = buildGeojson(filtered);
+
+  if (map.getSource('orgs')) {
+    // Clear old cluster markers
+    for (const id in clusterMarkersOnScreen) {
+      clusterMarkersOnScreen[id].remove();
+    }
+    Object.keys(clusterMarkers).forEach(k => delete clusterMarkers[k]);
+    clusterMarkersOnScreen = {};
+    donutCache.clear();
+
+    map.getSource('orgs').setData(currentGeojson);
+  }
+
+  updateFilterUI();
+  setTimeout(updateVisibleCount, 300);
+}
 
 function setFilter(area) {
-  activeFilter = area;
-
-  if (area === null) {
-    map.setFilter('unclustered-point', ['!', ['has', 'point_count']]);
-    map.setFilter('heatmap', null);
-    map.getSource('orgs').setData(currentGeojson);
-  } else {
-    map.setFilter('unclustered-point', ['all',
-      ['!', ['has', 'point_count']],
-      ['==', ['get', 'f'], area]
-    ]);
-    map.setFilter('heatmap', ['==', ['get', 'f'], area]);
-    const filtered = {
-      type: 'FeatureCollection',
-      features: currentGeojson.features.filter(f => f.properties.f === area)
-    };
-    map.getSource('orgs').setData(filtered);
-  }
-
-  updateSidebarActive(area);
+  activeFilter = activeFilter === area ? null : area;
+  applyFilters();
 }
 
-function updateSidebarActive(area) {
+function updateFilterUI() {
   document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.area === (area || ''));
+    const a = btn.dataset.area;
+    btn.classList.toggle('active', a === '' ? !activeFilter : a === activeFilter);
   });
-  document.querySelectorAll('.mobile-chip[data-area]').forEach(chip => {
-    chip.classList.toggle('active', chip.dataset.area === (area || ''));
+  document.querySelectorAll('.sheet-chip[data-area]').forEach(chip => {
+    const a = chip.dataset.area;
+    chip.classList.toggle('active', a === '' ? !activeFilter : a === activeFilter);
   });
 }
 
-// ── Sidebar build ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════════
+// BUILD UI
+// ══════════════════════════════════════════════════════════════════════════
 
-function buildSidebar(points) {
-  // Count by area
+function buildUI(points) {
   const counts = {};
-  for (const p of points) {
-    counts[p.f] = (counts[p.f] || 0) + 1;
-  }
-
+  for (const p of points) counts[p.f] = (counts[p.f] || 0) + 1;
   const countries = new Set(points.map(p => p.cc).filter(Boolean)).size;
-  document.getElementById('total-count').textContent = points.length.toLocaleString();
-  document.getElementById('country-count').textContent = countries;
+  const networks = Object.keys(counts).length;
 
+  // Animate stats
+  animateCounter(document.getElementById('stat-orgs'), points.length);
+  animateCounter(document.getElementById('stat-countries'), countries);
+  animateCounter(document.getElementById('stat-visible'), points.length);
+  document.getElementById('stat-networks').textContent = networks;
+
+  // ── Sidebar filters ──
   const filtersEl = document.getElementById('filters');
-  const mobileBar = document.getElementById('mobile-bar');
 
-  // "All" button
   const allBtn = document.createElement('button');
   allBtn.className = 'filter-btn active';
   allBtn.dataset.area = '';
   allBtn.innerHTML = `
-    <div class="filter-dot" style="background:#78c87a;box-shadow:0 0 6px #78c87a"></div>
+    <div class="filter-dot" style="background:var(--accent);box-shadow:0 0 8px var(--accent-glow)"></div>
     <span class="filter-label">All Networks</span>
     <span class="filter-count">${points.length.toLocaleString()}</span>
   `;
-  allBtn.addEventListener('click', () => setFilter(null));
+  allBtn.addEventListener('click', () => { activeFilter = null; applyFilters(); });
   filtersEl.appendChild(allBtn);
 
-  // Mobile "All" chip
-  const allChip = document.createElement('div');
-  allChip.className = 'mobile-chip active';
-  allChip.dataset.area = '';
-  allChip.innerHTML = `<div class="mobile-chip-dot" style="background:#78c87a"></div>All`;
-  allChip.addEventListener('click', () => setFilter(null));
-  mobileBar.appendChild(allChip);
-
-  // Per-area buttons
-  const areas = Object.keys(AREA_COLORS).filter(a => counts[a] > 0);
-  for (const area of areas) {
+  for (const area of AREAS_ORDERED) {
+    if (!counts[area]) continue;
     const color = AREA_COLORS[area];
-    const count = counts[area] || 0;
-    const name = AREA_NAMES[area] || area;
-
     const btn = document.createElement('button');
     btn.className = 'filter-btn';
     btn.dataset.area = area;
     btn.innerHTML = `
-      <div class="filter-dot" style="background:${color};box-shadow:0 0 6px ${color}"></div>
-      <span class="filter-label">${name}</span>
-      <span class="filter-count">${count.toLocaleString()}</span>
+      <div class="filter-dot" style="background:${color};box-shadow:0 0 8px ${color}40"></div>
+      <span class="filter-label">${AREA_NAMES[area]}</span>
+      <span class="filter-count">${counts[area].toLocaleString()}</span>
     `;
+    btn.style.setProperty('--filter-color', color);
     btn.addEventListener('click', () => setFilter(area));
     filtersEl.appendChild(btn);
-
-    // Mobile chip
-    const chip = document.createElement('div');
-    chip.className = 'mobile-chip';
-    chip.dataset.area = area;
-    chip.innerHTML = `<div class="mobile-chip-dot" style="background:${color}"></div>${name}`;
-    chip.addEventListener('click', () => setFilter(area));
-    mobileBar.appendChild(chip);
   }
 
-  // Region buttons
+  // Active border color
+  const style = document.createElement('style');
+  const activeStyles = AREAS_ORDERED.map(a =>
+    `.filter-btn[data-area="${a}"].active::before { background: ${AREA_COLORS[a]}; }`
+  ).join('\n');
+  style.textContent = activeStyles;
+  document.head.appendChild(style);
+
+  // ── Sidebar regions ──
   const regionsEl = document.getElementById('regions');
   for (const region of REGIONS) {
     const btn = document.createElement('button');
-    btn.className = 'region-btn';
-    btn.textContent = region.name;
+    btn.className = 'region-btn' + (region.full ? ' full-width' : '');
+    btn.textContent = region.emoji + ' ' + region.name;
     btn.addEventListener('click', () => {
-      map.flyTo({ center: region.center, zoom: region.zoom, duration: 1200 });
+      map.flyTo({ center: region.center, zoom: region.zoom, duration: 1400, essential: true });
     });
     regionsEl.appendChild(btn);
   }
+
+  // ── Legend ──
+  const legendEl = document.getElementById('legend');
+  for (const area of AREAS_ORDERED) {
+    if (!counts[area]) continue;
+    const item = document.createElement('div');
+    item.className = 'legend-item';
+    item.innerHTML = `<div class="legend-dot" style="background:${AREA_COLORS[area]};box-shadow:0 0 4px ${AREA_COLORS[area]}40"></div>${AREA_SHORT[area]}`;
+    legendEl.appendChild(item);
+  }
+
+  // ── Search ──
+  const searchInput = document.getElementById('search-input');
+  let searchTimeout;
+  searchInput.addEventListener('input', () => {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      searchTerm = searchInput.value.trim();
+      applyFilters();
+    }, 250);
+  });
+
+  // ── Mobile ──
+  buildMobile(points, counts, countries, networks);
 }
 
-// ── Loading done ───────────────────────────────────────────────────────────
+function buildMobile(points, counts, countries, networks) {
+  const fab = document.getElementById('mobile-fab');
+  const sheet = document.getElementById('mobile-sheet');
+  const content = document.getElementById('sheet-content');
+
+  let isOpen = false;
+  fab.addEventListener('click', () => {
+    isOpen = !isOpen;
+    sheet.classList.toggle('open', isOpen);
+    fab.classList.toggle('open', isOpen);
+  });
+
+  // Build sheet content
+  let html = `
+    <div class="sheet-stats">
+      <div class="stat-card">
+        <div class="stat-value">${points.length.toLocaleString()}</div>
+        <div class="stat-label">Organizations</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">${countries}</div>
+        <div class="stat-label">Countries</div>
+      </div>
+    </div>
+    <div class="sheet-section-label">Networks</div>
+    <div class="sheet-filters">
+      <div class="sheet-chip active" data-area="">
+        <div class="sheet-chip-dot" style="background:var(--accent)"></div>All
+      </div>
+  `;
+
+  for (const area of AREAS_ORDERED) {
+    if (!counts[area]) continue;
+    html += `<div class="sheet-chip" data-area="${area}">
+      <div class="sheet-chip-dot" style="background:${AREA_COLORS[area]}"></div>${AREA_SHORT[area]}
+    </div>`;
+  }
+
+  html += `</div><div class="sheet-section-label">Regions</div><div class="sheet-regions">`;
+  for (const region of REGIONS) {
+    html += `<button class="region-btn" data-region="${region.name}">${region.emoji} ${region.name}</button>`;
+  }
+  html += `</div>`;
+
+  content.innerHTML = html;
+
+  // Wire up chip clicks
+  content.querySelectorAll('.sheet-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const area = chip.dataset.area;
+      if (area === '') {
+        activeFilter = null;
+      } else {
+        activeFilter = activeFilter === area ? null : area;
+      }
+      applyFilters();
+    });
+  });
+
+  // Wire up region clicks
+  content.querySelectorAll('.region-btn[data-region]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const region = REGIONS.find(r => r.name === btn.dataset.region);
+      if (region) {
+        map.flyTo({ center: region.center, zoom: region.zoom, duration: 1400 });
+        isOpen = false;
+        sheet.classList.remove('open');
+        fab.classList.remove('open');
+      }
+    });
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// LOADING / BOOT
+// ══════════════════════════════════════════════════════════════════════════
+
+function dismissLoading() {
+  const overlay = document.getElementById('loading');
+  if (overlay) {
+    overlay.classList.add('fade-out');
+    setTimeout(() => { if (overlay.parentNode) overlay.remove(); }, 900);
+  }
+}
+
+let loaded = { map: false, data: false };
 
 function checkReady() {
-  if (mapReady && dataReady) {
-    const overlay = document.getElementById('loading');
-    if (overlay) {
-      overlay.classList.add('fade-out');
-      setTimeout(() => { if(overlay.parentNode) overlay.parentNode.removeChild(overlay); }, 600);
-    }
+  if (loaded.map && loaded.data) {
+    setProgress(100);
+    setTimeout(dismissLoading, 400);
   }
 }
 
-// Fallback: dismiss spinner after 8s even if map tiles are slow/failing
+// Fallback
 setTimeout(() => {
-  if (dataReady) {
-    const overlay = document.getElementById('loading');
-    if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
-  }
+  if (loaded.data) dismissLoading();
 }, 8000);
 
-// ── Boot ───────────────────────────────────────────────────────────────────
-
 map.on('load', () => {
-  mapReady = true;
+  loaded.map = true;
+  setProgress(60);
 
-  // If data already loaded, add layers now
   if (currentGeojson) {
     addLayers(currentGeojson);
     setupInteractions();
   }
-
   checkReady();
 });
 
 // Fetch data
+setProgress(20);
 fetch('./data/search/map_points.json')
   .then(r => r.json())
   .then(points => {
+    setProgress(50);
+    allPoints = points;
     currentGeojson = buildGeojson(points);
-    buildSidebar(points);
-    dataReady = true;
+    buildUI(points);
+    loaded.data = true;
 
-    // If map already loaded, add layers now
-    if (mapReady) {
+    if (loaded.map) {
       addLayers(currentGeojson);
       setupInteractions();
     }
-
     checkReady();
   })
   .catch(err => {
     console.error('Failed to load map_points.json:', err);
-    // Show error in loading overlay
     const sub = document.querySelector('.loading-sub');
     if (sub) sub.textContent = 'error loading data — check console';
   });
