@@ -472,16 +472,56 @@ fetch(mdUrl)
       cb.setAttribute("tabindex", "-1");
     });
 
-    // Add id anchors to all headings if missing
+    // GitHub-compatible slug -- matches anchors already in DIRECTORY.md etc.
+    function ghSlug(text) {
+      return text.toLowerCase()
+        .replace(/[^\w\s-]/g, "")   // strip punctuation except hyphens
+        .trim()
+        .replace(/\s+/g, "-");       // spaces to hyphens (no collapse -- GH keeps doubles)
+    }
+    // But GH actually does: keep spaces as -, strip all non-alphanumeric except - and space
+    // More precisely: lowercase, strip anything not [a-z0-9 -], collapse spaces to single -
+    function githubSlug(rawText) {
+      return rawText
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, "")   // remove punctuation (& . , ! etc.)
+        .replace(/\s+/g, "-")       // spaces -> hyphens
+        .replace(/-{2,}/g, "-")     // DIRECTORY.md uses -- for & so preserve that
+    }
+    // Actually GH preserves runs: '& ' -> ' ' -> '-', '--' stays '--' because it's already hyphens
+    // The real GH algorithm: keep [a-z0-9 \-], spaces to -, no collapsing
+    function slug(rawText) {
+      return rawText
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, "")   // strip non-word chars (removes & . etc.)
+        .replace(/ +/g, "-");        // single spaces to hyphens (runs of spaces collapse)
+    }
+
+    // Assign IDs using GH-compatible slug
+    const slugCounts = {};
     contentEl.querySelectorAll("h1,h2,h3,h4").forEach(h => {
       if (!h.id) {
-        h.id = h.textContent.toLowerCase()
-          .replace(/[^\w\s-]/g, "")
-          .replace(/\s+/g, "-")
-          .replace(/-+/g, "-")
-          .slice(0, 60);
+        let base = slug(h.textContent);
+        // deduplicate
+        if (slugCounts[base] === undefined) {
+          slugCounts[base] = 0;
+          h.id = base;
+        } else {
+          slugCounts[base]++;
+          h.id = base + "-" + slugCounts[base];
+        }
       }
       h.setAttribute("tabindex", "-1"); // allow focus for skip links
+    });
+
+    // Fix in-document anchor links to use the same slugs
+    contentEl.querySelectorAll('a[href^="#"]').forEach(a => {
+      const target = a.getAttribute("href").slice(1);
+      // If the target element exists by ID, it's fine; else try slugging the href text
+      if (!document.getElementById(target)) {
+        const fixed = slug(decodeURIComponent(target).replace(/-/g, " "));
+        if (document.getElementById(fixed)) a.setAttribute("href", "#" + fixed);
+      }
     });
 
     // Build TOC
@@ -505,14 +545,18 @@ fetch(mdUrl)
 
 // ── Build TOC ──
 function buildTOC(contentEl) {
-  const headings = [...contentEl.querySelectorAll("h2, h3")];
+  // Skip headings that are in-document TOC sections ("Table of Contents", "Contents")
+  const TOC_SKIP = /^(table of contents|contents)$/i;
+  const headings = [...contentEl.querySelectorAll("h2, h3")].filter(
+    h => !TOC_SKIP.test(h.textContent.trim())
+  );
   if (headings.length < 3) { document.getElementById("toc").style.display = "none"; return; }
   const list = document.getElementById("toc-list");
   headings.forEach(h => {
     const li = document.createElement("li");
     const a = document.createElement("a");
     a.href = "#" + h.id;
-    a.textContent = h.textContent;
+    a.textContent = h.textContent.trim();
     a.className = h.tagName === "H3" ? "toc-h3" : "toc-h2";
     a.addEventListener("click", e => {
       e.preventDefault();
