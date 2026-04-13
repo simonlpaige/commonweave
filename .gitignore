@@ -1,0 +1,11 @@
+data/ecolibrium_directory.db
+data/*.log
+data/paperclip-fix/
+data/clear_sessions*.mjs
+data/fix_stuck_run*.mjs
+data/inspect_db.mjs
+data/researcher-*.log
+data/aggregator-*.log
+data/eco1_report.json
+data/DIRECTORY_P2.md
+data/regional/DIRECTORY_P2.md
