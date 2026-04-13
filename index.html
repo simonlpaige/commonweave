@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ecolibrium — A Framework for the Effortless Economy</title>
-<meta name="description" content="An open-source blueprint for the peaceful transition to a post-scarcity, ecologically sustainable, democratically governed society. 300+ organizations worldwide already building the pieces.">
-<meta property="og:title" content="Ecolibrium — A Framework for the Effortless Economy">
-<meta property="og:description" content="300+ organizations worldwide working unknowingly as part of the same movement. Map them. Read the framework. Contribute.">
+<title>Ecolibrium -- A Framework for the Effortless Economy</title>
+<meta name="description" content="An open-source blueprint for the peaceful transition to a post-scarcity, ecologically sustainable, democratically governed society. 300+ organizations already building the pieces.">
+<meta property="og:title" content="Ecolibrium">
+<meta property="og:description" content="300+ organizations worldwide working unknowingly as part of the same movement.">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -25,19 +25,16 @@
   --warm:    #a8c87e;
   --teal:    #4fc4b0;
   --earth:   #c4a55d;
-  --earth2:  #8a6e3a;
 }
 
 html { scroll-behavior: smooth; }
 
-/* Focus */
 :focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
   border-radius: 3px;
 }
 
-/* Skip link */
 .skip-link {
   position: absolute; top: -100px; left: 16px;
   background: var(--accent); color: #081208;
@@ -58,156 +55,124 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { color: var(--warm); text-decoration: underline; }
 
-/* ── NAV ── */
+/* NAV */
 nav {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(13,26,13,0.94);
+  background: rgba(13,26,13,0.95);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
   padding: 0 28px;
   display: flex; align-items: center; justify-content: space-between;
   height: 52px;
 }
-
 .nav-logo {
   font-size: 14px; font-weight: 800; letter-spacing: 0.06em;
-  text-transform: lowercase; color: var(--accent);
+  text-transform: lowercase; color: var(--accent); text-decoration: none;
 }
-
-.nav-links { display: flex; gap: 0; }
+.nav-logo:hover { color: var(--warm); text-decoration: none; }
+.nav-links { display: flex; gap: 0; align-items: center; }
 .nav-links a {
-  padding: 0 14px; height: 52px;
+  padding: 0 13px; height: 52px;
   display: flex; align-items: center;
   font-size: 13px; color: var(--muted);
   border-bottom: 2px solid transparent;
   transition: color 0.15s, border-color 0.15s;
+  text-decoration: none;
 }
 .nav-links a:hover { color: var(--text); text-decoration: none; border-bottom-color: var(--accent); }
-.nav-links a.nav-cta {
-  margin-left: 8px;
-  background: var(--s2); border: 1px solid var(--border2);
-  border-radius: 6px; height: auto; padding: 6px 14px;
-  color: var(--warm); font-weight: 600;
+.nav-cta {
+  margin-left: 6px;
+  height: auto !important; padding: 6px 14px !important;
+  background: var(--s2); border: 1px solid var(--border2) !important;
+  border-radius: 6px; border-bottom: none !important;
+  color: var(--warm) !important; font-weight: 600;
 }
-.nav-links a.nav-cta:hover { background: var(--s3); border-bottom-color: transparent; }
+.nav-cta:hover { background: var(--s3) !important; border-bottom: none !important; }
 
-/* ── HERO ── */
+/* HERO */
 .hero {
-  max-width: 700px; margin: 0 auto;
-  padding: 80px 28px 56px; text-align: center;
+  max-width: 680px; margin: 0 auto;
+  padding: 88px 28px 64px; text-align: center;
 }
-
 .pill {
   display: inline-block; font-size: 11px; font-weight: 600;
   letter-spacing: 0.13em; text-transform: uppercase;
   color: var(--teal); border: 1px solid var(--teal);
-  border-radius: 20px; padding: 4px 14px; opacity: 0.75;
-  margin-bottom: 24px;
+  border-radius: 20px; padding: 4px 14px; opacity: 0.7;
+  margin-bottom: 28px;
 }
-
 .hero h1 {
-  font-size: clamp(28px, 4.2vw, 48px); font-weight: 800;
-  line-height: 1.1; letter-spacing: -0.02em;
-  color: #dff5c0; margin-bottom: 20px;
+  font-size: clamp(28px, 4.5vw, 50px); font-weight: 800;
+  line-height: 1.08; letter-spacing: -0.025em;
+  color: #dff5c0; margin-bottom: 22px;
 }
 .hero h1 em { font-style: normal; color: var(--accent); }
-
 .hero-lead {
-  font-size: 16px; color: var(--muted);
-  max-width: 540px; margin: 0 auto 14px; line-height: 1.78;
+  font-size: 17px; color: var(--muted);
+  max-width: 520px; margin: 0 auto 12px; line-height: 1.8;
 }
 .hero-sub {
-  font-size: 13px; color: var(--dim);
-  max-width: 480px; margin: 0 auto 36px; line-height: 1.7;
+  font-size: 14px; color: var(--dim);
+  max-width: 460px; margin: 0 auto 40px; line-height: 1.7;
 }
-
 .btn-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-
 .btn {
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 9px 20px; border-radius: 7px;
-  font-size: 13px; font-weight: 600;
+  padding: 10px 22px; border-radius: 7px;
+  font-size: 14px; font-weight: 600;
   cursor: pointer; border: none; transition: all 0.15s; text-decoration: none;
 }
-.btn-green  { background: var(--a2); color: #081208; }
-.btn-green:hover  { background: var(--accent); color: #081208; text-decoration: none; }
-.btn-ghost  { background: transparent; color: var(--text); border: 1px solid var(--border2); }
-.btn-ghost:hover  { background: var(--s2); text-decoration: none; }
+.btn-green { background: var(--a2); color: #081208; }
+.btn-green:hover { background: var(--accent); color: #081208; text-decoration: none; }
+.btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border2); }
+.btn-ghost:hover { background: var(--s2); text-decoration: none; }
 
-/* ── START HERE CARDS ── */
-.start-here {
-  max-width: 900px; margin: 0 auto;
-  padding: 0 28px 60px;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 10px;
-}
-
-.doc-card {
-  display: flex; flex-direction: column;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 10px; padding: 18px 20px;
-  text-decoration: none; color: inherit;
-  transition: background 0.15s, border-color 0.15s;
-}
-.doc-card:hover { background: var(--s2); border-color: var(--border2); text-decoration: none; }
-
-.doc-icon { font-size: 20px; margin-bottom: 10px; }
-.doc-title { font-size: 14px; font-weight: 700; color: #dff5c0; margin-bottom: 5px; }
-.doc-desc  { font-size: 12px; color: var(--muted); line-height: 1.55; flex: 1; }
-.doc-arrow { font-size: 11px; color: var(--dim); margin-top: 12px; }
-.doc-card:hover .doc-arrow { color: var(--accent); }
-
-/* ── WISEREARTH CALLOUT ── */
-.wiser-wrap { max-width: 700px; margin: 0 auto; padding: 0 28px 52px; }
-.wiser-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-left: 3px solid var(--earth); border-radius: 10px;
-  padding: 18px 22px; font-size: 13px; color: var(--muted); line-height: 1.72;
-}
-.wiser-card strong { color: var(--earth); }
-
-/* ── STATS ── */
+/* STATS */
 .stats {
   display: flex; justify-content: center; flex-wrap: wrap;
   border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
 }
 .stat-item {
-  text-align: center; padding: 28px 44px;
+  text-align: center; padding: 28px 48px;
   border-right: 1px solid var(--border);
 }
 .stat-item:last-child { border-right: none; }
-.stat-n { font-size: 32px; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
-.stat-l { font-size: 11px; color: var(--muted); margin-top: 3px; letter-spacing: 0.04em; }
+.stat-n { font-size: 34px; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; line-height: 1; }
+.stat-l { font-size: 11px; color: var(--muted); margin-top: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
 
-/* ── MAP ── */
-.map-wrap {
-  max-width: 1160px; margin: 0 auto;
-  padding: 60px 28px 0;
+/* MAP */
+.map-wrap { max-width: 1100px; margin: 0 auto; padding: 64px 28px 0; }
+.section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--teal); opacity: 0.7;
+  margin-bottom: 10px;
 }
-.section-hed { text-align: center; margin-bottom: 24px; }
-.section-hed h2 { font-size: 20px; font-weight: 700; color: #dff5c0; margin-bottom: 6px; }
+.section-hed { margin-bottom: 20px; }
+.section-hed h2 { font-size: 22px; font-weight: 700; color: #dff5c0; margin-bottom: 6px; }
 .section-hed p  { font-size: 13px; color: var(--muted); }
-
 .map-box {
   border-radius: 12px; overflow: hidden;
   border: 1px solid var(--border2);
-  box-shadow: 0 4px 48px rgba(0,0,0,0.45);
+  box-shadow: 0 4px 48px rgba(0,0,0,0.5);
 }
-.map-box iframe { width: 100%; height: 560px; border: none; display: block; }
+.map-box iframe { width: 100%; height: 540px; border: none; display: block; }
 .map-footer {
   background: var(--surface); border-top: 1px solid var(--border);
-  padding: 9px 16px; font-size: 11px; color: var(--muted);
+  padding: 10px 18px; font-size: 12px; color: var(--muted);
   display: flex; justify-content: space-between; align-items: center;
+  gap: 12px;
 }
+.map-footer a { color: var(--muted); }
+.map-footer a:hover { color: var(--accent); }
 
-/* ── SECTIONS GRID ── */
-.sections-wrap { max-width: 1160px; margin: 0 auto; padding: 56px 28px 0; }
+/* SECTIONS GRID */
+.sections-wrap { max-width: 1100px; margin: 0 auto; padding: 56px 28px 0; }
 .sections-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 10px;
+  gap: 8px;
+  margin-top: 20px;
 }
-
 .sec-card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 10px; padding: 16px 18px;
@@ -215,38 +180,37 @@ nav {
   display: flex; flex-direction: column;
 }
 .sec-card:hover { background: var(--s2); border-color: var(--card-color); }
-
 .sec-pip {
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--card-color); margin-bottom: 10px;
-  box-shadow: 0 0 6px color-mix(in srgb, var(--card-color) 50%, transparent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--card-color) 40%, transparent);
 }
 .sec-name { font-size: 13px; font-weight: 700; color: #cce8b0; margin-bottom: 4px; }
 .sec-desc { font-size: 11px; color: var(--muted); line-height: 1.5; flex: 1; }
-.sec-meta { margin-top: 10px; font-size: 11px; font-weight: 700; color: var(--card-color); opacity: 0.8; }
+.sec-meta { margin-top: 10px; font-size: 11px; font-weight: 700; color: var(--card-color); opacity: 0.75; }
 
-/* ── ABOUT ── */
-.about-wrap { max-width: 680px; margin: 0 auto; padding: 64px 28px 0; }
+/* ABOUT */
+.about-wrap { max-width: 660px; margin: 0 auto; padding: 72px 28px 0; }
 .eyebrow {
   font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--teal); opacity: 0.8;
+  text-transform: uppercase; color: var(--teal); opacity: 0.75;
   margin-bottom: 14px;
 }
-.about-wrap h2 { font-size: 20px; font-weight: 700; color: #dff5c0; margin-bottom: 22px; }
-.about-wrap p  { font-size: 15px; color: #6ea85e; line-height: 1.8; margin-bottom: 16px; }
+.about-wrap h2 { font-size: 22px; font-weight: 700; color: #dff5c0; margin-bottom: 24px; line-height: 1.25; }
+.about-wrap p  { font-size: 15px; color: #6ea85e; line-height: 1.85; margin-bottom: 18px; }
+.about-wrap p:last-child { margin-bottom: 0; }
 .about-wrap p strong { color: var(--text); font-weight: 600; }
+.about-wrap p a { color: var(--accent); }
 
-/* ── DOCS GRID ── */
-.docs-wrap { max-width: 900px; margin: 0 auto; padding: 56px 28px 0; }
-.docs-wrap h2 { font-size: 20px; font-weight: 700; color: #dff5c0; margin-bottom: 6px; }
-.docs-wrap .sub { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
-
+/* DOCS GRID */
+.docs-wrap { max-width: 960px; margin: 0 auto; padding: 64px 28px 0; }
+.docs-wrap > h2 { font-size: 22px; font-weight: 700; color: #dff5c0; margin-bottom: 6px; }
+.docs-wrap > .sub { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
 .docs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 8px;
 }
-
 .docs-card {
   display: flex; gap: 14px;
   background: var(--surface); border: 1px solid var(--border);
@@ -255,31 +219,31 @@ nav {
   transition: background 0.15s, border-color 0.15s;
   align-items: flex-start;
 }
-.docs-card:hover { background: var(--s2); border-color: var(--accent); text-decoration: none; }
-.docs-card-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
-.docs-card-body {}
-.docs-card-title { font-size: 13px; font-weight: 700; color: #cce8b0; margin-bottom: 3px; }
-.docs-card-desc  { font-size: 11px; color: var(--muted); line-height: 1.5; }
+.docs-card:hover { background: var(--s2); border-color: var(--border2); text-decoration: none; }
+.docs-card-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; line-height: 1; }
+.docs-card-title { font-size: 13px; font-weight: 700; color: #cce8b0; margin-bottom: 4px; }
+.docs-card-desc  { font-size: 11px; color: var(--muted); line-height: 1.55; }
 
-/* ── HONESTY ── */
-.honesty-wrap { max-width: 680px; margin: 0 auto; padding: 48px 28px 0; }
-.honesty-box {
-  background: var(--surface); border: 1px solid var(--border2);
-  border-radius: 10px; padding: 22px 26px;
+/* WISEREARTH NOTE */
+.wiser-wrap { max-width: 660px; margin: 0 auto; padding: 48px 28px 0; }
+.wiser-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--earth); border-radius: 10px;
+  padding: 20px 24px; font-size: 14px; color: var(--muted); line-height: 1.75;
 }
-.honesty-box h3 { font-size: 14px; font-weight: 700; color: var(--warm); margin-bottom: 12px; }
-.honesty-box p  { font-size: 13px; color: var(--muted); line-height: 1.75; margin-bottom: 10px; }
-.honesty-box p:last-child { margin-bottom: 0; }
+.wiser-card strong { color: var(--earth); }
+.wiser-card a { color: var(--muted); text-decoration: underline; }
+.wiser-card a:hover { color: var(--earth); }
 
-/* ── CTA ── */
+/* CTA */
 .cta {
-  text-align: center; padding: 64px 28px;
-  margin-top: 64px; border-top: 1px solid var(--border);
+  text-align: center; padding: 72px 28px;
+  margin-top: 72px; border-top: 1px solid var(--border);
 }
-.cta h2 { font-size: 20px; font-weight: 700; color: #dff5c0; margin-bottom: 10px; }
-.cta p  { font-size: 14px; color: var(--muted); max-width: 460px; margin: 0 auto 28px; line-height: 1.72; }
+.cta h2 { font-size: 22px; font-weight: 700; color: #dff5c0; margin-bottom: 12px; }
+.cta p  { font-size: 14px; color: var(--muted); max-width: 440px; margin: 0 auto 30px; line-height: 1.75; }
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer {
   border-top: 1px solid var(--border);
   padding: 24px 28px; text-align: center;
@@ -288,208 +252,163 @@ footer {
 footer a { color: var(--dim); }
 footer a:hover { color: var(--muted); }
 
+/* MOBILE */
 @media (max-width: 700px) {
-  .stat-item { padding: 18px 20px; }
   nav { padding: 0 14px; }
   .nav-links a { padding: 0 8px; font-size: 12px; }
-  .nav-links a.nav-cta { display: none; }
-  .hero { padding: 48px 20px 40px; }
+  .nav-cta { display: none !important; }
+  .hero { padding: 52px 20px 44px; }
   .hero h1 { font-size: 28px; }
   .hero-lead { font-size: 15px; }
-  .start-here { grid-template-columns: 1fr; padding: 0 16px 40px; }
-  .map-box iframe { height: 360px; }
-  .map-wrap { padding: 40px 16px 0; }
-  .sections-wrap { padding: 40px 16px 0; }
-  .sections-grid { grid-template-columns: 1fr 1fr; }
-  .docs-wrap { padding: 40px 16px 0; }
-  .docs-grid { grid-template-columns: 1fr; }
-  .about-wrap { padding: 48px 16px 0; }
-  .honesty-wrap { padding: 36px 16px 0; }
-  .wiser-wrap { padding: 0 16px 40px; }
   .stats { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
-  .stat-item { flex-shrink: 0; }
-  .cta { padding: 48px 20px; }
+  .stat-item { flex-shrink: 0; padding: 20px 28px; }
+  .map-wrap { padding: 44px 16px 0; }
+  .map-box iframe { height: 340px; }
+  .sections-wrap { padding: 44px 16px 0; }
+  .sections-grid { grid-template-columns: 1fr 1fr; }
+  .about-wrap { padding: 52px 16px 0; }
+  .docs-wrap { padding: 44px 16px 0; }
+  .docs-grid { grid-template-columns: 1fr; }
+  .wiser-wrap { padding: 40px 16px 0; }
+  .cta { padding: 52px 20px; margin-top: 52px; }
   footer { padding: 20px 16px; }
 }
 @media (max-width: 400px) {
   .sections-grid { grid-template-columns: 1fr; }
-  .map-box iframe { height: 300px; }
+  .map-box iframe { height: 280px; }
 }
 </style>
 </head>
 <body>
+
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <nav role="navigation" aria-label="Site navigation">
   <a href="/ecolibrium/" class="nav-logo" aria-label="Ecolibrium home">ecolibrium</a>
   <div class="nav-links" role="list">
-    <a href="#map">Map</a>
-    <a href="#sections">Sections</a>
-    <a href="#docs">Docs</a>
-    <a href="#about">About</a>
-    <a href="doc.html?file=DIRECTORY" target="_blank" class="nav-cta">Directory &rarr;</a>
+    <a href="#map" role="listitem">Map</a>
+    <a href="#sections" role="listitem">Sections</a>
+    <a href="#docs" role="listitem">Docs</a>
+    <a href="#about" role="listitem">About</a>
+    <a href="doc.html?file=DIRECTORY" class="nav-cta" role="listitem">Directory &rarr;</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <main id="main-content" tabindex="-1">
-<section class="hero">
-  <div class="pill">Open Source &middot; CC0 &middot; No leaders</div>
-  <h1>The movement already exists.<br>Nobody named it <em>yet.</em></h1>
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="pill" aria-hidden="true">Open Source &middot; CC0 &middot; No leaders</div>
+  <h1 id="hero-heading">The movement already exists.<br>Nobody named it <em>yet.</em></h1>
   <p class="hero-lead">In 2007, Paul Hawken catalogued 114,994 organizations across 243 countries building alternatives to the systems that don't work. The website disappeared in 2014 when the funding ran out.</p>
   <p class="hero-sub">This is the continuation -- with the infrastructure problem taken seriously this time.</p>
   <div class="btn-row">
     <a href="#map" class="btn btn-green">&#x1F30D; Explore the Map</a>
-    <a href="doc.html?file=DIRECTORY" target="_blank" class="btn btn-ghost">Browse the Directory &rarr;</a>
-    <a href="https://github.com/simonlpaige/ecolibrium" target="_blank" class="btn btn-ghost">Read the Framework &rarr;</a>
+    <a href="doc.html?file=DIRECTORY" class="btn btn-ghost">Browse the Directory &rarr;</a>
+    <a href="https://github.com/simonlpaige/ecolibrium" target="_blank" rel="noopener" class="btn btn-ghost">Source on GitHub &rarr;</a>
   </div>
 </section>
 
-<!-- START HERE CARDS -->
-<div class="start-here">
-  <a class="doc-card" href="map.html" target="_blank">
-    <div class="doc-icon">🗺️</div>
-    <div class="doc-title">Interactive Map</div>
-    <div class="doc-desc">~170 organizations plotted on a filterable world map. Zoom, pan, hover for details. Filter by section.</div>
-    <div class="doc-arrow">Open full screen &rarr;</div>
-  </a>
-  <a class="doc-card" href="doc.html?file=DIRECTORY" target="_blank">
-    <div class="doc-icon">📋</div>
-    <div class="doc-title">Organization Directory</div>
-    <div class="doc-desc">300+ real operating organizations across 12 sections. Tables with descriptions, regions, and links.</div>
-    <div class="doc-arrow">View DIRECTORY.md &rarr;</div>
-  </a>
-  <a class="doc-card" href="doc.html?file=DEEP-DIVE" target="_blank">
-    <div class="doc-icon">📐</div>
-    <div class="doc-title">The Framework</div>
-    <div class="doc-desc">The full phased blueprint: democratic infrastructure, resource distribution, the mycelial strategy, the transfer.</div>
-    <div class="doc-arrow">Read README.md &rarr;</div>
-  </a>
-  <a class="doc-card" href="doc.html?file=DEEP-DIVE" target="_blank">
-    <div class="doc-icon">🔬</div>
-    <div class="doc-title">Deep Research</div>
-    <div class="doc-desc">Section-by-section historical evidence, empirical data, failure modes, and Ostrom's design principles.</div>
-    <div class="doc-arrow">Read DEEP-DIVE.md &rarr;</div>
-  </a>
-  <a class="doc-card" href="doc.html?file=CRITIQUE" target="_blank">
-    <div class="doc-icon">🔍</div>
-    <div class="doc-title">Honest Critique</div>
-    <div class="doc-desc">Where the framework's logic breaks down, what it doesn't say, and what would need to be true for it to work.</div>
-    <div class="doc-arrow">Read CRITIQUE.md &rarr;</div>
-  </a>
-  <a class="doc-card" href="doc.html?file=WISEREARTH" target="_blank">
-    <div class="doc-icon">🌱</div>
-    <div class="doc-title">WiserEarth Analysis</div>
-    <div class="doc-desc">Full history of the project that came before, what it built, why it failed, and what it leaves behind.</div>
-    <div class="doc-arrow">Read WISEREARTH.md &rarr;</div>
-  </a>
-</div>
-
-<!-- WISEREARTH CALLOUT -->
-<div class="wiser-wrap">
-  <div class="wiser-card">
-    <strong>On the shoulders of WiserEarth.</strong> From 2007 to 2014, wiser.org was the only place that tried to map the civil society commons at global scale -- 114,994 NGOs in 243 countries, a 381-node taxonomy, women-led, ad-free, genuinely beautiful. It closed because it depended on one organization's philanthropy. The data is mostly gone. The structural lesson is documented in <a href="doc.html?file=SUSTAINABILITY" target="_blank">SUSTAINABILITY.md</a>.
-  </div>
-</div>
-
 <!-- STATS -->
-<div class="stats">
-  <div class="stat-item"><div class="stat-n">300+</div><div class="stat-l">Organizations mapped</div></div>
-  <div class="stat-item"><div class="stat-n">90+</div><div class="stat-l">Countries represented</div></div>
+<div class="stats" role="region" aria-label="Project statistics">
+  <div class="stat-item"><div class="stat-n" aria-label="300 plus">300+</div><div class="stat-l">Organizations mapped</div></div>
+  <div class="stat-item"><div class="stat-n" aria-label="90 plus">90+</div><div class="stat-l">Countries represented</div></div>
   <div class="stat-item"><div class="stat-n">12</div><div class="stat-l">Framework sections</div></div>
   <div class="stat-item"><div class="stat-n">CC0</div><div class="stat-l">Fully open data</div></div>
 </div>
 
 <!-- MAP -->
-<div id="map" class="map-wrap">
+<div id="map" class="map-wrap" role="region" aria-label="Interactive world map">
+  <div class="section-label" aria-hidden="true">Explore</div>
   <div class="section-hed">
     <h2>Global Directory Map</h2>
     <p>Filter by section &middot; hover any dot for details &middot; scroll to zoom &middot; drag to pan</p>
   </div>
   <div class="map-box">
-    <iframe src="map.html" title="Ecolibrium Global Directory Map" loading="lazy"></iframe>
+    <iframe src="map.html" title="Ecolibrium global directory -- interactive world map of 170+ organizations" loading="lazy" aria-label="Interactive world map"></iframe>
     <div class="map-footer">
-      <span>~170 plotted organizations across 12 sections &mdash; data: <a href="doc.html?file=DIRECTORY" target="_blank">DIRECTORY.md</a> (CC0)</span>
-      <a href="map.html" target="_blank">Open full screen &rarr;</a>
+      <span>~170 organizations across 12 sections &mdash; <a href="doc.html?file=DIRECTORY">full directory</a> (CC0)</span>
+      <a href="map.html" target="_blank" rel="noopener" aria-label="Open map in full screen">Full screen &rarr;</a>
     </div>
   </div>
 </div>
 
-<!-- SECTIONS GRID -->
-<div id="sections" class="sections-wrap">
-  <div class="section-hed" style="margin-bottom:24px;">
+<!-- SECTIONS -->
+<div id="sections" class="sections-wrap" role="region" aria-label="Framework sections">
+  <div class="section-label" aria-hidden="true">Directory</div>
+  <div class="section-hed">
     <h2>12 sections &mdash; 300+ organizations</h2>
-    <p>Each section maps organizations already building that piece of the answer. <a href="doc.html?file=DIRECTORY" target="_blank">Browse the full directory &rarr;</a></p>
+    <p>Each section maps organizations already building that piece of the answer. <a href="doc.html?file=DIRECTORY">Browse the full directory &rarr;</a></p>
   </div>
   <div class="sections-grid">
     <div class="sec-card" style="--card-color:#60a5fa">
-      <div class="sec-pip"></div>
+      <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Democratic Infrastructure</div>
       <div class="sec-desc">Verifiable voting, liquid democracy, sortition, participatory platforms, citizens' assemblies</div>
       <div class="sec-meta">21 organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#34d399">
-      <div class="sec-pip"></div>
+      <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Wealth &amp; Cooperatives</div>
       <div class="sec-desc">UBI pilots worldwide, worker cooperatives, community wealth building, 1B+ co-op members</div>
       <div class="sec-meta">21 organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#f472b6">
-      <div class="sec-pip"></div>
+      <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Healthcare</div>
       <div class="sec-desc">Open-source health IT, community health worker models, universal systems that demonstrably work</div>
       <div class="sec-meta">15 organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#fb923c">
-      <div class="sec-pip"></div>
+      <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Food Sovereignty</div>
       <div class="sec-desc">Agroecology, seed sovereignty, open food networks, CSA movements, 200M peasant farmers</div>
       <div class="sec-meta">13 organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#a78bfa">
-      <div class="sec-pip"></div>
+      <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Education</div>
       <div class="sec-desc">Open courseware, democratic schooling, offline-first platforms, 300M+ Moodle users</div>
       <div class="sec-meta">15 organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#fbbf24">
-      <div class="sec-pip"></div>
+      <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Land &amp; Housing</div>
       <div class="sec-desc">Community land trusts, Vienna social housing, stewardship over speculation</div>
       <div class="sec-meta">8 organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#f87171">
-      <div class="sec-pip"></div>
+      <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Conflict Resolution</div>
       <div class="sec-desc">Restorative justice, transitional justice, community accountability. 41.5% recidivism reduction.</div>
       <div class="sec-meta">8 organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#22d3ee">
-      <div class="sec-pip"></div>
+      <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Energy &amp; Digital Commons</div>
       <div class="sec-desc">Community energy cooperatives, federated protocols, 900 US rural electric co-ops serving 42M</div>
       <div class="sec-meta">11 organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#e879f9">
-      <div class="sec-pip"></div>
+      <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Recreation &amp; Arts</div>
       <div class="sec-desc">Basic income for artists, open cultural heritage, 90M+ freely licensed media files</div>
       <div class="sec-meta">7 organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#7ec88a">
-      <div class="sec-pip"></div>
+      <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Wellbeing Economics</div>
       <div class="sec-desc">Beyond-GDP governance, Doughnut Economics, WEGo governments, Gross National Happiness</div>
       <div class="sec-meta">9 organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#94a3b8">
-      <div class="sec-pip"></div>
+      <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Allied Projects</div>
       <div class="sec-desc">Open platforms, civic tech, humanitarian data tools, cooperative infrastructure</div>
       <div class="sec-meta">10 organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#c8e8b0">
-      <div class="sec-pip"></div>
+      <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Networks &amp; Federations</div>
       <div class="sec-desc">Meta-organizations, 10,000+ ecovillages, solidarity economy federations, global assemblies</div>
       <div class="sec-meta">8 organizations</div>
@@ -498,105 +417,105 @@ footer a:hover { color: var(--muted); }
 </div>
 
 <!-- ABOUT -->
-<section id="about" class="about-wrap">
-  <div class="eyebrow">What this is</div>
-  <h2>An engineering problem, not a manifesto</h2>
+<section id="about" class="about-wrap" aria-labelledby="about-heading">
+  <div class="eyebrow" aria-hidden="true">What this is</div>
+  <h2 id="about-heading">An engineering problem, not a manifesto</h2>
   <p>Here is a thing that is true and that almost no one talks about clearly: <strong>the machines are going to do most of the work.</strong> Not eventually -- now, and accelerating. The interesting question isn't whether that happens. It's who benefits when it does.</p>
   <p>Right now the answer is: whoever owns the machines. That's a design choice, not a law of nature. You could design it differently.</p>
   <p>Ecolibrium is an attempt to think carefully about what "differently" actually means -- what systems would need to exist, how you'd build them, what's already being built, and how you get from here to there without everything going badly wrong in the middle.</p>
-  <p>The directory maps organizations that are already building pieces of the answer -- <strong>community land trusts, worker cooperatives, open-source health systems, participatory democracy tools, community energy grids</strong> -- most without knowing they're part of a larger pattern. That's what Hawken saw in 2007. That's what this continues.</p>
+  <p>The directory maps organizations already building pieces of the answer -- <strong>community land trusts, worker cooperatives, open-source health systems, participatory democracy tools, community energy grids</strong> -- most without knowing they're part of a larger pattern. That's what Hawken saw in 2007. That's what this continues.</p>
 </section>
 
 <!-- DOCS -->
-<div id="docs" class="docs-wrap">
+<div id="docs" class="docs-wrap" role="region" aria-label="Project documents">
+  <div class="section-label" aria-hidden="true">Read</div>
   <h2>All documents</h2>
   <p class="sub">Everything is public, CC0 or CC BY-SA. Read it, fork it, disagree with it in a pull request.</p>
   <div class="docs-grid">
-    <a class="docs-card" href="doc.html?file=DEEP-DIVE" target="_blank">
-      <div class="docs-card-icon">📐</div>
-      <div class="docs-card-body">
-        <div class="docs-card-title">README.md &mdash; The Framework</div>
-        <div class="docs-card-desc">Three-phase blueprint. Democratic infrastructure, resource distribution, the mycelial strategy, the transfer, post-transfer society.</div>
+    <a class="docs-card" href="doc.html?file=README" aria-label="README -- Project Overview">
+      <div class="docs-card-icon" aria-hidden="true">📄</div>
+      <div>
+        <div class="docs-card-title">README.md &mdash; Project Overview</div>
+        <div class="docs-card-desc">What Ecolibrium is, how it relates to WiserEarth, the three-phase blueprint, and how to contribute.</div>
       </div>
     </a>
-    <a class="docs-card" href="doc.html?file=DIRECTORY" target="_blank">
-      <div class="docs-card-icon">📋</div>
-      <div class="docs-card-body">
+    <a class="docs-card" href="doc.html?file=DIRECTORY" aria-label="DIRECTORY -- 300 plus organizations">
+      <div class="docs-card-icon" aria-hidden="true">📋</div>
+      <div>
         <div class="docs-card-title">DIRECTORY.md &mdash; 300+ Organizations</div>
-        <div class="docs-card-desc">Comprehensive global directory of organizations across all 12 sections. Tables with descriptions, regions, links.</div>
+        <div class="docs-card-desc">Global directory across all 12 sections. Tables with descriptions, regions, and links.</div>
       </div>
     </a>
-    <a class="docs-card" href="doc.html?file=DEEP-DIVE" target="_blank">
-      <div class="docs-card-icon">🔬</div>
-      <div class="docs-card-body">
-        <div class="docs-card-title">DEEP-DIVE.md &mdash; Evidence &amp; History</div>
-        <div class="docs-card-desc">Historical evidence, empirical data, failure modes, honest answers to 13 open questions. Ostrom's 8 design principles.</div>
+    <a class="docs-card" href="doc.html?file=DEEP-DIVE" aria-label="DEEP-DIVE -- Framework and evidence">
+      <div class="docs-card-icon" aria-hidden="true">🔬</div>
+      <div>
+        <div class="docs-card-title">DEEP-DIVE.md &mdash; Framework &amp; Evidence</div>
+        <div class="docs-card-desc">Historical evidence, empirical data, failure modes, 13 open questions, Ostrom's 8 design principles.</div>
       </div>
     </a>
-    <a class="docs-card" href="doc.html?file=CRITIQUE" target="_blank">
-      <div class="docs-card-icon">🔍</div>
-      <div class="docs-card-body">
+    <a class="docs-card" href="doc.html?file=CRITIQUE" aria-label="CRITIQUE -- Where the framework breaks">
+      <div class="docs-card-icon" aria-hidden="true">🔍</div>
+      <div>
         <div class="docs-card-title">CRITIQUE.md &mdash; Where It Breaks</div>
         <div class="docs-card-desc">Section-by-section audit of logic flaws, magical thinking, and blind spots. With concrete fixes.</div>
       </div>
     </a>
-    <a class="docs-card" href="doc.html?file=GOVERNANCE" target="_blank">
-      <div class="docs-card-icon">⚖️</div>
-      <div class="docs-card-body">
+    <a class="docs-card" href="doc.html?file=GOVERNANCE" aria-label="GOVERNANCE -- How decisions get made">
+      <div class="docs-card-icon" aria-hidden="true">&#x2696;&#xFE0F;</div>
+      <div>
         <div class="docs-card-title">GOVERNANCE.md &mdash; How Decisions Get Made</div>
-        <div class="docs-card-desc">Rough consensus and running code. No founder authority. How maintainers work and how that changes over time.</div>
+        <div class="docs-card-desc">Rough consensus and running code. No founder authority. How maintainers work.</div>
       </div>
     </a>
-    <a class="docs-card" href="doc.html?file=SUSTAINABILITY" target="_blank">
-      <div class="docs-card-icon">💧</div>
-      <div class="docs-card-body">
+    <a class="docs-card" href="doc.html?file=SUSTAINABILITY" aria-label="SUSTAINABILITY -- Anti-WiserEarth plan">
+      <div class="docs-card-icon" aria-hidden="true">&#x1F4A7;</div>
+      <div>
         <div class="docs-card-title">SUSTAINABILITY.md &mdash; Anti-WiserEarth Plan</div>
-        <div class="docs-card-desc">How this project survives past its funding. Federated hosting, Open Collective, wind-down procedure, five hard constraints.</div>
+        <div class="docs-card-desc">How this project survives past its funding. Federated hosting, five hard constraints, wind-down procedure.</div>
       </div>
     </a>
-    <a class="docs-card" href="doc.html?file=WISEREARTH" target="_blank">
-      <div class="docs-card-icon">🌱</div>
-      <div class="docs-card-body">
+    <a class="docs-card" href="doc.html?file=WISEREARTH" aria-label="WISEREARTH -- History of the predecessor">
+      <div class="docs-card-icon" aria-hidden="true">&#x1F331;</div>
+      <div>
         <div class="docs-card-title">WISEREARTH.md &mdash; The Predecessor</div>
-        <div class="docs-card-desc">Full history of wiser.org (2007-2014): what it built, the 381-node taxonomy, why it failed, recovered data.</div>
+        <div class="docs-card-desc">Full history of wiser.org (2007&ndash;2014): what it built, the 381-node taxonomy, why it failed, recovered data.</div>
       </div>
     </a>
-    <a class="docs-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/data/taxonomy.yaml" target="_blank">
-      <div class="docs-card-icon">🗂️</div>
-      <div class="docs-card-body">
+    <a class="docs-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/data/taxonomy.yaml" target="_blank" rel="noopener" aria-label="taxonomy.yaml on GitHub (opens in new tab)">
+      <div class="docs-card-icon" aria-hidden="true">&#x1F5C2;&#xFE0F;</div>
+      <div>
         <div class="docs-card-title">taxonomy.yaml &mdash; Recovered Taxonomy</div>
-        <div class="docs-card-desc">WiserEarth's 381-node civil society taxonomy recovered and structured as CC0 YAML. 8 sections, 50+ subsections.</div>
+        <div class="docs-card-desc">WiserEarth's 381-node civil society taxonomy as CC0 YAML. 8 sections, 50+ subsections. GitHub &rarr;</div>
       </div>
     </a>
   </div>
 </div>
 
-<!-- HONESTY -->
-<div class="honesty-wrap">
-  <div class="honesty-box">
-    <h3>A note on what this isn't</h3>
-    <p>This framework has real weaknesses. The post-scarcity premise is doing too much work. The transfer mechanism is underspecified. Animal agriculture is conspicuously absent from the food section. The mycelial strategy needs a funding model or it dies the same death WiserEarth did.</p>
-    <p>These aren't reasons to abandon the project. They're the problems to solve. <a href="doc.html?file=CRITIQUE" target="_blank">CRITIQUE.md</a> and <a href="doc.html?file=DEEP-DIVE" target="_blank">DEEP-DIVE.md</a> engage with all of them directly. A framework that can't survive scrutiny from its own supporters isn't worth building.</p>
+<!-- WISEREARTH NOTE -->
+<div class="wiser-wrap" role="note" aria-label="Note on WiserEarth">
+  <div class="wiser-card">
+    <strong>On the shoulders of WiserEarth.</strong> From 2007 to 2014, wiser.org was the only place that tried to map the civil society commons at global scale -- 114,994 NGOs in 243 countries, a 381-node taxonomy, women-led, ad-free, genuinely beautiful. It closed because it depended on one organization's philanthropy. The data is mostly gone. The structural lesson is documented in <a href="doc.html?file=SUSTAINABILITY">SUSTAINABILITY.md</a>.
   </div>
 </div>
 
 <!-- CTA -->
-<div class="cta">
+<div class="cta" role="complementary" aria-label="Contribute">
   <h2>This belongs to everyone</h2>
-  <p>The data is CC0. Fork it, extend it, add organizations, correct errors. The framework is open, anonymous, no center. If you know something it doesn't, that's what the pull requests are for.</p>
+  <p>The data is CC0. Fork it, extend it, add organizations, correct errors. No center, no leaders, no inner circle. If you know something it doesn't, that's what pull requests are for.</p>
   <div class="btn-row">
-    <a href="https://github.com/simonlpaige/ecolibrium" target="_blank" class="btn btn-green">Contribute on GitHub</a>
-    <a href="doc.html?file=DIRECTORY" target="_blank" class="btn btn-ghost">Browse the Directory &rarr;</a>
+    <a href="https://github.com/simonlpaige/ecolibrium" target="_blank" rel="noopener" class="btn btn-green">Contribute on GitHub</a>
+    <a href="doc.html?file=DIRECTORY" class="btn btn-ghost">Browse the Directory &rarr;</a>
   </div>
 </div>
 
-<footer>
+</main>
+
+<footer role="contentinfo">
   <p>
-    Data: <a href="doc.html?file=DIRECTORY" target="_blank">DIRECTORY.md</a>
-    &middot; Framework: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>
-    &middot; Data: <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a>
-    &middot; Inspired by <a href="https://web.archive.org/web/20140411042711/http://wiser.org/" target="_blank">WiserEarth</a> (2007&ndash;2014)
-    &middot; <a href="https://github.com/simonlpaige/ecolibrium" target="_blank">github.com/simonlpaige/ecolibrium</a>
+    Framework: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
+    &middot; Data: <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a>
+    &middot; Inspired by <a href="https://web.archive.org/web/20140411042711/http://wiser.org/" target="_blank" rel="noopener">WiserEarth</a> (2007&ndash;2014)
+    &middot; <a href="https://github.com/simonlpaige/ecolibrium" target="_blank" rel="noopener">github.com/simonlpaige/ecolibrium</a>
   </p>
 </footer>
 
