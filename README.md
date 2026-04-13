@@ -1,38 +1,44 @@
 # Ecolibrium: A Framework for the Effortless Economy
 
-> *An open-source blueprint for the peaceful transition to a post-scarcity, ecologically sustainable, democratically governed society — where the means to live a happy and free life belong to everyone.*
-
 ---
 
-## Why This Exists
+## The Idea
 
-Automation, AI, and ecological crisis are converging. The old economy — built on artificial scarcity, concentrated ownership, and the commodification of human time — is already failing most people. As machines make hard work easier, the transition will become unstable, leaving millions without work or income.
+Here is a thing that is true and that almost no one talks about clearly: the machines are going to do most of the work. Not eventually -- now, and accelerating. And the interesting question isn't whether that happens. It's who benefits when it does.
 
-We don't need to save the old system. Parts of it are so broken we should be so lucky to have the option to rebuild.
+Right now the answer is: whoever owns the machines. That's a design choice, not a law of nature. You could design it differently.
 
-A small group of individuals must relinquish power to the many. This framework explores how that can happen **without war or struggle** — through design, preparation, and collective will.
+This project is an attempt to think carefully about what "differently" actually means -- what systems would need to exist, how you'd build them, what's already being built, and how you get from here to there without everything going badly wrong in the middle.
 
-This is not a complete framework. It is bones — and the details we can infer. You are invited to help build it.
+It's not a manifesto. It's more like an engineering problem with a lot of political and historical constraints. The goal is to figure out what needs to be true for people to have food, shelter, healthcare, and a say in their own lives -- and then figure out how to make those things true.
+
+Some of this is worked out in detail. A lot of it isn't. The parts that aren't worked out are listed as open questions, which is honest. If you know something we don't, that's what the pull requests are for.
 
 ---
 
 ## Core Principles
 
-1. **Universal Sufficiency** — Every person has an unconditional right to food, shelter, healthcare, education, and meaningful participation in society.
-2. **Ecological Equilibrium** — No economic activity may degrade the systems that sustain life. The economy operates within planetary boundaries.
-3. **Democratic Sovereignty** — Power flows from people, not capital. Decisions are made by those affected by them.
-4. **Common Ownership of the Commons** — Land, water, air, energy, data, and infrastructure belong to everyone. They cannot be privately hoarded.
-5. **Voluntary Contribution** — Work is not coerced. People contribute because they find meaning, not because survival depends on it.
-6. **Non-Violence** — The transition happens through preparation, legitimacy, and collective action — not force.
-7. **Transparency by Default** — All systems of governance and resource allocation operate in the open.
+These are the load-bearing walls. Everything else is details.
+
+1. **Universal Sufficiency** -- Every person has an unconditional right to food, shelter, healthcare, education, and meaningful participation in society.
+2. **Ecological Equilibrium** -- No economic activity may degrade the systems that sustain life. The economy operates within planetary boundaries.
+3. **Democratic Sovereignty** -- Power flows from people, not capital. Decisions are made by those affected by them.
+4. **Common Ownership of the Commons** -- Land, water, air, energy, data, and infrastructure belong to everyone. They cannot be privately hoarded.
+5. **Voluntary Contribution** -- Work is not coerced. People contribute because they find meaning, not because survival depends on it.
+6. **Non-Violence** -- The transition happens through preparation, legitimacy, and collective action -- not force.
+7. **Transparency by Default** -- All systems of governance and resource allocation operate in the open.
+
+These principles are in tension with each other. That's not a bug. See [Tensions and Tradeoffs](#tensions-and-tradeoffs) below.
 
 ---
 
 ## The Framework
 
-### Phase 1: Pre-Transfer — Systems That Must Exist Before the Transition
+### Phase 1: Pre-Transfer -- Systems That Must Exist Before the Transition
 
-These are the foundations that need to be designed, tested, and ready to deploy *before* any transfer of power. The transfer cannot happen until these exist.
+The transfer of power to a better system can only happen if a better system is ready to receive it. History is full of examples of what happens when the old system collapses before the new one is operational. It's not pretty.
+
+So: before the transfer, these systems need to exist and be demonstrably working, even if only at small scale. Think of it as load testing before launch.
 
 #### 1.1 Democratic Infrastructure
 
@@ -117,29 +123,33 @@ These are the foundations that need to be designed, tested, and ready to deploy 
 
 ---
 
-### The Network of Trust — The Mycelial Strategy
+### The Network of Trust -- The Mycelial Strategy
 
-> *The transition is not deployed from above. It is grown from within — everywhere, all at once.*
+In 2007, a researcher named Paul Hawken published a book arguing that the world's largest social movement already existed -- millions of organizations working on environmental sustainability, social justice, and indigenous rights -- and that nobody had noticed because it had no name, no leader, and no central organization. He called it "blessed unrest." Then he and his colleagues built a website called WiserEarth and catalogued 114,994 of those organizations across 243 countries.
 
-The strategy is **mycelial**: a worldwide network of trusted agents, working within and alongside existing institutions, preparing systems and demonstrating alternatives. When the technology arrives to make post-scarcity real, the network doesn't seize power — it **renders the old power irrelevant**. Institutions are absorbed, transformed, or dissolved because the people inside them want to.
+Then the funding ran out and the whole thing disappeared in a weekend. That was 2014.
+
+The lesson isn't that the idea was wrong. The lesson is about infrastructure.
+
+The strategy here is similar to Hawken's original idea, with the infrastructure problem taken seriously. The approach is **mycelial**: a distributed network of people and organizations building working alternatives to the systems that don't work -- not arguing about theory, but running pilots, writing code, keeping books, growing food, running clinics. When the conditions are right, the network doesn't seize power. It just already has the replacement ready.
 
 #### How the Network Works
 
 - **No center, no leader.** The network is a web of trust, not a hierarchy. No single node can be removed to collapse it. No personality cult can form around a leaderless structure.
-- **Trust is built through contribution.** You join by doing the work — building systems, running pilots, sharing knowledge. Trust is earned, not granted.
-- **Radical transparency.** The network is not a conspiracy. The framework is open-source. The pilots are public. The strategy is visible. The plans are published. Anyone — including opponents — can read every word. Legitimacy requires total sunlight. If the idea can't survive being seen, it doesn't deserve to succeed.
-- **No founders, no leaders, no inner circle.** This project was started anonymously on purpose. No one's name is on it because no one's name should be on it. The moment a face becomes attached to the framework, the framework becomes vulnerable to ego, celebrity, and targeted attack. The work speaks. Nothing else needs to.
-- **Operate inside and outside institutions simultaneously.** Some contributors work within governments, hospitals, universities, and corporations — not to subvert them, but to understand them and prepare them for transformation. Others build parallel structures outside. All of this happens in the open.
-- **Demonstrate, don't argue.** The network's primary pre-transfer activity is **running proof-of-concept systems** at local scale: community energy grids, cooperative businesses, participatory budgets, mutual aid networks, open-source health clinics. When the moment arrives, scaling up is not a leap of faith — it's expanding what already works.
+- **Trust is built through contribution.** You join by doing the work -- building systems, running pilots, sharing knowledge. Trust is earned, not granted.
+- **Radical transparency.** This is not a conspiracy. The framework is open-source. The pilots are public. The strategy is visible. Anyone, including opponents, can read every word. If the idea can't survive being seen, it doesn't deserve to succeed.
+- **No founders, no leaders, no inner circle.** This project was started anonymously on purpose. The moment a face becomes attached to the framework, the framework becomes vulnerable to ego, celebrity, and targeted attack. The work speaks.
+- **Operate inside and outside institutions simultaneously.** Some contributors work within governments, hospitals, universities, and corporations -- not to subvert them, but to understand them and prepare them for transformation. Others build parallel structures outside. All of this happens in the open.
+- **Demonstrate, don't argue.** The network's primary pre-transfer activity is running proof-of-concept systems at local scale: community energy grids, cooperative businesses, participatory budgets, mutual aid networks, open-source health clinics. When the moment arrives, scaling up is not a leap of faith -- it's expanding what already works.
 
 #### Principles of Network Growth
 
 1. **Invite, never recruit.** People join because they see the work and want to contribute. Persuasion is unnecessary when the results speak.
-2. **Open by default.** All coordination, planning, and strategy happens in the open. There are no inner circles. No secret channels. No privileged access to information. If someone needs to whisper, something has gone wrong.
-3. **Cultural adaptation.** The framework is universal but its expression is local. A community in Kerala and a community in Detroit will implement differently — and that's the point.
+2. **Open by default.** All coordination, planning, and strategy happens in the open. No inner circles. No secret channels. If someone needs to whisper, something has gone wrong.
+3. **Cultural adaptation.** The framework is universal but its expression is local. A community in Kerala and a community in Detroit will implement differently -- and that's the point.
 4. **No purity tests.** People arrive from different political traditions, spiritual backgrounds, and life experiences. The framework is evaluated on outcomes, not ideology.
 5. **Resilience through redundancy.** Every critical function is performed by multiple independent groups. No single point of failure.
-6. **The framework protects itself through transparency, not secrecy.** Co-option is hard when everything is visible. Infiltration is meaningless when there is nothing hidden to discover. The openness *is* the security model.
+6. **The framework protects itself through transparency, not secrecy.** Co-option is hard when everything is visible. Infiltration is meaningless when there is nothing hidden to discover. The openness is the security model.
 
 #### What the Network Builds Before the Transfer
 
@@ -153,11 +163,9 @@ The strategy is **mycelial**: a worldwide network of trusted agents, working wit
 
 ### Phase 2: The Transfer
 
-The moment of transition. Not a revolution — a *migration*. The old systems don't need to be destroyed; they become unnecessary because better ones exist. The network has been preparing. The technology has arrived. The proof is abundant. All of a sudden, the transfer happens.
+Not a revolution -- a migration. The old systems don't need to be destroyed; they become unnecessary because better ones exist. The network has been preparing. The proof is abundant.
 
-#### How the Transfer Happens
-
-The transfer is not a single event — it is a **phase shift**. Like water reaching boiling point, the conditions accumulate gradually and the transformation appears sudden.
+The transfer is not a single event. It is a phase shift. The conditions accumulate gradually and the transformation appears sudden -- which is how most phase transitions work. You heat water for a long time and then it boils.
 
 1. **Technology reaches the threshold.** Automation, AI, and renewable energy reduce the cost of necessities (food, shelter, energy, healthcare) to near-zero. The old economy's logic — work or starve — stops making sense.
 2. **The network activates.** Prepared systems go live at scale. What was a local pilot becomes regional infrastructure. What was a prototype becomes the default.
