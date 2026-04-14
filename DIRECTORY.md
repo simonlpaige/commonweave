@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 12:22 UTC*
+*Last updated: 2026-04-14 12:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,951 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,952 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
@@ -34,6 +34,7 @@
 | 🌐 Jordan (JO) | ~2 | Field Research | ✅ |
 | 🌐 Kenya (KE) | ~53 | Field Research | ✅ |
 | 🌐 Cambodia (KH) | ~2 | Field Research | ✅ |
+| 🌐 South Korea (KR) | ~2 | Field Research | ✅ |
 | 🌐 Lebanon (LB) | ~2 | Field Research | ✅ |
 | 🌐 Sri Lanka (LK) | ~2 | Field Research | ✅ |
 | 🌐 Morocco (MA) | ~2 | Field Research | ✅ |
@@ -69,14 +70,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,951+ organizations indexed** across 60 countries
+**Total: 720,952+ organizations indexed** across 61 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,951 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,952 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1919,6 +1920,20 @@ Model: nonprofit
 
 ### Cambodia Civil Society Network
 > Primary civil society network in Cambodia
+
+
+---
+
+# 🌐 South Korea (KR) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### South Korea Civil Society Network
+> Primary civil society network in South Korea
 
 
 ---
