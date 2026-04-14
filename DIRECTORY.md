@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 17:22 UTC*
+*Last updated: 2026-04-14 17:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,996 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,997 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -26,6 +26,7 @@
 | 🌐 Dominican Republic (DO) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_EC.md (EC) | ~9 | Field Research | ✅ |
 | 🌐 Egypt (EG) | ~2 | Field Research | ✅ |
+| 🌐 Spain (ES) | ~2 | Field Research | ✅ |
 | 🌐 Ethiopia (ET) | ~2 | Field Research | ✅ |
 | 🌐 Georgia (GE) | ~2 | Field Research | ✅ |
 | 🌐 Ghana (GH) | ~2 | Field Research | ✅ |
@@ -89,14 +90,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,996+ organizations indexed** across 80 countries
+**Total: 720,997+ organizations indexed** across 81 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,996 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,997 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1335,6 +1336,20 @@ Model: nonprofit
 
 ### Egypt Civil Society Network
 > Primary civil society network in Egypt
+
+
+---
+
+# 🌐 Spain (ES) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Spain Civil Society Network
+> Primary civil society network in Spain
 
 
 ---
