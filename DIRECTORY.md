@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 21:22 UTC*
+*Last updated: 2026-04-14 21:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 721,024 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 721,025 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -74,6 +74,7 @@
 | 🌐 Netherlands (NL) | ~2 | Field Research | ✅ |
 | 🌐 Norway (NO) | ~2 | Field Research | ✅ |
 | 🌐 Nepal (NP) | ~17 | Field Research | ✅ |
+| 🌐 New Zealand (NZ) | ~2 | Field Research | ✅ |
 | 🌐 Phase 2: (??) | ~41 | Field Research | ✅ |
 | 🌐 Panama (PA) | ~2 | Field Research | ✅ |
 | 🌐 Peru (PE) | ~2 | Field Research | ✅ |
@@ -105,14 +106,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 721,024+ organizations indexed** across 96 countries
+**Total: 721,025+ organizations indexed** across 97 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*721,024 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*721,025 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2803,6 +2804,20 @@ Model: nonprofit
 ### List of non
 Framework: democracy
 Model: nonprofit
+
+
+---
+
+# 🌐 New Zealand (NZ) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### New Zealand Civil Society Network
+> Primary civil society network in New Zealand
 
 
 ---
