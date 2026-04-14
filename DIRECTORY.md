@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 00:04 UTC*
+*Last updated: 2026-04-14 00:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 689,395 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 696,821 | IRS EO Business Master File | ✅ Complete |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Costa Rica (CR) | ~17 | Field Research | ✅ |
 | 🌐 DIRECTORY_EC.md (EC) | ~9 | Field Research | ✅ |
@@ -18,20 +18,21 @@
 | 🌐 DIRECTORY_NG.md (NG) | ~9 | Field Research | ✅ |
 | 🌐 Nicaragua (NI) | ~13 | Field Research | ✅ |
 | 🌐 Phase 2: (??) | ~41 | Field Research | ✅ |
+| 🌐 Panama (PA) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_PY.md (PY) | ~10 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
 | 🌐 DIRECTORY_VE.md (VE) | ~13 | Field Research | ✅ |
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 689,395+ organizations indexed** across 15 countries
+**Total: 696,821+ organizations indexed** across 16 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*689,395 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*696,821 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1923,6 +1924,20 @@ Model: nonprofit
 
 ### Neighbor to Neighbor Special Project (CFSJC)
 > | **** | Immigrant/refugee support, social services | $50,000 for expansion (Phase 2 of project); serves South Bend. [5] |
+
+
+---
+
+# 🌐 Panama (PA) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Panama Civil Society Network
+> Primary civil society network in Panama
 
 
 ---
