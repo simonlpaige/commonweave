@@ -1,13 +1,14 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 16:06 UTC*
+*Last updated: 2026-04-14 16:21 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,991 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,992 | IRS EO Business Master File | ✅ Complete |
+| 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 Bosnia and Herzegovina (BA) | ~13 | Field Research | ✅ |
@@ -84,14 +85,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,991+ organizations indexed** across 75 countries
+**Total: 720,992+ organizations indexed** across 76 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,991 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,992 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -620,6 +621,20 @@
 
 *Compiled via structured web research, official nonprofit registries, and field sources*
 
+
+# 🌐 Albania (AL) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Albania Civil Society Network
+> Primary civil society network in Albania
+
+
+---
 
 # 🌐 Armenia (AM) Civil Society Directory
 
