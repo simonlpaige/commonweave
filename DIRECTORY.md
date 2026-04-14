@@ -1,18 +1,19 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 16:37 UTC*
+*Last updated: 2026-04-14 16:52 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,993 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,994 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 Bosnia and Herzegovina (BA) | ~13 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
+| 🌐 Bulgaria (BG) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
 | 🌐 Cote d'Ivoire (CI) | ~2 | Field Research | ✅ |
@@ -86,14 +87,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,993+ organizations indexed** across 77 countries
+**Total: 720,994+ organizations indexed** across 78 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,993 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,994 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -745,6 +746,20 @@ Model: nonprofit
 
 ### Bangladesh Civil Society Network
 > Primary civil society network in Bangladesh
+
+
+---
+
+# 🌐 Bulgaria (BG) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Bulgaria Civil Society Network
+> Primary civil society network in Bulgaria
 
 
 ---
