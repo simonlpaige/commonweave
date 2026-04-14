@@ -1,9 +1,9 @@
 {
-  "total": 30921,
+  "total": 30922,
   "us_count": 13751,
-  "intl_count": 17170,
+  "intl_count": 17171,
   "by_area": {
-    "democracy": 11732,
+    "democracy": 11733,
     "healthcare": 5505,
     "education": 5088,
     "food": 2649,
@@ -38,7 +38,7 @@
     "GT": 402,
     "EC": 361,
     "BO": 343,
-    "EG": 341,
+    "EG": 342,
     "HN": 341,
     "CR": 340,
     "RW": 332,
