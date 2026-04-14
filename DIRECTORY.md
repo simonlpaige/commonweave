@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 13:22 UTC*
+*Last updated: 2026-04-14 13:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,969 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,970 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
@@ -42,6 +42,7 @@
 | 🌐 Morocco (MA) | ~2 | Field Research | ✅ |
 | 🌐 Madagascar (MG) | ~2 | Field Research | ✅ |
 | 🌐 Myanmar (MM) | ~2 | Field Research | ✅ |
+| 🌐 Mongolia (MN) | ~2 | Field Research | ✅ |
 | 🌐 Malawi (MW) | ~2 | Field Research | ✅ |
 | 🌐 Mexico (MX) | ~2 | Field Research | ✅ |
 | 🌐 Malaysia (MY) | ~2 | Field Research | ✅ |
@@ -73,14 +74,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,969+ organizations indexed** across 64 countries
+**Total: 720,970+ organizations indexed** across 65 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,969 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,970 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2035,6 +2036,20 @@ Model: nonprofit
 
 ### Myanmar Civil Society Network
 > Primary civil society network in Myanmar
+
+
+---
+
+# 🌐 Mongolia (MN) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Mongolia Civil Society Network
+> Primary civil society network in Mongolia
 
 
 ---
