@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 14:37 UTC*
+*Last updated: 2026-04-14 14:52 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,974 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,975 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
@@ -68,6 +68,7 @@
 | 🌐 Trinidad and Tobago (TT) | ~2 | Field Research | ✅ |
 | 🌐 Taiwan (TW) | ~16 | Field Research | ✅ |
 | 🌐 Tanzania (TZ) | ~2 | Field Research | ✅ |
+| 🌐 Ukraine (UA) | ~2 | Field Research | ✅ |
 | 🌐 Uganda (UG) | ~2 | Field Research | ✅ |
 | 🌐 Uruguay (UY) | ~12 | Field Research | ✅ |
 | 🌐 Uzbekistan (UZ) | ~2 | Field Research | ✅ |
@@ -78,14 +79,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,974+ organizations indexed** across 69 countries
+**Total: 720,975+ organizations indexed** across 70 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,974 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,975 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -3153,6 +3154,20 @@ Model: nonprofit
 
 ### Tanzania Civil Society Network
 > Primary civil society network in Tanzania
+
+
+---
+
+# 🌐 Ukraine (UA) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Ukraine Civil Society Network
+> Primary civil society network in Ukraine
 
 
 ---
