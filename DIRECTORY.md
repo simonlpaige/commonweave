@@ -1,15 +1,16 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 04:07 UTC*
+*Last updated: 2026-04-14 04:22 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,581 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,582 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
+| 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
 | 🌐 Chile (CL) | ~2 | Field Research | ✅ |
 | 🌐 Colombia (CO) | ~2 | Field Research | ✅ |
 | 🌐 Costa Rica (CR) | ~17 | Field Research | ✅ |
@@ -36,14 +37,14 @@
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,581+ organizations indexed** across 27 countries
+**Total: 720,582+ organizations indexed** across 28 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,581 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,582 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -776,6 +777,20 @@
 - Framework coverage: conflict(4), cooperatives(9), democracy(62), ecology(1), education(3), energy_digital(4), food(8), healthcare(3), housing_land(6), indigenous(12), recreation_arts(3)
 - Key gaps: Informal mutual aid networks, rural community organizations, sub-national grassroots
 - Recommended follow-up: Contact SEPREC registry, CEDIB documentation center
+
+
+---
+
+# 🌐 Brazil (BR) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Brazil Civil Society Network
+> Primary civil society network in Brazil
 
 
 ---

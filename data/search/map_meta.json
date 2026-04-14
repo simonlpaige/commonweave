@@ -1,9 +1,9 @@
 {
-  "total": 30682,
+  "total": 30683,
   "us_count": 13752,
-  "intl_count": 16930,
+  "intl_count": 16931,
   "by_area": {
-    "democracy": 11509,
+    "democracy": 11510,
     "healthcare": 5497,
     "education": 5081,
     "food": 2650,
@@ -22,7 +22,7 @@
     "CO": 702,
     "PH": 641,
     "TH": 627,
-    "BR": 609,
+    "BR": 610,
     "NZ": 599,
     "AU": 591,
     "CA": 540,
