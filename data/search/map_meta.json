@@ -1,18 +1,18 @@
 {
-  "total": 30954,
+  "total": 30969,
   "us_count": 13751,
-  "intl_count": 17203,
+  "intl_count": 17218,
   "by_area": {
-    "democracy": 11763,
+    "democracy": 11774,
     "healthcare": 5506,
     "education": 5089,
     "food": 2649,
     "housing_land": 1894,
     "recreation_arts": 1552,
-    "ecology": 1092,
+    "ecology": 1093,
     "cooperatives": 728,
     "conflict": 621,
-    "energy_digital": 60
+    "energy_digital": 63
   },
   "by_country": {
     "US": 13751,
