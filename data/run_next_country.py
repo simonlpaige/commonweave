@@ -290,7 +290,6 @@ def run_wikidata(cc, country_name):
             )
             print(result.stdout[-500:] if len(result.stdout) > 500 else result.stdout)
             if result.stderr:
-                # Only print real errors, not deprecation warnings
                 errs = [l for l in result.stderr.split('\n') if 'Error' in l or 'error' in l.lower()]
                 if errs:
                     print('  Wikidata errors:', '\n'.join(errs[:3]))
@@ -304,6 +303,26 @@ def run_wikidata(cc, country_name):
     except Exception as e:
         print(f'  Wikidata error: {e}')
         return False
+
+
+def run_wikidata_backfill():
+    """Run Wikidata backfill for one queued country (separate from current DDG country)."""
+    try:
+        backfill_script = os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data', 'sources', 'run_next_wikidata.py')
+        if os.path.exists(backfill_script):
+            print(f'\n--- Wikidata backfill (next queued country) ---')
+            result = subprocess.run(
+                ['python', backfill_script],
+                capture_output=True, text=True, timeout=180,
+                encoding='utf-8', errors='replace'
+            )
+            for line in result.stdout.split('\n'):
+                if line.strip():
+                    print(f'  {line.strip()}')
+            return True
+    except Exception as e:
+        print(f'  Wikidata backfill error: {e}')
+    return False
 
 
 def main():
@@ -325,8 +344,11 @@ def main():
     write_markdown(orgs, cc, country_name)
     ddg_inserted = ingest_db(orgs, cc, country_name)
 
-    # Source 2: Wikidata SPARQL (structured data)
+    # Source 2: Wikidata SPARQL for this country
     run_wikidata(cc, country_name)
+
+    # Source 3: Wikidata backfill for next queued country (catches up on big countries)
+    run_wikidata_backfill()
 
     rebuild_index()
 
