@@ -1,15 +1,16 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 03:38 UTC*
+*Last updated: 2026-04-14 03:53 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,569 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,570 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
+| 🌐 Chile (CL) | ~2 | Field Research | ✅ |
 | 🌐 Colombia (CO) | ~2 | Field Research | ✅ |
 | 🌐 Costa Rica (CR) | ~17 | Field Research | ✅ |
 | 🌐 Cuba (CU) | ~2 | Field Research | ✅ |
@@ -34,14 +35,14 @@
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,569+ organizations indexed** across 25 countries
+**Total: 720,570+ organizations indexed** across 26 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,569 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,570 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -774,6 +775,20 @@
 - Framework coverage: conflict(4), cooperatives(9), democracy(62), ecology(1), education(3), energy_digital(4), food(8), healthcare(3), housing_land(6), indigenous(12), recreation_arts(3)
 - Key gaps: Informal mutual aid networks, rural community organizations, sub-national grassroots
 - Recommended follow-up: Contact SEPREC registry, CEDIB documentation center
+
+
+---
+
+# 🌐 Chile (CL) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Chile Civil Society Network
+> Primary civil society network in Chile
 
 
 ---
