@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 09:07 UTC*
+*Last updated: 2026-04-14 09:21 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,923 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,924 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
@@ -26,6 +26,7 @@
 | 🌐 DIRECTORY_GY.md (GY) | ~12 | Field Research | ✅ |
 | 🌐 DIRECTORY_HN.md (HN) | ~10 | Field Research | ✅ |
 | 🌐 Haiti (HT) | ~2 | Field Research | ✅ |
+| 🌐 Iran (IR) | ~2 | Field Research | ✅ |
 | 🌐 Jamaica (JM) | ~2 | Field Research | ✅ |
 | 🌐 Jordan (JO) | ~2 | Field Research | ✅ |
 | 🌐 Kenya (KE) | ~53 | Field Research | ✅ |
@@ -56,14 +57,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,923+ organizations indexed** across 47 countries
+**Total: 720,924+ organizations indexed** across 48 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,923 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,924 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1640,6 +1641,20 @@ Model: nonprofit
 
 ### Haiti Civil Society Network
 > Primary civil society network in Haiti
+
+
+---
+
+# 🌐 Iran (IR) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Iran Civil Society Network
+> Primary civil society network in Iran
 
 
 ---
