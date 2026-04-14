@@ -1,11 +1,11 @@
 {
-  "total": 30927,
+  "total": 30943,
   "us_count": 13751,
-  "intl_count": 17176,
+  "intl_count": 17192,
   "by_area": {
-    "democracy": 11738,
-    "healthcare": 5505,
-    "education": 5088,
+    "democracy": 11752,
+    "healthcare": 5506,
+    "education": 5089,
     "food": 2649,
     "housing_land": 1894,
     "recreation_arts": 1552,
