@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 11:22 UTC*
+*Last updated: 2026-04-14 11:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,947 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,948 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
@@ -52,6 +52,7 @@
 | 🌐 Rwanda (RW) | ~2 | Field Research | ✅ |
 | 🌐 Senegal (SN) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
+| 🌐 Thailand (TH) | ~2 | Field Research | ✅ |
 | 🌐 Tunisia (TN) | ~2 | Field Research | ✅ |
 | 🌐 Turkey (TR) | ~2 | Field Research | ✅ |
 | 🌐 Trinidad and Tobago (TT) | ~2 | Field Research | ✅ |
@@ -65,14 +66,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,947+ organizations indexed** across 56 countries
+**Total: 720,948+ organizations indexed** across 57 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,947 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,948 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2845,6 +2846,20 @@ Model: nonprofit
 - Framework coverage: democracy(56), ecology(14), cooperatives(4), food(4), healthcare(13), education(4), housing_land(2), energy_digital(8)
 - Key gaps: Indigenous/Maroon village-level orgs, Dutch-language civil society, informal savings groups
 - Recommended follow-up: Contact SANBO (Suriname NGO umbrella), Conservation International Suriname
+
+
+---
+
+# 🌐 Thailand (TH) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Thailand Civil Society Network
+> Primary civil society network in Thailand
 
 
 ---
