@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 16:52 UTC*
+*Last updated: 2026-04-14 17:07 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,994 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,995 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -29,6 +29,7 @@
 | 🌐 Ethiopia (ET) | ~2 | Field Research | ✅ |
 | 🌐 Georgia (GE) | ~2 | Field Research | ✅ |
 | 🌐 Ghana (GH) | ~2 | Field Research | ✅ |
+| 🌐 Greece (GR) | ~2 | Field Research | ✅ |
 | 🌐 Guatemala (GT) | ~13 | Field Research | ✅ |
 | 🌐 DIRECTORY_GY.md (GY) | ~12 | Field Research | ✅ |
 | 🌐 DIRECTORY_HN.md (HN) | ~10 | Field Research | ✅ |
@@ -87,14 +88,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,994+ organizations indexed** across 78 countries
+**Total: 720,995+ organizations indexed** across 79 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,994 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,995 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1375,6 +1376,20 @@ Model: nonprofit
 
 ### Ghana Civil Society Network
 > Primary civil society network in Ghana
+
+
+---
+
+# 🌐 Greece (GR) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Greece Civil Society Network
+> Primary civil society network in Greece
 
 
 ---
