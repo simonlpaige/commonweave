@@ -277,6 +277,35 @@ def queue_remaining():
                 remaining += 1
     return remaining
 
+def run_wikidata(cc, country_name):
+    """Pull structured org data from Wikidata SPARQL."""
+    try:
+        wikidata_script = os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data', 'sources', 'wikidata_ingest.py')
+        if os.path.exists(wikidata_script):
+            print(f'\n--- Wikidata SPARQL ingest for {cc} ---')
+            result = subprocess.run(
+                ['python', wikidata_script, cc, country_name],
+                capture_output=True, text=True, timeout=180,
+                encoding='utf-8', errors='replace'
+            )
+            print(result.stdout[-500:] if len(result.stdout) > 500 else result.stdout)
+            if result.stderr:
+                # Only print real errors, not deprecation warnings
+                errs = [l for l in result.stderr.split('\n') if 'Error' in l or 'error' in l.lower()]
+                if errs:
+                    print('  Wikidata errors:', '\n'.join(errs[:3]))
+            return True
+        else:
+            print('  Wikidata ingest script not found, skipping')
+            return False
+    except subprocess.TimeoutExpired:
+        print('  Wikidata ingest timed out')
+        return False
+    except Exception as e:
+        print(f'  Wikidata error: {e}')
+        return False
+
+
 def main():
     cc, country_name = get_next_country()
     if not cc:
@@ -285,27 +314,43 @@ def main():
 
     print(f'\n=== {country_name} ({cc}) ===')
 
+    # Source 1: DuckDuckGo web research (existing)
     search_text = research_country(cc, country_name)
     orgs = extract_orgs(search_text, cc, country_name)
-    print(f'Found {len(orgs)} orgs')
+    print(f'Found {len(orgs)} orgs from web search')
 
     if not orgs:
         orgs = [{'n': f'{country_name} Civil Society Network', 'd': f'Primary civil society network in {country_name}', 'cc': cc, 'country': country_name}]
 
     write_markdown(orgs, cc, country_name)
-    inserted = ingest_db(orgs, cc, country_name)
+    ddg_inserted = ingest_db(orgs, cc, country_name)
+
+    # Source 2: Wikidata SPARQL (structured data)
+    run_wikidata(cc, country_name)
+
     rebuild_index()
+
+    # Count total for this country after all sources
+    try:
+        db = sqlite3.connect(DB_PATH)
+        c = db.cursor()
+        c.execute("SELECT COUNT(*) FROM organizations WHERE country_code=? AND status != 'removed'", (cc,))
+        country_total = c.fetchone()[0]
+        db.close()
+    except:
+        country_total = len(orgs)
 
     remaining = queue_remaining()
     result = {
         'status': 'done',
         'country': country_name,
         'cc': cc,
-        'orgs_found': len(orgs),
-        'db_inserted': inserted,
+        'orgs_found': country_total,
+        'ddg_orgs': len(orgs),
+        'db_inserted': ddg_inserted,
         'queue_remaining': remaining,
     }
-    print(f'\nDone: {country_name} ({cc}), {len(orgs)} orgs, {remaining} countries remaining')
+    print(f'\nDone: {country_name} ({cc}), {country_total} total orgs (DDG:{len(orgs)}+Wikidata), {remaining} countries remaining')
     return result
 
 if __name__ == '__main__':
