@@ -30,6 +30,20 @@ PRIORITY_COUNTRIES = [
     ('SN', 'Senegal'), ('PL', 'Poland'), ('UA', 'Ukraine'),
     ('TR', 'Turkey'), ('BD', 'Bangladesh'), ('PK', 'Pakistan'),
     ('NP', 'Nepal'), ('LK', 'Sri Lanka'),
+    # Countries with only 1 org (from OFN manual curation)
+    ('BE', 'Belgium'), ('CH', 'Switzerland'), ('ES', 'Spain'),
+    ('HU', 'Hungary'), ('IE', 'Ireland'), ('NO', 'Norway'),
+    ('RU', 'Russia'), ('PT', 'Portugal'), ('DK', 'Denmark'),
+    ('FI', 'Finland'), ('AT', 'Austria'), ('GR', 'Greece'),
+    ('RO', 'Romania'), ('RS', 'Serbia'), ('BG', 'Bulgaria'),
+    ('GE', 'Georgia'), ('AM', 'Armenia'), ('KZ', 'Kazakhstan'),
+    ('UZ', 'Uzbekistan'),
+    # Additional high-value countries
+    ('MY', 'Malaysia'), ('VN', 'Vietnam'), ('KH', 'Cambodia'),
+    ('MM', 'Myanmar'), ('KR', 'South Korea'), ('TW', 'Taiwan'),
+    ('MA', 'Morocco'), ('TN', 'Tunisia'), ('JO', 'Jordan'),
+    ('LB', 'Lebanon'), ('CI', 'Cote d Ivoire'), ('CM', 'Cameroon'),
+    ('MG', 'Madagascar'), ('MZ', 'Mozambique'), ('ZM', 'Zambia'),
 ]
 
 def get_done():

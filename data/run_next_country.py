@@ -325,6 +325,26 @@ def run_wikidata_backfill():
     return False
 
 
+def run_us_state_enrichment():
+    """Run Wikidata enrichment for one US state (adds notable orgs with descriptions/coords)."""
+    try:
+        state_script = os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data', 'sources', 'us_state_wikidata.py')
+        if os.path.exists(state_script):
+            print(f'\n--- US state Wikidata enrichment ---')
+            result = subprocess.run(
+                ['python', state_script],
+                capture_output=True, text=True, timeout=180,
+                encoding='utf-8', errors='replace'
+            )
+            for line in result.stdout.split('\n'):
+                if line.strip():
+                    print(f'  {line.strip()}')
+            return True
+    except Exception as e:
+        print(f'  US state enrichment error: {e}')
+    return False
+
+
 def main():
     cc, country_name = get_next_country()
     if not cc:
@@ -349,6 +369,9 @@ def main():
 
     # Source 3: Wikidata backfill for next queued country (catches up on big countries)
     run_wikidata_backfill()
+
+    # Source 4: US state-level Wikidata enrichment (one state per run)
+    run_us_state_enrichment()
 
     rebuild_index()
 
