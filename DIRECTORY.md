@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-15 21:10 UTC*
+*Last updated: 2026-04-15 21:40 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,712 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,713 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -48,6 +48,7 @@
 | 🌐 Ireland (IE) | ~2 | Field Research | ✅ |
 | 🌐 India (IN) | ~19 | Field Research | ✅ |
 | 🌐 Iran (IR) | ~2 | Field Research | ✅ |
+| 🌐 Italy (IT) | ~2 | Field Research | ✅ |
 | 🌐 Jamaica (JM) | ~2 | Field Research | ✅ |
 | 🌐 Jordan (JO) | ~2 | Field Research | ✅ |
 | 🌐 Japan (JP) | ~14 | Field Research | ✅ |
@@ -103,14 +104,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,712+ organizations indexed** across 94 countries
+**Total: 761,713+ organizations indexed** across 95 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,712 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,713 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2210,6 +2211,20 @@ Model: foundation
 
 ### Iran Civil Society Network
 > Primary civil society network in Iran
+
+
+---
+
+# 🌐 Italy (IT) Civil Society Directory
+
+*Compiled: 2026-04-15 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Italy Civil Society Network
+> Primary civil society network in Italy
 
 
 ---
