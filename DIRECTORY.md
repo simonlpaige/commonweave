@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 01:49 UTC*
+*Last updated: 2026-04-16 02:19 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,733 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,734 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -46,6 +46,7 @@
 | 🌐 Guatemala (GT) | ~13 | Field Research | ✅ |
 | 🌐 DIRECTORY_GY.md (GY) | ~12 | Field Research | ✅ |
 | 🌐 DIRECTORY_HN.md (HN) | ~10 | Field Research | ✅ |
+| 🌐 Croatia (HR) | ~2 | Field Research | ✅ |
 | 🌐 Haiti (HT) | ~2 | Field Research | ✅ |
 | 🌐 Hungary (HU) | ~2 | Field Research | ✅ |
 | 🌐 Indonesia (ID) | ~2 | Field Research | ✅ |
@@ -111,14 +112,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,733+ organizations indexed** across 102 countries
+**Total: 761,734+ organizations indexed** across 103 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,733 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,734 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2103,6 +2104,20 @@ Model: nonprofit
 - This research adds: 107 Honduran organizations
 - Framework coverage: conflict(9), cooperatives(4), democracy(68), ecology(1), energy_digital(1), food(10), healthcare(7), housing_land(6), recreation_arts(1)
 - Recommended follow-up: Contact ASONOG (Asociacion de ONGs), FOPRIDEH for formal registry
+
+
+---
+
+# 🌐 Croatia (HR) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Croatia Civil Society Network
+> Primary civil society network in Croatia
 
 
 ---
