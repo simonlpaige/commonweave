@@ -1,21 +1,21 @@
 {
-  "total": 11865,
-  "us_count": 10023,
+  "total": 8534,
+  "us_count": 6692,
   "intl_count": 1842,
   "by_area": {
-    "healthcare": 2821,
-    "food": 2584,
-    "housing_land": 1873,
-    "democracy": 1294,
+    "food": 2367,
+    "healthcare": 1442,
+    "housing_land": 1277,
     "education": 1272,
-    "ecology": 895,
-    "conflict": 515,
-    "cooperatives": 486,
+    "democracy": 824,
+    "ecology": 533,
+    "cooperatives": 410,
+    "conflict": 284,
     "recreation_arts": 115,
     "energy_digital": 10
   },
   "by_country": {
-    "US": 10023,
+    "US": 6692,
     "NZ": 252,
     "NG": 179,
     "KE": 158,
@@ -47,15 +47,15 @@
     "EC": 9
   },
   "by_state": {
-    "CA": 1052,
-    "NY": 597,
-    "TX": 518,
-    "FL": 459,
-    "IL": 402,
-    "PA": 350,
-    "OK": 347,
-    "MI": 327,
-    "MA": 311,
-    "OH": 298
+    "CA": 637,
+    "NY": 363,
+    "TX": 333,
+    "OK": 310,
+    "IL": 306,
+    "FL": 275,
+    "PA": 225,
+    "MI": 220,
+    "MA": 214,
+    "WI": 212
   }
 }

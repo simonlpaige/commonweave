@@ -26,7 +26,10 @@ def run():
     country_counts = defaultdict(int)
     
     # US orgs: sample up to MAX_PER_STATE per state
-    # For IRS_EO_BMF source: only include if alignment_score >= 2
+    # For IRS_EO_BMF source: only include if alignment_score >= 3
+    #   (score 2 includes too many weak keyword matches like generic mental health centers
+    #    that don't clearly fit the framework; score 3+ gets food pantries, Habitat for
+    #    Humanity, community health centers, legal aid, cooperatives)
     # For all other sources: include all active with lat
     print('Processing US orgs...')
     
@@ -41,7 +44,7 @@ def run():
             SELECT name, lat, lon, framework_area, model_type, website, description, country_code, annual_revenue, source
             FROM organizations
             WHERE country_code='US' AND state_province=? AND lat IS NOT NULL AND status='active'
-              AND (source != 'IRS_EO_BMF' OR alignment_score >= 2)
+              AND (source != 'IRS_EO_BMF' OR alignment_score >= 3)
             ORDER BY annual_revenue DESC NULLS LAST, name ASC
             LIMIT ?
         """, (state, MAX_PER_STATE))
