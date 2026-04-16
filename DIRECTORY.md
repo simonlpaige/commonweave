@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 14:19 UTC*
+*Last updated: 2026-04-16 14:52 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,800 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,812 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -81,6 +81,7 @@
 | 🌐 Montenegro (ME) | ~2 | Field Research | ✅ |
 | 🌐 Madagascar (MG) | ~2 | Field Research | ✅ |
 | 🌐 North Macedonia (MK) | ~2 | Field Research | ✅ |
+| 🌐 Mali (ML) | ~13 | Field Research | ✅ |
 | 🌐 Myanmar (MM) | ~2 | Field Research | ✅ |
 | 🌐 Mongolia (MN) | ~2 | Field Research | ✅ |
 | 🌐 Malta (MT) | ~2 | Field Research | ✅ |
@@ -135,14 +136,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,800+ organizations indexed** across 126 countries
+**Total: 761,812+ organizations indexed** across 127 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,800 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,812 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -3139,6 +3140,76 @@ Model: nonprofit
 
 ### North Macedonia Civil Society Network
 > Primary civil society network in North Macedonia
+
+
+---
+
+# 🌐 Mali (ML) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 12*
+
+---
+
+## Organizations
+
+### List of Ngos, Charities and non-profits in Mali - NGO Base
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NGOs, Charities and Nonprofits in Mali. Browse organizations by their focus work areas. Page 1 of 16
+
+### ML/mali-ngos
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NGOs, Charities and Nonprofits in Mali. Browse organizations by their focus work areas. Page 1 of 16
+
+### Civil Society E-Directory - WACSI
+Framework: democracy
+Model: nonprofit
+> The West Africa Civil Society E-Directory, is an online platform created by the West Africa Civil Society Institute (WACSI) to map out all legally registered and operational civil society organisation
+
+### The West Africa Civil Society E-Directory
+Framework: democracy
+Model: nonprofit
+> ## United Nations Engagement with Civil Society Organizations in Mali ...
+
+### United Nations Engagement with Civil Society Organizations in Mali 
+Framework: democracy
+Model: nonprofit
+> United Nations Engagement with Civil Society Organizations in Mali: Assessment and Policy Recommendation in Light of Three Critical Sustainable Development Goals Sory Ibrahima MONEKATA Development exp
+
+### Toutes les associations & ONG - Liste / Annuaire PADEV-MALI
+Framework: democracy
+Model: nonprofit
+> Liste de toutes les associations et ONG inscrites à l'annuaire de PADEV-MALI : Cette liste de toutes les associations et ONG vous permet de balayer rapidement l'ensemble des organisations inscrites.
+
+### United Nations Civil Society Participation
+Framework: democracy
+Model: nonprofit
+> Advanced search for Civil Society Organizations Please use any of the search combinations below to find organizations in our database. You can also expand the headings "Areas of Expertise & Fields of 
+
+### Worldwide NGO Directory
+Framework: democracy
+Model: nonprofit
+> Worldwide NGO Directory The Worldwide NGO Directory is a leading source of information on and resource for connecting with NGOs globally. It includes over 54,000 organizations in all fields of activit
+
+### Worldwide NGO Directory The Worldwide NGO Directory
+Framework: democracy
+Model: nonprofit
+> ## Mali | NGO Explorer
+
+### Mali | NGO Explorer
+Framework: democracy
+Model: nonprofit
+> Found 189 UK NGOs working in Mali Figures refer to charities registered with the Charity Commission for England and Wales, based on areas of operation supplied to the Charity Commission by the chariti
+
+### List Of Non-profit organizations in Mali - rentechdigital.com
+Framework: energy_digital
+Model: nonprofit
+> There are 110 Non-profit organizations in Mali as of May 5, 2025; which is an 13.40% increase from 2023. Of these locations, 108 Non-profit organizations which is 98.18% of all Non-profit organization
+
+### Non-profit organizations which
+Framework: democracy
+Model: nonprofit
 
 
 ---
