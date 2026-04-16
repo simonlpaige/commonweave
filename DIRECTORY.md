@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 19:00 UTC*
+*Last updated: 2026-04-16 19:31 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,832 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,833 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -48,6 +48,7 @@
 | 🌐 Finland (FI) | ~2 | Field Research | ✅ |
 | 🌐 Fiji (FJ) | ~16 | Field Research | ✅ |
 | 🌐 France (FR) | ~2 | Field Research | ✅ |
+| 🌐 Gabon (GA) | ~2 | Field Research | ✅ |
 | 🌐 United Kingdom (GB) | ~2 | Field Research | ✅ |
 | 🌐 Georgia (GE) | ~2 | Field Research | ✅ |
 | 🌐 Ghana (GH) | ~2 | Field Research | ✅ |
@@ -144,14 +145,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,832+ organizations indexed** across 135 countries
+**Total: 761,833+ organizations indexed** across 136 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,832 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,833 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1846,6 +1847,20 @@ Model: nonprofit
 
 ### France Civil Society Network
 > Primary civil society network in France
+
+
+---
+
+# 🌐 Gabon (GA) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Gabon Civil Society Network
+> Primary civil society network in Gabon
 
 
 ---
