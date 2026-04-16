@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 22:35 UTC*
+*Last updated: 2026-04-16 23:07 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,865 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,866 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -78,6 +78,7 @@
 | 🌐 Kazakhstan (KZ) | ~2 | Field Research | ✅ |
 | 🌐 Lebanon (LB) | ~2 | Field Research | ✅ |
 | 🌐 Sri Lanka (LK) | ~2 | Field Research | ✅ |
+| 🌐 Liberia (LR) | ~2 | Field Research | ✅ |
 | 🌐 Lesotho (LS) | ~2 | Field Research | ✅ |
 | 🌐 Lithuania (LT) | ~14 | Field Research | ✅ |
 | 🌐 Luxembourg (LU) | ~2 | Field Research | ✅ |
@@ -151,14 +152,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,865+ organizations indexed** across 142 countries
+**Total: 761,866+ organizations indexed** across 143 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,865 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,866 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -3118,6 +3119,20 @@ Model: nonprofit
 
 ### Sri Lanka Civil Society Network
 > Primary civil society network in Sri Lanka
+
+
+---
+
+# 🌐 Liberia (LR) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Liberia Civil Society Network
+> Primary civil society network in Liberia
 
 
 ---
