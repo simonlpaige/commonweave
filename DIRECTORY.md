@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 14:52 UTC*
+*Last updated: 2026-04-16 15:26 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,812 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,813 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -18,6 +18,7 @@
 | 🌐 Bosnia and Herzegovina (BA) | ~13 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
 | 🌐 Belgium (BE) | ~2 | Field Research | ✅ |
+| 🌐 Burkina Faso (BF) | ~2 | Field Research | ✅ |
 | 🌐 Bulgaria (BG) | ~2 | Field Research | ✅ |
 | 🌐 Bahrain (BH) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
@@ -136,14 +137,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,812+ organizations indexed** across 127 countries
+**Total: 761,813+ organizations indexed** across 128 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,812 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,813 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -941,6 +942,20 @@ Model: nonprofit
 
 ### Belgium Civil Society Network
 > Primary civil society network in Belgium
+
+
+---
+
+# 🌐 Burkina Faso (BF) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Burkina Faso Civil Society Network
+> Primary civil society network in Burkina Faso
 
 
 ---
