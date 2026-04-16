@@ -292,27 +292,31 @@ The transfer section is the framework's greatest leap of faith. It is possible t
 
 ## 10. Post-Transfer Society
 
-### What the Framework Proposes
+### What the Framework Proposes (Revised April 2026)
 
-Redefining success (from GDP to wellbeing metrics), elevating recreation and art, ongoing democratic participation, ecological restoration.
+Phase 3 has been restructured from aspirational outcomes to operational mechanisms organized around three pillars: measurement infrastructure (what replaces GDP), anti-backsliding mechanisms (what prevents power reconcentration), and adaptive governance (how the framework changes itself). Ecological restoration is retained as a fourth pillar with specific precedents.
 
 ### What History Teaches
 
-**Bhutan's Gross National Happiness** is the framework's most cited example, and it is real — the GNH Commission has screened all policy proposals against happiness metrics since 2008. But Bhutan is also a small, ethnically homogeneous kingdom with a population of 780,000, where the GNH framework was introduced top-down by the king. It is a genuine experiment in alternative metrics, and it has produced measurable results (high life satisfaction, strong environmental protection), but its replicability to large, diverse, democratic societies is uncertain.
+**Every democratic transition is followed by backsliding pressure.** Hungary went from post-Soviet democracy to illiberal single-party state in under a decade. Venezuela went from oil-wealth redistribution to authoritarian collapse. Even established democracies face erosion: the US Voting Rights Act has been progressively gutted since 2013. The pattern is: democratic gains are made during moments of mobilization, then eroded during periods of complacency. Phase 3's primary job is preventing that erosion.
 
-**The Wellbeing Economy Governments (WEGo)** partnership — Scotland, Iceland, New Zealand, Wales, Finland, and Canada — represents the most serious effort to move beyond GDP at the national level. New Zealand's Wellbeing Budget (2019) was a landmark. The OECD Better Life Index provides comparative data across 40 countries. This movement is growing, evidence-based, and politically viable in the near term. The framework should position WEGo as a Phase 1 pilot, not a post-transfer aspiration.
+**Measurement shapes behavior.** Bhutan's GNH Commission has screened all policy proposals against happiness metrics since 2008 - genuine experiment with measurable results, though limited by small population (780K) and top-down introduction. New Zealand's Wellbeing Budget (2019) is the most replicable large-democracy model. The WEGo partnership (6 governments) demonstrates political viability. The key insight: the framework should treat wellbeing measurement as a Phase 1 deployment, not a Phase 3 aspiration.
 
-**Ecological restoration at scale is achievable.** China's Loess Plateau restoration (transforming 35,000 km² of degraded land into productive landscape), the Great Green Wall of Africa (8,000 km across the Sahel), and Costa Rica's reversal of deforestation (forest cover went from 21% in 1987 to 60% today) demonstrate that large-scale ecological restoration is technically and economically feasible. The constraint is political will and sustained investment, not technical knowledge.
+**Constitutional design matters enormously.** Ireland's Citizens' Assembly model resolved abortion and marriage equality - issues elected politicians couldn't touch - through sortition, structured deliberation, and binding referendum. Uruguay has maintained democratic stability through mandatory voting, independent electoral courts, and strong finance regulations while neighbors experienced coups and backsliding. Estonia's e-governance infrastructure makes government operations auditable in real time.
+
+**Ecological restoration at scale is technically feasible** but politically fragile. China's Loess Plateau (35,000 km2 restored), Costa Rica's reforestation (21% to 60% forest cover), and the Great Green Wall (15% complete after years of work) demonstrate both possibility and the challenge of sustained multi-decade commitment.
 
 ### What's Missing
 
-**Population.** The framework never mentions population dynamics. Global population is projected to peak around 10.4 billion in the 2080s. Any framework addressing ecological sustainability over decades-to-centuries timescales needs to engage with population, fertility rates, and demographic transitions — not to advocate coercive population control, but to acknowledge the mathematical reality that resource consumption is a function of population times per-capita consumption.
+**Technology governance in the long term.** AI governance is arguably the most consequential open question of the 21st century. The framework proposes "algorithms that affect lives are publicly auditable" but this is a principle, not a mechanism. The EU AI Act, citizen assemblies on AI (run by Anthropic, OpenAI, Meta), and open-source AI development are all partial precedents. The framework needs a dedicated technology governance section.
 
-**Technology governance in the long term.** The framework asks "how do you govern AI development during and after the transition?" but doesn't attempt an answer. AI governance is arguably the most consequential open question of the 21st century, and the framework's silence on it (beyond mentioning "algorithms that affect lives are publicly auditable") is a significant gap.
+**Population dynamics.** Global population is projected to peak around 10.4 billion in the 2080s. Resource consumption = population x per-capita consumption. The framework now addresses this in the README (Phase 1 priorities of education, healthcare, and economic security ARE the best population policy, via demographic transition), but the DEEP-DIVE should develop this further.
+
+**Persistent human tendencies.** Status-seeking, in-group/out-group dynamics, cognitive biases, boredom, and the desire for novelty don't disappear in a post-transfer society. The framework needs to engage with behavioral economics and evolutionary psychology - not to be cynical about human nature, but to design systems that work with realistic humans rather than idealized ones. Ostrom's work is foundational here: her design principles work precisely because they assume realistic human behavior including free-riding and rule-breaking.
 
 ### Honest Assessment
 
-The post-transfer section is aspirational rather than operational, which is appropriate given how far it is from current reality. The wellbeing economics movement is real and growing. Ecological restoration is technically achievable. But the framework needs to engage more seriously with population, technology governance, and the persistent human tendencies (status-seeking, in-group/out-group dynamics, cognitive biases) that will challenge any post-transfer society.
+The revised Phase 3 is significantly stronger than the original aspirational version. The measurement infrastructure has real precedents. The anti-backsliding mechanisms are grounded in existing institutional designs. The adaptive governance section honestly confronts the recursive problem (who evaluates the evaluators?). The main remaining gap is technology governance, which deserves its own framework section rather than being an afterthought.
 
 ---
 

@@ -238,37 +238,76 @@ The transfer is not a single event. It is a phase shift. The conditions accumula
 
 ---
 
-### Phase 3: Post-Transfer — Building the New World
+### Phase 3: Post-Transfer — Governance Maintenance
 
-#### 3.1 Values Transformation
+> *Phase 3 is not "what the good world looks like" — everyone can imagine that. Phase 3 is "what prevents the good world from sliding back into the bad one." History shows that every democratic gain, every commons, every cooperative structure is under constant pressure from power reconcentration, democratic backsliding, ecological overshoot, and free-rider erosion. Phase 3 is the immune system.*
 
-- [ ] **From capital gains to human triumphs**
-  - Success is measured by wellbeing, ecological health, and social connection — not GDP
-  - New metrics: Gross National Happiness, Ecological Footprint, Social Cohesion Index
-  - Storytelling and media that celebrate collective achievement, not individual accumulation
-- [ ] **Recreation becomes more valuable**
-  - Leisure is not laziness — it is the space where creativity, connection, and meaning happen
-  - Public investment in parks, gathering spaces, sports, play, and exploration
-  - The "work ethic" is replaced by a "contribution ethic" — people contribute because they want to, not because they'll starve if they don't
-- [ ] **Art and humanities become more valuable**
-  - Artists, musicians, writers, philosophers, and storytellers are recognized as essential to a functioning society
-  - Public funding for the arts is not a luxury — it is infrastructure
-  - Cultural diversity is protected and celebrated as a form of ecological richness
-  - Everyone has time and resources to create, not just consume
+#### 3.1 Measurement Infrastructure — What Replaces GDP
 
-#### 3.2 Ongoing Governance
+You can't maintain what you can't measure. The transition from growth-based metrics to wellbeing-based metrics is not aspirational — it's already happening, and the framework should treat existing implementations as Phase 1 pilots to scale.
 
-- Continuous democratic participation — not just election cycles
-- Regular constitutional review and renewal
-- Mechanisms for peaceful evolution — the framework must be able to change itself
-- Safeguards against re-concentration of power
+- [ ] **Beyond-GDP national accounting** (operational precedents exist)
+  - *Bhutan's GNH Commission* has screened all policy proposals against 9 domains of happiness metrics since 2008. Population 780K, top-down introduction by the king — genuine experiment, uncertain replicability to large diverse democracies.
+  - *New Zealand's Wellbeing Budget* (2019) — first national budget organized around wellbeing outcomes rather than GDP growth. Uses 12 domains of wellbeing from the NZ Treasury's Living Standards Framework. This is the most replicable model.
+  - *WEGo partnership* (Scotland, Iceland, New Zealand, Wales, Finland, Canada) — six governments formally committed to moving beyond GDP. The OECD Better Life Index provides comparative data across 40 countries.
+  - *Doughnut Economics* (Kate Raworth / Amsterdam, 2020) — city-level framework balancing social foundation (12 minimum standards) against ecological ceiling (9 planetary boundaries). Amsterdam adopted it as official policy framework.
+  - **The framework's position:** Wellbeing measurement is not a Phase 3 aspiration. It is a Phase 1 deployment. Adopt the NZ/WEGo model at every governance level the network touches. Measure: life satisfaction, health outcomes, educational access, social connection, ecological footprint, housing security, democratic participation, time sovereignty (hours not spent in coerced labor).
+  - **Open problem:** Who controls the measurement apparatus? Metrics shape behavior. If the wellbeing index is designed by economists, it will reflect economic assumptions. If designed by psychologists, psychological ones. The design of the measurement system is itself a governance problem requiring democratic input.
 
-#### 3.3 Ecological Restoration
+#### 3.2 Anti-Backsliding Mechanisms — Democratic Immune System
 
-- Large-scale rewilding and ecosystem restoration
-- Regenerative agriculture as the default
-- Ocean and freshwater recovery programs
-- Climate repair as a shared global project
+Every post-revolutionary, post-transition, and post-reform society faces the same threat: power reconcentration. The wealthy find new ways to accumulate. Politicians find new ways to entrench. Corporations find new ways to capture regulators. The framework needs specific countermeasures, not just "safeguards against re-concentration of power."
+
+- [ ] **Constitutional sunset and renewal**
+  - *Ireland's Citizens' Assembly model* — periodic assemblies of randomly selected citizens review constitutional provisions and recommend changes. Ireland used this to resolve abortion and marriage equality — issues that elected politicians couldn't touch. The mechanism is: sortition (random selection), structured deliberation, expert testimony, binding referendum.
+  - **Proposed mechanism:** Constitutional review assemblies every 10 years, with mandatory review of: wealth distribution trends, ecological boundary compliance, democratic participation rates, and power concentration metrics. If any metric has deteriorated beyond a defined threshold, the assembly has binding authority to propose corrective constitutional amendments.
+  - **Open problem:** Constitutional stability vs. adaptability. Too-frequent revision creates uncertainty. Too-infrequent revision allows drift. 10 years is a guess.
+
+- [ ] **Power concentration detection**
+  - Real-time monitoring of wealth concentration (Gini coefficient, wealth share of top 1%/0.1%), corporate consolidation (HHI index by sector), media ownership concentration, political donation patterns, and revolving-door metrics (officials moving to industries they regulated).
+  - **Proposed mechanism:** An independent statistical authority (modeled on central bank independence but for inequality data) that publishes quarterly power concentration reports. When any metric crosses a predefined threshold, it triggers automatic democratic review — not automatic action, but mandatory public deliberation.
+  - *Precedent: Estonia's e-governance* — transparent digital infrastructure that makes government operations auditable in real time. If you can make tax collection transparent, you can make power concentration transparent.
+
+- [ ] **Anti-capture mechanisms**
+  - Cooling-off periods between public office and private sector (minimum 5 years)
+  - Asset transparency requirements for all governance participants
+  - Sortition for oversight bodies — randomly selected citizens are harder to capture than elected officials who need campaign funding
+  - *Precedent: Uruguay's electoral system* — considered one of the most robust in the Americas, with mandatory voting, independent electoral court, and strong party finance regulations. Democratic backsliding has not occurred despite regional trends.
+
+#### 3.3 Adaptive Governance — How the Framework Changes Itself
+
+The most dangerous thing a framework can become is sacred. The moment people defend the framework because it's *the framework* rather than because it's *working*, it has become the rigid ideology it sought to replace.
+
+- [ ] **Built-in self-revision**
+  - The framework must contain explicit mechanisms for its own modification, including modification of its core principles.
+  - **Proposed mechanism:** Any core principle can be amended through a three-stage process: (1) public proposal with evidence that the principle is producing harmful outcomes, (2) citizens' assembly deliberation with structured pro/con testimony, (3) supermajority ratification (67%+). This is deliberately hard but deliberately possible.
+  - **Open problem:** Who decides what counts as "harmful outcomes"? This is recursive — the measurement infrastructure (3.1) and the governance system are evaluating each other. There is no neutral ground. The best available answer is: make the evaluation criteria themselves subject to democratic revision.
+
+- [ ] **Multi-horizon governance**
+  - *Short-term (1-5 years):* Elected/sortition-selected bodies handle operational governance. Standard democratic accountability.
+  - *Medium-term (5-50 years):* Dedicated futures bodies (modeled on Finland's Parliamentary Committee for the Future or Wales's Future Generations Commissioner) with legal authority to block policies that sacrifice long-term wellbeing for short-term gain.
+  - *Long-term (50-500+ years):* Ecological governance. Planetary boundaries are not subject to democratic override (see Tensions and Tradeoffs below). Scientific bodies with democratic accountability but insulation from electoral pressure monitor and enforce ecological limits.
+  - *Precedent: The Iroquois Confederacy's* seventh-generation principle — decisions evaluated for their impact seven generations out (~175 years). This is often cited as aspirational; the operational question is how to institutionalize it.
+
+- [ ] **Nested governance at scale (Ostrom's Principle 8)**
+  - Local communities govern local resources with full autonomy within shared principles.
+  - Regional federations coordinate between communities, manage shared infrastructure, resolve inter-community disputes.
+  - Global coordination handles planetary-scale commons (atmosphere, oceans, biodiversity, AI governance) through democratic bodies with representation from all levels.
+  - *Precedent: The cooperative movement's federated structure* — local co-ops -> regional federations -> national bodies -> International Cooperative Alliance (ICA). Over 3 million cooperatives worldwide, 1 billion+ members. This is the largest existing example of nested democratic governance at global scale.
+  - **Open problem:** How do you prevent the upper layers from accumulating power over the lower layers? Subsidiarity (decisions made at the lowest competent level) is the principle. Enforcement of subsidiarity is the unsolved problem. The EU struggles with this constantly.
+
+#### 3.4 Ecological Restoration
+
+Ecological restoration is technically achievable at large scale. The constraint is political will and sustained investment, not technical knowledge.
+
+- [ ] **Demonstrated precedents for restoration at scale**
+  - *China's Loess Plateau:* 35,000 km2 of degraded land transformed into productive landscape over 15 years (World Bank funded, community-implemented).
+  - *Costa Rica:* Forest cover reversed from 21% (1987) to 60% (2025) through payments for ecosystem services, land-use planning, and ecotourism incentives.
+  - *Great Green Wall of Africa:* 8,000 km reforestation project across the Sahel. Partial progress (15% complete as of 2025), demonstrating both feasibility and the challenge of sustained multi-decade commitment.
+- [ ] **Regenerative agriculture** as the default, not the exception. Existing models: Savory Institute holistic management, Rodale Institute organic no-till, System of Rice Intensification (SRI) producing higher yields with less water in 60+ countries.
+- [ ] **Ocean and freshwater governance** — the largest ungoverned commons. The High Seas Treaty (2023) is a start. Freshwater governance (Colorado River Compact, Murray-Darling Basin Plan) provides both positive and cautionary precedents.
+
+**Open problem: Population.** Global population is projected to peak around 10.4 billion in the 2080s. Resource consumption = population x per-capita consumption. The framework addresses per-capita consumption but is silent on population dynamics. This is not a call for coercive population control — it's an acknowledgment that every ecological restoration plan must account for how many people are consuming what. Demographic transitions (declining fertility correlated with women's education, healthcare access, and economic security) are the ethical and effective mechanism. The framework's Phase 1 priorities (education, healthcare, economic sufficiency) are themselves the best population policy.
 
 ---
 
