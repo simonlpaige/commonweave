@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 11:19 UTC*
+*Last updated: 2026-04-16 11:50 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,794 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,795 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -111,6 +111,7 @@
 | 🌐 Slovakia (SK) | ~2 | Field Research | ✅ |
 | 🌐 Senegal (SN) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
+| 🌐 Syria (SY) | ~2 | Field Research | ✅ |
 | 🌐 Thailand (TH) | ~2 | Field Research | ✅ |
 | 🌐 Tunisia (TN) | ~2 | Field Research | ✅ |
 | 🌐 Turkey (TR) | ~2 | Field Research | ✅ |
@@ -129,14 +130,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,794+ organizations indexed** across 120 countries
+**Total: 761,795+ organizations indexed** across 121 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,794 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,795 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -4364,6 +4365,20 @@ Model: nonprofit
 - Framework coverage: democracy(56), ecology(14), cooperatives(4), food(4), healthcare(13), education(4), housing_land(2), energy_digital(8)
 - Key gaps: Indigenous/Maroon village-level orgs, Dutch-language civil society, informal savings groups
 - Recommended follow-up: Contact SANBO (Suriname NGO umbrella), Conservation International Suriname
+
+
+---
+
+# 🌐 Syria (SY) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Syria Civil Society Network
+> Primary civil society network in Syria
 
 
 ---
