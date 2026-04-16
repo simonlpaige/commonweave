@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 08:20 UTC*
+*Last updated: 2026-04-16 08:51 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,773 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,774 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -101,6 +101,7 @@
 | 🌐 Serbia (RS) | ~2 | Field Research | ✅ |
 | 🌐 Russia (RU) | ~2 | Field Research | ✅ |
 | 🌐 Rwanda (RW) | ~2 | Field Research | ✅ |
+| 🌐 Saudi Arabia (SA) | ~2 | Field Research | ✅ |
 | 🌐 Sweden (SE) | ~14 | Field Research | ✅ |
 | 🌐 Slovenia (SI) | ~2 | Field Research | ✅ |
 | 🌐 Slovakia (SK) | ~2 | Field Research | ✅ |
@@ -123,14 +124,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,773+ organizations indexed** across 114 countries
+**Total: 761,774+ organizations indexed** across 115 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,773 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,774 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -3927,6 +3928,20 @@ Model: nonprofit
 
 ### Rwanda Civil Society Network
 > Primary civil society network in Rwanda
+
+
+---
+
+# 🌐 Saudi Arabia (SA) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Saudi Arabia Civil Society Network
+> Primary civil society network in Saudi Arabia
 
 
 ---
