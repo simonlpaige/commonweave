@@ -1,11 +1,11 @@
 {
-  "total": 11866,
-  "us_count": 10024,
+  "total": 11865,
+  "us_count": 10023,
   "intl_count": 1842,
   "by_area": {
     "healthcare": 2821,
     "food": 2584,
-    "housing_land": 1874,
+    "housing_land": 1873,
     "democracy": 1294,
     "education": 1272,
     "ecology": 895,
@@ -15,7 +15,7 @@
     "energy_digital": 10
   },
   "by_country": {
-    "US": 10024,
+    "US": 10023,
     "NZ": 252,
     "NG": 179,
     "KE": 158,

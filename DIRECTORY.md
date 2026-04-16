@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 01:19 UTC*
+*Last updated: 2026-04-16 01:49 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,732 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,733 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -91,6 +91,7 @@
 | 🌐 Russia (RU) | ~2 | Field Research | ✅ |
 | 🌐 Rwanda (RW) | ~2 | Field Research | ✅ |
 | 🌐 Sweden (SE) | ~14 | Field Research | ✅ |
+| 🌐 Slovakia (SK) | ~2 | Field Research | ✅ |
 | 🌐 Senegal (SN) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
 | 🌐 Thailand (TH) | ~2 | Field Research | ✅ |
@@ -110,14 +111,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,732+ organizations indexed** across 101 countries
+**Total: 761,733+ organizations indexed** across 102 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,732 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,733 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -3691,6 +3692,20 @@ Model: nonprofit
 ### List of associations and NGOs in Sweden, non
 Framework: democracy
 Model: nonprofit
+
+
+---
+
+# 🌐 Slovakia (SK) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Slovakia Civil Society Network
+> Primary civil society network in Slovakia
 
 
 ---
