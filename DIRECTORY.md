@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 03:50 UTC*
+*Last updated: 2026-04-16 05:19 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,749 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,751 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -19,6 +19,7 @@
 | 🌐 Bulgaria (BG) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
+| 🌐 Belarus (BY) | ~2 | Field Research | ✅ |
 | 🌐 Canada (CA) | ~2 | Field Research | ✅ |
 | 🌐 Switzerland (CH) | ~2 | Field Research | ✅ |
 | 🌐 Cote d'Ivoire (CI) | ~2 | Field Research | ✅ |
@@ -33,6 +34,7 @@
 | 🌐 Denmark (DK) | ~2 | Field Research | ✅ |
 | 🌐 Dominican Republic (DO) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_EC.md (EC) | ~9 | Field Research | ✅ |
+| 🌐 Estonia (EE) | ~2 | Field Research | ✅ |
 | 🌐 Egypt (EG) | ~2 | Field Research | ✅ |
 | 🌐 Spain (ES) | ~2 | Field Research | ✅ |
 | 🌐 Ethiopia (ET) | ~2 | Field Research | ✅ |
@@ -115,14 +117,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,749+ organizations indexed** across 106 countries
+**Total: 761,751+ organizations indexed** across 108 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,749 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,751 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1041,6 +1043,20 @@ Model: nonprofit
 
 ---
 
+# 🌐 Belarus (BY) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Belarus Civil Society Network
+> Primary civil society network in Belarus
+
+
+---
+
 # 🌐 Canada (CA) Civil Society Directory
 
 *Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
@@ -1459,6 +1475,20 @@ Model: nonprofit
 - This research adds: 102 Ecuadorian organizations
 - Framework coverage: democracy(51), cooperatives(12), conflict(13), food(10), healthcare(4), housing_land(1), energy_digital(7), ecology(4)
 - Recommended follow-up: Contact MIES registry, CONAIE for indigenous org directory
+
+
+---
+
+# 🌐 Estonia (EE) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Estonia Civil Society Network
+> Primary civil society network in Estonia
 
 
 ---
