@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 06:50 UTC*
+*Last updated: 2026-04-16 07:19 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,770 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,771 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -75,6 +75,7 @@
 | 🌐 North Macedonia (MK) | ~2 | Field Research | ✅ |
 | 🌐 Myanmar (MM) | ~2 | Field Research | ✅ |
 | 🌐 Mongolia (MN) | ~2 | Field Research | ✅ |
+| 🌐 Malta (MT) | ~2 | Field Research | ✅ |
 | 🌐 Malawi (MW) | ~2 | Field Research | ✅ |
 | 🌐 Mexico (MX) | ~2 | Field Research | ✅ |
 | 🌐 Malaysia (MY) | ~2 | Field Research | ✅ |
@@ -120,14 +121,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,770+ organizations indexed** across 111 countries
+**Total: 761,771+ organizations indexed** across 112 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,770 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,771 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2964,6 +2965,20 @@ Model: nonprofit
 
 ### Mongolia Civil Society Network
 > Primary civil society network in Mongolia
+
+
+---
+
+# 🌐 Malta (MT) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Malta Civil Society Network
+> Primary civil society network in Malta
 
 
 ---
