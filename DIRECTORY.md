@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 07:51 UTC*
+*Last updated: 2026-04-16 08:20 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,772 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,773 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -72,6 +72,7 @@
 | 🌐 Latvia (LV) | ~2 | Field Research | ✅ |
 | 🌐 Morocco (MA) | ~2 | Field Research | ✅ |
 | 🌐 Moldova (MD) | ~2 | Field Research | ✅ |
+| 🌐 Montenegro (ME) | ~2 | Field Research | ✅ |
 | 🌐 Madagascar (MG) | ~2 | Field Research | ✅ |
 | 🌐 North Macedonia (MK) | ~2 | Field Research | ✅ |
 | 🌐 Myanmar (MM) | ~2 | Field Research | ✅ |
@@ -122,14 +123,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,772+ organizations indexed** across 113 countries
+**Total: 761,773+ organizations indexed** across 114 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,772 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,773 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2924,6 +2925,20 @@ Model: nonprofit
 
 ### Moldova Civil Society Network
 > Primary civil society network in Moldova
+
+
+---
+
+# 🌐 Montenegro (ME) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Montenegro Civil Society Network
+> Primary civil society network in Montenegro
 
 
 ---
