@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-17 02:07 UTC*
+*Last updated: 2026-04-17 02:38 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,885 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,886 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Afghanistan (AF) | ~2 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
@@ -143,6 +143,7 @@
 | 🌐 Chad (TD) | ~2 | Field Research | ✅ |
 | 🌐 Togo (TG) | ~2 | Field Research | ✅ |
 | 🌐 Thailand (TH) | ~2 | Field Research | ✅ |
+| 🌐 Timor-Leste (TL) | ~2 | Field Research | ✅ |
 | 🌐 Tunisia (TN) | ~2 | Field Research | ✅ |
 | 🌐 Turkey (TR) | ~2 | Field Research | ✅ |
 | 🌐 Trinidad and Tobago (TT) | ~2 | Field Research | ✅ |
@@ -160,14 +161,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,885+ organizations indexed** across 151 countries
+**Total: 761,886+ organizations indexed** across 152 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,885 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,886 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -5150,6 +5151,20 @@ Model: nonprofit
 
 ### Thailand Civil Society Network
 > Primary civil society network in Thailand
+
+
+---
+
+# 🌐 Timor-Leste (TL) Civil Society Directory
+
+*Compiled: 2026-04-17 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Timor-Leste Civil Society Network
+> Primary civil society network in Timor-Leste
 
 
 ---
