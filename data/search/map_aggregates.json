@@ -252,18 +252,18 @@
       "sections_present": 3
     },
     "GB": {
-      "total": 11552,
+      "total": 11451,
       "verified": 0,
-      "quality": 11425,
+      "quality": 11325,
       "sections": {
-        "conflict": 388,
+        "conflict": 385,
         "cooperatives": 158,
-        "democracy": 1370,
-        "ecology": 1373,
-        "education": 3819,
-        "food": 358,
-        "healthcare": 3437,
-        "housing_land": 535,
+        "democracy": 1357,
+        "ecology": 1366,
+        "education": 3777,
+        "food": 354,
+        "healthcare": 3410,
+        "housing_land": 530,
         "recreation_arts": 114
       },
       "completeness": 89.5,
@@ -584,17 +584,17 @@
       "sections_present": 4
     },
     "PE": {
-      "total": 44,
+      "total": 43,
       "verified": 0,
-      "quality": 39,
+      "quality": 38,
       "sections": {
         "democracy": 9,
-        "education": 17,
+        "education": 16,
         "energy_digital": 2,
         "healthcare": 3,
         "recreation_arts": 13
       },
-      "completeness": 47.2,
+      "completeness": 47.1,
       "sections_present": 5
     },
     "PH": {
@@ -1596,6 +1596,6 @@
     "recreation_arts",
     "ecology"
   ],
-  "total_points": 8408,
-  "total_edges": 2691
+  "total_points": 8407,
+  "total_edges": 2689
 }
