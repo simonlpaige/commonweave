@@ -252,17 +252,17 @@
       "sections_present": 3
     },
     "GB": {
-      "total": 11451,
+      "total": 11433,
       "verified": 0,
-      "quality": 11325,
+      "quality": 11307,
       "sections": {
-        "conflict": 385,
+        "conflict": 383,
         "cooperatives": 158,
-        "democracy": 1357,
-        "ecology": 1366,
-        "education": 3777,
-        "food": 354,
-        "healthcare": 3410,
+        "democracy": 1356,
+        "ecology": 1364,
+        "education": 3769,
+        "food": 353,
+        "healthcare": 3406,
         "housing_land": 530,
         "recreation_arts": 114
       },
