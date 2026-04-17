@@ -8,7 +8,7 @@
 
 1. **Lead with respect.** These projects have been doing this work for years. We are newcomers learning from them, not saviors arriving to coordinate them.
 2. **Be specific.** Don't ask for vague "collaboration." Identify exactly what Ecolibrium can offer and what we'd like to learn or integrate.
-3. **Be transparent.** Ecolibrium is anonymous, open-source, and has no funding. Say this upfront. It's a strength, not a weakness.
+3. **Be transparent.** Ecolibrium is authored by Simon Paige, open-source, and has no funding. Say this upfront. The honesty does more work than a pitch.
 4. **No pressure.** An invitation is not an obligation. Respect no-responses and declinations gracefully.
 5. **Credit everything.** When integrating ideas from other projects, cite them prominently. Attribution is non-negotiable.
 
@@ -16,34 +16,37 @@
 
 ## Outreach Template
 
+> **Positioning note.** We are a new, small project reaching out to mature, battle-tested projects that have been doing this work for a decade or more. The message is *we learned from you, here is what we took, here is how Ecolibrium might be useful to you* — never *please slot into our framework*. If a draft message can be read as "come be part of our thing," rewrite it.
+
 Use and adapt this template when reaching out via GitHub Issues, Discussions, or email:
 
 ---
 
-**Subject:** Invitation to collaborate — Ecolibrium open-source transition framework
+**Subject:** Learning from [Project Name] — a new open-source transition directory
 
 **Body:**
 
 Hi [Project Name] team,
 
-I'm reaching out from Ecolibrium, an open-source framework for peaceful societal transition toward post-scarcity, commons-based, ecologically sustainable systems. The project is anonymous by design — no founders, no leaders, no personality cult. Just the work.
+I'm reaching out from Ecolibrium — a small, early-stage open-source project that is cataloguing the existing network of commons-based, cooperative, and transition organisations and connecting it to a set of working notes on post-labor economic design. We are new. You are not. The point of this message is to learn from you, not to pitch you.
 
-We've been researching existing projects in this space, and [Project Name] stands out as [specific reason — e.g., "the most mature participatory democracy platform available" / "the pioneering model for commons-based land stewardship" / "a critical proof of concept for community-owned energy"].
+**What we took from your work.** We've been reading [specific artifact — e.g., "your Decidim governance model documentation" / "the Open Food Network federated-hub architecture" / "your Community Health Toolkit deployment case studies"] and it shaped our thinking on [specific section with link to the exact commit / line in our repo]. We cite you in RESEARCH.md and have tried to credit specifically rather than generically.
 
-We've referenced your work in our research document and would like to explore how we might collaborate. Specifically, we're interested in:
+**Two things we would value, if you have bandwidth.**
 
-- [Specific ask #1 — e.g., "Integrating Decidim as the recommended governance platform in our framework"]
-- [Specific ask #2 — e.g., "Learning from your deployment experience in [context]"]
-- [Specific ask #3 — e.g., "Cross-referencing our framework with your policy proposals"]
+- **Correction:** Is anything in our summary of your project wrong, stale, or misleading? We would rather learn it from you than ship it.
+- **One question:** [A single, specific, answerable question tied to their actual expertise — e.g., "What surprised you most about production Decidim deployments that your docs don't cover?" Not: "Would you like to integrate with us?"]
 
-We're not asking for endorsement or commitment — just a conversation about whether our work might be mutually useful.
+**What we might offer, if useful.** We are building a directory of transition-aligned organisations across 130+ countries with open data and a public search index. If that would be useful to your community (for example, as a way for practitioners in your network to discover adjacent work), we're happy to expose your projects' data the way you want it exposed, not the way we want to absorb it.
+
+No response needed. If you are busy — which you are — a silent "noted" is a completely fine outcome.
 
 Our repository: [link]
-Our research on your project: [link to relevant section of RESEARCH.md]
+Our reference to your work: [link to specific section]
 
-Thank you for the work you do.
+With respect,
 
-— Ecolibrium Contributors
+— Simon Paige, Ecolibrium (simonlpaige/ecolibrium)
 
 ---
 
@@ -51,14 +54,16 @@ Thank you for the work you do.
 
 ### Tier 1: Core Infrastructure Projects (Reach out first)
 
-| Project | Platform | Contact Method | What We Want |
-|---------|----------|----------------|--------------|
-| **Decidim** | github.com/decidim | GitHub Discussions or Matrix chat | Adopt as recommended governance platform; learn from deployment |
-| **Open Food Network** | github.com/openfoodfoundation | GitHub or community forum | Integrate as food distribution infrastructure |
-| **Community Health Toolkit** | github.com/medic | GitHub or communityhealthtoolkit.org | Reference as healthcare delivery model |
-| **OpenMRS** | github.com/openmrs | Talk forum (talk.openmrs.org) | Understand health records integration |
-| **ElectionGuard** | github.com/Election-Tech-Initiative | GitHub Discussions | Integrate for verifiable voting |
-| **Open Source Ecology** | github.com/OpenSourceEcology | Wiki or forum | Cross-reference GVCS with our infrastructure needs |
+> Columns renamed: *What we learned* = what shaped our thinking. *One question* = the single specific question we want to ask, never a request for integration or endorsement.
+
+| Project | Platform | Contact Method | What we learned / One question |
+|---------|----------|----------------|--------------------------------|
+| **Decidim** | github.com/decidim | GitHub Discussions or Matrix chat | Their governance model informed our approach; ask what production deployments struggle with that isn't in the docs |
+| **Open Food Network** | github.com/openfoodfoundation | GitHub or community forum | Their federated-hub model shaped our thinking on food distribution; ask what they'd correct in our summary |
+| **Community Health Toolkit** | github.com/medic | GitHub or communityhealthtoolkit.org | Their deployment case studies shaped our healthcare section; ask which claims we should hedge |
+| **OpenMRS** | github.com/openmrs | Talk forum (talk.openmrs.org) | Their 40+ country deployment experience informed our healthcare delivery notes; ask about integration pitfalls we should warn readers about |
+| **ElectionGuard** | github.com/Election-Tech-Initiative | GitHub Discussions | Their end-to-end verifiability model informs our voting section; ask what assumptions in our summary are wrong |
+| **Open Source Ecology** | github.com/OpenSourceEcology | Wiki or forum | GVCS informs our infrastructure notes; ask what they wish newcomers understood before referencing their work |
 
 ### Tier 2: Governance & Economics Projects
 
@@ -135,56 +140,13 @@ Create a file called `outreach-log.md` and track all contact:
 
 ---
 
-## Setting Up the Anonymous GitHub Account
+## Contributor Identity Guidance
 
-### Step 1: Create a Pseudonymous Email
-- Use ProtonMail (proton.me) — end-to-end encrypted, no personal info required.
-- Choose a project-related address (e.g., ecolibrium@proton.me).
+Ecolibrium is authored under Simon Paige's real name. Contributors are not required to follow suit.
 
-### Step 2: Create the GitHub Account
-- Go to github.com and sign up with the ProtonMail address.
-- Use a project name as the username (e.g., `ecolibrium-framework`).
-- Do not add a profile photo, real name, or location.
-
-### Step 3: Configure Git for Anonymity
-Before making any commits, configure your local Git to use the pseudonym:
-```bash
-git config --global user.name "Ecolibrium"
-git config --global user.email "ecolibrium@proton.me"
-```
-
-### Step 4: Create the Repository
-```bash
-# Initialize the repository
-mkdir ecolibrium && cd ecolibrium
-git init
-
-# Add files
-git add .
-git commit -m "Initial framework: bones and details we can infer"
-
-# Create the remote repository on GitHub (do this via the web interface first)
-git remote add origin https://github.com/ecolibrium-framework/ecolibrium.git
-git push -u origin main
-```
-
-### Step 5: Repository Settings
-- **Visibility:** Start public (per the "open from the start" principle). If you need private first, set to Private and flip to Public when ready.
-- **License:** CC BY-SA 4.0 (already specified in README).
-- **Topics:** Add tags: `post-scarcity`, `commons`, `transition`, `democracy`, `sustainability`, `open-framework`.
-- **Discussions:** Enable GitHub Discussions for community conversation.
-- **Issues:** Enable and create issue templates for different contribution types.
-
-### Step 6: Invite Collaborators
-- Go to Settings → Collaborators → Add people.
-- Invite trusted contributors by their GitHub username.
-- For the public model: anyone can fork and submit pull requests. No invitation needed.
-
-### Step 7: Security Considerations
-- Never access the account from a network tied to your real identity if anonymity is critical.
-- Consider using a VPN or Tor when managing the account.
-- Do not link to any personal social media accounts.
-- Remember: Git commit metadata (timestamps, etc.) can reveal timezone patterns. Be aware.
+- **If you want to use your real name:** great. Commit under your own identity, show up in Discussions, take credit for your work.
+- **If you need to stay pseudonymous:** also fine. Work under a handle, use a ProtonMail address, keep your timezone metadata clean if that matters to your situation. This is framed as *contributor protection*, not project mystique. At-risk contributors, people inside hostile institutions, and anyone whose employment or safety would be threatened by public participation should use whatever operational security they need. The maintainers will not ask you to unmask.
+- **What the project will not do:** the project will not pretend to be "anonymous by design" while a named maintainer exists. That contradiction was a credibility bug and has been retired.
 
 ---
 

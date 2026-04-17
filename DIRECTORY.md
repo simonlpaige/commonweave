@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-17 04:08 UTC*
+*Last updated: 2026-04-17 04:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,899 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,900 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Afghanistan (AF) | ~2 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
@@ -79,6 +79,7 @@
 | 🌐 Jordan (JO) | ~2 | Field Research | ✅ |
 | 🌐 Japan (JP) | ~14 | Field Research | ✅ |
 | 🌐 Kenya (KE) | ~53 | Field Research | ✅ |
+| 🌐 Kyrgyzstan (KG) | ~2 | Field Research | ✅ |
 | 🌐 Cambodia (KH) | ~2 | Field Research | ✅ |
 | 🌐 South Korea (KR) | ~2 | Field Research | ✅ |
 | 🌐 Kuwait (KW) | ~2 | Field Research | ✅ |
@@ -164,14 +165,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,899+ organizations indexed** across 155 countries
+**Total: 761,900+ organizations indexed** across 156 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,899 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,900 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -3201,6 +3202,20 @@ Model: nonprofit
 
 ### Food for Education Organization Kenya (FEOK)
 > - ****: Feeds low-income children to improve school attendance, nutrition, physic
+
+
+---
+
+# 🌐 Kyrgyzstan (KG) Civil Society Directory
+
+*Compiled: 2026-04-17 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Kyrgyzstan Civil Society Network
+> Primary civil society network in Kyrgyzstan
 
 
 ---

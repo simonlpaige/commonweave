@@ -403,7 +403,6 @@ footer a:hover { color: var(--muted); }
         <ul style="list-style:none;padding:0;">
           <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/ecolibrium/blob/master/README.md" style="color:#78c87a;">README.md - Project Overview</a></li>
           <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/ecolibrium/blob/master/DEEP-DIVE.md" style="color:#78c87a;">DEEP-DIVE.md - Framework &amp; Evidence</a></li>
-          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/ecolibrium/blob/master/CRITIQUE.md" style="color:#78c87a;">CRITIQUE.md - Honest Critique</a></li>
           <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/ecolibrium/blob/master/GOVERNANCE.md" style="color:#78c87a;">GOVERNANCE.md - Governance</a></li>
           <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/ecolibrium/blob/master/SUSTAINABILITY.md" style="color:#78c87a;">SUSTAINABILITY.md - Sustainability Plan</a></li>
           <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/ecolibrium/blob/master/WISEREARTH.md" style="color:#78c87a;">WISEREARTH.md - WiserEarth Analysis</a></li>
@@ -429,9 +428,8 @@ footer a:hover { color: var(--muted); }
 const DOCS = {
   README: { title: "Project Overview", prev: null, next: "DEEP-DIVE" },
   DIRECTORY:    { title: "Organization Directory",  prev: "README",       next: "DEEP-DIVE" },
-  "DEEP-DIVE":  { title: "Deep Research",           prev: "DIRECTORY",    next: "CRITIQUE" },
-  CRITIQUE:     { title: "Honest Critique",         prev: "DEEP-DIVE",    next: "GOVERNANCE" },
-  GOVERNANCE:   { title: "Governance",              prev: "CRITIQUE",     next: "SUSTAINABILITY" },
+  "DEEP-DIVE":  { title: "Deep Research",           prev: "DIRECTORY",    next: "GOVERNANCE" },
+  GOVERNANCE:   { title: "Governance",              prev: "DEEP-DIVE",    next: "SUSTAINABILITY" },
   SUSTAINABILITY:{ title: "Sustainability",         prev: "GOVERNANCE",   next: "WISEREARTH" },
   WISEREARTH:   { title: "WiserEarth Analysis",     prev: "SUSTAINABILITY",next: null },
 };

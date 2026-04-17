@@ -88,35 +88,29 @@ The following require a 90-day open comment period and explicit rough consensus 
 
 ---
 
-## The Anonymity Question
+## The Anonymity Question (Resolved)
 
-The CRITIQUE.md document (filed by an external contributor) correctly identified a contradiction: the framework says "legitimacy requires total sunlight" while the founding contributors are anonymous. These cannot both be true.
+The CRITIQUE.md document correctly identified a contradiction: the framework said "legitimacy requires total sunlight" while the repository sat under a named GitHub account with language claiming anonymity. Those two things could not both be true.
 
-**This project's current position:** Founding contributors may remain pseudonymous. Individual Maintainers may choose their own level of public identity. But the *governance process* must be fully transparent — every decision, every discussion, every merge, in the open.
+**This project's resolved position:** The author and current maintainer is Simon Paige. The repository lives at simonlpaige/ecolibrium. Earlier "anonymous by design" framing has been retired from the README and outreach documents. The reasoning is recorded here so future readers understand why the change happened.
 
-The distinction is: **identity anonymity** (who you are as a person) is acceptable. **Process opacity** (how decisions are made) is not. You can be anonymous and still be accountable if your decisions and reasoning are public.
+**Contributors are not required to be named.** Pseudonymous participation is welcome and explicitly framed as contributor protection. People inside hostile institutions, at-risk contexts, or simply those who prefer privacy may commit under any handle they choose. The maintainers will not ask them to unmask. See OUTREACH.md's Contributor Identity Guidance section for detail.
 
-This is an imperfect resolution. The CRITIQUE is correct that established organizations may decline to collaborate with pseudonymous accounts. That is a real cost. The project accepts it rather than require contributors to accept personal risk by going public.
-
-**If this position should change**, it should be changed through the process above — not by individual decision.
+The distinction that still matters: **process opacity** (how decisions are made) is not acceptable, for anyone, under any identity. Named or pseudonymous, the governance process is public.
 
 ---
 
 ## On "Leaderless"
 
-The README says "no founders, no leaders, no inner circle." This was written with good intentions and is factually inaccurate.
+Early README drafts said "no founders, no leaders, no inner circle." That was written with good intentions and was factually inaccurate. Someone wrote the README. Someone set up the repository. Someone decides what gets merged. That person is a leader, whether or not they claim the title. As of the anonymity resolution above, that person is Simon Paige, with Maintainer roles open to collaborators under the process in this document.
 
-Someone wrote the README. Someone set up the repository. Someone decides what gets merged. That person is a leader, whether or not they claim the title.
+The goal was never truly leaderless governance. It was governance without *unaccountable* leaders and without *permanent* leaders whose identity becomes the project's identity. The accurate framing:
+- **Named but not permanent leaders.** Maintainers rotate and can be removed. The author does not get a lifetime seat.
+- **No personality cults.** The work is what matters, not who does it. The author is named so that accountability is possible, not to become the brand.
+- **No unaccountable power.** All decisions are visible and challengeable.
+- **No inner circle.** The process is open to anyone.
 
-The goal was never truly leaderless governance — it was governance without *unaccountable* leaders and without *permanent* leaders whose identity becomes the project's identity. That goal is valid and this document is the attempt to achieve it honestly.
-
-The language in the README should be updated to reflect this. The accurate framing is:
-- No permanent leaders (Maintainers rotate and can be removed)
-- No personality cults (the work is what matters, not who does it)
-- No unaccountable power (all decisions are visible and challengeable)
-- No inner circle (the process is open to anyone)
-
-This is not the same as leaderless. It is better than leaderless.
+This is not leaderless. It is *accountably led*, which is better.
 
 ---
 
