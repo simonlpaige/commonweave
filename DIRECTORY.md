@@ -1,14 +1,15 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-17 01:00 UTC*
+*Last updated: 2026-04-17 01:42 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,882 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,884 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
+| 🌐 Afghanistan (AF) | ~2 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Angola (AO) | ~2 | Field Research | ✅ |
@@ -40,6 +41,7 @@
 | 🌐 Cyprus (CY) | ~2 | Field Research | ✅ |
 | 🌐 Czechia (CZ) | ~2 | Field Research | ✅ |
 | 🌐 Germany (DE) | ~2 | Field Research | ✅ |
+| 🌐 Djibouti (DJ) | ~2 | Field Research | ✅ |
 | 🌐 Denmark (DK) | ~2 | Field Research | ✅ |
 | 🌐 Dominican Republic (DO) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_EC.md (EC) | ~9 | Field Research | ✅ |
@@ -157,14 +159,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,882+ organizations indexed** across 148 countries
+**Total: 761,884+ organizations indexed** across 150 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,882 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,884 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -780,6 +782,20 @@ Model: nonprofit
 ### The Arab NGO Directory
 Framework: democracy
 Model: nonprofit
+
+
+---
+
+# 🌐 Afghanistan (AF) Civil Society Directory
+
+*Compiled: 2026-04-17 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Afghanistan Civil Society Network
+> Primary civil society network in Afghanistan
 
 
 ---
@@ -1592,6 +1608,20 @@ Model: nonprofit
 
 ### Germany Civil Society Network
 > Primary civil society network in Germany
+
+
+---
+
+# 🌐 Djibouti (DJ) Civil Society Directory
+
+*Compiled: 2026-04-17 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Djibouti Civil Society Network
+> Primary civil society network in Djibouti
 
 
 ---
