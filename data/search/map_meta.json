@@ -1,9 +1,9 @@
 {
-  "total": 8410,
-  "us_count": 6668,
+  "total": 8408,
+  "us_count": 6666,
   "intl_count": 1742,
   "by_area": {
-    "food": 2362,
+    "food": 2360,
     "healthcare": 1436,
     "housing_land": 1273,
     "education": 1267,
@@ -15,7 +15,7 @@
     "energy_digital": 4
   },
   "by_country": {
-    "US": 6668,
+    "US": 6666,
     "NZ": 252,
     "NG": 179,
     "KE": 144,
@@ -49,7 +49,7 @@
   "by_state": {
     "CA": 635,
     "NY": 359,
-    "TX": 333,
+    "TX": 331,
     "OK": 310,
     "IL": 305,
     "FL": 274,
