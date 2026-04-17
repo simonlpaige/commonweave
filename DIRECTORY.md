@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-17 02:38 UTC*
+*Last updated: 2026-04-17 03:08 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,886 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,887 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Afghanistan (AF) | ~2 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
@@ -23,6 +23,7 @@
 | 🌐 Bulgaria (BG) | ~2 | Field Research | ✅ |
 | 🌐 Bahrain (BH) | ~2 | Field Research | ✅ |
 | 🌐 Benin (BJ) | ~2 | Field Research | ✅ |
+| 🌐 Brunei (BN) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
 | 🌐 Botswana (BW) | ~15 | Field Research | ✅ |
@@ -161,14 +162,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,886+ organizations indexed** across 152 countries
+**Total: 761,887+ organizations indexed** across 153 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,886 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,887 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1036,6 +1037,20 @@ Model: nonprofit
 
 ### Benin Civil Society Network
 > Primary civil society network in Benin
+
+
+---
+
+# 🌐 Brunei (BN) Civil Society Directory
+
+*Compiled: 2026-04-17 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Brunei Civil Society Network
+> Primary civil society network in Brunei
 
 
 ---
