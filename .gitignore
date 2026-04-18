@@ -14,3 +14,6 @@ data/regional/DIRECTORY_P2.md
 data/trim_audit/
 data/*.db.backup-*
 data/*.db.backup
+
+# DeepSeek critique bundle (local only)
+.deepseek-bundle.md
