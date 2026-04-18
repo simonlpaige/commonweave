@@ -2,6 +2,10 @@
 ECO-2: Nigeria (NG) Regional Research
 Uses web search (Puter/DuckDuckGo) to find Nigerian organizations missing from bulk data.
 Output: data/regional/DIRECTORY_NG.md
+
+Multilingual coverage: queries are generated from i18n_terms.build_local_queries
+for every language spoken in Nigeria (en, ha, yo, ig), plus a handful of legacy
+English searches for Nigerian-registry specific terms (CAC, Niger Delta, etc.).
 """
 
 import urllib.request
@@ -16,24 +20,43 @@ DATA_DIR = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data"
 OUTPUT_FILE = os.path.join(DATA_DIR, "regional", "DIRECTORY_NG.md")
 TOOLS_DIR = r"C:\Users\simon\.openclaw\workspace\tools"
 
-# 15-search protocol for Nigeria
-SEARCHES = [
-    "Nigeria NGO directory list civil society organizations",
-    "Nigeria cooperatives worker-owned federation national",
-    "Nigeria food sovereignty agroecology organizations community farming",
-    "Nigeria community health organizations primary care",
-    "Nigeria democratic governance citizen participation organizations",
-    "Nigeria housing cooperative land trust community",
-    "Nigeria renewable energy community cooperative solar",
-    "Nigeria indigenous peoples organizations rights Igbo Yoruba Hausa",
-    "Nigeria women organizations cooperative self-help savings group",
-    "Nigeria mutual aid network solidarity economy",
-    "Nigeria restorative justice peacebuilding Benue Niger Delta",
-    "Nigeria open source technology civic tech organizations",
+# Pull in the multilingual term bank + query builder.
+if DATA_DIR not in sys.path:
+    sys.path.insert(0, DATA_DIR)
+from i18n_terms import build_local_queries, COUNTRY_LANGUAGES  # noqa: E402
+
+COUNTRY_CODE = "NG"
+
+# Legacy Nigeria-specific searches that reference local registries, regions, or
+# proper nouns the generic builder would miss. Kept so recall does not regress.
+LEGACY_SEARCHES = [
     "Nigeria nonprofit registry CAC registered charities database",
-    "Nigeria education grassroots community school federation",
+    "Nigeria NGO directory list civil society organizations",
+    "Nigeria indigenous peoples organizations rights Igbo Yoruba Hausa",
+    "Nigeria restorative justice peacebuilding Benue Niger Delta",
     "Nigeria environmental conservation ecology organizations Delta",
 ]
+
+# Build language-aware searches across every concept (~100 queries for NG).
+_generated = build_local_queries(COUNTRY_CODE)
+
+# Dedup while preserving order. Legacy first so registry-specific queries run early.
+_seen = set()
+SEARCHES = []
+for q in LEGACY_SEARCHES + _generated:
+    key = q.strip().lower()
+    if key in _seen:
+        continue
+    _seen.add(key)
+    SEARCHES.append(q)
+
+# Report what we're about to do so runs are debuggable.
+_langs = COUNTRY_LANGUAGES.get(COUNTRY_CODE, [])
+print(
+    f"[researcher NG] {len(SEARCHES)} queries across languages: {', '.join(_langs)} "
+    f"(legacy={len(LEGACY_SEARCHES)}, generated={len(_generated)})",
+    flush=True,
+)
 
 FRAMEWORK_KEYWORDS = {
     'democracy': ['civic', 'democracy', 'governance', 'community', 'citizen', 'rights', 'political', 'vote'],
