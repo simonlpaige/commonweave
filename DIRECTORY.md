@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-20 22:55 UTC*
+*Last updated: 2026-04-20 23:25 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 24,519 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 24,520 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Afghanistan (AF) | ~2 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
@@ -167,14 +167,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 24,519+ organizations indexed** across 158 countries
+**Total: 24,520+ organizations indexed** across 158 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*24,519 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*24,520 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1122,7 +1122,7 @@ Model: nonprofit
 
 # 🌐 Colombia (CO) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-20 | Source: Web research | Organizations: 1*
 
 ---
 
@@ -1234,7 +1234,7 @@ Model: nonprofit
 
 # 🌐 Dominican Republic (DO) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-20 | Source: Web research | Organizations: 1*
 
 ---
 
@@ -1965,7 +1965,7 @@ Model: nonprofit
 
 # 🌐 Jamaica (JM) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-20 | Source: Web research | Organizations: 1*
 
 ---
 
@@ -3178,7 +3178,7 @@ Model: nonprofit
 
 # 🌐 Peru (PE) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-20 | Source: Web research | Organizations: 1*
 
 ---
 
@@ -3967,7 +3967,7 @@ Model: nonprofit
 
 # 🌐 Trinidad and Tobago (TT) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-20 | Source: Web research | Organizations: 1*
 
 ---
 

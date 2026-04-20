@@ -1,6 +1,6 @@
 # 🌐 Peru (PE) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-20 | Source: Web research | Organizations: 1*
 
 ---
 
