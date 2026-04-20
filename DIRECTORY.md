@@ -1,6 +1,6 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-20 22:25 UTC*
+*Last updated: 2026-04-20 22:55 UTC*
 
 
 ## Coverage
@@ -38,7 +38,7 @@
 | 🌐 Cameroon (CM) | ~2 | Field Research | ✅ |
 | 🌐 China (CN) | ~2 | Field Research | ✅ |
 | 🌐 Colombia (CO) | ~2 | Field Research | ✅ |
-| 🌐 Costa Rica (CR) | ~17 | Field Research | ✅ |
+| 🌐 Costa Rica (CR) | ~2 | Field Research | ✅ |
 | 🌐 Cuba (CU) | ~2 | Field Research | ✅ |
 | 🌐 Cyprus (CY) | ~2 | Field Research | ✅ |
 | 🌐 Czechia (CZ) | ~2 | Field Research | ✅ |
@@ -110,7 +110,7 @@
 | 🌐 Namibia (NA) | ~2 | Field Research | ✅ |
 | 🌐 Niger (NE) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_NG.md (NG) | ~9 | Field Research | ✅ |
-| 🌐 Nicaragua (NI) | ~13 | Field Research | ✅ |
+| 🌐 Nicaragua (NI) | ~2 | Field Research | ✅ |
 | 🌐 Netherlands (NL) | ~2 | Field Research | ✅ |
 | 🌐 Norway (NO) | ~2 | Field Research | ✅ |
 | 🌐 Nepal (NP) | ~17 | Field Research | ✅ |
@@ -1136,97 +1136,21 @@ Model: nonprofit
 
 # 🌐 Costa Rica (CR) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 16*
+*Compiled: 2026-04-20 | Source: Web research | Organizations: 1*
 
 ---
 
 ## Organizations
 
-### List of Ngos, Charities and non-profits in Costa Rica - NGO Base
-Framework: democracy
-Model: nonprofit
-> Comprehensive list of NGOs, Charities and Nonprofits in Costa Rica. Browse organizations by their focus work areas. Page 1 of 7
-
-### CR/costa-rica-ngos
-Framework: democracy
-Model: nonprofit
-> Comprehensive list of NGOs, Charities and Nonprofits in Costa Rica. Browse organizations by their focus work areas. Page 1 of 7
-
-### Browse Non-profit Orgs in Costa Rica | Amigos of Costa Rica
-Framework: democracy
-Model: nonprofit
-> Contribute to the well-being of Costa Rica by connecting your values and resources with a vetted non-profit solution. Browse our organizations and donate today.
-
-### Contribute to the well
-Framework: democracy
-Model: nonprofit
-> ## List of NGOs in Costa Rica - GlobalGiving Atlas
-
-### List of NGOs in Costa Rica - GlobalGiving Atlas
-Framework: energy_digital
-Model: nonprofit
-> The largest database of NGOs GlobalGiving Atlas has more than 10.7 million validated nonprofits, charities, and NGOs, including 3,202 charities and nonprofits in Costa Rica, making it the largest list
-
-### Civil Society/NGOs - MESECVI EN
-Framework: education
-Model: nonprofit
-> Its mission is to educate society by promoting the cultural, economic, political, and social development of Afro-Costa Rican women and populations. To achieve its objectives, it holds educational semi
-
-### MESECVI/civil-society
-Framework: education
-Model: nonprofit
-> Its mission is to educate society by promoting the cultural, economic, political, and social development of Afro-Costa Rican women and populations. To achieve its objectives, it holds educational semi
-
-### Its mission
-Framework: democracy
-Model: nonprofit
-> ## List of Non-profit organizations in Costa Rica in 2026
-
-### List of Non-profit organizations in Costa Rica in 2026
-Framework: energy_digital
-Model: nonprofit
-> There are 479 Non-profit organizations in Costa Rica as of March, 2026. Download latest business data with contact info, ratings & locations.
-
-### FOS - Directorio de ONG y Empresas Sociales
-Framework: democracy
-Model: nonprofit
-> Misión Convertir a las organizaciones sociales y a las empresas sociales, en protagonistas del desarrollo sostenible de Costa Rica. Visión Ser reconocidos como la plataforma que agrupa y representa a 
-
-### Directorio de Organismos No Gubernamentales (ONG)
-Framework: democracy
-Model: nonprofit
-> Informe de investigación sobre las calidades de todas las ONGs que trabajan de una u otra forma el tema de la Paz y Prevención de la Violencia
-
-### Associations and NGO in Costa Rica - Expat.com
-Framework: democracy
-Model: nonprofit
-> List of associations and NGOs in Costa Rica, non-governmental organization in Costa Rica, non-profit organizations in Costa Rica. Costa Rica charity organizations.
-
-### List of associations and NGOs in Costa Rica, non
-Framework: democracy
-Model: nonprofit
-> ## 6 Amazing Nonprofits in Costa Rica | Special Places
-
-### 6 Amazing Nonprofits in Costa Rica | Special Places
-Framework: democracy
-Model: nonprofit
-> Costa Rica is home to several influential nonprofits in Costa Rica that put in an endless effort to take on these challenges. In this article, we'll look into some of Costa Rica's top nonprofit organi
-
-### Costa Rica
-Framework: democracy
-Model: nonprofit
-> ## 5 Charities Operating in Co
-
-### 5 Charities Operating in Co
-Framework: democracy
-Model: nonprofit
+### Costa Rica Civil Society Network
+> Primary civil society network in Costa Rica
 
 
 ---
 
 # 🌐 Cuba (CU) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-20 | Source: Web research | Organizations: 1*
 
 ---
 
@@ -1746,7 +1670,7 @@ Model: nonprofit
 
 # 🌐 Haiti (HT) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-20 | Source: Web research | Organizations: 1*
 
 ---
 
@@ -2949,71 +2873,14 @@ Model: nonprofit
 
 # 🌐 Nicaragua (NI) Civil Society Directory
 
-*Compiled: 2026-04-13 | Source: Web research | Organizations: 12*
+*Compiled: 2026-04-20 | Source: Web research | Organizations: 1*
 
 ---
 
 ## Organizations
 
-### List of NGOs, Charities and Nonprofits in Managua - NGO Base
-Framework: democracy
-Model: nonprofit
-> Comprehensive list of NGOs, Charities and Nonprofits in Managua. Browse organizations by their focus work areas. Page 1 of 2
-
-### MA/managua-ngos
-Framework: democracy
-Model: nonprofit
-> Comprehensive list of NGOs, Charities and Nonprofits in Managua. Browse organizations by their focus work areas. Page 1 of 2
-
-### Directorio completo de ONGs en Nicaragua: ¡Conoce las asociaciones sin 
-Framework: democracy
-Model: nonprofit
-> Descubre las principales asociaciones sin fines de lucro en Nicaragua y apoya sus nobles causas. ¡Ayuda a hacer una diferencia en tu comunidad!
-
-### ONGs y Fundaciones en Nicaragua 2024 - Proyectos sociales
-Framework: democracy
-Model: nonprofit
-> ONGs y Fundaciones en Nicaragua 2024 variedad de Organizaciones en diversos sectores la salud, la educación, medio ambiente. Camoapa.
-
-### Seguimos Organizadas - La Plataforma de Redes de ONG
-Framework: democracy
-Model: nonprofit
-> Quiénes Somos La Plataforma Nicaragüense de Redes de ONG Con presencia en toda Nicaragua aportando al desarrollo económico en comunidades empobrecidas, donde el Estado no ha logrado resolver los princ
-
-### List Of Non-profit organizations in Nicaragua
-Framework: democracy
-Model: nonprofit
-> There are 201 Non-profit organizations in Nicaragua as of August 15, 2024; which is an 3.06% increase from 2023. Of these locations, 197 Non-profit organizations which is 98.01% of all Non-profit orga
-
-### Non-profit organizations which
-Framework: democracy
-Model: nonprofit
-> ## NGO Directory - Caribbean Policy Development Centre
-
-### NGO Directory - Caribbean Policy Development Centre
-Framework: democracy
-Model: nonprofit
-> Our NGO Directory provides a comprehensive list on non-governmental organizations (NGOs) from across the Eastern and Southern Caribbean (ESC). This Directory allows fellow NGOs, partners, donors and c
-
-### Our NGO Directory provides a comprehensive list on non
-Framework: democracy
-Model: nonprofit
-> ## Nicaragua - NGO Explorer
-
-### Nicaragua - NGO Explorer
-Framework: healthcare
-Model: nonprofit
-> How NGOs describe themselves Most common words from the description of a random set of 30 NGOs matching your search. people latin work world development education poverty projects support health small
-
-### United Nations Civil Society Participation
-Framework: democracy
-Model: nonprofit
-> Advanced search for Civil Society Organizations Please use any of the search combinations below to find organizations in our database. You can also expand the headings "Areas of Expertise & Fields of 
-
-### Welcome to Sos Nicaragua
-Framework: democracy
-Model: nonprofit
-> Sos Nicaragua i
+### Nicaragua Civil Society Network
+> Primary civil society network in Nicaragua
 
 
 ---
@@ -3297,7 +3164,7 @@ Model: nonprofit
 
 # 🌐 Panama (PA) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-20 | Source: Web research | Organizations: 1*
 
 ---
 
