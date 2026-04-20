@@ -119,14 +119,12 @@ def get_next_country():
     return None, None
 
 
-def get_oldest_revisit_country(staleness_days=14):
-    """Return (cc, name) for the DIRECTORY_CC.md (in COUNTRY_CENTROIDS) with the
-    oldest mtime that is also older than staleness_days.  Returns (None, None)
-    and prints a skip message if everything is fresh enough."""
-    import time
-    cutoff = time.time() - staleness_days * 86400
+# Thresholds for thoroughness pass
+THIN_ORG_THRESHOLD = 100  # countries with < this many orgs are "thin" and get priority re-runs
+THIN_REVISIT_MIN_HOURS = 6  # even thin countries wait at least this long between re-runs
 
-    # Build CC->name from QUEUE.txt for user-friendly log lines
+
+def _country_name_map():
     name_map = {}
     try:
         with open(QUEUE_FILE, encoding='utf-8') as f:
@@ -139,10 +137,94 @@ def get_oldest_revisit_country(staleness_days=14):
                     name_map[parts[0]] = parts[1]
     except Exception:
         pass
+    # Backstop names for centroids not in QUEUE.txt
+    backstop = {
+        'US': 'United States', 'GB': 'United Kingdom', 'CA': 'Canada',
+        'AU': 'Australia', 'NZ': 'New Zealand', 'DE': 'Germany', 'FR': 'France',
+        'IT': 'Italy', 'ES': 'Spain', 'PT': 'Portugal', 'NL': 'Netherlands',
+        'BE': 'Belgium', 'CH': 'Switzerland', 'AT': 'Austria', 'IE': 'Ireland',
+        'SE': 'Sweden', 'NO': 'Norway', 'DK': 'Denmark', 'FI': 'Finland',
+        'GR': 'Greece', 'PL': 'Poland', 'HU': 'Hungary', 'RO': 'Romania',
+        'BG': 'Bulgaria', 'RS': 'Serbia', 'UA': 'Ukraine', 'TR': 'Turkey',
+        'RU': 'Russia', 'JP': 'Japan', 'KR': 'South Korea', 'CN': 'China',
+        'IN': 'India', 'PK': 'Pakistan', 'BD': 'Bangladesh', 'LK': 'Sri Lanka',
+        'NP': 'Nepal', 'VN': 'Vietnam', 'TH': 'Thailand', 'MY': 'Malaysia',
+        'ID': 'Indonesia', 'PH': 'Philippines', 'MM': 'Myanmar', 'KH': 'Cambodia',
+        'TW': 'Taiwan', 'KZ': 'Kazakhstan', 'UZ': 'Uzbekistan', 'TM': 'Turkmenistan',
+        'GE': 'Georgia', 'AM': 'Armenia', 'JO': 'Jordan', 'LB': 'Lebanon',
+        'EG': 'Egypt', 'MA': 'Morocco', 'TN': 'Tunisia', 'GH': 'Ghana',
+        'NG': 'Nigeria', 'KE': 'Kenya', 'UG': 'Uganda', 'TZ': 'Tanzania',
+        'RW': 'Rwanda', 'ET': 'Ethiopia', 'ZA': 'South Africa', 'ZM': 'Zambia',
+        'MZ': 'Mozambique', 'MG': 'Madagascar', 'CM': 'Cameroon', 'SN': 'Senegal',
+        'CI': "Cote d'Ivoire", 'MX': 'Mexico', 'GT': 'Guatemala', 'CU': 'Cuba',
+        'DO': 'Dominican Republic', 'HT': 'Haiti', 'JM': 'Jamaica', 'TT': 'Trinidad and Tobago',
+        'NI': 'Nicaragua', 'HN': 'Honduras', 'CR': 'Costa Rica', 'PA': 'Panama',
+        'CO': 'Colombia', 'VE': 'Venezuela', 'EC': 'Ecuador', 'PE': 'Peru',
+        'BR': 'Brazil', 'BO': 'Bolivia', 'PY': 'Paraguay', 'UY': 'Uruguay',
+        'AR': 'Argentina', 'CL': 'Chile', 'GY': 'Guyana', 'SR': 'Suriname',
+        'FJ': 'Fiji', 'PG': 'Papua New Guinea',
+    }
+    for cc, n in backstop.items():
+        name_map.setdefault(cc, n)
+    return name_map
 
+
+def _country_org_counts():
+    """Return dict of cc -> active org count for all centroid countries."""
+    counts = {}
+    try:
+        db = sqlite3.connect(DB_PATH)
+        c = db.cursor()
+        c.execute("SELECT country_code, COUNT(*) FROM organizations WHERE status != 'removed' GROUP BY country_code")
+        for cc, n in c.fetchall():
+            counts[cc] = n
+        db.close()
+    except Exception:
+        pass
+    return counts
+
+
+def get_oldest_revisit_country(staleness_days=14):
+    """Pick the next country to revisit.
+
+    Priority order:
+      1. Thin countries (<THIN_ORG_THRESHOLD orgs) with oldest mtime, minimum
+         THIN_REVISIT_MIN_HOURS old.
+      2. Any country older than staleness_days.
+    Returns (None, None) and prints a skip message if nothing is due.
+    """
+    import time
+    now = time.time()
+    thin_cutoff = now - THIN_REVISIT_MIN_HOURS * 3600
+    stale_cutoff = now - staleness_days * 86400
+
+    name_map = _country_name_map()
+    counts = _country_org_counts()
+
+    # Pass 1: thin countries (under-covered) - hit these hardest.
+    thin_candidates = []
+    for cc in COUNTRY_CENTROIDS:
+        md_path = os.path.join(REGIONAL_DIR, f'DIRECTORY_{cc}.md')
+        if not os.path.exists(md_path):
+            continue
+        n_orgs = counts.get(cc, 0)
+        if n_orgs >= THIN_ORG_THRESHOLD:
+            continue
+        mtime = os.path.getmtime(md_path)
+        if mtime >= thin_cutoff:
+            continue  # hit too recently, let DDG cool off
+        thin_candidates.append((mtime, cc, n_orgs))
+    if thin_candidates:
+        thin_candidates.sort()  # oldest mtime first
+        mtime, cc, n_orgs = thin_candidates[0]
+        age_hours = int((now - mtime) / 3600)
+        country_name = name_map.get(cc, cc)
+        print(f'MODE=thin cc={cc} orgs={n_orgs} age={age_hours}h (thin-coverage priority)')
+        return cc, country_name
+
+    # Pass 2: standard staleness sweep over all centroid countries.
     oldest_cc = None
     oldest_mtime = float('inf')
-
     for cc in COUNTRY_CENTROIDS:
         md_path = os.path.join(REGIONAL_DIR, f'DIRECTORY_{cc}.md')
         if not os.path.exists(md_path):
@@ -153,13 +235,13 @@ def get_oldest_revisit_country(staleness_days=14):
             oldest_cc = cc
 
     if oldest_cc is None:
-        return None, None  # No DIRECTORY files found for known countries
-
-    if oldest_mtime >= cutoff:
-        print(f'All countries recently scanned (within {staleness_days}d), skipping this cycle')
         return None, None
 
-    age_days = int((time.time() - oldest_mtime) / 86400)
+    if oldest_mtime >= stale_cutoff:
+        print(f'All countries recently scanned (within {staleness_days}d and no thin-country due), skipping this cycle')
+        return None, None
+
+    age_days = int((now - oldest_mtime) / 86400)
     country_name = name_map.get(oldest_cc, oldest_cc)
     print(f'MODE=revisit cc={oldest_cc} age={age_days}d')
     return oldest_cc, country_name
@@ -182,12 +264,14 @@ def search(query):
 
 DDG_CONSECUTIVE_TIMEOUT_LIMIT = 3  # bail on DDG if this many consecutive timeouts
 
-def research_country(cc, country_name):
-    """Run searches for a country using English + native language queries."""
+def research_country(cc, country_name, deep=False):
+    """Run searches for a country using English + native language queries.
+    deep=True raises the cap for thin/undercovered countries."""
     queries = get_queries(cc, country_name)
-    # Cap at 6 queries max to stay well within cron timeout budget
-    queries = queries[:6]
-    print(f'Searching: {country_name} ({cc}) — {len(queries)} queries (capped)')
+    cap = 12 if deep else 6
+    queries = queries[:cap]
+    label = 'DEEP' if deep else 'capped'
+    print(f'Searching: {country_name} ({cc}) — {len(queries)} queries ({label})')
 
     results = []
     consecutive_timeouts = 0
@@ -299,15 +383,24 @@ def ingest_db(orgs, cc, country_name):
     centroid = COUNTRY_CENTROIDS.get(cc)
     lat = centroid[0] if centroid else None
     lon = centroid[1] if centroid else None
+    import json as _json
+    today = now[:10]
     for org in orgs:
         try:
+            attestation = _json.dumps([{
+                'issuer': 'web_research',
+                'date': today,
+                'type': 'ingest-provenance',
+                'signature': None,
+                'scope': cc,
+            }])
             c.execute("""INSERT OR IGNORE INTO organizations
                 (name, country_code, country_name, description, source, date_added, status,
-                 framework_area, model_type, alignment_score, lat, lon, geo_source)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                 framework_area, model_type, alignment_score, lat, lon, geo_source, attestations)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                 (org['n'], cc, country_name, org.get('d', ''), 'web_research', now, 'active',
                  org.get('framework_area'), org.get('model_type'), org.get('alignment_score'),
-                 lat, lon, 'country_centroid' if centroid else None))
+                 lat, lon, 'country_centroid' if centroid else None, attestation))
             inserted += c.rowcount
         except Exception:
             pass
@@ -409,21 +502,52 @@ def run_us_state_enrichment():
     return False
 
 
+def run_subregion_enrichment():
+    """Run generic subregion-level Wikidata ingest for one international subregion.
+    Covers CA provinces, DE Laender, BR/IN/MX states, ES autonomous communities, etc."""
+    try:
+        script = os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data', 'sources', 'subregion_wikidata.py')
+        if os.path.exists(script):
+            print(f'\n--- Subregion Wikidata enrichment ---')
+            result = subprocess.run(
+                ['python', script],
+                capture_output=True, text=True, timeout=90,
+                encoding='utf-8', errors='replace'
+            )
+            for line in result.stdout.split('\n'):
+                if line.strip():
+                    print(f'  {line.strip()}')
+            return True
+    except Exception as e:
+        print(f'  Subregion enrichment error: {e}')
+    return False
+
+
 def main():
+    mode = 'fresh'
     cc, country_name = get_next_country()
     if cc:
         print(f'MODE=fresh cc={cc}')
     else:
-        print('Queue exhausted — checking for stale countries to revisit...')
+        print('Queue exhausted — checking for thin / stale countries to revisit...')
         cc, country_name = get_oldest_revisit_country(14)
         if not cc:
-            # All fresh (message already printed) or no known DIRECTORY files
-            return {'status': 'idle', 'message': 'All countries recently scanned (within 14d), skipping cycle'}
+            return {'status': 'idle', 'message': 'No thin or stale countries due, skipping cycle'}
+        mode = 'revisit'
+
+    # Determine if this is a "thin" country (deep-search it)
+    deep = False
+    try:
+        counts = _country_org_counts()
+        if counts.get(cc, 0) < THIN_ORG_THRESHOLD:
+            deep = True
+    except Exception:
+        pass
 
     print(f'\n=== {country_name} ({cc}) ===')
 
     # Source 1: DuckDuckGo web research (existing)
-    search_text = research_country(cc, country_name)
+    search_text = research_country(cc, country_name, deep=deep)
     orgs = extract_orgs(search_text, cc, country_name)
     print(f'Found {len(orgs)} orgs from web search')
 
@@ -441,6 +565,9 @@ def main():
 
     # Source 4: US state-level Wikidata enrichment (one state per run)
     run_us_state_enrichment()
+
+    # Source 5: International subregion enrichment (one subregion per run)
+    run_subregion_enrichment()
 
     rebuild_index()
 

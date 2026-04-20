@@ -593,7 +593,9 @@ NATIVE_QUERIES = {
 def get_queries(cc, country_name):
     """
     Return all search queries for a country:
-    standard English queries + native language queries.
+    standard English queries + curated native queries (NATIVE_QUERIES)
+    + generated i18n queries from COUNTRY_LANGUAGES + SEARCH_TEMPLATES
+    when the country has no curated native set.
     """
     standard = [
         f'civil society organizations {country_name} NGO nonprofit directory',
@@ -613,4 +615,26 @@ def get_queries(cc, country_name):
         f'{country_name} nonprofit social enterprise directory',
     ]
     native = NATIVE_QUERIES.get(cc, [])
+
+    # Fallback: if we have no curated native queries for this country,
+    # auto-generate from i18n_terms.py using the country's primary languages
+    # and SEARCH_TEMPLATES for each supported concept. Keeps 'thorough' mode
+    # honest for every centroid country, not just the ~94 with hand-curated lists.
+    if not native:
+        try:
+            from i18n_terms import build_local_queries
+            auto = build_local_queries(cc)
+            # Deduplicate + cap to avoid blowing past DDG rate limits; the
+            # run_next_country deep mode already caps total at 12.
+            seen = set()
+            deduped = []
+            for q in auto:
+                if q in seen:
+                    continue
+                seen.add(q)
+                deduped.append(q)
+            native = deduped[:10]
+        except Exception:
+            native = []
+
     return standard + native
