@@ -1,11 +1,11 @@
 {
-  "total": 8497,
+  "total": 8498,
   "us_count": 6684,
-  "intl_count": 1813,
+  "intl_count": 1814,
   "by_area": {
     "food": 2362,
     "healthcare": 1463,
-    "education": 1286,
+    "education": 1287,
     "housing_land": 1278,
     "democracy": 776,
     "ecology": 528,
@@ -26,7 +26,7 @@
     "UG": 85,
     "EG": 79,
     "MX": 78,
-    "DE": 75,
+    "DE": 76,
     "GR": 69,
     "ZA": 63,
     "NL": 45,
