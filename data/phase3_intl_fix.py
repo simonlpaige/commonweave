@@ -31,7 +31,7 @@ def assign_framework_area(name, desc):
         if score > best_score:
             best_score = score
             best_area = area
-    return best_area or 'democracy'
+    return best_area
 
 
 def run():
@@ -55,33 +55,37 @@ def run():
     
     # Process in batches
     batch_size = 5000
-    offset = 0
+    last_id = 0
     total_assigned = 0
     area_counts = {}
-    
+
     while True:
         c.execute("""
             SELECT id, name, description
             FROM organizations
-            WHERE status='active' AND source='web_research' AND framework_area IS NULL
+            WHERE status='active' AND source='web_research' AND framework_area IS NULL AND id > ?
             ORDER BY id
             LIMIT ?
-        """, (batch_size,))
+        """, (last_id, batch_size))
         rows = c.fetchall()
         if not rows:
             break
-        
+
         updates = []
         for row in rows:
             org_id, name, desc = row
             area = assign_framework_area(name, desc)
+            last_id = org_id
+            if area is None:
+                continue
             updates.append((area, org_id))
             area_counts[area] = area_counts.get(area, 0) + 1
-        
-        c.executemany("UPDATE organizations SET framework_area=? WHERE id=?", updates)
-        db.commit()
-        total_assigned += len(updates)
-        print(f'  Assigned framework_area to {total_assigned} orgs so far...')
+
+        if updates:
+            c.executemany("UPDATE organizations SET framework_area=? WHERE id=?", updates)
+            db.commit()
+            total_assigned += len(updates)
+            print(f'  Assigned framework_area to {total_assigned} orgs so far...')
     
     print(f'\n=== Phase 3 Complete ===')
     print(f'P2 orgs deleted: {p2_count}')
