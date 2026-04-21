@@ -1,12 +1,16 @@
 """
-Phase 3: Fix international orgs + delete P2 junk.
-1. Delete all orgs where country_code='P2'
+Phase 3: Fix international orgs + clean up P2 placeholder rows.
+1. Export P2 rows to an audit CSV, then mark them removed
 2. For all active web_research orgs where framework_area IS NULL:
    Assign framework_area from description+name keywords
 """
+import csv
+import os
 import sqlite3
+from datetime import datetime
 
 DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+AUDIT_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\audit'
 
 FRAMEWORK_KEYWORDS = {
     'healthcare': ['health','clinic','hospital','medical','medicine','nurse','doctor','hiv','aids','malaria','maternal'],
@@ -34,16 +38,37 @@ def assign_framework_area(name, desc):
     return best_area
 
 
+def export_rows_to_csv(cursor, rows, out_path):
+    cursor.execute("PRAGMA table_info(organizations)")
+    columns = [row[1] for row in cursor.fetchall()]
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    with open(out_path, 'w', encoding='utf-8', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(columns)
+        writer.writerows(rows)
+
+
 def run():
     db = sqlite3.connect(DB_PATH)
     c = db.cursor()
     
     # 1. Delete P2 orgs
-    c.execute("SELECT COUNT(*) FROM organizations WHERE country_code='P2'")
-    p2_count = c.fetchone()[0]
-    c.execute("DELETE FROM organizations WHERE country_code='P2'")
-    db.commit()
-    print(f'Deleted {p2_count} P2 orgs')
+    c.execute("SELECT * FROM organizations WHERE country_code='P2' ORDER BY id")
+    p2_rows = c.fetchall()
+    p2_count = len(p2_rows)
+    if p2_rows:
+        timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
+        audit_path = os.path.join(AUDIT_DIR, f'p2_cleanup_{timestamp}.csv')
+        export_rows_to_csv(c, p2_rows, audit_path)
+        c.execute("""
+            UPDATE organizations
+            SET status='removed',
+                description=TRIM(COALESCE(description, '') || ' [P2 cleanup placeholder row]')
+            WHERE country_code='P2'
+        """)
+        db.commit()
+        print(f'Exported P2 audit CSV: {audit_path}')
+    print(f'Cleaned up {p2_count} P2 orgs')
     
     # 2. Assign framework_area for active web_research orgs where it's NULL
     c.execute("""
@@ -88,7 +113,7 @@ def run():
             print(f'  Assigned framework_area to {total_assigned} orgs so far...')
     
     print(f'\n=== Phase 3 Complete ===')
-    print(f'P2 orgs deleted: {p2_count}')
+    print(f'P2 orgs cleaned: {p2_count}')
     print(f'framework_area assigned: {total_assigned}')
     print('\nFramework area distribution for assigned:')
     for area, cnt in sorted(area_counts.items(), key=lambda x: -x[1]):
