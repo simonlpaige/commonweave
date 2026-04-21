@@ -1,46 +1,51 @@
 # -*- coding: utf-8 -*-
 """
 Migration 001: alignment_score_v2
-----------------------------------
-Adds two new columns to organizations:
-  - alignment_score_legacy : copy of original alignment_score before this run
-  - alignment_score_v2     : score computed by the current multilingual scorer
 
-alignment_score is then set to MAX(legacy, v2) so no org is dropped during
-the transition -- an org stays in the directory if EITHER scorer thought it
-was aligned.
+This script keeps the old score in alignment_score_legacy, recomputes
+alignment_score_v2, and audits disagreements.
 
-Must be run AFTER backing up ecolibrium_directory.db.
-Transactional: all changes roll back if any step fails.
+Default mode is safe:
+  - recompute and store v2 scores
+  - export the legacy > v2 cohort to an audit CSV
+  - report whether the DB looks ratcheted
 
-Usage:
-    python data/migrations/001_alignment_score_v2.py
+Destructive mode requires --rebuild-from-v2:
+  - overwrite alignment_score from alignment_score_v2
 """
 
+import argparse
+import csv
 import os
-import sys
 import sqlite3
+import sys
+from datetime import datetime
 
 # Allow import of phase2_filter / i18n_terms from the data directory.
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
-_DATA_DIR = os.path.dirname(_THIS_DIR)  # parent = data/
+_DATA_DIR = os.path.dirname(_THIS_DIR)
 if _DATA_DIR not in sys.path:
     sys.path.insert(0, _DATA_DIR)
 
 from phase2_filter import score_org  # noqa: E402
 
 DB_PATH = os.path.join(_DATA_DIR, "ecolibrium_directory.db")
+AUDIT_DIR = os.path.join(_DATA_DIR, "audit")
 BATCH_SIZE = 2000
 
 
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--rebuild-from-v2", action="store_true")
+    return parser.parse_args()
+
+
 def _col_names(cursor):
-    """Return set of existing column names for the organizations table."""
     cursor.execute("PRAGMA table_info(organizations)")
     return {row[1] for row in cursor.fetchall()}
 
 
 def _score_distribution(cursor, col, label):
-    """Print a compact score distribution for one column."""
     cursor.execute(f"""
         SELECT {col}, COUNT(*) AS n
         FROM organizations
@@ -54,165 +59,145 @@ def _score_distribution(cursor, col, label):
         print(f"    score {score:>4}: {n:>6,}")
 
 
-def run():
-    print("=== Migration 001: alignment_score_v2 ===")
+def ensure_columns(cursor):
+    existing_cols = _col_names(cursor)
+    if "alignment_score_legacy" not in existing_cols:
+        cursor.execute("ALTER TABLE organizations ADD COLUMN alignment_score_legacy INTEGER")
+    if "alignment_score_v2" not in existing_cols:
+        cursor.execute("ALTER TABLE organizations ADD COLUMN alignment_score_v2 INTEGER")
 
+
+def populate_scores(cursor):
+    cursor.execute("SELECT COUNT(*) FROM organizations WHERE status = 'active'")
+    active_count = cursor.fetchone()[0]
+    print(f"\nActive orgs to process: {active_count:,}")
+    if active_count == 0:
+        raise RuntimeError("0 active orgs found")
+
+    processed = 0
+    last_id = 0
+    while True:
+        cursor.execute("""
+            SELECT id, name, description, alignment_score, alignment_score_legacy
+            FROM organizations
+            WHERE status = 'active' AND id > ?
+            ORDER BY id
+            LIMIT ?
+        """, (last_id, BATCH_SIZE))
+        rows = cursor.fetchall()
+        if not rows:
+            break
+
+        updates = []
+        for org_id, name, desc, current_score, legacy_score in rows:
+            legacy_value = legacy_score if legacy_score is not None else current_score
+            updates.append((legacy_value, score_org(name, desc), org_id))
+
+        cursor.executemany("""
+            UPDATE organizations
+            SET alignment_score_legacy = ?,
+                alignment_score_v2 = ?
+            WHERE id = ?
+        """, updates)
+        processed += len(rows)
+        last_id = rows[-1][0]
+        print(f"  ...{processed:,}/{active_count:,}", flush=True)
+
+
+def export_disagreement_cohort(cursor):
+    os.makedirs(AUDIT_DIR, exist_ok=True)
+    timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+    audit_path = os.path.join(AUDIT_DIR, f"score_v2_disagreement_{timestamp}.csv")
+    cursor.execute("""
+        SELECT id, name, alignment_score, alignment_score_legacy, alignment_score_v2,
+               country_code, source, source_id
+        FROM organizations
+        WHERE status = 'active'
+          AND alignment_score_legacy IS NOT NULL
+          AND alignment_score_v2 IS NOT NULL
+          AND alignment_score_legacy > alignment_score_v2
+        ORDER BY (alignment_score_legacy - alignment_score_v2) DESC, id ASC
+    """)
+    rows = cursor.fetchall()
+    with open(audit_path, "w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow([
+            "id", "name", "alignment_score_current", "alignment_score_legacy",
+            "alignment_score_v2", "country_code", "source", "source_id"
+        ])
+        writer.writerows(rows)
+    return audit_path, len(rows)
+
+
+def count_ratcheted_rows(cursor):
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM organizations
+        WHERE status = 'active'
+          AND alignment_score_legacy IS NOT NULL
+          AND alignment_score_v2 IS NOT NULL
+          AND alignment_score = MAX(alignment_score_legacy, alignment_score_v2)
+          AND alignment_score != alignment_score_v2
+    """)
+    return cursor.fetchone()[0]
+
+
+def rebuild_alignment_score(cursor):
+    cursor.execute("""
+        UPDATE organizations
+        SET alignment_score = alignment_score_v2
+        WHERE status = 'active'
+          AND alignment_score_v2 IS NOT NULL
+    """)
+    return cursor.rowcount
+
+
+def run():
+    args = parse_args()
+    print("=== Migration 001: alignment_score_v2 ===")
     db = sqlite3.connect(DB_PATH)
-    db.isolation_level = None  # manual transaction control
     c = db.cursor()
 
-    # --- Step 1: Add columns if they don't already exist ---
-    existing_cols = _col_names(c)
-    print("\nExisting alignment columns:", [col for col in existing_cols if "alignment" in col])
+    ensure_columns(c)
+    db.commit()
 
-    c.execute("BEGIN")
-    try:
-        if "alignment_score_legacy" not in existing_cols:
-            print("  Adding alignment_score_legacy column...")
-            c.execute("ALTER TABLE organizations ADD COLUMN alignment_score_legacy INTEGER")
-        else:
-            print("  alignment_score_legacy already exists, skipping ADD COLUMN")
-
-        if "alignment_score_v2" not in existing_cols:
-            print("  Adding alignment_score_v2 column...")
-            c.execute("ALTER TABLE organizations ADD COLUMN alignment_score_v2 INTEGER")
-        else:
-            print("  alignment_score_v2 already exists, skipping ADD COLUMN")
-
-        c.execute("COMMIT")
-    except Exception as exc:
-        c.execute("ROLLBACK")
-        print(f"ERROR adding columns: {exc}")
-        db.close()
-        sys.exit(1)
-
-    # --- Step 2: Dry-run count sanity check ---
-    c.execute("SELECT COUNT(*) FROM organizations WHERE status = 'active'")
-    active_count = c.fetchone()[0]
-    print(f"\nActive orgs to process: {active_count:,}")
-
-    c.execute("""
-        SELECT COUNT(*) FROM organizations
-        WHERE status = 'active' AND alignment_score IS NULL
-    """)
-    null_scores = c.fetchone()[0]
-    print(f"Active orgs with NULL alignment_score: {null_scores:,}")
-
-    if active_count == 0:
-        print("STOP: 0 active orgs - unexpected. Aborting.")
-        db.close()
-        sys.exit(1)
-
-    # --- Step 3: Show BEFORE distribution ---
     _score_distribution(c, "alignment_score", "BEFORE - alignment_score")
 
-    # --- Step 4: Copy legacy scores and compute v2 in one transaction ---
     print("\nPopulating alignment_score_legacy and alignment_score_v2...")
-    c.execute("BEGIN")
-    try:
-        processed = 0
-        offset = 0
-        v2_updates = []
+    populate_scores(c)
+    db.commit()
 
-        while True:
-            c.execute("""
-                SELECT id, name, description, alignment_score
-                FROM organizations
-                WHERE status = 'active'
-                ORDER BY id
-                LIMIT ? OFFSET ?
-            """, (BATCH_SIZE, offset))
-            rows = c.fetchall()
-            if not rows:
-                break
-
-            batch_updates = []
-            for org_id, name, desc, current_score in rows:
-                v2 = score_org(name, desc)
-                batch_updates.append((current_score, v2, org_id))
-
-            # Write legacy + v2 in a single UPDATE per row
-            c.executemany("""
-                UPDATE organizations
-                SET alignment_score_legacy = ?,
-                    alignment_score_v2 = ?
-                WHERE id = ?
-            """, batch_updates)
-
-            processed += len(rows)
-            offset += BATCH_SIZE
-            print(f"  ...{processed:,}/{active_count:,}", flush=True)
-
-        c.execute("COMMIT")
-        print(f"Legacy copy + v2 scoring done. {processed:,} orgs updated.")
-    except Exception as exc:
-        c.execute("ROLLBACK")
-        print(f"ERROR during scoring: {exc}")
-        import traceback
-        traceback.print_exc()
-        db.close()
-        sys.exit(1)
-
-    # --- Step 5: Validate - no org should have a NULL v2 score after scoring ---
     c.execute("""
         SELECT COUNT(*) FROM organizations
         WHERE status = 'active' AND alignment_score_v2 IS NULL
     """)
     null_v2 = c.fetchone()[0]
-    if null_v2 > 0:
-        print(f"WARNING: {null_v2:,} active orgs still have NULL alignment_score_v2.")
-        print("This should not happen. Aborting without updating alignment_score.")
+    if null_v2:
         db.close()
-        sys.exit(1)
+        raise RuntimeError(f"{null_v2:,} active orgs still have NULL alignment_score_v2")
 
-    # --- Step 6: Update alignment_score = MAX(legacy, v2) ---
-    print("\nUpdating alignment_score = MAX(alignment_score_legacy, alignment_score_v2)...")
-    c.execute("BEGIN")
-    try:
-        c.execute("""
-            UPDATE organizations
-            SET alignment_score = MAX(alignment_score_legacy, alignment_score_v2)
-            WHERE status = 'active'
-              AND alignment_score_legacy IS NOT NULL
-              AND alignment_score_v2 IS NOT NULL
-        """)
-        rows_touched = c.rowcount
-        c.execute("COMMIT")
-        print(f"alignment_score updated for {rows_touched:,} active orgs.")
-    except Exception as exc:
-        c.execute("ROLLBACK")
-        print(f"ERROR updating alignment_score: {exc}")
+    audit_path, disagreement_count = export_disagreement_cohort(c)
+    ratcheted_count = count_ratcheted_rows(c)
+    print(f"\nAudit CSV: {audit_path}")
+    print(f"legacy > v2 cohort: {disagreement_count:,}")
+    print(f"Rows that look ratcheted right now: {ratcheted_count:,}")
+
+    if not args.rebuild_from_v2:
+        print("\nDry run only. alignment_score was left untouched.")
+        if ratcheted_count:
+            print("This DB still looks ratcheted.")
+        print("Run again with --rebuild-from-v2 if you want alignment_score rebuilt from v2.")
         db.close()
-        sys.exit(1)
+        return
 
-    # --- Step 7: Safety check - no org should have dropped below its legacy score ---
-    c.execute("""
-        SELECT COUNT(*) FROM organizations
-        WHERE status = 'active'
-          AND alignment_score < alignment_score_legacy
-    """)
-    dropped = c.fetchone()[0]
-    if dropped > 0:
-        print(f"\nFAIL: {dropped:,} orgs have alignment_score < alignment_score_legacy.")
-        print("MAX logic violated - rolling back entire migration.")
-        c.execute("BEGIN")
-        c.execute("""
-            UPDATE organizations
-            SET alignment_score = alignment_score_legacy
-            WHERE status = 'active' AND alignment_score < alignment_score_legacy
-        """)
-        c.execute("COMMIT")
-        print("Corrected. Please investigate before re-running.")
-        db.close()
-        sys.exit(1)
-    else:
-        print("Safety check passed: no org dropped below its pre-migration score.")
+    print("\nRebuilding alignment_score directly from alignment_score_v2...")
+    rows_touched = rebuild_alignment_score(c)
+    db.commit()
+    print(f"alignment_score updated for {rows_touched:,} active orgs.")
 
-    # --- Step 8: AFTER distribution ---
     _score_distribution(c, "alignment_score", "AFTER - alignment_score")
     _score_distribution(c, "alignment_score_v2", "AFTER - alignment_score_v2")
 
-    # --- Step 9: Summary stats ---
     c.execute("""
         SELECT
             SUM(CASE WHEN alignment_score_v2 > alignment_score_legacy THEN 1 ELSE 0 END) AS v2_wins,
@@ -224,8 +209,8 @@ def run():
     row = c.fetchone()
     print(f"\n=== Summary ===")
     print(f"  v2 > legacy  (multilingual wins)     : {row[0]:>6,}")
-    print(f"  legacy > v2  (inflation review cohort): {row[1]:>6,}")
-    print(f"  v2 == legacy (unchanged)              : {row[2]:>6,}")
+    print(f"  legacy > v2  (audit cohort)          : {row[1]:>6,}")
+    print(f"  v2 == legacy (unchanged)             : {row[2]:>6,}")
 
     db.close()
     print("\nMigration 001 complete.\n")
