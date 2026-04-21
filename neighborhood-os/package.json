@@ -1,0 +1,33 @@
+{
+  "name": "@ecolibrium/neighborhood-os",
+  "version": "0.1.0",
+  "description": "NeighborhoodOS: civic intelligence and self-governance for neighborhood associations. A subprogram of Ecolibrium.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "sync": "node ingest/sync.js",
+    "sync:status": "node ingest/sync.js --status",
+    "api": "node ../civic-identity/api.js",
+    "start": "node ingest/sync.js && node ../civic-identity/api.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.0.0",
+    "bcrypt": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "ecolibrium",
+    "neighborhood",
+    "civic-tech",
+    "governance",
+    "commons",
+    "open-data"
+  ],
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simonlpaige/ecolibrium"
+  }
+}

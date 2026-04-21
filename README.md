@@ -75,6 +75,21 @@ To be specific:
 - **No named legal entity.** There is no Ecolibrium Foundation, LLC, or unincorporated association. This is a repository and a framework document.
 - **No staff.** This is an open-source project.
 
+### NeighborhoodOS (Active Subprogram)
+
+[`neighborhood-os/`](neighborhood-os/) is Ecolibrium's ground-level implementation layer — a toolkit for turning a neighborhood association into a self-governing, data-literate civic entity.
+
+What it does:
+- Pulls from KC Open Data (311, permits, crime, violations, budget) and the Legistar legislative API (ordinances, votes, committee meetings)
+- Collects signals from Nextdoor and Facebook Groups to surface what neighbors are actually discussing
+- Runs a **civic identity + voting system** ([`civic-identity/`](civic-identity/)) with five trust levels (anonymous through address-verified) and five voting methods including liquid democracy
+- Federates with other neighborhood nodes - sharing aggregated data, never individual votes
+- Connects back to the **Ecolibrium directory** to surface organizations already working on issues neighbors care about
+
+Current status: West Waldo (Kansas City) pilot. SQLite + Node.js, designed for WaldoNet-style neighborhood-owned hardware. No cloud dependency.
+
+See [`neighborhood-os/README.md`](neighborhood-os/README.md) for full documentation.
+
 ---
 
 ## Core Principles
