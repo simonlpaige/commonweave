@@ -11,9 +11,12 @@ import os
 import time
 import sys
 import re
+from research_evidence import validate_org_result
 
 DATA_DIR = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data"
 OUTPUT_FILE = os.path.join(DATA_DIR, "regional", "DIRECTORY_GY.md")
+COUNTRY_CODE = "GY"
+SKIP_AUDIT_FILE = os.path.join(DATA_DIR, "audit", f"research_skipped_{COUNTRY_CODE}.csv")
 
 SEARCHES = [
     "Guyana NGO civil society organizations directory",
@@ -128,15 +131,21 @@ def extract_orgs(results, query):
         is_org = any(ind in title_lower for ind in org_indicators)
         is_guyana = 'guyan' in title_lower or 'georgetown' in title_lower or '.gy' in url.lower()
         is_amerindian = any(x in title_lower for x in ['amerindian', 'indigenous', 'toshaos'])
-        
+
         if is_org or is_guyana or is_amerindian:
+            evidence = validate_org_result(title[:100], title, url, snippet, query, SKIP_AUDIT_FILE)
+            if not evidence:
+                continue
             framework = guess_framework(title, snippet)
             orgs.append({
                 'name': title[:100],
-                'description': snippet[:200],
-                'website': url if url.startswith('http') else '',
+                'description': evidence['description'] or snippet[:200],
+                'website': evidence['website'],
                 'framework_area': framework,
-                'source': f"Search: {query[:60]}"
+                'source': f"Search: {query[:60]}",
+                'evidence_url': evidence['evidence_url'],
+                'evidence_quote': evidence['evidence_quote'],
+                'evidence_fetched_at': evidence['evidence_fetched_at'],
             })
     return orgs
 
@@ -186,15 +195,21 @@ def main():
         for r in results[:3]:
             title = r.get('title', '')
             if title and len(title) > 5:
+                evidence = validate_org_result(title[:100], title, r.get('url', ''), r.get('snippet', ''), query, SKIP_AUDIT_FILE)
+                if not evidence:
+                    continue
                 key = title.lower()[:40]
                 if key not in seen_names:
                     seen_names.add(key)
                     all_orgs.append({
                         'name': title[:100],
-                        'description': r.get('snippet', '')[:200],
-                        'website': r.get('url', ''),
+                        'description': evidence['description'] or r.get('snippet', '')[:200],
+                        'website': evidence['website'],
                         'framework_area': hint,
-                        'source': f"Targeted: {query[:60]}"
+                        'source': f"Targeted: {query[:60]}",
+                        'evidence_url': evidence['evidence_url'],
+                        'evidence_quote': evidence['evidence_quote'],
+                        'evidence_fetched_at': evidence['evidence_fetched_at'],
                     })
         time.sleep(1)
     

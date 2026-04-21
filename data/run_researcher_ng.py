@@ -24,8 +24,10 @@ TOOLS_DIR = r"C:\Users\simon\.openclaw\workspace\tools"
 if DATA_DIR not in sys.path:
     sys.path.insert(0, DATA_DIR)
 from i18n_terms import build_local_queries, COUNTRY_LANGUAGES  # noqa: E402
+from research_evidence import validate_org_result
 
 COUNTRY_CODE = "NG"
+SKIP_AUDIT_FILE = os.path.join(DATA_DIR, "audit", f"research_skipped_{COUNTRY_CODE}.csv")
 
 # Legacy Nigeria-specific searches that reference local registries, regions, or
 # proper nouns the generic builder would miss. Kept so recall does not regress.
@@ -168,15 +170,21 @@ def extract_orgs_from_results(results, query):
         
         # Also include if URL has .ng domain
         is_nigeria = '.ng' in url.lower() or 'nigeria' in title_lower or 'nigerian' in title_lower
-        
+
         if is_org or is_nigeria:
+            evidence = validate_org_result(title, title, url, snippet, query, SKIP_AUDIT_FILE)
+            if not evidence:
+                continue
             framework = guess_framework(title, snippet)
             orgs.append({
                 'name': title,
-                'description': snippet[:200] if snippet else f"Found via: {query[:80]}",
-                'website': url if url.startswith('http') else '',
+                'description': evidence['description'] or (snippet[:200] if snippet else f"Found via: {query[:80]}"),
+                'website': evidence['website'],
                 'framework_area': framework,
-                'source': f"Web search: {query[:60]}"
+                'source': f"Web search: {query[:60]}",
+                'evidence_url': evidence['evidence_url'],
+                'evidence_quote': evidence['evidence_quote'],
+                'evidence_fetched_at': evidence['evidence_fetched_at'],
             })
     
     return orgs
@@ -232,15 +240,21 @@ def main():
         for r in results[:3]:
             title = r.get('title', '')
             if title and len(title) > 5:
+                evidence = validate_org_result(title, title, r.get('url', ''), r.get('snippet', ''), query, SKIP_AUDIT_FILE)
+                if not evidence:
+                    continue
                 name_key = title.lower()[:40]
                 if name_key not in seen_names:
                     seen_names.add(name_key)
                     all_orgs.append({
                         'name': title,
-                        'description': r.get('snippet', '')[:200],
-                        'website': r.get('url', ''),
+                        'description': evidence['description'] or r.get('snippet', '')[:200],
+                        'website': evidence['website'],
                         'framework_area': framework_hint,
-                        'source': f"Targeted: {query[:60]}"
+                        'source': f"Targeted: {query[:60]}",
+                        'evidence_url': evidence['evidence_url'],
+                        'evidence_quote': evidence['evidence_quote'],
+                        'evidence_fetched_at': evidence['evidence_fetched_at'],
                     })
         time.sleep(1)
     

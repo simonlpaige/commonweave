@@ -101,8 +101,10 @@ REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\regional'
 DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
 WORKSPACE_DIR = r'C:\Users\simon\.openclaw\workspace'
 COUNTRY_STATE_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\country_research_state.json'
+AUDIT_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\audit'
 sys.path.insert(0, os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data'))
 from native_queries import get_queries
+from research_evidence import validate_org_result, first_url_from_text
 
 
 def load_country_state():
@@ -375,6 +377,32 @@ def extract_orgs(search_text, cc, country_name):
 
     return orgs[:150]
 
+
+def evidence_audit_path(cc):
+    os.makedirs(AUDIT_DIR, exist_ok=True)
+    stamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
+    return os.path.join(AUDIT_DIR, f'research_skipped_{cc}_{stamp}.csv')
+
+
+def attach_evidence(orgs, country_name, audit_path):
+    vetted = []
+    for org in orgs:
+        query = f'"{org["n"]}" "{country_name}" organization'
+        candidate_url = org.get('website') or first_url_from_text(search(query))
+        evidence = validate_org_result(
+            org['n'],
+            org['n'],
+            candidate_url,
+            org.get('d', ''),
+            query,
+            audit_path,
+        )
+        if not evidence:
+            continue
+        org.update(evidence)
+        vetted.append(org)
+    return vetted
+
 def write_markdown(orgs, cc, country_name):
     """Write DIRECTORY_CC.md."""
     os.makedirs(REGIONAL_DIR, exist_ok=True)
@@ -390,14 +418,23 @@ def write_markdown(orgs, cc, country_name):
         '## Organizations',
         '',
     ]
+    if not orgs:
+        lines.extend([
+            '_No evidence-backed organizations found in this pass._',
+            '',
+        ])
     for org in orgs:
         lines.append(f"### {org['n']}")
         if org.get('framework_area'):
             lines.append(f"Framework: {org['framework_area']}")
         if org.get('model_type'):
             lines.append(f"Model: {org['model_type']}")
+        if org.get('website'):
+            lines.append(f"Website: {org['website']}")
         if org.get('d') and len(org['d']) > 10:
             lines.append(f"> {org['d']}")
+        if org.get('evidence_quote'):
+            lines.append(f"Evidence: \"{org['evidence_quote']}\"")
         lines.append('')
     with open(path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines))
@@ -427,6 +464,8 @@ def ingest_db(orgs, cc, country_name):
     today = now[:10]
     for org in orgs:
         try:
+            if not org.get('evidence_url') or len(org.get('evidence_quote', '')) < 30:
+                continue
             attestation = _json.dumps([{
                 'issuer': 'web_research',
                 'date': today,
@@ -436,11 +475,14 @@ def ingest_db(orgs, cc, country_name):
             }])
             c.execute("""INSERT OR IGNORE INTO organizations
                 (name, country_code, country_name, description, source, date_added, status,
-                 framework_area, model_type, alignment_score, lat, lon, geo_source, attestations)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                 framework_area, model_type, alignment_score, lat, lon, geo_source, attestations,
+                 website, evidence_url, evidence_quote, evidence_fetched_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                 (org['n'], cc, country_name, org.get('d', ''), 'web_research', now, 'active',
-                 org.get('framework_area'), org.get('model_type'), org.get('alignment_score'),
-                 lat, lon, 'country_centroid' if centroid else None, attestation))
+                  org.get('framework_area'), org.get('model_type'), org.get('alignment_score'),
+                 lat, lon, 'country_centroid' if centroid else None, attestation,
+                 org.get('website'), org.get('evidence_url'), org.get('evidence_quote'),
+                 org.get('evidence_fetched_at')))
             inserted += c.rowcount
         except Exception:
             pass
@@ -573,6 +615,9 @@ def _process_one(cc, country_name, deep):
     search_text = research_country(cc, country_name, deep=deep)
     orgs = extract_orgs(search_text, cc, country_name)
     print(f'Found {len(orgs)} orgs from web search')
+    audit_path = evidence_audit_path(cc)
+    orgs = attach_evidence(orgs, country_name, audit_path)
+    print(f'Kept {len(orgs)} orgs with page evidence')
     markdown_path = write_markdown(orgs, cc, country_name)
     ddg_inserted = ingest_db(orgs, cc, country_name)
     run_wikidata(cc, country_name)
