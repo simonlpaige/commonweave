@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-20 23:55 UTC*
+*Last updated: 2026-04-21 00:26 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 24,520 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 24,554 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Afghanistan (AF) | ~2 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
@@ -137,7 +137,7 @@
 | 🌐 Slovenia (SI) | ~2 | Field Research | ✅ |
 | 🌐 Slovakia (SK) | ~2 | Field Research | ✅ |
 | 🌐 Sierra Leone (SL) | ~15 | Field Research | ✅ |
-| 🌐 Senegal (SN) | ~2 | Field Research | ✅ |
+| 🌐 Senegal (SN) | ~18 | Field Research | ✅ |
 | 🌐 Somalia (SO) | ~2 | Field Research | ✅ |
 | 🌐 Suriname (SR) | ~2 | Field Research | ✅ |
 | 🌐 South Sudan (SS) | ~14 | Field Research | ✅ |
@@ -167,14 +167,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 24,520+ organizations indexed** across 158 countries
+**Total: 24,554+ organizations indexed** across 158 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*24,520 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*24,554 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1066,7 +1066,7 @@ Model: nonprofit
 
 # 🌐 Cote d'Ivoire (CI) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-21 | Source: Web research | Organizations: 1*
 
 ---
 
@@ -1094,7 +1094,7 @@ Model: nonprofit
 
 # 🌐 Cameroon (CM) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-21 | Source: Web research | Organizations: 1*
 
 ---
 
@@ -2718,7 +2718,7 @@ Model: nonprofit
 
 # 🌐 Mozambique (MZ) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-21 | Source: Web research | Organizations: 1*
 
 ---
 
@@ -3643,14 +3643,94 @@ Model: nonprofit
 
 # 🌐 Senegal (SN) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-21 | Source: Web research | Organizations: 17*
 
 ---
 
 ## Organizations
 
-### Senegal Civil Society Network
-> Primary civil society network in Senegal
+### List of Ngos, Charities and non-profits in Senegal - NGO Base
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NGOs, Charities and Nonprofits in Senegal. Browse organizations by their focus work areas. Page 1 of 10
+
+### SN/senegal-ngos
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NGOs, Charities and Nonprofits in Senegal. Browse organizations by their focus work areas. Page 1 of 10
+
+### Senegal - CSPPS
+Framework: democracy
+Model: nonprofit
+
+### Civil Society E-Directory - WACSI
+Framework: democracy
+Model: nonprofit
+> The West Africa Civil Society E-Directory, is an online platform created by the West Africa Civil Society Institute (WACSI) to map out all legally registered and operational civil society organisation
+
+### The West Africa Civil Society E-Directory
+Framework: democracy
+Model: nonprofit
+> ## Organisations non gouvernementales (ONG) à Dakar et au Sénégal
+
+### Organisations non gouvernementales (ONG) à Dakar et au Sénégal
+Framework: democracy
+Model: nonprofit
+> ONG et institutions de la société civile au Sénégal. Trouvez les coordonnées et adresses des organisations non gouvernementales, associations apolitiques à Dakar, Saint-Louis, Thiès et dans tout (e) l
+
+### Dakar, Saint
+Framework: democracy
+Model: nonprofit
+> ## United Nations Civil Society Participation - Office of Special Adviser ...
+
+### United Nations Civil Society Participation - Office of Special Adviser 
+Framework: democracy
+Model: nonprofit
+> From a static directory to a dynamic and interactive database, this state of the art and unique search tool will help the most demanding in search of NGO's active in Africa. At the Office of the Speci
+
+### At the Office of the Special Adviser on Africa
+Framework: democracy
+Model: nonprofit
+> ## Organisations non-gouvernementales (ONG) du Sénégal
+
+### Organisations non-gouvernementales (ONG) du Sénégal
+Framework: democracy
+Model: nonprofit
+> Annuaire Africain des Organisations non Gouvernementales (ONG) du Sénégal : comment les contacter, leurs adresses, téléphones, fax et emails
+
+### Annuaire Africain des Organisations non Gouvernementales
+Framework: democracy
+Model: nonprofit
+> ## List of Non-profit organizations in Senegal in 2026
+
+### List of Non-profit organizations in Senegal in 2026
+Framework: energy_digital
+Model: nonprofit
+> There are 255 Non-profit organizations in Senegal as of March, 2026. Download latest business data with contact info, ratings & locations.
+
+### Organisation Non Gouvernementale | ONG | Annuaire Ong - Annuaire 
+Framework: democracy
+Model: nonprofit
+> Organisation Non Gouvernementale (ONG), Annuaire Ong , trouvez les adresses et numéro de téléphone des Organisations Non Gouvernementales au sénégal
+
+### Organisation Non Gouvernementale
+Framework: democracy
+Model: nonprofit
+> ## Associations and NGO in Senegal - Expat.com
+
+### Associations and NGO in Senegal - Expat.com
+Framework: democracy
+Model: nonprofit
+> List of associations and NGOs in Senegal, non-governmental organization in Senegal, non-profit organizations in Senegal. Senegal charity organizations.
+
+### List of associations and NGOs in Senegal, non
+Framework: democracy
+Model: nonprofit
+> ## 5 Charities Operating in
+
+### 5 Charities Operating in
+Framework: democracy
+Model: nonprofit
 
 
 ---
@@ -4406,7 +4486,7 @@ Model: nonprofit
 
 # 🌐 Zambia (ZM) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-21 | Source: Web research | Organizations: 1*
 
 ---
 
