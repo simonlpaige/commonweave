@@ -17,3 +17,4 @@ data/*.db.backup
 
 # DeepSeek critique bundle (local only)
 .deepseek-bundle.md
+_scratch/
