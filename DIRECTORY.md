@@ -1,6 +1,6 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-21 14:28 UTC*
+*Last updated: 2026-04-21 14:58 UTC*
 
 
 ## Coverage
