@@ -28,3 +28,4 @@ ES:EX
 ES:GA
 ES:IB
 ES:CN
+ES:RI
