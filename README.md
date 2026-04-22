@@ -75,20 +75,16 @@ To be specific:
 - **No named legal entity.** There is no Commonweave Foundation, LLC, or unincorporated association. This is a repository and a framework document.
 - **No staff.** This is an open-source project.
 
-### NeighborhoodOS (Active Subprogram)
+### Related project: NeighborhoodOS
 
-[`neighborhood-os/`](neighborhood-os/) is Commonweave's ground-level implementation layer — a toolkit for turning a neighborhood association into a self-governing, data-literate civic entity.
+[NeighborhoodOS](https://neighborhoodos.org) is a sibling project — an open-source operating system for neighborhoods that want to solve their own problems, starting with one sharp "wedge" at a time. It was originally developed inside Commonweave as a ground-level implementation layer; in April 2026 it was split out into its own project so each can move at its own pace.
 
-What it does:
-- Pulls from KC Open Data (311, permits, crime, violations, budget) and the Legistar legislative API (ordinances, votes, committee meetings)
-- Collects signals from Nextdoor and Facebook Groups to surface what neighbors are actually discussing
-- Runs a **civic identity + voting system** ([`civic-identity/`](civic-identity/)) with five trust levels (anonymous through address-verified) and five voting methods including liquid democracy
-- Federates with other neighborhood nodes - sharing aggregated data, never individual votes
-- Connects back to the **Commonweave directory** to surface organizations already working on issues neighbors care about
+The two projects stay loosely connected: NeighborhoodOS can optionally consume the Commonweave directory to answer "who's already working on this near me?" when a wedge calls for it. But each project has its own repo, roadmap, and governance.
 
-Current status: West Waldo (Kansas City) pilot. SQLite + Node.js, designed for WaldoNet-style neighborhood-owned hardware. No cloud dependency.
+Current NeighborhoodOS wedge: home maintenance in West Waldo, Kansas City (owner-occupied only).
 
-See [`neighborhood-os/README.md`](neighborhood-os/README.md) for full documentation.
+- Site: [neighborhoodos.org](https://neighborhoodos.org)
+- Code: [GitHub](https://github.com/simonlpaige/neighborhoodos) / [Codeberg](https://codeberg.org/AlphaWorm/neighborhoodos)
 
 ---
 
