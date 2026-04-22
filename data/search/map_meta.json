@@ -1,15 +1,15 @@
 {
-  "total": 8506,
+  "total": 8509,
   "us_count": 6684,
-  "intl_count": 1822,
+  "intl_count": 1825,
   "by_area": {
     "food": 2362,
-    "healthcare": 1470,
+    "healthcare": 1472,
     "education": 1288,
     "housing_land": 1278,
     "democracy": 776,
     "ecology": 528,
-    "cooperatives": 403,
+    "cooperatives": 404,
     "conflict": 278,
     "recreation_arts": 114,
     "energy_digital": 9

@@ -1,6 +1,6 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-22 01:59 UTC*
+*Last updated: 2026-04-22 02:29 UTC*
 
 
 ## Coverage
@@ -18,7 +18,7 @@
 | 🌐 Australia (AU) | 268 | Field Research | ✅ |
 | 🌐 Bosnia and Herzegovina (BA) | 0 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | 0 | Field Research | ✅ |
-| 🌐 Belgium (BE) | 1 | Field Research | ✅ |
+| 🌐 Belgium (BE) | 7 | Field Research | ✅ |
 | 🌐 Burkina Faso (BF) | 0 | Field Research | ✅ |
 | 🌐 Bulgaria (BG) | 0 | Field Research | ✅ |
 | 🌐 Bahrain (BH) | 0 | Field Research | ✅ |
@@ -68,7 +68,7 @@
 | 🌐 Honduras (HN) | 10 | Field Research | ✅ |
 | 🌐 Croatia (HR) | 0 | Field Research | ✅ |
 | 🌐 Haiti (HT) | 3 | Field Research | ✅ |
-| 🌐 Hungary (HU) | 1 | Field Research | ✅ |
+| 🌐 Hungary (HU) | 2 | Field Research | ✅ |
 | 🌐 Indonesia (ID) | 21 | Field Research | ✅ |
 | 🌐 Ireland (IE) | 0 | Field Research | ✅ |
 | 🌐 India (IN) | 29 | Field Research | ✅ |
@@ -113,7 +113,7 @@
 | 🌐 Nicaragua (NI) | 10 | Field Research | ✅ |
 | 🌐 Netherlands (NL) | 106 | Field Research | ✅ |
 | 🌐 Norway (NO) | 1 | Field Research | ✅ |
-| 🌐 Nepal (NP) | 2 | Field Research | ✅ |
+| 🌐 Nepal (NP) | 3 | Field Research | ✅ |
 | 🌐 New Zealand (NZ) | 334 | Field Research | ✅ |
 | 🌐 Oman (OM) | 0 | Field Research | ✅ |
 | 🌐 Phase 2: (??) | 0 | Field Research | ✅ |
@@ -151,7 +151,7 @@
 | 🌐 Timor-Leste (TL) | 0 | Field Research | ✅ |
 | 🌐 Turkmenistan (TM) | 1 | Field Research | ✅ |
 | 🌐 Tunisia (TN) | 0 | Field Research | ✅ |
-| 🌐 Turkey (TR) | 1 | Field Research | ✅ |
+| 🌐 Turkey (TR) | 4 | Field Research | ✅ |
 | 🌐 Trinidad and Tobago (TT) | 9 | Field Research | ✅ |
 | 🌐 Taiwan (TW) | 0 | Field Research | ✅ |
 | 🌐 Tanzania (TZ) | 36 | Field Research | ✅ |
@@ -160,14 +160,14 @@
 | 🌐 Uruguay (UY) | 0 | Field Research | ✅ |
 | 🌐 Uzbekistan (UZ) | 0 | Field Research | ✅ |
 | 🌐 Venezuela (VE) | 29 | Field Research | ✅ |
-| 🌐 Vietnam (VN) | 1 | Field Research | ✅ |
+| 🌐 Vietnam (VN) | 2 | Field Research | ✅ |
 | 🌐 Yemen (YE) | 0 | Field Research | ✅ |
 | 🌐 South Africa (ZA) | 109 | Field Research | ✅ |
 | 🌐 Zambia (ZM) | 7 | Field Research | ✅ |
 | 🌐 Zimbabwe (ZW) | 0 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 24,528 organizations indexed** across 61 countries
+**Total: 24,540 organizations indexed** across 61 countries
 
 
 ---
