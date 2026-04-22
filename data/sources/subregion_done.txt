@@ -18,3 +18,4 @@ DE:TH
 ES:AN
 ES:AR
 ES:AS
+ES:CB
