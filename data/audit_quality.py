@@ -1,11 +1,11 @@
-"""
-Audit the Ecolibrium database for off-mission organizations.
+﻿"""
+Audit the Commonweave database for off-mission organizations.
 Sample random orgs and check alignment. Also scan for known bad patterns.
 """
 import sqlite3
 import random
 
-db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db')
+db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db')
 c = db.cursor()
 
 # Known patterns that should NOT be in the dataset

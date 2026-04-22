@@ -1,8 +1,8 @@
-# Ecolibrium Sustainability
+﻿# Commonweave Sustainability
 
 > *WiserEarth mapped 114,994 organizations across 243 countries. Then its funding ran out and it disappeared in 72 hours. On April 10, 2014, the site went dark.*
 >
-> *This document exists so Ecolibrium doesn't make the same mistake.*
+> *This document exists so Commonweave doesn't make the same mistake.*
 
 ---
 
@@ -37,7 +37,7 @@ Code, data, and documentation must be reproducible from public sources. If the p
 Operating costs are published. Anyone can see what the project costs to run, where the money comes from, and where it goes.
 
 **5. The project is smaller than its network.**
-Ecolibrium's infrastructure should be minimal. The value lives in the network of organizations, contributors, and allied projects -- not in central servers or staff. A project with 5 federated mirrors and 200 active contributors is more resilient than one with a $1M budget and a central office.
+Commonweave's infrastructure should be minimal. The value lives in the network of organizations, contributors, and allied projects -- not in central servers or staff. A project with 5 federated mirrors and 200 active contributors is more resilient than one with a $1M budget and a central office.
 
 ---
 
@@ -55,19 +55,19 @@ Target: quarterly Gitcoin rounds for any open-source tooling built under this pr
 **Open Collective**
 Open Collective provides transparent fiscal hosting -- all income and expenses are public, anyone can contribute, and funds are disbursed by project maintainers with full public visibility. Used by Babel, webpack, Open Food Network, and hundreds of other open-source projects. No nonprofit incorporation required to start.
 
-Target: establish an Open Collective for Ecolibrium infrastructure costs (hosting, domains, tooling) as Phase 1.
+Target: establish an Open Collective for Commonweave infrastructure costs (hosting, domains, tooling) as Phase 1.
 
 ### Tier 2: Federated Membership Dues
 
 Once the network is active -- once organizations are using the directory, the taxonomy, and the coordination tools -- a federated membership model becomes viable.
 
-**Model:** Organizations that use Ecolibrium infrastructure contribute based on capacity. Large organizations (annual budget >$1M) contribute more; small organizations and individuals contribute less or nothing. No minimum required for participation.
+**Model:** Organizations that use Commonweave infrastructure contribute based on capacity. Large organizations (annual budget >$1M) contribute more; small organizations and individuals contribute less or nothing. No minimum required for participation.
 
 This mirrors the cooperative movement's own funding model: dues proportional to benefit and capacity. It also mirrors how successful federated networks like REScoop.eu (2,250+ European energy cooperatives) sustain themselves.
 
 **What dues pay for:** Hosting, moderation, translation, accessibility improvements, and compensation for core contributor time.
 
-**What dues never pay for:** Exclusivity. Paying members get no governance power that non-paying members don't. The Ecolibrium framework explicitly rejects pay-to-play governance.
+**What dues never pay for:** Exclusivity. Paying members get no governance power that non-paying members don't. The Commonweave framework explicitly rejects pay-to-play governance.
 
 ### Tier 3: Grants (With Structural Constraints)
 
@@ -92,9 +92,9 @@ Grants are acceptable if and only if:
 
 ### Tier 4: Earned Revenue (Long-Term)
 
-As Ecolibrium grows, there are legitimate earned revenue models that don't compromise the commons:
+As Commonweave grows, there are legitimate earned revenue models that don't compromise the commons:
 
-**Premium support and consulting:** Organizations implementing Ecolibrium tools can pay for dedicated support, customization, and consulting. The software remains free. The expertise is compensable.
+**Premium support and consulting:** Organizations implementing Commonweave tools can pay for dedicated support, customization, and consulting. The software remains free. The expertise is compensable.
 
 **Training and facilitation:** The deep-dive documents, governance templates, and taxonomy tools have value for organizations building commons infrastructure. Workshops and facilitation services are compensable.
 
@@ -158,7 +158,7 @@ Specific lessons:
 
 Every responsible infrastructure project needs a documented procedure for what happens if it must close. This is not pessimism -- it is stewardship.
 
-If Ecolibrium must wind down:
+If Commonweave must wind down:
 
 1. **90-day public notice** posted to all channels
 2. **Full data export** of directory, taxonomy, and all community contributions made available as a single downloadable archive (CC0)
@@ -167,7 +167,7 @@ If Ecolibrium must wind down:
 5. **Handoff offer** -- active maintainers have 90 days to find a successor organization to adopt the project before any infrastructure is decommissioned
 6. **No deletion** -- the GitHub repository remains public indefinitely even if unmaintained
 
-This procedure exists so that what happened to WiserEarth cannot happen to Ecolibrium. The data belongs to the commons. It stays in the commons.
+This procedure exists so that what happened to WiserEarth cannot happen to Commonweave. The data belongs to the commons. It stays in the commons.
 
 ---
 
@@ -175,10 +175,10 @@ This procedure exists so that what happened to WiserEarth cannot happen to Ecoli
 
 These can be done now, before any funding exists:
 
-- [ ] Create an Open Collective for Ecolibrium (5 minutes, free)
+- [ ] Create an Open Collective for Commonweave (5 minutes, free)
 - [ ] Add GitLab mirror (automated, free)
 - [ ] Add Codeberg mirror (automated, free)
-- [ ] Register the domain (ecolibrium.org or similar) before someone else does (~$20)
+- [ ] Register the domain (commonweave.org or similar) before someone else does (~$20)
 - [ ] Add this document to the README as a linked resource
 
 ---

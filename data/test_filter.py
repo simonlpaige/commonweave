@@ -1,5 +1,5 @@
-import sys
-sys.path.insert(0, r'C:\Users\simon\.openclaw\workspace\ecolibrium\data')
+﻿import sys
+sys.path.insert(0, r'C:\Users\simon\.openclaw\workspace\commonweave\data')
 from run_audit import is_in_scope
 
 tests = [

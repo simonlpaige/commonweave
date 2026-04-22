@@ -1,4 +1,4 @@
-# India NGO Ingest Plan
+﻿# India NGO Ingest Plan
 
 **Status: DEFERRED - NGO Darpan no longer scrapeable; Wikidata viable but needs query tuning**
 **Created: 2026-04-17**
@@ -113,7 +113,7 @@ civil society is patchy but growing).
 - URL: https://candid.org/
 - Historically had a free search UI but no public bulk download
 - Candid API requires paid subscription ($500+/month for API access)
-- **Not viable for Ecolibrium's open-data model without budget.**
+- **Not viable for Commonweave's open-data model without budget.**
 
 ### ILO SEIS (Social Economy Information System)
 - Covers cooperatives and mutual societies globally

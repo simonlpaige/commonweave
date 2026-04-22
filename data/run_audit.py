@@ -1,7 +1,7 @@
-"""
-Ecolibrium Audit Agent
+﻿"""
+Commonweave Audit Agent
 Two jobs per run:
-  1. FILTER: Remove orgs that don't align with Ecolibrium's framework areas
+  1. FILTER: Remove orgs that don't align with Commonweave's framework areas
   2. ENRICH: Fill missing fields (website, description) for remaining orgs via web search
 
 Runs in batches - safe to interrupt and resume. Tracks progress in audit_state.json.
@@ -14,11 +14,11 @@ import re
 import sys
 from datetime import datetime
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
-STATE_FILE = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\audit_state.json'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
+STATE_FILE = r'C:\Users\simon\.openclaw\workspace\commonweave\data\audit_state.json'
 WORKSPACE_DIR = r'C:\Users\simon\.openclaw\workspace'
 
-# ── What belongs in Ecolibrium ────────────────────────────────────────────────
+# ── What belongs in Commonweave ────────────────────────────────────────────────
 # NTEE codes that are IN scope
 NTEE_IN = {
     'A',  # Arts, Culture & Humanities - recreation/arts section
@@ -104,7 +104,7 @@ def save_state(state):
 
 
 def is_in_scope(name, ntee, description=''):
-    """Return True if org belongs in Ecolibrium directory."""
+    """Return True if org belongs in Commonweave directory."""
     ntee = (ntee or '').strip().upper()
     name_lower = (name or '').lower()
     desc_lower = (description or '').lower()

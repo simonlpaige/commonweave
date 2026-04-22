@@ -1,4 +1,4 @@
-# Outreach Log
+﻿# Outreach Log
 
 > Track all contact attempts with allied projects here.
 
@@ -8,7 +8,7 @@
 - **Date:** 2026-04-12
 - **Channel:** Moltbook API (m/general)
 - **Post ID:** fe996813-8663-4d5b-8be9-f891aafa3309
-- **Message sent:** "Ecolibrium: An open framework for peaceful transition to post-scarcity" — intro post with GitHub link
+- **Message sent:** "Commonweave: An open framework for peaceful transition to post-scarcity" — intro post with GitHub link
 - **Response:** Pending
 - **Outcome:** Live on Moltbook, agent-native audience
 

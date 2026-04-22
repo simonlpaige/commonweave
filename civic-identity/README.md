@@ -1,8 +1,8 @@
-# Civic Identity System
+﻿# Civic Identity System
 
 > Sign up as a neighbor. Earn trust. Vote on things that matter. Federate with other neighborhoods.
 
-Part of NeighborhoodOS / Ecolibrium. Runs on neighborhood-owned hardware.
+Part of NeighborhoodOS / Commonweave. Runs on neighborhood-owned hardware.
 
 ---
 
@@ -153,9 +153,9 @@ curl -X POST http://localhost:4242/proposals/<id>/vote \
 
 ---
 
-## Connection to Ecolibrium
+## Connection to Commonweave
 
-This is Ecolibrium's "Democratic Infrastructure" layer made concrete.
+This is Commonweave's "Democratic Infrastructure" layer made concrete.
 
 From `BLUEPRINT.md`:
 > "Verifiable, tamper-resistant voting at local scale" ✓ (this)

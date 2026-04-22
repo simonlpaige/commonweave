@@ -1,14 +1,14 @@
-# Outreach & Collaboration Guide
+﻿# Outreach & Collaboration Guide
 
-> *How to connect with allied projects and invite collaboration. For any agent or contributor reaching out on behalf of Ecolibrium.*
+> *How to connect with allied projects and invite collaboration. For any agent or contributor reaching out on behalf of Commonweave.*
 
 ---
 
 ## Principles of Outreach
 
 1. **Lead with respect.** These projects have been doing this work for years. We are newcomers learning from them, not saviors arriving to coordinate them.
-2. **Be specific.** Don't ask for vague "collaboration." Identify exactly what Ecolibrium can offer and what we'd like to learn or integrate.
-3. **Be transparent.** Ecolibrium is authored by Simon Paige, open-source, and has no funding. Say this upfront. The honesty does more work than a pitch.
+2. **Be specific.** Don't ask for vague "collaboration." Identify exactly what Commonweave can offer and what we'd like to learn or integrate.
+3. **Be transparent.** Commonweave is authored by Simon Paige, open-source, and has no funding. Say this upfront. The honesty does more work than a pitch.
 4. **No pressure.** An invitation is not an obligation. Respect no-responses and declinations gracefully.
 5. **Credit everything.** When integrating ideas from other projects, cite them prominently. Attribution is non-negotiable.
 
@@ -16,7 +16,7 @@
 
 ## Outreach Template
 
-> **Positioning note.** We are a new, small project reaching out to mature, battle-tested projects that have been doing this work for a decade or more. The message is *we learned from you, here is what we took, here is how Ecolibrium might be useful to you* — never *please slot into our framework*. If a draft message can be read as "come be part of our thing," rewrite it.
+> **Positioning note.** We are a new, small project reaching out to mature, battle-tested projects that have been doing this work for a decade or more. The message is *we learned from you, here is what we took, here is how Commonweave might be useful to you* — never *please slot into our framework*. If a draft message can be read as "come be part of our thing," rewrite it.
 
 Use and adapt this template when reaching out via GitHub Issues, Discussions, or email:
 
@@ -28,7 +28,7 @@ Use and adapt this template when reaching out via GitHub Issues, Discussions, or
 
 Hi [Project Name] team,
 
-I'm reaching out from Ecolibrium — a small, early-stage open-source project that is cataloguing the existing network of commons-based, cooperative, and transition organisations and connecting it to a set of working notes on post-labor economic design. We are new. You are not. The point of this message is to learn from you, not to pitch you.
+I'm reaching out from Commonweave — a small, early-stage open-source project that is cataloguing the existing network of commons-based, cooperative, and transition organisations and connecting it to a set of working notes on post-labor economic design. We are new. You are not. The point of this message is to learn from you, not to pitch you.
 
 **What we took from your work.** We've been reading [specific artifact — e.g., "your Decidim governance model documentation" / "the Open Food Network federated-hub architecture" / "your Community Health Toolkit deployment case studies"] and it shaped our thinking on [specific section with link to the exact commit / line in our repo]. We cite you in RESEARCH.md and have tried to credit specifically rather than generically.
 
@@ -46,7 +46,7 @@ Our reference to your work: [link to specific section]
 
 With respect,
 
-— Simon Paige, Ecolibrium (simonlpaige/ecolibrium)
+— Simon Paige, Commonweave (simonlpaige/commonweave)
 
 ---
 
@@ -142,7 +142,7 @@ Create a file called `outreach-log.md` and track all contact:
 
 ## Contributor Identity Guidance
 
-Ecolibrium is authored under Simon Paige's real name. Contributors are not required to follow suit.
+Commonweave is authored under Simon Paige's real name. Contributors are not required to follow suit.
 
 - **If you want to use your real name:** great. Commit under your own identity, show up in Discussions, take credit for your work.
 - **If you need to stay pseudonymous:** also fine. Work under a handle, use a ProtonMail address, keep your timezone metadata clean if that matters to your situation. This is framed as *contributor protection*, not project mystique. At-risk contributors, people inside hostile institutions, and anyone whose employment or safety would be threatened by public participation should use whatever operational security they need. The maintainers will not ask you to unmask.
@@ -153,7 +153,7 @@ Ecolibrium is authored under Simon Paige's real name. Contributors are not requi
 ## Repository Structure
 
 ```
-ecolibrium/
+commonweave/
 ├── README.md              # The framework (main document)
 ├── RESEARCH.md            # Deep dive research on each area
 ├── OUTREACH.md            # This document
@@ -177,6 +177,6 @@ ecolibrium/
 
 ## Final Note
 
-The goal of outreach is not to build a coalition under the Ecolibrium banner. It is to connect existing work into a coherent whole — and to make sure the people who have been doing this work for years know that someone is trying to weave their efforts together.
+The goal of outreach is not to build a coalition under the Commonweave banner. It is to connect existing work into a coherent whole — and to make sure the people who have been doing this work for years know that someone is trying to weave their efforts together.
 
 The framework succeeds when it becomes unnecessary — when the systems it describes are simply how the world works.

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Probe script for NGO Darpan (ngodarpan.gov.in).
 
@@ -23,7 +23,7 @@ CSRF_URL = f"{BASE_URL}/index.php/ajaxcontroller/get_csrf"
 SAMPLE_STATE_URL = f"{BASE_URL}/index.php/home/statewise_ngo/10/0"
 
 HEADERS = {
-    "User-Agent": "Ecolibrium-Research-Bot/1.0 (nonprofit directory research; contact ecolibrium-research@example.com)",
+    "User-Agent": "Commonweave-Research-Bot/1.0 (nonprofit directory research; contact commonweave-research@example.com)",
     "Accept": "application/json, text/html",
     "Accept-Language": "en-US,en;q=0.9",
 }

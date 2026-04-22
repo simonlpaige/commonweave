@@ -1,7 +1,7 @@
-{
-  "name": "@ecolibrium/neighborhood-os",
+﻿{
+  "name": "@commonweave/neighborhood-os",
   "version": "0.1.0",
-  "description": "NeighborhoodOS: civic intelligence and self-governance for neighborhood associations. A subprogram of Ecolibrium.",
+  "description": "NeighborhoodOS: civic intelligence and self-governance for neighborhood associations. A subprogram of Commonweave.",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "node": ">=18.0.0"
   },
   "keywords": [
-    "ecolibrium",
+    "commonweave",
     "neighborhood",
     "civic-tech",
     "governance",
@@ -28,6 +28,6 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/simonlpaige/ecolibrium"
+    "url": "https://github.com/simonlpaige/commonweave"
   }
 }

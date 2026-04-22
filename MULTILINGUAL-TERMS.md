@@ -1,4 +1,4 @@
-# Multilingual Relevance Terms for the Ecolibrium Pipeline
+﻿# Multilingual Relevance Terms for the Commonweave Pipeline
 
 > Created 2026-04-17. Addresses false-negative problem in `data/phase2_filter.py` STRONG_POS and the researcher bot search-query templates.
 >
@@ -7,7 +7,7 @@
 This file is the source of truth for multilingual terms. It is organized by **concept**, not by language, so the same concept (e.g. "worker cooperative") can be expanded across many languages in one place.
 
 Each concept block lists:
-- The **Ecolibrium principle(s)** it supports (from BLUEPRINT.md)
+- The **Commonweave principle(s)** it supports (from BLUEPRINT.md)
 - **Terms** in local languages with rough transliterations where relevant
 - **Where to use**: `STRONG_POS` (score +3), `MODERATE_POS` (+1), or `SEARCH_QUERIES` (researcher bots)
 - **Caveats** where the term is polysemous or co-optable

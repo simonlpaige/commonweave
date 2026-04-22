@@ -1,10 +1,10 @@
-"""
+﻿"""
 Pass 1: Hard exclusion of obviously off-mission organizations.
 Marks them as status='excluded_audit_p1' rather than deleting.
 """
 import sqlite3
 
-db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db')
+db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db')
 c = db.cursor()
 
 # Get pre-count

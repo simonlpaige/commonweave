@@ -1,4 +1,4 @@
-# Ecolibrium: Why This Exists
+﻿# Commonweave: Why This Exists
 
 > This is the newcomer document. It's short on purpose. If you want the detailed specifications, see [BLUEPRINT.md](BLUEPRINT.md). If you want the honest engagement with power and contested theory, see [THEORY-OF-CHANGE.md](THEORY-OF-CHANGE.md). If you want the section-by-section audit of where this project is weak, see [CRITIQUE.md](CRITIQUE.md).
 

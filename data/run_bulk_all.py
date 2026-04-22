@@ -1,11 +1,11 @@
-"""
-Ecolibrium bulk ingestion runner - all non-US sources.
+﻿"""
+Commonweave bulk ingestion runner - all non-US sources.
 Runs phases in order, logs progress. Safe to re-run (INSERT OR IGNORE).
 """
 import sqlite3, csv, urllib.request, urllib.parse, zipfile, io, json, os, time, sys, re
 
-DB = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db"
-DATA = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data"
+DB = r"C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db"
+DATA = r"C:\Users\simon\.openclaw\workspace\commonweave\data"
 
 UPSERT_ORGANIZATIONS_SQL = '''
 INSERT INTO organizations
@@ -393,7 +393,7 @@ def run_nz():
     return inserted
 
 if __name__ == '__main__':
-    print("Ecolibrium Bulk Ingestion - International Sources", flush=True)
+    print("Commonweave Bulk Ingestion - International Sources", flush=True)
     db = sqlite3.connect(DB)
     start = db.execute('SELECT COUNT(*) FROM organizations').fetchone()[0]
     print(f"Starting DB count: {start:,}", flush=True)

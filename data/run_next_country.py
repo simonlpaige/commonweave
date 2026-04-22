@@ -1,5 +1,5 @@
-"""
-Ecolibrium country research runner - no Paperclip required.
+﻿"""
+Commonweave country research runner - no Paperclip required.
 Reads QUEUE.txt, picks next country without a DIRECTORY_CC.md, runs research, writes output.
 """
 import sqlite3
@@ -96,13 +96,13 @@ def classify_org(org):
 
     return org
 
-QUEUE_FILE = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\QUEUE.txt'
-REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\regional'
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+QUEUE_FILE = r'C:\Users\simon\.openclaw\workspace\commonweave\data\QUEUE.txt'
+REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data\regional'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 WORKSPACE_DIR = r'C:\Users\simon\.openclaw\workspace'
-COUNTRY_STATE_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\country_research_state.json'
-AUDIT_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\audit'
-sys.path.insert(0, os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data'))
+COUNTRY_STATE_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\country_research_state.json'
+AUDIT_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data\audit'
+sys.path.insert(0, os.path.join(WORKSPACE_DIR, 'commonweave', 'data'))
 from native_queries import get_queries
 from research_evidence import validate_org_result, first_url_from_text
 
@@ -496,7 +496,7 @@ def ingest_db(orgs, cc, country_name):
 def rebuild_index():
     """Regenerate search JSON indexes and DIRECTORY.md."""
     for script in ['build_search_index.py', 'export_directory.py']:
-        path = os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data', script)
+        path = os.path.join(WORKSPACE_DIR, 'commonweave', 'data', script)
         if os.path.exists(path):
             subprocess.run(['python', path], timeout=120, cwd=WORKSPACE_DIR)
 
@@ -520,7 +520,7 @@ def queue_remaining():
 def run_wikidata(cc, country_name):
     """Pull structured org data from Wikidata SPARQL."""
     try:
-        wikidata_script = os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data', 'sources', 'wikidata_ingest.py')
+        wikidata_script = os.path.join(WORKSPACE_DIR, 'commonweave', 'data', 'sources', 'wikidata_ingest.py')
         if os.path.exists(wikidata_script):
             print(f'\n--- Wikidata SPARQL ingest for {cc} ---')
             result = subprocess.run(
@@ -548,7 +548,7 @@ def run_wikidata(cc, country_name):
 def run_wikidata_backfill():
     """Run Wikidata backfill for one queued country (separate from current DDG country)."""
     try:
-        backfill_script = os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data', 'sources', 'run_next_wikidata.py')
+        backfill_script = os.path.join(WORKSPACE_DIR, 'commonweave', 'data', 'sources', 'run_next_wikidata.py')
         if os.path.exists(backfill_script):
             print(f'\n--- Wikidata backfill (next queued country) ---')
             result = subprocess.run(
@@ -568,7 +568,7 @@ def run_wikidata_backfill():
 def run_us_state_enrichment():
     """Run Wikidata enrichment for one US state (adds notable orgs with descriptions/coords)."""
     try:
-        state_script = os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data', 'sources', 'us_state_wikidata.py')
+        state_script = os.path.join(WORKSPACE_DIR, 'commonweave', 'data', 'sources', 'us_state_wikidata.py')
         if os.path.exists(state_script):
             print(f'\n--- US state Wikidata enrichment ---')
             result = subprocess.run(
@@ -589,7 +589,7 @@ def run_subregion_enrichment():
     """Run generic subregion-level Wikidata ingest for one international subregion.
     Covers CA provinces, DE Laender, BR/IN/MX states, ES autonomous communities, etc."""
     try:
-        script = os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data', 'sources', 'subregion_wikidata.py')
+        script = os.path.join(WORKSPACE_DIR, 'commonweave', 'data', 'sources', 'subregion_wikidata.py')
         if os.path.exists(script):
             print(f'\n--- Subregion Wikidata enrichment ---')
             result = subprocess.run(

@@ -1,5 +1,5 @@
-import sqlite3
-db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db')
+﻿import sqlite3
+db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db')
 c = db.cursor()
 c.execute("SELECT name FROM sqlite_master WHERE type='table'")
 tables = [r[0] for r in c.fetchall()]

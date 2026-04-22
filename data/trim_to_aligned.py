@@ -1,5 +1,5 @@
-"""
-Aggressive trim of ecolibrium directory.
+﻿"""
+Aggressive trim of commonweave directory.
 
 Keeps only:  status='active' AND alignment_score >= 2
 Hard-deletes: every row with status != 'active'   (prior audit exclusions + soft-removed)
@@ -18,8 +18,8 @@ import sqlite3
 import sys
 from datetime import datetime, timezone
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
-OUT_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\trim_audit'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
+OUT_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data\trim_audit'
 
 KEEP_SCORE_MIN = 2  # rows with active + alignment_score >= 2 survive
 

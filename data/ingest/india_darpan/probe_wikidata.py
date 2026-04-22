@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Feasibility probe: Wikidata SPARQL for Indian nonprofit organizations.
 
@@ -32,7 +32,7 @@ def probe():
     params = urllib.parse.urlencode({"query": QUERY, "format": "json"})
     url = f"{ENDPOINT}?{params}"
     req = urllib.request.Request(url, headers={
-        "User-Agent": "Ecolibrium-Research-Bot/1.0 (nonprofit directory research)",
+        "User-Agent": "Commonweave-Research-Bot/1.0 (nonprofit directory research)",
         "Accept": "application/sparql-results+json",
     })
     try:

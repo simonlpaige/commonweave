@@ -1,4 +1,4 @@
-# Ecolibrium: Directory and Framework for the Post-Labor Economy
+﻿# Commonweave: Directory and Framework for the Post-Labor Economy
 
 > **Skeptics start here:** [CRITIQUE.md](CRITIQUE.md) is a section-by-section honest audit of where this framework is weak, magical, or incomplete. It's linked first on purpose. If you're looking for the case against this project, it's already written, and we'd rather you sharpened it than discovered it.
 
@@ -6,7 +6,7 @@
 
 ## The Idea
 
-Ecolibrium is two things: (1) an open directory of the existing transition network across 60 countries, and (2) a working framework explaining why that network matters and how it composes into a post-labor economy.
+Commonweave is two things: (1) an open directory of the existing transition network across 60 countries, and (2) a working framework explaining why that network matters and how it composes into a post-labor economy.
 
 The directory is the concrete deliverable. The framework is the argument for it.
 
@@ -39,7 +39,7 @@ This section matches ambition to evidence. Here is the concrete state of the pro
 
 ### The Directory
 
-The primary deliverable is a searchable database of organizations working in the framework's 10 areas. Numbers from `data/ecolibrium_directory.db` after the April 2026 alignment trim:
+The primary deliverable is a searchable database of organizations working in the framework's 10 areas. Numbers from `data/commonweave_directory.db` after the April 2026 alignment trim:
 
 - **24,508 aligned organizations** across **60 countries**
 - **8,412 geocoded points** visible on the interactive map, with **2,687 network edges** connecting related organizations
@@ -70,21 +70,21 @@ This README is the framework document. Its current maturity:
 
 To be specific:
 
-- **No running pilots under the Ecolibrium banner.** Organizations in the directory operate independently. None are affiliated with or funded by this project.
+- **No running pilots under the Commonweave banner.** Organizations in the directory operate independently. None are affiliated with or funded by this project.
 - **No collaboration agreements with Tier 1 allied projects.** The outreach plan is in [OUTREACH.md](OUTREACH.md). The conversations have not happened yet.
-- **No named legal entity.** There is no Ecolibrium Foundation, LLC, or unincorporated association. This is a repository and a framework document.
+- **No named legal entity.** There is no Commonweave Foundation, LLC, or unincorporated association. This is a repository and a framework document.
 - **No staff.** This is an open-source project.
 
 ### NeighborhoodOS (Active Subprogram)
 
-[`neighborhood-os/`](neighborhood-os/) is Ecolibrium's ground-level implementation layer — a toolkit for turning a neighborhood association into a self-governing, data-literate civic entity.
+[`neighborhood-os/`](neighborhood-os/) is Commonweave's ground-level implementation layer — a toolkit for turning a neighborhood association into a self-governing, data-literate civic entity.
 
 What it does:
 - Pulls from KC Open Data (311, permits, crime, violations, budget) and the Legistar legislative API (ordinances, votes, committee meetings)
 - Collects signals from Nextdoor and Facebook Groups to surface what neighbors are actually discussing
 - Runs a **civic identity + voting system** ([`civic-identity/`](civic-identity/)) with five trust levels (anonymous through address-verified) and five voting methods including liquid democracy
 - Federates with other neighborhood nodes - sharing aggregated data, never individual votes
-- Connects back to the **Ecolibrium directory** to surface organizations already working on issues neighbors care about
+- Connects back to the **Commonweave directory** to surface organizations already working on issues neighbors care about
 
 Current status: West Waldo (Kansas City) pilot. SQLite + Node.js, designed for WaldoNet-style neighborhood-owned hardware. No cloud dependency.
 
@@ -231,7 +231,7 @@ The approach is **mycelial**: a distributed network of people and organizations 
 - **Distributed, not leaderless.** The network is a web of trust, not a hierarchy. No single node can be removed to collapse it. But "leaderless" is a myth - Jo Freeman documented in 1972 that refusing to formalize leadership just creates informal leadership without accountability. The network has leaders: they are the people doing the work, making decisions, and maintaining systems. The goal is to make that leadership visible, accountable, and replaceable - not to pretend it doesn't exist. See [GOVERNANCE.md](GOVERNANCE.md).
 - **Trust is built through contribution.** You join by doing the work -- building systems, running pilots, sharing knowledge. Trust is earned, not granted.
 - **Radical transparency.** This is not a conspiracy. The framework is open-source. The pilots are public. The strategy is visible. Anyone, including opponents, can read every word. If the idea can't survive being seen, it doesn't deserve to succeed.
-- **Named author, pseudonymous contributors welcome.** This project is authored and maintained by Simon Paige (simonlpaige/ecolibrium on GitHub). Earlier drafts experimented with framing the project as "anonymous by design." That framing was a mistake: established organizations will not collaborate with anonymous accounts - it looks indistinguishable from a troll or sock puppet - and pretending otherwise while the repository sits under a named account is worse than either choice. The correction: the author is named, the reasoning is on record, contributors may still work under any pseudonym they want as personal protection. The governance process is transparent either way. See [GOVERNANCE.md](GOVERNANCE.md) for the current accountability structure.
+- **Named author, pseudonymous contributors welcome.** This project is authored and maintained by Simon Paige (simonlpaige/commonweave on GitHub). Earlier drafts experimented with framing the project as "anonymous by design." That framing was a mistake: established organizations will not collaborate with anonymous accounts - it looks indistinguishable from a troll or sock puppet - and pretending otherwise while the repository sits under a named account is worse than either choice. The correction: the author is named, the reasoning is on record, contributors may still work under any pseudonym they want as personal protection. The governance process is transparent either way. See [GOVERNANCE.md](GOVERNANCE.md) for the current accountability structure.
 - **Operate inside and outside institutions simultaneously.** Some contributors work within governments, hospitals, universities, and corporations -- not to subvert them, but to understand them and prepare them for transformation. Others build parallel structures outside. All of this happens in the open.
 - **Demonstrate, don't argue.** The network's primary pre-transfer activity is running proof-of-concept systems at local scale: community energy grids, cooperative businesses, participatory budgets, mutual aid networks, open-source health clinics. When the moment arrives, scaling up is not a leap of faith -- it's expanding what already works.
 
@@ -514,7 +514,7 @@ This framework belongs to no one - and to everyone.
 - **Open Source Ecology** - 50 open-source industrial machines (github.com/OpenSourceEcology)
 - **Liquid Democracy e.V.** - Participatory governance tools (github.com/liqd)
 - **OpenDemocracy AI** - AI-powered participatory democracy (github.com/AshmanRoonz/OpenDemocracy)
-- **HumanityOS** - Free, public-domain (CC0) cooperative platform + game engine for ending poverty through capability. Self-custody identity, federated, local-first, peer marketplace, offline-first. The Humanity Accord is a model constitution with strong alignment to Ecolibrium's principles. (united-humanity.us, github.com/Shaostoul/Humanity)
+- **HumanityOS** - Free, public-domain (CC0) cooperative platform + game engine for ending poverty through capability. Self-custody identity, federated, local-first, peer marketplace, offline-first. The Humanity Accord is a model constitution with strong alignment to Commonweave's principles. (united-humanity.us, github.com/Shaostoul/Humanity)
 - **Kolibri** - Offline-first education platform (learningequality.org)
 - **Belenios** - Verifiable online voting system (belenios.org)
 

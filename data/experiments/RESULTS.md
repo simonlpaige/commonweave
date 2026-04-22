@@ -1,7 +1,7 @@
-# Experiment Results
-Run: 2026-04-17 | DB: ecolibrium_directory.db (~10MB) | All scripts read-only
+﻿# Experiment Results
+Run: 2026-04-17 | DB: commonweave_directory.db (~10MB) | All scripts read-only
 
-Backup: `data/ecolibrium_directory.db.backup-before-experiments-2026-04-17T20-17-24Z`
+Backup: `data/commonweave_directory.db.backup-before-experiments-2026-04-17T20-17-24Z`
 
 ---
 
@@ -120,7 +120,7 @@ Of those, with NO website:                     14,186  (58.2%)
 **Do NOT apply this change without further scoping.** 58% of active kept orgs
 have no website -- and the highest-scoring ones (score=10) are genuine housing
 cooperatives and mutual aid orgs in the US, UK, and South Africa. These are
-exactly the organizations Ecolibrium exists to surface.
+exactly the organizations Commonweave exists to surface.
 
 The "no website" pattern likely reflects two things:
 - IRS data doesn't require website disclosure
@@ -197,7 +197,7 @@ Corp.") is structurally different from what the SQL pattern is catching here.
 - `data/phase2_filter.py` parses as valid Python: PASS
 - `data/audit_pass3_ntee.py` parses as valid Python: PASS
 - No destructive SQL executed: CONFIRMED (all scripts use read-only URI connections)
-- DB backup created before any work: `ecolibrium_directory.db.backup-before-experiments-2026-04-17T20-17-24Z`
+- DB backup created before any work: `commonweave_directory.db.backup-before-experiments-2026-04-17T20-17-24Z`
 
 ---
 
@@ -284,7 +284,7 @@ Do NOT run phase2_filter.py against the live DB unconditionally. It would drop 7
 
 ### What was done
 
-1. **DB backup**: ecolibrium_directory.db.backup-before-i18n-migration-2026-04-17T21-07-08 (10.8MB)
+1. **DB backup**: commonweave_directory.db.backup-before-i18n-migration-2026-04-17T21-07-08 (10.8MB)
 2. **Migration 001** (data/migrations/001_alignment_score_v2.py):
    - Added columns: alignment_score_legacy, alignment_score_v2
    - Copied current alignment_score into alignment_score_legacy

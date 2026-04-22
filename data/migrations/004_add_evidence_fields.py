@@ -1,4 +1,4 @@
-"""
+﻿"""
 Migration 004: add evidence fields for web-researched organizations.
 """
 
@@ -7,7 +7,7 @@ import sqlite3
 
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 _DATA_DIR = os.path.dirname(_THIS_DIR)
-DB_PATH = os.path.join(_DATA_DIR, "ecolibrium_directory.db")
+DB_PATH = os.path.join(_DATA_DIR, "commonweave_directory.db")
 
 
 def add_column(cursor, name, sql_type):

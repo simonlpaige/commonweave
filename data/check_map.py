@@ -1,5 +1,5 @@
-import sqlite3
-db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db')
+﻿import sqlite3
+db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db')
 c = db.cursor()
 
 c.execute("SELECT alignment_score, COUNT(*) FROM organizations WHERE status='active' AND lat IS NOT NULL AND lon IS NOT NULL GROUP BY alignment_score ORDER BY alignment_score")

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Exp 6: Post-migration audit - alignment_score_v2 vs alignment_score_legacy.
 
@@ -21,7 +21,7 @@ _DATA_DIR = os.path.dirname(_THIS_DIR)  # experiments/ -> data/
 if _DATA_DIR not in sys.path:
     sys.path.insert(0, _DATA_DIR)
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 
 SAMPLE_SIZE = 15
 SNIPPET_LEN = 100

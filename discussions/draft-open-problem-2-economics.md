@@ -1,4 +1,4 @@
-# Open Problem: The Economics Don't Add Up Yet
+﻿# Open Problem: The Economics Don't Add Up Yet
 
 **Category: Economics | Difficulty: Hard | Status: Placeholder, not a plan**
 
@@ -44,4 +44,4 @@ We'd rather have a shorter document that's honest about what it doesn't know tha
 
 ---
 
-*Ecolibrium is an open design document for a post-labor economy. [Repository](https://github.com/simonlpaige/ecolibrium). Author: Simon L. Paige.*
+*Commonweave is an open design document for a post-labor economy. [Repository](https://github.com/simonlpaige/commonweave). Author: Simon L. Paige.*

@@ -1,4 +1,4 @@
-"""
+﻿"""
 Run Wikidata ingest for the next un-processed country.
 Tracks progress in wikidata_done.txt.
 Designed to be called by cron/scheduler - runs ONE country per invocation.
@@ -10,7 +10,7 @@ import sqlite3
 sys.path.insert(0, os.path.dirname(__file__))
 from wikidata_ingest import fetch_country, ingest_to_db, COUNTRY_QID
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 DONE_FILE = os.path.join(os.path.dirname(__file__), 'wikidata_done.txt')
 
 # Priority order: countries with most civil society activity first

@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
-i18n_terms.py - Multilingual term bank for the Ecolibrium pipeline.
+i18n_terms.py - Multilingual term bank for the Commonweave pipeline.
 
-Source of truth: ecolibrium/MULTILINGUAL-TERMS.md (2026-04-17)
+Source of truth: commonweave/MULTILINGUAL-TERMS.md (2026-04-17)
 Purpose: Supply STRONG_POS_MULTI (scoring), SEARCH_TEMPLATES (researcher bots),
          COUNTRY_LANGUAGES (country -> language list), and build_local_queries().
 
@@ -25,7 +25,7 @@ CONCEPT_TERMS = {
 
     # -----------------------------------------------------------------------
     # Concept 1: Worker / Producer Cooperatives
-    # Ecolibrium principles: Common Ownership, Voluntary Contribution,
+    # Commonweave principles: Common Ownership, Voluntary Contribution,
     # Democratic Sovereignty
     # -----------------------------------------------------------------------
     'worker_cooperative': {
@@ -165,7 +165,7 @@ CONCEPT_TERMS = {
 
     # -----------------------------------------------------------------------
     # Concept 2: Mutual Aid / Solidarity Economy
-    # Ecolibrium principles: Universal Sufficiency, Voluntary Contribution
+    # Commonweave principles: Universal Sufficiency, Voluntary Contribution
     # -----------------------------------------------------------------------
     'mutual_aid': {
         'en': [
@@ -283,7 +283,7 @@ CONCEPT_TERMS = {
 
     # -----------------------------------------------------------------------
     # Concept 3: Commons, Common Lands, Shared Resources
-    # Ecolibrium principles: Common Ownership of the Commons,
+    # Commonweave principles: Common Ownership of the Commons,
     # Ecological Equilibrium
     # -----------------------------------------------------------------------
     'commons': {
@@ -376,7 +376,7 @@ CONCEPT_TERMS = {
 
     # -----------------------------------------------------------------------
     # Concept 4: Agroecology, Food Sovereignty, Seed Commons
-    # Ecolibrium principles: Ecological Equilibrium, Universal Sufficiency
+    # Commonweave principles: Ecological Equilibrium, Universal Sufficiency
     # -----------------------------------------------------------------------
     'agroecology': {
         'en': [
@@ -435,7 +435,7 @@ CONCEPT_TERMS = {
 
     # -----------------------------------------------------------------------
     # Concept 5: Community Health, Care, Healing
-    # Ecolibrium principle: Universal Sufficiency
+    # Commonweave principle: Universal Sufficiency
     # -----------------------------------------------------------------------
     'community_health': {
         'en': [
@@ -468,7 +468,7 @@ CONCEPT_TERMS = {
 
     # -----------------------------------------------------------------------
     # Concept 6: Democratic / Participatory Governance
-    # Ecolibrium principles: Democratic Sovereignty, Transparency
+    # Commonweave principles: Democratic Sovereignty, Transparency
     # -----------------------------------------------------------------------
     'participatory_governance': {
         'en': [
@@ -507,7 +507,7 @@ CONCEPT_TERMS = {
 
     # -----------------------------------------------------------------------
     # Concept 7: Digital Commons, Platform Cooperativism
-    # Ecolibrium principles: Common Ownership, Democratic Sovereignty,
+    # Commonweave principles: Common Ownership, Democratic Sovereignty,
     # Transparency
     # -----------------------------------------------------------------------
     'digital_commons': {

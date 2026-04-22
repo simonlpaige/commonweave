@@ -1,6 +1,6 @@
-import sqlite3, json, os
+﻿import sqlite3, json, os
 
-db_path = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+db_path = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 db = sqlite3.connect(db_path)
 c = db.cursor()
 
@@ -14,7 +14,7 @@ c.execute("SELECT DISTINCT country_code FROM organizations WHERE status != 'remo
 done_codes = [r[0] for r in c.fetchall() if r[0]]
 
 # Check queue
-queue_path = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\country_queue.json'
+queue_path = r'C:\Users\simon\.openclaw\workspace\commonweave\data\country_queue.json'
 if os.path.exists(queue_path):
     with open(queue_path) as f:
         queue = json.load(f)

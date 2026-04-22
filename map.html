@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Ecolibrium — Mapping the Networks of Change</title>
+<title>Commonweave — Mapping the Networks of Change</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -352,7 +352,7 @@ html, body {
       <circle cx="60" cy="60" r="2" fill="#fff" opacity="0.95"/>
     </svg>
   </div>
-  <div class="loading-title">ECOLIBRIUM</div>
+  <div class="loading-title">COMMONWEAVE</div>
   <div class="loading-sub">mapping the networks of change</div>
   <div class="loading-progress"><div class="loading-progress-bar" id="progress-bar"></div></div>
 </div>
@@ -361,7 +361,7 @@ html, body {
 <div id="layout">
   <div id="sidebar">
     <div class="sb-header">
-      <div class="sb-title">ECOLIBRIUM</div>
+      <div class="sb-title">COMMONWEAVE</div>
       <div class="sb-sub">mapping the networks of change</div>
     </div>
     <div class="sb-scroll">
@@ -838,7 +838,7 @@ function showDetailPanel(node) {
   const color = AREA_COLORS[node.f] || '#888';
   const areaShort = AREA_SHORT[node.f] || node.f || '';
   const tier = node.t || 'C';
-  const corrUrl = `https://github.com/simonlpaige/ecolibrium/issues/new?title=Data+correction:+${encodeURIComponent(node.n || '')}&labels=data-correction`;
+  const corrUrl = `https://github.com/simonlpaige/commonweave/issues/new?title=Data+correction:+${encodeURIComponent(node.n || '')}&labels=data-correction`;
   const website = node.w ? (node.w.startsWith('http') ? node.w : 'https://' + node.w) : '';
   const websiteDomain = node.w ? node.w.replace(/^https?:\/\//, '').split('/')[0] : '';
   const badgeBg = color + '1a';
@@ -1288,7 +1288,7 @@ async function main() {
 }
 
 main().catch(e => {
-  console.error('Ecolibrium init error:', e);
+  console.error('Commonweave init error:', e);
   document.getElementById('loading').innerHTML = `<div style="color:#e05858;font-family:Inter,sans-serif;padding:2rem;text-align:center"><h3>Failed to load network data</h3><p style="margin-top:1rem;font-size:12px;opacity:.7">${e.message}</p></div>`;
 });
 </script>

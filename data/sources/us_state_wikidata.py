@@ -1,5 +1,5 @@
-"""
-US state-level Wikidata ingest for Ecolibrium.
+﻿"""
+US state-level Wikidata ingest for Commonweave.
 Queries Wikidata for notable nonprofits, cooperatives, community orgs, etc.
 by US state. The IRS data has 667K orgs but they're all generic tax filings -
 this adds the notable, mission-driven orgs with real descriptions and coordinates.
@@ -14,7 +14,7 @@ import urllib.error
 import os
 from datetime import datetime, timezone
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 WIKIDATA_ENDPOINT = 'https://query.wikidata.org/sparql'
 DONE_FILE = os.path.join(os.path.dirname(__file__), 'us_states_done.txt')
 
@@ -98,7 +98,7 @@ def run_sparql(query):
     params = urllib.parse.urlencode({'format': 'json', 'query': query})
     url = f'{WIKIDATA_ENDPOINT}?{params}'
     req = urllib.request.Request(url, headers={
-        'User-Agent': 'Ecolibrium/1.0 (https://github.com/simonlpaige/ecolibrium)',
+        'User-Agent': 'Commonweave/1.0 (https://github.com/simonlpaige/commonweave)',
         'Accept': 'application/sparql-results+json'
     })
     try:

@@ -1,6 +1,6 @@
-
+﻿
 ╔══════════════════════════════════════════════════════════════════════════════════════════════╗
-║           ECOLIBRIUM CIVIL SOCIETY TAXONOMY                                                  ║
+║           COMMONWEAVE CIVIL SOCIETY TAXONOMY                                                  ║
 ║           Recovered from WiserEarth (2007–2014) · Extended 2026                             ║
 ║           47 original categories · 381+ sub-issues · CC0 Public Domain                      ║
 ║           Source: wiser.org · Paul Hawken / Natural Capital Institute                        ║

@@ -1,4 +1,4 @@
-# WiserEarth: Recovered Wisdom for Ecolibrium
+﻿# WiserEarth: Recovered Wisdom for Commonweave
 
 > *"I knew that if we could understand the connections and visualize the breadth of global efforts on behalf of social and environmental justice, we would recognize the largest movement the world has ever seen. WiserEarth is where this movement can begin to see itself."*
 > — Paul Hawken, Natural Capital Institute, 2007
@@ -38,9 +38,9 @@ Hawken's central thesis:
 
 > There are more than one million NGOs and many millions of people and social change organizations around the world actively working toward ecological sustainability, economic justice, human rights protection, political accountability, and peace -- issues that are systemically interconnected and intertwined. Our effectiveness to prevent harm and institute positive change in the past was undermined by our lack of collective awareness, the duplication of efforts, and poor connectivity.
 
-This is the intellectual ancestor of Ecolibrium's "Mycelial Strategy" section. Hawken identified the movement before the internet made it legible. WiserEarth was the mirror he built so the movement could see itself.
+This is the intellectual ancestor of Commonweave's "Mycelial Strategy" section. Hawken identified the movement before the internet made it legible. WiserEarth was the mirror he built so the movement could see itself.
 
-Key insights from *Blessed Unrest* that directly inform Ecolibrium:
+Key insights from *Blessed Unrest* that directly inform Commonweave:
 1. **The movement has no single leader, no unifying ideology** -- and this is a feature, not a bug. It is more resilient than any ideology-driven movement in history.
 2. **The movement is already underway** -- the job is not to start it, but to connect it.
 3. **Invisibility is the enemy of coordination** -- when the movement can't see itself, it duplicates effort, loses momentum, and misses alliances.
@@ -53,7 +53,7 @@ Key insights from *Blessed Unrest* that directly inform Ecolibrium:
 
 ## WiserEarth's Core Principles (Verbatim, Archived 2011)
 
-These were the principles WiserEarth applied to everything it built. They are worth preserving in full, because they solved the same design problems Ecolibrium is trying to solve.
+These were the principles WiserEarth applied to everything it built. They are worth preserving in full, because they solved the same design problems Commonweave is trying to solve.
 
 > **Transparency**
 > WiserEarth is open to full public scrutiny. Likewise, users who edit and add content are asked to fully identify and make themselves known to the community. WiserEarth offers an open source version of its platform code for the community to download and develop. WiserEarth is free to use, non commercial and does not accept advertising.
@@ -86,7 +86,7 @@ At closure, members described four core use patterns that formed a repeatable co
 3. **Sharing** — contributing knowledge and working with the broader community
 4. **Collaboration** — working together online with colleagues, community, and network
 
-This four-step loop is a proven model for how distributed movements self-organize. It is directly applicable to Ecolibrium's network architecture.
+This four-step loop is a proven model for how distributed movements self-organize. It is directly applicable to Commonweave's network architecture.
 
 **Source:** Wiser.org About page, final snapshot, 2014
 
@@ -109,7 +109,7 @@ The Permaculture sub-category alone had 883 organizations, 8,153 users, 512 reso
 
 ---
 
-## WiserEarth's Failure Mode -- and What Ecolibrium Must Learn From It
+## WiserEarth's Failure Mode -- and What Commonweave Must Learn From It
 
 WiserEarth failed for a reason that is directly instructive: **it was free, open-source, and non-commercial -- but its coordination layer was centralized and dependent on philanthropic funding.**
 
@@ -121,17 +121,17 @@ The lesson is not that open-source commons platforms are unviable. The lesson is
 
 WiserEarth released its code open-source in 2008 (the WiserPlatform), precisely *because* it recognized this risk. The idea was that the network could fork and self-host. But the community never organized around self-hosting in time.
 
-Ecolibrium's "resilience through redundancy" principle is the correct design response to this. The framework must be designed so that no single node -- financial, technical, or human -- can cause collapse.
+Commonweave's "resilience through redundancy" principle is the correct design response to this. The framework must be designed so that no single node -- financial, technical, or human -- can cause collapse.
 
 ---
 
-## Application to Each Ecolibrium Section
+## Application to Each Commonweave Section
 
 ### Phase 1.1 -- Democratic Infrastructure
 
 **WiserEarth's lesson:** Democracy platforms without coordination infrastructure fail to generate durable political will. WiserEarth built one of the largest networks of activist organizations in history -- but they remained siloed by issue area. The permaculture community rarely talked to the healthcare community. The economic justice network rarely linked to the voting reform network.
 
-**Application to Ecolibrium:** The democratic infrastructure section should explicitly include a **cross-issue coordination layer** -- not just tools for voting and governance, but infrastructure that makes the connections *between* issue areas legible. This is what WiserEarth tried to do with its 381-sub-issue taxonomy and its Groups feature, but never fully achieved.
+**Application to Commonweave:** The democratic infrastructure section should explicitly include a **cross-issue coordination layer** -- not just tools for voting and governance, but infrastructure that makes the connections *between* issue areas legible. This is what WiserEarth tried to do with its 381-sub-issue taxonomy and its Groups feature, but never fully achieved.
 
 Cite: WiserEarth's 47 major issue area taxonomy as a reference for the domains that a functioning civil society must coordinate across simultaneously.
 
@@ -143,7 +143,7 @@ Cite: WiserEarth's 47 major issue area taxonomy as a reference for the domains t
 
 Specifically: WiserEarth's Permaculture sub-category had 883 organizations and 1,911 events. The Organic Farming category had 1,682 organizations. Agroecology had 443. These were not hypothetical organizations -- they were real, operating, and geographically distributed. They simply had no way to share knowledge or coordinate supply chains.
 
-**Application to Ecolibrium:** The food distribution section should include **federated knowledge commons infrastructure** -- not just policy for "food sovereignty" but a functioning system for local food networks to see each other, share best practices, and coordinate regional supply. Open Food Network already does some of this; WiserEarth demonstrates the scale that becomes possible when the connection infrastructure exists.
+**Application to Commonweave:** The food distribution section should include **federated knowledge commons infrastructure** -- not just policy for "food sovereignty" but a functioning system for local food networks to see each other, share best practices, and coordinate regional supply. Open Food Network already does some of this; WiserEarth demonstrates the scale that becomes possible when the connection infrastructure exists.
 
 Cite: WiserEarth Permaculture (883 orgs, 8,153 users, 1,911 events), Organic Farming (1,682 orgs), Agroecology (443 orgs) -- as evidence that the movement already exists at scale and awaits coordination infrastructure.
 
@@ -155,19 +155,19 @@ Cite: WiserEarth Permaculture (883 orgs, 8,153 users, 1,911 events), Organic Far
 
 Paul Hawken explicitly designed it to have no charismatic leader -- and *Blessed Unrest* is the intellectual foundation for why leaderless networks are more resilient than ideology-driven ones.
 
-**Application to Ecolibrium:**
+**Application to Commonweave:**
 
 The Mycelial Strategy section should explicitly cite WiserEarth as its most direct precedent. Specifically:
 
 1. **"Invite, never recruit"** -- WiserEarth grew to 79,651 members without any recruiting. People came because the value was visible. This validates the principle.
 
-2. **"Open by default"** -- WiserEarth went fully open-source in 2008. All content was wikis. All code was available. This is the direct ancestor of Ecolibrium's open-by-default principle.
+2. **"Open by default"** -- WiserEarth went fully open-source in 2008. All content was wikis. All code was available. This is the direct ancestor of Commonweave's open-by-default principle.
 
 3. **"The framework protects itself through transparency, not secrecy"** -- WiserEarth's community guidelines said: *"WiserEarth is open to full public scrutiny."* This is the same security model.
 
 4. **"Demonstrate, don't argue"** -- WiserEarth's primary contribution was making existing proof visible, not generating theoretical arguments. Its 114,994 organizational listings were evidence that the movement worked.
 
-5. **The failure of centralization** -- WiserEarth's collapse should be included as a cautionary case. The network survived its participants. It did not survive its funding model. Ecolibrium's network design must account for this.
+5. **The failure of centralization** -- WiserEarth's collapse should be included as a cautionary case. The network survived its participants. It did not survive its funding model. Commonweave's network design must account for this.
 
 Cite: WiserEarth History (2007-2014), Paul Hawken / Natural Capital Institute; *Blessed Unrest* (2007).
 
@@ -181,7 +181,7 @@ The final Wiser.org About page (April 2014) stated:
 
 > "Our virtual community was inhabited by people who believe that a more just and sustainable world is possible... What was missing was a map and directory of the flourishing network, one that included the necessary resources for communication and cooperation; in essence, an infrastructure through which we could coordinate the efforts of civil society."
 
-**Application to Ecolibrium:** The Transfer section should acknowledge this prior framing. The phase shift Ecolibrium describes is not a future event -- it is a process that has been underway since at least 2007. WiserEarth documented 114,994 organizations already doing the work. The question is not whether the movement is real; the question is whether it can self-coordinate when the technological tipping point arrives.
+**Application to Commonweave:** The Transfer section should acknowledge this prior framing. The phase shift Commonweave describes is not a future event -- it is a process that has been underway since at least 2007. WiserEarth documented 114,994 organizations already doing the work. The question is not whether the movement is real; the question is whether it can self-coordinate when the technological tipping point arrives.
 
 ---
 
@@ -189,32 +189,32 @@ The final Wiser.org About page (April 2014) stated:
 
 **WiserEarth's lesson:** Arts Activism was one of WiserEarth's most active categories: 1,246 organizations, 4,481 users, 393 resources, 923 events, 194 groups. Arts Education had 971 organizations. Literature: 247 organizations, 3,669 users. The movement consistently recognized that cultural transformation was not separate from structural change -- it was the same work.
 
-**Application to Ecolibrium:** The Phase 3 section on Arts and Humanities becoming more valuable has empirical backing in WiserEarth's data. The organizations doing this work -- arts activism, arts therapy, performing arts -- were already among the most connected nodes in the WiserEarth network. This is not an idealist add-on to the framework. It reflects how the real movement already organized.
+**Application to Commonweave:** The Phase 3 section on Arts and Humanities becoming more valuable has empirical backing in WiserEarth's data. The organizations doing this work -- arts activism, arts therapy, performing arts -- were already among the most connected nodes in the WiserEarth network. This is not an idealist add-on to the framework. It reflects how the real movement already organized.
 
 ---
 
 ### Open Questions -- New Questions From WiserEarth
 
-WiserEarth raises several questions Ecolibrium's current list does not address:
+WiserEarth raises several questions Commonweave's current list does not address:
 
 **Q14: How do you prevent the collapse of coordination infrastructure when funding runs out?**
-WiserEarth demonstrated that even a leaderless, open-source network can disappear when its hosting infrastructure is centralized and dependent on philanthropic funding. What is Ecolibrium's answer to this? The WiserPlatform was released as open-source in 2008, but no community self-hosting ecosystem emerged before the closure. How does Ecolibrium avoid the same fate?
+WiserEarth demonstrated that even a leaderless, open-source network can disappear when its hosting infrastructure is centralized and dependent on philanthropic funding. What is Commonweave's answer to this? The WiserPlatform was released as open-source in 2008, but no community self-hosting ecosystem emerged before the closure. How does Commonweave avoid the same fate?
 
 **Q15: At what point does "making the movement visible to itself" become sufficient vs. requiring active coordination?**
 WiserEarth's core thesis was that visibility alone would enable coordination. But visibility without interoperability (shared standards, shared infrastructure, actual handoffs between organizations) may not be enough. When does the mirror become a meeting room?
 
 **Q16: What happens to the knowledge when the platform closes?**
-79,651 members and 114,994 organizations' worth of knowledge was archived to the Wayback Machine -- but is effectively inaccessible to most people. How does Ecolibrium design for the permanent availability of commons knowledge, even after any single hosting provider fails?
+79,651 members and 114,994 organizations' worth of knowledge was archived to the Wayback Machine -- but is effectively inaccessible to most people. How does Commonweave design for the permanent availability of commons knowledge, even after any single hosting provider fails?
 
 ---
 
 ## WiserEarth in the Allied Projects Section
 
-WiserEarth should be listed in Ecolibrium's Allied Projects section as a historical precedent -- not an active project, but a proof of concept with documented outcomes and documented failure modes.
+WiserEarth should be listed in Commonweave's Allied Projects section as a historical precedent -- not an active project, but a proof of concept with documented outcomes and documented failure modes.
 
 **Suggested entry:**
 
-> **WiserEarth / Wiser.org** (2007-2014) -- The world's first large-scale civil society mapping and coordination platform. Founded on Earth Day 2007 by environmentalist Paul Hawken (Natural Capital Institute) to map the organizations documented in his book *Blessed Unrest*. At peak: 114,994 NGOs and socially responsible organizations in 243 countries, 79,651 members, 3,273 groups, 47 major issue areas, 381 sub-issues. Fully open-source (WiserPlatform, SourceForge), free, ad-free, and women-led. Closed April 10, 2014 due to funding failure despite a vibrant community. Archived to the Wayback Machine. Direct precedent for Ecolibrium's Mycelial Strategy. Failure mode: centralized hosting + philanthropic dependency = single point of failure even in an open-source leaderless network. (archive.org/web, wikipedia.org/wiki/Wiser.org)
+> **WiserEarth / Wiser.org** (2007-2014) -- The world's first large-scale civil society mapping and coordination platform. Founded on Earth Day 2007 by environmentalist Paul Hawken (Natural Capital Institute) to map the organizations documented in his book *Blessed Unrest*. At peak: 114,994 NGOs and socially responsible organizations in 243 countries, 79,651 members, 3,273 groups, 47 major issue areas, 381 sub-issues. Fully open-source (WiserPlatform, SourceForge), free, ad-free, and women-led. Closed April 10, 2014 due to funding failure despite a vibrant community. Archived to the Wayback Machine. Direct precedent for Commonweave's Mycelial Strategy. Failure mode: centralized hosting + philanthropic dependency = single point of failure even in an open-source leaderless network. (archive.org/web, wikipedia.org/wiki/Wiser.org)
 
 ---
 
@@ -222,7 +222,7 @@ WiserEarth should be listed in Ecolibrium's Allied Projects section as a histori
 
 1. **The movement is real.** 114,994 organizations across 243 countries were already doing this work before 2014. That number has only grown.
 2. **Leaderless networks work.** WiserEarth had no founder whose removal would collapse it, no unifying ideology, and no central decision-maker -- and it grew to nearly 80,000 members through contribution alone.
-3. **Transparency is the security model.** Every WiserEarth principle about openness prefigures Ecolibrium's own design.
+3. **Transparency is the security model.** Every WiserEarth principle about openness prefigures Commonweave's own design.
 4. **Visibility is necessary but not sufficient.** The movement needs to see itself AND be able to coordinate action. WiserEarth solved the first problem but not the second.
 5. **Commons infrastructure needs commons economics.** A free network cannot survive on philanthropic dependency. The economic model must be as commons-based as the platform itself.
 6. **The taxonomy matters.** 381 sub-issue areas is not bureaucracy -- it is the map that lets a community health worker in Nairobi recognize that she is doing the same work as a seed conservancy in Kerala.

@@ -1,4 +1,4 @@
-"""
+﻿"""
 Phase 4: Build map_points.json and map_meta.json for the live map.
 """
 import sqlite3
@@ -6,8 +6,8 @@ import json
 import os
 from collections import defaultdict
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
-SEARCH_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\search'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
+SEARCH_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data\search'
 MAP_POINTS_PATH = os.path.join(SEARCH_DIR, 'map_points.json')
 MAP_META_PATH = os.path.join(SEARCH_DIR, 'map_meta.json')
 

@@ -1,5 +1,5 @@
-import sqlite3
-conn = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db')
+﻿import sqlite3
+conn = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db')
 c = conn.cursor()
 
 # Add missing columns

@@ -1,4 +1,4 @@
-"""
+﻿"""
 Experiment 3: Website requirement for trim-keep -- preview only.
 
 Counts orgs that are currently active, alignment_score >= 2, but have
@@ -9,7 +9,7 @@ Read-only. No data is modified. trim_to_aligned.py is NOT changed.
 """
 import sqlite3
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 
 
 def main():

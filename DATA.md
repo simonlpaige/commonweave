@@ -1,4 +1,4 @@
-# Ecolibrium Data: Sources, Schema, and Methodology
+﻿# Commonweave Data: Sources, Schema, and Methodology
 
 ## Honest Numbers
 
@@ -34,7 +34,7 @@ The earlier 738K figure counted every non-removed row including rows already fla
 
 ## Data Schema
 
-The directory is stored in a SQLite database (`data/ecolibrium_directory.db`, ~230MB, gitignored).
+The directory is stored in a SQLite database (`data/commonweave_directory.db`, ~230MB, gitignored).
 
 ### organizations table
 
@@ -51,7 +51,7 @@ The directory is stored in a SQLite database (`data/ecolibrium_directory.db`, ~2
 | description | TEXT | Organization description (often NULL for registry imports) |
 | website | TEXT | Organization website URL |
 | email | TEXT | Contact email |
-| framework_area | TEXT | Mapped Ecolibrium framework section (see below) |
+| framework_area | TEXT | Mapped Commonweave framework section (see below) |
 | ntee_code | TEXT | NTEE classification code (US nonprofits) |
 | source | TEXT | Data source identifier |
 | source_id | TEXT | ID in the source system |

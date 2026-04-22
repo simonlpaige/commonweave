@@ -1,4 +1,4 @@
-$script = "C:\Users\simon\.openclaw\workspace\ecolibrium\data\sources\wikidata_ingest.py"
+﻿$script = "C:\Users\simon\.openclaw\workspace\commonweave\data\sources\wikidata_ingest.py"
 
 # Countries already in our DB (non-US) + key countries we want
 $countries = @(

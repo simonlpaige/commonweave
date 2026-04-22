@@ -1,11 +1,11 @@
-"""
+﻿"""
 Prep re-run: delete DIRECTORY_CC.md files for undercounted countries
 so run_next_country.py will re-process them.
 Existing DB entries are kept - the runner will ADD to them.
 """
 import os
 
-REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\regional'
+REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data\regional'
 
 # Countries that need re-running (got <50% of expected results)
 RERUN_COUNTRIES = [

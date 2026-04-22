@@ -1,5 +1,5 @@
-"""
-Ecolibrium Government Registry Ingestion Pipeline
+﻿"""
+Commonweave Government Registry Ingestion Pipeline
 Tier 1 bulk downloads with multi-language support and audit filtering.
 
 Usage:
@@ -24,7 +24,7 @@ import re
 import argparse
 from datetime import datetime
 
-DB_PATH = os.path.join(os.path.dirname(__file__), 'ecolibrium_directory.db')
+DB_PATH = os.path.join(os.path.dirname(__file__), 'commonweave_directory.db')
 
 # ============================================================
 # MULTI-LANGUAGE ALIGNMENT KEYWORDS
@@ -451,7 +451,7 @@ def ingest_uk(db):
     print("[UK] Downloading OSCR Scottish Charity Register...")
     oscr_url = "https://www.oscr.org.uk/umbraco/Surface/FormsSurface/CharityRegisterDownload"
     try:
-        resp = requests.get(oscr_url, timeout=60, headers={'User-Agent': 'Ecolibrium/1.0'})
+        resp = requests.get(oscr_url, timeout=60, headers={'User-Agent': 'Commonweave/1.0'})
         if resp.status_code == 200 and len(resp.content) > 1000:
             text = resp.content.decode('utf-8-sig', errors='replace')
             reader = csv.DictReader(io.StringIO(text))
@@ -579,7 +579,7 @@ def ingest_japan(db):
     
     try:
         # Try to get the bulk CSV
-        resp = requests.get(npo_url, timeout=30, headers={'User-Agent': 'Ecolibrium/1.0'})
+        resp = requests.get(npo_url, timeout=30, headers={'User-Agent': 'Commonweave/1.0'})
         # Look for CSV download links
         csv_links = re.findall(r'https://[^"]+\.csv[^"]*', resp.text)
         
@@ -589,7 +589,7 @@ def ingest_japan(db):
         
         for csv_url in csv_links[:1]:
             print(f"  Downloading {csv_url}...")
-            csv_resp = requests.get(csv_url, timeout=120, headers={'User-Agent': 'Ecolibrium/1.0'})
+            csv_resp = requests.get(csv_url, timeout=120, headers={'User-Agent': 'Commonweave/1.0'})
             
             if csv_resp.status_code != 200:
                 print(f"  Failed ({csv_resp.status_code})")
@@ -710,7 +710,7 @@ def ingest_nz(db):
     try:
         # Try to get the CSV/data download
         resp = requests.get("https://www.charities.govt.nz/assets/Charities-Data/charities-register-all.csv", 
-                          timeout=60, headers={'User-Agent': 'Ecolibrium/1.0'})
+                          timeout=60, headers={'User-Agent': 'Commonweave/1.0'})
         
         if resp.status_code != 200:
             print(f"  Direct CSV failed ({resp.status_code}). Trying alternate...")
@@ -761,7 +761,7 @@ def ingest_nz(db):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Ecolibrium Government Registry Ingestion')
+    parser = argparse.ArgumentParser(description='Commonweave Government Registry Ingestion')
     parser.add_argument('--source', required=True, 
                        choices=['uk', 'france', 'japan', 'australia', 'nz', 'all'],
                        help='Which registry to ingest')

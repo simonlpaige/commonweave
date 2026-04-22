@@ -1,4 +1,4 @@
-"""
+﻿"""
 Migration 002: add real uniqueness constraints to organizations.
 
 This migration:
@@ -17,7 +17,7 @@ from datetime import datetime
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 _DATA_DIR = os.path.dirname(_THIS_DIR)
 
-DB_PATH = os.path.join(_DATA_DIR, "ecolibrium_directory.db")
+DB_PATH = os.path.join(_DATA_DIR, "commonweave_directory.db")
 AUDIT_DIR = os.path.join(_DATA_DIR, "audit")
 
 UNIQ_SOURCE_SQL = """

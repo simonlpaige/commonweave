@@ -1,5 +1,5 @@
-"""
-Generic subregion-level Wikidata ingest for Ecolibrium.
+﻿"""
+Generic subregion-level Wikidata ingest for Commonweave.
 
 Generalises us_state_wikidata.py: for each supported country, iterates its
 first-order administrative divisions (states, provinces, Laender, regions,
@@ -27,7 +27,7 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 WIKIDATA_ENDPOINT = 'https://query.wikidata.org/sparql'
 DONE_FILE = os.path.join(os.path.dirname(__file__), 'subregion_done.txt')
 
@@ -319,7 +319,7 @@ def run_sparql(query):
     params = urllib.parse.urlencode({'format': 'json', 'query': query})
     url = f'{WIKIDATA_ENDPOINT}?{params}'
     req = urllib.request.Request(url, headers={
-        'User-Agent': 'Ecolibrium/1.0 (https://github.com/simonlpaige/ecolibrium)',
+        'User-Agent': 'Commonweave/1.0 (https://github.com/simonlpaige/commonweave)',
         'Accept': 'application/sparql-results+json',
     })
     try:

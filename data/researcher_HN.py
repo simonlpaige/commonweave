@@ -1,4 +1,4 @@
-"""
+﻿"""
 ECO-71: Honduras (HN) Regional Research
 Uses web search (DuckDuckGo) to find Honduran organizations.
 Output: data/regional/DIRECTORY_HN.md
@@ -13,7 +13,7 @@ import sys
 import re
 from research_evidence import validate_org_result
 
-DATA_DIR = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data"
+DATA_DIR = r"C:\Users\simon\.openclaw\workspace\commonweave\data"
 OUTPUT_FILE = os.path.join(DATA_DIR, "regional", "DIRECTORY_HN.md")
 COUNTRY_CODE = "HN"
 SKIP_AUDIT_FILE = os.path.join(DATA_DIR, "audit", f"research_skipped_{COUNTRY_CODE}.csv")

@@ -1,4 +1,4 @@
-"""
+﻿"""
 Phase 3: Fix international orgs + clean up P2 placeholder rows.
 1. Export P2 rows to an audit CSV, then mark them removed
 2. For all active web_research orgs where framework_area IS NULL:
@@ -9,8 +9,8 @@ import os
 import sqlite3
 from datetime import datetime
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
-AUDIT_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\audit'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
+AUDIT_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data\audit'
 
 FRAMEWORK_KEYWORDS = {
     'healthcare': ['health','clinic','hospital','medical','medicine','nurse','doctor','hiv','aids','malaria','maternal'],

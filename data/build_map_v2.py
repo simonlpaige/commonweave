@@ -1,4 +1,4 @@
-"""
+﻿"""
 Map V2 data pipeline:
 1. Assign quality tiers (A/B/C/D) to all orgs
 2. Generate derived network edges (same-section proximity)
@@ -12,8 +12,8 @@ import os
 import math
 from collections import defaultdict, Counter
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
-SEARCH_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\search'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
+SEARCH_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data\search'
 
 # Framework sections
 SECTIONS = [
@@ -306,7 +306,7 @@ def main():
     db = sqlite3.connect(DB_PATH)
     
     print("=" * 60)
-    print("ECOLIBRIUM MAP V2 DATA PIPELINE")
+    print("COMMONWEAVE MAP V2 DATA PIPELINE")
     print("=" * 60)
     
     # Step 1: Assign tiers

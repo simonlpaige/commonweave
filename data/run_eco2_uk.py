@@ -1,4 +1,4 @@
-"""
+﻿"""
 ECO-184 / Phase 2: Download and ingest UK Charity Commission data
 Source: https://register-of-charities.charitycommission.gov.uk/register/full-register-download
 """
@@ -13,8 +13,8 @@ import json
 import time
 import sys
 
-DB_PATH = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db"
-DATA_DIR = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data"
+DB_PATH = r"C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db"
+DATA_DIR = r"C:\Users\simon\.openclaw\workspace\commonweave\data"
 
 UNIQ_SOURCE_SQL = """
 CREATE UNIQUE INDEX IF NOT EXISTS uniq_org_source

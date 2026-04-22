@@ -1,6 +1,6 @@
-# Ecolibrium Deep Dive: Context, Evidence, and Honest Assessment
+﻿# Commonweave Deep Dive: Context, Evidence, and Honest Assessment
 
-> *A section-by-section companion to the Ecolibrium framework. This document adds historical depth, empirical evidence, failure modes, uncomfortable truths, and practical guidance. It is written in a spirit of rigorous honesty — the framework deserves supporters who know what they're getting into.*
+> *A section-by-section companion to the Commonweave framework. This document adds historical depth, empirical evidence, failure modes, uncomfortable truths, and practical guidance. It is written in a spirit of rigorous honesty — the framework deserves supporters who know what they're getting into.*
 
 **Last updated:** April 2026
 
@@ -380,7 +380,7 @@ Then whoever is ready fills the vacuum. This is why the Phase 1 work of building
 
 ## Appendix: Elinor Ostrom's Eight Design Principles for Governing the Commons
 
-These principles, derived from decades of empirical research on successful commons governance worldwide, should be foundational to every section of the Ecolibrium framework:
+These principles, derived from decades of empirical research on successful commons governance worldwide, should be foundational to every section of the Commonweave framework:
 
 1. **Clearly defined boundaries.** The group of users and the resource itself must be clearly defined.
 2. **Proportional equivalence between benefits and costs.** Rules should ensure that those who contribute more benefit proportionally.
@@ -391,7 +391,7 @@ These principles, derived from decades of empirical research on successful commo
 7. **Minimal recognition of rights to organize.** The rights of users to create their own governance arrangements are recognized by external authorities.
 8. **Nested enterprises.** For resources that are part of larger systems, governance is organized in multiple layers of nested enterprises.
 
-These principles are not speculative. They are distilled from successful commons governance in fisheries, irrigation systems, forests, and grazing lands across every continent. They should be the operational backbone of the Ecolibrium framework.
+These principles are not speculative. They are distilled from successful commons governance in fisheries, irrigation systems, forests, and grazing lands across every continent. They should be the operational backbone of the Commonweave framework.
 
 ---
 
@@ -494,7 +494,7 @@ The honest conclusion: the Mycelial Strategy needs significant governance engine
 
 ---
 
-*This document was compiled in April 2026 as an honest companion to the Ecolibrium framework. It is intended to strengthen the framework by identifying its gaps, confronting its assumptions, and grounding its aspirations in evidence. The framework deserves supporters who engage with its weaknesses as vigorously as they celebrate its vision.*
+*This document was compiled in April 2026 as an honest companion to the Commonweave framework. It is intended to strengthen the framework by identifying its gaps, confronting its assumptions, and grounding its aspirations in evidence. The framework deserves supporters who engage with its weaknesses as vigorously as they celebrate its vision.*
 
 *"It is not the critic who counts; not the man who points out how the strong man stumbles. The credit belongs to the man who is actually in the arena."*
 *— Theodore Roosevelt*

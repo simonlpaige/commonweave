@@ -1,8 +1,8 @@
-# Ecolibrium Meta-Directory: Global Sources for 50,000+ Organizations
+﻿# Commonweave Meta-Directory: Global Sources for 50,000+ Organizations
 
 > *A roadmap to every major database, registry, and API that catalogues civil society organizations worldwide. This document enables programmatic aggregation of the organizations WiserEarth once tracked — and far beyond.*
 
-**Goal:** Aggregate 50,000+ functioning organizations aligned with the Ecolibrium framework's 10 areas.
+**Goal:** Aggregate 50,000+ functioning organizations aligned with the Commonweave framework's 10 areas.
 **Approach:** Use existing databases (which collectively contain 10M+ orgs) and filter by relevance.
 **Last updated:** April 2026
 
@@ -71,7 +71,7 @@ These are the authoritative, official sources. Each country maintains its own re
 
 ### Tier 4: Thematic / Sector-Specific Databases
 
-These are critical for filtering by Ecolibrium's 10 framework areas.
+These are critical for filtering by Commonweave's 10 framework areas.
 
 | Source | Sector | Org Count | Link |
 |---|---|---|---|
@@ -105,7 +105,7 @@ These are critical for filtering by Ecolibrium's 10 framework areas.
 
 ---
 
-## Part 2: Estimated Org Counts by Ecolibrium Framework Area
+## Part 2: Estimated Org Counts by Commonweave Framework Area
 
 Based on the NTEE classification system (US), ICNPO classification (international), and manual estimation:
 
@@ -160,7 +160,7 @@ Manually verify a random sample of 1,000 organizations to estimate error rate.
 
 ## Mission
 
-You are an AI agent tasked with building a structured database of 50,000+ currently functioning organizations aligned with the Ecolibrium framework. You work programmatically, using APIs, bulk downloads, and data processing.
+You are an AI agent tasked with building a structured database of 50,000+ currently functioning organizations aligned with the Commonweave framework. You work programmatically, using APIs, bulk downloads, and data processing.
 
 ## Environment
 
@@ -170,7 +170,7 @@ You are running in a coding environment (Claude Code, Codespaces, or similar) wi
 
 ### Phase 1: Set Up Infrastructure
 
-1. Create a SQLite database called `ecolibrium_directory.db` with the following schema:
+1. Create a SQLite database called `commonweave_directory.db` with the following schema:
 
 ```sql
 CREATE TABLE organizations (
@@ -217,7 +217,7 @@ CREATE TABLE framework_areas (
 );
 ```
 
-2. Populate the `framework_areas` table with the 10 Ecolibrium areas plus "cross-cutting."
+2. Populate the `framework_areas` table with the 10 Commonweave areas plus "cross-cutting."
 
 3. Create a mapping table from NTEE codes to framework areas:
 
@@ -437,7 +437,7 @@ The Aggregator's databases are biased toward large, formally registered, English
 For each country/region, produce a file named `DIRECTORY_{COUNTRY_CODE}.md` with:
 
 ```markdown
-# {Country Name} — Ecolibrium Directory
+# {Country Name} — Commonweave Directory
 
 **Total organizations found:** {N}
 **Coverage assessment:** {Aggregator had X; this research adds Y}
@@ -582,7 +582,7 @@ The Auditor's findings feed back to the Aggregator:
 
 ---
 
-## Appendix: Taxonomy Mapping — NTEE to Ecolibrium Framework Areas
+## Appendix: Taxonomy Mapping — NTEE to Commonweave Framework Areas
 
 ```
 DEMOCRACY & GOVERNANCE:
@@ -628,6 +628,6 @@ ECOLOGICAL RESTORATION:
 
 ---
 
-*This meta-directory and these agent guides were produced in April 2026 as infrastructure for the Ecolibrium project's goal of cataloguing 50,000+ organizations aligned with the framework. The raw data exists. The tools exist. What remains is the labor of assembly.*
+*This meta-directory and these agent guides were produced in April 2026 as infrastructure for the Commonweave project's goal of cataloguing 50,000+ organizations aligned with the framework. The raw data exists. The tools exist. What remains is the labor of assembly.*
 
 *WiserEarth took 7 years. With modern APIs and AI agents, the same work could take weeks.*

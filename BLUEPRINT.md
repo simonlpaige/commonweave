@@ -1,4 +1,4 @@
-# Ecolibrium: Blueprint
+﻿# Commonweave: Blueprint
 
 > This is the specification document. It covers Phase 1 infrastructure requirements in detail: what systems need to exist before any power transfer is viable, what we know about each, and where the honest scale and cost problems lie. If you want the "why this exists" version, see [VISION.md](VISION.md). If you want the theory of how transition actually happens, see [THEORY-OF-CHANGE.md](THEORY-OF-CHANGE.md).
 

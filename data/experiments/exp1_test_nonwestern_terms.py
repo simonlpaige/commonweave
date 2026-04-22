@@ -1,4 +1,4 @@
-"""
+﻿"""
 Experiment 1: Non-Western + semantic expansion preview.
 
 For each NEW term added to STRONG_POS in phase2_filter.py (2026-04-17),
@@ -11,7 +11,7 @@ Read-only. No data is modified.
 """
 import sqlite3
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 
 # New terms added in the 2026-04-17 expansion (these did NOT previously exist
 # in STRONG_POS, so any match here represents a potential new pickup).

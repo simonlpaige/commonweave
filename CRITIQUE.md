@@ -1,4 +1,4 @@
-# Ecolibrium: Honest Critique & Correction Playbook
+﻿# Commonweave: Honest Critique & Correction Playbook
 
 > A section-by-section audit of logic flaws, magical thinking, and blind spots — followed by concrete fixes.
 

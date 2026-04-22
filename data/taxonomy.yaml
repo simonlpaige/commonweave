@@ -1,7 +1,7 @@
-# WiserEarth Civil Society Taxonomy — Recovered & Extended
+﻿# WiserEarth Civil Society Taxonomy — Recovered & Extended
 # Source: web.archive.org/web/20140411042711/http://wiser.org/issues
 # Original: WiserEarth / Wiser.org (2007-2014), Natural Capital Institute, Paul Hawken
-# Recovered: 2026-04-12 by Ecolibrium contributors
+# Recovered: 2026-04-12 by Commonweave contributors
 # License: CC0 (original was community-built, free, open)
 #
 # Stats at closure (April 2014):
@@ -12,7 +12,7 @@
 #   name: string
 #   wiserearth_id: integer (original aof/ ID)
 #   stats_2014: { orgs, users, resources, jobs, events, groups }
-#   ecolibrium_2026: optional extensions, additions, notes
+#   commonweave_2026: optional extensions, additions, notes
 #
 # Categories marked [EXTENDED] have additions beyond the original WiserEarth taxonomy.
 # Categories marked [DEPRECATED] were removed as obsolete.
@@ -882,7 +882,7 @@ categories:
         stats_2014: { orgs: 71, users: 938, resources: 64, jobs: 2, events: 162, groups: 31 }
       - name: "Complexity and Emergence"
         wiserearth_id: null
-        note: "[NEW_2026] Complexity theory applied to social change. Relates to Ecolibrium's mycelial strategy."
+        note: "[NEW_2026] Complexity theory applied to social change. Relates to Commonweave's mycelial strategy."
 
   - name: "Technology"
     wiserearth_id: 694
@@ -995,7 +995,7 @@ categories:
 
   - name: "Artificial Intelligence and Automation"
     wiserearth_id: null
-    note: "[NEW_2026] Entirely new domain since WiserEarth closed. Critical for Ecolibrium's governance and transition framework."
+    note: "[NEW_2026] Entirely new domain since WiserEarth closed. Critical for Commonweave's governance and transition framework."
     sub_issues:
       - name: "AI Governance"
         wiserearth_id: null

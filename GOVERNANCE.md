@@ -1,4 +1,4 @@
-# Ecolibrium Governance
+﻿# Commonweave Governance
 
 > *"There is no such thing as a structureless group. Any group of people of whatever nature that comes together for any length of time for any purpose will inevitably structure itself in some fashion."*
 > — Jo Freeman, "The Tyranny of Structurelessness" (1972)
@@ -17,7 +17,7 @@ This is not a corporate structure. It is the minimum viable governance to preven
 
 ## Decision-Making Model
 
-Ecolibrium uses **Rough Consensus and Running Code** — the model developed by the IETF (Internet Engineering Task Force) for governing open technical standards without formal voting.
+Commonweave uses **Rough Consensus and Running Code** — the model developed by the IETF (Internet Engineering Task Force) for governing open technical standards without formal voting.
 
 **Rough consensus** means: a decision can proceed when there are no *sustained*, *principled* objections — not when everyone agrees. Disagreement is healthy. Blocking is not disagreement; it requires a specific, articulable reason why proceeding would cause serious harm.
 
@@ -92,7 +92,7 @@ The following require a 90-day open comment period and explicit rough consensus 
 
 The CRITIQUE.md document correctly identified a contradiction: the framework said "legitimacy requires total sunlight" while the repository sat under a named GitHub account with language claiming anonymity. Those two things could not both be true.
 
-**This project's resolved position:** The author and current maintainer is Simon Paige. The repository lives at simonlpaige/ecolibrium. Earlier "anonymous by design" framing has been retired from the README and outreach documents. The reasoning is recorded here so future readers understand why the change happened.
+**This project's resolved position:** The author and current maintainer is Simon Paige. The repository lives at simonlpaige/commonweave. Earlier "anonymous by design" framing has been retired from the README and outreach documents. The reasoning is recorded here so future readers understand why the change happened.
 
 **Contributors are not required to be named.** Pseudonymous participation is welcome and explicitly framed as contributor protection. People inside hostile institutions, at-risk contexts, or simply those who prefer privacy may commit under any handle they choose. The maintainers will not ask them to unmask. See OUTREACH.md's Contributor Identity Guidance section for detail.
 

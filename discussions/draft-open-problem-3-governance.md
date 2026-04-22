@@ -1,4 +1,4 @@
-# Open Problem: How Do You Govern a Commons Without Creating a New Elite?
+﻿# Open Problem: How Do You Govern a Commons Without Creating a New Elite?
 
 **Category: Governance | Difficulty: Ongoing | Status: Early draft, needs sharpening**
 
@@ -43,7 +43,7 @@ The framework wants commons governance that is:
 
 These are in tension. We haven't resolved the tensions. Some specific questions:
 
-**The unglamorous work problem.** If contribution is voluntary and people do what they find meaningful, who runs the sewage plant at 3am? The kibbutz movement tried voluntarism and eventually had to implement work quotas and task rotation. Mondragón has management. Most intentional communities have assigned roles. What's the Ecolibrium answer?
+**The unglamorous work problem.** If contribution is voluntary and people do what they find meaningful, who runs the sewage plant at 3am? The kibbutz movement tried voluntarism and eventually had to implement work quotas and task rotation. Mondragón has management. Most intentional communities have assigned roles. What's the Commonweave answer?
 
 **The scale problem.** Ostrom's design principles work for bounded, identifiable communities - fishing villages, irrigation systems, alpine meadows. It's unclear how they scale to a city's water system, let alone global data infrastructure. What do we actually know about scaling commons governance?
 
@@ -60,4 +60,4 @@ These are in tension. We haven't resolved the tensions. Some specific questions:
 
 ---
 
-*Ecolibrium is an open design document for a post-labor economy. [Repository](https://github.com/simonlpaige/ecolibrium). Author: Simon L. Paige.*
+*Commonweave is an open design document for a post-labor economy. [Repository](https://github.com/simonlpaige/commonweave). Author: Simon L. Paige.*

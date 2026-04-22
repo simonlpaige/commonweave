@@ -1,4 +1,4 @@
-"""
+﻿"""
 Experiment 4: Greenwashing / corporate-foundation penalty -- preview only.
 
 Finds orgs whose name contains 'foundation' AND whose description contains
@@ -11,7 +11,7 @@ Read-only. No data is modified.
 """
 import sqlite3
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 
 
 def main():

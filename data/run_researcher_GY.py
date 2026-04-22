@@ -1,4 +1,4 @@
-"""
+﻿"""
 ECO-68: Guyana (GY) Regional Research
 15-search protocol for Guyana organizations.
 Output: data/regional/DIRECTORY_GY.md
@@ -13,7 +13,7 @@ import sys
 import re
 from research_evidence import validate_org_result
 
-DATA_DIR = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data"
+DATA_DIR = r"C:\Users\simon\.openclaw\workspace\commonweave\data"
 OUTPUT_FILE = os.path.join(DATA_DIR, "regional", "DIRECTORY_GY.md")
 COUNTRY_CODE = "GY"
 SKIP_AUDIT_FILE = os.path.join(DATA_DIR, "audit", f"research_skipped_{COUNTRY_CODE}.csv")

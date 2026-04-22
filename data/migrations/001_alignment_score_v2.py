@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Migration 001: alignment_score_v2
 
@@ -29,7 +29,7 @@ if _DATA_DIR not in sys.path:
 
 from phase2_filter import score_org  # noqa: E402
 
-DB_PATH = os.path.join(_DATA_DIR, "ecolibrium_directory.db")
+DB_PATH = os.path.join(_DATA_DIR, "commonweave_directory.db")
 AUDIT_DIR = os.path.join(_DATA_DIR, "audit")
 BATCH_SIZE = 2000
 

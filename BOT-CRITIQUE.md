@@ -1,4 +1,4 @@
-# Ecolibrium Bot Pipeline Critique (DeepSeek R1)
+﻿# Commonweave Bot Pipeline Critique (DeepSeek R1)
 
 > Generated 2026-04-17. Focus: directory-building bots - relevance, false positives, false negatives, anti-greenwashing.
 > Bundle fed to R1: VISION, BLUEPRINT, GOVERNANCE, DATA + bot pipeline code (taxonomy, filters, researchers, audit, wikidata).

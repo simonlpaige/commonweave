@@ -1,8 +1,8 @@
-// connectors/ecolibrium-directory.js
-// Bridge between NeighborhoodOS and the Ecolibrium global directory.
+﻿// connectors/commonweave-directory.js
+// Bridge between NeighborhoodOS and the Commonweave global directory.
 // Lets a neighborhood ask: "Who's already working on what we care about, near us?"
 //
-// The Ecolibrium directory lives at ecolibrium/data/ecolibrium_directory.db
+// The Commonweave directory lives at commonweave/data/commonweave_directory.db
 // This connector reads it (read-only) to surface relevant orgs.
 
 import Database from 'better-sqlite3';
@@ -10,12 +10,12 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dir = dirname(fileURLToPath(import.meta.url));
-// Path to the main Ecolibrium directory DB (relative to this file)
-const DIRECTORY_DB_PATH = join(__dir, '../../data/ecolibrium_directory.db');
+// Path to the main Commonweave directory DB (relative to this file)
+const DIRECTORY_DB_PATH = join(__dir, '../../data/commonweave_directory.db');
 
 // ----------------------------------------------------------------
-// TOPIC -> ECOLIBRIUM CATEGORY MAPPING
-// Maps NeighborhoodOS topic tags to Ecolibrium taxonomy categories
+// TOPIC -> COMMONWEAVE CATEGORY MAPPING
+// Maps NeighborhoodOS topic tags to Commonweave taxonomy categories
 // ----------------------------------------------------------------
 
 const TOPIC_TO_CATEGORIES = {
@@ -47,7 +47,7 @@ function openDirectoryDB() {
 // Find organizations near a neighborhood boundary (bbox search)
 export function getOrgsNearNeighborhood(bounds, { limit = 20, categories = null } = {}) {
   const db = openDirectoryDB();
-  if (!db) return { orgs: [], note: 'Ecolibrium directory not available locally' };
+  if (!db) return { orgs: [], note: 'Commonweave directory not available locally' };
 
   try {
     let query = `
@@ -80,7 +80,7 @@ export function getOrgsNearNeighborhood(bounds, { limit = 20, categories = null 
 // Find orgs relevant to the neighborhood's top-discussed topics
 export function getOrgsForTopics(topicTags, bounds, { limit = 15 } = {}) {
   const db = openDirectoryDB();
-  if (!db) return { orgs: [], note: 'Ecolibrium directory not available locally' };
+  if (!db) return { orgs: [], note: 'Commonweave directory not available locally' };
 
   // Map topic tags to directory categories
   const categories = new Set();
@@ -98,7 +98,7 @@ export function getOrgsForTopics(topicTags, bounds, { limit = 15 } = {}) {
   };
 }
 
-// Get orgs that are already federated (using NeighborhoodOS or Ecolibrium tools)
+// Get orgs that are already federated (using NeighborhoodOS or Commonweave tools)
 export function getFederatedNeighborhoods(bounds) {
   const db = openDirectoryDB();
   if (!db) return [];
@@ -106,9 +106,9 @@ export function getFederatedNeighborhoods(bounds) {
   try {
     return db.prepare(`
       SELECT name, description, website, city, state, latitude, longitude,
-             ecolibrium_node_url
+             commonweave_node_url
       FROM organizations
-      WHERE ecolibrium_node_url IS NOT NULL
+      WHERE commonweave_node_url IS NOT NULL
         AND latitude BETWEEN ? AND ?
         AND longitude BETWEEN ? AND ?
       ORDER BY name
@@ -136,27 +136,27 @@ export async function getEcosystemRecommendations(neighborhoodDb, neighborhood, 
     recommendedOrgs: result.orgs,
     matchedCategories: result.categories,
     note: result.orgs.length === 0
-      ? 'No orgs found near this neighborhood in the Ecolibrium directory. This is a gap - consider adding local orgs.'
+      ? 'No orgs found near this neighborhood in the Commonweave directory. This is a gap - consider adding local orgs.'
       : `${result.orgs.length} organizations found working on issues your neighbors are discussing.`
   };
 }
 
 // ----------------------------------------------------------------
 // REGISTRATION
-// Lets a neighborhood register itself in the Ecolibrium directory
+// Lets a neighborhood register itself in the Commonweave directory
 // so other neighborhoods can find and federate with it.
 // This writes to the directory DB (requires write access).
 // ----------------------------------------------------------------
 
 export function registerNeighborhoodNode(nodeInfo) {
   // nodeInfo: { name, slug, bounds, nodeUrl, contactEmail, city, state }
-  // This is a placeholder - in production this would call the Ecolibrium
+  // This is a placeholder - in production this would call the Commonweave
   // directory API to register the node, or submit a PR to the open-source
   // directory data file.
   return {
     status: 'pending',
-    message: 'Node registration submitted. To register in the Ecolibrium directory, ' +
-             'open an issue at github.com/simonlpaige/ecolibrium with your node details.',
+    message: 'Node registration submitted. To register in the Commonweave directory, ' +
+             'open an issue at github.com/simonlpaige/commonweave with your node details.',
     nodeInfo
   };
 }

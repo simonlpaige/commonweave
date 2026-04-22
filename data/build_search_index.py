@@ -1,5 +1,5 @@
-"""
-Build static JSON search indexes from ecolibrium_directory.db + regional markdown files.
+﻿"""
+Build static JSON search indexes from commonweave_directory.db + regional markdown files.
 Output:
   data/search/index.json      - country list + stats (lightweight, loaded on page load)
   data/search/US.json         - US orgs (chunked by state, loaded on demand)
@@ -14,10 +14,10 @@ import re
 import glob
 from datetime import datetime
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
-REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\regional'
-OUTPUT_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\search'
-ECOLIBRIUM_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
+REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data\regional'
+OUTPUT_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data\search'
+COMMONWEAVE_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave'
 ACTIVE_WHERE = "status='active'"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)

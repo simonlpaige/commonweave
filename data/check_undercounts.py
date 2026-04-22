@@ -1,6 +1,6 @@
-import sqlite3
+﻿import sqlite3
 
-db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db')
+db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db')
 c = db.cursor()
 
 # Countries we'd expect thousands+ from based on population and NGO sector size

@@ -1,4 +1,4 @@
-# Open Problem: What Happens When the Framework Is Used Against Itself?
+﻿# Open Problem: What Happens When the Framework Is Used Against Itself?
 
 **Category: Security / Threat Modeling | Difficulty: Hard | Status: Mostly unaddressed**
 
@@ -26,7 +26,7 @@ These are real benefits, and we're not abandoning the commitment to openness.
 
 **Doxxing and harassment.** Open participation means visible participation. In adversarial environments - which includes any context where the framework's goals threaten concentrated wealth or political power - contributor visibility is a security liability. We can say "use pseudonyms if you need to," but that's individual operational security, not a project-level security design.
 
-**State surveillance.** Open coordination makes it trivial to map a movement's structure, identify key contributors, and preemptively disrupt organizing. This isn't paranoia - it's the documented history of COINTELPRO, the surveillance of Standing Rock organizers, the pre-emptive arrests before the 2004 Republican National Convention protests. If Ecolibrium ever becomes consequential enough to threaten significant power, open coordination is a liability in ways that the current document doesn't acknowledge.
+**State surveillance.** Open coordination makes it trivial to map a movement's structure, identify key contributors, and preemptively disrupt organizing. This isn't paranoia - it's the documented history of COINTELPRO, the surveillance of Standing Rock organizers, the pre-emptive arrests before the 2004 Republican National Convention protests. If Commonweave ever becomes consequential enough to threaten significant power, open coordination is a liability in ways that the current document doesn't acknowledge.
 
 **The specific problem in our context.** The framework's Mycelial Strategy describes building alternative systems to the point where the old systems become optional. If that ever works, it directly threatens entities with enormous resources and legal authority. The moment it works is precisely the moment the threat model becomes most serious - and the moment the current "transparency is security" model is least adequate.
 
@@ -61,4 +61,4 @@ We're asking because we genuinely don't know. The current document's answer - "o
 
 ---
 
-*Ecolibrium is an open design document for a post-labor economy. [Repository](https://github.com/simonlpaige/ecolibrium). Author: Simon L. Paige.*
+*Commonweave is an open design document for a post-labor economy. [Repository](https://github.com/simonlpaige/commonweave). Author: Simon L. Paige.*

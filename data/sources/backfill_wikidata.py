@@ -1,5 +1,5 @@
-"""
-Backfill Wikidata for all countries already in the Ecolibrium DB.
+﻿"""
+Backfill Wikidata for all countries already in the Commonweave DB.
 Runs wikidata_ingest.py for each unique country_code.
 """
 import sqlite3
@@ -8,7 +8,7 @@ import sys
 import time
 import os
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 SCRIPT = os.path.join(os.path.dirname(__file__), 'wikidata_ingest.py')
 
 def get_existing_countries():

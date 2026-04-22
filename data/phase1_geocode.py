@@ -1,4 +1,4 @@
-"""
+﻿"""
 Phase 1b: Geocode all organizations in the DB.
 - US orgs: try city exact match, fall back to state centroid
 - International: use country centroid
@@ -9,8 +9,8 @@ import csv
 import io
 import os
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
-CACHE_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\us_cities_cache.csv'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
+CACHE_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\us_cities_cache.csv'
 
 STATE_CENTROIDS = {
     'AL':(32.8,-86.8),'AK':(64.2,-153.4),'AZ':(34.3,-111.1),'AR':(34.8,-92.2),

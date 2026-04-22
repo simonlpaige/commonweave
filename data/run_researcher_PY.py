@@ -1,4 +1,4 @@
-"""
+﻿"""
 ECO-67: Paraguay (PY) Regional Research
 Uses DuckDuckGo to find Paraguayan organizations.
 Output: data/regional/DIRECTORY_PY.md
@@ -13,7 +13,7 @@ import sys
 import re
 from research_evidence import validate_org_result
 
-DATA_DIR = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data"
+DATA_DIR = r"C:\Users\simon\.openclaw\workspace\commonweave\data"
 OUTPUT_FILE = os.path.join(DATA_DIR, "regional", "DIRECTORY_PY.md")
 COUNTRY_CODE = "PY"
 SKIP_AUDIT_FILE = os.path.join(DATA_DIR, "audit", f"research_skipped_{COUNTRY_CODE}.csv")

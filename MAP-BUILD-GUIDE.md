@@ -1,6 +1,6 @@
-# Ecolibrium Map: Multi-Disciplinary Critique & Build Guide
+﻿# Commonweave Map: Multi-Disciplinary Critique & Build Guide
 
-**For the maintainer and designer of simonlpaige.com/ecolibrium**
+**For the maintainer and designer of simonlpaige.com/commonweave**
 
 Four perspectives. One goal: make the map the most useful artifact in the project.
 
@@ -12,7 +12,7 @@ Four perspectives. One goal: make the map the most useful artifact in the projec
 
 The map at `/map.html` is a full-screen JavaScript application that renders organization dots on a world map. Based on the extracted content, it shows:
 
-- A header bar with title "ECOLIBRIUM — mapping the networks of change"
+- A header bar with title "COMMONWEAVE — mapping the networks of change"
 - Four stat counters: Organizations, Countries, Visible, Networks
 - A search box labeled "Networks"
 - An "Explore Regions" prompt

@@ -1,11 +1,11 @@
-"""
+﻿"""
 Pass 2: Strict alignment re-scoring.
 Orgs must have at least ONE strong positive signal to survive.
 Zero-signal orgs are excluded as 'excluded_audit_p2'.
 """
 import sqlite3
 
-db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db')
+db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db')
 c = db.cursor()
 
 c.execute("SELECT COUNT(*) FROM organizations WHERE status NOT IN ('removed', 'excluded_audit_p1')")

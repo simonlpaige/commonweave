@@ -1,4 +1,4 @@
-# Open Problem: Why Would Anyone With Power Give It Up?
+﻿# Open Problem: Why Would Anyone With Power Give It Up?
 
 **Category: Theory of Change | Difficulty: Hard | Status: Unsolved**
 
@@ -38,7 +38,7 @@ We can identify several mechanisms that have historically moved power:
 4. **Withdrawing cooperation** - Sharp's model. Requires scale and willingness to bear costs.
 5. **A crisis creating a window** - historically the most reliable, also the most dangerous (see: Naomi Klein's shock doctrine problem - crises open windows for power grabs in both directions).
 
-What we don't have: a theory of why any of these is sufficient for the scale of transfer Ecolibrium describes, rather than incremental reform within existing systems.
+What we don't have: a theory of why any of these is sufficient for the scale of transfer Commonweave describes, rather than incremental reform within existing systems.
 
 ## What we're asking for
 
@@ -51,4 +51,4 @@ We're not looking for reassurance. We're looking for sharper thinking than we cu
 
 ---
 
-*Ecolibrium is an open design document for a post-labor economy. [Repository](https://github.com/simonlpaige/ecolibrium). Author: Simon L. Paige.*
+*Commonweave is an open design document for a post-labor economy. [Repository](https://github.com/simonlpaige/commonweave). Author: Simon L. Paige.*

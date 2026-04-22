@@ -1,5 +1,5 @@
-import sqlite3
-db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db')
+﻿import sqlite3
+db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db')
 c = db.cursor()
 c.execute("SELECT country_code, COUNT(*) as cnt FROM organizations WHERE status != 'removed' GROUP BY country_code ORDER BY cnt DESC LIMIT 20")
 for r in c.fetchall():

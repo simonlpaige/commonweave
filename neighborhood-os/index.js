@@ -1,14 +1,14 @@
-// neighborhood-os/index.js
+﻿// neighborhood-os/index.js
 // NeighborhoodOS: main entry point.
 // Exports the full API surface for programmatic use.
 // Wires together: city data, legislative record, social signals,
-// civic identity, voting, and Ecolibrium directory integration.
+// civic identity, voting, and Commonweave directory integration.
 
 // Data connectors
 export * as kcOpenData from './connectors/kc-open-data.js';
 export * as legistar from './connectors/legistar.js';
 export * as social from './connectors/social.js';
-export * as ecoDirConnector from './connectors/ecolibrium-directory.js';
+export * as ecoDirConnector from './connectors/commonweave-directory.js';
 
 // Civic identity + voting (from sibling directory)
 export * as identity from '../civic-identity/identity.js';
@@ -58,7 +58,7 @@ export function createNode({
     },
 
     getEcosystemRecommendations() {
-      const { getEcosystemRecommendations } = require('./connectors/ecolibrium-directory.js');
+      const { getEcosystemRecommendations } = require('./connectors/commonweave-directory.js');
       return getEcosystemRecommendations(db, nodeSlug, bounds);
     },
 

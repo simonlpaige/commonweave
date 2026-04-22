@@ -1,4 +1,4 @@
-# 🌍 Ecolibrium Global Civil Society Directory
+﻿# 🌍 Commonweave Global Civil Society Directory
 
 *Last updated: 2026-04-22 02:59 UTC*
 

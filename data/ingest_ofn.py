@@ -1,11 +1,11 @@
-"""
-Ingest Open Food Network instances into Ecolibrium DB.
+﻿"""
+Ingest Open Food Network instances into Commonweave DB.
 Each national/regional OFN instance is a food sovereignty cooperative platform.
 """
 import sqlite3
 from datetime import datetime
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 
 COUNTRY_CENTROIDS = {
     'AU': (-25.27, 133.78), 'GB': (55.38, -3.44), 'FR': (46.23, 2.21),

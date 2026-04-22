@@ -1,4 +1,4 @@
-"""
+﻿"""
 ECO-2: Nigeria (NG) Regional Research
 Uses web search (Puter/DuckDuckGo) to find Nigerian organizations missing from bulk data.
 Output: data/regional/DIRECTORY_NG.md
@@ -16,7 +16,7 @@ import time
 import sys
 import re
 
-DATA_DIR = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data"
+DATA_DIR = r"C:\Users\simon\.openclaw\workspace\commonweave\data"
 OUTPUT_FILE = os.path.join(DATA_DIR, "regional", "DIRECTORY_NG.md")
 TOOLS_DIR = r"C:\Users\simon\.openclaw\workspace\tools"
 

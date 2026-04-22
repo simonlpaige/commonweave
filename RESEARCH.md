@@ -1,4 +1,4 @@
-# Ecolibrium Research: Existing Work, Tools, and Allies
+﻿# Commonweave Research: Existing Work, Tools, and Allies
 
 > *A deep dive into what already exists for each area of the framework. Nothing starts from zero.*
 
@@ -23,7 +23,7 @@ At peak (2013-2014):
 - Community co-evolution: features grew with users, not ahead of them
 - Cross-cultural adaptation: 243 countries, multilingual
 
-**What it got wrong (and what Ecolibrium must fix):**
+**What it got wrong (and what Commonweave must fix):**
 - Centralized hosting + philanthropic dependency = fatal single point of failure
 - The WiserPlatform was released open-source in 2008, but no distributed self-hosting ecosystem formed in time
 - Visibility without interoperability: 114,994 organizations existed but supply chains and coordination still siloed by issue area
@@ -31,7 +31,7 @@ At peak (2013-2014):
 **Key quote from the final About page (April 2014):**
 > "What was missing was a map and directory of the flourishing network, one that included the necessary resources for communication and cooperation; in essence, an infrastructure through which we could coordinate the efforts of civil society."
 
-**For the full analysis and section-by-section application to Ecolibrium, see [WISEREARTH.md](WISEREARTH.md).**
+**For the full analysis and section-by-section application to Commonweave, see [WISEREARTH.md](WISEREARTH.md).**
 
 *Sources: WiserEarth History (web.archive.org/web/20110107132858/http://www.wiserearth.org/article/history); Wiser.org About (web.archive.org/web/20140411055408/http://wiser.org/article/About); WiserEarth Principles (web.archive.org/web/20110109113633/http://www.wiserearth.org/article/45ffd940b3d2cb1127e90fce3e47cc19); Wikipedia/Wiser.org; Paul Hawken, Blessed Unrest, Viking Press, 2007.*
 
@@ -62,7 +62,7 @@ At peak (2013-2014):
 **Key resources:**
 - The Democracy Foundation maintains a comprehensive list of 50+ e-democracy projects: democracy.foundation/similar-projects
 
-### Recommendations for Ecolibrium
+### Recommendations for Commonweave
 
 1. Don't build new voting software — integrate with Decidim and ElectionGuard. They're battle-tested.
 2. Focus the framework's contribution on the *governance design* layer: how liquid democracy, sortition, and recall mechanisms interoperate.
@@ -90,7 +90,7 @@ At peak (2013-2014):
 - **Evergreen Cooperatives** (Cleveland, OH) — Network of worker-owned, green businesses anchored by local institutions.
 - **P2P Foundation** — Extensive research and policy proposals on commons-based economics and transition.
 
-### Recommendations for Ecolibrium
+### Recommendations for Commonweave
 
 1. Link to the Guaranteed Income Pilots Dashboard as a living evidence base.
 2. Study the Preston Model as a concrete "Phase 1" pilot — it shows how existing local governments can begin redirecting wealth without national policy changes.
@@ -116,7 +116,7 @@ At peak (2013-2014):
 - **Kerala's public health system** — High health outcomes on low GDP through investment in primary care, education, and community health.
 - **NHS (UK)** — Despite its challenges, remains the most comprehensive single-payer system in the developed world.
 
-### Recommendations for Ecolibrium
+### Recommendations for Commonweave
 
 1. The Community Health Toolkit is the single most deployment-ready piece of the framework. It already works offline in low-infrastructure environments.
 2. Cuba's polyclinic model should be documented as a governance template for community-embedded healthcare.
@@ -144,7 +144,7 @@ At peak (2013-2014):
 - The European Agricultural Resilience Act (January 2026) provides subsidies for converting abandoned commercial real estate into vertical farms using closed-loop hydroponic systems.
 - Saudi Arabia's NEOM project is piloting advanced aeroponics with solar microgrids for caloric sovereignty in arid environments.
 
-### Recommendations for Ecolibrium
+### Recommendations for Commonweave
 
 1. Open Food Network is the infrastructure layer for food distribution. It should be integrated directly.
 2. Document La Via Campesina's principles of food sovereignty — they've been doing this work for 30 years.
@@ -173,7 +173,7 @@ At peak (2013-2014):
 - **Escuela Nueva** (Colombia) — Scalable model for rural, multi-grade, democratic education. Adopted in 16+ countries.
 - **Democratic free schools** — Sudbury Valley, Summerhill, and hundreds of schools worldwide where students govern themselves.
 
-### Recommendations for Ecolibrium
+### Recommendations for Commonweave
 
 1. Don't reinvent educational content — build on existing open educational resources.
 2. Focus the framework on *governance* of education: who decides what's taught, how communities control their schools, and how education connects to the broader commons.
@@ -200,7 +200,7 @@ At peak (2013-2014):
 - Elinor Ostrom's commons governance theory provides the intellectual framework.
 - **Agrarian Trust** — Applying CLT principles specifically to agricultural land stewardship.
 
-### Recommendations for Ecolibrium
+### Recommendations for Commonweave
 
 1. Community Land Trusts are the single most proven mechanism for transitioning from private to commons-based land tenure. The framework should adopt the CLT model as its primary land transition strategy.
 2. The tripartite governance structure (leaseholders, community residents, public interest) is a proven template for democratic land governance.
@@ -225,7 +225,7 @@ At peak (2013-2014):
 - **Rwanda's Gacaca courts** — Community-based justice system for post-genocide reconciliation.
 - **Norway's and Finland's prison systems** — Focused on rehabilitation and reintegration, with among the lowest recidivism rates in the world.
 
-### Recommendations for Ecolibrium
+### Recommendations for Commonweave
 
 1. Common Justice's model proves restorative justice works for violent felonies, not just minor offenses. This is critical evidence.
 2. The framework should advocate for restorative justice as the *default*, with incarceration as the rare exception — the inverse of current systems.
@@ -250,7 +250,7 @@ At peak (2013-2014):
 - **MyData Global** — Movement for human-centered personal data management.
 - **Solid** (Tim Berners-Lee) — Protocol for decentralized data ownership.
 
-### Recommendations for Ecolibrium
+### Recommendations for Commonweave
 
 1. The 900+ rural electric cooperatives in the US are an existing proof of concept for community energy sovereignty.
 2. The Fediverse / ActivityPub protocol is the model for decentralized digital infrastructure.
@@ -269,7 +269,7 @@ At peak (2013-2014):
 - **Barcelona's Superblocks** — Reclaiming streets from cars for public recreation, play, and community gathering.
 - **Public libraries** — The original commons institution, providing free access to knowledge, gathering space, and community services.
 
-### Recommendations for Ecolibrium
+### Recommendations for Commonweave
 
 1. Ireland's Basic Income for Artists is a concrete model to document.
 2. Barcelona's Superblocks demonstrate how physical space can be reclaimed for recreation and community.
@@ -287,7 +287,7 @@ At peak (2013-2014):
 - **Gross National Happiness Commission** (Bhutan) — Operational since 2008, screens all policy proposals against happiness metrics.
 - **Sortition / Citizens' Assemblies** — France's Convention Citoyenne pour le Climat (2019-2020), Ireland's Citizens' Assembly (led to marriage equality and abortion reform), and many others demonstrate that randomly selected citizens can make better policy than elected politicians without cults of personality.
 
-### Recommendations for Ecolibrium
+### Recommendations for Commonweave
 
 1. The Wellbeing Economy Alliance is the most aligned existing network. Direct collaboration is essential.
 2. Citizens' Assemblies via sortition are the most proven mechanism for removing personality from politics.
@@ -298,7 +298,7 @@ At peak (2013-2014):
 ## Connected Projects: Key Ideas to Integrate
 
 ### From Open Source Ecology
-- **Modular, open-source industrial machines** — The GVCS approach of breaking civilization into 50 buildable machines is a powerful model. Ecolibrium should reference OSE's work for the physical infrastructure layer.
+- **Modular, open-source industrial machines** — The GVCS approach of breaking civilization into 50 buildable machines is a powerful model. Commonweave should reference OSE's work for the physical infrastructure layer.
 - **Distributed manufacturing** — The principle that any community should be able to fabricate what it needs locally.
 - **Source:** opensourceecology.org, github.com/OpenSourceEcology
 
@@ -309,7 +309,7 @@ At peak (2013-2014):
 - **Source:** commonstransition.org, wiki.p2pfoundation.net
 
 ### From Decidim
-- **Modular participation architecture** — Decidim's approach of composable participation modules (proposals, debates, budgets, assemblies) is a governance design pattern Ecolibrium should adopt.
+- **Modular participation architecture** — Decidim's approach of composable participation modules (proposals, debates, budgets, assemblies) is a governance design pattern Commonweave should adopt.
 - **Source:** github.com/decidim
 
 ### From Solve Everything
@@ -323,30 +323,30 @@ At peak (2013-2014):
 - **Source:** github.com/AshmanRoonz/OpenDemocracy
 
 ### From HumanityOS / United Humanity
-**HumanityOS** (united-humanity.us, github.com/Shaostoul/Humanity) is a free, public-domain (CC0) cooperative platform and game engine built to end poverty through capability, not charity. Launched May 2023 by Michael Boisson. Several design decisions are directly relevant to Ecolibrium:
+**HumanityOS** (united-humanity.us, github.com/Shaostoul/Humanity) is a free, public-domain (CC0) cooperative platform and game engine built to end poverty through capability, not charity. Launched May 2023 by Michael Boisson. Several design decisions are directly relevant to Commonweave:
 
-- **Self-custody cryptographic identity** — Each user's Ed25519 keypair *is* their identity and their wallet. No accounts, no passwords, no home servers. No platform controls access. This is the pattern Ecolibrium should adopt for all commons participation systems — identity as a personal sovereign good, not a corporate credential.
+- **Self-custody cryptographic identity** — Each user's Ed25519 keypair *is* their identity and their wallet. No accounts, no passwords, no home servers. No platform controls access. This is the pattern Commonweave should adopt for all commons participation systems — identity as a personal sovereign good, not a corporate credential.
   - *Source: united-humanity.us — "Your Ed25519 key is your identity AND your wallet. No accounts. No passwords. No home servers."*
 
 - **Federated, local-first architecture** — HumanityOS servers discover each other via Phase 1 federation. The desktop app works 100% offline from first launch. This is the correct infrastructure model for a resilient digital commons that must function in low-connectivity, high-censorship, or crisis environments.
   - *Source: github.com/Shaostoul/Humanity — "Works 100% offline from first launch. The desktop app bundles everything locally. Background sync pulls updates when connected."*
 
-- **Poverty as capability deficit, not money deficit** — The project's core framing: "Poverty is lack of capability. Not just lack of money. People trapped in systems they can't understand, knowledge they can't access, skills they never learned." This reframes Ecolibrium's approach to economic transition — the goal isn't redistribution alone, but capability infrastructure.
+- **Poverty as capability deficit, not money deficit** — The project's core framing: "Poverty is lack of capability. Not just lack of money. People trapped in systems they can't understand, knowledge they can't access, skills they never learned." This reframes Commonweave's approach to economic transition — the goal isn't redistribution alone, but capability infrastructure.
   - *Source: united-humanity.us — Mission section*
 
 - **The Humanity Accord** — A model constitution for sovereign nations: voluntary compact, individual dignity as inviolable, survival and basic dignity unconditional, all governmental power auditable by those affected, 100/1,000/10,000-year decision horizons required, diversity protected, framework remains revisable. Key principle: "The single greatest enabler of tyranny, corruption, fraud, scams, evil, and persistent poverty is the voluntary surrender of individual judgment."
   - *Source: github.com/Shaostoul/Humanity/blob/main/docs/accord/humanity_accord.md*
-  - This is a strong reference for Ecolibrium's democratic infrastructure section — particularly the long-term horizon requirement and the anti-charisma provisions.
+  - This is a strong reference for Commonweave's democratic infrastructure section — particularly the long-term horizon requirement and the anti-charisma provisions.
 
-- **Integrated learning through play** — Project Universe (the game layer of HumanityOS) teaches practical skills (homesteading, agriculture, building, health) using the same underlying data layer as the real platform. In-game skills reflect real-world capability. This demonstrates that capability-building can be intrinsically motivating — directly relevant to Ecolibrium's education and values transformation sections.
+- **Integrated learning through play** — Project Universe (the game layer of HumanityOS) teaches practical skills (homesteading, agriculture, building, health) using the same underlying data layer as the real platform. In-game skills reflect real-world capability. This demonstrates that capability-building can be intrinsically motivating — directly relevant to Commonweave's education and values transformation sections.
   - *Source: github.com/Shaostoul/Humanity — "Both share the same server, identity system, and data layer. The game is how people learn to use the tools for real."*
 
 - **Peer-to-peer marketplace without rent-seeking** — The platform includes a marketplace for goods, services, and skills with donation pricing presets and no extractive intermediary. Direct model for Phase 1 commons-based exchange infrastructure.
   - *Source: united-humanity.us — Platform feature list*
 
-**Recommendation for Ecolibrium:**
+**Recommendation for Commonweave:**
 1. Add HumanityOS to the Allied Open-Source Projects section of README.md with explicit note that it is a deployment-ready implementation of several Phase 1 infrastructure components.
-2. Adopt the Humanity Accord's long-horizon governance requirement (100/1,000/10,000-year decision windows) as a formal principle — Ecolibrium's framework lacks explicit inter-generational timeframe requirements.
+2. Adopt the Humanity Accord's long-horizon governance requirement (100/1,000/10,000-year decision windows) as a formal principle — Commonweave's framework lacks explicit inter-generational timeframe requirements.
 3. The cryptographic identity model (keypair = identity = wallet = commons participation token) resolves several open questions in democratic infrastructure — one key per person, sovereign, unrevokable by any platform.
 4. Flag HumanityOS as a potential technical collaborator, not just a reference — their infrastructure is CC0 and deployment-ready.
 
@@ -364,6 +364,6 @@ At peak (2013-2014):
 
 ## Sources & Credits
 
-All projects, organizations, and models referenced in this document are credited to their respective creators and communities. Ecolibrium does not claim ownership of any of these ideas — it seeks to weave them together into a coherent transition framework.
+All projects, organizations, and models referenced in this document are credited to their respective creators and communities. Commonweave does not claim ownership of any of these ideas — it seeks to weave them together into a coherent transition framework.
 
 This research was compiled in April 2026 and represents a snapshot. The landscape is evolving rapidly. Contributors are encouraged to update and expand this document as new projects emerge.

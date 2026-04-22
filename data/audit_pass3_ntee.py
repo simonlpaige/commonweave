@@ -1,10 +1,10 @@
-"""
+﻿"""
 Pass 3: NTEE-based exclusion for US orgs.
-Only keeps NTEE categories directly relevant to Ecolibrium's mission.
+Only keeps NTEE categories directly relevant to Commonweave's mission.
 """
 import sqlite3
 
-db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db')
+db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db')
 c = db.cursor()
 
 c.execute("""SELECT COUNT(*) FROM organizations 
@@ -12,7 +12,7 @@ c.execute("""SELECT COUNT(*) FROM organizations
     AND country_code = 'US'""")
 before = c.fetchone()[0]
 
-# NTEE categories to KEEP (directly aligned with Ecolibrium mission)
+# NTEE categories to KEEP (directly aligned with Commonweave mission)
 # Note: 'Y' (Mutual/Membership Benefit) was reviewed 2026-04-17 and is intentionally excluded.
 # 'Y' covers fraternal orgs, cemeteries, pension funds -- not mission-aligned.
 KEEP_NTEE = ['C', 'E', 'F', 'I', 'J', 'K', 'L', 'O', 'P', 'Q', 'R', 'S', 'W']

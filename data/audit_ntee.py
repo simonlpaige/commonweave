@@ -1,5 +1,5 @@
-import sqlite3
-db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db')
+﻿import sqlite3
+db = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db')
 c = db.cursor()
 
 # NTEE code distribution for active US orgs
@@ -39,7 +39,7 @@ c.execute("""
 # Y = Mutual/Membership Benefit
 # Z = Unknown
 
-ECOLIBRIUM_RELEVANT = {
+COMMONWEAVE_RELEVANT = {
     'C': 'Environment',
     'E': 'Health Care',
     'F': 'Mental Health',
@@ -76,8 +76,8 @@ print("-" * 70)
 keep_total = 0
 exclude_total = 0
 for major, count in c.fetchall():
-    if major in ECOLIBRIUM_RELEVANT:
-        verdict = f"KEEP - {ECOLIBRIUM_RELEVANT[major]}"
+    if major in COMMONWEAVE_RELEVANT:
+        verdict = f"KEEP - {COMMONWEAVE_RELEVANT[major]}"
         keep_total += count
     elif major in EXCLUDE_NTEE:
         verdict = f"EXCLUDE - {EXCLUDE_NTEE[major]}"

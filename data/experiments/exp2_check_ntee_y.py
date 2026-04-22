@@ -1,4 +1,4 @@
-"""
+﻿"""
 Experiment 2: NTEE 'Y' exclusion preview.
 
 'Y' (Mutual/Membership Benefit) was reviewed and is NOT in KEEP_NTEE.
@@ -9,7 +9,7 @@ Read-only. No data is modified.
 """
 import sqlite3
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 
 # These are the statuses that mean an org is still in the kept/active set
 KEPT_STATUSES_EXCLUSION = (

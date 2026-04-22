@@ -1,5 +1,5 @@
-"""
-Wikidata SPARQL ingest for Ecolibrium.
+﻿"""
+Wikidata SPARQL ingest for Commonweave.
 Queries multiple org types per country - nonprofits, cooperatives, NGOs, trade unions,
 environmental orgs, community orgs, foundations, etc.
 Free, no API key, returns structured data with descriptions and coordinates.
@@ -13,7 +13,7 @@ import urllib.parse
 import urllib.error
 from datetime import datetime
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 WIKIDATA_ENDPOINT = 'https://query.wikidata.org/sparql'
 
 # ISO 3166-1 alpha-2 to Wikidata country QID
@@ -206,7 +206,7 @@ def run_sparql(query):
     params = urllib.parse.urlencode({'format': 'json', 'query': query})
     url = f'{WIKIDATA_ENDPOINT}?{params}'
     req = urllib.request.Request(url, headers={
-        'User-Agent': 'Ecolibrium/1.0 (https://github.com/simonlpaige/ecolibrium)',
+        'User-Agent': 'Commonweave/1.0 (https://github.com/simonlpaige/commonweave)',
         'Accept': 'application/sparql-results+json'
     })
     try:
@@ -279,7 +279,7 @@ def fetch_country(cc, country_name):
 
 
 def ingest_to_db(orgs, cc, country_name):
-    """Insert Wikidata orgs into the Ecolibrium DB."""
+    """Insert Wikidata orgs into the Commonweave DB."""
     if not orgs:
         return 0
 

@@ -1,4 +1,4 @@
-# Ecolibrium Data Quality Audit Plan
+﻿# Commonweave Data Quality Audit Plan
 
 ## Problem
 698K orgs, ~5.9% obviously contaminated (41K), ~78% have zero alignment signal (544K at score 0). The dataset is mostly noise from the IRS BMF bulk import.

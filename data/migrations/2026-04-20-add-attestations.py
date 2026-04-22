@@ -1,4 +1,4 @@
-"""
+﻿"""
 Migration: add `attestations` TEXT (JSON) column to organizations, backfill
 with an ingest-provenance attestation derived from existing source+date_added.
 
@@ -12,7 +12,7 @@ import os
 import sqlite3
 from datetime import datetime
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 
 
 def column_exists(cursor, table, col):

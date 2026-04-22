@@ -1,5 +1,5 @@
-"""
-ECO-1: Download and ingest IRS EO BMF data into ecolibrium_directory.db
+﻿"""
+ECO-1: Download and ingest IRS EO BMF data into commonweave_directory.db
 Runs directly as Python - bypasses Gemma/Paperclip heartbeat issues.
 """
 
@@ -12,8 +12,8 @@ import json
 import time
 import sys
 
-DB_PATH = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db"
-DATA_DIR = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data"
+DB_PATH = r"C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db"
+DATA_DIR = r"C:\Users\simon\.openclaw\workspace\commonweave\data"
 
 UNIQ_SOURCE_SQL = """
 CREATE UNIQUE INDEX IF NOT EXISTS uniq_org_source

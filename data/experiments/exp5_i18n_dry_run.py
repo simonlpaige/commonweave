@@ -1,4 +1,4 @@
-"""
+﻿"""
 Experiment 5: i18n dry-run preview (word-boundary version).
 
 Read-only. No writes. Uses phase2_filter.score_org directly so results
@@ -30,7 +30,7 @@ from i18n_terms import (  # noqa: E402
 # Reuse scoring to estimate lift under the new multilingual list.
 from phase2_filter import score_org  # noqa: E402
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 
 
 def nfc_lower(text):

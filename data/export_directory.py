@@ -1,5 +1,5 @@
-"""
-Export ecolibrium DB + regional files into ecolibrium/DIRECTORY.md
+﻿"""
+Export commonweave DB + regional files into commonweave/DIRECTORY.md
 Strategy: curated summary page with stats + regional research embedded.
 US data: top orgs per category (not all 689K - that's a separate search tool).
 """
@@ -9,9 +9,9 @@ import glob
 import re
 from datetime import datetime
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
-REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\regional'
-OUTPUT_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\DIRECTORY.md'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
+REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data\regional'
+OUTPUT_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\DIRECTORY.md'
 ACTIVE_WHERE = "status='active'"
 
 db = sqlite3.connect(DB_PATH)
@@ -43,7 +43,7 @@ def get_country_name(filepath):
     return m.group(1) if m else os.path.basename(filepath)
 
 lines = []
-lines.append("# 🌍 Ecolibrium Global Civil Society Directory\n")
+lines.append("# 🌍 Commonweave Global Civil Society Directory\n")
 lines.append(f"*Last updated: {now}*\n")
 lines.append("")
 

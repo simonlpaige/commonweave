@@ -1,4 +1,4 @@
-# Contributing to Ecolibrium
+﻿# Contributing to Commonweave
 
 > The framework gets stronger when people break it. Your lived experience, domain expertise, and honest disagreement are the most valuable contributions.
 
@@ -37,7 +37,7 @@ This framework needs people who understand specific domains: health workers who 
 ### What Failed
 [Honest failure analysis with sources]
 
-### Implications for Ecolibrium
+### Implications for Commonweave
 [How this informs or challenges the framework]
 
 ### Sources
@@ -142,7 +142,7 @@ A contribution is ready for review when:
 ## Getting Started
 
 1. Read the [README](README.md) — especially the Open Questions section
-2. Browse [open Issues](https://github.com/simonlpaige/ecolibrium/issues)
+2. Browse [open Issues](https://github.com/simonlpaige/commonweave/issues)
 3. Read [RESEARCH.md](RESEARCH.md) to understand what's already been documented
 4. Pick something and start
 

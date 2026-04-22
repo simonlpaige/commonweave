@@ -1,4 +1,4 @@
-"""
+﻿"""
 Phase 2: Second-pass alignment filter + model_type classification.
 Scores every active org and sets alignment_score and model_type.
 
@@ -17,7 +17,7 @@ if _THIS_DIR not in sys.path:
     sys.path.insert(0, _THIS_DIR)
 from i18n_terms import STRONG_POS_MULTI  # noqa: E402
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 
 # Original English-biased list. Preserved verbatim; multilingual expansion is
 # merged below so reviewers can still see the original assumptions.
