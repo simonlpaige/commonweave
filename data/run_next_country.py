@@ -304,32 +304,185 @@ def search(query):
         print(f'  search error: {e}')
         return ''
 
+
+def search_brave(query):
+    """Run a Brave Search query via tools/web-search.js --provider brave.
+    Uses BRAVE_SEARCH_API_KEY from the secrets vault via accessor.js."""
+    try:
+        # Get key from vault at runtime
+        key_result = subprocess.run(
+            ['node', '-e',
+             "const a=require('./tools/secrets/accessor');try{console.log(a.getByLabel('Brave Search API Key'))}catch(e){console.log('')}"],
+            capture_output=True, text=True, timeout=8, cwd=WORKSPACE_DIR,
+            encoding='utf-8', errors='replace'
+        )
+        brave_key = (key_result.stdout or '').strip()
+        if not brave_key:
+            return ''  # No key available, skip silently
+        result = subprocess.run(
+            ['node', os.path.join(WORKSPACE_DIR, 'tools', 'web-search.js'),
+             '--provider', 'brave', '--json', query],
+            capture_output=True, text=True, timeout=12, cwd=WORKSPACE_DIR,
+            encoding='utf-8', errors='replace',
+            env={**os.environ, 'BRAVE_SEARCH_API_KEY': brave_key}
+        )
+        if result.returncode != 0 or not result.stdout.strip():
+            return ''
+        # Parse JSON and convert to text blobs
+        import json as _json
+        try:
+            data = _json.loads(result.stdout)
+            if isinstance(data, list):
+                lines = []
+                for item in data:
+                    title = item.get('title', '')
+                    url = item.get('url', '')
+                    snippet = item.get('snippet', '')
+                    if title:
+                        lines.append(f'## {title}')
+                    if snippet:
+                        lines.append(snippet)
+                    if url:
+                        lines.append(f'Source: {url}')
+                return '\n'.join(lines)[:3000]
+            elif isinstance(data, dict) and 'results' in data:
+                lines = []
+                for item in data.get('results', []):
+                    title = item.get('title', '')
+                    desc = item.get('description', '')
+                    url = item.get('url', '')
+                    if title:
+                        lines.append(f'## {title}')
+                    if desc:
+                        lines.append(desc)
+                    if url:
+                        lines.append(f'Source: {url}')
+                return '\n'.join(lines)[:3000]
+        except Exception:
+            return result.stdout[:3000]
+    except subprocess.TimeoutExpired:
+        print(f'  Brave search timeout, skipping')
+        return ''
+    except Exception as e:
+        print(f'  Brave search error: {e}')
+        return ''
+
+
+def fetch_wikipedia_links(cc, country_name):
+    """Scrape outbound org URLs from Wikipedia's cooperative/civil society pages.
+    Returns a text blob in the same format as search results."""
+    import urllib.request
+    import urllib.error
+    import re
+
+    # Wikipedia pages likely to list cooperatives / civil society by country
+    country_slug = country_name.replace(' ', '_')
+    candidate_urls = [
+        f'https://en.wikipedia.org/wiki/Cooperatives_in_{country_slug}',
+        f'https://en.wikipedia.org/wiki/List_of_cooperatives_in_{country_slug}',
+        f'https://en.wikipedia.org/wiki/Civil_society_in_{country_slug}',
+        f'https://en.wikipedia.org/wiki/Non-governmental_organizations_in_{country_slug}',
+    ]
+
+    # Native-language Wikipedia from native_queries mappings
+    NATIVE_WP = {
+        'IN': [
+            'https://hi.wikipedia.org/wiki/\u0938\u0939\u0915\u093e\u0930\u0940_%E0%A4%B8%E0%A4%AE%E0%A4%BF%E0%A4%A4%E0%A4%BF',
+        ],
+        'DE': ['https://de.wikipedia.org/wiki/Genossenschaft'],
+        'FR': ['https://fr.wikipedia.org/wiki/Coop%C3%A9rative'],
+        'BR': ['https://pt.wikipedia.org/wiki/Cooperativa'],
+        'AR': ['https://es.wikipedia.org/wiki/Cooperativa'],
+    }
+    candidate_urls += NATIVE_WP.get(cc, [])
+
+    lines = []
+    org_pattern = re.compile(
+        r'<a[^>]+href="(https?://[^"]{10,200})"[^>]*>([^<]{5,80})</a>',
+        re.IGNORECASE
+    )
+    headers = {'User-Agent': 'Commonweave/1.0 (+https://commonweave.org)'}
+
+    for url in candidate_urls:
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                html = resp.read().decode('utf-8', errors='replace')[:200000]
+            # Extract outbound org links (not Wikipedia internal)
+            found = 0
+            for m in org_pattern.finditer(html):
+                href, anchor = m.group(1), m.group(2)
+                if 'wikipedia.org' in href or 'wikimedia.org' in href:
+                    continue
+                if any(skip in href for skip in ['google.', 'facebook.', 'twitter.', 'youtube.']):
+                    continue
+                # Only keep anchors that look like org names
+                if len(anchor) < 5 or anchor.lower() in ('here', 'source', 'website', 'link', 'edit'):
+                    continue
+                lines.append(f'## {anchor}')
+                lines.append(f'Website: {href}')
+                found += 1
+                if found >= 30:
+                    break
+        except urllib.error.HTTPError as e:
+            if e.code != 404:
+                print(f'  Wikipedia fetch error {e.code}: {url}')
+        except Exception:
+            pass
+
+    return '\n'.join(lines[:500])
+
+
 DDG_CONSECUTIVE_TIMEOUT_LIMIT = 3  # bail on DDG if this many consecutive timeouts
 
 def research_country(cc, country_name, deep=False):
-    """Run searches for a country using English + native language queries.
+    """Run searches for a country using DDG + Brave + Wikipedia sources.
     deep=True raises the cap for thin/undercovered countries."""
     queries = get_queries(cc, country_name)
     cap = 12 if deep else 6
     queries = queries[:cap]
     label = 'DEEP' if deep else 'capped'
-    print(f'Searching: {country_name} ({cc}) — {len(queries)} queries ({label})')
+    print(f'Searching: {country_name} ({cc}) — {len(queries)} queries ({label}), sources=DDG+Brave+Wikipedia')
 
-    results = []
+    ddg_results = []
+    brave_results = []
     consecutive_timeouts = 0
+
+    # DDG queries
     for i, q in enumerate(queries):
-        print(f'  [{i+1}/{len(queries)}] {q[:60]}...' if len(q) > 60 else f'  [{i+1}/{len(queries)}] {q}')
+        print(f'  [DDG {i+1}/{len(queries)}] {q[:55]}...' if len(q) > 55 else f'  [DDG {i+1}/{len(queries)}] {q}')
         text = search(q)
         if text:
-            results.append(text)
+            ddg_results.append(text)
             consecutive_timeouts = 0
         else:
             consecutive_timeouts += 1
             if consecutive_timeouts >= DDG_CONSECUTIVE_TIMEOUT_LIMIT:
-                print(f'  DDG appears rate-limited ({consecutive_timeouts} consecutive failures), skipping remaining queries')
+                print(f'  DDG appears rate-limited ({consecutive_timeouts} consecutive failures), skipping remaining DDG')
                 break
 
-    return '\n\n'.join(results)
+    # Brave Search (first 3 queries only to conserve credits)
+    brave_queries = queries[:3]
+    for i, q in enumerate(brave_queries):
+        print(f'  [Brave {i+1}/{len(brave_queries)}] {q[:55]}...' if len(q) > 55 else f'  [Brave {i+1}/{len(brave_queries)}] {q}')
+        text = search_brave(q)
+        if text:
+            brave_results.append(text)
+
+    # Wikipedia external-links scan
+    print(f'  [Wikipedia] scanning coop/civil-society pages for {country_name}...')
+    wiki_text = fetch_wikipedia_links(cc, country_name)
+    if wiki_text:
+        print(f'  [Wikipedia] extracted {wiki_text.count(chr(10))} lines')
+
+    # Interleave: DDG first, then Brave, then Wikipedia
+    # Dedup within run by domain+name happens in extract_orgs
+    all_results = ddg_results + brave_results
+    if wiki_text:
+        all_results.append(wiki_text)
+
+    print(f'  Sources: DDG={len(ddg_results)}, Brave={len(brave_results)}, Wiki={'1' if wiki_text else '0'}')
+    return '\n\n'.join(all_results)
 
 def extract_orgs(search_text, cc, country_name):
     """Parse search results to extract organization names and descriptions."""

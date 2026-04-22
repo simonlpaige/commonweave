@@ -210,13 +210,39 @@ NATIVE_QUERIES = {
 
     # ── South Asia ───────────────────────────────────────────────────────────
     'IN': [
+        # Hindi (largest speaker base)
         'नागरिक समाज संगठन भारत सूची',
-        'सहकारी समिति भारत NCUI',
+        'सहकारी समिति भारत NCUI राष्ट्रीय सहकारी',
+        'सहकारी बैंक भारत प्राथमिक कृषि',
         'स्वयं सहायता समूह भारत',
         'आदिवासी संगठन भारत',
         'पर्यावरण संगठन भारत',
+        # Bengali
+        'সমবায় সমিতি ভারত তালিকা',
+        'নাগরিক সমাজ সংগঠন ভারত',
+        'স্বনির্ভর গোষ্ঠী ভারত পশ্চিমবঙ্গ',
+        # Tamil
+        'கூட்டுறவு சங்கம் இந்தியா பட்டியல்',
+        'சமூக நல அமைப்புகள் தமிழ்நாடு',
+        # Marathi
+        'सहकारी संस्था महाराष्ट्र यादी',
+        'ग्रामीण विकास संस्था महाराष्ट्र',
+        # Telugu
+        'సహకార సంఘం ఆంధ్రప్రదేశ్ జాబితా',
+        # Gujarati
+        'સહકારી મંડળી ગુજરાત યાદી',
+        'ખેડૂત સહકારી ગુજરાત',
+        # Kannada
+        'ಸಹಕಾರ ಸಂಘ ಕರ್ನಾಟಕ ಪಟ್ಟಿ',
+        # Punjabi
+        'ਸਹਿਕਾਰੀ ਸਭਾ ਪੰਜਾਬ ਸੂਚੀ',
+        # English (India-specific)
         'civil society organizations India directory NGO Darpan',
-        'self-help groups India SHG federation',
+        'self-help groups India SHG federation NABARD',
+        'cooperatives India NCUI IFFCO Amul federation',
+        'primary agricultural credit societies India PACS NABARD',
+        'worker cooperative India solidarity economy',
+        'India microfinance institution NBFC MFI directory',
     ],
     'BD': [
         'নাগরিক সমাজ সংগঠন বাংলাদেশ তালিকা',
