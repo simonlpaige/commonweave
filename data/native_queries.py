@@ -236,13 +236,21 @@ NATIVE_QUERIES = {
         'ಸಹಕಾರ ಸಂಘ ಕರ್ನಾಟಕ ಪಟ್ಟಿ',
         # Punjabi
         'ਸਹਿਕਾਰੀ ਸਭਾ ਪੰਜਾਬ ਸੂਚੀ',
-        # English (India-specific)
+        # English (India-specific) - formal and hybrid tiers
         'civil society organizations India directory NGO Darpan',
         'self-help groups India SHG federation NABARD',
         'cooperatives India NCUI IFFCO Amul federation',
         'primary agricultural credit societies India PACS NABARD',
         'worker cooperative India solidarity economy',
         'India microfinance institution NBFC MFI directory',
+        # English (India-specific) - hybrid and informal tiers
+        'farmer producer organizations India FPO SFAC NABARD list',
+        'Kudumbashree Kerala CDS community development society directory',
+        'JEEViKA Bihar self-help group federation',
+        'community forest resource directory India FRA CFR',
+        'pani panchayat India water users association',
+        'Van Panchayat Uttarakhand community forest',
+        'forest rights act CFR title holders India state list',
     ],
     'BD': [
         'নাগরিক সমাজ সংগঠন বাংলাদেশ তালিকা',
