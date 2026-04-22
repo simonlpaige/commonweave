@@ -210,15 +210,20 @@
       "sections_present": 7
     },
     "ES": {
-      "total": 4,
+      "total": 28,
       "verified": 1,
-      "quality": 4,
+      "quality": 22,
       "sections": {
+        "cooperatives": 2,
+        "democracy": 8,
+        "education": 4,
+        "energy_digital": 2,
         "food": 1,
+        "healthcare": 8,
         "recreation_arts": 3
       },
-      "completeness": 20.0,
-      "sections_present": 2
+      "completeness": 62.5,
+      "sections_present": 7
     },
     "ET": {
       "total": 21,
@@ -1422,9 +1427,9 @@
   },
   "tier_counts": {
     "A": 0,
-    "B": 14858,
+    "B": 14876,
     "C": 0,
-    "D": 9646
+    "D": 9652
   },
   "sections": [
     "democracy",
@@ -1438,6 +1443,6 @@
     "recreation_arts",
     "ecology"
   ],
-  "total_points": 2372,
-  "total_edges": 2781
+  "total_points": 2378,
+  "total_edges": 2793
 }
