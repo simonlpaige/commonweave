@@ -180,25 +180,13 @@ def is_relevant_org(name, desc):
     return True
 
 
-# Alignment scoring constants (mirrors classify_org in run_next_country.py)
-_ALIGN_STRONG = ['cooperative', 'co-op', 'mutual aid', 'indigenous', 'agroecol', 'solidarity', 'restorative',
-                 'credit union', 'land trust', 'commons', 'open source', 'fair trade', 'degrowth']
-_ALIGN_MOD    = ['community', 'environmental', 'health', 'education', 'housing', 'food', 'energy', 'justice', 'rights',
-                 'civil society', 'advocacy', 'humanitarian', 'development', 'ngo', 'nonprofit', 'charity',
-                 'amnesty', 'transparency', 'accountability', 'democracy', 'human rights', 'social',
-                 'international', 'foundation', 'association', 'network', 'alliance', 'federation',
-                 'welfare', 'relief', 'aid', 'sustainable', 'ecology', 'biodiversity', 'climate',
-                 'peace', 'conflict', 'refugee', 'migration', 'disability', 'women', 'youth', 'children']
-_ALIGN_NEG    = ['church', 'parish', 'fraternal', 'golf', 'country club', 'hoa', 'booster', 'cemetery',
-                 'political party', 'military', 'armed forces', 'beauty pageant']
-
-def _alignment_score(name, desc=''):
-    """Compute alignment score for ingest gate (score >= 2 required)."""
-    t = ((name or '') + ' ' + (desc or '')).lower()
-    s = (sum(3 for k in _ALIGN_STRONG if k in t)
-         + sum(1 for k in _ALIGN_MOD if k in t)
-         - sum(3 for k in _ALIGN_NEG if k in t))
-    return max(-5, min(5, s))
+# Multilingual alignment scoring - sourced from MULTILINGUAL-TERMS.md via i18n_align.py
+try:
+    from i18n_align import alignment_score_multilingual as _alignment_score
+except ImportError:
+    import os, sys
+    sys.path.insert(0, os.path.dirname(__file__))
+    from i18n_align import alignment_score_multilingual as _alignment_score
 
 
 def classify_framework(name, desc):
