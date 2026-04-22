@@ -11,6 +11,7 @@
 //   node ingest/sync.js --status           # Show sync status without pulling
 
 import Database from 'better-sqlite3';
+import { existsSync, readFileSync, writeFileSync, unlinkSync } from 'fs';
 import { syncDataset, getIngestSummary, WEST_WALDO_BOUNDS, DATASETS }
   from '../connectors/kc-open-data.js';
 import { syncRecentMatters, syncRecentEvents, getOverdueCommitments }
@@ -18,21 +19,61 @@ import { syncRecentMatters, syncRecentEvents, getOverdueCommitments }
 import { getSocialSummary, scrapeNextdoorPublicPage }
   from '../connectors/social.js';
 import { probeKcOpenData, getConnectorStatus } from './probe.js';
+import { loadConfig } from '../../civic-identity/config.js';
 
 // ----------------------------------------------------------------
 // Config
 // ----------------------------------------------------------------
 
+const CFG = loadConfig();
 const DB_PATH = process.env.NOS_DB_PATH || './neighborhood-os.db';
-const NEIGHBORHOOD = process.env.NOS_NEIGHBORHOOD || 'westwaldo';
-const BOUNDS = JSON.parse(process.env.NOS_BOUNDS || JSON.stringify(WEST_WALDO_BOUNDS));
-const NEXTDOOR_SLUG = process.env.NEXTDOOR_SLUG || 'westwaldomo';
+const NEIGHBORHOOD = process.env.NOS_NEIGHBORHOOD || CFG.slug.split('@')[0] || 'westwaldo';
+const BOUNDS = process.env.NOS_BOUNDS ? JSON.parse(process.env.NOS_BOUNDS) : CFG.bounds;
+const NEXTDOOR_SLUG = process.env.NEXTDOOR_SLUG || CFG.nextdoor?.publicSlug || 'westwaldomo';
+const LOCK_PATH = process.env.NOS_LOCK_PATH || `${DB_PATH}.lock`;
 
 // Parse args
 const args = process.argv.slice(2);
 const sourceFilter = args.includes('--source') ? args[args.indexOf('--source') + 1] : null;
 const statusOnly = args.includes('--status');
 const verbose = args.includes('--verbose') || args.includes('-v');
+const force = args.includes('--force');
+
+// ----------------------------------------------------------------
+// PID lockfile (skip for --status since it is read-only)
+// ----------------------------------------------------------------
+
+function acquireLock() {
+  if (statusOnly) return;
+  if (existsSync(LOCK_PATH)) {
+    try {
+      const existing = parseInt(readFileSync(LOCK_PATH, 'utf8').trim(), 10);
+      if (existing && isProcessAlive(existing)) {
+        if (!force) {
+          console.error(`Another sync is already running (pid ${existing}).`);
+          console.error(`If you are sure it is stuck, delete ${LOCK_PATH} or re-run with --force.`);
+          process.exit(2);
+        } else {
+          console.warn(`--force: ignoring lockfile from pid ${existing}`);
+        }
+      } else {
+        console.warn(`Stale lockfile from pid ${existing} removed.`);
+      }
+    } catch { /* malformed lock, overwrite */ }
+  }
+  writeFileSync(LOCK_PATH, String(process.pid));
+  const release = () => { try { if (existsSync(LOCK_PATH)) unlinkSync(LOCK_PATH); } catch {} };
+  process.on('exit', release);
+  process.on('SIGINT', () => { release(); process.exit(130); });
+  process.on('SIGTERM', () => { release(); process.exit(143); });
+}
+
+function isProcessAlive(pid) {
+  try { process.kill(pid, 0); return true; }
+  catch (err) { return err.code === 'EPERM'; }
+}
+
+acquireLock();
 
 // ----------------------------------------------------------------
 // Main

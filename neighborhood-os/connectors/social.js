@@ -78,19 +78,31 @@ export function ensureSocialTables(db) {
 export async function scrapeNextdoorPublicPage(neighborhoodSlug) {
   // Nextdoor's public neighborhood pages: nextdoor.com/neighborhood/<slug>
   // These show some basic info but most content is login-gated.
-  // This is best-effort - we're looking for: member count, recent public activity.
+  // This is best-effort - we're looking for member count.
+  //
+  // Errors are THROWN now instead of silently returned. The previous shape
+  // (`{ error: ..., url }`) was easy for callers to accept as "success with
+  // zero members" and silently log a dead feed.
   const url = `https://nextdoor.com/neighborhood/${neighborhoodSlug}--kansas-city--mo/`;
-  const res = await fetch(url, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (compatible; NeighborhoodOS/1.0; civic data collector)'
-    }
-  });
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 15_000);
+  let res;
+  try {
+    res = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; NeighborhoodOS/1.0; civic data collector)'
+      },
+      signal: controller.signal
+    });
+  } finally {
+    clearTimeout(timer);
+  }
 
-  if (!res.ok) return { error: `HTTP ${res.status}`, url };
+  if (!res.ok) {
+    throw new Error(`Nextdoor public page returned HTTP ${res.status} for ${url}`);
+  }
 
   const html = await res.text();
-
-  // Extract what we can from the public page (very limited)
   const memberMatch = html.match(/(\d[\d,]+)\s+(?:members?|neighbors?)/i);
   const members = memberMatch ? parseInt(memberMatch[1].replace(',', '')) : null;
 

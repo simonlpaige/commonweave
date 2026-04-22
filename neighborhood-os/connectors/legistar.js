@@ -4,6 +4,7 @@
 // Confirmed working as of April 2026: webapi.legistar.com/v1/kansascity/
 
 import crypto from 'crypto';
+import { fetchJson } from './_fetch.js';
 
 const BASE = 'https://webapi.legistar.com/v1/kansascity';
 
@@ -14,9 +15,7 @@ const BASE = 'https://webapi.legistar.com/v1/kansascity';
 async function legistarGet(path, params = {}) {
   const url = new URL(`${BASE}${path}`);
   Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
-  const res = await fetch(url.toString(), { headers: { 'Accept': 'application/json' } });
-  if (!res.ok) throw new Error(`Legistar ${path}: HTTP ${res.status}`);
-  return res.json();
+  return fetchJson(url.toString());
 }
 
 // ----------------------------------------------------------------

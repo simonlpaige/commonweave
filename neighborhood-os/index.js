@@ -14,11 +14,18 @@ export * as ecoDirConnector from './connectors/commonweave-directory.js';
 export * as identity from '../civic-identity/identity.js';
 export * as voting from '../civic-identity/voting.js';
 export * as federation from '../civic-identity/federation.js';
+export * as federationAggregate from '../civic-identity/federation-aggregate.js';
 export * as issues from '../civic-identity/issues.js';
 export * as commitments from '../civic-identity/commitments.js';
 export * as audit from '../civic-identity/audit.js';
 export * as retention from '../civic-identity/retention.js';
+export * as adminTokens from '../civic-identity/admin-tokens.js';
+export * as twoOpVerify from '../civic-identity/two-op-verify.js';
+export * as config from '../civic-identity/config.js';
+export * as ballotPdf from '../civic-identity/ballot-pdf.js';
+export * as digest from '../civic-identity/digest.js';
 export * as probe from './ingest/probe.js';
+export * as meetingsPacket from './meetings-packet.js';
 
 // ----------------------------------------------------------------
 // Convenience: spin up a full node

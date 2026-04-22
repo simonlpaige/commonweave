@@ -21,10 +21,15 @@ import crypto from 'crypto';
 const BCRYPT_ROUNDS = 10;
 
 export function ensureAdminTokensTable(db) {
+  // Note: label is NOT UNIQUE at the DB level because rotation leaves the
+  // revoked row behind for audit. Uniqueness of ACTIVE tokens per label is
+  // enforced in addAdminToken(). A partial unique index would be cleaner
+  // but SQLite requires expression indexes, which our migration runner
+  // does not currently support in older Node sqlite builds.
   db.exec(`
     CREATE TABLE IF NOT EXISTS admin_tokens (
       id            TEXT PRIMARY KEY,
-      label         TEXT NOT NULL UNIQUE,
+      label         TEXT NOT NULL,
       token_prefix  TEXT NOT NULL,
       token_hash    TEXT NOT NULL,
       scope         TEXT NOT NULL DEFAULT 'full',
@@ -33,6 +38,7 @@ export function ensureAdminTokensTable(db) {
       revoked_at    TEXT
     );
     CREATE INDEX IF NOT EXISTS idx_admin_tokens_prefix ON admin_tokens(token_prefix);
+    CREATE INDEX IF NOT EXISTS idx_admin_tokens_label  ON admin_tokens(label);
   `);
 }
 

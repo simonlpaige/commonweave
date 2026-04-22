@@ -1,0 +1,33 @@
+{
+  "_comment": "Copy this to node.config.json (ignored by git) and edit for your neighborhood.",
+  "slug": "westwaldo@waldonet.local",
+  "name": "West Waldo Neighborhood",
+  "contactEmail": "coordinator@waldonet.local",
+  "bounds": {
+    "north": 38.9920,
+    "south": 38.9540,
+    "east":  -94.5890,
+    "west":  -94.6140
+  },
+  "nextdoor": {
+    "publicSlug": "westwaldomo",
+    "enablePostScrape": false
+  },
+  "facebook": {
+    "groupId": null
+  },
+  "topicKeywords": {
+    "infrastructure": ["pothole", "streetlight", "sidewalk", "sewer", "drainage"],
+    "safety":         ["crime", "police", "theft", "suspicious"],
+    "neighbor":       ["neighbor", "block party", "welcome"],
+    "policy":         ["council", "ordinance", "meeting", "vote"],
+    "environment":    ["tree", "garden", "trash", "recycling", "compost"]
+  },
+  "geoPatterns": {
+    "streetRegex": "\\b(\\d+(?:th|st|nd|rd)?\\s+(?:st|ave|street|avenue))\\b"
+  },
+  "retention": {
+    "socialDays": 90,
+    "federationDays": 365
+  }
+}

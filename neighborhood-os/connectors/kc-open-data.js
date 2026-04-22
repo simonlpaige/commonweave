@@ -5,6 +5,7 @@
 
 import Database from 'better-sqlite3';
 import crypto from 'crypto';
+import { fetchJson } from './_fetch.js';
 
 const BASE = 'https://data.kcmo.org/resource';
 const APP_TOKEN = process.env.KC_OPEN_DATA_TOKEN || ''; // Optional - raises rate limit
@@ -96,12 +97,7 @@ export async function fetchDataset(datasetId, {
   if (APP_TOKEN) params.set('$$app_token', APP_TOKEN);
 
   const url = `${BASE}/${datasetId}.json?${params}`;
-  const res = await fetch(url, {
-    headers: { 'Accept': 'application/json' }
-  });
-
-  if (!res.ok) throw new Error(`KC Open Data ${datasetId}: HTTP ${res.status}`);
-  return res.json();
+  return fetchJson(url);
 }
 
 // ----------------------------------------------------------------

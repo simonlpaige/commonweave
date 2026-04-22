@@ -85,21 +85,29 @@ Federation lets neighborhoods ask: "Is the city doing this to us specifically, o
 
 ```
 civic-identity/
-  schema.sql           - Base SQLite schema (users, votes, proposals, federation peers)
-  migrations.js        - Tiny versioned migrations runner
-  migrations/          - Numbered SQL migrations applied in order
-  identity.js          - Registration, trust levels, vouching, sessions, Ed25519 keypair at signup
-  voting.js            - Proposals, voting, tallying (binary, approval, ranked IRV, score, liquid)
-  federation.js        - Peer management, envelope-signed bundles, replay+staleness guards
-  audit.js             - Durable audit log for privileged actions (IPs hashed, not stored raw)
-  rate-limit.js        - In-process sliding-window rate limiter
-  issues.js            - Resident issue lifecycle (file, acknowledge, resolve)
-  commitments.js       - Commitment tracker (who promised what, who kept what)
-  retention.js         - Prune job for expired sessions, old social posts, rate-limit rows
-  api.js               - HTTP API server (pure Node, no framework)
-  smoke-test.js        - End-to-end sanity test for the main flows
-  federation-smoke.js  - Federation handshake + replay + tamper tests
-  README.md            - This file
+  schema.sql              - Base SQLite schema
+  migrations.js           - Versioned migrations runner
+  migrations/             - Numbered SQL migrations applied in order
+  config.js               - Per-node config loader (node.config.json)
+  identity.js             - Registration, trust, sessions, Ed25519 keypair at signup
+  voting.js               - Proposals, voting, tallying (binary, approval, ranked IRV, score, liquid)
+  two-op-verify.js        - Two-coordinator address verification flow
+  federation.js           - Peer management, envelope-signed bundles, replay+staleness guards
+  federation-aggregate.js - Combine per-node tallies for federation votes
+  audit.js                - Durable audit log for privileged actions
+  admin-tokens.js         - Per-admin tokens, hashed at rest, rotatable
+  admin-cli.js            - CLI for provisioning/rotating admin tokens
+  rate-limit.js           - In-process sliding-window rate limiter
+  issues.js               - Resident issue lifecycle
+  commitments.js          - Commitment tracker + follow-through scores
+  retention.js            - Prune job for expired sessions, old social posts
+  ballot-pdf.js           - Paper-ballot generator (letter-size PDF with QR)
+  digest.js               - Weekly markdown email digest (nodemailer/SMTP)
+  api.js                  - HTTP API server (pure Node, no framework)
+  smoke-test.js           - End-to-end sanity tests for the main flows
+  federation-smoke.js     - Federation handshake + replay + tamper tests
+  FEDERATION-AGGREGATE.md - Governance doc for federation aggregation modes
+  README.md               - This file
 ```
 
 ---
@@ -164,15 +172,25 @@ Both tests use temp SQLite files and clean up after themselves.
 
 ## Hardening Features (post 2026-04-21 deep dive)
 
-- **Fail-closed admin.** Admin routes refuse to serve unless `ADMIN_TOKEN` is set. `ALLOW_OPEN_ADMIN=1` opens them for local dev only.
+- **Fail-closed admin.** Admin routes require either a per-admin token or the legacy shared `ADMIN_TOKEN`; `ALLOW_OPEN_ADMIN=1` opens them for local dev only.
+- **Per-admin tokens.** Provision, rotate, and revoke per-operator bearer tokens via `admin-cli.js`. Tokens are bcrypt-hashed at rest, labeled (`simon@waldonet`), and prefix-indexed for fast verify. Rotation does not require a server restart.
+- **Two-operator address verification.** Promoting a user to trust-4 now requires two distinct trust-4+ coordinators: one requests, another approves. Both signatures land in `trust_events`.
 - **Ed25519 keypair at signup.** Private key is returned once at signup and never stored. Public key lives on the user row; vote signatures are verified on cast.
 - **Separated voting salt.** `body_hash` stays a pure hash; the per-proposal salt lives in `voting_salt`. `GET /proposals/:id/verify-body` surfaces tampering.
 - **Liquid delegation in blind-space.** Delegation chains resolve across multiple hops and never leak raw user ids.
+- **Deterministic IRV tiebreak.** When two candidates tie for elimination, the one with the smaller sha256 of its option id is eliminated. Reproducible by any observer, not gameable.
 - **Federation replay + tamper guard.** Envelope-signed bundles, 24h staleness window, and signature-seen check.
+- **Federation aggregation modes.** `one_person_one_vote` (default), `one_node_one_vote`, and `weighted_capped`. Refuses to report unless every listed peer has responded or timed out. See `FEDERATION-AGGREGATE.md`.
 - **Rate limiter.** Sliding-window limits on signup, vote, email, federation receive, and a generic per-IP cap.
 - **Audit log.** Every admin and trust-changing action is recorded; IPs are HMAC-hashed with a node-local salt.
 - **Issues + commitments API.** Residents can file issues; coordinators (trust 4+) close them out. Commitments link back to originating issues.
+- **Paper ballot PDF.** `GET /proposals/:id/ballot.pdf` renders a letter-size ballot with the proposal text, vote options, and a QR code encoding the proposal id and body-hash prefix so the coordinator can scan-verify.
+- **Meeting packet PDF.** `GET /meetings/:eventId/packet.pdf` assembles the Legistar agenda and minutes into one printable file.
+- **Weekly email digest.** `node digest.js --send` renders a markdown summary of overdue commitments, recent issues, open proposals, and legislative matters, then mails it via SMTP (`SMTP_*` env vars).
 - **Connector health probe.** `ingest/sync.js` probes each dataset before pulling; status is in `connector_status`.
+- **Network retry + backoff.** Every outbound HTTP call in the connectors goes through `_fetch.js` with three attempts and full-jitter exponential backoff on 429/5xx.
+- **PID lockfile on sync.** `ingest/sync.js` writes a pid lock next to the DB so two concurrent syncs cannot contend. `--force` overrides a stale lock.
+- **Per-node config.** `node.config.json` (see `node.config.example.json`) holds slug, bounds, topic keywords, social handles, retention windows. No more forking code to stand up node two.
 - **Versioned migrations.** Schema evolves via numbered `migrations/*.sql` files, tracked in `schema_version`.
 
 ## Roadmap

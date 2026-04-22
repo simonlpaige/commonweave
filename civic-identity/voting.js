@@ -388,20 +388,33 @@ function tallyApproval(votes, options, total) {
 }
 
 function tallyRanked(votes, options, total) {
-  // Instant runoff voting (IRV)
+  // Instant runoff voting (IRV). When the lowest-first-choice candidate is
+  // not unique, we used to pick the first one in array order, which made
+  // the outcome depend on how the options were inserted. That is not a
+  // reasonable way to settle a civic tiebreak.
+  //
+  // Tiebreak rule (documented in README and governance docs): when two or
+  // more candidates tie for elimination, eliminate the one whose OPTION ID
+  // has the lexicographically smallest sha256 hash. Option IDs are random
+  // UUIDs, so this is effectively a random draw that every observer can
+  // reproduce from the public data, with no one able to steer it.
   const ballots = votes.map(v => JSON.parse(v.value));
   const optionIds = options.map(o => o.id);
 
+  const tiebreakRank = {};
+  for (const id of optionIds) {
+    tiebreakRank[id] = crypto.createHash('sha256').update(id).digest('hex');
+  }
+
   let remaining = [...optionIds];
   const rounds = [];
+  const eliminated = [];
 
   while (remaining.length > 1) {
-    // Count first-choice votes for remaining candidates
     const firstChoiceCounts = {};
     remaining.forEach(id => { firstChoiceCounts[id] = 0; });
 
     ballots.forEach(ballot => {
-      // Find the first choice still in the race
       const choice = ballot.find(id => remaining.includes(id));
       if (choice) firstChoiceCounts[choice]++;
     });
@@ -409,19 +422,21 @@ function tallyRanked(votes, options, total) {
     const roundTotal = Object.values(firstChoiceCounts).reduce((a, b) => a + b, 0);
     rounds.push({ ...firstChoiceCounts });
 
-    // Check majority
     const winner = remaining.find(id => firstChoiceCounts[id] > roundTotal / 2);
     if (winner) {
-      return { method: 'ranked', total, winner, rounds };
+      return { method: 'ranked', total, winner, rounds, eliminated };
     }
 
-    // Eliminate lowest
     const lowestCount = Math.min(...Object.values(firstChoiceCounts));
-    const toEliminate = remaining.find(id => firstChoiceCounts[id] === lowestCount);
+    const tied = remaining.filter(id => firstChoiceCounts[id] === lowestCount);
+    // Deterministic tiebreak: smallest sha256 hash of the option id.
+    tied.sort((a, b) => tiebreakRank[a].localeCompare(tiebreakRank[b]));
+    const toEliminate = tied[0];
+    eliminated.push({ id: toEliminate, round: rounds.length, tiedWith: tied.length - 1 });
     remaining = remaining.filter(id => id !== toEliminate);
   }
 
-  return { method: 'ranked', total, winner: remaining[0] || null, rounds };
+  return { method: 'ranked', total, winner: remaining[0] || null, rounds, eliminated };
 }
 
 function tallyScore(votes, options, total) {

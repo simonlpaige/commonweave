@@ -16,6 +16,14 @@ import { logAction, recentAudit } from './audit.js';
 import { rateLimitCheck, LIMITS } from './rate-limit.js';
 import { runRetention } from './retention.js';
 import { currentVersion } from './migrations.js';
+import { ensureAdminTokensTable, addAdminToken, verifyAdminToken,
+         revokeAdminToken, rotateAdminToken } from './admin-tokens.js';
+import { ensureAddressApprovalsTable, requestAddressVerification,
+         approveAddressVerification } from './two-op-verify.js';
+import { loadConfig, _resetConfigCache } from './config.js';
+import { combineFederationResults } from './federation-aggregate.js';
+import { renderBallotPdf } from './ballot-pdf.js';
+import { renderDigest } from './digest.js';
 
 const DB_PATH = './smoke-test.db';
 if (existsSync(DB_PATH)) unlinkSync(DB_PATH);
@@ -24,9 +32,10 @@ if (existsSync(DB_PATH + '-wal')) unlinkSync(DB_PATH + '-wal');
 
 let passed = 0;
 let failed = 0;
-function check(name, fn) {
+async function check(name, fn) {
   try {
-    fn();
+    const maybe = fn();
+    if (maybe && typeof maybe.then === 'function') await maybe;
     console.log(`  ✓ ${name}`);
     passed++;
   } catch (err) {
@@ -242,6 +251,110 @@ check('session create/resolve/destroy', () => {
 check('retention job runs', () => {
   const r = runRetention(db);
   if (typeof r.sessionsDropped !== 'number') throw new Error('retention shape');
+});
+
+// Per-admin tokens
+ensureAdminTokensTable(db);
+let simonToken, adminPrincipal;
+check('admin token add', () => {
+  const created = addAdminToken(db, { label: 'simon@waldonet' });
+  simonToken = created.token;
+  if (!simonToken || simonToken.length < 20) throw new Error('short token');
+});
+check('admin token verify', () => {
+  adminPrincipal = verifyAdminToken(db, simonToken);
+  if (!adminPrincipal || adminPrincipal.label !== 'simon@waldonet') throw new Error('principal mismatch');
+});
+check('admin token bad token rejected', () => {
+  const p = verifyAdminToken(db, 'not-a-real-token-but-long-enough-to-pass');
+  if (p !== null) throw new Error('bad token accepted');
+});
+check('admin token revoke', () => {
+  revokeAdminToken(db, 'simon@waldonet');
+  const p = verifyAdminToken(db, simonToken);
+  if (p !== null) throw new Error('revoked token still works');
+});
+check('admin token rotate', () => {
+  addAdminToken(db, { label: 'backup@waldonet' });
+  const newOne = rotateAdminToken(db, 'backup@waldonet');
+  const p = verifyAdminToken(db, newOne.token);
+  if (!p) throw new Error('rotated token does not verify');
+});
+
+// Two-operator address verification
+ensureAddressApprovalsTable(db);
+check('two-op: single coordinator cannot self-approve', () => {
+  const rookie = registerAnonymous(db, 'rookie1', 'test@local');
+  const req = requestAddressVerification(db, {
+    requesterId: carol.id, targetUserId: rookie.id, note: 'lease'
+  });
+  try {
+    approveAddressVerification(db, { requestId: req.id, approverId: carol.id });
+    throw new Error('should have rejected same-coordinator approval');
+  } catch (e) {
+    if (!/different coordinator/.test(e.message)) throw e;
+  }
+});
+
+check('two-op: second coordinator approves and promotes', () => {
+  // Need a second trust-4+ coordinator. Dave is trust 4 via earlier test.
+  const rookie = registerAnonymous(db, 'rookie2', 'test@local');
+  const req = requestAddressVerification(db, {
+    requesterId: carol.id, targetUserId: rookie.id, note: 'lease'
+  });
+  const result = approveAddressVerification(db, {
+    requestId: req.id, approverId: dave.id, note: 'second op ok'
+  });
+  if (result.user.trust_level !== 4) throw new Error('not promoted');
+});
+
+// Federation aggregation
+check('federation aggregation: one_person_one_vote', () => {
+  const result = combineFederationResults([
+    { nodeSlug: 'a', status: 'received', tally: { counts: { yes: 300, no: 120, abstain: 5 } } },
+    { nodeSlug: 'b', status: 'received', tally: { counts: { yes:  20, no:  45, abstain: 2 } } }
+  ]);
+  if (!result.complete) throw new Error('should be complete');
+  if (!result.passed) throw new Error('expected passed (320 > 165)');
+});
+
+check('federation aggregation: one_node_one_vote', () => {
+  const result = combineFederationResults([
+    { nodeSlug: 'a', status: 'received', tally: { counts: { yes: 300, no: 120 } } },
+    { nodeSlug: 'b', status: 'received', tally: { counts: { yes:  20, no:  45 } } },
+    { nodeSlug: 'c', status: 'received', tally: { counts: { yes:  10, no:  40 } } }
+  ], { mode: 'one_node_one_vote' });
+  if (!result.complete) throw new Error('should be complete');
+  // node a yes, nodes b and c no -> federation no
+  if (result.passed) throw new Error('expected caucus failure');
+  if (result.yesNodes !== 1 || result.noNodes !== 2) throw new Error('node counts wrong');
+});
+
+check('federation aggregation: refuses to complete if missing', () => {
+  const result = combineFederationResults([
+    { nodeSlug: 'a', status: 'received', tally: { counts: { yes: 10, no: 5 } } },
+    { nodeSlug: 'b', status: 'pending' }
+  ]);
+  if (result.complete) throw new Error('should have refused');
+});
+
+// Config loader
+check('config loader returns defaults without a file', () => {
+  _resetConfigCache();
+  const cfg = loadConfig();
+  if (!cfg.slug || !cfg.bounds) throw new Error('missing defaults');
+});
+
+// Ballot PDF (just make sure it returns bytes without throwing)
+await check('ballot PDF generates bytes', async () => {
+  const bytes = await renderBallotPdf(db, lq.id, { baseUrl: 'http://localhost:4242' });
+  if (!bytes || bytes.length < 1000) throw new Error('tiny or empty PDF');
+});
+
+// Digest render
+check('digest renders markdown', () => {
+  const md = renderDigest(db, { days: 7 });
+  if (!md.includes('weekly digest')) throw new Error('digest missing header');
 });
 
 db.close();

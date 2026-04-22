@@ -62,6 +62,7 @@ import { addAdminToken, verifyAdminToken, listAdminTokens,
          revokeAdminToken, ensureAdminTokensTable } from './admin-tokens.js';
 import { requestAddressVerification, approveAddressVerification,
          listPendingAddressVerifications, ensureAddressApprovalsTable } from './two-op-verify.js';
+import { renderBallotPdf } from './ballot-pdf.js';
 
 // ----------------------------------------------------------------
 // Config (override via environment variables)
@@ -225,6 +226,31 @@ const server = http.createServer(async (req, res) => {
     if (method === 'GET' && path.match(/^\/proposals\/[^/]+\/verify-body$/)) {
       const id = path.split('/proposals/')[1].split('/verify-body')[0];
       return respond(res, 200, verifyBody(db, id));
+    }
+
+    if (method === 'GET' && path.match(/^\/proposals\/[^/]+\/ballot\.pdf$/)) {
+      const id = path.split('/proposals/')[1].split('/ballot.pdf')[0];
+      const baseUrl = url.searchParams.get('baseUrl') || `http://localhost:${PORT}`;
+      const bytes = await renderBallotPdf(db, id, { baseUrl });
+      res.writeHead(200, {
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': `inline; filename="ballot-${id}.pdf"`
+      });
+      res.end(Buffer.from(bytes));
+      return;
+    }
+
+    if (method === 'GET' && path.match(/^\/meetings\/[^/]+\/packet\.pdf$/)) {
+      const id = path.split('/meetings/')[1].split('/packet.pdf')[0];
+      const { buildMeetingPacket } = await import('../neighborhood-os/meetings-packet.js');
+      const { bytes, warnings } = await buildMeetingPacket(db, id);
+      res.writeHead(200, {
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': `inline; filename="meeting-${id}.pdf"`,
+        'X-Packet-Warnings': warnings.length ? JSON.stringify(warnings).slice(0, 500) : ''
+      });
+      res.end(Buffer.from(bytes));
+      return;
     }
 
     if (method === 'POST' && path === '/proposals') {

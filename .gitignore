@@ -30,6 +30,10 @@ civic-identity.db
 neighborhood-os.db
 *.db-wal
 *.db-shm
+*.db.lock
 smoke-test.db*
 fed-a.db*
 fed-b.db*
+
+# Per-node operator config (the example file is in the repo; real one is local)
+node.config.json
