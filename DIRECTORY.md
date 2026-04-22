@@ -1,6 +1,6 @@
-﻿# 🌍 Commonweave Global Civil Society Directory
+# 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-22 02:59 UTC*
+*Last updated: 2026-04-22 04:07 UTC*
 
 
 ## Coverage
@@ -45,7 +45,7 @@
 | 🌐 Germany (DE) | 129 | Field Research | ✅ |
 | 🌐 Djibouti (DJ) | 0 | Field Research | ✅ |
 | 🌐 Denmark (DK) | 0 | Field Research | ✅ |
-| 🌐 Dominican Republic (DO) | 10 | Field Research | ✅ |
+| 🌐 Dominican Republic (DO) | 52 | Field Research | ✅ |
 | 🌐 Ecuador (EC) | 55 | Field Research | ✅ |
 | 🌐 Estonia (EE) | 0 | Field Research | ✅ |
 | 🌐 Egypt (EG) | 96 | Field Research | ✅ |
@@ -62,10 +62,10 @@
 | 🌐 Gambia (GM) | 0 | Field Research | ✅ |
 | 🌐 Guinea (GN) | 0 | Field Research | ✅ |
 | 🌐 Greece (GR) | 139 | Field Research | ✅ |
-| 🌐 Guatemala (GT) | 10 | Field Research | ✅ |
+| 🌐 Guatemala (GT) | 50 | Field Research | ✅ |
 | 🌐 Guinea-Bissau (GW) | 0 | Field Research | ✅ |
 | 🌐 Guyana (GY) | 3 | Field Research | ✅ |
-| 🌐 Honduras (HN) | 10 | Field Research | ✅ |
+| 🌐 Honduras (HN) | 51 | Field Research | ✅ |
 | 🌐 Croatia (HR) | 0 | Field Research | ✅ |
 | 🌐 Haiti (HT) | 3 | Field Research | ✅ |
 | 🌐 Hungary (HU) | 119 | Field Research | ✅ |
@@ -76,7 +76,7 @@
 | 🌐 Iran (IR) | 0 | Field Research | ✅ |
 | 🌐 Iceland (IS) | 0 | Field Research | ✅ |
 | 🌐 Italy (IT) | 83 | Field Research | ✅ |
-| 🌐 Jamaica (JM) | 8 | Field Research | ✅ |
+| 🌐 Jamaica (JM) | 50 | Field Research | ✅ |
 | 🌐 Jordan (JO) | 0 | Field Research | ✅ |
 | 🌐 Japan (JP) | 22 | Field Research | ✅ |
 | 🌐 Kenya (KE) | 190 | Field Research | ✅ |
@@ -106,18 +106,18 @@
 | 🌐 Malawi (MW) | 0 | Field Research | ✅ |
 | 🌐 Mexico (MX) | 108 | Field Research | ✅ |
 | 🌐 Malaysia (MY) | 0 | Field Research | ✅ |
-| 🌐 Mozambique (MZ) | 6 | Field Research | ✅ |
+| 🌐 Mozambique (MZ) | 50 | Field Research | ✅ |
 | 🌐 Namibia (NA) | 0 | Field Research | ✅ |
 | 🌐 Niger (NE) | 0 | Field Research | ✅ |
 | 🌐 DIRECTORY_NG.md (NG) | 305 | Field Research | ✅ |
-| 🌐 Nicaragua (NI) | 10 | Field Research | ✅ |
+| 🌐 Nicaragua (NI) | 51 | Field Research | ✅ |
 | 🌐 Netherlands (NL) | 106 | Field Research | ✅ |
 | 🌐 Norway (NO) | 179 | Field Research | ✅ |
 | 🌐 Nepal (NP) | 3 | Field Research | ✅ |
 | 🌐 New Zealand (NZ) | 334 | Field Research | ✅ |
 | 🌐 Oman (OM) | 0 | Field Research | ✅ |
 | 🌐 Phase 2: (??) | 0 | Field Research | ✅ |
-| 🌐 Panama (PA) | 5 | Field Research | ✅ |
+| 🌐 Panama (PA) | 50 | Field Research | ✅ |
 | 🌐 Peru (PE) | 43 | Field Research | ✅ |
 | 🌐 Papua New Guinea (PG) | 0 | Field Research | ✅ |
 | 🌐 Philippines (PH) | 36 | Field Research | ✅ |
@@ -130,14 +130,14 @@
 | 🌐 Romania (RO) | 0 | Field Research | ✅ |
 | 🌐 Serbia (RS) | 0 | Field Research | ✅ |
 | 🌐 Russia (RU) | 1 | Field Research | ✅ |
-| 🌐 Rwanda (RW) | 15 | Field Research | ✅ |
+| 🌐 Rwanda (RW) | 53 | Field Research | ✅ |
 | 🌐 Saudi Arabia (SA) | 0 | Field Research | ✅ |
 | 🌐 Sudan (SD) | 0 | Field Research | ✅ |
 | 🌐 Sweden (SE) | 58 | Field Research | ✅ |
 | 🌐 Slovenia (SI) | 0 | Field Research | ✅ |
 | 🌐 Slovakia (SK) | 0 | Field Research | ✅ |
 | 🌐 Sierra Leone (SL) | 0 | Field Research | ✅ |
-| 🌐 Senegal (SN) | 6 | Field Research | ✅ |
+| 🌐 Senegal (SN) | 59 | Field Research | ✅ |
 | 🌐 Somalia (SO) | 0 | Field Research | ✅ |
 | 🌐 Suriname (SR) | 16 | Field Research | ✅ |
 | 🌐 South Sudan (SS) | 0 | Field Research | ✅ |
@@ -151,7 +151,7 @@
 | 🌐 Timor-Leste (TL) | 0 | Field Research | ✅ |
 | 🌐 Turkmenistan (TM) | 1 | Field Research | ✅ |
 | 🌐 Tunisia (TN) | 0 | Field Research | ✅ |
-| 🌐 Turkey (TR) | 65 | Field Research | ✅ |
+| 🌐 Turkey (TR) | 95 | Field Research | ✅ |
 | 🌐 Trinidad and Tobago (TT) | 9 | Field Research | ✅ |
 | 🌐 Taiwan (TW) | 0 | Field Research | ✅ |
 | 🌐 Tanzania (TZ) | 36 | Field Research | ✅ |
@@ -163,11 +163,11 @@
 | 🌐 Vietnam (VN) | 65 | Field Research | ✅ |
 | 🌐 Yemen (YE) | 0 | Field Research | ✅ |
 | 🌐 South Africa (ZA) | 109 | Field Research | ✅ |
-| 🌐 Zambia (ZM) | 7 | Field Research | ✅ |
+| 🌐 Zambia (ZM) | 53 | Field Research | ✅ |
 | 🌐 Zimbabwe (ZW) | 0 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 25,331 organizations indexed** across 61 countries
+**Total: 25,793 organizations indexed** across 61 countries
 
 
 ---

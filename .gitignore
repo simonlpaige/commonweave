@@ -1,4 +1,5 @@
 data/ecolibrium_directory.db
+data/commonweave_directory.db
 data/*.log
 data/paperclip-fix/
 data/clear_sessions*.mjs

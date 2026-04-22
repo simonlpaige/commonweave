@@ -1,4 +1,4 @@
-﻿# Commonweave country research queue — WAVE 2 + RE-RUNS
+# Commonweave country research queue — WAVE 2 + RE-RUNS
 # Format: CC  Country Name
 # Completed countries are auto-skipped (DIRECTORY_CC.md exists check)
 
