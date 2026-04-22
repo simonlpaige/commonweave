@@ -57,15 +57,24 @@ import { createIssue, listIssues, getIssue, acknowledgeIssue, resolveIssue } fro
 import { addCommitment, listCommitments, getCommitment,
          resolveCommitment, followThroughScores,
          ensureCommitmentsTable } from './commitments.js';
+import { loadConfig } from './config.js';
+import { addAdminToken, verifyAdminToken, listAdminTokens,
+         revokeAdminToken, ensureAdminTokensTable } from './admin-tokens.js';
+import { requestAddressVerification, approveAddressVerification,
+         listPendingAddressVerifications, ensureAddressApprovalsTable } from './two-op-verify.js';
 
 // ----------------------------------------------------------------
 // Config (override via environment variables)
 // ----------------------------------------------------------------
 
+// Per-node config. Values in node.config.json override built-in defaults,
+// and env vars still win over both for backwards compatibility.
+const CFG = loadConfig();
+
 const PORT = parseInt(process.env.PORT || '4242');
 const DB_PATH = process.env.DB_PATH || './civic-identity.db';
-const NODE_SLUG = process.env.NODE_SLUG || 'local@waldonet.local';
-const ADMIN_TOKEN = process.env.ADMIN_TOKEN || null; // Required for admin routes
+const NODE_SLUG = process.env.NODE_SLUG || CFG.slug;
+const ADMIN_TOKEN = process.env.ADMIN_TOKEN || null; // Legacy shared-secret mode
 const ALLOW_OPEN_ADMIN = process.env.ALLOW_OPEN_ADMIN === '1';
 const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
 const MAX_BODY_BYTES = parseInt(process.env.MAX_BODY_BYTES || String(64 * 1024)); // 64KB default
@@ -73,10 +82,13 @@ const NODE_PRIVKEY = process.env.NODE_PRIVKEY_PATH
   ? readFileSync(process.env.NODE_PRIVKEY_PATH) : null;
 
 if (!ADMIN_TOKEN && !ALLOW_OPEN_ADMIN) {
-  console.warn('[civic-identity] WARNING: ADMIN_TOKEN is not set. Admin routes are disabled.');
-  console.warn('[civic-identity] Set ADMIN_TOKEN=<secret> to enable federation routes,');
-  console.warn('[civic-identity] or ALLOW_OPEN_ADMIN=1 for local dev only (never in production).');
+  // Per-admin tokens live in the DB now. If one is provisioned, admin
+  // routes still work without ADMIN_TOKEN. We cannot count them before
+  // openDB() runs though, so print a softer warning here.
+  console.warn('[civic-identity] No ADMIN_TOKEN set. Admin routes require per-admin tokens');
+  console.warn('[civic-identity] provisioned via the admin-tokens CLI, or ALLOW_OPEN_ADMIN=1 for dev.');
 }
+console.log(`[civic-identity] config source: ${CFG._source}`);
 
 // ----------------------------------------------------------------
 // Init
@@ -85,6 +97,8 @@ if (!ADMIN_TOKEN && !ALLOW_OPEN_ADMIN) {
 const db = openDB(DB_PATH);
 ensureFederationTable(db);
 ensureCommitmentsTable(db);
+ensureAdminTokensTable(db);
+ensureAddressApprovalsTable(db);
 
 // ----------------------------------------------------------------
 // Routing
@@ -343,6 +357,39 @@ const server = http.createServer(async (req, res) => {
       return respond(res, 200, { issue });
     }
 
+    // ---- Address verification (two-operator) ----
+
+    if (method === 'POST' && path === '/address-verifications') {
+      requireAuth(session);
+      const body = await readBody(req);
+      const r = requestAddressVerification(db, {
+        requesterId: session.userId,
+        targetUserId: body.targetUserId,
+        note: body.note
+      });
+      logAction(db, { actorUserId: session.userId, actorIp: ip, action: 'address.verify.request',
+                      targetType: 'user', targetId: body.targetUserId });
+      return respond(res, 201, { request: r });
+    }
+
+    if (method === 'GET' && path === '/address-verifications') {
+      requireAuth(session);
+      requireTrust(db, session.userId, 4);
+      return respond(res, 200, { requests: listPendingAddressVerifications(db) });
+    }
+
+    if (method === 'POST' && path.match(/^\/address-verifications\/[^/]+\/approve$/)) {
+      requireAuth(session);
+      const id = path.split('/address-verifications/')[1].split('/approve')[0];
+      const body = await readBody(req);
+      const result = approveAddressVerification(db, {
+        requestId: id, approverId: session.userId, note: body.note
+      });
+      logAction(db, { actorUserId: session.userId, actorIp: ip, action: 'address.verify.approve',
+                      targetType: 'user', targetId: result.user.id });
+      return respond(res, 200, result);
+    }
+
     // ---- Federation ----
 
     if (method === 'GET' && path === '/federation/peers') {
@@ -427,10 +474,37 @@ const server = http.createServer(async (req, res) => {
     // ---- Audit log (admin) ----
 
     if (method === 'GET' && path === '/audit') {
-      requireAdmin(req);
+      const principal = requireAdmin(req);
       const action = url.searchParams.get('action');
       const limit = Math.min(parseInt(url.searchParams.get('limit') || '200'), 1000);
+      logAction(db, { actorIp: ip, action: 'audit.view',
+                      payload: { admin: principal.label } });
       return respond(res, 200, { entries: recentAudit(db, { action, limit }) });
+    }
+
+    // ---- Admin token management (admin only) ----
+
+    if (method === 'GET' && path === '/admin/tokens') {
+      requireAdmin(req);
+      return respond(res, 200, { tokens: listAdminTokens(db) });
+    }
+
+    if (method === 'POST' && path === '/admin/tokens') {
+      const principal = requireAdmin(req);
+      const body = await readBody(req);
+      const created = addAdminToken(db, { label: body.label, scope: body.scope });
+      logAction(db, { actorIp: ip, action: 'admin.token.create',
+                      payload: { label: created.label, by: principal.label } });
+      return respond(res, 201, created);
+    }
+
+    if (method === 'POST' && path.match(/^\/admin\/tokens\/[^/]+\/revoke$/)) {
+      const principal = requireAdmin(req);
+      const label = decodeURIComponent(path.split('/admin/tokens/')[1].split('/revoke')[0]);
+      revokeAdminToken(db, label);
+      logAction(db, { actorIp: ip, action: 'admin.token.revoke',
+                      payload: { label, by: principal.label } });
+      return respond(res, 200, { ok: true });
     }
 
     // ---- Health ----
@@ -496,17 +570,32 @@ function requireTrust(db, userId, level) {
   }
 }
 
+// Return an object describing which admin principal authorized this request,
+// or throw. Supports two modes, in order:
+//   1. Per-admin token in the DB (preferred)
+//   2. Legacy shared ADMIN_TOKEN env var
+// Dev bypass via ALLOW_OPEN_ADMIN=1 returns a synthetic principal.
 function requireAdmin(req) {
-  // Fail closed: if no ADMIN_TOKEN is configured, admin routes are disabled
-  // unless the operator explicitly set ALLOW_OPEN_ADMIN=1 (dev only).
-  if (!ADMIN_TOKEN) {
-    if (ALLOW_OPEN_ADMIN) return;
-    throw Object.assign(new Error('Admin disabled: ADMIN_TOKEN not configured'), { statusCode: 503 });
-  }
   const token = (req.headers.authorization || '').replace('Bearer ', '').trim();
-  if (!token || !timingSafeEqualStr(token, ADMIN_TOKEN)) {
-    throw Object.assign(new Error('Admin required'), { statusCode: 401 });
+
+  if (token) {
+    const principal = verifyAdminToken(db, token);
+    if (principal) return principal;
+    if (ADMIN_TOKEN && timingSafeEqualStr(token, ADMIN_TOKEN)) {
+      return { label: 'legacy-env', id: 'legacy' };
+    }
   }
+
+  if (ALLOW_OPEN_ADMIN) return { label: 'dev-open', id: 'dev' };
+
+  if (!ADMIN_TOKEN) {
+    // Check whether at least one per-admin token is provisioned.
+    const any = db.prepare(`SELECT 1 FROM admin_tokens WHERE revoked_at IS NULL LIMIT 1`).get();
+    if (!any) {
+      throw Object.assign(new Error('Admin disabled: no admin tokens provisioned'), { statusCode: 503 });
+    }
+  }
+  throw Object.assign(new Error('Admin required'), { statusCode: 401 });
 }
 
 function timingSafeEqualStr(a, b) {
