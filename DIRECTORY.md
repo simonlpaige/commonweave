@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-22 23:40 UTC*
+*Last updated: 2026-04-23 00:10 UTC*
 
 
 ## Coverage
@@ -1108,7 +1108,7 @@ Model: nonprofit
 
 # 🌐 China (CN) Civil Society Directory
 
-*Compiled: 2026-04-22 | Source: Web research | Organizations: 0*
+*Compiled: 2026-04-23 | Source: Web research | Organizations: 0*
 
 ---
 
