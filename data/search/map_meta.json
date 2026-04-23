@@ -1,7 +1,7 @@
 {
-  "total": 8667,
+  "total": 8668,
   "us_count": 6684,
-  "intl_count": 1983,
+  "intl_count": 1984,
   "by_area": {
     "food": 2367,
     "healthcare": 1502,
@@ -11,7 +11,7 @@
     "ecology": 529,
     "cooperatives": 404,
     "conflict": 278,
-    "recreation_arts": 121,
+    "recreation_arts": 122,
     "energy_digital": 13
   },
   "by_country": {
@@ -29,8 +29,8 @@
     "MX": 78,
     "GR": 69,
     "ZA": 63,
+    "BR": 45,
     "NL": 45,
-    "BR": 44,
     "CO": 43,
     "PE": 27,
     "BE": 23,
