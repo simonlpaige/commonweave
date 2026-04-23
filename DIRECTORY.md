@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-23 00:40 UTC*
+*Last updated: 2026-04-23 01:11 UTC*
 
 
 ## Coverage
@@ -54,7 +54,7 @@
 | 🌐 Ethiopia (ET) | 21 | Field Research | ✅ |
 | 🌐 Finland (FI) | 0 | Field Research | ✅ |
 | 🌐 Fiji (FJ) | 1 | Field Research | ✅ |
-| 🌐 France (FR) | 68 | Field Research | ✅ |
+| 🌐 France (FR) | 69 | Field Research | ✅ |
 | 🌐 Gabon (GA) | 0 | Field Research | ✅ |
 | 🌐 United Kingdom (GB) | 11,433 | Field Research | ✅ |
 | 🌐 Georgia (GE) | 0 | Field Research | ✅ |
@@ -167,7 +167,7 @@
 | 🌐 Zimbabwe (ZW) | 0 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 25,844 organizations indexed** across 61 countries
+**Total: 25,845 organizations indexed** across 61 countries
 
 
 ---
