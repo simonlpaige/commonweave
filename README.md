@@ -173,21 +173,23 @@ The framework does not assume humans are angels. It assumes systems designed for
 
 ## Open Questions
 
-> *These are unresolved. They need many minds.*
+These are genuinely unresolved. Good questions are only useful if they become work packages. The "Blocker" column says what specifically is needed -- often that's the real constraint, not the expertise.
 
-1. How do you transition a globalized economy without leaving developing nations worse off?
-2. What role do existing nation-states play? Do they dissolve, federate, or transform?
-3. How do you prevent a post-transfer power vacuum from being filled by authoritarians?
-4. What does justice look like for historical wrongs (colonialism, slavery, ecological destruction) without creating new cycles of resentment?
-5. How do you handle people who genuinely don't want to participate in collective governance?
-6. What replaces prisons? What does accountability look like without punishment?
-7. How do you govern AI development during and after the transition?
-8. How do you maintain cultural and individual diversity in a system designed for collective wellbeing?
-9. What is the role of spirituality, religion, and personal belief systems?
-10. How do you keep this framework from becoming the very kind of rigid ideology it seeks to replace?
-11. How does a fully open, leaderless network coordinate action at global scale without becoming either chaotic or quietly hierarchical?
-12. If transparency is the security model, what are its failure modes? When - if ever - is openness genuinely dangerous?
-13. What happens if the technological tipping point arrives before the network is ready?
+| Question | Status | Needed expertise | Issue | Blocker |
+|---|---|---|---|---|
+| How do you transition a globalized economy without leaving developing nations worse off? | Open | Development economics, global trade policy | | Needs practitioner from a developing-nation context to co-author |
+| What role do existing nation-states play? Do they dissolve, federate, or transform? | Open | Political science, constitutional law, historical precedent | | Multiple incompatible frameworks exist; needs synthesis |
+| How do you prevent a post-transfer power vacuum from being filled by authoritarians? | Open | Political science, historical case studies (Weimar, post-Soviet) | | Concrete mechanism design, not general principle |
+| What does justice look like for historical wrongs (colonialism, slavery, ecological destruction) without creating new cycles of resentment? | Open | Restorative justice, reparations theory, transitional justice | | Needs practitioner co-author, not armchair theorizing |
+| How do you handle people who genuinely don't want to participate in collective governance? | Open | Political philosophy, psychology | | Ostrom's principles handle free-riders but not principled refusers |
+| What replaces prisons? What does accountability look like without punishment? | Open | Restorative justice, criminology, community safety | | Needs a prison-abolition practitioner willing to co-author; not blocked on expertise |
+| How do you govern AI development during and after the transition? | Open | AI governance, technical AI safety, democratic theory | | Field moving faster than framework can track; needs ongoing maintainer |
+| How do you maintain cultural and individual diversity in a system designed for collective wellbeing? | Open | Anthropology, political philosophy | | |
+| What is the role of spirituality, religion, and personal belief systems? | Open | Religious studies, sociology of religion | | |
+| How do you keep this framework from becoming the very kind of rigid ideology it seeks to replace? | Partially addressed | Governance design | | Built-in revision mechanism specified in THEORY-OF-CHANGE.md §3.3 but not operationalized |
+| How does a fully open, leaderless network coordinate action at global scale without becoming either chaotic or quietly hierarchical? | Open | Network theory, organizational design, Ostrom | | Jo Freeman's "tyranny of structurelessness" problem; current GOVERNANCE.md is incomplete |
+| If transparency is the security model, what are its failure modes? When - if ever - is openness genuinely dangerous? | Partially addressed | Security, repressive-context organizing | | Partially handled in THREAT-MODEL.md; contributors in repressive contexts need more |
+| What happens if the technological tipping point arrives before the network is ready? | Open | Economic history, technology forecasting | | This is the core contingency the framework doesn't have a good answer to |
 
 ---
 
