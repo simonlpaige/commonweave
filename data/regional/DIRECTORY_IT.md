@@ -1,10 +1,9 @@
 # 🌐 Italy (IT) Civil Society Directory
 
-*Compiled: 2026-04-15 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-24 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Italy Civil Society Network
-> Primary civil society network in Italy
+_No evidence-backed organizations found in this pass._

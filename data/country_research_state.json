@@ -24,6 +24,14 @@
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_DE.md",
     "org_count": 374
   },
+  "ES": {
+    "completed": true,
+    "completed_at": "2026-04-24T20:57:53.744163Z",
+    "country_name": "Spain",
+    "last_attempted_at": "2026-04-24T20:57:53.744147Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_ES.md",
+    "org_count": 118
+  },
   "FR": {
     "completed": true,
     "completed_at": "2026-04-24T18:57:51.621316Z",
@@ -47,6 +55,22 @@
     "last_attempted_at": "2026-04-23T02:16:09.355083Z",
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_IN.md",
     "org_count": 29
+  },
+  "IT": {
+    "completed": true,
+    "completed_at": "2026-04-24T20:26:10.015601Z",
+    "country_name": "Italy",
+    "last_attempted_at": "2026-04-24T20:26:10.015539Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_IT.md",
+    "org_count": 124
+  },
+  "JP": {
+    "completed": true,
+    "completed_at": "2026-04-24T19:56:09.969498Z",
+    "country_name": "Japan",
+    "last_attempted_at": "2026-04-24T19:56:09.969484Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_JP.md",
+    "org_count": 41
   },
   "KR": {
     "completed": true,
