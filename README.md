@@ -105,321 +105,63 @@ These principles are in tension with each other. That's not a bug. See [Tensions
 
 ---
 
-## The Framework
+## The Framework in 90 Seconds
 
-### A Note on Sequencing
+Three phases, one connective tissue. The phases are parallel tracks that co-evolve, not a linear sequence -- Phase 1 prerequisites depend on Phase 3 outcomes and vice versa.
 
-The framework below is organized as Phase 1/2/3 for readability, but this is misleading if read as a strict timeline. Many Phase 1 prerequisites (land transition, cooperative economics) depend on Phase 3 outcomes (values transformation). The phases are better understood as *parallel tracks with dependencies* that co-evolve, not a linear sequence. Systems-building, power transfer, and cultural change happen simultaneously at different speeds in different places.
+**Phase 1 -- Pre-transfer:** Build the alternatives before anything collapses. Democratic infrastructure, food/healthcare/housing/energy systems designed for sufficiency rather than profit, cooperative economics. These need to be working at small scale before any transfer is realistic -- think of it as load testing before launch. Full specification: [BLUEPRINT.md](BLUEPRINT.md).
 
-The Mycelial Strategy (below) is not a phase - it is the connective tissue that operates across all phases at all times.
+**Phase 2 -- The transfer:** Not a revolution, a migration with resistance. The prepared alternatives scale up, institutions transform from within and under pressure, the old economy loses its revenue base. Full analysis of mechanisms and historical cases: [THEORY-OF-CHANGE.md](THEORY-OF-CHANGE.md).
 
-### Phase 1: Pre-Transfer -- Systems That Must Exist Before the Transition
+**Phase 3 -- Maintenance:** The hard part isn't building the good world, it's keeping it from sliding back. Anti-backsliding mechanisms, beyond-GDP measurement, nested governance, ecological restoration. Phase 3 is the immune system. [THEORY-OF-CHANGE.md](THEORY-OF-CHANGE.md).
 
-The transfer of power to a better system can only happen if a better system is ready to receive it. History is full of examples of what happens when the old system collapses before the new one is operational. It's not pretty.
+### The Mycelial Strategy
 
-So: before the transfer, these systems need to exist and be demonstrably working, even if only at small scale. Think of it as load testing before launch.
+The connective tissue across all phases: a distributed network of people and organizations building working alternatives -- not arguing about theory, but running pilots, writing code, keeping books, growing food, running clinics. When conditions are right, the network doesn't seize power. It just already has the replacement ready.
 
-#### 1.1 Democratic Infrastructure
+In 2007, Paul Hawken published *Blessed Unrest* arguing the world's largest social movement already existed -- millions of organizations with no name and no central organization. He and colleagues catalogued 114,994 of them on WiserEarth. Then the funding ran out and the whole thing disappeared in a weekend. That was 2014.
 
-- [ ] **Uncompromising voting systems** - local, regional, and worldwide
-  - Verifiable, transparent, tamper-resistant (not just electronic - auditable)
-  - Liquid democracy options: direct vote or delegate to trusted representatives per issue
-  - Constitutional protections against tyranny of the majority
-  - Mandatory inclusion mechanisms for marginalized voices
-  - Recall and accountability mechanisms built into every elected role
-- [ ] **Removal of cults of personality from politics**
-  - Structural limits on individual political power (term limits, rotation, sortition)
-  - Ban on political advertising and personal branding in governance
-  - Decision-making by council and consensus, not charismatic authority
-  - Separation of celebrity and governance - cooling-off periods between high-profile fame-driven roles and elected office, with the specific period, definition of "public figure," and enforcement mechanism delegated to constitutional design rather than asserted here. (Open problem: this clause has obvious free-speech and definitional risks; it belongs in a constitutional-safeguards working group, not a principles list.)
-- [ ] **Conflict resolution systems**
-  - Restorative justice replacing punitive justice
-  - Community mediation infrastructure
-  - International arbitration frameworks
+The lesson isn't that the idea was wrong. It's about infrastructure -- both technical (don't depend on a single server) and social (don't depend on everyone running their own). The realistic model is decentralized in *governance* but may be centralized in *operations* -- like the Wikimedia Foundation or the Apache Foundation. Not ideologically pure, but actually works.
 
-#### 1.2 Resource Distribution Systems
+The framework protects itself primarily through transparency. Co-option is harder when everything is visible. But openness has known failure modes that must be actively managed:
 
-- [ ] **Food distribution**
-  - Local and regional food sovereignty - communities control their food supply
-  - Vertical farming, permaculture, and regenerative agriculture at scale
-  - Elimination of food waste through smart logistics and community kitchens
-  - Universal free access to nutritious food
-  - Preservation of food cultures and culinary traditions
-- [ ] **Healthcare**
-  - Universal, free-at-point-of-use healthcare for all
-  - Preventive care prioritized over reactive treatment
-  - Mental health fully integrated - not an afterthought
-  - Community health workers embedded in every neighborhood
-  - Open-source medical research - no patents on life-saving treatments
-  - Care work (childcare, eldercare, disability support) recognized and valued as essential
-- [ ] **Education**
-  - Lifelong, free, universally accessible education
-  - Not job training - genuine cultivation of critical thinking, creativity, and civic participation
-  - Decentralized: community-led, culturally responsive, multilingual
-  - Emphasis on ecological literacy, systems thinking, and emotional intelligence
-  - Open-source curricula, collaboratively developed
-- [ ] **Housing**
-  - Shelter as a right, not a commodity
-  - Transition from private land ownership to stewardship models (community land trusts, usufruct)
-  - Ecological building standards - every structure contributes to the ecosystem
-  - No homelessness. Period.
+- **Flooding and noise:** Bad actors can overwhelm discussion to dilute signal. *Countermeasure: moderation policies, contribution quality standards, rough consensus decision-making with clear timelines.*
+- **Concern trolling:** Using the open process to slow-walk decisions to death. *Countermeasure: decision deadlines, "rough consensus and running code" -- working implementations outweigh theoretical objections.*
+- **Strategic co-option:** Aligning publicly with the movement while redirecting its resources toward industry-friendly goals (see: corporate greenwashing). *Countermeasure: clear alignment criteria, willingness to refuse partnerships that don't meet them, outcome-based evaluation.*
+- **Harassment of contributors:** Visible participation makes contributors targets. *Countermeasure: contributor pseudonymity is supported as protection, not ideology. People may contribute under any identity.*
+- **State surveillance:** Open coordination makes it trivial for hostile governments to monitor and map the network. *The framework accepts this tradeoff.* A movement that requires secrecy to function is fragile. A movement that functions in plain sight and still works is resilient. Contributors in repressive contexts should use whatever operational security they need, and the network supports that without judgment.
 
-#### 1.3 Economic Transition Mechanisms
-
-> *Each proposal below must be evaluated on three dimensions: cost at scale, funding mechanism, and who bears the transition cost. Without those numbers, this is a wish list. Some numbers are included here; full analysis belongs in a dedicated ECONOMICS.md.*
-
-- [ ] **Wealth distribution**
-  - Gradual wealth caps and redistribution schedules
-    - *Scale challenge: Enforcement requires international coordination to prevent capital flight. Existing precedents: Norway's sovereign wealth fund, Switzerland's wealth tax. No country has implemented hard caps.*
-  - Universal Basic Income (UBI) as a bridge mechanism during transition
-    - *Scale: US at $1,000/month = ~$4 trillion/year (roughly the entire federal budget). Proposed funding mechanisms that partially close the gap: land value tax (~$1.7T potential), carbon tax (~$200B), financial transaction tax (~$75B), automation dividend, sovereign wealth funds. This does not fully add up at current scale - UBI requires selective abundance to reduce costs simultaneously. See 100+ pilot results at guaranteedincome.us.*
-  - Cooperative and mutual ownership replacing corporate structures
-    - *Existing models: Mondragon (80,000 worker-owners, $12B+ revenue - but also Fagor's 2013 bankruptcy and increasing reliance on non-member temps). Italy's Marcora Law provides low-interest loans for worker buyouts. These work at specific scales; the transition path for a 100,000-employee global supply chain is unsolved.*
-  - Community wealth funds - regional pools of shared resources
-  - Debt jubilee - cancellation of unjust debts (medical, student, developing-nation)
-    - *Scale: US student debt ~$1.7T, medical debt ~$220B, developing-nation debt ~$300B. Jubilee cost falls on whoever holds the debt as an asset - including pension funds, retirement accounts, and banks with depositors. A jubilee without a plan for downstream losses is a wealth transfer from some regular people to other regular people. Requires careful sequencing.*
-- [ ] **Disassembly of private land ownership**
-  - Phased transition: private ownership → long-term stewardship leases → full commons
-    - *Scale: US residential real estate alone is worth ~$45 trillion. "Inviting" transition requires either compensation at market value (requires a funding source that doesn't exist) or a values transformation that makes land ownership feel unnecessary (Phase 3, creating a circular dependency with Phase 1). Honest path: start with public/abandoned/tax-delinquent land, scale CLTs, build proof over decades.*
-  - Community Land Trusts as the primary mechanism
-    - *Current reality: ~300 CLTs in the US managing a tiny fraction of total land. Real, working, and growing - but scaling from "affordable housing tool" to "all land is commons" is a civilizational transformation, not an incremental step. The framework should be honest about this timeline.*
-  - Indigenous land return as a foundational act of justice
-  - Ecological land-use planning replaces market-driven development
-- [ ] **Deletion of unjust power**
-  - Corporate charters revoked for entities acting against the public interest
-  - Lobbying and political bribery criminalized
-  - Monopolies dissolved - especially in energy, media, tech, and agriculture
-  - Tax havens and offshore wealth structures dismantled through international cooperation
-    - *Reality check: Tax havens exist because nation-states benefit from them. Dismantling requires the cooperation of the very states that profit from the status quo. Incremental progress: OECD global minimum tax (15%), automatic information exchange agreements. Full dismantlement requires political leverage that doesn't currently exist.*
-  - Transparent asset registries - no hidden wealth
-
-#### 1.4 Energy and Infrastructure
-
-- [ ] **Energy sovereignty**
-  - 100% renewable, community-owned energy grids
-  - Decentralized generation (solar, wind, geothermal at household and community scale)
-  - Energy as a public utility, not a commodity
-- [ ] **Digital commons**
-  - Internet as a public utility - free, universal access
-  - Data sovereignty - personal data belongs to individuals, collective data to communities
-  - Open-source everything: software, hardware designs, research
-  - AI governance - algorithms that affect lives are publicly auditable
-- [ ] **Transportation**
-  - Free public transit
-  - Shared vehicle networks replacing private car ownership
-  - Walkable, bikeable communities by design
-
----
-
-### The Network of Trust -- The Mycelial Strategy
-
-In 2007, a researcher named Paul Hawken published a book arguing that the world's largest social movement already existed -- millions of organizations working on environmental sustainability, social justice, and indigenous rights -- and that nobody had noticed because it had no name, no leader, and no central organization. He called it "blessed unrest." Then he and his colleagues built a website called WiserEarth and catalogued 114,994 of those organizations across 243 countries.
-
-Then the funding ran out and the whole thing disappeared in a weekend. That was 2014.
-
-The lesson isn't that the idea was wrong. The lesson is about infrastructure. But the deeper lesson is one the framework must be honest about: **most people don't want to run infrastructure.** WiserEarth's code was released as open source when it shut down. Nobody self-hosted it. Every federated protocol - email, XMPP, ActivityPub - eventually concentrates around a few large nodes because running your own server is hard and most people don't care enough to do it.
-
-The strategy here is similar to Hawken's original idea, with both infrastructure problems taken seriously: the technical one (don't depend on a single server) and the social one (don't depend on everyone running their own). The realistic model is decentralized in *governance* but may be centralized in *operations* - like the Wikimedia Foundation (one organization, one infrastructure, community governance) or the Apache Foundation (umbrella organization, multiple projects, shared infrastructure). These aren't as ideologically pure as full federation, but they actually work.
-
-The approach is **mycelial**: a distributed network of people and organizations building working alternatives to the systems that don't work -- not arguing about theory, but running pilots, writing code, keeping books, growing food, running clinics. When the conditions are right, the network doesn't seize power. It just already has the replacement ready.
-
-#### How the Network Works
-
-- **Distributed, not leaderless.** The network is a web of trust, not a hierarchy. No single node can be removed to collapse it. But "leaderless" is a myth - Jo Freeman documented in 1972 that refusing to formalize leadership just creates informal leadership without accountability. The network has leaders: they are the people doing the work, making decisions, and maintaining systems. The goal is to make that leadership visible, accountable, and replaceable - not to pretend it doesn't exist. See [GOVERNANCE.md](GOVERNANCE.md).
-- **Trust is built through contribution.** You join by doing the work -- building systems, running pilots, sharing knowledge. Trust is earned, not granted.
-- **Radical transparency.** This is not a conspiracy. The framework is open-source. The pilots are public. The strategy is visible. Anyone, including opponents, can read every word. If the idea can't survive being seen, it doesn't deserve to succeed.
-- **Named author, pseudonymous contributors welcome.** This project is authored and maintained by Simon Paige (simonlpaige/commonweave on GitHub). Earlier drafts experimented with framing the project as "anonymous by design." That framing was a mistake: established organizations will not collaborate with anonymous accounts - it looks indistinguishable from a troll or sock puppet - and pretending otherwise while the repository sits under a named account is worse than either choice. The correction: the author is named, the reasoning is on record, contributors may still work under any pseudonym they want as personal protection. The governance process is transparent either way. See [GOVERNANCE.md](GOVERNANCE.md) for the current accountability structure.
-- **Operate inside and outside institutions simultaneously.** Some contributors work within governments, hospitals, universities, and corporations -- not to subvert them, but to understand them and prepare them for transformation. Others build parallel structures outside. All of this happens in the open.
-- **Demonstrate, don't argue.** The network's primary pre-transfer activity is running proof-of-concept systems at local scale: community energy grids, cooperative businesses, participatory budgets, mutual aid networks, open-source health clinics. When the moment arrives, scaling up is not a leap of faith -- it's expanding what already works.
-
-#### Principles of Network Growth
-
-1. **Invite, never recruit.** People join because they see the work and want to contribute. Persuasion is unnecessary when the results speak.
-2. **Open by default.** All coordination, planning, and strategy happens in the open. No inner circles. No secret channels. If someone needs to whisper, something has gone wrong.
-3. **Cultural adaptation.** The framework is universal but its expression is local. A community in Kerala and a community in Detroit will implement differently -- and that's the point.
-4. **No purity tests.** People arrive from different political traditions, spiritual backgrounds, and life experiences. The framework is evaluated on outcomes, not ideology.
-5. **Resilience through redundancy -- where realistic.** Critical functions should not have single points of failure. Where full federation is feasible (knowledge, training materials, local governance), pursue it. Where it isn't (complex infrastructure, databases, hosting), use community-governed shared infrastructure with transparent operations and contingency plans. Ideological purity about decentralization is less important than systems that actually survive.
-6. **The framework protects itself primarily through transparency -- but transparency is not a complete security model.** Co-option is harder when everything is visible. Infiltration is less effective when there is nothing hidden to discover. But openness has known failure modes that must be actively managed:
-   - **Flooding and noise:** Bad actors can overwhelm discussion to dilute signal. *Countermeasure: moderation policies, contribution quality standards, rough consensus decision-making with clear timelines.*
-   - **Concern trolling:** Using the open process to slow-walk decisions to death. *Countermeasure: decision deadlines, "rough consensus and running code" -- working implementations outweigh theoretical objections.*
-   - **Strategic co-option:** Aligning publicly with the movement while redirecting its resources toward industry-friendly goals (see: corporate greenwashing). *Countermeasure: clear alignment criteria, willingness to refuse partnerships that don't meet them, outcome-based evaluation.*
-   - **Harassment of contributors:** Visible participation makes contributors targets. *Countermeasure: contributor pseudonymity is supported as protection, not ideology. People may contribute under any identity.*
-   - **State surveillance:** Open coordination makes it trivial for hostile governments to monitor and map the network. *The framework accepts this tradeoff.* A movement that requires secrecy to function is fragile. A movement that functions in plain sight and still works is resilient. But contributors operating in repressive contexts should use whatever operational security they need, and the network should support that without judgment.
-
-#### What the Network Builds Before the Transfer
-
-- Working prototypes of every Phase 1 system (even at small scale)
-- Relationships of trust across borders, cultures, and institutions
-- A shared technical infrastructure (open-source, federated, encrypted)
-- Training and education programs that anyone can access
-- A body of evidence: data showing the systems work
-
----
+Network governance, accountability structures, named leadership: [GOVERNANCE.md](GOVERNANCE.md).
 
 ### Theory of Power Transfer
 
 The framework requires an honest answer to the hardest question: *why would those with power give it up?*
 
-The honest answer is: most won't. Not voluntarily. Power does not become "irrelevant" because better alternatives exist. The history of fossil fuels, tobacco, feudal land tenure, and colonial governance shows that entrenched power fights to preserve itself long after superior alternatives are available. A billionaire is not going to voluntarily become a regular participant in a commons because you offered them dignity.
+Most won't. Not voluntarily. Power does not become "irrelevant" because better alternatives exist. The history of fossil fuels, tobacco, feudal land tenure, and colonial governance shows that entrenched power fights to preserve itself long after superior alternatives are available.
 
-So the framework relies on multiple mechanisms, in order of realism:
+The framework relies on five mechanisms, in order of realism:
 
-1. **Economic obsolescence.** Some forms of power genuinely do erode when technology changes. Newspaper classified ad revenue, taxi medallions, music label distribution monopolies -- these were power bases that technology made irrelevant whether the holders liked it or not. The framework identifies which current power structures are vulnerable to technological displacement and prioritizes building alternatives there first.
+1. **Economic obsolescence.** Some power structures erode when technology changes -- newspaper classified ad revenue, taxi medallions, music label distribution monopolies. The framework identifies which current power structures are vulnerable to technological displacement and builds alternatives there first.
+2. **Democratic capture in reverse.** Electing people committed to commons-based policy into existing structures. Already happening: participatory budgeting in 7,000+ cities, community wealth building in Preston and Cleveland, state-level cooperative development legislation. Slow, boring, effective.
+3. **Coalition pressure.** Labor movements, consumer boycotts, shareholder activism, divestment campaigns. The anti-apartheid movement, marriage equality, the tobacco settlement -- none waited for the powerful to see the light.
+4. **Parallel institution-building.** Email didn't ask the postal service for permission. Wikipedia didn't negotiate with Encyclopaedia Britannica. When commons-based alternatives are demonstrably better, migration happens.
+5. **Nonviolent non-cooperation.** When power refuses to yield: strikes, tax resistance, civil disobedience. The framework is nonviolent. It is not passive.
 
-2. **Democratic capture in reverse.** Electing people committed to commons-based policy into existing democratic structures. This is already happening: participatory budgeting in 7,000+ cities worldwide, community wealth building in Preston and Cleveland, state-level cooperative development legislation. Slow, boring, effective.
-
-3. **Coalition pressure.** Labor movements, consumer boycotts, shareholder activism, divestment campaigns -- actual mechanisms of power redistribution that have worked historically. The anti-apartheid divestment movement, the marriage equality campaign, the tobacco settlement -- none of these waited for the powerful to see the light. They applied pressure until the cost of resistance exceeded the cost of change.
-
-4. **Parallel institution-building.** When the alternative is good enough, migration happens. Email didn't ask the postal service for permission. Wikipedia didn't negotiate with Encyclopaedia Britannica. When commons-based alternatives are demonstrably better, people switch -- and the old system's revenue base erodes whether it consents or not.
-
-5. **Nonviolent non-cooperation.** When power refuses to yield despite all of the above, the framework explicitly supports strikes, tax resistance, non-cooperation, and civil disobedience. The framework is nonviolent. It is not passive.
-
-**What the framework does NOT assume:** That power holders will voluntarily step aside. That dignity of exit will be sufficient motivation. That the transition will be smooth or painless. Some power will have to be taken, even if the taking is nonviolent. The framework must be honest about that.
-
----
-
-### Phase 2: The Transfer
-
-Not a revolution -- a migration. But a migration that some will resist.
-
-The transfer is not a single event. It is a phase shift. The conditions accumulate gradually and the transformation appears sudden -- which is how most phase transitions work. You heat water for a long time and then it boils.
-
-1. **Selective abundance crosses key thresholds.** Automation, AI, and renewable energy make specific necessities dramatically cheaper -- not universally free, but cheap enough that the old economy's logic starts breaking in visible ways. Energy, information, and basic food production lead. Housing, care, and land follow on different timelines.
-2. **The network activates.** Prepared systems go live at scale. What was a local pilot becomes regional infrastructure. What was a prototype becomes the default.
-3. **Institutions transform from within and under pressure.** People inside governments, corporations, hospitals, and schools -- who have been part of the network or who simply see that the new way works -- begin redirecting their institutions toward the new systems. Where institutions resist, coalition pressure, democratic processes, and nonviolent non-cooperation provide the force that goodwill alone cannot.
-4. **The old system loses its base.** Some structures become unnecessary and are absorbed into new democratic frameworks. Others are actively dismantled through democratic processes. Others resist and are bypassed. Not all transitions are graceful.
-
-#### What Makes Peaceful Transfer Possible
-
-- The new systems are already working and visibly better -- proof, not promises
-- A critical mass of people understand and support the transition
-- Multiple pressure mechanisms operate simultaneously: economic, democratic, social, cultural
-- International solidarity prevents external sabotage -- the network is worldwide
-- No one loses access to necessities during the transition -- the old and new systems overlap
-- Those who held power are offered dignified reintegration -- but the transition does not depend on their acceptance
-
----
-
-### Phase 3: Post-Transfer - Governance Maintenance
-
-> *Phase 3 is not "what the good world looks like" - everyone can imagine that. Phase 3 is "what prevents the good world from sliding back into the bad one." History shows that every democratic gain, every commons, every cooperative structure is under constant pressure from power reconcentration, democratic backsliding, ecological overshoot, and free-rider erosion. Phase 3 is the immune system.*
-
-#### 3.1 Measurement Infrastructure - What Replaces GDP
-
-You can't maintain what you can't measure. The transition from growth-based metrics to wellbeing-based metrics is not aspirational - it's already happening, and the framework should treat existing implementations as Phase 1 pilots to scale.
-
-- [ ] **Beyond-GDP national accounting** (operational precedents exist)
-  - *Bhutan's GNH Commission* has screened all policy proposals against 9 domains of happiness metrics since 2008. Population 780K, top-down introduction by the king - genuine experiment, uncertain replicability to large diverse democracies.
-  - *New Zealand's Wellbeing Budget* (2019) - first national budget organized around wellbeing outcomes rather than GDP growth. Uses 12 domains of wellbeing from the NZ Treasury's Living Standards Framework. This is the most replicable model.
-  - *WEGo partnership* (Scotland, Iceland, New Zealand, Wales, Finland, Canada) - six governments formally committed to moving beyond GDP. The OECD Better Life Index provides comparative data across 40 countries.
-  - *Doughnut Economics* (Kate Raworth / Amsterdam, 2020) - city-level framework balancing social foundation (12 minimum standards) against ecological ceiling (9 planetary boundaries). Amsterdam adopted it as official policy framework.
-  - **The framework's position:** Wellbeing measurement is not a Phase 3 aspiration. It is a Phase 1 deployment. Adopt the NZ/WEGo model at every governance level the network touches. Measure: life satisfaction, health outcomes, educational access, social connection, ecological footprint, housing security, democratic participation, time sovereignty (hours not spent in coerced labor).
-  - **Open problem:** Who controls the measurement apparatus? Metrics shape behavior. If the wellbeing index is designed by economists, it will reflect economic assumptions. If designed by psychologists, psychological ones. The design of the measurement system is itself a governance problem requiring democratic input.
-
-#### 3.2 Anti-Backsliding Mechanisms - Democratic Immune System
-
-Every post-revolutionary, post-transition, and post-reform society faces the same threat: power reconcentration. The wealthy find new ways to accumulate. Politicians find new ways to entrench. Corporations find new ways to capture regulators. The framework needs specific countermeasures, not just "safeguards against re-concentration of power."
-
-- [ ] **Constitutional sunset and renewal**
-  - *Ireland's Citizens' Assembly model* - periodic assemblies of randomly selected citizens review constitutional provisions and recommend changes. Ireland used this to resolve abortion and marriage equality - issues that elected politicians couldn't touch. The mechanism is: sortition (random selection), structured deliberation, expert testimony, binding referendum.
-  - **Proposed mechanism:** Constitutional review assemblies every 10 years, with mandatory review of: wealth distribution trends, ecological boundary compliance, democratic participation rates, and power concentration metrics. If any metric has deteriorated beyond a defined threshold, the assembly has binding authority to propose corrective constitutional amendments.
-  - **Open problem:** Constitutional stability vs. adaptability. Too-frequent revision creates uncertainty. Too-infrequent revision allows drift. 10 years is a guess.
-
-- [ ] **Power concentration detection**
-  - Real-time monitoring of wealth concentration (Gini coefficient, wealth share of top 1%/0.1%), corporate consolidation (HHI index by sector), media ownership concentration, political donation patterns, and revolving-door metrics (officials moving to industries they regulated).
-  - **Proposed mechanism:** An independent statistical authority (modeled on central bank independence but for inequality data) that publishes quarterly power concentration reports. When any metric crosses a predefined threshold, it triggers automatic democratic review - not automatic action, but mandatory public deliberation.
-  - *Precedent: Estonia's e-governance* - transparent digital infrastructure that makes government operations auditable in real time. If you can make tax collection transparent, you can make power concentration transparent.
-
-- [ ] **Anti-capture mechanisms**
-  - Cooling-off periods between public office and private sector (minimum 5 years)
-  - Asset transparency requirements for all governance participants
-  - Sortition for oversight bodies - randomly selected citizens are harder to capture than elected officials who need campaign funding
-  - *Precedent: Uruguay's electoral system* - considered one of the most robust in the Americas, with mandatory voting, independent electoral court, and strong party finance regulations. Democratic backsliding has not occurred despite regional trends.
-
-#### 3.3 Adaptive Governance - How the Framework Changes Itself
-
-The most dangerous thing a framework can become is sacred. The moment people defend the framework because it's *the framework* rather than because it's *working*, it has become the rigid ideology it sought to replace.
-
-- [ ] **Built-in self-revision**
-  - The framework must contain explicit mechanisms for its own modification, including modification of its core principles.
-  - **Proposed mechanism:** Any core principle can be amended through a three-stage process: (1) public proposal with evidence that the principle is producing harmful outcomes, (2) citizens' assembly deliberation with structured pro/con testimony, (3) supermajority ratification (67%+). This is deliberately hard but deliberately possible.
-  - **Open problem:** Who decides what counts as "harmful outcomes"? This is recursive - the measurement infrastructure (3.1) and the governance system are evaluating each other. There is no neutral ground. The best available answer is: make the evaluation criteria themselves subject to democratic revision.
-
-- [ ] **Multi-horizon governance**
-  - *Short-term (1-5 years):* Elected/sortition-selected bodies handle operational governance. Standard democratic accountability.
-  - *Medium-term (5-50 years):* Dedicated futures bodies (modeled on Finland's Parliamentary Committee for the Future or Wales's Future Generations Commissioner) with legal authority to block policies that sacrifice long-term wellbeing for short-term gain.
-  - *Long-term (50-500+ years):* Ecological governance. Planetary boundaries are not subject to democratic override (see Tensions and Tradeoffs below). Scientific bodies with democratic accountability but insulation from electoral pressure monitor and enforce ecological limits.
-  - *Precedent: The Iroquois Confederacy's* seventh-generation principle - decisions evaluated for their impact seven generations out (~175 years). This is often cited as aspirational; the operational question is how to institutionalize it.
-
-- [ ] **Nested governance at scale (Ostrom's Principle 8)**
-  - Local communities govern local resources with full autonomy within shared principles.
-  - Regional federations coordinate between communities, manage shared infrastructure, resolve inter-community disputes.
-  - Global coordination handles planetary-scale commons (atmosphere, oceans, biodiversity, AI governance) through democratic bodies with representation from all levels.
-  - *Precedent: The cooperative movement's federated structure* - local co-ops -> regional federations -> national bodies -> International Cooperative Alliance (ICA). Over 3 million cooperatives worldwide, 1 billion+ members. This is the largest existing example of nested democratic governance at global scale.
-  - **Open problem:** How do you prevent the upper layers from accumulating power over the lower layers? Subsidiarity (decisions made at the lowest competent level) is the principle. Enforcement of subsidiarity is the unsolved problem. The EU struggles with this constantly.
-
-#### 3.4 Ecological Restoration
-
-Ecological restoration is technically achievable at large scale. The constraint is political will and sustained investment, not technical knowledge.
-
-- [ ] **Demonstrated precedents for restoration at scale**
-  - *China's Loess Plateau:* 35,000 km2 of degraded land transformed into productive landscape over 15 years (World Bank funded, community-implemented).
-  - *Costa Rica:* Forest cover reversed from 21% (1987) to 60% (2025) through payments for ecosystem services, land-use planning, and ecotourism incentives.
-  - *Great Green Wall of Africa:* 8,000 km reforestation project across the Sahel. Partial progress (15% complete as of 2025), demonstrating both feasibility and the challenge of sustained multi-decade commitment.
-- [ ] **Regenerative agriculture** as the default, not the exception. Existing models: Savory Institute holistic management, Rodale Institute organic no-till, System of Rice Intensification (SRI) producing higher yields with less water in 60+ countries.
-- [ ] **Ocean and freshwater governance** - the largest ungoverned commons. The High Seas Treaty (2023) is a start. Freshwater governance (Colorado River Compact, Murray-Darling Basin Plan) provides both positive and cautionary precedents.
-
-**Open problem: Population.** Global population is projected to peak around 10.4 billion in the 2080s. Resource consumption = population x per-capita consumption. The framework addresses per-capita consumption but is silent on population dynamics. This is not a call for coercive population control - it's an acknowledgment that every ecological restoration plan must account for how many people are consuming what. Demographic transitions (declining fertility correlated with women's education, healthcare access, and economic security) are the ethical and effective mechanism. The framework's Phase 1 priorities (education, healthcare, economic sufficiency) are themselves the best population policy.
+**What the framework does NOT assume:** That power holders will voluntarily step aside. That the transition will be smooth or painless. Some power will have to be taken, even if the taking is nonviolent. Full engagement with historical cases: [THEORY-OF-CHANGE.md](THEORY-OF-CHANGE.md).
 
 ---
 
 ## Tensions and Tradeoffs
 
-> *The core principles are in tension with each other. Pretending otherwise would be dishonest. These tensions are not bugs - they are the hardest design problems. They do not have clean answers.*
+The core principles are in tension with each other. These are not bugs -- they are the hardest design problems. They do not have clean answers.
 
-### Democratic Sovereignty vs. Ecological Equilibrium
+**Democratic Sovereignty vs. Ecological Equilibrium:** What happens when a democratic majority votes to allow resource extraction that violates planetary boundaries? The framework's position: ecological limits function like constitutional rights -- not subject to majority override. A majority vote cannot strip future generations of a livable planet. Planetary boundaries are pre-political. **Open problem:** Who defines them, and who enforces them when democratic institutions disagree? No such body currently exists at adequate scale. (See Issue #35)
 
-What happens when a democratic majority votes to allow resource extraction that violates planetary boundaries? This is not hypothetical - it is the story of every coal-dependent community that votes to keep mines open, every fishing village that votes against catch limits.
+**Voluntary Contribution vs. Universal Sufficiency:** If contribution is truly voluntary, who does the unglamorous work? Sewage treatment, garbage collection, elder care at 3 AM. Every commune and cooperative in history has confronted this. The framework's position: voluntary contribution means work is not performed under threat of starvation. Mechanisms in order of preference: automation first, then rotation, then compensation premiums, then genuine voluntarism. **Open problem:** Free-rider dynamics are documented in every commons. Ostrom's design principles are the best available framework but require enforcement mechanisms not yet fully specified here. (See Issue #35)
 
-**The framework's position:** Ecological limits function like constitutional rights - they are not subject to majority override. Just as a majority vote cannot legally strip a minority of civil rights in a constitutional democracy, a majority vote cannot strip future generations of a livable planet. Planetary boundaries are pre-political: they exist whether or not anyone votes for them.
+**Common Ownership vs. Cultural Adaptation:** Local communities may govern *how* resources are distributed. They may not govern *whether* a person is entitled to food, shelter, healthcare, or safety. **Open problem:** Who decides when a community has crossed from adaptation into exclusion? This is the federalism problem in its oldest form. (See Issue #35)
 
-This means democratic sovereignty is real but bounded. You may govern how you live within the limits of what the earth can sustain. You may not vote to exceed those limits.
-
-**Open problem:** Who defines the planetary boundaries, and who enforces them when democratic institutions disagree? This requires a body of scientific governance that is itself democratically accountable but insulated from short-term political pressure. No such body currently exists at adequate scale. (See Issue #35)
-
----
-
-### Voluntary Contribution vs. Universal Sufficiency
-
-If contribution is truly voluntary, who does the unglamorous work? Sewage treatment. Garbage collection. Elder care at 3 AM. Slaughterhouse labor. Psychiatric emergency response.
-
-Every intentional community, commune, and cooperative in history has confronted this. The kibbutz movement developed elaborate systems for task rotation, compensation differentials, and eventually re-introduced wage labor for roles voluntarism couldn't reliably fill.
-
-**The framework's position:** Voluntary contribution means work is not performed under threat of starvation. It does not mean all work is equally pleasant. Mechanisms for necessary-but-unpleasant work, in order of preference:
-1. **Automation** - priority target. If a task is necessary and undesirable, automate it first.
-2. **Rotation** - shared burden distributed on a schedule.
-3. **Compensation premiums** - additional resources for roles that remain undesirable after automation.
-4. **Genuine voluntarism** - some people find meaning in work others find unpleasant. This is real.
-
-**Open problem:** Free-rider dynamics are documented in every commons. Ostrom's design principles (monitoring, graduated sanctions, conflict resolution) are the best available framework but require enforcement mechanisms not yet fully specified here. (See Issue #35)
-
----
-
-### Common Ownership vs. Cultural Adaptation
-
-The framework says the commons belongs to everyone and that local implementation is culturally adapted. These conflict the moment a community uses "cultural adaptation" to exclude someone from the commons.
-
-**The framework's position:** Local communities may govern *how* resources are distributed and *what* governance processes look like. They may not govern *whether* a person is entitled to food, shelter, healthcare, or safety. Cultural adaptation is permitted within the commons. Using cultural adaptation to deny commons access is not.
-
-**Open problem:** Who decides when a local community has crossed from adaptation into exclusion, and with what enforcement authority? This is the federalism problem in its oldest form. (See Issue #35)
-
----
-
-### On Human Nature
-
-The framework does not assume humans are angels. It assumes systems designed for the full range of human behavior - including free-riding, status competition, in-group formation, and apathy - will produce better outcomes than systems that punish people for surviving under coercive conditions.
-
-Ostrom's design principles for commons governance are the most empirically grounded framework for managing realistic human behavior: clear boundaries, proportional rules, collective choice, monitoring, graduated sanctions, conflict resolution, external recognition. Not idealistic - operational. See RESEARCH.md.
+The framework does not assume humans are angels. It assumes systems designed for the full range of human behavior -- free-riding, status competition, in-group formation, apathy -- will produce better outcomes than systems that punish people for surviving under coercive conditions. See [RESEARCH.md](RESEARCH.md).
 
 ---
 
