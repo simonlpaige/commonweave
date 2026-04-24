@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1700" font-family="Inter, -apple-system, Segoe UI, Georgia, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f3eb"/>
+      <stop offset="1" stop-color="#eee7d6"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3a5a32"/>
+    </marker>
+    <marker id="arr-light" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7a8a6a"/>
+    </marker>
+    <filter id="soft" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feOffset dx="0" dy="2" in="b" result="o"/>
+      <feComponentTransfer in="o" result="oo"><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode in="oo"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1700" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="600" y="56" text-anchor="middle" font-size="28" font-weight="800" fill="#2d4026" letter-spacing="0.5">The Commonweave pipeline</text>
+  <text x="600" y="84" text-anchor="middle" font-size="14" fill="#5e7a52" font-style="italic">source → ingest → classify → geocode → audit → dedup → staleness → publish</text>
+
+  <!-- ============ ROW 1: SOURCES ============ -->
+  <text x="60" y="128" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">1. SOURCES</text>
+  <line x1="60" y1="136" x2="1140" y2="136" stroke="#d4c9a8" stroke-width="1"/>
+
+  <!-- Source boxes -->
+  <g filter="url(#soft)">
+    <rect x="60"   y="152" width="180" height="64" rx="8" fill="#ffffff" stroke="#c8bfa0"/>
+    <rect x="256"  y="152" width="180" height="64" rx="8" fill="#ffffff" stroke="#c8bfa0"/>
+    <rect x="452"  y="152" width="180" height="64" rx="8" fill="#ffffff" stroke="#c8bfa0"/>
+    <rect x="648"  y="152" width="180" height="64" rx="8" fill="#ffffff" stroke="#c8bfa0"/>
+    <rect x="844"  y="152" width="180" height="64" rx="8" fill="#ffffff" stroke="#c8bfa0"/>
+  </g>
+  <g font-size="13" fill="#2d4026" text-anchor="middle">
+    <text x="150" y="180" font-weight="700">Government registries</text>
+    <text x="150" y="198" font-size="11" fill="#5e7a52">IRS, UK, FR, JP, AU, NZ</text>
+    <text x="346" y="180" font-weight="700">Wikidata SPARQL</text>
+    <text x="346" y="198" font-size="11" fill="#5e7a52">coop/mutual/credit-union</text>
+    <text x="542" y="180" font-weight="700">Open Food Network</text>
+    <text x="542" y="198" font-size="11" fill="#5e7a52">national instances</text>
+    <text x="738" y="180" font-weight="700">Web research</text>
+    <text x="738" y="198" font-size="11" fill="#5e7a52">per-country bots</text>
+    <text x="934" y="180" font-weight="700">Hand curation</text>
+    <text x="934" y="198" font-size="11" fill="#5e7a52">DIRECTORY.md</text>
+  </g>
+
+  <!-- ============ ROW 2: INGEST ============ -->
+  <text x="60" y="262" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">2. INGEST</text>
+  <line x1="60" y1="270" x2="1140" y2="270" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="60"   y="286" width="180" height="60" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+    <rect x="256"  y="286" width="180" height="60" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+    <rect x="452"  y="286" width="180" height="60" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+    <rect x="648"  y="286" width="180" height="60" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+    <rect x="844"  y="286" width="180" height="60" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+  </g>
+  <g font-size="12" fill="#2d4026" text-anchor="middle" font-family="Menlo, Consolas, monospace">
+    <text x="150" y="312" font-weight="700">ingest_gov_registry.py</text>
+    <text x="150" y="330" font-size="11" fill="#5e7a52">+ classify_org_ml()</text>
+    <text x="346" y="312" font-weight="700">ingest_wikidata_bulk.py</text>
+    <text x="346" y="330" font-size="11" fill="#5e7a52">legibility=formal</text>
+    <text x="542" y="312" font-weight="700">ingest_ofn.py</text>
+    <text x="542" y="330" font-size="11" fill="#5e7a52">hand-written list</text>
+    <text x="738" y="312" font-weight="700">run_next_country.py</text>
+    <text x="738" y="330" font-size="11" fill="#5e7a52">researcher_XX.py</text>
+    <text x="934" y="312" font-weight="700">ingest_india.py</text>
+    <text x="934" y="330" font-size="11" fill="#5e7a52">dispatcher + TODOs</text>
+  </g>
+
+  <!-- Arrows from sources → ingest -->
+  <g stroke="#7a8a6a" stroke-width="1.5" fill="none" marker-end="url(#arr-light)">
+    <path d="M150,216 L150,284"/>
+    <path d="M346,216 L346,284"/>
+    <path d="M542,216 L542,284"/>
+    <path d="M738,216 L738,284"/>
+    <path d="M934,216 L934,284"/>
+  </g>
+
+  <!-- Funnel from row 2 to single DB -->
+  <g stroke="#3a5a32" stroke-width="1.8" fill="none">
+    <path d="M150,346 L600,410" marker-end="url(#arr)"/>
+    <path d="M346,346 L600,410" marker-end="url(#arr)"/>
+    <path d="M542,346 L600,410" marker-end="url(#arr)"/>
+    <path d="M738,346 L600,410" marker-end="url(#arr)"/>
+    <path d="M934,346 L600,410" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- ============ CENTER: SHARED DB ============ -->
+  <g filter="url(#soft)">
+    <rect x="440" y="420" width="320" height="60" rx="10" fill="#2d4026" stroke="#1a2618"/>
+  </g>
+  <text x="600" y="448" text-anchor="middle" font-size="14" font-weight="800" fill="#e6ecde">commonweave_directory.db</text>
+  <text x="600" y="467" text-anchor="middle" font-size="11" fill="#a8c87e" font-family="Menlo, Consolas, monospace">SQLite · one table: organizations</text>
+
+  <!-- Arrow down from DB -->
+  <g stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)">
+    <path d="M600,480 L600,530"/>
+  </g>
+
+  <!-- ============ ROW 3: CLASSIFY + SCORE ============ -->
+  <text x="60" y="525" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">3. CLASSIFY &amp; SCORE</text>
+  <line x1="60" y1="533" x2="1140" y2="533" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="220" y="550" width="240" height="60" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+    <rect x="480" y="550" width="240" height="60" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+    <rect x="740" y="550" width="240" height="60" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+  </g>
+  <g font-size="12" fill="#2d4026" text-anchor="middle" font-family="Menlo, Consolas, monospace">
+    <text x="340" y="576" font-weight="700">phase2_filter.py</text>
+    <text x="340" y="594" font-size="11" fill="#5e7a52">alignment score + model_type</text>
+    <text x="600" y="576" font-weight="700">phase3_intl_fix.py</text>
+    <text x="600" y="594" font-size="11" fill="#5e7a52">fill missing framework_area</text>
+    <text x="860" y="576" font-weight="700">i18n_terms.py</text>
+    <text x="860" y="594" font-size="11" fill="#5e7a52">~350 terms, ~30 languages</text>
+  </g>
+  <g stroke="#3a5a32" stroke-width="1.5" fill="none" marker-end="url(#arr)">
+    <path d="M600,610 L600,650"/>
+  </g>
+
+  <!-- ============ ROW 4: GEOCODE ============ -->
+  <text x="60" y="649" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">4. GEOCODE</text>
+  <line x1="60" y1="657" x2="1140" y2="657" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="440" y="670" width="320" height="58" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+  </g>
+  <g font-size="12" fill="#2d4026" text-anchor="middle" font-family="Menlo, Consolas, monospace">
+    <text x="600" y="694" font-weight="700">phase1_geocode.py</text>
+    <text x="600" y="712" font-size="11" fill="#5e7a52">city → state → country centroid</text>
+  </g>
+  <g stroke="#3a5a32" stroke-width="1.5" fill="none" marker-end="url(#arr)">
+    <path d="M600,728 L600,768"/>
+  </g>
+
+  <!-- ============ ROW 5: AUDIT PASSES ============ -->
+  <text x="60" y="767" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">5. AUDIT PASSES (label, do not delete; CSVs in trim_audit/)</text>
+  <line x1="60" y1="775" x2="1140" y2="775" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="80"   y="790" width="200" height="62" rx="8" fill="#fbecd8" stroke="#c4a55d"/>
+    <rect x="300"  y="790" width="200" height="62" rx="8" fill="#fbecd8" stroke="#c4a55d"/>
+    <rect x="520"  y="790" width="200" height="62" rx="8" fill="#fbecd8" stroke="#c4a55d"/>
+    <rect x="740"  y="790" width="200" height="62" rx="8" fill="#fbecd8" stroke="#c4a55d"/>
+    <rect x="960"  y="790" width="160" height="62" rx="8" fill="#fbecd8" stroke="#c4a55d"/>
+  </g>
+  <g font-size="12" fill="#2d4026" text-anchor="middle" font-family="Menlo, Consolas, monospace">
+    <text x="180" y="814" font-weight="700">audit_pass1.py</text>
+    <text x="180" y="832" font-size="11" fill="#6a4a14">name patterns</text>
+    <text x="400" y="814" font-weight="700">audit_pass2.py</text>
+    <text x="400" y="832" font-size="11" fill="#6a4a14">positive-signal required</text>
+    <text x="620" y="814" font-weight="700">audit_pass3_ntee.py</text>
+    <text x="620" y="832" font-size="11" fill="#6a4a14">US NTEE filter</text>
+    <text x="840" y="814" font-weight="700">audit_quality.py</text>
+    <text x="840" y="832" font-size="11" fill="#6a4a14">sample verification</text>
+    <text x="1040" y="814" font-weight="700">trim_to_aligned.py</text>
+    <text x="1040" y="832" font-size="11" fill="#6a4a14">score ≥ 2 keeps</text>
+  </g>
+  <!-- Sequential arrows between audit boxes -->
+  <g stroke="#c4a55d" stroke-width="1.5" fill="none" marker-end="url(#arr-light)">
+    <path d="M280,821 L298,821"/>
+    <path d="M500,821 L518,821"/>
+    <path d="M720,821 L738,821"/>
+    <path d="M940,821 L958,821"/>
+  </g>
+  <g stroke="#3a5a32" stroke-width="1.5" fill="none" marker-end="url(#arr)">
+    <path d="M600,852 L600,892"/>
+  </g>
+
+  <!-- ============ ROW 6: DEDUP ============ -->
+  <text x="60" y="891" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">6. DEDUPLICATE (only merge when location agrees)</text>
+  <line x1="60" y1="899" x2="1140" y2="899" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="380" y="914" width="440" height="66" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+  </g>
+  <text x="600" y="939" text-anchor="middle" font-size="13" font-weight="700" fill="#2d4026" font-family="Menlo, Consolas, monospace">dedup_merge.py</text>
+  <text x="600" y="958" text-anchor="middle" font-size="11" fill="#5e7a52">same name + country is not enough. need shared city,</text>
+  <text x="600" y="971" text-anchor="middle" font-size="11" fill="#5e7a52">postcode, or lat/lng within 5 km. else → human review.</text>
+  <g stroke="#3a5a32" stroke-width="1.5" fill="none" marker-end="url(#arr)">
+    <path d="M600,980 L600,1020"/>
+  </g>
+
+  <!-- ============ ROW 7: STALENESS ============ -->
+  <text x="60" y="1019" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">7. STALENESS CHECK (never auto-archives)</text>
+  <line x1="60" y1="1027" x2="1140" y2="1027" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="380" y="1042" width="440" height="74" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+  </g>
+  <text x="600" y="1066" text-anchor="middle" font-size="13" font-weight="700" fill="#2d4026" font-family="Menlo, Consolas, monospace">staleness_check.py</text>
+  <text x="600" y="1085" text-anchor="middle" font-size="11" fill="#5e7a52">skips informal/hybrid, social-first, new (&lt;30d), no-website</text>
+  <text x="600" y="1099" text-anchor="middle" font-size="11" fill="#5e7a52">3 strikes → staleness_flag='needs_review'</text>
+  <text x="600" y="1111" text-anchor="middle" font-size="10" fill="#7a5a14" font-weight="700">a human decides, not the script</text>
+
+  <g stroke="#3a5a32" stroke-width="1.5" fill="none" marker-end="url(#arr)">
+    <path d="M600,1116 L600,1156"/>
+  </g>
+
+  <!-- ============ ROW 8: PUBLISH ============ -->
+  <text x="60" y="1155" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">8. PUBLISH</text>
+  <line x1="60" y1="1163" x2="1140" y2="1163" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="120" y="1180" width="280" height="62" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+    <rect x="460" y="1180" width="280" height="62" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+    <rect x="800" y="1180" width="280" height="62" rx="8" fill="#e6ecde" stroke="#9cb58a"/>
+  </g>
+  <g font-size="12" fill="#2d4026" text-anchor="middle" font-family="Menlo, Consolas, monospace">
+    <text x="260" y="1204" font-weight="700">build_map_v2.py</text>
+    <text x="260" y="1222" font-size="11" fill="#5e7a52">tiers A/B/C/D + edges</text>
+    <text x="600" y="1204" font-weight="700">build_search_index.py</text>
+    <text x="600" y="1222" font-size="11" fill="#5e7a52">per-country JSON</text>
+    <text x="940" y="1204" font-weight="700">export_directory.py</text>
+    <text x="940" y="1222" font-size="11" fill="#5e7a52">DIRECTORY.md summary</text>
+  </g>
+
+  <!-- Arrows to outputs -->
+  <g stroke="#3a5a32" stroke-width="1.5" fill="none" marker-end="url(#arr)">
+    <path d="M260,1242 L260,1282"/>
+    <path d="M600,1242 L600,1282"/>
+    <path d="M940,1242 L940,1282"/>
+  </g>
+
+  <!-- ============ ROW 9: OUTPUTS ============ -->
+  <text x="60" y="1281" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">9. OUTPUTS (what visitors see)</text>
+  <line x1="60" y1="1289" x2="1140" y2="1289" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="120" y="1306" width="280" height="70" rx="10" fill="#2d4026" stroke="#1a2618"/>
+    <rect x="460" y="1306" width="280" height="70" rx="10" fill="#2d4026" stroke="#1a2618"/>
+    <rect x="800" y="1306" width="280" height="70" rx="10" fill="#2d4026" stroke="#1a2618"/>
+  </g>
+  <g font-size="14" fill="#e6ecde" text-anchor="middle">
+    <text x="260" y="1336" font-weight="800">map.html</text>
+    <text x="260" y="1356" font-size="11" fill="#a8c87e" font-family="Menlo, Consolas, monospace">interactive network + geo</text>
+    <text x="600" y="1336" font-weight="800">directory.html</text>
+    <text x="600" y="1356" font-size="11" fill="#a8c87e" font-family="Menlo, Consolas, monospace">searchable per country</text>
+    <text x="940" y="1336" font-weight="800">DIRECTORY.md</text>
+    <text x="940" y="1356" font-size="11" fill="#a8c87e" font-family="Menlo, Consolas, monospace">curated markdown</text>
+  </g>
+
+  <!-- ============ META LAYER: AUDITOR ============ -->
+  <g filter="url(#soft)">
+    <rect x="60"   y="1426" width="1080" height="82" rx="10" fill="#fbecd8" stroke="#c4a55d" stroke-width="1.5"/>
+  </g>
+  <text x="82" y="1452" font-size="12" font-weight="700" fill="#6a4a14" letter-spacing="1.5">META LAYER · weekly self-improvement loop</text>
+  <text x="82" y="1478" font-size="13" font-weight="700" fill="#2d4026" font-family="Menlo, Consolas, monospace">pipeline_auditor.py</text>
+  <text x="260" y="1478" font-size="12" fill="#2d4026">reads DB + logs, writes evidence-cited proposals to trim_audit/proposals-YYYY-MM-DD.md</text>
+  <text x="82" y="1497" font-size="11" fill="#5e7a52">never writes to the database · retires proposals ignored 3 weeks running · cites named source + specific numbers or it gets dropped</text>
+
+  <!-- Meta arrows (dashed) -->
+  <g stroke="#c4a55d" stroke-width="1.2" stroke-dasharray="4 4" fill="none" opacity="0.85">
+    <path d="M60,1460 C20,1200 20,700 60,460"/>
+  </g>
+  <text x="32" y="900" font-size="10" fill="#6a4a14" transform="rotate(-90, 32, 900)">pipeline_auditor reads all stages</text>
+
+  <!-- ============ SIDEBAR: LEGIBILITY LADDER ============ -->
+  <g filter="url(#soft)">
+    <rect x="60" y="1536" width="1080" height="120" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+  </g>
+  <text x="82" y="1562" font-size="12" font-weight="700" fill="#5e7a52" letter-spacing="1.5">LEGIBILITY LADDER · every row carries one of these tags</text>
+  <g font-size="12" fill="#2d4026">
+    <text x="82"  y="1592" font-weight="700">formal</text>
+    <text x="170" y="1592" fill="#5e7a52">registered legal entity found via registry, Wikidata, or official NGO directory</text>
+    <text x="82"  y="1612" font-weight="700">hybrid</text>
+    <text x="170" y="1612" fill="#5e7a52">registered but primarily operating informally (FPOs, SHG federations)</text>
+    <text x="82"  y="1632" font-weight="700">informal</text>
+    <text x="170" y="1632" fill="#5e7a52">unregistered: sangha, mutual aid, forest/water commons, neighborhood collective</text>
+    <text x="82"  y="1652" font-weight="700">unknown</text>
+    <text x="170" y="1652" fill="#5e7a52">not yet classified · the migration default · the auditor nags until it shrinks</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="600" y="1690" text-anchor="middle" font-size="10" fill="#7a8a6a" font-style="italic">commonweave · 2026-04-24 · scripts under commonweave/data/ · database at commonweave/data/commonweave_directory.db (gitignored)</text>
+</svg>

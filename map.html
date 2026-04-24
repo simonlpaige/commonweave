@@ -207,6 +207,9 @@ html, body {
 .health-text { font-size: 10px; color: var(--text-dim); }
 
 .sb-hint { padding: 10px 20px; font-size: 10px; color: var(--text-muted); line-height: 1.7; border-top: 1px solid var(--border); flex-shrink: 0; }
+.sb-pdf { padding: 10px 20px 8px; font-size: 11px; border-top: 1px solid var(--border); flex-shrink: 0; background: var(--bg-base); }
+.sb-pdf a { color: var(--accent); text-decoration: none; font-weight: 500; }
+.sb-pdf a:hover { color: var(--earth); text-decoration: underline; }
 
 /* ═══════════ TOOLTIP ═══════════ */
 #tooltip {
@@ -400,6 +403,7 @@ html, body {
       <div class="health-dots" id="health-dots"></div>
       <div class="health-text" id="health-text">— of 10 sections in dataset</div>
     </div>
+    <div class="sb-pdf"><a href="pipeline.pdf" title="How the directory gets built">📄 How we find these organizations (PDF)</a></div>
     <div class="sb-hint">scroll to zoom · drag to pan · click nodes for details</div>
   </div>
 

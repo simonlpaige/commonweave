@@ -120,6 +120,14 @@ select:focus{border-color:var(--teal)}
 .featured-card .fc-desc{font-size:12px;color:var(--muted);line-height:1.5}
 .featured-card .fc-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
 
+/* PDF LINK ROW */
+.pdf-link-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:13px;flex-wrap:wrap}
+.pdf-link-row a{color:var(--accent);font-weight:600;text-decoration:none}
+.pdf-link-row a:hover{color:var(--warm);text-decoration:underline}
+.pdf-link-row .pdf-ext{color:var(--muted);font-weight:400;font-size:11px}
+.pdf-link-row .pdf-note{color:var(--muted);font-size:12px}
+@media(max-width:600px){.pdf-link-row .pdf-note{display:none}}
+
 /* RESPONSIVE */
 @media(max-width:600px){
   .stats-bar{gap:8px}
@@ -143,6 +151,12 @@ select:focus{border-color:var(--teal)}
 </nav>
 
 <div class="page">
+  <!-- Pipeline explainer PDF link -->
+  <div class="pdf-link-row">
+    <a href="pipeline.pdf">📄 How we find these organizations <span class="pdf-ext">(PDF)</span></a>
+    <span class="pdf-note">the full pipeline, sources, and grading ladder explained plainly</span>
+  </div>
+
   <!-- Stats -->
   <div class="stats-bar" id="stats-bar">
     <div class="stat"><div class="stat-num" id="stat-total">—</div><div class="stat-label">Organizations</div></div>
