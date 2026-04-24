@@ -1033,6 +1033,35 @@ categories:
         wiserearth_id: null
         note: "[NEW_2026] Self-sovereign identity systems. No platform controls your identity."
 
+  - name: "Land and Housing"
+    wiserearth_id: null
+    note: "[NEW_2026] Democratic ownership of land and housing. Covers community land trusts, housing cooperatives, sweat-equity programs, and construction cooperatives. The existing Community Development and Poverty Eradication branches have affordable-housing entries, but none capture the ownership model directly. Framework_area on every inserted row is 'housing_land' except construction cooperatives, which land in 'cooperatives' because they are fundamentally worker-owned firms."
+    sub_issues:
+      - name: "Community Land Trust"
+        wiserearth_id: null
+        wikidata_ids: [Q3278937]
+        note: "[NEW_2026] Nonprofit that owns land in trust and leases homes at permanent affordability. 300+ in the US, 250+ in the UK, and growing in about 40 other countries. Wikidata class: Q3278937. The brief cited Q5153359; that QID resolves to 'municipality of the Czech Republic' on Wikidata, so Q3278937 is used instead."
+      - name: "Housing Cooperative"
+        wiserearth_id: null
+        wikidata_ids: [Q562166]
+        note: "[NEW_2026] Residents collectively own the building or the land rather than individual units. Big in Scandinavia, the Netherlands, and Canada. Wikidata class: Q562166 (housing cooperative). The brief cited Q1329546; that QID resolves to an American journalist, so Q562166 is used instead."
+      - name: "Mutual Housing Association"
+        wiserearth_id: null
+        wikidata_ids: []
+        note: "[NEW_2026] Membership-based nonprofit owning rental housing democratically. Few Wikidata entries. Manual curation and Wikipedia will close the gap over time."
+      - name: "Sweat Equity Program"
+        wiserearth_id: null
+        wikidata_ids: [Q1192147]
+        note: "[NEW_2026] Future owner contributes labor hours in exchange for below-market homeownership. Habitat for Humanity and its ~1,100 affiliates globally is the canonical example. Wikidata: Q1192147 (Habitat for Humanity, the parent nonprofit). Affiliates are ingested as separate rows keyed on the affiliate URL or Wikipedia page rather than a shared class, because Wikidata has no 'sweat-equity affiliate' class."
+      - name: "Construction Cooperative"
+        wiserearth_id: null
+        wikidata_ids: [Q4539]
+        note: "[NEW_2026] Worker-owned construction and trades firms. Mondragon (ES) runs ~15 of them. ICA Group's US directory and Co-operatives UK list others. Taxonomically these are worker cooperatives whose industry happens to be construction, so rows land in framework_area='cooperatives' with registration_type='labor/construction_cooperative'."
+      - name: "Labor-for-Housing Program"
+        wiserearth_id: null
+        wikidata_ids: []
+        note: "[NEW_2026] Cross-cutting category for orgs that tie labor contribution to housing rights. Includes sweat-equity programs, community self-build housing, and some land-trust + apprenticeship hybrids. Today it is populated manually from derived relationships."
+
   - name: "Labor Unions"
     wiserearth_id: null
     note: "[NEW_2026] Worker power and democratic labor organizations. Labor unions are one of the oldest working examples of democratic ownership of a commons (collective labor power). Federations and national-level unions only; locals are out of scope for v1."
