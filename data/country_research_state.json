@@ -7,6 +7,14 @@
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_BD.md",
     "org_count": 7
   },
+  "BR": {
+    "completed": true,
+    "completed_at": "2026-04-24T22:22:38.695795Z",
+    "country_name": "Brazil",
+    "last_attempted_at": "2026-04-24T22:22:38.695769Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_BR.md",
+    "org_count": 135
+  },
   "CN": {
     "completed": true,
     "completed_at": "2026-04-23T02:14:39.818577Z",
@@ -87,6 +95,22 @@
     "last_attempted_at": "2026-04-24T17:22:06.227318Z",
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_KR.md",
     "org_count": 2
+  },
+  "MX": {
+    "completed": true,
+    "completed_at": "2026-04-24T22:25:17.165491Z",
+    "country_name": "Mexico",
+    "last_attempted_at": "2026-04-24T22:25:17.165473Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_MX.md",
+    "org_count": 122
+  },
+  "PH": {
+    "completed": true,
+    "completed_at": "2026-04-24T22:50:38.370723Z",
+    "country_name": "Philippines",
+    "last_attempted_at": "2026-04-24T22:50:38.370554Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_PH.md",
+    "org_count": 43
   },
   "PK": {
     "completed": true,
