@@ -17,11 +17,12 @@
     "org_count": 29
   },
   "KR": {
-    "completed": false,
+    "completed": true,
+    "completed_at": "2026-04-24T17:22:06.227332Z",
     "country_name": "South Korea",
-    "last_attempted_at": "2026-04-24T16:46:00.093699Z",
+    "last_attempted_at": "2026-04-24T17:22:06.227318Z",
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_KR.md",
-    "org_count": 0
+    "org_count": 2
   },
   "RU": {
     "completed": true,
