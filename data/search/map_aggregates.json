@@ -65,19 +65,19 @@
       "sections_present": 5
     },
     "BR": {
-      "total": 99,
+      "total": 127,
       "verified": 1,
-      "quality": 97,
+      "quality": 125,
       "sections": {
         "cooperatives": 2,
-        "democracy": 4,
-        "ecology": 2,
-        "education": 71,
+        "democracy": 6,
+        "ecology": 5,
+        "education": 92,
         "food": 1,
-        "healthcare": 9,
-        "recreation_arts": 10
+        "healthcare": 10,
+        "recreation_arts": 11
       },
-      "completeness": 69.3,
+      "completeness": 69.4,
       "sections_present": 7
     },
     "CA": {
@@ -498,18 +498,18 @@
       "sections_present": 1
     },
     "MX": {
-      "total": 108,
+      "total": 117,
       "verified": 0,
-      "quality": 102,
+      "quality": 110,
       "sections": {
-        "democracy": 10,
+        "democracy": 11,
         "ecology": 1,
-        "education": 78,
+        "education": 82,
         "energy_digital": 1,
-        "healthcare": 8,
-        "recreation_arts": 10
+        "healthcare": 10,
+        "recreation_arts": 12
       },
-      "completeness": 58.3,
+      "completeness": 58.2,
       "sections_present": 6
     },
     "MZ": {
@@ -1486,9 +1486,9 @@
   },
   "tier_counts": {
     "A": 0,
-    "B": 15854,
+    "B": 15890,
     "C": 0,
-    "D": 10032
+    "D": 10033
   },
   "sections": [
     "democracy",
@@ -1502,6 +1502,6 @@
     "recreation_arts",
     "ecology"
   ],
-  "total_points": 2534,
-  "total_edges": 3030
+  "total_points": 2554,
+  "total_edges": 3067
 }

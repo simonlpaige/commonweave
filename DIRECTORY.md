@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-24 07:56 UTC*
+*Last updated: 2026-04-24 11:23 UTC*
 
 
 ## Coverage
@@ -104,7 +104,7 @@
 | 🌐 Mongolia (MN) | 0 | Field Research | ✅ |
 | 🌐 Malta (MT) | 0 | Field Research | ✅ |
 | 🌐 Malawi (MW) | 0 | Field Research | ✅ |
-| 🌐 Mexico (MX) | 112 | Field Research | ✅ |
+| 🌐 Mexico (MX) | 117 | Field Research | ✅ |
 | 🌐 Malaysia (MY) | 0 | Field Research | ✅ |
 | 🌐 Mozambique (MZ) | 50 | Field Research | ✅ |
 | 🌐 Namibia (NA) | 0 | Field Research | ✅ |
@@ -167,7 +167,7 @@
 | 🌐 Zimbabwe (ZW) | 0 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 25,918 organizations indexed** across 61 countries
+**Total: 25,923 organizations indexed** across 61 countries
 
 
 ---
