@@ -456,6 +456,27 @@ This framework belongs to no one - and to everyone.
 - **Organizers** - Connect this to existing movements and communities
 - **Skeptics** - Break it. Find the failure modes. Make it stronger.
 
+### Good First Contributions
+
+A contributor should be able to pick one task in 60 seconds. Here are tasks by type:
+
+**Data**
+- Pick a country with fewer than 50 orgs in the directory. Open `data/search/<country>.json`. Find organizations that are missing, misclassified, or have broken websites. File a PR with corrections and a one-line note at the top explaining what you checked.
+- **Directory verification (45 minutes).** Pick one country with <50 orgs. Open `data/search/<country>.json`. Spot-check 10 orgs: website works, description matches framework area. File a PR editing the JSON with your corrections + a note at the top. Country-scoped tasks work because a contributor in Nairobi or Mexico City immediately has local knowledge we don't have.
+
+**Research**
+- Pick one Open Question from the table below and find at least one peer-reviewed source or documented real-world experiment that speaks to it. File a PR adding the source and a 2-sentence summary to RESEARCH.md.
+- Find a working cooperative, land trust, or mutual aid network in your country or city not yet in the directory. Document it in a PR following the format in `data/CONTRIBUTING-DATA.md`.
+
+**Code**
+- The map defaults to showing all tiers. A "high-confidence only" filter (Tier B + score>=5) would show ~3,657 orgs instead of ~11,991. Implement it as a toggle in `map.html`.
+- `data/build_map_v2.py` generates edges without provenance metadata. The edge schema should include `edge_type`, `confidence`, `explanation`, `created_at`, and `source_script`. Add these fields.
+- Mobile experience on `map.html` is basic. Clustering, better popups, or a touch-friendly filter panel would help.
+
+**Design / Writing**
+- The governance matrix in the Selective Abundance section has several `[NEEDS EXAMPLE]` cells. Find a real organization from the directory that fits and fill one in with a PR.
+- Draft a 3-sentence plain-language explanation of one framework mechanism (community land trust, participatory budgeting, mutual aid) for someone who has never heard of it. Submit to GLOSSARY.md (create it if it doesn't exist).
+
 ### How to Contribute
 
 1. Fork this repository
