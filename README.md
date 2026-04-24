@@ -66,15 +66,6 @@ This README is the framework document. Its current maturity:
 - **Critique-first.** [CRITIQUE.md](CRITIQUE.md) is a section-by-section honest audit of where the framework is weak or incomplete. It exists because the failure modes should be on the table before anyone commits to this.
 - **Open.** Every claim is either citable or flagged as speculative. Pull requests are the revision mechanism.
 
-### What Does Not Exist Yet
-
-To be specific:
-
-- **No running pilots under the Commonweave banner.** Organizations in the directory operate independently. None are affiliated with or funded by this project.
-- **No collaboration agreements with Tier 1 allied projects.** The outreach plan is in [OUTREACH.md](OUTREACH.md). The conversations have not happened yet.
-- **No named legal entity.** There is no Commonweave Foundation, LLC, or unincorporated association. This is a repository and a framework document.
-- **No staff.** This is an open-source project.
-
 ### Related project: NeighborhoodOS
 
 [NeighborhoodOS](https://neighborhoodos.org) is a sibling project — an open-source operating system for neighborhoods that want to solve their own problems, starting with one sharp "wedge" at a time. It was originally developed inside Commonweave as a ground-level implementation layer; in April 2026 it was split out into its own project so each can move at its own pace.
@@ -85,6 +76,17 @@ Current NeighborhoodOS wedge: home maintenance in West Waldo, Kansas City (owner
 
 - Site: [neighborhoodos.org](https://neighborhoodos.org)
 - Code: [GitHub](https://github.com/simonlpaige/neighborhoodos) / [Codeberg](https://codeberg.org/AlphaWorm/neighborhoodos)
+
+---
+
+## What Does Not Exist Yet
+
+To be specific:
+
+- **No running pilots under the Commonweave banner.** Organizations in the directory operate independently. None are affiliated with or funded by this project.
+- **No collaboration agreements with Tier 1 allied projects.** The outreach plan is in [OUTREACH.md](OUTREACH.md). The conversations have not happened yet.
+- **No named legal entity.** There is no Commonweave Foundation, LLC, or unincorporated association. This is a repository and a framework document.
+- **No staff.** This is an open-source project.
 
 ---
 
