@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-24 19:18 UTC*
+*Last updated: 2026-04-24 19:31 UTC*
 
 
 ## Coverage
@@ -1456,14 +1456,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 United Kingdom (GB) Civil Society Directory
 
-*Compiled: 2026-04-15 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-24 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### United Kingdom Civil Society Network
-> Primary civil society network in United Kingdom
+_No evidence-backed organizations found in this pass._
 
 
 ---

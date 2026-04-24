@@ -32,6 +32,14 @@
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_FR.md",
     "org_count": 92
   },
+  "GB": {
+    "completed": true,
+    "completed_at": "2026-04-24T19:29:12.112046Z",
+    "country_name": "United Kingdom",
+    "last_attempted_at": "2026-04-24T19:29:12.112029Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_GB.md",
+    "org_count": 11481
+  },
   "IN": {
     "completed": true,
     "completed_at": "2026-04-23T02:16:09.355098Z",
