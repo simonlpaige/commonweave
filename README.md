@@ -2,6 +2,8 @@
 
 > **Skeptics start here:** [CRITIQUE.md](CRITIQUE.md) is a section-by-section honest audit of where this framework is weak, magical, or incomplete. It's linked first on purpose. If you're looking for the case against this project, it's already written, and we'd rather you sharpened it than discovered it.
 
+**Official site:** simonlpaige.com/commonweave/
+
 ---
 
 ## The Idea
