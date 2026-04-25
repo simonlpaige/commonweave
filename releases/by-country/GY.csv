@@ -1,0 +1,5 @@
+id,name,country_code,country_name,state_province,city,registration_id,registration_type,description,website,email,phone,framework_area,ntee_code,icnpo_code,source,source_id,last_filing_year,annual_revenue,employee_count,lat,lon,model_type,tags,alignment_score,evidence_url,evidence_quote,last_verified_at
+691825,Georgetown's Plantation Structure and Historic Buildings,GY,Guyana,,,,,Tentative World Heritage Site in Guyana,,,,recreation_arts,,,wikidata,Q65616866,,,,4.86,-58.93,nonprofit,tier_b,3,,,
+691751,Guyana Red Cross Society,GY,Guyana,,,,,,http://guyanaredcross.org.gy/,,,democracy,,,wikidata,Q104833718,,,,4.86,-58.93,nonprofit,tier_c,3,,,
+763537,Guyana Trades Union Congress,GY,Guyana,,Georgetown,,labor/national_union,trade union in Guyana,,,,democracy,,,wikidata_unions,Q2993130,1941,,,4.86,-58.93,labor_union,,2,http://www.wikidata.org/entity/Q2993130,,
+691853,National Library of Guyana,GY,Guyana,,,,,library in Guyana,http://nationallibraryofguyana.com/,,,education,,,wikidata,Q15116317,,,,4.86,-58.93,nonprofit,tier_b,3,,,

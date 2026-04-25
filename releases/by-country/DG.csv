@@ -1,0 +1,2 @@
+id,name,country_code,country_name,state_province,city,registration_id,registration_type,description,website,email,phone,framework_area,ntee_code,icnpo_code,source,source_id,last_filing_year,annual_revenue,employee_count,lat,lon,model_type,tags,alignment_score,evidence_url,evidence_quote,last_verified_at
+764191,Champlain Housing Trust,DG,Diego Garcia,,,,land_and_housing/community_land_trust,US nonprofit organization,https://www.getahome.org/,,,housing_land,,,wikidata_land_trusts,Q5070176,1984,,,,,nonprofit,,2,http://www.wikidata.org/entity/Q5070176,,

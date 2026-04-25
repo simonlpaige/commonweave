@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-04-25T03:29:22.166185+00:00",
+  "row_count": 26425,
+  "country_count": 172,
+  "source_count": 13,
+  "min_alignment_score": 2,
+  "git_commit": "1c81d95421fec0f667a459054a81b8de1d6f33be",
+  "columns": [
+    "id",
+    "name",
+    "country_code",
+    "country_name",
+    "state_province",
+    "city",
+    "registration_id",
+    "registration_type",
+    "description",
+    "website",
+    "email",
+    "phone",
+    "framework_area",
+    "ntee_code",
+    "icnpo_code",
+    "source",
+    "source_id",
+    "last_filing_year",
+    "annual_revenue",
+    "employee_count",
+    "lat",
+    "lon",
+    "model_type",
+    "tags",
+    "alignment_score",
+    "evidence_url",
+    "evidence_quote",
+    "last_verified_at"
+  ],
+  "files": {
+    "organizations.csv.gz": "all rows, one per org (gzipped CSV)",
+    "organizations.json.gz": "all rows, JSON array (gzipped)",
+    "by-country/<ISO2>.csv": "rows split by country_code (uncompressed)",
+    "by-source/<source>.csv": "rows split by source (uncompressed)"
+  },
+  "notes": [
+    "Built from commonweave/data/commonweave_directory.db.",
+    "DB itself stays gitignored; this folder is the public artifact.",
+    "Regenerate with: python commonweave/data/export_to_releases.py"
+  ]
+}

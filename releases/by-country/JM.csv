@@ -1,0 +1,12 @@
+id,name,country_code,country_name,state_province,city,registration_id,registration_type,description,website,email,phone,framework_area,ntee_code,icnpo_code,source,source_id,last_filing_year,annual_revenue,employee_count,lat,lon,model_type,tags,alignment_score,evidence_url,evidence_quote,last_verified_at
+763339,Grace Hamilton Women Empowerment Foundation,JM,Jamaica,,,,,organization,,,,democracy,,,wikidata,Q54633998,,,,18.11,-77.3,nonprofit,,2,,,
+720276,J-FLAG,JM,Jamaica,,,,,Jamaican LGBT advocacy group,http://www.jflag.org/,,,democracy,,,wikidata,Q6103720,,,,18.11,-77.3,nonprofit,tier_b,3,,,
+763338,Jamaica Environment Trust,JM,Jamaica,,,,,environmental NGO,https://jamentrust.org/,,,ecology,,,wikidata,Q116343115,,,,18.11,-77.3,nonprofit,,2,,,
+720308,Jamaica Red Cross,JM,Jamaica,,,,,organization,https://www.jamaicaredcross.org/,,,democracy,,,wikidata,Q99543779,,,,18.11,-77.3,nonprofit,tier_b,3,,,
+763341,Jamaica women's national rugby league team,JM,Jamaica,,,,,team representing Jamaica in international rugby league,,,,democracy,,,wikidata,Q65046763,,,,18.11,-77.3,nonprofit,,2,,,
+720360,Jamaica's Open Data Catalog,JM,Jamaica,,,,,,https://data.gov.jm/,,,energy_digital,,,wikidata,Q97073472,,,,18.11,-77.3,nonprofit,tier_c,3,,,
+761952,Jamaicans for Justice,JM,Jamaica,,,,,citizens’ rights action group,http://www.jamaicansforjustice.org/,,,conflict,,,wikidata,Q1679831,,,,18.11,-77.3,nonprofit,,2,,,
+720310,Library and Information Association of Jamaica,JM,Jamaica,,,,,organization,https://liaja.org.jm,,,education,,,wikidata,Q124287602,,,,18.11,-77.3,nonprofit,tier_b,3,,,
+720356,National Library of Jamaica,JM,Jamaica,,,,,national library of Jamaica,http://www.nlj.gov.jm/,,,education,,,wikidata,Q626864,,,,18.11,-77.3,nonprofit,tier_b,3,,,
+720316,University of the West Indies at Mona Department of Community Health and Psychiatry,JM,Jamaica,,,,,academic department,,,,healthcare,,,wikidata,Q101012682,,,,18.11,-77.3,nonprofit,tier_b,5,,,
+720320,University of the West Indies at Mona Department of Library and Information Studies,JM,Jamaica,,,,,academic department,,,,education,,,wikidata,Q101012689,,,,18.11,-77.3,nonprofit,tier_b,3,,,
