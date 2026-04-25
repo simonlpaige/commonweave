@@ -8,23 +8,23 @@ date: "2026-04-24"
 
 *How to stitch labor, land, and housing into one democratic pipeline.*
 
-*Version 1 - 2026-04-24. This field guide is a companion to [pipeline.pdf](pipeline.pdf) and the Commonweave directory at [commonweave.earth/directory](https://simonlpaige.com/commonweave/directory.html).*
+*Version 2 - 2026-04-24. This field guide is a companion to [pipeline.pdf](pipeline.pdf) and the Commonweave directory at [commonweave.earth/directory](https://simonlpaige.com/commonweave/directory.html).*
 
 ---
 
 ## What you are holding
 
-Two things are happening at the same time, and they do not solve each other by accident.
+Two things are true in a lot of places right now. Housing costs more than most people can pay; in much of the OECD a median home costs more than a median household can carry, and rent takes the paycheck before the paycheck can do anything else. At the same time, plenty of people have hours, skills, or organizing energy that the labor market is not buying at a price that lets them afford a home. Some of that mismatch is the old story of wages not keeping up with rents. Some of it is newer: industries restructuring, work that used to pay enough now paying less or going away. The names change. The shape stays the same.
 
-The first is that a lot of people are running out of paid work. Some of that is the usual churn, and some of it is newer: language models and cheap robots are eating the bottom rungs of white collar and trade labor, and the curve does not look like it is bending back soon. The second is that housing has become too expensive almost everywhere a person might want to live. A median home in most of the OECD costs more than a median household can carry. Rents take up the paycheck before the paycheck can do anything else.
+These two facts sit next to each other and glare. Hours that have nowhere to go on one side, a roof shortage on the other. The obvious thing to do is to put them in a room together and see what happens. The idea is not new. People have been doing it, in pieces, for about a hundred and fifty years. They call the pieces different things in different places, and the pieces do not usually know about each other. This guide is about what happens when you put the pieces in one picture.
 
-These two problems sit next to each other and glare. Surplus hours on one side. A roof shortage on the other. The obvious thing to do is to put them in a room together and see what happens. That idea is not new. People have been doing it, in pieces, for about a hundred and fifty years. They call the pieces different things in different places, and the pieces do not usually know about each other. This guide is about what happens when you put the pieces in one picture.
-
-The picture has three legs. A **community land trust** holds the land as a commons, so housing on it stays affordable forever. A **labor union** or a **worker cooperative** organizes the skill that turns dirt into walls. A **sweat-equity program** lets residents pay part of the price of a home in hours instead of dollars. Stitched together, these become a pipeline: a person with hours but no dollars goes in, and a stable home on permanently-affordable land comes out.
+The picture has three legs. A **community land trust** holds the land as a commons, so housing on it stays affordable forever. A **labor union** or a **worker cooperative** organizes the skill that turns dirt into walls. A **sweat-equity program** lets residents pay part of the price of a home in hours instead of dollars. Stitched together, these become a pipeline: a person with hours but no dollars goes in, and a stable home on permanently-affordable land comes out. (We call it a pipeline for short. Some people prefer "pathway" or "cycle." The word matters less than the fact that the pieces fit.)
 
 That pipeline is real. Parts of it exist in the United States, Spain, Italy, Germany, the United Kingdom, Belgium, Canada, and a few dozen other countries. No one has documented the full playbook in one place. We will.
 
-This guide is plain language on purpose. If you are a carpenter wondering whether your local could run a housing program, you should be able to read it. If you are a city council member, you should be able to read it. If you have been displaced from your job and are wondering whether there is still a way to own a home that does not involve a million-dollar mortgage, you should be able to read it. It is not a marketing brochure. There is a dark-history chapter in the back, because the idea of working for your housing has been used to trap people before, and the only way to keep it honest is to stare at the trap squarely.
+**One honest scope note up front.** This guide is about *building new homes on land taken out of the speculative market*. It is not the only or even the fastest tool against the housing crisis. Vacancy taxes, rent stabilization, public acquisition of empty units held by investment funds, and direct public housing investment are also necessary, and in many crisis markets they will move more people into stable homes faster than any sweat-equity pipeline can. If you are working on those, read this guide for the parts that are useful to you and ignore the rest. If your organization is building a new-construction pipeline on permanently affordable land, the rest of this document is for you.
+
+This guide is plain language on purpose. If you are a carpenter wondering whether your local could run a housing program, you should be able to read it. If you are a city council member, you should be able to read it. If you have been pushed out of your job and are wondering whether there is still a way to own a home that does not involve a million-dollar mortgage, you should be able to read it. It is not a marketing brochure. There is a dark-history chapter in the back, because the idea of working for your housing has been used to trap people before, and the only way to keep it honest is to stare at the trap squarely.
 
 The rest of this guide is the pieces, the pipeline, the law, the math, and the warnings.
 
@@ -53,7 +53,7 @@ The rest of this guide is the pieces, the pipeline, the law, the math, and the w
 
 For about two hundred years the standard deal in industrialized countries has been: you go to a job, you earn wages, you rent or buy a place to live with the wages. That deal had holes from the start, and the holes have been getting bigger.
 
-AI displacement is the newest pressure, and it is already visible in the data on junior software engineering, call centers, translation, basic legal drafting, accounts payable, and the first rungs of graphic design and copywriting. These are not the "repetitive factory jobs" economists used to worry about. They are the jobs people went into college to get. Trades work is partly shielded so far, because hanging a door and rewiring an old house are still hard for a robot. But trades work has its own problem: the people who know how to do it are older than the people who don't, and the apprenticeship pipeline is not filling fast enough. A 55-year-old journeyman carpenter and a 23-year-old whose entry-level office job was automated are both standing in the same weather and looking at the same question: what now?
+The pressure on working hours is coming from several directions at once. Some industries are restructuring out from under their workers. Some white-collar work is getting automated faster than the people doing it can retrain. Trades work is partly shielded for now, because hanging a door and rewiring an old house are still hard for a robot, but trades work has its own problem: the people who know how to do it are older than the people who don't, and the apprenticeship pipeline is not filling fast enough. A 55-year-old journeyman carpenter and a 23-year-old whose entry-level office job was automated are standing in the same weather, looking at the same question: what now?
 
 There is more than one honest answer, and this guide is not about any of the bigger ones. It is about one answer: if you have hours, and someone near you has land but not enough hands, you have the start of a deal.
 
@@ -73,9 +73,34 @@ Surplus workers do not own land. Land is expensive. The people who do own land m
 
 The question this guide tries to answer is: what is the minimum stitching between those piles?
 
+### Who this pipeline can reach, and who it currently can't
+
+Be clear-eyed about who walks out the other end of this with a key in their hand. The model works best when several things line up in a person's life:
+
+- Some flexibility in your weeks, whether that is weekends, evenings, or stretches between gigs.
+- Either physical capacity for some of the construction work, or the time and skill to do administrative, care, or organizing work that the program credits at the same hourly rate (see Part 2).
+- A CLT or sweat-equity program already operating within commute distance, or a willing union local close enough to work with one.
+- A buffer between you and acute housing instability. From application to keys is usually 12 to 24 months. You need to be housed somewhere during that window.
+
+The pipeline currently does not work well for:
+
+- People in immediate housing crisis. The timeline is too long. Emergency shelter, public housing waitlists, eviction defense, and rent assistance are the right tools first; this pipeline is a longer-horizon thing on top of them.
+- Single parents of young children with no reliable childcare on work or training days, unless the program runs childcare itself (most do not, yet, and this is a fixable gap rather than a fact of nature).
+- People whose chronic illness or disability makes even the alternate-hours menu unworkable on a sustained basis.
+- People whose nearest CLT or affiliated trades local is hundreds of miles away. Geography is a hard constraint and this guide does not pretend otherwise.
+- People displaced from white-collar jobs into a labor market with no construction or trades-adjacent path they can realistically take.
+
+These are not moral failings of the people. They are design gaps in the model. Some of them (childcare on site, fully remote alternate-hour work, partnerships with deep-subsidy emergency housing) are solvable and should be solved by pilots that can. The honest starting point is: the pipeline as described in this guide was built around a particular set of capacities, and reaching the people the housing crisis hits hardest will take deliberate redesign that this document only sketches.
+
+If the pipeline is not for you and not for the people you are trying to help, this guide is not the answer. The faster levers in those cases are different and they are not in this document.
+
+### One thing to know up front about money
+
+A homeowner in this pipeline does not build wealth at market rates. The same resale rules that keep the next family's home affordable also cap the current family's appreciation. A CLT homeowner in a gentrifying neighborhood may watch market-rate neighbors a block over build six-figure equity over fifteen years while her own appreciation is held to a 2% annual or formula-based bump. The CLT calls this "permanent affordability for the next family." Critics call it "permanent wealth exclusion for the current family." Both descriptions are accurate. The full discussion is in Part 7. Mention it here because anyone reading this guide as "a way into wealth" should know up front that it is not, and a pilot that does not say so plainly to applicants is misleading them.
+
 ### The one-sentence thesis
 
-**Democratic ownership of land, combined with organized labor, can convert surplus hours into permanent homes.** Everything else in this guide is either evidence that this works in fragments, or instructions for stitching the fragments into something that works as a whole.
+**Democratic ownership of land, combined with organized labor, can convert hours that have nowhere else to go into permanent homes.** Everything else in this guide is either evidence that this works in fragments, or instructions for stitching the fragments into something that works as a whole.
 
 \newpage
 
@@ -105,9 +130,7 @@ Labor unions are one of the oldest working examples of democratic ownership of a
 
 For a labor-for-housing pipeline, the unions that matter most are in the construction and building trades. They know how to build. They run apprenticeship programs that produce the exact skill the pipeline needs. Many of them have pension funds and strike funds that could in principle be used as patient capital for housing they help build. Many of them have joint-management training centers that already have workshops, tools, and experienced instructors.
 
-The canonical European example is **IG Bauen-Agrar-Umwelt** (IG BAU), Germany's building, agriculture, and environment industrial union. It is the successor to a building-trades union that was folded into the DGB federation after World War II and it covers everything from bricklayers to landscape workers to forestry. IG BAU has institutional experience with the kind of multi-year apprenticeships that the pipeline requires, and Germany's co-determination ("Mitbestimmung") legal framework lets unions sit on the boards of major construction companies as an equal party with management.
-
-**IG Metall**, also German, is the metalworkers' union, and while it is not primarily construction, its regional structure (over a hundred local divisions catalogued in the Commonweave directory from Wikidata) is a useful template for how a large industrial union federates itself across a country. If a US or UK construction union ever wanted to federate the same way, IG Metall is what it would look like.
+The canonical European example is **IG Bauen-Agrar-Umwelt** (IG BAU), Germany's building, agriculture, and environment industrial union. It covers everything from bricklayers to landscape workers, runs the kind of multi-year apprenticeships the pipeline requires, and operates inside Germany's co-determination ("Mitbestimmung") framework, which puts union representatives on the boards of major construction companies as an equal party with management.
 
 In the United States, the construction trades are fragmented across several international unions - the Carpenters, the Laborers, the Electrical Workers (IBEW), the Plumbers and Pipefitters, the Painters, the Ironworkers, and so on - plus the AFL-CIO Building and Construction Trades Department as an umbrella. The Commonweave directory's current pass indexes the national federations (AFL-CIO, SEIU, UAW, USW, AFSCME, and so on) via Wikidata's Q178790 "trade union" class. Locals are out of scope for v1; a later pass will need them, probably by scraping each international's local directory.
 
@@ -209,7 +232,7 @@ A **housing cooperative** is a legal entity (usually a corporation) where reside
 
 A **community land trust** is an organization that owns the land. The housing on the land can be owned any number of ways - as a cooperative, as individually-owned houses with ground leases, as a mutual housing association, even as rentals. The CLT structure is about the land. The housing structure is on top of the land.
 
-The three can be combined. You can have a housing cooperative whose building sits on CLT land. You can have a mutual housing association that sits on CLT land. This is in fact the most robust configuration for permanent affordability, because it puts two forms of resale restriction in series.
+The three can be combined. You can have a housing cooperative whose building sits on CLT land. You can have a mutual housing association that sits on CLT land. This is in fact the toughest configuration for permanent affordability to break, because it puts two forms of resale restriction in series.
 
 ### Worker cooperative structures
 
@@ -321,6 +344,18 @@ A realistic capital stack for a 3-to-5-home pilot will combine three to five of 
 ## Part 6 - How to start one
 
 Numbered steps. Follow them in the order that matches who you are.
+
+### A note on the cost of entry
+
+The $25,000 to $75,000 legal-and-accounting budget named at the front of this guide is real, and on its own it is a barrier that excludes most grassroots groups. Some ways to bring that number down:
+
+- **Law school clinics.** Many law schools run housing or community development clinics that take pro bono transactional work for nonprofits. A clinic supervised by a tenured professor and staffed by 2L and 3L students can do real work on bylaws, ground leases, and PLA review under faculty signoff.
+- **State bar pro bono programs.** Most state bars have organized pro bono panels; some specifically handle affordable-housing matters.
+- **CDFI technical assistance.** LISC, Enterprise Community Partners, and many regional CDFIs offer technical-assistance grants that can fund counsel for an early-stage pilot.
+- **Law firm pro bono adoption.** A few large firms in larger cities will adopt a sweat-equity housing pilot as a multi-year signature pro bono engagement.
+- **Community development legal fellowships and Equal Justice Works placements.** A two-year fellow can carry significant transactional load.
+
+None of this guarantees free help. But ask first what counsel can do for free before you assume the door is closed. If you are an individual without an organization behind you, your first step is finding a nonprofit partner (a CLT, a community development corporation, a legal aid group) that can open these doors. The pipeline does not work without institutional capital; if you are starting cold, the work is finding the institution before anything else.
 
 ### If you are a union local
 
@@ -544,36 +579,13 @@ All three together: land-in-commons, resident-influenced-and-veto-protected enti
 
 \newpage
 
-## Part 8 - What Commonweave does and doesn't do
+## Part 8 - About this guide
 
-### What Commonweave is
+This guide is published by Commonweave, a volunteer project that maintains a free directory of land trusts, unions, housing cooperatives, and related organizations. The directory currently holds about 27,000 entries across 172 countries; about 1,700 of those are explicitly tagged as formal legal entities with verified websites or registry records, and the rest are bulk-imported, partially verified, or flagged for review. **Read the directory as a research starting point, not as endorsement, certification, or operating-readiness signal.** Before you rely on any listing, check the website, call a current number, and confirm the organization is still active and doing the work the row claims.
 
-Commonweave is three things.
+Commonweave does not host applications, broker matches, give grants, or certify anyone as running a "real" labor-for-housing program. The directory is at [commonweave.earth/directory](https://simonlpaige.com/commonweave/directory.html). The repository, including this guide's source, is at [github.com/simonlpaige/commonweave](https://github.com/simonlpaige/commonweave). Everything is CC0; use it, adapt it, print it.
 
-**A directory** of organizations already doing this work, currently about **27,000 active entries across 172 countries**, of which about **1,700 are explicitly tagged as formal legal entities** with verified websites or registry records. The other ~25,000 entries are a mix of: registered nonprofits whose legibility we have not yet confirmed; bulk-imported entries from Wikidata, government registries, and partner directories that are awaiting human verification; and possibly-inactive organizations flagged for review. The directory is searchable at [commonweave.earth/directory](https://simonlpaige.com/commonweave/directory.html) by country, by framework area, and by organization type. Every row is CC0 - use the data for anything.
-
-**Read the directory as a research starting point, not as endorsement, certification, or operating-readiness signal.** Every row that matters to your project should be independently verified before outreach: website live, contact information current, jurisdiction of incorporation confirmed, organization actually doing the work the row claims. Per-row verification badges are on the v2 roadmap; until they ship, treat directory inclusion as "this organization plausibly exists and may be relevant" rather than as vetting.
-
-**A framework document** called BLUEPRINT.md, which names the fourteen systems we think have to exist (in prototype, at least) before a peaceful transition out of the current concentrated-ownership economy is plausible. Community land trusts and labor unions and housing cooperatives are three of those systems. Eleven others are in the blueprint - healthcare, food sovereignty, energy democracy, and so on.
-
-**This field guide**, plus the earlier [pipeline.pdf](pipeline.pdf) that explains how the directory gets built and graded.
-
-### What Commonweave isn't
-
-- **Not a platform.** We do not host your homeowner applications, your project labor agreements, or your sweat-equity escrow. That is what your local CLT's software does.
-- **Not a broker.** We do not match specific unions to specific CLTs. We publish the directory; you read it.
-- **Not a funder.** We do not give grants. We do not have a capital stack. We have an open-source repository and a few Saturdays a month of volunteer time.
-- **Not a standards body.** We have opinions about what counts as a labor-for-housing pipeline. We do not certify anyone.
-
-This matters because several readers of early drafts of this guide have asked if Commonweave could become "the Airbnb of labor-for-housing." The answer is no, for the reasons in the dark-history chapter: coordination platforms recapitulate the company town if they are not owned and governed by the people on the platform. A platform built by a funded startup team with a for-profit exit path is a company town with better branding. The only platform that could safely exist for this use case is one built and governed by a federation of existing CLTs and unions, on infrastructure they control.
-
-### A Tier 3 coordination tool as a future option
-
-The Commonweave roadmap names a possible "Tier 3 coordination tool" as an option down the road. Tier 3 is what a coordination layer would look like if it ever existed: a federation of CLTs and unions, running the coordination software on infrastructure they pay for, with open-source code and a democratic governance body. Not a startup. Not a platform owned by a nonprofit that takes grants and has one executive director with final authority.
-
-Tier 3 is **gated on a real pilot partner stepping forward**. Nothing gets built until there is a specific CLT and a specific union local that have signed a specific project labor agreement and want a specific piece of software to exist. Most of what we've seen written about "coordination platforms for the commons" has been built before anyone asked for it, and then sat around unused because it didn't match what a specific pair of organizations actually needed. We are trying not to do that.
-
-If you are a CLT or a union local considering a pilot and you read this and wish there were software to make it easier, write to us. The contact email is in OUTREACH.md and on the Commonweave website.
+A note on coordination software, since it comes up: a centralized platform that sits between CLTs, unions, and homeowners can recapitulate the company-town pattern in the dark-history chapter, however well-intentioned the platform's operators. Commonweave does not plan to build one. If a future federation of CLTs and unions decides it wants such a tool, on infrastructure they own and govern, that is theirs to build, not ours.
 
 \newpage
 
@@ -639,7 +651,7 @@ Five books, three reports, and two ongoing resources. All real, all worth the ti
 
 ## Appendix C - Legal wrappers outside the US (stub)
 
-This is a stub. Version 1.5 of this guide is honest about what it does and does not yet cover. The legal scaffolding in Part 4 is US-specific - 501(c)(3) charity status, Davis-Bacon prevailing wage, HUD funding programs, IRS sweat-equity treatment, ERISA and Taft-Hartley constraints on union trust funds. Pilots outside the United States cannot use that scaffolding directly. The questions Part 4 asks (what entity holds the land at permanent affordability, what prevailing-wage and apprenticeship rules apply, who is the legal employer of paid workers, how is sweat equity treated for tax purposes, what insurance is required) are universal. The answers are jurisdiction-specific.
+This is a stub. Version 2 of this guide is honest about what it does and does not yet cover. The legal scaffolding in Part 4 is US-specific - 501(c)(3) charity status, Davis-Bacon prevailing wage, HUD funding programs, IRS sweat-equity treatment, ERISA and Taft-Hartley constraints on union trust funds. Pilots outside the United States cannot use that scaffolding directly. The questions Part 4 asks (what entity holds the land at permanent affordability, what prevailing-wage and apprenticeship rules apply, who is the legal employer of paid workers, how is sweat equity treated for tax purposes, what insurance is required) are universal. The answers are jurisdiction-specific.
 
 A partial list of the equivalent frameworks in other places, as starting points for organizers and as known gaps for v2 of this guide:
 
