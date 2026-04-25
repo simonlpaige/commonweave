@@ -138,9 +138,9 @@ Three places, again roughly by frequency.
 - An international union whose jurisdiction covers your trade. Their organizing departments do free intake calls. The list of building-trades internationals is in step 2 above.
 - The Workers Defense Project (in Texas), the Carpenters' Regional Council in your region, or the AFL-CIO state federation. State feds often know which locals are healthy and which are dormant.
 - An existing union local in a related trade. They usually know the lay of the land for trades that do not yet have a local.
-- The Commonweave directory, which lists about 1,500 unions globally as of this writing, including the major US internationals and many international federations. Find them in the [directory](https://commonweave.org/directory.html) under the labor framework area.
+- The Commonweave directory, which lists about 1,500 unions globally as of this writing, including the major US internationals and many international federations. Find them in the [directory](https://commonweave.earth/directory.html) under the labor framework area.
 
-The Commonweave project is happy to help with the directory side of this. If you organize a new local or an independent union and want to be listed, [email us](mailto:hello@commonweave.org). We do not give legal advice and we do not run campaigns. We keep the map up to date so the people doing the actual work can find each other.
+The Commonweave project is happy to help with the directory side of this. If you organize a new local or an independent union and want to be listed, [email us](mailto:hello@commonweave.earth). We do not give legal advice and we do not run campaigns. We keep the map up to date so the people doing the actual work can find each other.
 
 ---
 

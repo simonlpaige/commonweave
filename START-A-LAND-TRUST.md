@@ -108,11 +108,11 @@ Three places, listed roughly by frequency.
 - *On Common Ground: International Perspectives on the Community Land Trust* (Davis, Algoed, Hernandez-Torrales, eds., 2020), if you want the international comparisons.
 
 **Talk to.**
-- Your nearest existing CLT. Most will give you an hour. Find them in the [Commonweave directory](https://commonweave.org/directory.html) by filtering for CLTs in your state or country. The directory has about 350 land trusts as of this writing, growing.
+- Your nearest existing CLT. Most will give you an hour. Find them in the [Commonweave directory](https://commonweave.earth/directory.html) by filtering for CLTs in your state or country. The directory has about 350 land trusts as of this writing, growing.
 - The Grounded Solutions Network. They run an annual conference, a member network, and will sometimes do introductions.
 - A local affordable-housing nonprofit. They probably already have the relationships you need (with the city, with funders, with builders) and may be willing to fiscally sponsor you while you get on your feet.
 
-The Commonweave project is happy to help with the directory side of this. We are not lawyers, we are not funders, and we will not pretend to be either. If you start a CLT and want to be in the directory, [email us](mailto:hello@commonweave.org) and we will add you. If you find errors in our entries, tell us and we will fix them.
+The Commonweave project is happy to help with the directory side of this. We are not lawyers, we are not funders, and we will not pretend to be either. If you start a CLT and want to be in the directory, [email us](mailto:hello@commonweave.earth) and we will add you. If you find errors in our entries, tell us and we will fix them.
 
 ---
 
