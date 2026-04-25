@@ -24,6 +24,14 @@
     "note": "Marked complete after 32 failed attempts; 0 orgs found (CN scraping blocked)",
     "org_count": 0
   },
+  "CZ": {
+    "completed": true,
+    "completed_at": "2026-04-24T23:18:29.051450Z",
+    "country_name": "Czechia",
+    "last_attempted_at": "2026-04-24T23:18:29.051432Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_CZ.md",
+    "org_count": 3
+  },
   "DE": {
     "completed": true,
     "completed_at": "2026-04-24T18:46:06.354368Z",
@@ -55,6 +63,13 @@
     "last_attempted_at": "2026-04-24T19:29:12.112029Z",
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_GB.md",
     "org_count": 11481
+  },
+  "HR": {
+    "completed": false,
+    "country_name": "Croatia",
+    "last_attempted_at": "2026-04-25T00:23:24.145415Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_HR.md",
+    "org_count": 0
   },
   "ID": {
     "completed": true,
@@ -135,6 +150,14 @@
     "last_attempted_at": "2026-04-23T02:38:32.780254Z",
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_RU.md",
     "org_count": 1
+  },
+  "SK": {
+    "completed": true,
+    "completed_at": "2026-04-24T23:52:07.914930Z",
+    "country_name": "Slovakia",
+    "last_attempted_at": "2026-04-24T23:52:07.914914Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_SK.md",
+    "org_count": 3
   },
   "TR": {
     "completed": true,

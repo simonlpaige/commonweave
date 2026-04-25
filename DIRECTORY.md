@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-24 23:12 UTC*
+*Last updated: 2026-04-25 00:26 UTC*
 
 
 ## Coverage
@@ -71,7 +71,7 @@
 | 🌐 Hungary (HU) | 126 | Field Research | ✅ |
 | 🌐 Indonesia (ID) | 24 | Field Research | ✅ |
 | 🌐 Ireland (IE) | 5 | Field Research | ✅ |
-| 🌐 India (IN) | 60 | Field Research | ✅ |
+| 🌐 India (IN) | 67 | Field Research | ✅ |
 | 🌐 Iraq (IQ) | 1 | Field Research | ✅ |
 | 🌐 Iran (IR) | 1 | Field Research | ✅ |
 | 🌐 Iceland (IS) | 3 | Field Research | ✅ |
@@ -167,7 +167,7 @@
 | 🌐 Zimbabwe (ZW) | 1 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 27,280 organizations indexed** across 171 countries
+**Total: 27,287 organizations indexed** across 171 countries
 
 
 ---
@@ -1175,14 +1175,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Czechia (CZ) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-24 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Czechia Civil Society Network
-> Primary civil society network in Czechia
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -1649,14 +1648,13 @@ Model: nonprofit
 
 # 🌐 Croatia (HR) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-25 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Croatia Civil Society Network
-> Primary civil society network in Croatia
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -3312,14 +3310,13 @@ Model: nonprofit
 
 # 🌐 Slovakia (SK) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-24 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Slovakia Civil Society Network
-> Primary civil society network in Slovakia
+_No evidence-backed organizations found in this pass._
 
 
 ---
