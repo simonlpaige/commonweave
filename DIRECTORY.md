@@ -1,13 +1,13 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-25 00:26 UTC*
+*Last updated: 2026-04-25 16:55 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 10,092 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 10,087 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | 0 | Field Research | ✅ |
 | 🌐 Afghanistan (AF) | 0 | Field Research | ✅ |
 | 🌐 Albania (AL) | 2 | Field Research | ✅ |
@@ -15,7 +15,7 @@
 | 🌐 Angola (AO) | 2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | 108 | Field Research | ✅ |
 | 🌐 Austria (AT) | 10 | Field Research | ✅ |
-| 🌐 Australia (AU) | 278 | Field Research | ✅ |
+| 🌐 Australia (AU) | 334 | Field Research | ✅ |
 | 🌐 Bosnia and Herzegovina (BA) | 1 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | 7 | Field Research | ✅ |
 | 🌐 Belgium (BE) | 218 | Field Research | ✅ |
@@ -29,7 +29,7 @@
 | 🌐 Botswana (BW) | 2 | Field Research | ✅ |
 | 🌐 Belarus (BY) | 3 | Field Research | ✅ |
 | 🌐 Belize (BZ) | 1 | Field Research | ✅ |
-| 🌐 Canada (CA) | 153 | Field Research | ✅ |
+| 🌐 Canada (CA) | 274 | Field Research | ✅ |
 | 🌐 Democratic Republic of the Congo (CD) | 3 | Field Research | ✅ |
 | 🌐 Republic of the Congo (CG) | 3 | Field Research | ✅ |
 | 🌐 Switzerland (CH) | 261 | Field Research | ✅ |
@@ -71,7 +71,7 @@
 | 🌐 Hungary (HU) | 126 | Field Research | ✅ |
 | 🌐 Indonesia (ID) | 24 | Field Research | ✅ |
 | 🌐 Ireland (IE) | 5 | Field Research | ✅ |
-| 🌐 India (IN) | 67 | Field Research | ✅ |
+| 🌐 India (IN) | 141 | Field Research | ✅ |
 | 🌐 Iraq (IQ) | 1 | Field Research | ✅ |
 | 🌐 Iran (IR) | 1 | Field Research | ✅ |
 | 🌐 Iceland (IS) | 3 | Field Research | ✅ |
@@ -167,14 +167,14 @@
 | 🌐 Zimbabwe (ZW) | 1 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 27,287 organizations indexed** across 171 countries
+**Total: 27,533 organizations indexed** across 171 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*10,092 active registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*10,087 active registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -318,7 +318,7 @@
 - **GLEANERS COMMUNITY FOOD BANK OF SOUTHEASTERN MICHIGAN** — DETROIT, MI `K31` ($116,054,724/yr)
 - **REGIONAL FOOD BANK OF OKLAHOMA** — OKLAHOMA CITY, OK `K310` ($115,606,032/yr)
 
-#### Housing & Shelter (1,838 orgs)
+#### Housing & Shelter (1,836 orgs)
 
 - **NAVIGATE AFFORDABLE HOUSING PARTNERS INC** — BIRMINGHAM, AL `L20Z` ($919,273,953/yr)
 - **PRESERVATION OF AFFORDABLE HOUSING INC** — BOSTON, MA `L250` ($136,682,612/yr)
