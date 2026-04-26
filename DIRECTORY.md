@@ -1,13 +1,13 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-26 04:04 UTC*
+*Last updated: 2026-04-26 05:05 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 10,087 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 10,086 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | 0 | Field Research | ✅ |
 | 🌐 Afghanistan (AF) | 0 | Field Research | ✅ |
 | 🌐 Albania (AL) | 2 | Field Research | ✅ |
@@ -15,17 +15,17 @@
 | 🌐 Angola (AO) | 2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | 108 | Field Research | ✅ |
 | 🌐 Austria (AT) | 10 | Field Research | ✅ |
-| 🌐 Australia (AU) | 49,463 | Field Research | ✅ |
+| 🌐 Australia (AU) | 48,876 | Field Research | ✅ |
 | 🌐 Bosnia and Herzegovina (BA) | 1 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | 7 | Field Research | ✅ |
 | 🌐 Belgium (BE) | 218 | Field Research | ✅ |
 | 🌐 Burkina Faso (BF) | 4 | Field Research | ✅ |
-| 🌐 Bulgaria (BG) | 2,538 | Field Research | ✅ |
+| 🌐 Bulgaria (BG) | 2,532 | Field Research | ✅ |
 | 🌐 Bahrain (BH) | 1 | Field Research | ✅ |
 | 🌐 Benin (BJ) | 7 | Field Research | ✅ |
 | 🌐 Brunei (BN) | 0 | Field Research | ✅ |
 | 🌐 Bolivia (BO) | 23 | Field Research | ✅ |
-| 🌐 Brazil (BR) | 85,588 | Field Research | ✅ |
+| 🌐 Brazil (BR) | 85,573 | Field Research | ✅ |
 | 🌐 Botswana (BW) | 2 | Field Research | ✅ |
 | 🌐 Belarus (BY) | 3 | Field Research | ✅ |
 | 🌐 Belize (BZ) | 1 | Field Research | ✅ |
@@ -42,7 +42,7 @@
 | 🌐 Cuba (CU) | 26 | Field Research | ✅ |
 | 🌐 Cyprus (CY) | 0 | Field Research | ✅ |
 | 🌐 Czechia (CZ) | 3 | Field Research | ✅ |
-| 🌐 Germany (DE) | 374 | Field Research | ✅ |
+| 🌐 Germany (DE) | 373 | Field Research | ✅ |
 | 🌐 Djibouti (DJ) | 0 | Field Research | ✅ |
 | 🌐 Denmark (DK) | 18 | Field Research | ✅ |
 | 🌐 Dominican Republic (DO) | 53 | Field Research | ✅ |
@@ -56,19 +56,19 @@
 | 🌐 Fiji (FJ) | 2 | Field Research | ✅ |
 | 🌐 France (FR) | 92 | Field Research | ✅ |
 | 🌐 Gabon (GA) | 0 | Field Research | ✅ |
-| 🌐 United Kingdom (GB) | 11,481 | Field Research | ✅ |
+| 🌐 United Kingdom (GB) | 11,459 | Field Research | ✅ |
 | 🌐 Georgia (GE) | 0 | Field Research | ✅ |
 | 🌐 Ghana (GH) | 140 | Field Research | ✅ |
 | 🌐 Gambia (GM) | 0 | Field Research | ✅ |
 | 🌐 Guinea (GN) | 3 | Field Research | ✅ |
 | 🌐 Greece (GR) | 143 | Field Research | ✅ |
-| 🌐 Guatemala (GT) | 54 | Field Research | ✅ |
+| 🌐 Guatemala (GT) | 53 | Field Research | ✅ |
 | 🌐 Guinea-Bissau (GW) | 1 | Field Research | ✅ |
 | 🌐 Guyana (GY) | 4 | Field Research | ✅ |
-| 🌐 Honduras (HN) | 55 | Field Research | ✅ |
+| 🌐 Honduras (HN) | 54 | Field Research | ✅ |
 | 🌐 Croatia (HR) | 0 | Field Research | ✅ |
 | 🌐 Haiti (HT) | 7 | Field Research | ✅ |
-| 🌐 Hungary (HU) | 126 | Field Research | ✅ |
+| 🌐 Hungary (HU) | 125 | Field Research | ✅ |
 | 🌐 Indonesia (ID) | 24 | Field Research | ✅ |
 | 🌐 Ireland (IE) | 5 | Field Research | ✅ |
 | 🌐 India (IN) | 141 | Field Research | ✅ |
@@ -114,7 +114,7 @@
 | 🌐 Netherlands (NL) | 109 | Field Research | ✅ |
 | 🌐 Norway (NO) | 227 | Field Research | ✅ |
 | 🌐 Nepal (NP) | 8 | Field Research | ✅ |
-| 🌐 New Zealand (NZ) | 336 | Field Research | ✅ |
+| 🌐 New Zealand (NZ) | 308 | Field Research | ✅ |
 | 🌐 Oman (OM) | 0 | Field Research | ✅ |
 | 🌐 Phase 2: (??) | 0 | Field Research | ✅ |
 | 🌐 Panama (PA) | 54 | Field Research | ✅ |
@@ -137,7 +137,7 @@
 | 🌐 Slovenia (SI) | 0 | Field Research | ✅ |
 | 🌐 Slovakia (SK) | 3 | Field Research | ✅ |
 | 🌐 Sierra Leone (SL) | 2 | Field Research | ✅ |
-| 🌐 Senegal (SN) | 64 | Field Research | ✅ |
+| 🌐 Senegal (SN) | 63 | Field Research | ✅ |
 | 🌐 Somalia (SO) | 1 | Field Research | ✅ |
 | 🌐 Suriname (SR) | 18 | Field Research | ✅ |
 | 🌐 South Sudan (SS) | 1 | Field Research | ✅ |
@@ -156,7 +156,7 @@
 | 🌐 Taiwan (TW) | 2 | Field Research | ✅ |
 | 🌐 Tanzania (TZ) | 38 | Field Research | ✅ |
 | 🌐 Ukraine (UA) | 4 | Field Research | ✅ |
-| 🌐 Uganda (UG) | 140 | Field Research | ✅ |
+| 🌐 Uganda (UG) | 139 | Field Research | ✅ |
 | 🌐 Uruguay (UY) | 0 | Field Research | ✅ |
 | 🌐 Uzbekistan (UZ) | 0 | Field Research | ✅ |
 | 🌐 Venezuela (VE) | 30 | Field Research | ✅ |
@@ -176,7 +176,7 @@
 
 ## 🇺🇸 United States
 
-*10,087 active registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*10,086 active registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -205,7 +205,7 @@
 - **DELAWARE BAY AND RIVER COOPERATIVE INC** — LINWOOD, PA `C32` ($4,055,196/yr)
 - **ENVIRONMENTAL HEALTH WATCH INC** — CLEVELAND, OH `C600` ($4,034,955/yr)
 
-#### Health Care (1,612 orgs)
+#### Health Care (1,611 orgs)
 
 - **COOPER HEALTH SYSTEM A NEW JERSEY NON-PROFIT CORPORATION** — CAMDEN, NJ `E22` ($2,550,029,191/yr)
 - **COMMUNITY HEALTH NETWORK INC** — INDIANAPOLIS, IN `E20` ($2,322,217,395/yr)
