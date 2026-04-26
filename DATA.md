@@ -2,7 +2,7 @@
 
 ## Honest Numbers
 
-As of April 2026, after Wave A of the new-wave ingest, the directory contains **163,984 aligned organizations** across **171 countries**. The big jump from the prior 24,508-row state (88% US/UK) is the result of three new national-registry ingesters that hit Australia, Bulgaria, and Brazil all on the same day. That alone moves US/UK share from 88% to 13.1%, which was the headline goal Wave A was scoped to chase.
+As of late April 2026, after Wave A and Wave B of the new-wave ingest, the directory contains **173,106 aligned organizations**. Wave A added the three national-registry ingesters (Australia, Bulgaria, Brazil) that broke the 88% US/UK skew. Wave B layered on **9,115 thematic-network rows**: cooperative federations, mutual-aid neighborhood networks, intentional communities, transition initiatives, community land trusts, and the RIPESS solidarity-economy family. Every Wave B row is high-alignment by definition; the source itself is the alignment evidence.
 
 ### Where the numbers came from
 
@@ -20,28 +20,50 @@ As of April 2026, after Wave A of the new-wave ingest, the directory contains **
 | ACNC Charity Register (Australia) | ~48,542 | ABN, charitable purpose flags, beneficiary flags, address, website, PBI/HPC tags. Pure-religious-only rows dropped. |
 | UK Charity Commission | 11,396 | Name, registration ID, description available for many. |
 | IRS Exempt Organizations BMF | 9,392 | Name, EIN, state, city, NTEE code, filing year, revenue. |
+| Mutual Aid Wiki | 4,251 | Crowd-sourced UK-heavy mutual aid groups; CC BY-NC-SA. Pulled from the canonical groups.json on the Covid-Mutual-Aid GitHub repo (live API offline). Tagged informal. |
 | Wikidata | 4,124 | Name, country, often website/description. |
 | Wikidata Bulgaria NPOs | ~2,528 | Bulgarian Cyrillic names of nonprofits, associations, foundations, and chitalishte (community cultural centers). Wikidata-side fallback because the Registry Agency portal is SSO-gated. |
+| Foundation for Intentional Community | ~1,098 | ic.org's full directory of intentional communities, ecovillages, and cohousing groups, parsed from /wp-json/v1/directory/entries/. Tagged hybrid. |
+| Transition Network | 995 (+18 hubs) | Local Transition initiatives globally, pulled from the documented public REST API at maps.transitionnetwork.org/wp-json/cds/v1/. Licence ODbL; tagged hybrid. |
+| Mutual Aid Hub | ~898 | US-focused crowd-curated mutual aid networks, pulled from Town Hall Project's public Firestore document collection. Licence PDDL-1.0; tagged informal. |
+| SUSY Map | 887 | EU social and solidarity economy initiatives from the 2018 SUSY project, ingested as a frozen GeoJSON snapshot kept on the TransforMap viewer's gh-pages branch. Public Domain. |
 | ProPublica Nonprofit Explorer | 602 | US nonprofits with descriptions and financials. |
 | Wikidata (subregion) | 560 | Subnational Wikidata pulls. |
 | Wikidata (land trusts) | 444 | Community land trusts (Q3278937) and housing cooperatives (Q562166); subclasses via P279*. |
+| Schumacher CLT World Map | ~406 | Global community-land-trust directory; Toolset Views table walked across 44 paginated pages. Tagged formal. |
 | Wikidata (labor unions) | 405 | Trade union federations, national unions, works councils (Q3395115, Q11038979, Q178790, Q1141395). |
+| ICA member directory | 322 | International Cooperative Alliance member orgs, pulled as a flat CSV from data.digitalcommons.coop/ica/standard.csv (mirror of the lod.coop linked-open-data dataset). Tagged formal. |
 | ITUC affiliates | 297 | ITUC-affiliated national trade union centers, parsed from the Wikipedia mirror when ituc-csi.org blocks automated requests. |
+| New Economy Coalition members | 181 | US/Canada solidarity-economy orgs, parsed from the JavaScript variable on neweconomy.net/member-directory plus per-org og:description from each member profile. Tagged formal. |
 | Construction coops | 81 | Worker-owned construction and trades firms. Wikidata plus seed list. |
+| RIPESS family | 78 | RIPESS umbrella plus continental affiliates (apex seed) plus RIPESS EU/LAC/NA members from the socioeco.org GeoJSON mirror. RIPESS Africa (RAESS) and RIPESS Asia (ASEC) skipped: domains DNS-dead, outreach TODO logged. |
 | Habitat affiliates | 66 | Habitat for Humanity international country offices; ~355 US affiliates enriched in place. |
 | Web research | 58 | Hand-researched entries with full profiles. |
 | Grounded Solutions | 38 | Curated seed list of US, UK, Canadian, and Belgian CLTs. |
 | Manual curation | 13 | Individually verified and described entries. |
 
-### Quality profile (after Wave A)
+### Quality profile (after Wave A + Wave B)
 
-- **163,984 entries** total active, up from 24,508.
-- **171 countries** with at least one active org, up from 60.
-- **US + UK: 21,545 entries (13.1%)** -- the 88% English-language registry skew the prior `DATA.md` flagged is now Wave A's headline result, not an open issue.
-- **23,950 entries score >=2** on framework alignment after the legal-form bumps; **6,611 score >=5**.
-- **Brazil and Australia together** hold 134,449 entries (82% of the directory). That is a Brazilian-and-Australian skew of its own; Wave B and Wave C will rebalance.
+- **173,106 entries** total active, up from 163,984.
+- **Wave B added 9,115 rows** across 9 thematic global directories. Each row is mission-aligned at ingest by virtue of source membership.
+- **Energy & Digital Commons** grew from 40 -> 123 (+83 net after phase2 re-classification). The bump is mostly Transition Network energy-coop tags and SUSY Map fablab/hackerspace entries.
+- **Cooperatives & Solidarity** grew from 2,264 -> 2,802 (+538). ICA, RIPESS, and NEC members account for the bulk.
+- **Legibility split**: 140,067 formal (Wave A's national registries plus the formal half of Wave B) + 5,149 informal (mutual aid networks) + 2,093 hybrid (Transition Network groups, IC Directory communities) + 25,797 unknown (older Wave A imports awaiting re-tag).
 
 The earlier 24,508 number is preserved in the git history. We keep that history documented rather than silently deleting it.
+
+### Wave B: thematic global directories (added 2026-04-26)
+
+Wave B is "the membership *is* the alignment evidence" wave. Every row comes from a network whose entry criterion is mission, not country. So we tag rows by source legibility instead of trying to keyword-score them, and we trust the sources' own classifications.
+
+The Wave B sources, by legibility tier:
+- **Formal** (registered legal entity by definition): SUSY Map, NEC members, Schumacher CLT World Map, ICA member directory, RIPESS family.
+- **Hybrid** (legibility varies by country and by individual group): Transition Network groups+hubs, IC Directory.
+- **Informal** (mostly unincorporated neighborhood networks): Mutual Aid Wiki, Mutual Aid Hub.
+
+Two Wave B sources were skipped on purpose:
+- **Find.coop / Data Commons Cooperative**: outreach first, scrape later. The directory is a labour-of-love by a coop-of-coops; we ask before we take. TODO at `tools/mycelial-outreach/drafts/pending/findcoop-partnership-2026-04-26.md`.
+- **RIPESS Africa (RAESS) and RIPESS Asia (ASEC)**: both raess.org and asec.coop fail DNS as of April 2026. TODO at `tools/mycelial-outreach/drafts/pending/ripess-africa-and-asia-2026-04-26.md` to chase through info@ripess.org.
 
 ### Wave A registry catalog
 
