@@ -1,0 +1,29 @@
+# Commonweave
+
+> An open framework for a regenerative global economy. Maps 27,000+ candidate civil-society organizations across 88 countries, scored against an alignment framework, and published as CC0 open data.
+
+## What it is
+Commonweave is an open-source directory and framework. It identifies, scores, and maps organizations working on the transition to a regenerative economy: sustainability, mutual aid, cooperatives, commons-based governance, and adjacent fields. The data is public-domain (CC0) and runs on a multilingual bot pipeline across ~30 languages.
+
+## Who runs it
+Maintained by Simon L. Paige and contributors. Open contribution welcome.
+
+## What you can do here
+- **Browse the directory**: search 24,500+ aligned organizations across 60+ countries.
+- **Explore the map**: see the geographic distribution.
+- **Read the framework**: governance models and evidence-based pathways toward ecological and social balance.
+
+## Important pages
+- [Home](https://commonweave.earth/): framework overview
+- [Directory](https://commonweave.earth/directory.html): searchable org list
+- [Map](https://commonweave.earth/map.html): geographic view
+- [Doc](https://commonweave.earth/doc.html): framework writeup
+
+## Data license
+CC0 - public domain. Use it however you want.
+
+## Contact
+- Repo: github.com/simonlpaige/commonweave
+- Email: simon@simonlpaige.com
+
+Last updated: 2026-04-26
