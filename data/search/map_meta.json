@@ -1,22 +1,22 @@
 {
-  "total": 23976,
-  "us_count": 6935,
+  "total": 23979,
+  "us_count": 6938,
   "intl_count": 17041,
   "by_area": {
-    "education": 5823,
-    "healthcare": 5273,
+    "education": 5824,
+    "healthcare": 5274,
     "democracy": 3800,
     "food": 2771,
     "ecology": 2045,
     "housing_land": 2032,
     "cooperatives": 1111,
     "conflict": 695,
-    "recreation_arts": 355,
+    "recreation_arts": 356,
     "energy_digital": 71
   },
   "by_country": {
     "GB": 11459,
-    "US": 6935,
+    "US": 6938,
     "DE": 373,
     "AU": 317,
     "NZ": 308,
@@ -47,7 +47,7 @@
     "CL": 60
   },
   "by_state": {
-    "CA": 677,
+    "CA": 680,
     "NY": 377,
     "TX": 345,
     "OK": 313,

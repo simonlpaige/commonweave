@@ -1,13 +1,13 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-26 05:05 UTC*
+*Last updated: 2026-04-26 09:05 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 10,086 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 10,093 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | 0 | Field Research | ✅ |
 | 🌐 Afghanistan (AF) | 0 | Field Research | ✅ |
 | 🌐 Albania (AL) | 2 | Field Research | ✅ |
@@ -176,7 +176,7 @@
 
 ## 🇺🇸 United States
 
-*10,086 active registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*10,093 active registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
