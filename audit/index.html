@@ -82,6 +82,17 @@ main { max-width: 780px; margin: 0 auto; padding: 24px 20px 80px; }
 .tag { padding: 2px 8px; border-radius: 12px; font-size: 10px; background: var(--s3);
        border: 1px solid var(--dim); color: var(--muted); }
 
+/* OUTLIER FLAGS */
+.outlier-flags { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.outlier-flag { padding: 8px 12px; border-radius: 6px; font-size: 12px; line-height: 1.4;
+                border-left: 3px solid; }
+.outlier-flag strong { display: block; font-size: 12px; margin-bottom: 2px; }
+.outlier-flag.fp_risk   { background: rgba(224,112,112,0.1); border-color: var(--red); color: var(--red); }
+.outlier-flag.fn_risk   { background: rgba(79,196,176,0.1); border-color: var(--teal); color: var(--teal); }
+.outlier-flag.scoring_bug { background: rgba(212,145,90,0.1); border-color: var(--orange); color: var(--orange); }
+.outlier-flag.section_mismatch { background: rgba(196,165,93,0.1); border-color: var(--earth); color: var(--earth); }
+.outlier-flag .flag-detail { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+
 /* VERDICT BUTTONS */
 .verdict-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
 @media (max-width: 500px) { .verdict-row { grid-template-columns: 1fr 1fr; } }
@@ -304,7 +315,17 @@ function renderCard() {
         <span class="badge badge-section">📂 ${esc(o.section_label || o.framework_area)}</span>
         <span class="badge ${scoreBadgeClass(score)}">score: ${score}</span>
         ${o.legibility ? `<span class="badge badge-legibility">${esc(o.legibility)}</span>` : ''}
+        ${o.country_total <= 50 ? `<span class="badge badge-legibility" style="border-color:var(--teal);color:var(--teal)">🌍 ${o.country_total} orgs in ${esc(o.country_code)}</span>` : ''}
       </div>
+
+      ${o.outlier_flags && o.outlier_flags.length ? `
+      <div class="outlier-flags">
+        ${o.outlier_flags.map(f => `
+          <div class="outlier-flag ${f.type}">
+            <strong>${f.label}</strong>
+            <div class="flag-detail">${esc(f.detail)}</div>
+          </div>`).join('')}
+      </div>` : ''}
 
       <div class="org-desc ${!o.description || o.description==='None' ? 'no-desc' : ''}">
         ${o.description && o.description !== 'None'
