@@ -1,0 +1,885 @@
+{
+  "region": "usa",
+  "subregion": "MO",
+  "label": "USA — MO",
+  "mode": "outlier",
+  "generated": "2026-04-27",
+  "total": 30,
+  "sections": {
+    "healthcare": "Healthcare",
+    "education": "Education",
+    "food": "Food Sovereignty",
+    "democracy": "Democratic Infrastructure",
+    "housing_land": "Land & Housing",
+    "ecology": "Ecological Restoration",
+    "conflict": "Conflict Resolution",
+    "cooperatives": "Cooperatives & Solidarity",
+    "recreation_arts": "Recreation & Arts",
+    "energy_digital": "Energy & Digital Commons"
+  },
+  "orgs": [
+    {
+      "id": 670898,
+      "name": "WEST VIRGINIA HOUSING JUSTICE INC",
+      "country_code": "US",
+      "state_province": "WV",
+      "city": "MORGANTOWN",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "992149648",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 354082,
+      "name": "HAWK HILL COMMUNITY LAND TRUST INC",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "DRURY",
+      "source": "IRS_EO_BMF",
+      "framework_area": "democracy",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "431342424",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 688616,
+      "name": "Montgomery Community Land Trust",
+      "country_code": "US",
+      "state_province": "AL",
+      "city": "Montgomery",
+      "source": "ProPublica",
+      "framework_area": "housing_land",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "270714348",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_b",
+      "email": null,
+      "phone": null,
+      "source_label": "ProPublica",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_b"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 358376,
+      "name": "FRIENDS OF THE FREE CLINIC",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "SAINT JOSEPH",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 3,
+      "description": null,
+      "website": null,
+      "registration_id": "800308973",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 246523,
+      "name": "FREE CLINICS OF IOWA",
+      "country_code": "US",
+      "state_province": "IA",
+      "city": "DES MOINES",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 0,
+      "description": null,
+      "website": null,
+      "registration_id": "421428706",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 352313,
+      "name": "CLAUDIES URBAN COMMUNITY GARDENS",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "SAINT LOUIS",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "334625197",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 908839,
+      "name": "Baltimore Neighborhood Quarantine Response Teams",
+      "country_code": "US",
+      "state_province": "MD",
+      "city": "Baltimore",
+      "source": "mutual_aid_hub",
+      "framework_area": "democracy",
+      "alignment_score": 3,
+      "description": "category: Network",
+      "website": "",
+      "registration_id": null,
+      "legibility": "informal",
+      "model_type": "mutual_aid",
+      "tags": "",
+      "email": "",
+      "phone": "",
+      "source_label": "Mutual Aid Hub",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 234295,
+      "name": "MONON FOOD BANK INC",
+      "country_code": "US",
+      "state_province": "IN",
+      "city": "MONON",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "351998319",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 114685,
+      "name": "SECOND START COMMUNITY GARDEN",
+      "country_code": "US",
+      "state_province": "CO",
+      "city": "LONGMONT",
+      "source": "IRS_EO_BMF",
+      "framework_area": "ecology",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "841533337",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Ecological Restoration",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 688509,
+      "name": "Semo Electric Cooperative",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "Sikeston",
+      "source": "ProPublica",
+      "framework_area": "cooperatives",
+      "alignment_score": 6,
+      "description": null,
+      "website": null,
+      "registration_id": "430510025",
+      "legibility": "unknown",
+      "model_type": "cooperative",
+      "tags": "tier_b",
+      "email": null,
+      "phone": null,
+      "source_label": "ProPublica",
+      "section_label": "Cooperatives & Solidarity",
+      "tags_list": [
+        "tier_b"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 6",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 546337,
+      "name": "CAROLINA IMMIGRANT HEALTH INITIATIVE",
+      "country_code": "US",
+      "state_province": "SC",
+      "city": "PIEDMONT",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "332046184",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 352479,
+      "name": "ALEXIAN BROTHERS CENTER FOR MENTAL HEALTH",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "SAINT LOUIS",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "363045007",
+      "legibility": "unknown",
+      "model_type": "research",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 44049,
+      "name": "ASIAN VOICE LEGAL AID",
+      "country_code": "US",
+      "state_province": "CA",
+      "city": "DIAMOND BAR",
+      "source": "IRS_EO_BMF",
+      "framework_area": "conflict",
+      "alignment_score": 3,
+      "description": null,
+      "website": null,
+      "registration_id": "333912834",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Conflict Resolution",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 659190,
+      "name": "BIG RIVER COMMUNITY LAND TRUST",
+      "country_code": "US",
+      "state_province": "WA",
+      "city": "WHITE SALMON",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "843308249",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 908732,
+      "name": "Baltimore Mutual Aid Network",
+      "country_code": "US",
+      "state_province": "MD",
+      "city": "Baltimore",
+      "source": "mutual_aid_hub",
+      "framework_area": "democracy",
+      "alignment_score": 6,
+      "description": "category: Network",
+      "website": "https://www.facebook.com/bmoremutualaid/",
+      "registration_id": null,
+      "legibility": "informal",
+      "model_type": "mutual_aid",
+      "tags": "",
+      "email": "",
+      "phone": "",
+      "source_label": "Mutual Aid Hub",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 351075,
+      "name": "AFFTON CHRISTIAN FOOD PANTRY",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "AFFTON",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "263553630",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 640094,
+      "name": "SOUTHEASTERN REGIONAL CREDIT UNION SCHOOLS INC",
+      "country_code": "US",
+      "state_province": "VA",
+      "city": "RICHMOND",
+      "source": "IRS_EO_BMF",
+      "framework_area": "democracy",
+      "alignment_score": 3,
+      "description": null,
+      "website": null,
+      "registration_id": "541427746",
+      "legibility": "unknown",
+      "model_type": "education_inst",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 91426,
+      "name": "A AND M AFFORDABLE HOUSING ORG",
+      "country_code": "US",
+      "state_province": "CA",
+      "city": "MODESTO",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "934359715",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 903849,
+      "name": "Yarmouth Transition",
+      "country_code": "US",
+      "state_province": "ME",
+      "city": "Yarmouth",
+      "source": "transition_network",
+      "framework_area": "",
+      "alignment_score": 0,
+      "description": "We're just getting started here!",
+      "website": "https://maps.transitionnetwork.org/group/yarmouth-transition/",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "collective",
+      "tags": "Transition Group",
+      "email": "",
+      "phone": null,
+      "source_label": "Transition Network",
+      "section_label": "",
+      "tags_list": [
+        "Transition Group"
+      ],
+      "outlier_flags": [
+        {
+          "type": "scoring_bug",
+          "label": "🐛 Trust source, score 0",
+          "detail": "transition_network is a curated source -- score=0 suggests a scoring bug, not a bad org"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 908637,
+      "name": "Northern Colorado Mutual Aid and Defense",
+      "country_code": "US",
+      "state_province": "CO",
+      "city": "Longmont",
+      "source": "mutual_aid_hub",
+      "framework_area": "democracy",
+      "alignment_score": 6,
+      "description": "category: Network",
+      "website": "",
+      "registration_id": null,
+      "legibility": "informal",
+      "model_type": "mutual_aid",
+      "tags": "",
+      "email": "",
+      "phone": "",
+      "source_label": "Mutual Aid Hub",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 357962,
+      "name": "HABITAT FOR HUMANITY INTERNATIONAL INC",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "MARYVILLE",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 9,
+      "description": null,
+      "website": null,
+      "registration_id": "562397352",
+      "legibility": "formal",
+      "model_type": "sweat_equity_program",
+      "tags": "tier_c,habitat_affiliate,sweat_equity",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_c",
+        "habitat_affiliate",
+        "sweat_equity"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 9",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 910185,
+      "name": "Pilgrim Place",
+      "country_code": "US",
+      "state_province": "California",
+      "city": "Claremont",
+      "source": "ic_directory",
+      "framework_area": "housing_land",
+      "alignment_score": 0,
+      "description": "status: Established (At least 4+ adults, 2+ years. type: Unspecified, or Other. open to membership: Yes",
+      "website": "https://www.ic.org/directory/pilgrim-place/",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "community_org",
+      "tags": "Unspecified, or Other",
+      "email": null,
+      "phone": null,
+      "source_label": "Intentional Communities Dir.",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "Unspecified",
+        "or Other"
+      ],
+      "outlier_flags": [
+        {
+          "type": "scoring_bug",
+          "label": "🐛 Trust source, score 0",
+          "detail": "ic_directory is a curated source -- score=0 suggests a scoring bug, not a bad org"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 903933,
+      "name": "Montague",
+      "country_code": "US",
+      "state_province": "MA",
+      "city": "Montague",
+      "source": "transition_network",
+      "framework_area": "",
+      "alignment_score": 0,
+      "description": "",
+      "website": "https://maps.transitionnetwork.org/group/montague/",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "collective",
+      "tags": "Transition Group",
+      "email": "",
+      "phone": null,
+      "source_label": "Transition Network",
+      "section_label": "",
+      "tags_list": [
+        "Transition Group"
+      ],
+      "outlier_flags": [
+        {
+          "type": "scoring_bug",
+          "label": "🐛 Trust source, score 0",
+          "detail": "transition_network is a curated source -- score=0 suggests a scoring bug, not a bad org"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 354108,
+      "name": "KANSAS CITY COMMUNITY GARDENS INC",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "KANSAS CITY",
+      "source": "IRS_EO_BMF",
+      "framework_area": "ecology",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "431356677",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Ecological Restoration",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 70049,
+      "name": "FOUNDATION FOR INDIGENOUS MEDICINE INC",
+      "country_code": "US",
+      "state_province": "CA",
+      "city": "MOORPARK",
+      "source": "IRS_EO_BMF",
+      "framework_area": "ecology",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "823436308",
+      "legibility": "unknown",
+      "model_type": "foundation",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Ecological Restoration",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 354757,
+      "name": "MISSOURI PUBLIC HEALTH ASSN EDUCATION FOUNDATION INC",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "JEFFERSON CTY",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "431652927",
+      "legibility": "unknown",
+      "model_type": "foundation",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 360463,
+      "name": "AFRICATOWN COMMUNITY LAND TRUST - ST LOUIS",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "SAINT LOUIS",
+      "source": "IRS_EO_BMF",
+      "framework_area": "democracy",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "852532394",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 688524,
+      "name": "Dunn Energy Cooperative",
+      "country_code": "US",
+      "state_province": "WI",
+      "city": "Menomonie",
+      "source": "ProPublica",
+      "framework_area": "cooperatives",
+      "alignment_score": 7,
+      "description": null,
+      "website": null,
+      "registration_id": "390251910",
+      "legibility": "unknown",
+      "model_type": "cooperative",
+      "tags": "tier_b",
+      "email": null,
+      "phone": null,
+      "source_label": "ProPublica",
+      "section_label": "Cooperatives & Solidarity",
+      "tags_list": [
+        "tier_b"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 7",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 154750,
+      "name": "HABITAT FOR HUMANITY INTERNATIONAL INC",
+      "country_code": "US",
+      "state_province": "FL",
+      "city": "ALTAMONTE SPG",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 9,
+      "description": null,
+      "website": null,
+      "registration_id": "593034059",
+      "legibility": "formal",
+      "model_type": "sweat_equity_program",
+      "tags": "tier_c,habitat_affiliate,sweat_equity",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_c",
+        "habitat_affiliate",
+        "sweat_equity"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 9",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 910557,
+      "name": "Addison County Community Land Trust",
+      "country_code": "US",
+      "state_province": "Vermont",
+      "city": "Vergennes",
+      "source": "clt_world_map",
+      "framework_area": "housing_land",
+      "alignment_score": 4,
+      "description": "Community Land Trust listed in the Schumacher Center CLT World Map. Country: United States",
+      "website": "https://addisontrust.org",
+      "registration_id": null,
+      "legibility": "formal",
+      "model_type": "community_org",
+      "tags": "community_land_trust",
+      "email": null,
+      "phone": null,
+      "source_label": "CLT World Map",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "community_land_trust"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    }
+  ]
+}

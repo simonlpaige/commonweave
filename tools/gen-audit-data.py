@@ -14,8 +14,8 @@ Usage:
 import sqlite3, json, os, sys, argparse, random, re
 from collections import defaultdict
 
-DB      = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'commonweave_directory.db')
-OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'audit')
+DB      = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'commonweave_directory.db'))
+OUT_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'audit'))
 
 SPANISH = ['MX','CO','AR','CL','PE','VE','EC','BO','PY','UY','DO','GT','HN','SV','NI','CR','PA','CU','ES','PR']
 
@@ -126,11 +126,20 @@ def detect_outliers(o, country_counts):
 
 def fetch_orgs(conn, cc_list, extra_where='', extra_params=None, limit=500):
     c = conn.cursor()
-    ph = ','.join(['?' for _ in cc_list])
-    where = f"status='active' AND country_code IN ({ph})"
+    where = "status='active'"
+    params = []
+    if cc_list is not None:
+        ph = ','.join(['?' for _ in cc_list])
+        where += f" AND country_code IN ({ph})"
+        params += list(cc_list)
+    sub_clause, sub_params = _subregion_clause()
+    if sub_clause:
+        where += ' ' + sub_clause
+        params += sub_params
     if extra_where:
         where += ' AND ' + extra_where
-    params = cc_list + (extra_params or []) + [limit]
+    params += (extra_params or [])
+    params.append(limit)
     c.execute(f"""SELECT id, name, country_code, state_province, city, source,
                          framework_area, alignment_score, description, website,
                          registration_id, legibility, model_type, tags, email, phone
@@ -141,58 +150,73 @@ def fetch_orgs(conn, cc_list, extra_where='', extra_params=None, limit=500):
 def build_outlier_sample(conn, cc_list, n, country_counts):
     """Pull a sample weighted toward outlier cases."""
     buckets = {}
+    c = conn.cursor()
+
+    cc_clause, cc_params = _country_clause()
+    sub_clause, sub_params = _subregion_clause()
+
+    base_select = (
+        "SELECT id, name, country_code, state_province, city, source, "
+        "framework_area, alignment_score, description, website, "
+        "registration_id, legibility, model_type, tags, email, phone "
+        "FROM organizations WHERE status='active' "
+        + cc_clause + ' ' + sub_clause + ' '
+    )
+
+    def _run(extra_sql, extra_params, lim):
+        sql = base_select + extra_sql + ' ORDER BY RANDOM() LIMIT ?'
+        params = cc_params + sub_params + extra_params + [lim]
+        c.execute(sql, params)
+        return [dict(r) for r in c.fetchall()]
 
     # FP risk: high score from Wikidata
     noisy_ph = ','.join(['?' for _ in NOISY_SOURCES])
-    c = conn.cursor()
-    ph = ','.join(['?' for _ in cc_list])
-    c.execute(f"""SELECT id, name, country_code, state_province, city, source,
-                         framework_area, alignment_score, description, website,
-                         registration_id, legibility, model_type, tags, email, phone
-                  FROM organizations WHERE status='active' AND country_code IN ({ph})
-                  AND source IN ({noisy_ph}) AND alignment_score >= 5
-                  ORDER BY RANDOM() LIMIT ?""", cc_list + list(NOISY_SOURCES) + [n//6])
-    buckets['fp_noisy_high'] = [dict(r) for r in c.fetchall()]
+    buckets['fp_noisy_high'] = _run(
+        f"AND source IN ({noisy_ph}) AND alignment_score >= 5",
+        list(NOISY_SOURCES),
+        n // 6,
+    )
 
     # FP risk: no description, score >= 4
-    c.execute(f"""SELECT id, name, country_code, state_province, city, source,
-                         framework_area, alignment_score, description, website,
-                         registration_id, legibility, model_type, tags, email, phone
-                  FROM organizations WHERE status='active' AND country_code IN ({ph})
-                  AND (description IS NULL OR description='') AND alignment_score >= 4
-                  ORDER BY RANDOM() LIMIT ?""", cc_list + [n//6])
-    buckets['fp_no_desc'] = [dict(r) for r in c.fetchall()]
+    buckets['fp_no_desc'] = _run(
+        "AND (description IS NULL OR description='') AND alignment_score >= 4",
+        [],
+        n // 6,
+    )
 
     # Scoring bug: trust source, score = 0
     trust_ph = ','.join(['?' for _ in TRUST_SOURCES])
-    c.execute(f"""SELECT id, name, country_code, state_province, city, source,
-                         framework_area, alignment_score, description, website,
-                         registration_id, legibility, model_type, tags, email, phone
-                  FROM organizations WHERE status='active' AND country_code IN ({ph})
-                  AND source IN ({trust_ph}) AND alignment_score = 0
-                  ORDER BY RANDOM() LIMIT ?""", cc_list + list(TRUST_SOURCES) + [n//8])
-    buckets['scoring_bug'] = [dict(r) for r in c.fetchall()]
+    buckets['scoring_bug'] = _run(
+        f"AND source IN ({trust_ph}) AND alignment_score = 0",
+        list(TRUST_SOURCES),
+        n // 8,
+    )
 
-    # FN risk: thin-coverage countries (<=20 orgs), score <= 2
-    thin_ccs = [cc for cc in cc_list if country_counts.get(cc, 0) <= 20]
-    if thin_ccs:
-        thin_ph = ','.join(['?' for _ in thin_ccs])
-        c.execute(f"""SELECT id, name, country_code, state_province, city, source,
-                             framework_area, alignment_score, description, website,
-                             registration_id, legibility, model_type, tags, email, phone
-                      FROM organizations WHERE status='active' AND country_code IN ({thin_ph})
-                      AND alignment_score <= 2
-                      ORDER BY RANDOM() LIMIT ?""", thin_ccs + [n//6])
-        buckets['fn_thin'] = [dict(r) for r in c.fetchall()]
+    # FN risk: thin-coverage countries (<=20 orgs), score <= 2.
+    # Skip when region=world (cc_list is None) or when no thin ccs apply.
+    if cc_list is not None:
+        thin_ccs = [cc for cc in cc_list if country_counts.get(cc, 0) <= 20]
+        if thin_ccs:
+            thin_ph = ','.join(['?' for _ in thin_ccs])
+            sql = (
+                "SELECT id, name, country_code, state_province, city, source, "
+                "framework_area, alignment_score, description, website, "
+                "registration_id, legibility, model_type, tags, email, phone "
+                "FROM organizations WHERE status='active' "
+                f"AND country_code IN ({thin_ph}) "
+                + sub_clause + ' '
+                + 'AND alignment_score <= 2 ORDER BY RANDOM() LIMIT ?'
+            )
+            params = thin_ccs + sub_params + [n // 6]
+            c.execute(sql, params)
+            buckets['fn_thin'] = [dict(r) for r in c.fetchall()]
 
     # FN risk: informal, low score
-    c.execute(f"""SELECT id, name, country_code, state_province, city, source,
-                         framework_area, alignment_score, description, website,
-                         registration_id, legibility, model_type, tags, email, phone
-                  FROM organizations WHERE status='active' AND country_code IN ({ph})
-                  AND legibility='informal' AND alignment_score <= 2
-                  ORDER BY RANDOM() LIMIT ?""", cc_list + [n//6])
-    buckets['fn_informal'] = [dict(r) for r in c.fetchall()]
+    buckets['fn_informal'] = _run(
+        "AND legibility='informal' AND alignment_score <= 2",
+        [],
+        n // 6,
+    )
 
     # Baseline random (fill remainder)
     seen_ids = set()
@@ -206,13 +230,7 @@ def build_outlier_sample(conn, cc_list, n, country_counts):
     # Fill to n with random orgs not already included
     remaining = max(0, n - len(all_outliers))
     if remaining > 0:
-        c.execute(f"""SELECT id, name, country_code, state_province, city, source,
-                             framework_area, alignment_score, description, website,
-                             registration_id, legibility, model_type, tags, email, phone
-                      FROM organizations WHERE status='active' AND country_code IN ({ph})
-                      ORDER BY RANDOM() LIMIT ?""", cc_list + [remaining * 3])
-        for row in c.fetchall():
-            d = dict(row)
+        for d in _run('', [], remaining * 3):
             if d['id'] not in seen_ids:
                 seen_ids.add(d['id'])
                 all_outliers.append(d)
@@ -226,7 +244,10 @@ def build_outlier_sample(conn, cc_list, n, country_counts):
 # ---- Main --------------------------------------------------------------------
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--region', default='usa', choices=['usa','india','latam'])
+parser.add_argument('--region', default='usa', choices=['usa','india','latam','world'])
+parser.add_argument('--subregion', default=None,
+                    help='Filter inside a region by state_province OR city '
+                         '(LIKE, case-insensitive). Example: --subregion MO')
 parser.add_argument('--n', type=int, default=60)
 parser.add_argument('--mode', default='outlier', choices=['random','outlier','thin'])
 parser.add_argument('--stratified', action='store_true')
@@ -239,9 +260,39 @@ if args.region == 'usa':
 elif args.region == 'india':
     cc_list = ['IN']
     label   = 'India'
+elif args.region == 'world':
+    cc_list = None  # sentinel: do not filter by country_code
+    label   = 'World'
 else:
     cc_list = SPANISH
     label   = 'Spanish-Speaking Countries'
+
+# ---- Subregion filter ---------------------------------------------------
+# When --subregion is set, we narrow the WHERE clause inside fetch_orgs and
+# build_outlier_sample below. The filter matches state_province OR city,
+# both with LIKE and case-insensitive (LOWER()) so an input like "MO" or
+# "Missouri" or "st. louis" all work.
+SUBREGION = (args.subregion or '').strip()
+SUBREGION_LIKE = '%' + SUBREGION.lower() + '%' if SUBREGION else None
+
+
+def _subregion_clause(prefix='AND '):
+    """Return ('AND (...)', [params]) for the active subregion filter, or ('', [])."""
+    if not SUBREGION_LIKE:
+        return '', []
+    clause = (
+        f"{prefix}(LOWER(COALESCE(state_province,'')) LIKE ? "
+        f"OR LOWER(COALESCE(city,'')) LIKE ?)"
+    )
+    return clause, [SUBREGION_LIKE, SUBREGION_LIKE]
+
+
+def _country_clause(field='country_code', prefix='AND '):
+    """Return ('AND country_code IN (...)', [params]) or ('', []) for region=world."""
+    if cc_list is None:
+        return '', []
+    ph = ','.join(['?' for _ in cc_list])
+    return f"{prefix}{field} IN ({ph})", list(cc_list)
 
 conn = sqlite3.connect(DB)
 conn.row_factory = sqlite3.Row
@@ -258,29 +309,42 @@ if args.mode == 'outlier':
     else:
         orgs = build_outlier_sample(conn, cc_list, args.n, country_counts)
 elif args.mode == 'thin':
-    thin_ccs = [cc for cc in cc_list if country_counts.get(cc, 0) <= 50]
-    if not thin_ccs:
-        thin_ccs = cc_list
+    if cc_list is None:
+        # region=world: pull thin countries globally
+        thin_ccs = [cc for cc, n in country_counts.items() if n <= 50]
+    else:
+        thin_ccs = [cc for cc in cc_list if country_counts.get(cc, 0) <= 50]
+        if not thin_ccs:
+            thin_ccs = cc_list
     orgs = []
     c3 = conn.cursor()
+    sub_clause, sub_params = _subregion_clause()
     for cc in thin_ccs:
-        c3.execute("""SELECT id, name, country_code, state_province, city, source,
-                             framework_area, alignment_score, description, website,
-                             registration_id, legibility, model_type, tags, email, phone
-                      FROM organizations WHERE status='active' AND country_code=?
-                      ORDER BY RANDOM() LIMIT 3""", [cc])
+        sql = (
+            "SELECT id, name, country_code, state_province, city, source, "
+            "framework_area, alignment_score, description, website, "
+            "registration_id, legibility, model_type, tags, email, phone "
+            "FROM organizations WHERE status='active' AND country_code=? "
+            + sub_clause + ' ORDER BY RANDOM() LIMIT 3'
+        )
+        c3.execute(sql, [cc] + sub_params)
         orgs.extend([dict(r) for r in c3.fetchall()])
     random.shuffle(orgs)
     orgs = orgs[:args.n]
 else:
     # Pure random
     c4 = conn.cursor()
-    ph = ','.join(['?' for _ in cc_list])
-    c4.execute(f"""SELECT id, name, country_code, state_province, city, source,
-                          framework_area, alignment_score, description, website,
-                          registration_id, legibility, model_type, tags, email, phone
-                   FROM organizations WHERE status='active' AND country_code IN ({ph})
-                   ORDER BY RANDOM() LIMIT ?""", cc_list + [args.n])
+    cc_clause, cc_params = _country_clause()
+    sub_clause, sub_params = _subregion_clause()
+    sql = (
+        "SELECT id, name, country_code, state_province, city, source, "
+        "framework_area, alignment_score, description, website, "
+        "registration_id, legibility, model_type, tags, email, phone "
+        "FROM organizations WHERE status='active' "
+        + cc_clause + ' ' + sub_clause + ' '
+        + 'ORDER BY RANDOM() LIMIT ?'
+    )
+    c4.execute(sql, cc_params + sub_params + [args.n])
     orgs = [dict(r) for r in c4.fetchall()]
 
 conn.close()
@@ -293,12 +357,20 @@ for o in orgs:
     o['outlier_flags'] = detect_outliers(o, country_counts)
     o['country_total'] = country_counts.get(o.get('country_code') or '', 0)
 
-out_path = args.out or os.path.join(OUT_DIR, f'{args.region}.json')
+if args.out:
+    out_path = args.out
+elif SUBREGION:
+    safe_sub = re.sub(r'[^A-Za-z0-9]+', '-', SUBREGION).strip('-').lower() or 'sub'
+    out_path = os.path.join(OUT_DIR, f'{args.region}-{safe_sub}.json')
+else:
+    out_path = os.path.join(OUT_DIR, f'{args.region}.json')
+out_path = os.path.abspath(out_path)
 os.makedirs(os.path.dirname(out_path), exist_ok=True)
 
 payload = {
     'region': args.region,
-    'label': label,
+    'subregion': SUBREGION or None,
+    'label': label + (f' \u2014 {SUBREGION}' if SUBREGION else ''),
     'mode': args.mode,
     'generated': '2026-04-27',
     'total': len(orgs),

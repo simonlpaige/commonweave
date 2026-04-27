@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commonweave Enrich Portal</title>
+<style>
+:root {
+  --bg:      #0d1a0d;
+  --surface: #132013;
+  --s2:      #192819;
+  --s3:      #1f321f;
+  --border:  #253825;
+  --border2: #30483a;
+  --text:    #cce8b0;
+  --muted:   #5e8a52;
+  --dim:     #3d5e35;
+  --accent:  #78c87a;
+  --warm:    #a8c87e;
+  --teal:    #4fc4b0;
+  --earth:   #c4a55d;
+  --red:     #e07070;
+  --orange:  #d4915a;
+  --yellow:  #c4b85a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; min-height: 100vh; }
+
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px; border-bottom: 1px solid var(--border);
+}
+.nav-logo { color: var(--accent); font-weight: 900; letter-spacing: 3px; font-size: 14px; text-decoration: none; text-transform: lowercase; }
+.nav-sub  { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+
+.progress-wrap { background: var(--surface); border-bottom: 1px solid var(--border); padding: 10px 24px; }
+.progress-row  { display: flex; align-items: center; gap: 12px; }
+.progress-bar-track { flex: 1; height: 6px; background: var(--s3); border-radius: 3px; overflow: hidden; }
+.progress-bar-fill  { height: 100%; background: var(--teal); border-radius: 3px; transition: width 0.3s ease; }
+.progress-label { font-size: 12px; color: var(--muted); min-width: 80px; text-align: right; }
+.progress-stats { display: flex; gap: 16px; margin-top: 6px; font-size: 11px; }
+.ps-item      { color: var(--muted); }
+.ps-item span { font-weight: 700; }
+.ps-accepted span { color: var(--accent); }
+.ps-wrong    span { color: var(--red); }
+.ps-skipped  span { color: var(--dim); }
+.ps-remain   span { color: var(--teal); }
+
+main { max-width: 760px; margin: 0 auto; padding: 24px 20px 100px; }
+
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 24px; margin-bottom: 20px;
+}
+
+.card-index { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+.org-name   { font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 600; border: 1px solid;
+}
+.badge-loc   { background: var(--s2); border-color: var(--border);  color: var(--text); }
+.badge-src   { background: var(--s2); border-color: var(--border2); color: var(--warm); }
+.badge-area  { background: var(--s2); border-color: var(--border2); color: var(--teal); }
+.badge-score { background: rgba(120,200,122,0.12); border-color: var(--accent); color: var(--accent); }
+
+/* Confidence badges */
+.badge-high   { background: rgba(120,200,122,0.15); border-color: var(--accent); color: var(--accent); }
+.badge-medium { background: rgba(196,184,90,0.15);  border-color: var(--yellow); color: var(--yellow); }
+.badge-low    { background: rgba(224,112,112,0.15); border-color: var(--red);    color: var(--red); }
+
+.section-label {
+  font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 6px; margin-top: 18px;
+}
+
+.found-block {
+  background: var(--s2); border: 1px solid var(--border2); border-radius: 8px; padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.found-row  { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; font-size: 13px; }
+.found-row:last-child { margin-bottom: 0; }
+.found-label { color: var(--muted); min-width: 80px; }
+.found-value { color: var(--text); word-break: break-word; }
+.found-value a { color: var(--accent); text-decoration: none; }
+.found-value a:hover { text-decoration: underline; }
+.found-empty { color: var(--dim); font-style: italic; }
+
+.orig-desc {
+  font-size: 13px; color: var(--muted); line-height: 1.6; padding: 10px 14px;
+  background: var(--s3); border-radius: 6px; border-left: 3px solid var(--border2);
+}
+.source-link { font-size: 12px; }
+.source-link a { color: var(--teal); text-decoration: none; }
+.source-link a:hover { text-decoration: underline; }
+
+/* Edit mode fields */
+.edit-fields { display: none; flex-direction: column; gap: 10px; margin-top: 14px; }
+.edit-fields.visible { display: flex; }
+.edit-row label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+.edit-row input,
+.edit-row textarea {
+  width: 100%; background: var(--s3); border: 1px solid var(--border2);
+  border-radius: 6px; padding: 8px 10px; color: var(--text); font-size: 13px;
+  font-family: inherit; outline: none;
+}
+.edit-row input:focus,
+.edit-row textarea:focus { border-color: var(--accent); }
+.edit-row textarea { resize: vertical; min-height: 70px; }
+
+/* Verdict buttons */
+.verdict-row {
+  display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap;
+}
+.btn {
+  padding: 9px 18px; border-radius: 8px; font-size: 14px; font-weight: 700;
+  cursor: pointer; border: 1px solid; transition: opacity 0.15s;
+}
+.btn:hover { opacity: 0.85; }
+.btn-accept { background: rgba(120,200,122,0.15); border-color: var(--accent); color: var(--accent); }
+.btn-wrong  { background: rgba(224,112,112,0.15); border-color: var(--red);    color: var(--red); }
+.btn-edit   { background: rgba(196,165,93,0.15);  border-color: var(--earth);  color: var(--earth); }
+.btn-skip   { background: var(--s3); border-color: var(--dim); color: var(--muted); }
+.btn-save   { background: rgba(120,200,122,0.15); border-color: var(--accent); color: var(--accent); }
+
+/* Nav arrows */
+.nav-arrows { display: flex; justify-content: space-between; margin-top: 16px; }
+.btn-nav { background: var(--s2); border: 1px solid var(--border); color: var(--muted); font-size: 13px; padding: 7px 14px; border-radius: 6px; cursor: pointer; }
+.btn-nav:hover { border-color: var(--accent); color: var(--text); }
+
+/* Export section */
+.export-wrap { text-align: center; margin-top: 32px; }
+.btn-export {
+  padding: 11px 28px; border-radius: 8px; font-size: 14px; font-weight: 700;
+  cursor: pointer; background: rgba(79,196,176,0.15); border: 1px solid var(--teal); color: var(--teal);
+}
+.btn-export:hover { opacity: 0.85; }
+
+.empty-state { text-align: center; padding: 60px 20px; color: var(--muted); }
+.empty-state h2 { font-size: 20px; margin-bottom: 8px; color: var(--dim); }
+
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: var(--s3); border: 1px solid var(--border2); color: var(--text);
+  padding: 10px 20px; border-radius: 8px; font-size: 13px;
+  opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 100;
+}
+.toast.show { opacity: 1; }
+
+.kbd-hint { font-size: 11px; color: var(--dim); margin-top: 12px; text-align: center; }
+.kbd { display: inline-block; background: var(--s3); border: 1px solid var(--border2); border-radius: 4px; padding: 1px 6px; font-family: monospace; font-size: 11px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">commonweave</a>
+  <span class="nav-sub">enrichment review</span>
+</nav>
+
+<div class="progress-wrap">
+  <div class="progress-row">
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="progress-label" id="progressLabel">0 / 0</div>
+  </div>
+  <div class="progress-stats">
+    <div class="ps-item ps-accepted">accepted <span id="statAccepted">0</span></div>
+    <div class="ps-item ps-wrong">wrong org <span id="statWrong">0</span></div>
+    <div class="ps-item ps-skipped">skipped <span id="statSkipped">0</span></div>
+    <div class="ps-item ps-remain">remaining <span id="statRemain">0</span></div>
+  </div>
+</div>
+
+<main id="main">
+  <div class="empty-state" id="loadingMsg"><h2>Loading proposals...</h2></div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────────
+const TODAY      = new Date().toISOString().slice(0, 10);
+const STORAGE_KEY = `cw-enrich-${TODAY}`;
+
+let proposals = [];
+let current   = 0;
+
+// Persisted state shape: { decisions: { [id]: { verdict, website, email, description } } }
+let state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"decisions":{}}');
+
+// ── Data loading ────────────────────────────────────────────────────────────
+// Try enrich.json (same dir) first, then ../enrichment-proposals.json
+async function loadProposals() {
+  for (const url of ['enrich.json', '../audit/enrichment-proposals.json', '../enrichment-proposals.json']) {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) continue;
+      const data = await res.json();
+      const list = Array.isArray(data) ? data : (data.proposals || []);
+      if (list.length > 0) return list;
+    } catch (e) { /* try next */ }
+  }
+  return [];
+}
+
+// ── Save state ──────────────────────────────────────────────────────────────
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+// ── Count helpers ───────────────────────────────────────────────────────────
+function counts() {
+  const d = state.decisions;
+  let accepted = 0, wrong = 0, skipped = 0;
+  for (const v of Object.values(d)) {
+    if (v.verdict === 'accepted') accepted++;
+    else if (v.verdict === 'wrong') wrong++;
+    else if (v.verdict === 'skipped') skipped++;
+  }
+  return { accepted, wrong, skipped };
+}
+
+// ── Find the next undecided index at or after `from` ────────────────────────
+function nextUndecided(from) {
+  for (let i = from; i < proposals.length; i++) {
+    if (!state.decisions[proposals[i].id]) return i;
+  }
+  return -1;
+}
+
+function prevUndecided(from) {
+  for (let i = from; i >= 0; i--) {
+    if (!state.decisions[proposals[i].id]) return i;
+  }
+  return -1;
+}
+
+// ── Update progress bar and stats ────────────────────────────────────────────
+function updateProgress() {
+  const c   = counts();
+  const done = c.accepted + c.wrong + c.skipped;
+  const pct  = proposals.length > 0 ? Math.round((done / proposals.length) * 100) : 0;
+
+  document.getElementById('progressFill').style.width  = pct + '%';
+  document.getElementById('progressLabel').textContent = `${done} / ${proposals.length}`;
+  document.getElementById('statAccepted').textContent  = c.accepted;
+  document.getElementById('statWrong').textContent     = c.wrong;
+  document.getElementById('statSkipped').textContent   = c.skipped;
+  document.getElementById('statRemain').textContent    = proposals.length - done;
+}
+
+// ── Toast ────────────────────────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 1800);
+}
+
+// ── Record a verdict ─────────────────────────────────────────────────────────
+function decide(verdict, overrides = {}) {
+  const p = proposals[current];
+  state.decisions[p.id] = {
+    verdict,
+    website:     overrides.website     !== undefined ? overrides.website     : p.proposed_website,
+    email:       overrides.email       !== undefined ? overrides.email       : p.proposed_email,
+    description: overrides.description !== undefined ? overrides.description : p.proposed_description,
+    org_name:    p.org_name,
+    country_code: p.country_code,
+    city:        p.city,
+    source:      p.source,
+    framework_area: p.framework_area,
+    alignment_score: p.alignment_score,
+    confidence:  p.confidence,
+    search_query: p.search_query,
+    source_url:  p.source_url,
+    decided_at:  new Date().toISOString(),
+  };
+  save();
+  updateProgress();
+
+  const next = nextUndecided(current + 1);
+  if (next !== -1) {
+    current = next;
+    render();
+  } else {
+    renderDone();
+  }
+}
+
+// ── Render one proposal card ──────────────────────────────────────────────────
+function render() {
+  if (proposals.length === 0) {
+    document.getElementById('main').innerHTML = `
+      <div class="empty-state">
+        <h2>No proposals found</h2>
+        <p>Run <code>enrichment-agent.js</code> to generate proposals, then place the output at <code>audit/enrich.json</code>.</p>
+      </div>`;
+    return;
+  }
+
+  const p    = proposals[current];
+  const conf = p.confidence || 'low';
+
+  const websiteHtml = p.proposed_website
+    ? `<a href="${p.proposed_website}" target="_blank" rel="noopener">${p.proposed_website}</a>`
+    : `<span class="found-empty">not found</span>`;
+  const emailHtml = p.proposed_email
+    ? `<a href="mailto:${p.proposed_email}">${p.proposed_email}</a>`
+    : `<span class="found-empty">not found</span>`;
+  const descHtml = p.proposed_description
+    ? p.proposed_description
+    : `<span class="found-empty">not found</span>`;
+  const sourceHtml = p.source_url
+    ? `<a href="${p.source_url}" target="_blank" rel="noopener">${p.source_url}</a>`
+    : '(no source URL)';
+
+  const origDescHtml = p.description
+    ? `<div class="section-label">Original description</div><div class="orig-desc">${p.description}</div>`
+    : '';
+
+  document.getElementById('main').innerHTML = `
+    <div class="card">
+      <div class="card-index">${current + 1} of ${proposals.length}</div>
+      <div class="org-name">${p.org_name || '(unnamed)'}</div>
+      <div class="meta-row">
+        ${p.city || p.country_code ? `<span class="badge badge-loc">📍 ${[p.city, p.country_code].filter(Boolean).join(', ')}</span>` : ''}
+        ${p.source       ? `<span class="badge badge-src">${p.source}</span>` : ''}
+        ${p.framework_area ? `<span class="badge badge-area">${p.framework_area}</span>` : ''}
+        ${p.alignment_score != null ? `<span class="badge badge-score">score: ${p.alignment_score}</span>` : ''}
+        <span class="badge badge-${conf}">confidence: ${conf}</span>
+      </div>
+
+      <div class="section-label">What we found</div>
+      <div class="found-block">
+        <div class="found-row">
+          <div class="found-label">Website</div>
+          <div class="found-value">${websiteHtml}</div>
+        </div>
+        <div class="found-row">
+          <div class="found-label">Email</div>
+          <div class="found-value">${emailHtml}</div>
+        </div>
+        <div class="found-row">
+          <div class="found-label">Description</div>
+          <div class="found-value">${descHtml}</div>
+        </div>
+      </div>
+
+      <div class="source-link">Source: ${sourceHtml}</div>
+
+      ${origDescHtml}
+
+      <div class="edit-fields" id="editFields">
+        <div class="edit-row">
+          <label>Website</label>
+          <input type="url" id="editWebsite" placeholder="https://..." value="${p.proposed_website || ''}">
+        </div>
+        <div class="edit-row">
+          <label>Email</label>
+          <input type="email" id="editEmail" placeholder="contact@..." value="${p.proposed_email || ''}">
+        </div>
+        <div class="edit-row">
+          <label>Description</label>
+          <textarea id="editDesc" rows="3">${p.proposed_description || ''}</textarea>
+        </div>
+        <button class="btn btn-save" onclick="saveEdit()">Save and accept</button>
+      </div>
+
+      <div class="verdict-row">
+        <button class="btn btn-accept" onclick="accept()">✅ Accept</button>
+        <button class="btn btn-wrong"  onclick="wrong()">❌ Wrong org</button>
+        <button class="btn btn-edit"   onclick="toggleEdit()">✏️ Edit</button>
+        <button class="btn btn-skip"   onclick="skip()">⏭ Skip</button>
+      </div>
+
+      <div class="nav-arrows">
+        <button class="btn-nav" onclick="navPrev()">← Prev</button>
+        <button class="btn-nav" onclick="navNext()">Next →</button>
+      </div>
+
+      <div class="kbd-hint">
+        <kbd class="kbd">1</kbd> accept &nbsp;
+        <kbd class="kbd">2</kbd> wrong &nbsp;
+        <kbd class="kbd">3</kbd> edit &nbsp;
+        <kbd class="kbd">4</kbd> skip &nbsp;
+        <kbd class="kbd">←</kbd><kbd class="kbd">→</kbd> navigate
+      </div>
+    </div>
+
+    <div class="export-wrap">
+      <button class="btn-export" onclick="exportAccepted()">Export accepted proposals</button>
+    </div>
+  `;
+
+  updateProgress();
+}
+
+function renderDone() {
+  const c = counts();
+  document.getElementById('main').innerHTML = `
+    <div class="card" style="text-align:center; padding:40px;">
+      <div class="org-name" style="margin-bottom:16px;">All proposals reviewed!</div>
+      <p style="color:var(--muted); margin-bottom:24px;">
+        Accepted: ${c.accepted} &nbsp;|&nbsp; Wrong org: ${c.wrong} &nbsp;|&nbsp; Skipped: ${c.skipped}
+      </p>
+      <div class="export-wrap">
+        <button class="btn-export" onclick="exportAccepted()">Export accepted proposals</button>
+      </div>
+    </div>`;
+}
+
+// ── Verdict actions ───────────────────────────────────────────────────────────
+function accept() { decide('accepted'); showToast('Accepted'); }
+function wrong()  { decide('wrong');    showToast('Marked as wrong org'); }
+function skip()   { decide('skipped');  showToast('Skipped'); }
+
+function toggleEdit() {
+  const ef = document.getElementById('editFields');
+  if (ef) ef.classList.toggle('visible');
+}
+
+function saveEdit() {
+  const w = (document.getElementById('editWebsite')?.value || '').trim() || null;
+  const e = (document.getElementById('editEmail')?.value   || '').trim() || null;
+  const d = (document.getElementById('editDesc')?.value    || '').trim() || null;
+  decide('accepted', { website: w, email: e, description: d });
+  showToast('Edited and accepted');
+}
+
+function navPrev() {
+  const idx = prevUndecided(current - 1);
+  if (idx !== -1) { current = idx; render(); }
+}
+
+function navNext() {
+  const idx = nextUndecided(current + 1);
+  if (idx !== -1) { current = idx; render(); }
+  else renderDone();
+}
+
+// ── Export ────────────────────────────────────────────────────────────────────
+function exportAccepted() {
+  const accepted = Object.entries(state.decisions)
+    .filter(([, v]) => v.verdict === 'accepted')
+    .map(([id, v]) => Object.assign({ id }, v));
+
+  if (accepted.length === 0) {
+    showToast('No accepted proposals yet');
+    return;
+  }
+
+  const blob = new Blob([JSON.stringify(accepted, null, 2)], { type: 'application/json' });
+  const a    = document.createElement('a');
+  a.href     = URL.createObjectURL(blob);
+  a.download = `enrichment-accepted-${TODAY}.json`;
+  a.click();
+  showToast(`Exported ${accepted.length} accepted proposals`);
+}
+
+// ── Keyboard shortcuts ────────────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key === '1') accept();
+  else if (e.key === '2') wrong();
+  else if (e.key === '3') toggleEdit();
+  else if (e.key === '4') skip();
+  else if (e.key === 'ArrowRight') navNext();
+  else if (e.key === 'ArrowLeft')  navPrev();
+});
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+(async () => {
+  proposals = await loadProposals();
+
+  if (proposals.length === 0) {
+    document.getElementById('main').innerHTML = `
+      <div class="empty-state">
+        <h2>No proposals found</h2>
+        <p>Run <code>node tools/enrichment-agent.js</code> to generate proposals,<br>
+        then save the output as <code>audit/enrich.json</code>.</p>
+      </div>`;
+    return;
+  }
+
+  // Jump to first undecided
+  const first = nextUndecided(0);
+  if (first !== -1) {
+    current = first;
+    render();
+  } else {
+    renderDone();
+  }
+  updateProgress();
+})();
+</script>
+
+</body>
+</html>

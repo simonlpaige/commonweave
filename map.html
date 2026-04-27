@@ -787,11 +787,27 @@ function animateCounter(el, target, duration = 700) {
 async function loadData() {
   setProgress(5);
 
-  const [pointsData, edgesData, statsData] = await Promise.all([
+  const [pointsData, edgesData, statsData, coverageData] = await Promise.all([
     fetch('data/search/map_points_v2.json').then(r => r.json()),
     fetch('data/search/map_edges.json').then(r => r.json()),
-    fetch('data/map/stats.json').then(r => r.ok ? r.json() : null).catch(() => null)
+    fetch('data/map/stats.json').then(r => r.ok ? r.json() : null).catch(() => null),
+    // Audit coverage. Optional: missing file is fine, all pins fall back
+    // to solid. See tools/build-coverage-summary.py.
+    fetch('audit/coverage-summary.json').then(r => r.ok ? r.json() : null).catch(() => null)
   ]);
+
+  // Build fast-lookup sets for the renderer. Country = 'US', state = 'US/MO',
+  // city = 'US/MO/St. Louis'. Same shape as the summary's verified_*.
+  if (coverageData && typeof coverageData === 'object') {
+    window.coverageVerified = {
+      countries: new Set(coverageData.verified_countries || []),
+      states: new Set(coverageData.verified_states || []),
+      cities: new Set(coverageData.verified_cities || []),
+      generated_at: coverageData.generated_at || null
+    };
+  } else {
+    window.coverageVerified = { countries: new Set(), states: new Set(), cities: new Set() };
+  }
 
   setProgress(18);
 
@@ -1335,8 +1351,29 @@ function drawEdges() {
   ctx.globalAlpha = 1;
 }
 
+// Coverage helper. A pin is "verified" when its country (or finer scope)
+// shows up in window.coverageVerified. Pins outside any verified scope
+// render at 60% opacity to make audit progress visible at a glance.
+function nodeIsVerified(node) {
+  const cov = window.coverageVerified;
+  if (!cov) return false;
+  const cc = node.cc || '';
+  const st = node.st || '';
+  const ci = node.ci || '';
+  if (ci && cov.cities && cov.cities.has(`${cc}/${st}/${ci}`)) return true;
+  if (st && cov.states && cov.states.has(`${cc}/${st}`)) return true;
+  if (cc && cov.countries && cov.countries.has(cc)) return true;
+  return false;
+}
+
 function drawNodes() {
   const hasHover = hoveredNode !== null;
+  const cov = window.coverageVerified;
+  const haveCoverage = !!(cov && (
+    (cov.countries && cov.countries.size) ||
+    (cov.states && cov.states.size) ||
+    (cov.cities && cov.cities.size)
+  ));
 
   for (let i = 0; i < simNodes.length; i++) {
     const node = simNodes[i];
@@ -1350,8 +1387,11 @@ function drawNodes() {
     const isSelected = selectedNode === node;
     const isNeighbor = hasHover && hoveredNeighborIndices.has(i);
     const dimmed = hasHover && !isHovered && !isNeighbor;
+    // Coverage opacity: only applied when at least one scope is verified.
+    // No coverage data published yet -> every pin renders solid.
+    const coverageAlpha = haveCoverage && !nodeIsVerified(node) ? 0.6 : 1;
 
-    ctx.globalAlpha = dimmed ? 0.12 : 1;
+    ctx.globalAlpha = dimmed ? 0.12 : coverageAlpha;
 
     if (isHovered || isSelected) {
       ctx.shadowBlur = 20;

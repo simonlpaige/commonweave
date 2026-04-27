@@ -97,6 +97,58 @@ MODEL_TYPE_SIGNALS = {
     'government': ['authority','district','department of','bureau of','commission'],
 }
 
+# Open source / free software / fiscal sponsor governance signals.
+# Added 2026-04-26 to score open-source foundations and fiscal hosts that the
+# English-keyword list missed. These match against the combined name+description
+# text via substring (same axis as MODERATE_POS).
+OPEN_SOURCE_GOVERNANCE = [
+    'open source', 'free software', 'copyleft',
+    'fiscal sponsor', 'fiscal host', 'fiscally sponsored', 'fiscally hosted',
+    'apache way', 'meritocratic', 'meritocracy',
+    'contributor community', 'open-source community',
+    'software freedom', 'libre software',
+]
+
+# Hand-curated set of open-source / free-culture foundations that should
+# always score at least 7. Names are normalized (lowercased, stripped) before
+# comparison so minor punctuation or trailing "Inc." does not break the match.
+KNOWN_ALIGNED_NAMES = {
+    'apache software foundation',
+    'linux foundation',
+    'mozilla foundation',
+    'wikimedia foundation',
+    'creative commons',
+    'creative commons corporation',
+    'open source initiative',
+    'internet archive',
+    'electronic frontier foundation',
+    'eff',
+    'software freedom conservancy',
+    'numfocus',
+    'tor project',
+    'the tor project',
+    'gnome foundation',
+    'free software foundation',
+    'fsf',
+}
+
+KNOWN_ALIGNED_MIN_SCORE = 7
+
+
+def _normalize_known_name(name):
+    """Lowercase, strip whitespace + trailing legal suffixes for KNOWN_ALIGNED_NAMES match."""
+    if not name:
+        return ''
+    n = unicodedata.normalize('NFC', name).lower().strip()
+    # Drop a trailing ", inc" / " inc." / " ltd" etc.
+    n = re.sub(r'[,]?\s+(inc|inc\.|ltd|ltd\.|llc|corporation|corp|corp\.)$', '', n)
+    n = re.sub(r'\s+', ' ', n).strip()
+    return n
+
+
+def is_known_aligned(name):
+    return _normalize_known_name(name) in KNOWN_ALIGNED_NAMES
+
 
 # ── Legal-form score axis ────────────────────────────────────────────────
 # Wave A introduced ingesters whose rows are aligned by legal form rather
@@ -221,10 +273,17 @@ def score_org(name, desc, model_type=None, registration_type=None):
     or Brazilian row whose description is in the local language can still
     score high because its model_type or registration_type encodes the
     legal form directly."""
+    # Hard floor for hand-curated open-source / free-culture foundations.
+    # Their descriptions often fail every English-keyword heuristic ("we are
+    # a 501(c)(3) supporting the X project"), so we shortcut to a high
+    # score and skip the keyword scan entirely.
+    if is_known_aligned(name):
+        return KNOWN_ALIGNED_MIN_SCORE
     combined = _normalize_for_match((name or '') + ' ' + (desc or ''))
     score = 0
     score += 3 * _count_unique_strong(combined)
     score += 1 * _count_substring_hits(MODERATE_POS, combined)
+    score += 2 * _count_substring_hits(OPEN_SOURCE_GOVERNANCE, combined)
     score -= 3 * _count_substring_hits(NEGATIVE, combined)
     score += legal_form_bump(model_type, registration_type)
     return max(-10, min(10, score))

@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "description": "Audit coverage tracker. record-audit-coverage.py updates this file when a region or sub-region passes the verdicted threshold (default 80%). build-coverage-summary.py rolls these entries into audit/coverage-summary.json which the map fetches.",
+  "thresholds": {
+    "verdicted_pct_required": 0.80
+  },
+  "regions": {
+  },
+  "states": {
+  },
+  "cities": {
+  }
+}
