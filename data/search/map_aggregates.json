@@ -52,21 +52,17 @@
       "sections_present": 1
     },
     "AR": {
-      "total": 121,
+      "total": 21,
       "verified": 0,
-      "quality": 120,
+      "quality": 20,
       "sections": {
         "": 3,
-        "conflict": 1,
         "cooperatives": 14,
-        "democracy": 5,
-        "education": 91,
-        "healthcare": 4,
-        "housing_land": 2,
-        "recreation_arts": 1
+        "democracy": 2,
+        "housing_land": 2
       },
-      "completeness": 69.7,
-      "sections_present": 7
+      "completeness": 29.3,
+      "sections_present": 3
     },
     "AT": {
       "total": 147,
@@ -87,21 +83,21 @@
       "sections_present": 8
     },
     "AU": {
-      "total": 48966,
+      "total": 48619,
       "verified": 0,
-      "quality": 45218,
+      "quality": 44884,
       "sections": {
-        "": 3881,
-        "conflict": 199,
+        "": 3873,
+        "conflict": 197,
         "cooperatives": 8,
-        "democracy": 5104,
-        "ecology": 2915,
-        "education": 10289,
-        "energy_digital": 4,
-        "food": 30,
-        "healthcare": 7637,
-        "housing_land": 15844,
-        "recreation_arts": 3055
+        "democracy": 5065,
+        "ecology": 2901,
+        "education": 10071,
+        "energy_digital": 2,
+        "food": 27,
+        "healthcare": 7601,
+        "housing_land": 15832,
+        "recreation_arts": 3042
       },
       "completeness": 96.2,
       "sections_present": 10
@@ -158,24 +154,20 @@
       "sections_present": 2
     },
     "BE": {
-      "total": 256,
+      "total": 59,
       "verified": 1,
-      "quality": 217,
+      "quality": 50,
       "sections": {
         "": 20,
-        "conflict": 1,
         "cooperatives": 13,
-        "democracy": 157,
-        "ecology": 8,
-        "education": 11,
-        "energy_digital": 9,
-        "food": 11,
-        "healthcare": 9,
-        "housing_land": 7,
-        "recreation_arts": 10
+        "democracy": 7,
+        "ecology": 3,
+        "energy_digital": 2,
+        "food": 7,
+        "housing_land": 7
       },
-      "completeness": 92.4,
-      "sections_present": 10
+      "completeness": 55.4,
+      "sections_present": 6
     },
     "BF": {
       "total": 4,
@@ -245,20 +237,18 @@
       "sections_present": 1
     },
     "BO": {
-      "total": 25,
+      "total": 10,
       "verified": 0,
-      "quality": 22,
+      "quality": 9,
       "sections": {
         "cooperatives": 2,
-        "democracy": 7,
-        "ecology": 2,
-        "education": 9,
+        "democracy": 5,
+        "education": 1,
         "energy_digital": 1,
-        "healthcare": 3,
         "housing_land": 1
       },
-      "completeness": 65.8,
-      "sections_present": 7
+      "completeness": 47.5,
+      "sections_present": 5
     },
     "BQ": {
       "total": 1,
@@ -271,19 +261,19 @@
       "sections_present": 1
     },
     "BR": {
-      "total": 85596,
+      "total": 85472,
       "verified": 1,
-      "quality": 85594,
+      "quality": 85472,
       "sections": {
         "": 6,
         "cooperatives": 940,
-        "democracy": 3254,
-        "ecology": 6,
-        "education": 28936,
+        "democracy": 3247,
+        "ecology": 2,
+        "education": 28847,
         "food": 7,
-        "healthcare": 18226,
-        "housing_land": 33694,
-        "recreation_arts": 527
+        "healthcare": 18213,
+        "housing_land": 33693,
+        "recreation_arts": 517
       },
       "completeness": 80.0,
       "sections_present": 8
@@ -341,24 +331,23 @@
       "sections_present": 1
     },
     "CA": {
-      "total": 435,
+      "total": 215,
       "verified": 1,
-      "quality": 410,
+      "quality": 200,
       "sections": {
         "": 29,
-        "conflict": 3,
         "cooperatives": 10,
-        "democracy": 54,
-        "ecology": 18,
-        "education": 113,
-        "energy_digital": 3,
-        "food": 20,
-        "healthcare": 80,
-        "housing_land": 77,
-        "recreation_arts": 28
+        "democracy": 37,
+        "ecology": 15,
+        "education": 4,
+        "energy_digital": 1,
+        "food": 18,
+        "healthcare": 11,
+        "housing_land": 76,
+        "recreation_arts": 14
       },
-      "completeness": 97.1,
-      "sections_present": 10
+      "completeness": 86.9,
+      "sections_present": 9
     },
     "CD": {
       "total": 5,
@@ -428,23 +417,20 @@
       "sections_present": 1
     },
     "CL": {
-      "total": 71,
+      "total": 18,
       "verified": 0,
-      "quality": 54,
+      "quality": 17,
       "sections": {
         "": 1,
         "cooperatives": 6,
-        "democracy": 42,
-        "ecology": 1,
-        "education": 8,
-        "energy_digital": 2,
+        "democracy": 3,
+        "energy_digital": 1,
         "food": 3,
-        "healthcare": 2,
         "housing_land": 3,
-        "recreation_arts": 3
+        "recreation_arts": 1
       },
-      "completeness": 79.2,
-      "sections_present": 9
+      "completeness": 58.3,
+      "sections_present": 6
     },
     "CM": {
       "total": 6,
@@ -471,52 +457,43 @@
       "sections_present": 5
     },
     "CO": {
-      "total": 91,
+      "total": 34,
       "verified": 0,
-      "quality": 78,
+      "quality": 30,
       "sections": {
         "cooperatives": 17,
-        "democracy": 8,
-        "ecology": 5,
-        "education": 42,
+        "democracy": 3,
+        "ecology": 4,
+        "education": 2,
         "energy_digital": 1,
-        "healthcare": 8,
         "housing_land": 6,
-        "recreation_arts": 4
+        "recreation_arts": 1
       },
-      "completeness": 74.3,
-      "sections_present": 8
+      "completeness": 65.9,
+      "sections_present": 7
     },
     "CR": {
-      "total": 64,
+      "total": 39,
       "verified": 0,
-      "quality": 64,
+      "quality": 39,
       "sections": {
         "cooperatives": 10,
-        "democracy": 3,
-        "ecology": 17,
-        "education": 18,
-        "healthcare": 1,
+        "ecology": 14,
         "housing_land": 7,
         "recreation_arts": 8
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 40.0,
+      "sections_present": 4
     },
     "CU": {
-      "total": 26,
+      "total": 1,
       "verified": 0,
-      "quality": 25,
+      "quality": 0,
       "sections": {
-        "democracy": 3,
-        "ecology": 1,
-        "education": 17,
-        "energy_digital": 1,
-        "healthcare": 1,
-        "recreation_arts": 3
+        "democracy": 1
       },
-      "completeness": 58.8,
-      "sections_present": 6
+      "completeness": 5.0,
+      "sections_present": 1
     },
     "CV": {
       "total": 2,
@@ -573,23 +550,23 @@
       "sections_present": 1
     },
     "DE": {
-      "total": 549,
+      "total": 436,
       "verified": 1,
-      "quality": 418,
+      "quality": 313,
       "sections": {
-        "": 96,
+        "": 97,
         "conflict": 2,
         "cooperatives": 56,
-        "democracy": 159,
-        "ecology": 7,
-        "education": 44,
-        "energy_digital": 7,
-        "food": 68,
-        "healthcare": 28,
-        "housing_land": 80,
+        "democracy": 121,
+        "ecology": 1,
+        "education": 13,
+        "energy_digital": 2,
+        "food": 63,
+        "healthcare": 3,
+        "housing_land": 76,
         "recreation_arts": 2
       },
-      "completeness": 88.1,
+      "completeness": 85.9,
       "sections_present": 10
     },
     "DG": {
@@ -619,20 +596,16 @@
       "sections_present": 6
     },
     "DO": {
-      "total": 58,
+      "total": 7,
       "verified": 0,
-      "quality": 44,
+      "quality": 7,
       "sections": {
         "cooperatives": 5,
-        "democracy": 39,
-        "education": 9,
         "energy_digital": 1,
-        "healthcare": 1,
-        "housing_land": 1,
-        "recreation_arts": 2
+        "housing_land": 1
       },
-      "completeness": 61.6,
-      "sections_present": 7
+      "completeness": 30.0,
+      "sections_present": 3
     },
     "DZ": {
       "total": 2,
@@ -645,21 +618,19 @@
       "sections_present": 1
     },
     "EC": {
-      "total": 75,
+      "total": 26,
       "verified": 0,
-      "quality": 48,
+      "quality": 24,
       "sections": {
         "cooperatives": 4,
-        "democracy": 34,
-        "ecology": 5,
-        "education": 10,
+        "democracy": 4,
+        "ecology": 4,
         "energy_digital": 1,
-        "healthcare": 2,
         "housing_land": 9,
-        "recreation_arts": 10
+        "recreation_arts": 4
       },
-      "completeness": 65.6,
-      "sections_present": 8
+      "completeness": 57.7,
+      "sections_present": 6
     },
     "EE": {
       "total": 39,
@@ -678,57 +649,47 @@
       "sections_present": 6
     },
     "EG": {
-      "total": 101,
+      "total": 7,
       "verified": 0,
-      "quality": 95,
+      "quality": 6,
       "sections": {
         "cooperatives": 4,
-        "democracy": 6,
-        "ecology": 1,
-        "education": 75,
         "energy_digital": 1,
-        "food": 2,
-        "healthcare": 5,
-        "housing_land": 1,
-        "recreation_arts": 6
+        "food": 1,
+        "housing_land": 1
       },
-      "completeness": 87.3,
-      "sections_present": 9
+      "completeness": 37.1,
+      "sections_present": 4
     },
     "ES": {
-      "total": 222,
+      "total": 151,
       "verified": 1,
-      "quality": 181,
+      "quality": 133,
       "sections": {
         "": 24,
         "cooperatives": 28,
-        "democracy": 56,
-        "ecology": 7,
-        "education": 30,
-        "energy_digital": 4,
-        "food": 28,
-        "healthcare": 19,
+        "democracy": 26,
+        "ecology": 6,
+        "education": 20,
+        "food": 25,
         "housing_land": 13,
-        "recreation_arts": 13
+        "recreation_arts": 9
       },
-      "completeness": 81.7,
-      "sections_present": 9
+      "completeness": 65.8,
+      "sections_present": 7
     },
     "ET": {
-      "total": 27,
+      "total": 8,
       "verified": 0,
-      "quality": 27,
+      "quality": 8,
       "sections": {
         "cooperatives": 5,
-        "democracy": 12,
-        "ecology": 2,
-        "education": 2,
-        "food": 1,
-        "healthcare": 4,
+        "education": 1,
+        "healthcare": 1,
         "housing_land": 1
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 40.0,
+      "sections_present": 4
     },
     "FI": {
       "total": 39,
@@ -759,40 +720,39 @@
       "sections_present": 3
     },
     "FR": {
-      "total": 224,
+      "total": 160,
       "verified": 1,
-      "quality": 190,
+      "quality": 145,
       "sections": {
-        "": 54,
-        "cooperatives": 18,
-        "democracy": 60,
-        "ecology": 17,
-        "education": 7,
-        "energy_digital": 10,
-        "food": 42,
-        "healthcare": 3,
+        "": 56,
+        "cooperatives": 17,
+        "democracy": 18,
+        "ecology": 15,
+        "education": 1,
+        "energy_digital": 8,
+        "food": 41,
         "housing_land": 2,
-        "recreation_arts": 11
+        "recreation_arts": 2
       },
-      "completeness": 83.2,
-      "sections_present": 9
+      "completeness": 76.2,
+      "sections_present": 8
     },
     "GB": {
-      "total": 13625,
+      "total": 13614,
       "verified": 0,
-      "quality": 11634,
+      "quality": 11623,
       "sections": {
         "": 62,
         "conflict": 383,
         "cooperatives": 173,
-        "democracy": 3270,
-        "ecology": 1370,
+        "democracy": 3266,
+        "ecology": 1367,
         "education": 3770,
-        "energy_digital": 3,
+        "energy_digital": 4,
         "food": 386,
-        "healthcare": 3401,
+        "healthcare": 3399,
         "housing_land": 685,
-        "recreation_arts": 122
+        "recreation_arts": 119
       },
       "completeness": 92.7,
       "sections_present": 10
@@ -808,21 +768,16 @@
       "sections_present": 1
     },
     "GH": {
-      "total": 143,
+      "total": 5,
       "verified": 0,
-      "quality": 140,
+      "quality": 4,
       "sections": {
-        "conflict": 1,
         "cooperatives": 3,
-        "democracy": 14,
-        "ecology": 10,
-        "education": 108,
         "energy_digital": 1,
-        "healthcare": 4,
-        "recreation_arts": 2
+        "healthcare": 1
       },
-      "completeness": 79.2,
-      "sections_present": 8
+      "completeness": 27.0,
+      "sections_present": 3
     },
     "GLOBAL": {
       "total": 10,
@@ -845,40 +800,35 @@
       "sections_present": 1
     },
     "GR": {
-      "total": 186,
+      "total": 52,
       "verified": 1,
-      "quality": 174,
+      "quality": 47,
       "sections": {
         "": 26,
         "cooperatives": 4,
-        "democracy": 8,
-        "ecology": 4,
-        "education": 111,
-        "energy_digital": 5,
-        "food": 5,
-        "healthcare": 12,
-        "housing_land": 3,
-        "recreation_arts": 8
+        "democracy": 4,
+        "ecology": 3,
+        "education": 4,
+        "energy_digital": 4,
+        "food": 4,
+        "housing_land": 3
       },
-      "completeness": 87.1,
-      "sections_present": 9
+      "completeness": 66.6,
+      "sections_present": 7
     },
     "GT": {
-      "total": 54,
+      "total": 9,
       "verified": 0,
-      "quality": 34,
+      "quality": 9,
       "sections": {
         "cooperatives": 4,
-        "democracy": 36,
-        "ecology": 1,
-        "education": 5,
+        "democracy": 2,
+        "education": 1,
         "energy_digital": 1,
-        "healthcare": 3,
-        "housing_land": 1,
-        "recreation_arts": 3
+        "housing_land": 1
       },
-      "completeness": 65.2,
-      "sections_present": 8
+      "completeness": 50.0,
+      "sections_present": 5
     },
     "GW": {
       "total": 1,
@@ -891,16 +841,14 @@
       "sections_present": 1
     },
     "GY": {
-      "total": 4,
+      "total": 1,
       "verified": 0,
-      "quality": 3,
+      "quality": 1,
       "sections": {
-        "democracy": 2,
-        "education": 1,
-        "recreation_arts": 1
+        "democracy": 1
       },
-      "completeness": 26.2,
-      "sections_present": 3
+      "completeness": 10.0,
+      "sections_present": 1
     },
     "HK": {
       "total": 3,
@@ -914,19 +862,16 @@
       "sections_present": 2
     },
     "HN": {
-      "total": 59,
+      "total": 11,
       "verified": 0,
-      "quality": 37,
+      "quality": 11,
       "sections": {
         "cooperatives": 8,
-        "democracy": 38,
-        "education": 9,
-        "food": 1,
-        "healthcare": 2,
+        "democracy": 2,
         "housing_land": 1
       },
-      "completeness": 48.8,
-      "sections_present": 6
+      "completeness": 30.0,
+      "sections_present": 3
     },
     "HR": {
       "total": 31,
@@ -943,68 +888,59 @@
       "sections_present": 4
     },
     "HT": {
-      "total": 8,
+      "total": 5,
       "verified": 0,
-      "quality": 8,
+      "quality": 5,
       "sections": {
         "cooperatives": 4,
-        "democracy": 2,
-        "education": 1,
         "housing_land": 1
       },
-      "completeness": 40.0,
-      "sections_present": 4
+      "completeness": 20.0,
+      "sections_present": 2
     },
     "HU": {
-      "total": 160,
+      "total": 44,
       "verified": 1,
-      "quality": 122,
+      "quality": 44,
       "sections": {
         "": 22,
         "cooperatives": 7,
-        "democracy": 89,
+        "democracy": 2,
         "ecology": 2,
-        "education": 15,
-        "energy_digital": 2,
-        "food": 10,
-        "healthcare": 3,
+        "food": 8,
         "housing_land": 2,
-        "recreation_arts": 8
+        "recreation_arts": 1
       },
-      "completeness": 79.3,
-      "sections_present": 9
+      "completeness": 60.0,
+      "sections_present": 6
     },
     "ID": {
-      "total": 27,
+      "total": 9,
       "verified": 0,
-      "quality": 22,
+      "quality": 7,
       "sections": {
         "cooperatives": 3,
-        "democracy": 3,
         "ecology": 1,
-        "education": 11,
         "energy_digital": 3,
         "food": 1,
-        "healthcare": 1,
-        "housing_land": 1,
-        "recreation_arts": 3
+        "housing_land": 1
       },
-      "completeness": 81.7,
-      "sections_present": 9
+      "completeness": 44.4,
+      "sections_present": 5
     },
     "IE": {
-      "total": 37,
+      "total": 38,
       "verified": 0,
-      "quality": 30,
+      "quality": 31,
       "sections": {
-        "": 14,
+        "": 15,
         "cooperatives": 4,
         "democracy": 9,
         "education": 1,
         "food": 7,
         "housing_land": 2
       },
-      "completeness": 45.3,
+      "completeness": 45.4,
       "sections_present": 5
     },
     "IL": {
@@ -1021,24 +957,22 @@
       "sections_present": 4
     },
     "IN": {
-      "total": 175,
+      "total": 72,
       "verified": 1,
-      "quality": 169,
+      "quality": 67,
       "sections": {
         "": 2,
-        "conflict": 1,
         "cooperatives": 33,
-        "democracy": 22,
+        "democracy": 4,
         "ecology": 2,
-        "education": 68,
-        "energy_digital": 3,
-        "food": 5,
-        "healthcare": 32,
-        "housing_land": 4,
-        "recreation_arts": 3
+        "education": 12,
+        "energy_digital": 2,
+        "food": 2,
+        "healthcare": 11,
+        "housing_land": 4
       },
-      "completeness": 98.3,
-      "sections_present": 10
+      "completeness": 77.2,
+      "sections_present": 8
     },
     "IQ": {
       "total": 1,
@@ -1072,40 +1006,35 @@
       "sections_present": 1
     },
     "IT": {
-      "total": 283,
+      "total": 174,
       "verified": 0,
-      "quality": 268,
+      "quality": 169,
       "sections": {
         "": 124,
         "cooperatives": 16,
-        "democracy": 23,
-        "ecology": 6,
-        "education": 76,
-        "food": 14,
-        "healthcare": 9,
-        "housing_land": 8,
-        "recreation_arts": 7
+        "democracy": 5,
+        "ecology": 5,
+        "education": 2,
+        "food": 12,
+        "housing_land": 7,
+        "recreation_arts": 3
       },
-      "completeness": 77.9,
-      "sections_present": 8
+      "completeness": 69.0,
+      "sections_present": 7
     },
     "JM": {
-      "total": 53,
+      "total": 6,
       "verified": 0,
-      "quality": 40,
+      "quality": 5,
       "sections": {
-        "conflict": 1,
         "cooperatives": 2,
-        "democracy": 35,
-        "ecology": 1,
-        "education": 9,
+        "democracy": 1,
         "energy_digital": 1,
-        "healthcare": 2,
-        "housing_land": 1,
-        "recreation_arts": 1
+        "healthcare": 1,
+        "housing_land": 1
       },
-      "completeness": 79.0,
-      "sections_present": 9
+      "completeness": 45.8,
+      "sections_present": 5
     },
     "JO": {
       "total": 5,
@@ -1119,41 +1048,38 @@
       "sections_present": 2
     },
     "JP": {
-      "total": 87,
+      "total": 69,
       "verified": 0,
-      "quality": 54,
+      "quality": 48,
       "sections": {
         "": 23,
-        "cooperatives": 22,
-        "democracy": 10,
-        "ecology": 4,
-        "education": 1,
+        "cooperatives": 21,
+        "democracy": 6,
         "food": 5,
-        "healthcare": 4,
+        "healthcare": 1,
         "housing_land": 12,
-        "recreation_arts": 6
+        "recreation_arts": 1
       },
-      "completeness": 64.8,
-      "sections_present": 8
+      "completeness": 50.9,
+      "sections_present": 6
     },
     "KE": {
-      "total": 206,
+      "total": 45,
       "verified": 20,
-      "quality": 204,
+      "quality": 43,
       "sections": {
         "": 1,
         "cooperatives": 7,
-        "democracy": 20,
-        "ecology": 25,
-        "education": 129,
+        "democracy": 11,
+        "ecology": 5,
+        "education": 4,
         "energy_digital": 2,
-        "food": 8,
-        "healthcare": 9,
-        "housing_land": 1,
-        "recreation_arts": 4
+        "food": 6,
+        "healthcare": 8,
+        "housing_land": 1
       },
-      "completeness": 89.6,
-      "sections_present": 9
+      "completeness": 78.2,
+      "sections_present": 8
     },
     "KG": {
       "total": 2,
@@ -1485,23 +1411,20 @@
       "sections_present": 2
     },
     "MX": {
-      "total": 143,
+      "total": 29,
       "verified": 0,
-      "quality": 136,
+      "quality": 29,
       "sections": {
         "": 2,
         "cooperatives": 9,
-        "democracy": 11,
-        "ecology": 5,
-        "education": 82,
-        "energy_digital": 1,
+        "democracy": 3,
+        "ecology": 4,
         "food": 1,
-        "healthcare": 10,
         "housing_land": 7,
-        "recreation_arts": 15
+        "recreation_arts": 3
       },
-      "completeness": 87.8,
-      "sections_present": 9
+      "completeness": 60.0,
+      "sections_present": 6
     },
     "MY": {
       "total": 5,
@@ -1515,21 +1438,15 @@
       "sections_present": 1
     },
     "MZ": {
-      "total": 53,
+      "total": 3,
       "verified": 0,
-      "quality": 33,
+      "quality": 3,
       "sections": {
         "cooperatives": 2,
-        "democracy": 39,
-        "ecology": 1,
-        "education": 2,
-        "energy_digital": 1,
-        "healthcare": 3,
-        "housing_land": 1,
-        "recreation_arts": 4
+        "housing_land": 1
       },
-      "completeness": 64.9,
-      "sections_present": 8
+      "completeness": 20.0,
+      "sections_present": 2
     },
     "NA": {
       "total": 3,
@@ -1563,143 +1480,121 @@
       "sections_present": 2
     },
     "NG": {
-      "total": 310,
+      "total": 16,
       "verified": 0,
-      "quality": 308,
+      "quality": 15,
       "sections": {
-        "conflict": 2,
+        "conflict": 1,
         "cooperatives": 7,
-        "democracy": 25,
-        "ecology": 4,
-        "education": 203,
+        "democracy": 3,
+        "ecology": 1,
         "energy_digital": 1,
-        "food": 6,
-        "healthcare": 59,
-        "recreation_arts": 3
+        "food": 3
       },
-      "completeness": 89.7,
-      "sections_present": 9
+      "completeness": 58.1,
+      "sections_present": 6
     },
     "NI": {
-      "total": 59,
+      "total": 8,
       "verified": 0,
-      "quality": 42,
+      "quality": 7,
       "sections": {
         "cooperatives": 4,
-        "democracy": 41,
-        "education": 6,
-        "energy_digital": 1,
-        "healthcare": 1,
-        "housing_land": 3,
-        "recreation_arts": 3
+        "democracy": 1,
+        "housing_land": 3
       },
-      "completeness": 59.9,
-      "sections_present": 7
+      "completeness": 28.1,
+      "sections_present": 3
     },
     "NL": {
-      "total": 120,
+      "total": 15,
       "verified": 0,
-      "quality": 118,
+      "quality": 14,
       "sections": {
         "": 4,
         "cooperatives": 4,
-        "democracy": 4,
-        "ecology": 4,
-        "education": 66,
-        "energy_digital": 2,
-        "food": 2,
-        "healthcare": 11,
+        "education": 1,
+        "food": 1,
         "housing_land": 4,
-        "recreation_arts": 19
+        "recreation_arts": 1
       },
-      "completeness": 89.2,
-      "sections_present": 9
+      "completeness": 48.3,
+      "sections_present": 5
     },
     "NO": {
-      "total": 236,
+      "total": 58,
       "verified": 1,
-      "quality": 197,
+      "quality": 47,
       "sections": {
         "": 3,
-        "conflict": 1,
         "cooperatives": 15,
-        "democracy": 170,
-        "ecology": 4,
-        "education": 6,
-        "energy_digital": 1,
-        "food": 7,
-        "healthcare": 5,
-        "housing_land": 14,
-        "recreation_arts": 10
+        "democracy": 23,
+        "education": 1,
+        "food": 2,
+        "housing_land": 14
       },
-      "completeness": 91.7,
-      "sections_present": 10
+      "completeness": 45.3,
+      "sections_present": 5
     },
     "NP": {
-      "total": 12,
+      "total": 11,
       "verified": 0,
-      "quality": 12,
+      "quality": 11,
       "sections": {
         "cooperatives": 8,
         "democracy": 1,
         "education": 1,
-        "healthcare": 1,
         "housing_land": 1
       },
-      "completeness": 50.0,
-      "sections_present": 5
+      "completeness": 40.0,
+      "sections_present": 4
     },
     "NZ": {
-      "total": 324,
+      "total": 26,
       "verified": 0,
-      "quality": 319,
+      "quality": 24,
       "sections": {
         "": 3,
         "cooperatives": 2,
-        "democracy": 21,
-        "ecology": 21,
-        "education": 227,
+        "democracy": 2,
+        "ecology": 4,
         "energy_digital": 3,
         "food": 2,
-        "healthcare": 19,
-        "housing_land": 10,
-        "recreation_arts": 16
+        "housing_land": 9,
+        "recreation_arts": 1
       },
-      "completeness": 89.3,
-      "sections_present": 9
-    },
-    "PA": {
-      "total": 60,
-      "verified": 0,
-      "quality": 36,
-      "sections": {
-        "cooperatives": 5,
-        "democracy": 42,
-        "ecology": 3,
-        "education": 3,
-        "energy_digital": 1,
-        "housing_land": 2,
-        "recreation_arts": 4
-      },
-      "completeness": 56.0,
+      "completeness": 67.3,
       "sections_present": 7
     },
-    "PE": {
-      "total": 50,
+    "PA": {
+      "total": 12,
       "verified": 0,
-      "quality": 45,
+      "quality": 11,
+      "sections": {
+        "cooperatives": 5,
+        "democracy": 1,
+        "ecology": 2,
+        "energy_digital": 1,
+        "housing_land": 2,
+        "recreation_arts": 1
+      },
+      "completeness": 57.5,
+      "sections_present": 6
+    },
+    "PE": {
+      "total": 18,
+      "verified": 0,
+      "quality": 15,
       "sections": {
         "cooperatives": 4,
-        "democracy": 9,
+        "democracy": 8,
         "ecology": 1,
-        "education": 16,
         "energy_digital": 2,
-        "healthcare": 3,
         "housing_land": 2,
-        "recreation_arts": 13
+        "recreation_arts": 1
       },
-      "completeness": 76.0,
-      "sections_present": 8
+      "completeness": 55.0,
+      "sections_present": 6
     },
     "PG": {
       "total": 1,
@@ -1712,21 +1607,20 @@
       "sections_present": 1
     },
     "PH": {
-      "total": 62,
+      "total": 33,
       "verified": 0,
-      "quality": 59,
+      "quality": 31,
       "sections": {
         "cooperatives": 25,
-        "democracy": 11,
-        "ecology": 3,
-        "education": 15,
+        "democracy": 1,
+        "ecology": 1,
         "energy_digital": 1,
-        "healthcare": 2,
+        "healthcare": 1,
         "housing_land": 3,
-        "recreation_arts": 2
+        "recreation_arts": 1
       },
-      "completeness": 78.1,
-      "sections_present": 8
+      "completeness": 67.9,
+      "sections_present": 7
     },
     "PK": {
       "total": 3,
@@ -1791,30 +1685,27 @@
       "sections_present": 4
     },
     "PY": {
-      "total": 21,
+      "total": 14,
       "verified": 0,
-      "quality": 21,
+      "quality": 14,
       "sections": {
         "cooperatives": 11,
-        "democracy": 1,
-        "education": 4,
-        "healthcare": 1,
         "housing_land": 2,
-        "recreation_arts": 2
+        "recreation_arts": 1
       },
-      "completeness": 60.0,
-      "sections_present": 6
+      "completeness": 30.0,
+      "sections_present": 3
     },
     "RO": {
-      "total": 38,
+      "total": 39,
       "verified": 0,
-      "quality": 38,
+      "quality": 39,
       "sections": {
         "": 25,
         "cooperatives": 7,
         "ecology": 1,
         "education": 2,
-        "food": 1,
+        "food": 2,
         "housing_land": 1,
         "recreation_arts": 1
       },
@@ -1844,21 +1735,14 @@
       "sections_present": 3
     },
     "RW": {
-      "total": 57,
+      "total": 5,
       "verified": 0,
-      "quality": 44,
+      "quality": 5,
       "sections": {
-        "cooperatives": 5,
-        "democracy": 34,
-        "ecology": 5,
-        "education": 1,
-        "energy_digital": 2,
-        "food": 2,
-        "healthcare": 6,
-        "recreation_arts": 2
+        "cooperatives": 5
       },
-      "completeness": 70.9,
-      "sections_present": 8
+      "completeness": 10.0,
+      "sections_present": 1
     },
     "SA": {
       "total": 1,
@@ -1881,24 +1765,23 @@
       "sections_present": 1
     },
     "SE": {
-      "total": 119,
+      "total": 61,
       "verified": 0,
-      "quality": 110,
+      "quality": 58,
       "sections": {
         "": 21,
-        "conflict": 2,
         "cooperatives": 9,
-        "democracy": 41,
-        "ecology": 11,
-        "education": 3,
+        "democracy": 16,
+        "ecology": 2,
+        "education": 1,
         "energy_digital": 1,
-        "food": 11,
-        "healthcare": 5,
+        "food": 7,
+        "healthcare": 2,
         "housing_land": 1,
-        "recreation_arts": 14
+        "recreation_arts": 1
       },
-      "completeness": 96.2,
-      "sections_present": 10
+      "completeness": 87.8,
+      "sections_present": 9
     },
     "SG": {
       "total": 3,
@@ -1958,20 +1841,14 @@
       "sections_present": 1
     },
     "SN": {
-      "total": 63,
+      "total": 5,
       "verified": 0,
-      "quality": 42,
+      "quality": 5,
       "sections": {
-        "cooperatives": 5,
-        "democracy": 43,
-        "ecology": 1,
-        "education": 1,
-        "energy_digital": 2,
-        "healthcare": 8,
-        "recreation_arts": 3
+        "cooperatives": 5
       },
-      "completeness": 58.3,
-      "sections_present": 7
+      "completeness": 10.0,
+      "sections_present": 1
     },
     "SO": {
       "total": 2,
@@ -1984,18 +1861,14 @@
       "sections_present": 1
     },
     "SR": {
-      "total": 18,
+      "total": 9,
       "verified": 7,
-      "quality": 15,
+      "quality": 9,
       "sections": {
-        "cooperatives": 10,
-        "democracy": 4,
-        "education": 1,
-        "healthcare": 1,
-        "recreation_arts": 2
+        "cooperatives": 9
       },
-      "completeness": 45.8,
-      "sections_present": 5
+      "completeness": 10.0,
+      "sections_present": 1
     },
     "SS": {
       "total": 1,
@@ -2059,24 +1932,20 @@
       "sections_present": 1
     },
     "TH": {
-      "total": 54,
+      "total": 15,
       "verified": 0,
-      "quality": 52,
+      "quality": 13,
       "sections": {
         "": 1,
-        "conflict": 1,
         "cooperatives": 6,
-        "democracy": 8,
-        "ecology": 2,
-        "education": 20,
+        "ecology": 1,
         "energy_digital": 2,
-        "food": 2,
-        "healthcare": 7,
+        "food": 1,
         "housing_land": 3,
-        "recreation_arts": 2
+        "recreation_arts": 1
       },
-      "completeness": 98.1,
-      "sections_present": 10
+      "completeness": 56.0,
+      "sections_present": 6
     },
     "TL": {
       "total": 1,
@@ -2120,35 +1989,29 @@
       "sections_present": 1
     },
     "TR": {
-      "total": 109,
+      "total": 18,
       "verified": 1,
-      "quality": 93,
+      "quality": 18,
       "sections": {
-        "cooperatives": 8,
-        "democracy": 76,
-        "education": 6,
+        "cooperatives": 7,
+        "democracy": 4,
+        "education": 2,
         "food": 3,
-        "healthcare": 12,
-        "housing_land": 1,
-        "recreation_arts": 3
+        "healthcare": 1,
+        "housing_land": 1
       },
-      "completeness": 64.9,
-      "sections_present": 7
+      "completeness": 60.0,
+      "sections_present": 6
     },
     "TT": {
-      "total": 11,
+      "total": 2,
       "verified": 0,
-      "quality": 10,
+      "quality": 2,
       "sections": {
-        "cooperatives": 2,
-        "democracy": 1,
-        "ecology": 3,
-        "education": 3,
-        "healthcare": 1,
-        "recreation_arts": 1
+        "cooperatives": 2
       },
-      "completeness": 57.3,
-      "sections_present": 6
+      "completeness": 10.0,
+      "sections_present": 1
     },
     "TW": {
       "total": 3,
@@ -2163,19 +2026,16 @@
       "sections_present": 3
     },
     "TZ": {
-      "total": 41,
+      "total": 8,
       "verified": 0,
-      "quality": 37,
+      "quality": 8,
       "sections": {
         "cooperatives": 5,
-        "democracy": 6,
-        "ecology": 12,
-        "education": 14,
-        "energy_digital": 1,
-        "healthcare": 3
+        "ecology": 2,
+        "education": 1
       },
-      "completeness": 57.1,
-      "sections_present": 6
+      "completeness": 30.0,
+      "sections_present": 3
     },
     "UA": {
       "total": 6,
@@ -2190,23 +2050,22 @@
       "sections_present": 3
     },
     "UG": {
-      "total": 146,
+      "total": 32,
       "verified": 0,
-      "quality": 144,
+      "quality": 32,
       "sections": {
         "": 1,
-        "conflict": 8,
+        "conflict": 4,
         "cooperatives": 5,
-        "democracy": 29,
-        "ecology": 9,
-        "education": 70,
-        "food": 8,
-        "healthcare": 11,
-        "housing_land": 2,
-        "recreation_arts": 3
+        "democracy": 9,
+        "ecology": 1,
+        "education": 2,
+        "food": 6,
+        "healthcare": 2,
+        "housing_land": 2
       },
-      "completeness": 89.4,
-      "sections_present": 9
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "UK": {
       "total": 1,
@@ -2219,21 +2078,21 @@
       "sections_present": 0
     },
     "US": {
-      "total": 12359,
+      "total": 12366,
       "verified": 9995,
-      "quality": 2893,
+      "quality": 2899,
       "sections": {
-        "": 121,
+        "": 123,
         "conflict": 505,
         "cooperatives": 583,
         "democracy": 2113,
-        "ecology": 887,
-        "education": 23,
+        "ecology": 888,
+        "education": 24,
         "energy_digital": 11,
         "food": 2584,
         "healthcare": 2650,
         "housing_land": 2678,
-        "recreation_arts": 204
+        "recreation_arts": 207
       },
       "completeness": 61.7,
       "sections_present": 10
@@ -2259,38 +2118,29 @@
       "sections_present": 1
     },
     "VE": {
-      "total": 32,
+      "total": 4,
       "verified": 0,
-      "quality": 30,
+      "quality": 4,
       "sections": {
         "cooperatives": 2,
-        "democracy": 6,
-        "ecology": 1,
-        "education": 18,
-        "healthcare": 2,
         "housing_land": 1,
-        "recreation_arts": 2
+        "recreation_arts": 1
       },
-      "completeness": 67.8,
-      "sections_present": 7
+      "completeness": 30.0,
+      "sections_present": 3
     },
     "VN": {
-      "total": 68,
+      "total": 6,
       "verified": 0,
-      "quality": 55,
+      "quality": 6,
       "sections": {
         "cooperatives": 3,
-        "democracy": 37,
-        "ecology": 1,
-        "education": 8,
-        "energy_digital": 1,
-        "food": 1,
-        "healthcare": 9,
-        "housing_land": 1,
-        "recreation_arts": 7
+        "democracy": 1,
+        "education": 1,
+        "housing_land": 1
       },
-      "completeness": 81.4,
-      "sections_present": 9
+      "completeness": 40.0,
+      "sections_present": 4
     },
     "VU": {
       "total": 2,
@@ -2333,39 +2183,37 @@
       "sections_present": 1
     },
     "ZA": {
-      "total": 121,
+      "total": 44,
       "verified": 21,
-      "quality": 117,
+      "quality": 42,
       "sections": {
         "conflict": 2,
         "cooperatives": 7,
-        "democracy": 25,
-        "ecology": 19,
-        "education": 40,
-        "energy_digital": 2,
-        "food": 2,
-        "healthcare": 19,
-        "housing_land": 2,
-        "recreation_arts": 3
+        "democracy": 12,
+        "ecology": 8,
+        "education": 5,
+        "energy_digital": 1,
+        "food": 1,
+        "healthcare": 6,
+        "housing_land": 2
       },
-      "completeness": 98.3,
-      "sections_present": 10
+      "completeness": 88.0,
+      "sections_present": 9
     },
     "ZM": {
-      "total": 55,
+      "total": 10,
       "verified": 0,
-      "quality": 49,
+      "quality": 10,
       "sections": {
         "cooperatives": 1,
-        "democracy": 36,
-        "ecology": 6,
-        "education": 4,
-        "healthcare": 5,
-        "housing_land": 1,
-        "recreation_arts": 2
+        "democracy": 3,
+        "ecology": 2,
+        "education": 1,
+        "healthcare": 2,
+        "housing_land": 1
       },
-      "completeness": 66.2,
-      "sections_present": 7
+      "completeness": 60.0,
+      "sections_present": 6
     },
     "ZW": {
       "total": 2,
@@ -2498,16 +2346,16 @@
       "sections_present": 3
     },
     "CA": {
-      "total": 1155,
+      "total": 1152,
       "sections": {
         "": 12,
         "conflict": 58,
         "cooperatives": 44,
         "democracy": 216,
         "ecology": 120,
-        "education": 2,
+        "education": 1,
         "food": 98,
-        "healthcare": 324,
+        "healthcare": 322,
         "housing_land": 280,
         "recreation_arts": 1
       },
@@ -2544,13 +2392,13 @@
       "sections_present": 7
     },
     "California": {
-      "total": 136,
+      "total": 137,
       "sections": {
         "": 1,
         "ecology": 9,
         "food": 1,
         "housing_land": 96,
-        "recreation_arts": 29
+        "recreation_arts": 30
       },
       "completeness": 40.0,
       "sections_present": 4
@@ -3081,19 +2929,20 @@
       "sections_present": 2
     },
     "NC": {
-      "total": 311,
+      "total": 314,
       "sections": {
         "": 1,
         "conflict": 9,
         "cooperatives": 6,
         "democracy": 45,
         "ecology": 19,
+        "education": 1,
         "food": 67,
-        "healthcare": 87,
+        "healthcare": 89,
         "housing_land": 77
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "ND": {
       "total": 59,
@@ -3244,11 +3093,11 @@
       "sections_present": 3
     },
     "North Carolina": {
-      "total": 48,
+      "total": 49,
       "sections": {
         "ecology": 6,
         "housing_land": 36,
-        "recreation_arts": 6
+        "recreation_arts": 7
       },
       "completeness": 30.0,
       "sections_present": 3
@@ -3483,9 +3332,9 @@
       "sections_present": 7
     },
     "TX": {
-      "total": 539,
+      "total": 540,
       "sections": {
-        "": 2,
+        "": 3,
         "conflict": 31,
         "cooperatives": 17,
         "democracy": 69,
@@ -3508,11 +3357,11 @@
       "sections_present": 3
     },
     "Texas": {
-      "total": 25,
+      "total": 26,
       "sections": {
         "ecology": 4,
         "housing_land": 16,
-        "recreation_arts": 5
+        "recreation_arts": 6
       },
       "completeness": 30.0,
       "sections_present": 3
@@ -3565,9 +3414,9 @@
       "sections_present": 1
     },
     "VT": {
-      "total": 122,
+      "total": 123,
       "sections": {
-        "": 2,
+        "": 3,
         "conflict": 14,
         "cooperatives": 1,
         "democracy": 43,
@@ -3701,9 +3550,9 @@
   },
   "tier_counts": {
     "A": 0,
-    "B": 154305,
-    "C": 17975,
-    "D": 826
+    "B": 150344,
+    "C": 17957,
+    "D": 349
   },
   "sections": [
     "democracy",
@@ -3717,6 +3566,6 @@
     "recreation_arts",
     "ecology"
   ],
-  "total_points": 33364,
-  "total_edges": 5027
+  "total_points": 29566,
+  "total_edges": 4916
 }
