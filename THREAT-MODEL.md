@@ -10,6 +10,23 @@
 
 ---
 
+## Transparency Architecture
+
+*Framing contributed by Sir-Sloth-The-Lazy, April 2026.*
+
+"Transparency is security" is a communication model, not a security model -- and conflating the two creates blind spots.
+
+The Zapatistas are a useful counter-example. Their public-facing communiqués were radically open. Their physical organizing maintained strict compartmentalization. The openness was not the security model -- it was the communication model. These were treated as separate layers.
+
+Commonweave operates the same way:
+
+- **Decision transparency**: non-negotiable. How decisions are made, who made them, and on what grounds is always public.
+- **Operational transparency**: contextual. Implementation details, contributor locations, timing of specific actions -- these can be protected without compromising governance accountability.
+
+"Open decisions, protected implementation" is not a contradiction of the transparency principle. It is the precise formulation of it. The rest of this threat model should be read with that distinction in mind: openness is the governance standard; it is not a substitute for thinking carefully about what gets disclosed when.
+
+---
+
 ## 1. Assets
 
 What does Commonweave have that is worth protecting?
@@ -79,7 +96,21 @@ People or organizations outside the project who might try to damage it.
 
 **Countermeasure:** Pseudonymous contribution is supported. We do not require real names or contact information. GitHub account is the only identity requirement, and those can be created pseudonymously. We have no centralized contributor contact database to breach.
 
+**Architectural design principle** *(Sir-Sloth-The-Lazy, April 2026)*: The Tor Project's model is the right reference here. Contributor identity is pseudonymous by default; verified identity is opt-in. The project operates fully in the open, but the people operating it have identity separation baked in architecturally -- not retrofitted. Commonweave already supports pseudonymous contribution, but the architecture should make this the path of least resistance, not a workaround. If this project ever becomes consequential, retrofitting identity protection is substantially harder than designing for it now, even if it is never needed.
+
 **Residual risk:** High. A named author (Simon Paige) is a permanent target. Pseudonymous contributors are partially protected. There is no current response protocol if a contributor is targeted -- this should be added to GOVERNANCE.md.
+
+### 3.6 OSINT and Network Mapping
+
+**Profile:** Researchers, journalists, hostile state actors, or corporate intelligence operations mapping the contributor network and organizational directory to identify targets, relationships, or strategic weaknesses.
+
+**The wrong countermeasure:** Hiding the network structure. A hidden network looks like an intelligence operation -- a PR liability and, depending on jurisdiction, legally distinct from an open one. The instinct to obscure network structure usually makes things worse.
+
+**The right countermeasure** *(Sir-Sloth-The-Lazy, April 2026)*: Make the network resilient to node removal, not invisible. Decentralization as a security property means that mapping the network accurately does not help an adversary disrupt it, because there is no critical node to target. This is what made horizontal mutual aid networks during COVID harder to disrupt than hierarchical ones -- the map existed; it just didn't reveal a pressure point.
+
+The practical question is not "can someone map us?" (they can; we are open) but "does accurate mapping give them a lever?" The directory's 25,000+ orgs across 61 countries is already structurally resilient on the data side. The governance side -- whether any single contributor or maintainer role is a critical dependency -- is where the stress test belongs.
+
+**Residual risk:** Medium. The project currently has a single named maintainer who is a genuine critical node. Governance succession (GOVERNANCE.md OP-G1) is the actual mitigation here, not network opacity.
 
 ---
 
@@ -170,6 +201,7 @@ This document is reviewed quarterly. Simon Paige signs off on each review. Revie
 | Review date | Reviewer | Notes |
 |---|---|---|
 | 2026-04-23 | Simon Paige / Claude Sonnet 4.6 | Initial version |
+| 2026-04-27 | Simon Paige / Claude Sonnet 4.6 | Added: Transparency Architecture section (Zapatista layered model); Tor-style identity design principle (3.5); OSINT/network resilience section (3.6). Contributions attributed to Sir-Sloth-The-Lazy. |
 
 **What a review covers:**
 - Has anything in the threat landscape changed since last review?

@@ -31,12 +31,43 @@ Commonweave uses **Rough Consensus and Running Code** — the model developed by
 4. **Objections** must be principled — tied to specific harms or contradictions with the framework's core principles. "I don't like this" is not an objection. "This contradicts Core Principle 3 in the following specific way" is.
 5. **Decision** is recorded in the PR/Issue with a summary of the discussion and the reasoning.
 
+### Temporal Compartmentalization
+
+*Contributed by Sir-Sloth-The-Lazy, April 2026.*
+
+There is a valid operating mode for action planning not covered by the standard PR/Issue process: **organizing happens openly; specific action plans are disclosed only after execution.**
+
+The labor movement called this "don't announce the strike vote until after it passes." The information becomes fully public — just not in advance. This preserves complete auditability without giving adversaries a prevention window.
+
+This is not a contradiction of Transparency by Default. Transparency by Default applies to decisions and governance process. Timing of operational disclosure is a separate variable. A decision can be fully documented and accountable while its execution remains undisclosed until complete.
+
+When this mode is in use, it should be named explicitly in the relevant Issue or PR — so the record shows this was a deliberate choice, not an omission.
+
 ---
 
 ## Roles
 
 ### Contributor
 Anyone who opens an Issue, submits a PR, or participates in Discussion. No approval needed. Contributors do not have merge rights.
+
+### Graduated Contribution Rights
+
+*Contributed by Sir-Sloth-The-Lazy, April 2026.*
+
+Wikipedia and most large open-source projects have converged on the same structural answer to flooding and concern trolling: **graduated trust with asymmetric contribution rights.** New participants can contribute, but governance influence accumulates with track record. The threshold criteria are public — this is not secrecy, it is meritocratic progression.
+
+Commonweave uses the same model:
+
+| Stage | What you can do | What you can't yet do |
+|---|---|---|
+| **Observer** | Read, comment, file issues | Open PRs, vote on governance questions |
+| **Contributor** | Open PRs, participate in all discussions | Merge PRs, assess consensus |
+| **Maintainer** | Assess rough consensus, merge PRs | Repository administration |
+| **Steward** | Repository admin (settings, branch protection) | Unilateral framework changes (requires broad consensus) |
+
+Moving from Observer to Contributor requires only a GitHub account and an opened Issue or PR. Moving from Contributor to Maintainer requires consistent, substantive contributions over time — judgment calls made by existing Maintainers and documented in the nomination Issue.
+
+This structure directly addresses coordination floods: a well-organized group can flood Issues, but governance decisions require track-record-weighted input. Because the thresholds are public, the design cannot be called gatekeeping.
 
 ### Maintainer
 A Contributor who has been granted merge rights. Maintainers assess rough consensus and merge or close PRs. They do not have unilateral authority to accept or reject proposals — they facilitate the process.
