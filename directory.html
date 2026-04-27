@@ -91,6 +91,9 @@ select:focus{border-color:var(--teal)}
 .org-name{font-size:14px;font-weight:700;color:var(--text);line-height:1.35}
 .org-name a{color:var(--text)}
 .org-name a:hover{color:var(--accent);text-decoration:none}
+.org-footer{margin-top:8px;padding-top:6px;border-top:1px solid var(--border)}
+.org-request-link{font-size:11px;color:var(--text-muted,#888);text-decoration:none;opacity:0.6}
+.org-request-link:hover{opacity:1;color:var(--accent)}
 .org-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
 .tag{font-size:10px;padding:2px 7px;border-radius:4px;font-weight:600;letter-spacing:.03em}
 .tag-country{background:#132b1a;color:#6abf7a;border:1px solid #1a4025}
@@ -558,6 +561,9 @@ function renderResults() {
       ? `<a href="${website.startsWith('http')?website:'https://'+website}" target="_blank" rel="noopener">${escHtml(name)}</a>`
       : escHtml(name);
 
+    const encodedName = encodeURIComponent(name);
+    const requestUrl = `https://github.com/simonlpaige/commonweave/issues/new?template=org-request.md&title=[Org+Request]+${encodedName}`;
+
     html += `<div class="org-card">
       <div class="org-top">
         <div>
@@ -565,6 +571,9 @@ function renderResults() {
           ${tags ? `<div class="org-tags">${tags}</div>` : ''}
           ${desc ? `<div class="org-desc">${escHtml(desc)}</div>` : ''}
         </div>
+      </div>
+      <div class="org-footer">
+        <a href="${requestUrl}" target="_blank" rel="noopener" class="org-request-link" title="Request a change to this listing">Edit or remove this listing &rarr;</a>
       </div>
     </div>`;
   }

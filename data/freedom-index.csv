@@ -1,0 +1,31 @@
+country_code,country_name,freedom_score,category,source
+AF,Afghanistan,1,not_free,Freedom House 2024
+AZ,Azerbaijan,1,not_free,Freedom House 2024
+BY,Belarus,1,not_free,Freedom House 2024
+CM,Cameroon,2,not_free,Freedom House 2024
+CN,China,1,not_free,Freedom House 2024
+CU,Cuba,1,not_free,Freedom House 2024
+ER,Eritrea,1,not_free,Freedom House 2024
+ET,Ethiopia,2,not_free,Freedom House 2024
+IQ,Iraq,2,not_free,Freedom House 2024
+IR,Iran,1,not_free,Freedom House 2024
+KP,North Korea,1,not_free,Freedom House 2024
+KZ,Kazakhstan,2,not_free,Freedom House 2024
+LA,Laos,1,not_free,Freedom House 2024
+LY,Libya,2,not_free,Freedom House 2024
+MM,Myanmar,1,not_free,Freedom House 2024
+NI,Nicaragua,1,not_free,Freedom House 2024
+PK,Pakistan,2,not_free,Freedom House 2024
+RU,Russia,1,not_free,Freedom House 2024
+SA,Saudi Arabia,1,not_free,Freedom House 2024
+SD,Sudan,1,not_free,Freedom House 2024
+SO,Somalia,2,not_free,Freedom House 2024
+SS,South Sudan,1,not_free,Freedom House 2024
+SY,Syria,1,not_free,Freedom House 2024
+TJ,Tajikistan,1,not_free,Freedom House 2024
+TM,Turkmenistan,1,not_free,Freedom House 2024
+VE,Venezuela,2,not_free,Freedom House 2024
+YE,Yemen,1,not_free,Freedom House 2024
+ZW,Zimbabwe,2,not_free,Freedom House 2024
+BD,Bangladesh,2,not_free,Freedom House 2024
+EG,Egypt,2,not_free,Freedom House 2024

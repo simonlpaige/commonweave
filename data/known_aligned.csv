@@ -1,0 +1,17 @@
+name,source,reason,added_by,added_date
+Apache Software Foundation,manual,canonical open-source federation with explicit community governance and meritocratic contributor model,larry,2026-04-27
+Linux Foundation,manual,largest open-source umbrella foundation; hosts Kubernetes CNCF and 200+ projects under shared governance,larry,2026-04-27
+Mozilla Foundation,manual,501(c)(3) open-source and internet-health nonprofit; explicitly commons-oriented mission,larry,2026-04-27
+Wikimedia Foundation,manual,fiscal host for 40+ language-edition chapters; open knowledge commons; CC BY-SA license,larry,2026-04-27
+Creative Commons,manual,legal infrastructure for the knowledge commons; directly enables free-culture movement,larry,2026-04-27
+Creative Commons Corporation,manual,legal entity for Creative Commons; same mission,larry,2026-04-27
+Open Source Initiative,manual,steward of OSI-approved licenses; defines open-source governance standards,larry,2026-04-27
+Internet Archive,manual,digital preservation commons; public interest 501(c)(3); open access to human knowledge,larry,2026-04-27
+Electronic Frontier Foundation,manual,civil liberties org defending digital rights; donor-supported nonprofit,larry,2026-04-27
+Software Freedom Conservancy,manual,fiscal host for 50+ open-source projects including Git and Inkscape; explicitly copyleft-oriented,larry,2026-04-27
+NumFOCUS,manual,fiscal sponsor for scientific Python ecosystem (NumPy Pandas Jupyter SciPy); community-governed,larry,2026-04-27
+Tor Project,manual,501(c)(3) developing privacy-preserving open-source tools; explicitly anti-surveillance mission,larry,2026-04-27
+The Tor Project,manual,same org as Tor Project; both name variants appear in data,larry,2026-04-27
+GNOME Foundation,manual,member-governed foundation supporting the GNOME desktop; copyleft; elected board,larry,2026-04-27
+Free Software Foundation,manual,original free-software nonprofit; copyleft licenses; explicitly anti-proprietary mission,larry,2026-04-27
+Free Software Foundation Europe,manual,FSFE; advocacy and legal support for software freedom in Europe,larry,2026-04-27

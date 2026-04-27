@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-04-27T03:50:41Z",
+  "verified_countries": [],
+  "verified_states": [],
+  "verified_cities": [],
+  "counts": {
+    "regions": 0,
+    "states": 0,
+    "cities": 0
+  },
+  "thresholds": {
+    "verdicted_pct_required": 0.8
+  }
+}

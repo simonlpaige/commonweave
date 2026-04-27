@@ -109,28 +109,31 @@ OPEN_SOURCE_GOVERNANCE = [
     'software freedom', 'libre software',
 ]
 
-# Hand-curated set of open-source / free-culture foundations that should
-# always score at least 7. Names are normalized (lowercased, stripped) before
-# comparison so minor punctuation or trailing "Inc." does not break the match.
-KNOWN_ALIGNED_NAMES = {
-    'apache software foundation',
-    'linux foundation',
-    'mozilla foundation',
-    'wikimedia foundation',
-    'creative commons',
-    'creative commons corporation',
-    'open source initiative',
-    'internet archive',
-    'electronic frontier foundation',
-    'eff',
-    'software freedom conservancy',
-    'numfocus',
-    'tor project',
-    'the tor project',
-    'gnome foundation',
-    'free software foundation',
-    'fsf',
-}
+# Hand-curated set of orgs that should always score at least 7.
+# Loaded from data/known_aligned.csv so it can be edited without code changes.
+# Falls back to a minimal hardcoded set if the CSV is not found.
+_KNOWN_ALIGNED_CSV = os.path.join(_THIS_DIR, 'known_aligned.csv')
+
+def _load_known_aligned():
+    """Read names from known_aligned.csv and return a lowercase set."""
+    names = set()
+    if not os.path.exists(_KNOWN_ALIGNED_CSV):
+        # Minimal fallback so the scoring module still works without the CSV
+        return {'apache software foundation', 'linux foundation', 'mozilla foundation',
+                'wikimedia foundation', 'creative commons', 'internet archive',
+                'electronic frontier foundation', 'software freedom conservancy'}
+    try:
+        import csv as _csv
+        with open(_KNOWN_ALIGNED_CSV, encoding='utf-8', newline='') as f:
+            for row in _csv.DictReader(f):
+                name = row.get('name', '').strip()
+                if name:
+                    names.add(name.lower())
+    except Exception as exc:
+        print(f'[phase2_filter] Warning: could not load known_aligned.csv: {exc}')
+    return names
+
+KNOWN_ALIGNED_NAMES = _load_known_aligned()
 
 KNOWN_ALIGNED_MIN_SCORE = 7
 

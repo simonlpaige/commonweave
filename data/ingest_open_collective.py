@@ -39,7 +39,11 @@ from phase2_filter import score_org  # noqa: E402
 API_URL = 'https://api.opencollective.com/graphql/v2'
 SOURCE = 'open_collective'
 SLEEP_BETWEEN = 1.0  # seconds; Open Collective public API rate limit
-MIN_SCORE = 2
+MIN_SCORE = 4  # raised from 2 after red-team: score 2 lets in hobby projects and personal fundraisers
+MIN_DESCRIPTION_LEN = 40  # skip collectives with very short or missing descriptions
+
+# Tags that indicate a personal fundraiser or hobby project rather than a collective
+SKIP_TAGS = {'personal', 'fundraiser', 'individual', 'personal-fundraiser'}
 
 QUERY = """
 query Accounts($limit: Int!, $offset: Int!) {
@@ -125,10 +129,17 @@ def map_node(node):
     if long_desc and len(long_desc) > len(description):
         # Truncate long_description so we do not blow up the DB column.
         description = long_desc[:2000]
+    # Skip very short descriptions -- likely placeholder or stub entries
+    if len(description) < MIN_DESCRIPTION_LEN:
+        return None
     website = (node.get('website') or '').strip() or f'https://opencollective.com/{slug}'
     tags = node.get('tags') or []
     if isinstance(tags, list):
         tags_str = ', '.join(str(t) for t in tags if t)
+        # Skip personal fundraisers and hobby-only projects
+        tag_set = {str(t).lower().strip() for t in tags if t}
+        if tag_set and tag_set.issubset(SKIP_TAGS):
+            return None
     else:
         tags_str = str(tags)
     location = node.get('location') or {}
