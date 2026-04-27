@@ -145,6 +145,53 @@ This is not leaderless. It is *accountably led*, which is better.
 
 ---
 
+## Contributor Targeting Response Protocol
+
+*Contributed by Sir-Sloth-The-Lazy, April 2026. Addresses gap identified in THREAT-MODEL.md §3.5.*
+
+If a contributor is targeted — harassment campaign, doxxing, pressure on employer, or credible physical threat — the project has a defined response. The absence of a protocol is itself a threat surface: ad hoc responses are slower, less consistent, and create secondary stress for the people trying to help.
+
+**What counts as targeting:** Coordinated harassment in Issues or Discussions; public disclosure of a pseudonymous contributor's identity without consent; contact with a contributor's employer with intent to cause harm; credible threats of physical harm.
+
+**Immediate response (any Maintainer can act without waiting for consensus):**
+1. Remove or hide abusive content from the repository. This is a moderation action, not a governance decision, and does not require rough consensus.
+2. Notify the targeted contributor directly via whatever contact method they have provided. Ask what support they want — do not assume.
+3. Open a private `[security]` Issue (GitHub supports private Issues via Security Advisories) documenting what happened and what actions were taken.
+
+**Within 72 hours:**
+4. If the targeting originated from within the contributor community, begin the Maintainer removal process (see: Removing a Maintainer). Participation in good-faith governance does not extend to targeting other participants.
+5. Assess whether the targeted contributor needs temporary pseudonymization support — for example, if they had been contributing under their real name and now prefer to continue under a handle.
+6. Post a brief public statement in the relevant Discussion or Issue thread confirming that moderation action was taken. No details about the targeted contributor are disclosed without their explicit consent.
+
+**What the project will not do:** mediate, both-sides, or require the targeted contributor to engage with their harassers as part of any resolution process.
+
+**Escalation:** If targeting involves credible physical threats or law enforcement-relevant activity, Maintainers do not handle this alone. The targeted contributor should be connected to EFF's digital rights resources and, if relevant, local legal support. The project has no legal capacity; it does have a responsibility to not pretend otherwise.
+
+---
+
+## Phase-Based Threat Review Triggers
+
+*Contributed by Sir-Sloth-The-Lazy, April 2026.*
+
+The threat model appropriate for a small open-source documentation project is different from the threat model for an organization with political significance. Security review triggers should be built in before the project reaches the moments where they matter — not retrofitted after.
+
+The following events trigger an out-of-cycle review of THREAT-MODEL.md, regardless of the quarterly schedule:
+
+| Trigger | Why it matters |
+|---|---|
+| Directory passes 50,000 organizations | Scale increases the attractiveness of gaming the directory for credibility laundering |
+| Media coverage in a major national publication | Public visibility attracts adversaries who weren't watching before |
+| First formal partnership or affiliation with an external organization | Introduces a new vector for entryism and mission drift |
+| First legal contact of any kind (cease and desist, FOIA request, inquiry from any government entity) | Legal tools are the primary documented vector for movement disruption (see: COINTELPRO) |
+| Named maintainer experiences personal targeting | The threat model has become operational, not theoretical |
+| Any contributor reports surveillance or pressure related to their participation | Same as above |
+
+A triggered review does not require that anything change. It requires that someone with Maintainer rights reads THREAT-MODEL.md, assesses whether the current controls are still adequate for the new context, and logs the review in §7 with a brief note.
+
+The purpose of named triggers is to prevent the failure mode of a project that grows consequential while its security posture stays calibrated for when it was inconsequential.
+
+---
+
 ## Open Problems (Unresolved)
 
 These governance questions are genuinely hard. This document does not pretend to solve them. They are filed here as open problems for the community to work on.
@@ -162,4 +209,4 @@ These governance questions are genuinely hard. This document does not pretend to
 ---
 
 *This document was created in response to CRITIQUE.md (filed April 2026) and Issue #33. It supersedes any claims in the README about "leaderless" governance.*
-*Last updated: 2026-04-12*
+*Last updated: 2026-04-27*
