@@ -28,16 +28,20 @@
 <meta name="description" content="Commonweave map: an interactive map of aligned civil society organizations. Open data, CC0.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preconnect to the basemap host: warms TLS + DNS while the JS loads, so
+     the first vector tile arrives faster on mobile. -->
+<link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <!-- MapLibre GL: free vector basemap rendering. OpenFreeMap serves the
-     tiles. No token needed. Loaded only because Phase 2 swaps the geographic
-     mode to a real slippy map; network mode still uses the canvas below. -->
+     tiles. No token needed. Loaded eagerly because the cluster layer for the
+     org points lives on it; network/canvas mode still uses #viz-canvas. -->
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<!-- deck.gl: GPU layers over the MapLibre canvas. Used for ScatterplotLayer
-     (org points), LineLayer (dashed proximity edges), ArcLayer (verified +
-     federation arcs). Single bundle from CDN. -->
-<script src="https://unpkg.com/deck.gl@9.0.27/dist.min.js"></script>
+<!-- deck.gl is now lazy-loaded: it is only needed once the user selects an
+     org (then we draw arc/line edges). The bulk of the org points is rendered
+     by MapLibre's native cluster source, no GPU layer required. See
+     ensureDeckLoaded() below. -->
+<!-- (deck.gl script tag intentionally omitted; injected on first use.) -->
 <!-- Turf.js: viewport spatial joins, distance calculations, used by Phase 3
      need-pathway scoring and Phase 4 system-health calculations. -->
 <script src="https://unpkg.com/@turf/turf@7/turf.min.js"></script>
@@ -144,6 +148,19 @@ html, body {
 }
 .loading-progress { margin-top: 24px; width: 160px; height: 2px; background: var(--border); border-radius: 1px; overflow: hidden; }
 .loading-progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--teal)); border-radius: 1px; transition: width 0.3s ease; box-shadow: 0 0 8px var(--accent-glow); }
+.loading-status {
+  margin-top: 14px; font-family: var(--f-mono); font-size: 10px;
+  font-weight: 500; color: var(--text-secondary);
+  letter-spacing: 0.10em; text-transform: uppercase;
+  max-width: 260px; text-align: center; line-height: 1.5;
+}
+
+/* On phones: keep the loading state minimal so a slow connection never sits
+   on a heavy SVG animation. The text + progress bar is enough feedback. */
+@media (max-width: 600px) {
+  .loading-mycelium { display: none; }
+  .loading-title { font-size: 30px; }
+}
 
 /* ═══════════ LAYOUT ═══════════ */
 #layout { position: relative; height: 100vh; width: 100vw; }
@@ -710,6 +727,7 @@ html, body {
   <div class="loading-title">commonweave<span class="seed">.</span></div>
   <div class="loading-sub">mapping the networks of change</div>
   <div class="loading-progress"><div class="loading-progress-bar" id="progress-bar"></div></div>
+  <div class="loading-status" id="loading-status">Loading organisations…</div>
 </div>
 
 <!-- ═══════════ MAIN LAYOUT ═══════════ -->
@@ -981,6 +999,43 @@ function setProgress(pct) {
   if (bar) bar.style.width = pct + '%';
 }
 
+function setLoadingStatus(msg) {
+  const el = document.getElementById('loading-status');
+  if (el) el.textContent = msg;
+}
+
+const IS_MOBILE = window.matchMedia && window.matchMedia('(max-width: 600px)').matches;
+
+// deck.gl is only needed once the user selects an org (we render arcs/lines
+// for the connections). Bulk org points go through MapLibre's native cluster
+// source, so we can skip the ~500KB deck.gl bundle on first paint and only
+// pull it in on first interaction.
+let deckLoaded = false;
+let deckLoading = null;
+function ensureDeckLoaded() {
+  if (deckLoaded) return Promise.resolve();
+  if (deckLoading) return deckLoading;
+  deckLoading = new Promise((resolve) => {
+    if (typeof window.deck !== 'undefined' && window.deck.MapboxOverlay) {
+      deckLoaded = true;
+      resolve();
+      return;
+    }
+    const s = document.createElement('script');
+    s.src = 'https://unpkg.com/deck.gl@9.0.27/dist.min.js';
+    s.async = true;
+    s.onload = () => { deckLoaded = true; resolve(); };
+    s.onerror = () => {
+      console.warn('deck.gl failed to load; edge layers disabled.');
+      // Resolve anyway so callers don't hang. Edge rendering will silently
+      // skip when window.deck is undefined.
+      resolve();
+    };
+    document.head.appendChild(s);
+  });
+  return deckLoading;
+}
+
 function formatNum(n) {
   if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
   if (n >= 1e3) return (n / 1e3).toFixed(0) + 'K';
@@ -1119,14 +1174,23 @@ function animateCounter(el, target, duration = 700) {
 // ══════════════════════════════════════════════════════════════
 // DATA LOADING
 // ══════════════════════════════════════════════════════════════
+// Parsed orgs.geojson FeatureCollection — kept around so the MapLibre cluster
+// source can ingest it directly (no second fetch). Set by loadData().
+let orgsFeatureCollection = null;
+
 async function loadData() {
   setProgress(5);
+  setLoadingStatus('Loading organisations…');
 
   // Phase 5: edges are lazy-loaded. Only points + stats + coverage hit the
   // network at startup. Edges fetch on first selection. This is the biggest
-  // mobile win: ~8MB of JSON deferred until the user actually needs it.
-  const [pointsData, statsData, coverageData] = await Promise.all([
-    fetch('data/search/map_points_v2.json').then(r => r.json()),
+  // mobile win: ~8MB of edge JSON deferred until the user actually needs it.
+  //
+  // Org points come from data/map/orgs.geojson (the canonical FeatureCollection
+  // built by build_map_v2.py). MapLibre's native cluster source ingests the
+  // same parsed object, so we pay the fetch + parse cost exactly once.
+  const [orgsFC, statsData, coverageData] = await Promise.all([
+    fetch('data/map/orgs.geojson').then(r => r.json()),
     fetch('data/map/stats.json').then(r => r.ok ? r.json() : null).catch(() => null),
     fetch('audit/coverage-summary.json').then(r => r.ok ? r.json() : null).catch(() => null)
   ]);
@@ -1146,7 +1210,20 @@ async function loadData() {
 
   setProgress(18);
 
-  allPoints = pointsData;
+  // Cache the FC for MapLibre's cluster source; flatten to the compact
+  // {id, lo, la, n, f, m, t, cc, st, ci, src, rc, ...} shape the rest of the
+  // renderer / search / detail panel already expects.
+  orgsFeatureCollection = orgsFC;
+  const features = (orgsFC && orgsFC.features) || [];
+  allPoints = features.map(f => {
+    const props = f.properties || {};
+    const coords = (f.geometry && f.geometry.coordinates) || [0, 0];
+    return Object.assign({}, props, {
+      id: props.id || f.id,
+      lo: coords[0],
+      la: coords[1],
+    });
+  });
   allEdges = [];  // populated lazily by ensureEdgesLoaded()
   mapStats = statsData;
 
@@ -1218,12 +1295,14 @@ function mulberry32(a) {
 }
 
 function runSimulation(sim, onDone) {
+  // The d3 force layout runs in the background after the loading overlay
+  // is gone, so we no longer drive the progress bar from in here. Settling
+  // 250 ticks chunked across rAF keeps the main thread responsive.
   const TOTAL = 250;
   let tick = 0;
 
   function chunk() {
     for (let i = 0; i < 20 && tick < TOTAL; i++, tick++) sim.tick();
-    setProgress(18 + (tick / TOTAL) * 67);
     if (tick < TOTAL) requestAnimationFrame(chunk);
     else { sim.stop(); onDone(); }
   }
@@ -1530,9 +1609,12 @@ function showDetailPanel(node) {
   });
 }
 
-// When filters change, refresh the deck.gl layers if we're in geo mode. The
-// canvas renderer already handles its own redraw on filter change.
+// When filters change, refresh the geo-mode rendering. The MapLibre points
+// layer reads expressions over feature props (tier + section) so we just
+// rewrite its filter; the deck.gl edge overlay only needs to refresh if it's
+// already attached. The canvas renderer handles its own redraw separately.
 function refreshGeoIfActive() {
+  applyMaplibreFilters();
   if ((viewMode === 'geo' || viewMode === 'health') && deckOverlay) updateDeckLayers();
 }
 
@@ -1570,7 +1652,8 @@ async function ensureRegionsSource() {
           ],
           'fill-outline-color': 'rgba(184, 196, 168, 0.35)',
         },
-      }, 'orgs');  // before the deck layers ideally; if 'orgs' is not a layer id, MapLibre still adds it on top.
+      }, mlMap.getLayer('orgs-clusters') ? 'orgs-clusters' : undefined);
+      // ^ insert below the cluster bubbles so points stay readable.
     }
     if (!mlMap.getLayer('regions-line')) {
       mlMap.addLayer({
@@ -1582,7 +1665,7 @@ async function ensureRegionsSource() {
           'line-color': 'rgba(184, 196, 168, 0.35)',
           'line-width': 0.5,
         },
-      });
+      }, mlMap.getLayer('orgs-clusters') ? 'orgs-clusters' : undefined);
     }
     regionsLoaded = true;
   } catch (e) {
@@ -1592,6 +1675,13 @@ async function ensureRegionsSource() {
 
 function applyChoropleth(show) {
   if (!mlMap) return;
+  // If we're hiding the choropleth and the regions source has never been
+  // requested, skip the fetch entirely. regions.geojson is ~4MB and would
+  // otherwise pull on every geo-mode entry — a no-op cost on mobile.
+  if (!show && !regionsLoaded && !mlMap.getSource('regions')) {
+    choroplethShown = false;
+    return;
+  }
   ensureRegionsSource().then(() => {
     if (!mlMap.getLayer('regions-fill')) return;
     mlMap.setLayoutProperty('regions-fill', 'visibility', show ? 'visible' : 'none');
@@ -2347,11 +2437,15 @@ function initGeoMapIfNeeded() {
     console.warn('MapLibre GL not loaded; geographic mode unavailable.');
     return;
   }
+  // Mobile gets a slightly more zoomed-out start and a fatter cluster radius
+  // so the first paint is dominated by ~10 big bubbles rather than thousands
+  // of overlapping pins.
+  const initialZoom = IS_MOBILE ? 1.0 : 1.6;
   mlMap = new maplibregl.Map({
     container: 'ml-map',
     style: 'https://tiles.openfreemap.org/styles/liberty',
     center: [10, 30],
-    zoom: 1.6,
+    zoom: initialZoom,
     minZoom: 0,
     maxZoom: 18,
     attributionControl: { compact: true },
@@ -2359,30 +2453,205 @@ function initGeoMapIfNeeded() {
   });
   mlMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
-  if (typeof deck !== 'undefined' && deck.MapboxOverlay) {
-    deckOverlay = new deck.MapboxOverlay({
-      interleaved: false,
-      layers: [],
-      onClick: handleDeckClick,
-      onHover: handleDeckHover,
-    });
-    mlMap.addControl(deckOverlay);
-  } else {
-    console.warn('deck.gl MapboxOverlay not available.');
-  }
+  // deck.gl overlay (for edges) is created lazily — only when we actually
+  // need to draw arcs/lines. The bulk org points go through MapLibre's
+  // native cluster source, so a fresh load can render the map without
+  // pulling in the deck.gl bundle.
 
   mlMap.on('load', () => {
-    updateDeckLayers();
+    addOrgClusterSource();
     if (selectedNode && selectedNode.lo !== undefined) {
       mlMap.flyTo({ center: [selectedNode.lo, selectedNode.la], zoom: 6 });
     }
+    if (typeof updateViewportHealth === 'function') updateViewportHealth();
+    notifyMapReady();
   });
   mlMap.on('moveend', () => {
     if (typeof updateViewportHealth === 'function') updateViewportHealth();
-    // Hex/point swap happens when zoom crosses ~3.5; cheap to call always.
     updateDeckLayers();
     writeUrlState();
   });
+}
+
+// MapLibre's native cluster source. Handles viewport culling, zoom-driven
+// clustering, and worker-thread parsing. We feed it the FeatureCollection we
+// already parsed in loadData(); no second fetch.
+function addOrgClusterSource() {
+  if (!mlMap || !orgsFeatureCollection) return;
+  if (mlMap.getSource('orgs-src')) return;
+  mlMap.addSource('orgs-src', {
+    type: 'geojson',
+    data: orgsFeatureCollection,
+    cluster: true,
+    clusterMaxZoom: 10,
+    clusterRadius: IS_MOBILE ? 70 : 50,
+    promoteId: 'id',
+  });
+
+  // Cluster bubbles: opacity + radius scale with point_count. Colour matches
+  // the moss/teal/clay ramp so the dark basemap doesn't drown them out.
+  mlMap.addLayer({
+    id: 'orgs-clusters',
+    type: 'circle',
+    source: 'orgs-src',
+    filter: ['has', 'point_count'],
+    paint: {
+      'circle-color': [
+        'step', ['get', 'point_count'],
+        '#6abf6c', 50,
+        '#4fc4b0', 200,
+        '#5ba5f0', 1000,
+        '#9b8cdf'
+      ],
+      'circle-radius': [
+        'step', ['get', 'point_count'],
+        14, 50, 18, 200, 24, 1000, 32
+      ],
+      'circle-opacity': 0.85,
+      'circle-stroke-width': 1.2,
+      'circle-stroke-color': 'rgba(184,196,168,0.9)',
+    },
+  });
+
+  mlMap.addLayer({
+    id: 'orgs-cluster-count',
+    type: 'symbol',
+    source: 'orgs-src',
+    filter: ['has', 'point_count'],
+    layout: {
+      'text-field': ['get', 'point_count_abbreviated'],
+      'text-font': ['Noto Sans Bold'],
+      'text-size': 11,
+      'text-allow-overlap': true,
+    },
+    paint: {
+      'text-color': '#0A100C',
+      'text-halo-color': 'rgba(255,255,255,0.55)',
+      'text-halo-width': 0.6,
+    },
+  });
+
+  // Unclustered points: same colour-by-section + tier-driven radius the
+  // canvas/deck.gl renderer used to apply manually. MapLibre paints them
+  // natively now, so the GPU layer can stay idle until edges arrive.
+  mlMap.addLayer({
+    id: 'orgs-points',
+    type: 'circle',
+    source: 'orgs-src',
+    filter: ['!', ['has', 'point_count']],
+    paint: {
+      'circle-color': [
+        'match', ['get', 'f'],
+        'democracy', '#5ba5f0',
+        'cooperatives', '#6abf6c',
+        'healthcare', '#e87b9a',
+        'food', '#e8a05a',
+        'education', '#9b8cdf',
+        'housing_land', '#c4a55d',
+        'conflict', '#e05858',
+        'energy_digital', '#4fc4b0',
+        'recreation_arts', '#c47abf',
+        'ecology', '#7bc47a',
+        '#888888'
+      ],
+      'circle-radius': [
+        'match', ['get', 't'],
+        'A', 6,
+        'B', 4.5,
+        3.2
+      ],
+      'circle-opacity': [
+        'match', ['get', 't'],
+        'C', 0.55,
+        0.88
+      ],
+      'circle-stroke-width': 0,
+    },
+  });
+
+  applyMaplibreFilters();
+
+  mlMap.on('click', 'orgs-clusters', (e) => {
+    const f = mlMap.queryRenderedFeatures(e.point, { layers: ['orgs-clusters'] })[0];
+    if (!f) return;
+    const cid = f.properties.cluster_id;
+    mlMap.getSource('orgs-src').getClusterExpansionZoom(cid, (err, zoom) => {
+      if (err) return;
+      mlMap.easeTo({ center: f.geometry.coordinates, zoom });
+    });
+  });
+  mlMap.on('click', 'orgs-points', (e) => {
+    const f = e.features && e.features[0];
+    if (!f) return;
+    const orgId = f.properties.id;
+    if (!orgId || !pointsById.has(orgId)) return;
+    const node = simNodes[pointsById.get(orgId)];
+    if (!node) return;
+    selectedNode = node;
+    showDetailPanel(node);
+    writeUrlState();
+    // Edges are lazy + need deck.gl. Pull both, then refresh the panel + arcs.
+    Promise.all([ensureEdgesLoaded(), ensureDeckLoaded()]).then(() => {
+      ensureDeckOverlayAttached();
+      if (selectedNode && selectedNode.id === orgId) {
+        showDetailPanel(node);
+        updateDeckLayers();
+      }
+    });
+  });
+  mlMap.on('mouseenter', 'orgs-points', (e) => {
+    if (mlMap.getCanvas()) mlMap.getCanvas().style.cursor = 'pointer';
+    const f = e.features && e.features[0];
+    if (!f) return;
+    const orgId = f.properties.id;
+    const node = orgId && pointsById.has(orgId) ? simNodes[pointsById.get(orgId)] : null;
+    if (node) updateTooltip(node, e.point.x, e.point.y);
+  });
+  mlMap.on('mousemove', 'orgs-points', (e) => {
+    const f = e.features && e.features[0];
+    if (!f) return;
+    const orgId = f.properties.id;
+    const node = orgId && pointsById.has(orgId) ? simNodes[pointsById.get(orgId)] : null;
+    if (node) updateTooltip(node, e.point.x, e.point.y);
+  });
+  mlMap.on('mouseleave', 'orgs-points', () => {
+    if (mlMap.getCanvas()) mlMap.getCanvas().style.cursor = '';
+    hideTooltip();
+  });
+  mlMap.on('mouseenter', 'orgs-clusters', () => {
+    if (mlMap.getCanvas()) mlMap.getCanvas().style.cursor = 'pointer';
+  });
+  mlMap.on('mouseleave', 'orgs-clusters', () => {
+    if (mlMap.getCanvas()) mlMap.getCanvas().style.cursor = '';
+  });
+}
+
+// Apply the active section + tier filters to the unclustered points layer.
+// Cluster aggregation stays at source level (we don't repartition clusters
+// per filter — the cluster bubbles always reflect the full dataset, which
+// matches the existing UX where cluster counts are a "where are the orgs"
+// answer rather than a filtered subset).
+function applyMaplibreFilters() {
+  if (!mlMap || !mlMap.getLayer('orgs-points')) return;
+  const tierList = [...activeTiers];
+  const f = ['all', ['!', ['has', 'point_count']]];
+  if (tierList.length) f.push(['in', ['get', 't'], ['literal', tierList]]);
+  if (activeSection) f.push(['==', ['get', 'f'], activeSection]);
+  mlMap.setFilter('orgs-points', f);
+}
+
+// Attach the deck.gl overlay to MapLibre once deck.gl is loaded. Idempotent.
+function ensureDeckOverlayAttached() {
+  if (!mlMap) return;
+  if (deckOverlay) return;
+  if (typeof window.deck === 'undefined' || !window.deck.MapboxOverlay) return;
+  deckOverlay = new window.deck.MapboxOverlay({
+    interleaved: false,
+    layers: [],
+    onClick: handleDeckClick,
+    onHover: handleDeckHover,
+  });
+  mlMap.addControl(deckOverlay);
 }
 
 function visiblePointsForGeo() {
@@ -2443,36 +2712,40 @@ function edgesForGeoRender() {
   return { arcs, lines };
 }
 
-// Phase 5: hexbin density layer for low zoom. Loaded once on first geo
-// entry. Rendered at zoom <= 4 instead of the full point cloud, which
-// otherwise paints all 29K dots on a midrange phone every frame.
-let hexBins = null;
-async function ensureHexbinsLoaded() {
-  if (hexBins !== null) return;
-  try {
-    const r = await fetch('data/map/hexbins.json');
-    if (!r.ok) throw new Error('hexbins missing');
-    const j = await r.json();
-    hexBins = j.bins || [];
-  } catch (e) {
-    console.warn('hexbins unavailable:', e);
-    hexBins = [];
-  }
-}
+// Phase 5 hexbin density layer was used by the old deck.gl ScatterplotLayer
+// to swap in 600 cells at world zoom. MapLibre's cluster source now does the
+// equivalent culling/aggregation for free, so the hexbin path is retired.
 
 function updateDeckLayers() {
-  if (!deckOverlay) return;
-  // At very low zoom, swap the 29K point cloud for the 600-cell hexbin
-  // aggregate. This keeps the GPU/CPU budget feasible on phones.
-  const zoom = mlMap ? mlMap.getZoom() : 1;
-  const useHex = zoom <= 3.5 && hexBins && hexBins.length;
-  if (zoom <= 4 && hexBins === null) {
-    ensureHexbinsLoaded().then(() => {
-      // Once the bins arrive, repaint.
-      if (mlMap && mlMap.getZoom() <= 4) updateDeckLayers();
-    });
+  // Bulk org points are rendered by MapLibre's native cluster source — this
+  // function only paints the GPU edge layers + the need-match highlight,
+  // which both require deck.gl. We only pull in the deck.gl bundle when we
+  // actually have something to draw (selectedNode arcs/lines or a
+  // need-pathway highlight); otherwise we keep the overlay un-attached and
+  // skip the work entirely.
+  const haveSelection = !!selectedNode;
+  const haveNeedHighlight = !!(needHighlight && needHighlight.location && needHighlight.matches && needHighlight.matches.length);
+  const wantOverlay = haveSelection || haveNeedHighlight;
+
+  if (!deckOverlay) {
+    if (typeof window.deck !== 'undefined' && window.deck.MapboxOverlay) {
+      ensureDeckOverlayAttached();
+    } else if (wantOverlay) {
+      ensureDeckLoaded().then(() => {
+        ensureDeckOverlayAttached();
+        if (deckOverlay) updateDeckLayers();
+      });
+      // Even without deck.gl, keep the MapLibre selection ring in sync so a
+      // clicked org gets the white outline immediately.
+      updateSelectedOutline();
+      return;
+    } else {
+      updateSelectedOutline();
+      return;
+    }
   }
-  const points = useHex ? [] : visiblePointsForGeo();
+  if (!deckOverlay) { updateSelectedOutline(); return; }
+
   const { arcs, lines } = edgesForGeoRender();
 
   const layers = [];
@@ -2502,63 +2775,21 @@ function updateDeckLayers() {
       greatCircle: false,
     }));
   }
-  if (useHex) {
-    // Cluster bubbles whose radius scales with org count. Cheap to draw,
-    // gives a "where are the networks dense" answer at world zoom.
-    layers.push(new deck.ScatterplotLayer({
-      id: 'orgs-hex',
-      data: hexBins,
-      pickable: false,
-      stroked: true,
-      filled: true,
-      getPosition: d => [d.cx, d.cy],
-      getRadius: d => 4 + Math.min(40, Math.sqrt(d.n) * 1.2),
-      radiusUnits: 'pixels',
-      getFillColor: d => {
-        const v = d.verified_ratio || 0;
-        // Verified ratio drives the hue: more verified = more saturated.
-        return [106, 191, 108, 90 + Math.round(v * 110)];
-      },
-      getLineColor: [184, 196, 168, 200],
-      lineWidthUnits: 'pixels',
-      lineWidthMinPixels: 0.7,
-    }));
-  } else {
-    layers.push(new deck.ScatterplotLayer({
-      id: 'orgs',
-      data: points,
-      pickable: true,
-      stroked: true,
-      filled: true,
-      getPosition: d => [d.lo, d.la],
-      getRadius: d => radiusForNode(d),
-      radiusUnits: 'pixels',
-      getFillColor: d => colourForNode(d),
-      getLineColor: d => (selectedNode && selectedNode.id === d.id) ? [255, 255, 255, 255] : [0, 0, 0, 0],
-      getLineWidth: d => (selectedNode && selectedNode.id === d.id) ? 2 : 0,
-      lineWidthUnits: 'pixels',
-      updateTriggers: {
-        getLineColor: [selectedNode && selectedNode.id],
-        getLineWidth: [selectedNode && selectedNode.id],
-        getFillColor: [activeSection, [...activeTiers].join(',')],
-      },
-    }));
-  }
 
   // Phase 3: user_need_match highlight. A transient deck.gl layer that draws
   // a bright arc from the parsed query location to each top match. Cleared
   // when the user empties the search box.
   if (needHighlight && needHighlight.location && needHighlight.matches) {
     const loc = needHighlight.location;
-    const arcs = needHighlight.matches.map(m => ({
+    const needArcs = needHighlight.matches.map(m => ({
       from: [loc.lon, loc.lat],
       to: [m.org.lo, m.org.la],
       score: m.score || 0,
     })).filter(a => a.to[0] !== undefined && a.to[1] !== undefined);
-    if (arcs.length) {
+    if (needArcs.length) {
       layers.push(new deck.ArcLayer({
         id: 'need-match-arcs',
-        data: arcs,
+        data: needArcs,
         pickable: false,
         getSourcePosition: d => d.from,
         getTargetPosition: d => d.to,
@@ -2587,9 +2818,37 @@ function updateDeckLayers() {
   }
 
   deckOverlay.setProps({ layers });
+  // Selected-org outline: drawn by MapLibre, not deck.gl, so it stays cheap.
+  updateSelectedOutline();
+}
+
+// Highlight the currently selected org with a small white-stroke ring on the
+// MapLibre points layer. Uses a feature-id-targeted second layer rather than
+// rebuilding the source so it's free to toggle.
+function updateSelectedOutline() {
+  if (!mlMap || !mlMap.getLayer('orgs-points')) return;
+  if (!mlMap.getLayer('orgs-points-selected')) {
+    mlMap.addLayer({
+      id: 'orgs-points-selected',
+      type: 'circle',
+      source: 'orgs-src',
+      filter: ['==', ['get', 'id'], '__none__'],
+      paint: {
+        'circle-radius': 8,
+        'circle-color': 'rgba(0,0,0,0)',
+        'circle-stroke-width': 2,
+        'circle-stroke-color': '#ffffff',
+      },
+    });
+  }
+  const sid = (selectedNode && selectedNode.id) || '__none__';
+  mlMap.setFilter('orgs-points-selected', ['==', ['get', 'id'], sid]);
 }
 
 function handleDeckClick(info) {
+  // The bulk org layer now lives on MapLibre, so deck.gl only owns edge
+  // arcs/lines. A click on empty space (no layer) clears the selection;
+  // a click on an edge jumps to the other endpoint.
   if (!info || !info.layer) {
     selectedNode = null;
     hideDetailPanel();
@@ -2597,19 +2856,7 @@ function handleDeckClick(info) {
     writeUrlState();
     return;
   }
-  if (info.layer.id === 'orgs' && info.object) {
-    selectedNode = info.object;
-    showDetailPanel(info.object);
-    updateDeckLayers();
-    writeUrlState();
-    // Edges may not be loaded yet on first click; once they arrive, refresh.
-    ensureEdgesLoaded().then(() => {
-      if (selectedNode && selectedNode.id === info.object.id) {
-        showDetailPanel(info.object);
-        updateDeckLayers();
-      }
-    });
-  } else if ((info.layer.id === 'edges-line' || info.layer.id === 'edges-arc') && info.object) {
+  if ((info.layer.id === 'edges-line' || info.layer.id === 'edges-arc') && info.object) {
     const otherId = info.object.otherId;
     if (otherId && pointsById.has(otherId)) {
       const next = simNodes[pointsById.get(otherId)];
@@ -2627,16 +2874,10 @@ function handleDeckHover(info) {
   const tt = document.getElementById('tooltip');
   const et = document.getElementById('edge-tooltip');
   if (!info || !info.object) {
-    if (tt) tt.style.display = 'none';
     if (et) et.style.display = 'none';
-    if (mlMap && mlMap.getCanvas()) mlMap.getCanvas().style.cursor = '';
     return;
   }
-  if (info.layer && info.layer.id === 'orgs') {
-    if (et) et.style.display = 'none';
-    updateTooltip(info.object, info.x, info.y);
-    if (mlMap && mlMap.getCanvas()) mlMap.getCanvas().style.cursor = 'pointer';
-  } else if (info.layer && (info.layer.id === 'edges-line' || info.layer.id === 'edges-arc')) {
+  if (info.layer && (info.layer.id === 'edges-line' || info.layer.id === 'edges-arc')) {
     if (tt) tt.style.display = 'none';
     showEdgeTooltip(info.object.edge, info.x, info.y);
     if (mlMap && mlMap.getCanvas()) mlMap.getCanvas().style.cursor = 'pointer';
@@ -2940,51 +3181,105 @@ function setupMobile() {
 // ══════════════════════════════════════════════════════════════
 // MAIN
 // ══════════════════════════════════════════════════════════════
+let mapReadyResolvers = [];
+let mapReady = false;
+function notifyMapReady() {
+  mapReady = true;
+  const fns = mapReadyResolvers;
+  mapReadyResolvers = [];
+  fns.forEach(fn => { try { fn(); } catch (e) { console.warn(e); } });
+}
+function waitForMapReady(cb) {
+  if (mapReady) { cb(); return; }
+  mapReadyResolvers.push(cb);
+  // Safety: don't sit on the loading screen forever if MapLibre never fires.
+  setTimeout(() => { if (!mapReady) cb(); }, 6000);
+}
+function fadeOutLoading() {
+  const loading = document.getElementById('loading');
+  if (!loading) return;
+  loading.classList.add('fade-out');
+  setTimeout(() => { loading.style.display = 'none'; }, 800);
+}
+
 async function main() {
   const { tierCounts } = await loadData();
+  setLoadingStatus('Preparing the map…');
+  setProgress(40);
+
+  // Mobile default: skip the heavy d3 force layout and start in geo mode.
+  // Desktop or URL-overridden: keep the existing default ('network'). We
+  // peek at the URL before applyUrlState() so we know whether the user
+  // explicitly asked for a particular view.
+  const urlParams = readUrlState();
+  if (IS_MOBILE && !(urlParams && urlParams.get('view'))) {
+    viewMode = 'geo';
+  }
 
   // Restore filter / view state from the URL hash before we build the sim.
   // Zoom and selectedId run after setup because they need canvas + simNodes.
   applyUrlState();
 
+  // simNodes are needed for hover/click/search/detail panel regardless of
+  // mode. Building them is fast — running the d3 force ticks is what's slow,
+  // so we defer those until the loading screen is gone.
   const sim = buildSimulation();
+  buildQuadtree();
+  setupCanvas();
+  setupSidebar(tierCounts);
+  setupMobile();
+  updateStats(allPoints.length, allEdges.length, tierCounts);
 
-  runSimulation(sim, () => {
-    setProgress(90);
-    buildQuadtree();
-    setupCanvas();
-    setupSidebar(tierCounts);
-    setupMobile();
-    updateStats(allPoints.length, allEdges.length, tierCounts);
+  // Phase 3 + 4: expose state for the modular search/scoring/health code.
+  // simNodes carries lo/la (added during buildSimulation) so the modules
+  // can read them as if they were the raw GeoJSON points. mlMap is exposed
+  // via getter so consumers always see the current value (it's set later in
+  // initGeoMapIfNeeded, not at this point).
+  window.allPoints = simNodes;
+  window.allEdges = allEdges;
+  window.simNodes = simNodes;
+  window.pointsById = pointsById;
+  Object.defineProperty(window, 'mlMap', { get: () => mlMap, configurable: true });
+  Object.defineProperty(window, 'viewMode', { get: () => viewMode, configurable: true });
 
-    // Apply zoom + selectedId now that the sim has positioned nodes.
-    applyUrlStateAfterRender();
-    rebuildQuadtree();
-    updateVisibleCount();
-    render();
+  if (global_init_search()) { /* CommonweaveSearch.init() handles the panel. */ }
+  if (typeof initViewportHealth === 'function') initViewportHealth();
 
-    // Phase 3 + 4: expose state for the modular search/scoring/health code.
-    // simNodes carries lo/la (added during buildSimulation) so the modules
-    // can read them as if they were the raw GeoJSON points.
-    window.allPoints = simNodes;
-    window.allEdges = allEdges;
-    window.simNodes = simNodes;
-    window.pointsById = pointsById;
-    window.mlMap = mlMap;
-    Object.defineProperty(window, 'viewMode', { get: () => viewMode, configurable: true });
+  // Apply the chosen view mode. For geo/health this kicks off MapLibre +
+  // the cluster source; for network it shows the canvas immediately.
+  setViewMode(viewMode);
+  applyUrlStateAfterRender();
+  rebuildQuadtree();
+  updateVisibleCount();
+  render();
 
-    if (global_init_search()) { /* CommonweaveSearch.init() handles the panel. */ }
-    if (typeof initViewportHealth === 'function') initViewportHealth();
+  setProgress(70);
+  setLoadingStatus(viewMode === 'network' ? 'Settling the network…' : 'Drawing the basemap…');
 
+  function finishBoot() {
     setProgress(100);
+    fadeOutLoading();
+    startAnimationLoop();
+  }
 
-    setTimeout(() => {
-      const loading = document.getElementById('loading');
-      loading.classList.add('fade-out');
-      setTimeout(() => { loading.style.display = 'none'; }, 800);
-      startAnimationLoop();
-    }, 200);
-  });
+  // Geo/health: hide the loading overlay as soon as MapLibre has the
+  // basemap + cluster source ready. The d3 simulation keeps running in the
+  // background so a later switch to network mode finds a settled layout.
+  // Network: wait for the simulation to settle before fading, otherwise the
+  // user would see a scattered cloud reorganise itself into sections.
+  if (viewMode === 'geo' || viewMode === 'health') {
+    waitForMapReady(finishBoot);
+    runSimulation(sim, () => {
+      rebuildQuadtree();
+      if (viewMode === 'network') render();
+    });
+  } else {
+    runSimulation(sim, () => {
+      rebuildQuadtree();
+      if (viewMode === 'network') render();
+      finishBoot();
+    });
+  }
 
   // Listen for hash changes (back/forward navigation) so the map keeps state
   // in sync with the address bar.

@@ -527,14 +527,21 @@ def main():
 
     # Phase 2: also emit data/map/orgs.geojson, the FeatureCollection the new
     # MapLibre-based map reads. Same fields as the compact JSON above, just
-    # wrapped as Point Features so MapLibre + deck.gl can ingest directly.
+    # wrapped as Point Features so MapLibre can ingest directly.
+    #
+    # Coordinates are explicitly clamped to 4 decimals (~11 m precision) so a
+    # future regression in the upstream pipeline can't accidentally start
+    # emitting 7-decimal coords and bloat the file by 25%+.
     orgs_geojson_path = os.path.join(MAP_DIR, 'orgs.geojson')
     features = []
     for p in export_points:
         feat = {
             'type': 'Feature',
             'id': p['id'],
-            'geometry': {'type': 'Point', 'coordinates': [p['lo'], p['la']]},
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [round(p['lo'], 4), round(p['la'], 4)],
+            },
             'properties': {k: v for k, v in p.items() if k not in ('lo', 'la')},
         }
         features.append(feat)
