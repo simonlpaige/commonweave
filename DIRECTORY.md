@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-27 16:23 UTC*
+*Last updated: 2026-04-28 00:35 UTC*
 
 
 ## Coverage
@@ -169,7 +169,7 @@
 
 **Total: 168,650 organizations indexed** across 183 countries
  — **29,566 of those have coordinates and appear on [the map](map.html)** (Tier A/B/C only).
- *Counts from `data/map/stats.json`, last built 2026-04-27.*
+ *Counts from `data/map/stats.json`, last built 2026-04-28.*
 
 
 ---

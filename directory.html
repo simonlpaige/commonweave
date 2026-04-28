@@ -31,33 +31,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/brand.css">
+<link rel="stylesheet" href="assets/css/commonweave.css">
 <style>
-html { scroll-behavior: smooth; }
-:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; border-radius: 2px; }
-a { color: var(--moss-deep); text-decoration: underline; text-underline-offset: 2px; }
-a:hover { color: var(--clay); }
-
-/* Nav */
-.site-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: color-mix(in oklab, var(--paper) 88%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: var(--rule);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px clamp(20px, 4vw, 40px); gap: var(--s-5);
-}
-.nav-mark a { display: block; line-height: 0; text-decoration: none; }
-.nav-mark svg { display: block; height: 32px; width: auto; }
-.nav-links { display: flex; align-items: center; gap: var(--s-5); }
-.nav-links a {
-  font-family: var(--f-mono); font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--ink-muted); text-decoration: none;
-  padding: 4px 0; border-bottom: 1px solid transparent;
-  transition: color 0.18s, border-bottom-color 0.18s;
-}
-.nav-links a:hover, .nav-links a.active { color: var(--moss-deep); border-bottom-color: var(--clay); }
-
 .page-head {
   max-width: 1180px; margin: 0 auto;
   padding: var(--s-8) clamp(20px, 4vw, 40px) var(--s-6);
@@ -379,6 +354,10 @@ select:focus { border-color: var(--moss); }
     <a href="index.html#docs">Docs</a>
     <a href="index.html#about">About</a>
     <a href="directory.html" class="active">Directory</a>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Switch to dark mode">
+      <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
   </div>
 </nav>
 
@@ -885,5 +864,6 @@ $('sort-select').addEventListener('change', e => {
 // ── Init ─────────────────────────────────────────────────────────────────────
 loadIndex();
 </script>
+<script src="assets/js/theme.js"></script>
 </body>
 </html>

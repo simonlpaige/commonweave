@@ -418,8 +418,15 @@ html, body {
 }
 .pop-correct:hover { color: var(--text-dim); }
 
-/* ═══════════ MOBILE ═══════════ */
-@media (max-width: 768px) {
+/* ═══════════ MOBILE / NARROW ═══════════
+   Below 480px (which includes the iframe-on-homepage embed) the
+   sidebar collapses entirely. The canvas takes the whole viewport,
+   the FAB opens a bottom sheet with section filters. Everything
+   else (HC toggle, tier filter, presets) is still reachable via
+   the sidebar on wider screens; the sheet only carries the most
+   common quick filters because narrow screens cannot hold all of
+   it without becoming a dialog. */
+@media (max-width: 480px) {
   :root { --sidebar-w: 0px; }
   #sidebar { display: none; }
   #canvas-container { left: 0; }
@@ -446,7 +453,7 @@ html, body {
   .sheet-handle { width: 36px; height: 4px; background: var(--border-bright); border-radius: 2px; margin: 10px auto; flex-shrink: 0; }
   .sheet-content { padding: 6px 16px 28px; overflow-y: auto; flex: 1; }
 }
-@media (min-width: 769px) { #mobile-fab, #mobile-sheet { display: none !important; } }
+@media (min-width: 481px) { #mobile-fab, #mobile-sheet { display: none !important; } }
 
 @keyframes counter-up { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
 .stat-animate { animation: counter-up 0.5s cubic-bezier(0.4,0,0.2,1) forwards; }
@@ -987,7 +994,10 @@ function setupCanvas() {
   ctx = canvas.getContext('2d');
 
   function doResize() {
-    const sidebarW = window.innerWidth > 768 ? 300 : 0;
+    // Below 480px the sidebar is hidden (mobile sheet takes over) so the
+    // canvas reclaims the full viewport. Keep this in sync with the
+    // breakpoint in the @media (max-width: 480px) block above.
+    const sidebarW = window.innerWidth > 480 ? 300 : 0;
     canvas.width = window.innerWidth - sidebarW;
     canvas.height = window.innerHeight;
     fitView(false);

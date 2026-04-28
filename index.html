@@ -51,57 +51,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/brand.css">
+<link rel="stylesheet" href="assets/css/commonweave.css">
 <style>
 /* ============================================================
-   index.html: page layout on top of the brand system.
-   Tokens, fonts, and base typography come from brand.css.
+   index.html: page-specific layout. Site chrome (nav, skip
+   link, focus ring, footer) comes from commonweave.css.
    ============================================================ */
-
-html { scroll-behavior: smooth; }
-:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; border-radius: 2px; }
-
-a { color: var(--moss-deep); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
-a:hover { color: var(--clay); }
-
-.skip-link {
-  position: absolute; top: -100px; left: 16px;
-  background: var(--moss); color: var(--paper);
-  padding: 8px 16px; font-weight: 600; font-size: 14px; z-index: 200;
-  text-decoration: none; transition: top 0.15s;
-}
-.skip-link:focus { top: 0; outline: 3px solid var(--clay); }
-
-/* ───── Nav ───── */
-.site-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: color-mix(in oklab, var(--paper) 88%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: var(--rule);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px clamp(20px, 4vw, 40px);
-  gap: var(--s-5);
-}
-.nav-mark { display: flex; align-items: center; height: 36px; }
-.nav-mark a { display: block; line-height: 0; text-decoration: none; }
-.nav-mark svg { display: block; height: 36px; width: auto; }
-.nav-links { display: flex; align-items: center; gap: var(--s-5); }
-.nav-links a {
-  font-family: var(--f-mono); font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--ink-muted); text-decoration: none;
-  padding: 4px 0; border-bottom: 1px solid transparent;
-  transition: color 0.18s, border-bottom-color 0.18s;
-}
-.nav-links a:hover { color: var(--moss-deep); border-bottom-color: var(--clay); }
-.nav-cta {
-  color: var(--moss-deep) !important;
-  font-family: var(--f-display) !important;
-  font-style: italic;
-  font-size: 18px !important;
-  letter-spacing: -0.01em !important;
-  text-transform: none !important;
-  padding-left: var(--s-3) !important;
-}
 
 /* ───── Hero ───── */
 .hero {
@@ -298,17 +253,6 @@ a:hover { color: var(--clay); }
 .cta-block .btn-primary { background: var(--clay); border-color: var(--clay); color: var(--paper); }
 .cta-block .btn-primary:hover { background: #9c4a30; border-color: #9c4a30; }
 
-/* ───── Footer ───── */
-.site-foot {
-  padding: var(--s-6) clamp(20px, 4vw, 40px);
-  font-family: var(--f-mono); font-size: 11px;
-  letter-spacing: 0.06em;
-  color: var(--ink-muted);
-  text-align: center;
-}
-.site-foot a { color: var(--ink-muted); }
-.site-foot a:hover { color: var(--moss-deep); }
-
 /* ───── Responsive ───── */
 @media (max-width: 900px) {
   .stats-strip { grid-template-columns: repeat(2, 1fr); }
@@ -329,7 +273,7 @@ a:hover { color: var(--clay); }
 
 <nav class="site-nav" role="navigation" aria-label="Site navigation">
   <div class="nav-mark">
-    <a href="/" aria-label="Commonweave home">
+    <a href="index.html" aria-label="Commonweave home">
       <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="commonweave">
         <g transform="translate(0,5)">
           <circle cx="60" cy="60" r="56" fill="none" stroke="#16201A" stroke-width="1.6"/>
@@ -349,6 +293,10 @@ a:hover { color: var(--clay); }
     <a href="#about" role="listitem">About</a>
     <a href="https://neighborhoodos.org" role="listitem" target="_blank" rel="noopener">NeighborhoodOS &#8599;</a>
     <a href="directory.html" class="nav-cta" role="listitem">Directory &rarr;</a>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Switch to dark mode">
+      <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
   </div>
 </nav>
 
@@ -364,7 +312,7 @@ a:hover { color: var(--clay); }
   <p class="hero-sub">
     Commonweave is an open directory of organizations already weaving healthier communities together.
     Cooperatives, mutual aid networks, community land trusts, community energy, open governance tools.
-    Built on public registry data from <span data-stat="countries_any">X</span> countries, filtered to entries that actually embody the framework.
+    The map shows <span data-stat="orgs_on_map">X</span> entries with verified coordinates across <span data-stat="countries_geocoded">X</span> countries, drawn from a wider candidate pool of <span data-stat="orgs_in_directory">X</span> organisations.
   </p>
   <div class="btn-row">
     <a href="#map" class="btn btn-primary">Explore the map</a>
@@ -387,7 +335,7 @@ a:hover { color: var(--clay); }
 <!-- METHODOLOGY -->
 <section class="page-section narrow" role="note" aria-label="Data methodology">
   <div class="note">
-    <strong>About this data.</strong> We started with three public registries: <strong>IRS Exempt Organizations BMF</strong>, <strong>UK Charity Commission</strong>, and <strong>Wikidata</strong>. We pulled in roughly 760K nonprofits, then ran a multi-pass alignment filter against framework keywords. <strong>The <span data-stat="orgs_in_directory">X</span> organizations shown here are what survived that filter</strong>: entries with real signal that they embody cooperatives, mutual aid, community land trusts, food sovereignty, participatory democracy, restorative justice, or the other framework mechanisms. Sources now include 25+ public registries and thematic global networks (IRS BMF, UK Charity Commission, Australia ACNC, Brazil Mapa das OSCs, ICA, RIPESS, Mutual Aid Hub, Transition Network, and more). Of these, <span data-stat="orgs_on_map">X</span> have coordinates and appear on the map across <span data-stat="countries_geocoded">X</span> countries. Tier A entries are manually verified; Tier B/C come from automated scoring. <a href="DATA.md">Full methodology &rarr;</a>
+    <strong>About this data.</strong> Commonweave pulls from 25+ public registries and thematic global networks: IRS Exempt Organizations BMF, UK Charity Commission, Australia ACNC, Brazil Mapa das OSCs, the ICA, RIPESS, Mutual Aid Hub, the Transition Network, and many more. The pipeline runs candidates through a multilingual alignment filter to keep only entries that actually embody one of the framework sections (cooperatives, mutual aid, community land trusts, food sovereignty, participatory democracy, restorative justice, and the rest). Right now <span data-stat="orgs_in_directory">X</span> organisations have survived the filter; <span data-stat="orgs_on_map">X</span> of those have coordinates and appear on the map across <span data-stat="countries_geocoded">X</span> countries. Tier A entries are manually reviewed; Tier B is registry-backed; Tier C is inferred from keyword scoring and not yet reviewed. <a href="DATA.md">Full methodology &rarr;</a>
   </div>
   <div class="note">
     <strong>Multilingual pipeline.</strong> The scoring bots now recognise alignment terms in roughly 30 languages: Spanish <em>cooperativa</em>, Portuguese <em>economia solid&aacute;ria</em>, Japanese <em>&#21332;&#21516;&#32068;&#21512;</em>, Mandarin <em>&#21512;&#20316;&#31038;</em>, Arabic <em>&#1578;&#1593;&#1575;&#1608;&#1606;&#1610;&#1577;</em>, Yoruba <em>egbe ajose</em>, Quechua <em>ayni/minga</em>, Amharic <em>&#4840;&#4764;&#4672;&#4725;</em>, plus Indigenous land-commons concepts like <em>ejido</em>, <em>waqf</em>, <em>hima</em>, <em>gotong-royong</em>, <em>iriai-chi</em>, <em>usi civici</em>. Researcher bots build search queries in every language spoken in a country, not just English. Full term bank: <a href="MULTILINGUAL-TERMS.md">MULTILINGUAL-TERMS.md</a>.
@@ -605,6 +553,7 @@ a:hover { color: var(--clay); }
   </p>
 </footer>
 
+<script src="assets/js/theme.js"></script>
 <script>
 // Pull every public count from data/map/stats.json so the homepage can never
 // drift from what the map actually shows. The "X" placeholders in the HTML

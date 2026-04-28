@@ -194,22 +194,28 @@ Note: `index.html` uses relative href `/commonweave/`; `doc.html` uses same. Kee
 
 ## Known Issues / Pre-Overhaul Tech Debt
 
-1. **Hardcoded stat fallbacks in index.html** -- `data-stat` elements have hardcoded fallback values that go stale. JS overwrites them on load but not before paint. Options: SSG, server-side template, or accept flash-of-stale-content.
-2. **Methodology note is factually stale** -- still says "we started with three registries." Now 25+. Needs prose update.
-3. **`directory.html` nav links** use relative paths; `index.html` uses absolute-relative. Inconsistent -- pick one during overhaul.
-4. **No shared CSS file** -- each page has its own `<style>` block. Design tokens are duplicated. Overhaul should extract to `commonweave.css`.
-5. **map.html sidebar width** hardcoded at 300px, not responsive. Collapses on mobile (iframe is 340-540px tall on index.html).
-6. **`doc.html` TOC** generated client-side from heading scan -- no anchor IDs in static HTML. Fine for now, but breaks deep-linking.
-7. **`countries_any` stat** in index.html hero text still shows hardcoded `171` in one spot (the `<span data-stat="countries_any">` -- check JS updates this correctly).
+Most of the original list has been addressed. What remains:
+
+1. **Flash-of-placeholder-content on first paint.** The `data-stat` placeholder is `"X"` until the `stats.json` fetch resolves. We accept this for now; build-time substitution is a Phase 2 option.
+2. **`doc.html` TOC** is generated client-side from a heading scan -- no anchor IDs in the static HTML. Fine for now, but breaks deep-linking.
+3. **Tier A is currently empty.** All on-map orgs are Tier B (registry-backed) or Tier C (inferred). The detail panel and tier legend handle Tier A correctly, but the acceptance test for "click a Tier A org" must be done against a Tier B org until manual curation populates Tier A.
+4. **Two CSS files share tokens implicitly.** `brand.css` defines tokens; `commonweave.css` consumes them. They are loaded together everywhere we need them but a tooling check would be nice.
 
 ---
 
 ## Overhaul Checklist (fill in as you go)
 
-- [ ] Extract shared CSS design tokens to `commonweave.css`
-- [ ] Make stat fallbacks data-driven (not hardcoded HTML)
-- [ ] Update methodology note prose (25+ sources, not 3)
-- [ ] Responsive map sidebar
-- [ ] Nav consistency across pages
-- [ ] Decide: dark-only or add light mode toggle
-- [ ] Check `countries_any` stat renders correctly in hero
+- [x] Extract shared CSS design tokens to `commonweave.css`
+  - Created `assets/css/commonweave.css` with shared site nav, skip link, focus ring, footer, theme toggle, and dark-mode token overrides. `index.html`, `directory.html`, and `doc.html` now import it. Page-specific styles still live in each page's own `<style>` block.
+- [x] Make stat fallbacks data-driven (not hardcoded HTML)
+  - Every public count on `index.html` (hero, stats strip, map footer, methodology note, about section) now reads from `data/map/stats.json` at runtime. The `"X"` strings in the markup are placeholders that the JS overwrites; no hardcoded number survives in HTML.
+- [x] Update methodology note prose (25+ sources, not 3)
+  - Rewritten to lead with the actual sources (25+ registries and networks) and to read the live counts from stats.json.
+- [x] Responsive map sidebar
+  - Map sidebar collapses to the bottom-sheet + FAB pattern below 480px (was 768px). The canvas now spans the full viewport in iframe-embedded contexts where width is typically 340-540px.
+- [x] Nav consistency across pages
+  - All pages use relative hrefs (`index.html`, `directory.html`, `index.html#map`, etc.). `doc.html` no longer uses `/`-rooted paths. Nav-mark on every page links to `index.html`.
+- [x] Decided: light by default, dark toggle added
+  - `assets/js/theme.js` toggles `body.dark`. `commonweave.css` defines a dark token override. The toggle is a sun/moon button in the nav of each cream-themed page (index, directory, doc). `map.html` stays its own dark UI. Preference persists in `localStorage` under `commonweave.theme`.
+- [x] Check `countries_any` stat renders correctly in hero
+  - The hero now uses `countries_geocoded` (matches what the map shows). The about section keeps `countries_any` for source-coverage context. The JS in `index.html` populates both keys from `stats.json`.

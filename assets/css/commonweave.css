@@ -1,0 +1,140 @@
+/* ============================================================
+   commonweave.css
+
+   Site-wide chrome: nav, footer, skip link, focus ring, theme
+   toggle, and the dark-mode token overrides. Page-specific
+   layout still lives in each page's own <style>. Brand tokens
+   come from brand.css, which loads first.
+   ============================================================ */
+
+html { scroll-behavior: smooth; }
+
+:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+a {
+  color: var(--moss-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+a:hover { color: var(--clay); }
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute; top: -100px; left: 16px;
+  background: var(--moss); color: var(--paper);
+  padding: 8px 16px; font-weight: 600; font-size: 14px; z-index: 200;
+  text-decoration: none; transition: top 0.15s;
+}
+.skip-link:focus { top: 0; outline: 3px solid var(--clay); }
+
+/* ---------- Site nav ---------- */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: color-mix(in oklab, var(--paper) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: var(--rule);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px clamp(20px, 4vw, 40px);
+  gap: var(--s-5);
+}
+.nav-mark { display: flex; align-items: center; height: 36px; }
+.nav-mark a { display: block; line-height: 0; text-decoration: none; }
+.nav-mark svg { display: block; height: 36px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: var(--s-5); }
+.nav-links a {
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-muted); text-decoration: none;
+  padding: 4px 0; border-bottom: 1px solid transparent;
+  transition: color 0.18s, border-bottom-color 0.18s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--moss-deep);
+  border-bottom-color: var(--clay);
+}
+.nav-cta {
+  color: var(--moss-deep) !important;
+  font-family: var(--f-display) !important;
+  font-style: italic;
+  font-size: 18px !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
+  padding-left: var(--s-3) !important;
+}
+
+/* ---------- Theme toggle button ---------- */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
+  color: var(--ink-muted);
+  width: 32px; height: 32px;
+  border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+  padding: 0;
+}
+.theme-toggle:hover {
+  color: var(--moss-deep);
+  border-color: var(--clay);
+}
+.theme-toggle svg { width: 16px; height: 16px; display: block; }
+.theme-toggle .ico-sun { display: none; }
+body.dark .theme-toggle .ico-sun  { display: block; }
+body.dark .theme-toggle .ico-moon { display: none; }
+
+/* ---------- Site footer ---------- */
+.site-foot {
+  padding: var(--s-6) clamp(20px, 4vw, 40px);
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  text-align: center;
+}
+.site-foot a { color: var(--ink-muted); }
+.site-foot a:hover { color: var(--moss-deep); }
+
+/* ---------- Dark theme override ----------
+   Default site is the cream/moss "paper" theme defined in brand.css.
+   When body.dark is set we swap the cream tokens for forest-floor
+   equivalents so the same page styles work without rewrites. We do
+   not override --moss, --clay, --thread because they are accent
+   colours that already work on dark grounds. */
+body.dark {
+  --paper:        #11181A;
+  --paper-2:      #1A2426;
+  --paper-3:      #243034;
+  --ink:          #ECE5D2;
+  --ink-soft:     #C9C0A8;
+  --ink-muted:    #8A9080;
+  --moss-deep:    #B8C4A8;
+  --rule:         1px solid color-mix(in oklab, var(--ink) 28%, transparent);
+  --rule-soft:    1px solid color-mix(in oklab, var(--ink) 14%, transparent);
+  --rule-hair:    0.5px solid color-mix(in oklab, var(--ink) 22%, transparent);
+
+  background: var(--paper);
+  color: var(--ink);
+}
+body.dark::selection,
+body.dark *::selection { background: var(--moss); color: var(--paper); }
+
+/* The brand.css body background uses two warm radial gradients on
+   cream. On dark we want a quieter version. */
+body.dark {
+  background:
+    radial-gradient(800px 600px at 80% -10%, color-mix(in oklab, var(--moss) 32%, transparent), transparent 65%),
+    radial-gradient(700px 500px at -5% 110%, color-mix(in oklab, var(--moss-deep) 30%, transparent), transparent 70%),
+    var(--paper);
+}
+
+/* In dark mode, the sticky nav's blurred translucency needs more
+   contrast; the cream-on-cream rule reads as nearly invisible. */
+body.dark .site-nav {
+  background: color-mix(in oklab, var(--paper) 82%, transparent);
+}
