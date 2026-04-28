@@ -1,0 +1,40 @@
+# data/sources/ — Helpers, Caches, Registry
+
+You are working in the support layer for the ingest pipeline. The actual ingester scripts live one level up in `data/`; this directory holds the shared scaffolding they depend on.
+
+## What lives here
+
+- `REGISTRIES.yaml` — canonical registry of data sources per country. One entry per source: URL, licence, last_checked, status.
+- `*-cache/` directories (`mutualaid-cache/`, `transition-cache/`, `ica-cache/`, etc.) — paginated API responses, keyed by SHA1 of URL.
+- Source-specific helper scripts (parsers, scrapers, one-off backfills).
+- `backfill_all.ps1` — re-runs every ingester in batch.
+
+Note: `_common.py` lives one level up at `data/_common.py`, not here. It is referenced from this doc because every ingester imports it.
+
+## REGISTRIES.yaml
+
+- Update the `last_checked` field whenever you run an ingester against that source.
+- Add new sources here before writing the ingester. Pick a stable `source_name` — it becomes the value of `organizations.source` in the DB.
+- Note the licence for every source. CC BY-SA, PDDL, public domain, scraping-permitted, etc. If unclear, mark `licence: unknown` and flag for review.
+
+## Cache directories
+
+- **Never delete** `*-cache/` dirs. They hold paginated API responses to avoid re-fetching during reruns.
+- Rebuilding a cache means running the full ingester with `--refresh`, which can take hours and may hit rate limits.
+- Cache keys are SHA1 hashes of the request URL. Same URL → same file.
+- If a source schema changes upstream, run with `--refresh` to invalidate the relevant cache. Don't `rm -rf` the directory.
+
+## Shared utilities
+
+- `_common.py` (one level up) holds all shared helpers: `DB_PATH`, `get_db()`, `ensure_column()`, `normalize_name()`, `run_post_ingest()`, `normalize_us_state()`, `is_nonprofit_entity_type()`.
+- Add new helpers to `_common.py`, not to individual ingesters. If you copy a function across two ingesters, lift it.
+
+## normalize_us_state(value)
+
+`from _common import normalize_us_state`. Always call this before writing `state_province` for any US row. Maps full state names ("Alabama") to 2-letter codes ("AL"). Pass-through for already-2-letter codes and non-US values. This is the most-violated rule in the pipeline — see `WAVE-B-KNOWN-ISSUES.md`.
+
+## backfill_all.ps1
+
+- Re-runs every ingester sequentially. Run after schema changes or shared-utility edits.
+- Long-running (hours). Pipe output to a log file.
+- Each ingester is idempotent on `(source, source_id)` so reruns are safe.

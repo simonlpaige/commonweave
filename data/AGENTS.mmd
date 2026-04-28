@@ -1,0 +1,63 @@
+# data/ — Commonweave Pipeline
+
+You are working in the full ingest + processing pipeline for the Commonweave commons directory (173K+ aligned organizations).
+
+## Database
+
+- Real DB: `commonweave_directory.db` (defined as `DB_PATH` in `_common.py`)
+- `commonweave.db` is **0 bytes / unused** — do not write to it, do not delete it without checking first
+- Schema definition lives in `phase1_schema.py`
+
+## Pipeline order
+
+Run in this sequence. Each step assumes the previous one completed.
+
+1. `ingest_*.py` — per-source pulls (Wikidata, IRS BMF, Mutual Aid Wiki, etc.)
+2. `post_ingest.py` — quality gate, called by `_common.run_post_ingest()` at the end of each ingester
+3. `phase2_filter.py` — alignment scoring + `model_type` classification
+4. `audit_pass1_ntee.py` → `audit_pass2_ntee.py` → `audit_pass3_ntee.py` — NTEE refinement
+5. `audit_quality.py` — final scrub
+6. `build_search_index.py` — emits `data/search/*.json` for the public site
+
+## Invariants
+
+- `source_id` is the unique key per ingester. Re-running an ingester must be idempotent (zero new rows).
+- `country_code` is always 2-letter ISO 3166-1 alpha-2.
+- `state_province` is always the **2-letter** code for US rows (e.g. `AL`, `NY`, `DC`).
+- `legibility` ∈ {`formal`, `informal`, `hybrid`, `unknown`}:
+  - `formal` — registered legal entity (charity, co-op, NGO with filings)
+  - `informal` — unincorporated networks (most mutual aid groups, mailing lists)
+  - `hybrid` — formal entity that anchors an informal network
+  - `unknown` — default
+
+## THE STATE RULE
+
+Always call `normalize_us_state()` from `_common.py` before writing `state_province` for any US row.
+
+```python
+from _common import normalize_us_state
+row['state_province'] = normalize_us_state(raw_state)
+```
+
+Wave B ingesters skipped this and caused 58 orphaned `US_<FullName>.json` files in `data/search/` (Alabama, New York, etc. instead of AL, NY). Fixed 2026-04-27. Don't reintroduce.
+
+## Waves
+
+- **Wave A** — national registries: ACNC (Australia), Mapa OSCs (Brazil), Wikidata Bulgaria
+- **Wave B** — thematic networks: mutual aid, co-ops, CLTs, Transition Network, ICA, RIPESS, SUSY, NEC, IC Directory
+- **Wave D** — known issues backlog (see `WAVE-B-KNOWN-ISSUES.md`)
+
+## Open issues
+
+See `../WAVE-B-KNOWN-ISSUES.md`.
+
+- `state_province` regression — fixed 2026-04-27
+- find.coop / RAESS / ASEC — outreach pending in `tools/mycelial-outreach/drafts/pending/`. Don't re-scrape.
+
+## Don't
+
+- Don't modify the DB schema without updating `phase1_schema.py` first.
+- Don't hardcode credentials. Use `.env` / environment variables.
+- Don't delete `*-cache/` dirs in `data/sources/` — they store paginated API responses and rebuilding requires a full re-ingest.
+- Don't write to `commonweave.db` (the empty file). Use `commonweave_directory.db`.
+- Don't copy boilerplate across ingesters. Add helpers to `_common.py` instead.

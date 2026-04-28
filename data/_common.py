@@ -14,6 +14,40 @@ WORKSPACE_DIR = r'C:\Users\simon\.openclaw\workspace'
 DATA_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data'
 
 
+# US state name -> 2-letter code. Called by every ingester before writing state_province.
+# Wave B lesson: ingesters were writing full names like "Alabama" instead of "AL",
+# causing build_search_index.py to emit orphaned US_Alabama.json files.
+_US_STATE_MAP = {
+    'alabama': 'AL', 'alaska': 'AK', 'arizona': 'AZ', 'arkansas': 'AR',
+    'california': 'CA', 'colorado': 'CO', 'connecticut': 'CT', 'delaware': 'DE',
+    'florida': 'FL', 'georgia': 'GA', 'hawaii': 'HI', 'idaho': 'ID',
+    'illinois': 'IL', 'indiana': 'IN', 'iowa': 'IA', 'kansas': 'KS',
+    'kentucky': 'KY', 'louisiana': 'LA', 'maine': 'ME', 'maryland': 'MD',
+    'massachusetts': 'MA', 'michigan': 'MI', 'minnesota': 'MN',
+    'mississippi': 'MS', 'missouri': 'MO', 'montana': 'MT', 'nebraska': 'NE',
+    'nevada': 'NV', 'new hampshire': 'NH', 'new jersey': 'NJ',
+    'new mexico': 'NM', 'new york': 'NY', 'north carolina': 'NC',
+    'north dakota': 'ND', 'ohio': 'OH', 'oklahoma': 'OK', 'oregon': 'OR',
+    'pennsylvania': 'PA', 'rhode island': 'RI', 'south carolina': 'SC',
+    'south dakota': 'SD', 'tennessee': 'TN', 'texas': 'TX', 'utah': 'UT',
+    'vermont': 'VT', 'virginia': 'VA', 'washington': 'WA',
+    'west virginia': 'WV', 'wisconsin': 'WI', 'wyoming': 'WY',
+    'district of columbia': 'DC', 'puerto rico': 'PR', 'virgin islands': 'VI',
+    'guam': 'GU', 'american samoa': 'AS', 'northern mariana islands': 'MP',
+}
+
+def normalize_us_state(value):
+    """Return 2-letter state code. Pass-through if already a code or not a US state name.
+    Always call this before writing state_province for US rows."""
+    if not value or not isinstance(value, str):
+        return value
+    v = value.strip()
+    if len(v) == 2 and v.upper() == v:
+        return v  # Already a code
+    code = _US_STATE_MAP.get(v.lower())
+    return code if code else v
+
+
 def get_db():
     db = sqlite3.connect(DB_PATH)
     db.row_factory = sqlite3.Row
