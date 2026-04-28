@@ -2228,7 +2228,7 @@
   },
   "us_states": {
     "": {
-      "total": 42,
+      "total": 46,
       "sections": {
         "": 3,
         "cooperatives": 11,
@@ -2236,52 +2236,55 @@
         "ecology": 1,
         "food": 3,
         "healthcare": 4,
-        "housing_land": 1
+        "housing_land": 5
       },
       "completeness": 60.0,
       "sections_present": 6
     },
     "AK": {
-      "total": 56,
+      "total": 65,
       "sections": {
         "cooperatives": 1,
         "democracy": 12,
         "ecology": 8,
         "food": 12,
         "healthcare": 14,
-        "housing_land": 9
-      },
-      "completeness": 60.0,
-      "sections_present": 6
-    },
-    "AL": {
-      "total": 121,
-      "sections": {
-        "conflict": 9,
-        "cooperatives": 7,
-        "democracy": 21,
-        "ecology": 7,
-        "food": 23,
-        "healthcare": 36,
-        "housing_land": 18
+        "housing_land": 17,
+        "recreation_arts": 1
       },
       "completeness": 70.0,
       "sections_present": 7
     },
+    "AL": {
+      "total": 129,
+      "sections": {
+        "conflict": 9,
+        "cooperatives": 7,
+        "democracy": 21,
+        "ecology": 8,
+        "food": 23,
+        "healthcare": 36,
+        "housing_land": 23,
+        "recreation_arts": 2
+      },
+      "completeness": 80.0,
+      "sections_present": 8
+    },
     "AR": {
-      "total": 87,
+      "total": 91,
       "sections": {
         "": 2,
         "conflict": 4,
         "cooperatives": 1,
         "democracy": 10,
-        "ecology": 6,
+        "ecology": 8,
         "food": 33,
         "healthcare": 19,
-        "housing_land": 12
+        "housing_land": 13,
+        "recreation_arts": 1
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "AS": {
       "total": 1,
@@ -2292,93 +2295,56 @@
       "sections_present": 1
     },
     "AZ": {
-      "total": 185,
+      "total": 202,
       "sections": {
         "": 2,
         "conflict": 7,
         "cooperatives": 5,
         "democracy": 31,
-        "ecology": 22,
+        "ecology": 23,
         "food": 44,
         "healthcare": 50,
-        "housing_land": 24
-      },
-      "completeness": 70.0,
-      "sections_present": 7
-    },
-    "Alabama": {
-      "total": 8,
-      "sections": {
-        "ecology": 1,
-        "housing_land": 5,
-        "recreation_arts": 2
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Alaska": {
-      "total": 9,
-      "sections": {
-        "housing_land": 8,
-        "recreation_arts": 1
-      },
-      "completeness": 20.0,
-      "sections_present": 2
-    },
-    "Arizona": {
-      "total": 17,
-      "sections": {
-        "ecology": 1,
-        "housing_land": 11,
+        "housing_land": 35,
         "recreation_arts": 5
       },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Arkansas": {
-      "total": 4,
-      "sections": {
-        "ecology": 2,
-        "housing_land": 1,
-        "recreation_arts": 1
-      },
-      "completeness": 30.0,
-      "sections_present": 3
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "CA": {
-      "total": 1152,
+      "total": 1289,
       "sections": {
-        "": 12,
+        "": 13,
         "conflict": 58,
         "cooperatives": 44,
         "democracy": 216,
-        "ecology": 120,
+        "ecology": 129,
         "education": 1,
-        "food": 98,
+        "food": 99,
         "healthcare": 322,
-        "housing_land": 280,
-        "recreation_arts": 1
+        "housing_land": 376,
+        "recreation_arts": 31
       },
       "completeness": 90.0,
       "sections_present": 9
     },
     "CO": {
-      "total": 216,
+      "total": 258,
       "sections": {
         "": 3,
         "conflict": 16,
         "cooperatives": 12,
         "democracy": 43,
-        "ecology": 31,
+        "ecology": 32,
         "food": 27,
         "healthcare": 49,
-        "housing_land": 35
+        "housing_land": 71,
+        "recreation_arts": 5
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "CT": {
-      "total": 119,
+      "total": 124,
       "sections": {
         "conflict": 6,
         "cooperatives": 4,
@@ -2386,43 +2352,13 @@
         "ecology": 6,
         "food": 23,
         "healthcare": 32,
-        "housing_land": 27
+        "housing_land": 32
       },
       "completeness": 70.0,
       "sections_present": 7
     },
-    "California": {
-      "total": 137,
-      "sections": {
-        "": 1,
-        "ecology": 9,
-        "food": 1,
-        "housing_land": 96,
-        "recreation_arts": 30
-      },
-      "completeness": 40.0,
-      "sections_present": 4
-    },
-    "Colorado": {
-      "total": 42,
-      "sections": {
-        "ecology": 1,
-        "housing_land": 36,
-        "recreation_arts": 5
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Connecticut": {
-      "total": 5,
-      "sections": {
-        "housing_land": 5
-      },
-      "completeness": 10.0,
-      "sections_present": 1
-    },
     "DC": {
-      "total": 125,
+      "total": 131,
       "sections": {
         "conflict": 10,
         "cooperatives": 10,
@@ -2430,69 +2366,44 @@
         "ecology": 24,
         "food": 9,
         "healthcare": 16,
-        "housing_land": 10
+        "housing_land": 14,
+        "recreation_arts": 2
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "DE": {
-      "total": 45,
+      "total": 50,
       "sections": {
         "conflict": 2,
         "democracy": 6,
         "ecology": 11,
         "food": 6,
         "healthcare": 11,
-        "housing_land": 9
+        "housing_land": 14
       },
       "completeness": 60.0,
       "sections_present": 6
     },
-    "Delaware": {
-      "total": 5,
-      "sections": {
-        "housing_land": 5
-      },
-      "completeness": 10.0,
-      "sections_present": 1
-    },
-    "District of Columbia": {
-      "total": 6,
-      "sections": {
-        "housing_land": 4,
-        "recreation_arts": 2
-      },
-      "completeness": 20.0,
-      "sections_present": 2
-    },
     "FL": {
-      "total": 482,
+      "total": 514,
       "sections": {
         "": 1,
         "conflict": 18,
         "cooperatives": 11,
         "democracy": 93,
-        "ecology": 40,
+        "ecology": 45,
         "energy_digital": 1,
         "food": 54,
         "healthcare": 163,
-        "housing_land": 101
-      },
-      "completeness": 80.0,
-      "sections_present": 8
-    },
-    "Florida": {
-      "total": 32,
-      "sections": {
-        "ecology": 5,
-        "housing_land": 22,
+        "housing_land": 123,
         "recreation_arts": 5
       },
-      "completeness": 30.0,
-      "sections_present": 3
+      "completeness": 90.0,
+      "sections_present": 9
     },
     "GA": {
-      "total": 258,
+      "total": 269,
       "sections": {
         "": 1,
         "conflict": 9,
@@ -2501,21 +2412,13 @@
         "ecology": 17,
         "food": 59,
         "healthcare": 69,
-        "housing_land": 55
-      },
-      "completeness": 70.0,
-      "sections_present": 7
-    },
-    "Georgia": {
-      "total": 11,
-      "sections": {
-        "housing_land": 7,
+        "housing_land": 62,
         "recreation_arts": 4
       },
-      "completeness": 20.0,
-      "sections_present": 2
+      "completeness": 80.0,
+      "sections_present": 8
     },
-    "Guam": {
+    "GU": {
       "total": 1,
       "sections": {
         "democracy": 1
@@ -2524,30 +2427,21 @@
       "sections_present": 1
     },
     "HI": {
-      "total": 57,
+      "total": 79,
       "sections": {
         "conflict": 2,
         "democracy": 10,
-        "ecology": 7,
+        "ecology": 11,
         "food": 5,
         "healthcare": 20,
-        "housing_land": 13
-      },
-      "completeness": 60.0,
-      "sections_present": 6
-    },
-    "Hawaii": {
-      "total": 22,
-      "sections": {
-        "ecology": 4,
-        "housing_land": 11,
+        "housing_land": 24,
         "recreation_arts": 7
       },
-      "completeness": 30.0,
-      "sections_present": 3
+      "completeness": 70.0,
+      "sections_present": 7
     },
     "IA": {
-      "total": 151,
+      "total": 155,
       "sections": {
         "conflict": 4,
         "cooperatives": 10,
@@ -2555,28 +2449,30 @@
         "ecology": 6,
         "food": 65,
         "healthcare": 35,
-        "housing_land": 15
+        "housing_land": 18,
+        "recreation_arts": 1
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "ID": {
-      "total": 85,
+      "total": 93,
       "sections": {
         "": 1,
         "conflict": 4,
         "cooperatives": 2,
         "democracy": 25,
-        "ecology": 6,
+        "ecology": 7,
         "food": 22,
         "healthcare": 15,
-        "housing_land": 10
+        "housing_land": 15,
+        "recreation_arts": 2
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "IL": {
-      "total": 442,
+      "total": 461,
       "sections": {
         "": 1,
         "conflict": 17,
@@ -2585,13 +2481,14 @@
         "ecology": 18,
         "food": 134,
         "healthcare": 78,
-        "housing_land": 54
+        "housing_land": 67,
+        "recreation_arts": 6
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "IN": {
-      "total": 236,
+      "total": 244,
       "sections": {
         "conflict": 9,
         "cooperatives": 5,
@@ -2599,47 +2496,11 @@
         "ecology": 11,
         "food": 62,
         "healthcare": 60,
-        "housing_land": 42
-      },
-      "completeness": 70.0,
-      "sections_present": 7
-    },
-    "Idaho": {
-      "total": 8,
-      "sections": {
-        "ecology": 1,
-        "housing_land": 5,
+        "housing_land": 48,
         "recreation_arts": 2
       },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Illinois": {
-      "total": 19,
-      "sections": {
-        "housing_land": 13,
-        "recreation_arts": 6
-      },
-      "completeness": 20.0,
-      "sections_present": 2
-    },
-    "Indiana": {
-      "total": 8,
-      "sections": {
-        "housing_land": 6,
-        "recreation_arts": 2
-      },
-      "completeness": 20.0,
-      "sections_present": 2
-    },
-    "Iowa": {
-      "total": 4,
-      "sections": {
-        "housing_land": 3,
-        "recreation_arts": 1
-      },
-      "completeness": 20.0,
-      "sections_present": 2
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "KA": {
       "total": 1,
@@ -2650,7 +2511,7 @@
       "sections_present": 1
     },
     "KS": {
-      "total": 105,
+      "total": 109,
       "sections": {
         "conflict": 7,
         "cooperatives": 3,
@@ -2658,46 +2519,29 @@
         "ecology": 6,
         "food": 24,
         "healthcare": 41,
-        "housing_land": 12
+        "housing_land": 15,
+        "recreation_arts": 1
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "KY": {
-      "total": 122,
+      "total": 129,
       "sections": {
         "conflict": 5,
         "cooperatives": 4,
         "democracy": 13,
-        "ecology": 5,
+        "ecology": 6,
         "food": 33,
         "healthcare": 27,
-        "housing_land": 35
-      },
-      "completeness": 70.0,
-      "sections_present": 7
-    },
-    "Kansas": {
-      "total": 4,
-      "sections": {
-        "housing_land": 3,
+        "housing_land": 40,
         "recreation_arts": 1
       },
-      "completeness": 20.0,
-      "sections_present": 2
-    },
-    "Kentucky": {
-      "total": 7,
-      "sections": {
-        "ecology": 1,
-        "housing_land": 5,
-        "recreation_arts": 1
-      },
-      "completeness": 30.0,
-      "sections_present": 3
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "LA": {
-      "total": 104,
+      "total": 108,
       "sections": {
         "conflict": 3,
         "cooperatives": 2,
@@ -2705,118 +2549,108 @@
         "ecology": 6,
         "food": 16,
         "healthcare": 36,
-        "housing_land": 23
-      },
-      "completeness": 70.0,
-      "sections_present": 7
-    },
-    "Louisiana": {
-      "total": 4,
-      "sections": {
-        "housing_land": 3,
+        "housing_land": 26,
         "recreation_arts": 1
       },
-      "completeness": 20.0,
-      "sections_present": 2
-    },
-    "Louisville": {
-      "total": 1,
-      "sections": {
-        "housing_land": 1
-      },
-      "completeness": 10.0,
-      "sections_present": 1
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "MA": {
-      "total": 392,
+      "total": 437,
       "sections": {
         "": 7,
         "conflict": 21,
         "cooperatives": 18,
         "democracy": 109,
         "ecology": 18,
-        "food": 68,
+        "food": 69,
         "healthcare": 71,
-        "housing_land": 80
+        "housing_land": 117,
+        "recreation_arts": 7
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "MD": {
-      "total": 245,
+      "total": 260,
       "sections": {
         "conflict": 15,
         "cooperatives": 11,
         "democracy": 79,
-        "ecology": 19,
+        "ecology": 21,
         "food": 20,
         "healthcare": 68,
-        "housing_land": 33
+        "housing_land": 45,
+        "recreation_arts": 1
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "ME": {
-      "total": 135,
+      "total": 151,
       "sections": {
         "": 5,
         "conflict": 6,
         "cooperatives": 6,
         "democracy": 17,
-        "ecology": 10,
+        "ecology": 11,
         "food": 57,
         "healthcare": 21,
-        "housing_land": 13
+        "housing_land": 27,
+        "recreation_arts": 1
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "MI": {
-      "total": 359,
+      "total": 390,
       "sections": {
         "": 3,
         "conflict": 23,
         "cooperatives": 20,
         "democracy": 80,
-        "ecology": 24,
+        "ecology": 25,
         "food": 79,
         "healthcare": 71,
-        "housing_land": 59
+        "housing_land": 83,
+        "recreation_arts": 6
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "MN": {
-      "total": 271,
+      "total": 302,
       "sections": {
         "conflict": 11,
         "cooperatives": 17,
         "democracy": 41,
-        "ecology": 21,
+        "ecology": 22,
         "food": 88,
         "healthcare": 52,
-        "housing_land": 41
+        "housing_land": 68,
+        "recreation_arts": 3
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "MO": {
-      "total": 203,
+      "total": 228,
       "sections": {
         "": 1,
         "conflict": 7,
         "cooperatives": 12,
         "democracy": 26,
-        "ecology": 10,
+        "ecology": 16,
         "food": 57,
         "healthcare": 51,
-        "housing_land": 39
+        "housing_land": 51,
+        "recreation_arts": 7
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "MS": {
-      "total": 77,
+      "total": 80,
       "sections": {
         "conflict": 3,
         "cooperatives": 5,
@@ -2824,135 +2658,51 @@
         "ecology": 7,
         "food": 23,
         "healthcare": 13,
-        "housing_land": 12
+        "housing_land": 15
       },
       "completeness": 70.0,
       "sections_present": 7
     },
     "MT": {
-      "total": 114,
+      "total": 125,
       "sections": {
         "conflict": 4,
         "cooperatives": 1,
         "democracy": 18,
-        "ecology": 8,
+        "ecology": 10,
         "food": 50,
         "healthcare": 19,
-        "housing_land": 14
+        "housing_land": 23
       },
       "completeness": 70.0,
       "sections_present": 7
     },
-    "Maine": {
-      "total": 16,
-      "sections": {
-        "ecology": 1,
-        "housing_land": 14,
-        "recreation_arts": 1
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Mankato": {
-      "total": 1,
-      "sections": {
-        "housing_land": 1
-      },
-      "completeness": 10.0,
-      "sections_present": 1
-    },
-    "Maryland": {
-      "total": 15,
-      "sections": {
-        "ecology": 2,
-        "housing_land": 12,
-        "recreation_arts": 1
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Massachusetts": {
-      "total": 45,
-      "sections": {
-        "food": 1,
-        "housing_land": 37,
-        "recreation_arts": 7
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Michigan": {
-      "total": 31,
-      "sections": {
-        "ecology": 1,
-        "housing_land": 24,
-        "recreation_arts": 6
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Minnesota": {
-      "total": 31,
-      "sections": {
-        "ecology": 1,
-        "housing_land": 27,
-        "recreation_arts": 3
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Mississippi": {
-      "total": 3,
-      "sections": {
-        "housing_land": 3
-      },
-      "completeness": 10.0,
-      "sections_present": 1
-    },
-    "Missouri": {
-      "total": 25,
-      "sections": {
-        "ecology": 6,
-        "housing_land": 12,
-        "recreation_arts": 7
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Montana": {
-      "total": 11,
-      "sections": {
-        "ecology": 2,
-        "housing_land": 9
-      },
-      "completeness": 20.0,
-      "sections_present": 2
-    },
     "NC": {
-      "total": 314,
+      "total": 363,
       "sections": {
         "": 1,
         "conflict": 9,
         "cooperatives": 6,
         "democracy": 45,
-        "ecology": 19,
+        "ecology": 25,
         "education": 1,
         "food": 67,
         "healthcare": 89,
-        "housing_land": 77
+        "housing_land": 113,
+        "recreation_arts": 7
       },
-      "completeness": 80.0,
-      "sections_present": 8
+      "completeness": 90.0,
+      "sections_present": 9
     },
     "ND": {
-      "total": 59,
+      "total": 62,
       "sections": {
         "cooperatives": 3,
         "democracy": 11,
         "ecology": 1,
         "food": 27,
         "healthcare": 8,
-        "housing_land": 9
+        "housing_land": 12
       },
       "completeness": 60.0,
       "sections_present": 6
@@ -2972,21 +2722,22 @@
       "sections_present": 7
     },
     "NH": {
-      "total": 75,
+      "total": 86,
       "sections": {
         "conflict": 3,
         "cooperatives": 3,
         "democracy": 9,
-        "ecology": 8,
+        "ecology": 11,
         "food": 23,
         "healthcare": 17,
-        "housing_land": 12
+        "housing_land": 17,
+        "recreation_arts": 3
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "NJ": {
-      "total": 247,
+      "total": 253,
       "sections": {
         "": 1,
         "conflict": 11,
@@ -2995,145 +2746,76 @@
         "ecology": 22,
         "food": 47,
         "healthcare": 55,
-        "housing_land": 59
+        "housing_land": 63,
+        "recreation_arts": 2
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "NM": {
-      "total": 88,
+      "total": 108,
       "sections": {
         "conflict": 6,
         "cooperatives": 5,
         "democracy": 29,
-        "ecology": 5,
+        "ecology": 6,
         "food": 13,
         "healthcare": 17,
-        "housing_land": 13
+        "housing_land": 26,
+        "recreation_arts": 6
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "NV": {
-      "total": 76,
+      "total": 83,
       "sections": {
         "conflict": 6,
         "cooperatives": 7,
         "democracy": 10,
-        "ecology": 2,
+        "ecology": 4,
         "food": 10,
         "healthcare": 24,
-        "housing_land": 17
+        "housing_land": 22
       },
       "completeness": 70.0,
       "sections_present": 7
     },
     "NY": {
-      "total": 693,
+      "total": 750,
       "sections": {
-        "": 2,
+        "": 4,
         "conflict": 32,
         "cooperatives": 39,
         "democracy": 178,
         "ecology": 44,
-        "food": 150,
+        "food": 151,
         "healthcare": 121,
-        "housing_land": 127
-      },
-      "completeness": 70.0,
-      "sections_present": 7
-    },
-    "Nevada": {
-      "total": 7,
-      "sections": {
-        "ecology": 2,
-        "housing_land": 5
-      },
-      "completeness": 20.0,
-      "sections_present": 2
-    },
-    "New Hampshire": {
-      "total": 11,
-      "sections": {
-        "ecology": 3,
-        "housing_land": 5,
-        "recreation_arts": 3
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "New Jersey": {
-      "total": 6,
-      "sections": {
-        "housing_land": 4,
-        "recreation_arts": 2
-      },
-      "completeness": 20.0,
-      "sections_present": 2
-    },
-    "New Mexico": {
-      "total": 20,
-      "sections": {
-        "ecology": 1,
-        "housing_land": 13,
-        "recreation_arts": 6
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "New York": {
-      "total": 57,
-      "sections": {
-        "": 2,
-        "food": 1,
-        "housing_land": 39,
+        "housing_land": 166,
         "recreation_arts": 15
       },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "North Carolina": {
-      "total": 49,
-      "sections": {
-        "ecology": 6,
-        "housing_land": 36,
-        "recreation_arts": 7
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "North Dakota": {
-      "total": 3,
-      "sections": {
-        "housing_land": 3
-      },
-      "completeness": 10.0,
-      "sections_present": 1
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "OH": {
-      "total": 315,
+      "total": 335,
       "sections": {
+        "": 1,
         "conflict": 14,
         "cooperatives": 18,
         "democracy": 51,
-        "ecology": 19,
+        "ecology": 21,
+        "energy_digital": 1,
         "food": 80,
         "healthcare": 90,
-        "housing_land": 43
+        "housing_land": 57,
+        "recreation_arts": 2
       },
-      "completeness": 70.0,
-      "sections_present": 7
-    },
-    "OH - Ohio": {
-      "total": 1,
-      "sections": {
-        "": 1
-      },
-      "completeness": 0.0,
-      "sections_present": 0
+      "completeness": 90.0,
+      "sections_present": 9
     },
     "OK": {
-      "total": 353,
+      "total": 358,
       "sections": {
         "conflict": 1,
         "cooperatives": 1,
@@ -3141,132 +2823,71 @@
         "ecology": 7,
         "food": 265,
         "healthcare": 43,
-        "housing_land": 16
+        "housing_land": 20,
+        "recreation_arts": 1
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "OR": {
-      "total": 202,
+      "total": 256,
       "sections": {
         "": 1,
         "conflict": 11,
         "cooperatives": 8,
         "democracy": 45,
-        "ecology": 18,
+        "ecology": 22,
         "food": 39,
         "healthcare": 40,
-        "housing_land": 40
-      },
-      "completeness": 70.0,
-      "sections_present": 7
-    },
-    "Ohio": {
-      "total": 19,
-      "sections": {
-        "ecology": 2,
-        "energy_digital": 1,
-        "housing_land": 14,
-        "recreation_arts": 2
-      },
-      "completeness": 40.0,
-      "sections_present": 4
-    },
-    "Oklahoma": {
-      "total": 5,
-      "sections": {
-        "housing_land": 4,
-        "recreation_arts": 1
-      },
-      "completeness": 20.0,
-      "sections_present": 2
-    },
-    "Oregon": {
-      "total": 54,
-      "sections": {
-        "ecology": 4,
-        "housing_land": 39,
+        "housing_land": 79,
         "recreation_arts": 11
       },
-      "completeness": 30.0,
-      "sections_present": 3
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "PA": {
-      "total": 382,
+      "total": 411,
       "sections": {
-        "": 2,
+        "": 3,
         "conflict": 15,
         "cooperatives": 16,
         "democracy": 72,
-        "ecology": 30,
+        "ecology": 31,
         "food": 97,
         "healthcare": 100,
-        "housing_land": 50
+        "housing_land": 69,
+        "recreation_arts": 8
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "PR": {
-      "total": 15,
+      "total": 16,
       "sections": {
         "democracy": 4,
         "ecology": 2,
         "healthcare": 7,
-        "housing_land": 2
-      },
-      "completeness": 40.0,
-      "sections_present": 4
-    },
-    "Pennsylvania": {
-      "total": 29,
-      "sections": {
-        "": 1,
-        "ecology": 1,
-        "housing_land": 19,
-        "recreation_arts": 8
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Portage": {
-      "total": 1,
-      "sections": {
-        "housing_land": 1
-      },
-      "completeness": 10.0,
-      "sections_present": 1
-    },
-    "Puerto Rico": {
-      "total": 1,
-      "sections": {
+        "housing_land": 2,
         "recreation_arts": 1
       },
-      "completeness": 10.0,
-      "sections_present": 1
+      "completeness": 50.0,
+      "sections_present": 5
     },
     "RI": {
-      "total": 57,
+      "total": 60,
       "sections": {
         "conflict": 3,
         "democracy": 18,
         "ecology": 4,
         "food": 8,
         "healthcare": 13,
-        "housing_land": 11
+        "housing_land": 14
       },
       "completeness": 60.0,
       "sections_present": 6
     },
-    "Rhode Island": {
-      "total": 3,
-      "sections": {
-        "housing_land": 3
-      },
-      "completeness": 10.0,
-      "sections_present": 1
-    },
     "SC": {
-      "total": 127,
+      "total": 131,
       "sections": {
         "conflict": 4,
         "cooperatives": 2,
@@ -3274,100 +2895,58 @@
         "ecology": 7,
         "food": 18,
         "healthcare": 44,
-        "housing_land": 33
+        "housing_land": 36,
+        "recreation_arts": 1
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "SD": {
-      "total": 32,
+      "total": 34,
       "sections": {
         "democracy": 3,
         "ecology": 1,
         "food": 19,
         "healthcare": 7,
-        "housing_land": 2
+        "housing_land": 4
       },
       "completeness": 50.0,
       "sections_present": 5
     },
-    "South Carolina": {
-      "total": 4,
-      "sections": {
-        "housing_land": 3,
-        "recreation_arts": 1
-      },
-      "completeness": 20.0,
-      "sections_present": 2
-    },
-    "South Dakota": {
-      "total": 2,
-      "sections": {
-        "housing_land": 2
-      },
-      "completeness": 10.0,
-      "sections_present": 1
-    },
-    "Springfield": {
-      "total": 1,
-      "sections": {
-        "housing_land": 1
-      },
-      "completeness": 10.0,
-      "sections_present": 1
-    },
     "TN": {
-      "total": 170,
+      "total": 185,
       "sections": {
         "": 1,
         "conflict": 5,
         "cooperatives": 11,
         "democracy": 27,
-        "ecology": 8,
+        "ecology": 9,
         "food": 38,
         "healthcare": 49,
-        "housing_land": 31
+        "housing_land": 42,
+        "recreation_arts": 3
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "TX": {
-      "total": 540,
+      "total": 566,
       "sections": {
         "": 3,
         "conflict": 31,
         "cooperatives": 17,
         "democracy": 69,
-        "ecology": 39,
+        "ecology": 43,
         "food": 126,
         "healthcare": 161,
-        "housing_land": 94
-      },
-      "completeness": 70.0,
-      "sections_present": 7
-    },
-    "Tennessee": {
-      "total": 15,
-      "sections": {
-        "ecology": 1,
-        "housing_land": 11,
-        "recreation_arts": 3
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Texas": {
-      "total": 26,
-      "sections": {
-        "ecology": 4,
-        "housing_land": 16,
+        "housing_land": 110,
         "recreation_arts": 6
       },
-      "completeness": 30.0,
-      "sections_present": 3
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "UT": {
-      "total": 91,
+      "total": 99,
       "sections": {
         "": 1,
         "conflict": 8,
@@ -3376,34 +2955,27 @@
         "ecology": 6,
         "food": 11,
         "healthcare": 28,
-        "housing_land": 19
-      },
-      "completeness": 70.0,
-      "sections_present": 7
-    },
-    "Utah": {
-      "total": 8,
-      "sections": {
-        "housing_land": 7,
+        "housing_land": 26,
         "recreation_arts": 1
       },
-      "completeness": 20.0,
-      "sections_present": 2
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "VA": {
-      "total": 267,
+      "total": 305,
       "sections": {
         "": 1,
         "conflict": 15,
         "cooperatives": 15,
-        "democracy": 53,
-        "ecology": 27,
+        "democracy": 54,
+        "ecology": 32,
         "food": 46,
         "healthcare": 71,
-        "housing_land": 39
+        "housing_land": 64,
+        "recreation_arts": 7
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "VI": {
       "total": 2,
@@ -3414,75 +2986,55 @@
       "sections_present": 1
     },
     "VT": {
-      "total": 123,
+      "total": 155,
       "sections": {
         "": 3,
         "conflict": 14,
         "cooperatives": 1,
         "democracy": 43,
-        "ecology": 10,
-        "food": 26,
+        "ecology": 12,
+        "food": 27,
         "healthcare": 17,
-        "housing_land": 9
-      },
-      "completeness": 70.0,
-      "sections_present": 7
-    },
-    "Vermont": {
-      "total": 32,
-      "sections": {
-        "ecology": 2,
-        "food": 1,
-        "housing_land": 23,
+        "housing_land": 32,
         "recreation_arts": 6
       },
-      "completeness": 40.0,
-      "sections_present": 4
-    },
-    "Virginia": {
-      "total": 38,
-      "sections": {
-        "democracy": 1,
-        "ecology": 5,
-        "housing_land": 25,
-        "recreation_arts": 7
-      },
-      "completeness": 40.0,
-      "sections_present": 4
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "WA": {
-      "total": 295,
+      "total": 379,
       "sections": {
         "": 3,
         "conflict": 14,
         "cooperatives": 16,
         "democracy": 44,
-        "ecology": 26,
+        "ecology": 31,
         "food": 92,
         "healthcare": 62,
-        "housing_land": 38
+        "housing_land": 110,
+        "recreation_arts": 7
       },
-      "completeness": 70.0,
-      "sections_present": 7
+      "completeness": 80.0,
+      "sections_present": 8
     },
     "WI": {
-      "total": 284,
+      "total": 310,
       "sections": {
         "": 1,
         "conflict": 11,
         "cooperatives": 26,
         "democracy": 30,
-        "ecology": 17,
+        "ecology": 18,
         "food": 109,
         "healthcare": 62,
-        "housing_land": 27,
-        "recreation_arts": 1
+        "housing_land": 50,
+        "recreation_arts": 3
       },
       "completeness": 80.0,
       "sections_present": 8
     },
     "WV": {
-      "total": 80,
+      "total": 83,
       "sections": {
         "": 1,
         "conflict": 5,
@@ -3491,13 +3043,13 @@
         "ecology": 4,
         "food": 30,
         "healthcare": 19,
-        "housing_land": 4
+        "housing_land": 7
       },
       "completeness": 70.0,
       "sections_present": 7
     },
     "WY": {
-      "total": 40,
+      "total": 43,
       "sections": {
         "conflict": 4,
         "cooperatives": 2,
@@ -3505,47 +3057,11 @@
         "ecology": 5,
         "food": 14,
         "healthcare": 7,
-        "housing_land": 4
-      },
-      "completeness": 70.0,
-      "sections_present": 7
-    },
-    "Washington": {
-      "total": 84,
-      "sections": {
-        "ecology": 5,
-        "housing_land": 72,
-        "recreation_arts": 7
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "West Virginia": {
-      "total": 3,
-      "sections": {
-        "housing_land": 3
-      },
-      "completeness": 10.0,
-      "sections_present": 1
-    },
-    "Wisconsin": {
-      "total": 26,
-      "sections": {
-        "ecology": 1,
-        "housing_land": 23,
-        "recreation_arts": 2
-      },
-      "completeness": 30.0,
-      "sections_present": 3
-    },
-    "Wyoming": {
-      "total": 3,
-      "sections": {
-        "housing_land": 2,
+        "housing_land": 6,
         "recreation_arts": 1
       },
-      "completeness": 20.0,
-      "sections_present": 2
+      "completeness": 80.0,
+      "sections_present": 8
     }
   },
   "tier_counts": {
