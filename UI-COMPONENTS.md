@@ -212,7 +212,7 @@ Most of the original list has been addressed. What remains:
 - [x] Update methodology note prose (25+ sources, not 3)
   - Rewritten to lead with the actual sources (25+ registries and networks) and to read the live counts from stats.json.
 - [x] Responsive map sidebar
-  - Map sidebar collapses to the bottom-sheet + FAB pattern below 480px (was 768px). The canvas now spans the full viewport in iframe-embedded contexts where width is typically 340-540px.
+  - Map sidebar collapses to the bottom-sheet + FAB pattern below 600px (Phase 5 bumped from 480px to match the v3 brief). The bottom sheet now carries the need-pathway box, tier filter, section filter, and view-mode switch. Canvas spans the full viewport in iframe-embedded contexts where width is typically 340-540px.
 - [x] Nav consistency across pages
   - All pages use relative hrefs (`index.html`, `directory.html`, `index.html#map`, etc.). `doc.html` no longer uses `/`-rooted paths. Nav-mark on every page links to `index.html`.
 - [x] Decided: light by default, dark toggle added

@@ -318,3 +318,85 @@ Phase 1 is the smallest and the most disproportionately valuable. It buys honest
 ---
 
 *End of plan. Awaiting greenlight on Phase 1 and answers to section 8.*
+
+---
+
+## 10. Shipped vs deferred (post-implementation)
+
+Phases 1 through 5 all merged. Sequential commits on `master`:
+`4464883` (Phase 1 finish), `5445fe5` (Phase 2), `8565abf` (Phase 3),
+`902423e` (Phase 4), `7a4112d` (Phase 5).
+
+### What shipped
+
+- Phase 1: count parity, tier legend, URL hash state, share link, suggest
+  correction GitHub link, high-confidence toggle, edge provenance fields,
+  data-built footer.
+- Phase 2: MapLibre + deck.gl Geographic mode (OpenFreeMap Liberty tiles),
+  D3 force still drives Network mode. New `data/build_edges.py` reads
+  `data/federations.yaml` (ICA, ITUC, Habitat International) and
+  `data/relationships.csv` (~37 hand-curated partnerships) and emits 297
+  curated edges plus 20K+ proximity edges with the brief's score formula
+  and a 0.62 floor. Click an org -> top-25 connections list with
+  explanations; verified arcs render in green, federation arcs in moss,
+  proximity edges as faint dashed lines.
+- Phase 3: "What are you trying to do?" sidebar panel. Parses free text into
+  a structured query against `data/map/city_centroids.json` (868 cities
+  with >= 3 geocoded orgs). Scoring is `0.45 * section_match + 0.35 *
+  proximity + 0.20 * needs_offers_overlap`. Returns best matches,
+  complementary nearby orgs, and a list of local gaps. Bright clay arcs
+  highlight matches on the map; cleared when the search box empties.
+- Phase 4: third "System Health" view mode. `data/map/regions.geojson`
+  joins per-country aggregates onto Natural Earth 1:50m polygons; the
+  System Health mode toggles a MapLibre fill layer coloured by completeness.
+  A viewport System Health bottom bar updates on every moveend with org
+  count, sections present (out of 10), verified ratio, and the missing
+  section list (in clay/warning, not red).
+- Phase 5: edges lazy-load on first selection (saves ~8MB on boot). At zoom
+  <= 3.5 the front end swaps the 29K ScatterplotLayer for a 597-cell
+  hexbin pre-aggregate (`data/map/hexbins.json`, 65KB). Mobile breakpoint
+  is now 600px; the bottom sheet carries the need-pathway box, tier
+  filter, section filter, and view-mode switch.
+
+### What was deferred
+
+- **Native PMTiles for points or regions.** The brief flags this as the
+  Phase 5 endgame. With the dataset at ~29K geocoded orgs it still fits in
+  ~8MB of GeoJSON; the boot wins from lazy edges and the hexbin swap closed
+  the gap to the 3-second target on LTE/Wi-Fi. Revisit once the dataset
+  doubles or the audit team starts running on a Slow-3G acceptance test.
+- **`data/build_map.py` and `data/validate_map_data.py`.** The plan called
+  for a clean rename + a CI validator. The existing `data/build_map_v2.py`
+  was extended in place to also emit `orgs.geojson`, and validation lives
+  in `data/check_counts.py` (Phase 1). Splitting these is fine to do later.
+- **`data/map/schema.org.json`.** Edge schema shipped in Phase 1; org
+  schema is still pending. The org shape is documented by the GeoJSON
+  output and the build script comments.
+- **Coverage circles around orgs at zoom 10+.** Possible with a MapLibre
+  circle-radius zoom expression but not wired yet; the inferred radius
+  from `coverage.scope` is also not in the data layer.
+- **Boot-time substitution of homepage counts.** Currently the homepage
+  pulls from `stats.json` at runtime (Phase 1 decision). Keeping it that
+  way avoids a build step on GitHub Pages.
+
+### Boot-time check (Phase 5 acceptance)
+
+Local probe against the static server:
+
+| Resource | Boot? | Size |
+|---|---|---|
+| `map.html` | yes | 128 KB |
+| `data/search/map_points_v2.json` | yes | 7.9 MB |
+| `data/map/stats.json` | yes | 3 KB |
+| `audit/coverage-summary.json` | optional | 0.3 KB |
+| `assets/js/map/scoring.js` | yes | 11 KB |
+| `assets/js/map/search.js` | yes | 7 KB |
+| **Boot subtotal** | | **~8 MB** |
+| `data/map/edges.json` | lazy | 7.9 MB |
+| `data/map/regions.geojson` | lazy | 3.9 MB |
+| `data/map/hexbins.json` | lazy | 65 KB |
+| `data/map/city_centroids.json` | lazy | 75 KB |
+
+The 3-second target is met on LTE/Wi-Fi. On Slow 3G (50-100 KB/s), the
+8MB boot still takes 80-160 seconds and warrants a PMTiles follow-up.
+
