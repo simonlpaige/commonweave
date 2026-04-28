@@ -132,10 +132,12 @@
     "CY": 1,
     "CU": 1
   },
-  "edges_total": 4916,
+  "edges_total": 20474,
   "edges_by_type": {
-    "cross_section_complementarity": 1336,
-    "same_section_proximity": 3580
+    "verified_relationship": 37,
+    "federation_membership": 260,
+    "cross_section_complementarity": 8259,
+    "same_section_proximity": 11918
   },
   "sections": [
     "democracy",
@@ -149,7 +151,9 @@
     "recreation_arts",
     "ecology"
   ],
-  "last_built": "2026-04-28T00:33:39Z",
+  "last_built": "2026-04-28T01:02:01Z",
   "last_built_date": "2026-04-28",
-  "source_script": "data/build_map_v2.py"
+  "source_script": "data/build_map_v2.py",
+  "edges_built_by": "data/build_edges.py",
+  "edges_built_at": "2026-04-28T01:03:09Z"
 }

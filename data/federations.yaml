@@ -1,0 +1,36 @@
+# Curated federation map: hub_id -> set of member org ids.
+# Each federation's hub is itself an org in the directory. Members are pulled
+# either by source (when the entire ingest source represents a single
+# federation) or by an explicit list of org ids when that is more accurate.
+#
+# Phase 2: data/build_edges.py reads this and emits federation_membership edges
+# from each member to the hub. Hubs that are not geocoded are skipped.
+#
+# To add a federation: pick an org id that already exists in the directory and
+# is geocoded, then either name a `source` whose rows are all members, or list
+# `member_ids:` explicitly.
+
+federations:
+  - name: International Cooperative Alliance
+    hub_id: 762096
+    short: ICA
+    description: Global apex federation of cooperatives, founded 1895, based in Brussels.
+    source_url: https://ica.coop/
+    members:
+      from_source: ica_directory
+
+  - name: International Trade Union Confederation
+    hub_id: 763595
+    short: ITUC
+    description: Global confederation of national trade union centres, based in Brussels.
+    source_url: https://www.ituc-csi.org/
+    members:
+      from_source: ituc_affiliates
+
+  - name: Habitat for Humanity International
+    hub_id: 4012
+    short: Habitat International
+    description: Global housing nonprofit federation; national affiliates serve their countries.
+    source_url: https://www.habitat.org/
+    members:
+      from_source: habitat_affiliates

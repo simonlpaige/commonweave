@@ -525,6 +525,23 @@ def main():
         json.dump(export_points, f, separators=(',', ':'))
     print(f"  map_points_v2.json: {os.path.getsize(pts_path)/1024:.0f} KB ({len(export_points):,} points)")
 
+    # Phase 2: also emit data/map/orgs.geojson, the FeatureCollection the new
+    # MapLibre-based map reads. Same fields as the compact JSON above, just
+    # wrapped as Point Features so MapLibre + deck.gl can ingest directly.
+    orgs_geojson_path = os.path.join(MAP_DIR, 'orgs.geojson')
+    features = []
+    for p in export_points:
+        feat = {
+            'type': 'Feature',
+            'id': p['id'],
+            'geometry': {'type': 'Point', 'coordinates': [p['lo'], p['la']]},
+            'properties': {k: v for k, v in p.items() if k not in ('lo', 'la')},
+        }
+        features.append(feat)
+    with open(orgs_geojson_path, 'w', encoding='utf-8') as f:
+        json.dump({'type': 'FeatureCollection', 'features': features}, f, separators=(',', ':'))
+    print(f"  data/map/orgs.geojson: {os.path.getsize(orgs_geojson_path)/1024:.0f} KB ({len(features):,} features)")
+
     edges_path = os.path.join(SEARCH_DIR, 'map_edges.json')
     with open(edges_path, 'w') as f:
         json.dump(edges, f, separators=(',', ':'))

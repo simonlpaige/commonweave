@@ -1,0 +1,40 @@
+id,source_id,target_id,relationship_type,description,source_url
+rel_ica_ituc,org_762096,org_763595,sister_organization,"ICA and ITUC are both based in Brussels and have a long-standing joint statement on cooperatives and decent work.",https://www.ituc-csi.org/IMG/pdf/ica_ituc_joint_statement.pdf
+rel_ica_coopseu,org_762096,org_762098,parent_region,"Cooperatives Europe is the European regional body of the International Cooperative Alliance.",https://coopseurope.coop/about-us/
+rel_ica_ncbaclusa,org_762096,org_910977,member_apex,"NCBA CLUSA is the US member apex of the International Cooperative Alliance.",https://ncbaclusa.coop/
+rel_ica_jca,org_762096,org_911196,national_member,"Japan Co-operative Alliance is the Japanese national member of the ICA.",https://www.japan.coop/jca-en/
+rel_ica_jccu,org_762096,org_910995,national_member,"Japanese Consumers' Co-operative Union is an ICA member.",https://jccu.coop/eng/
+rel_ica_jwcu,org_762096,org_911002,national_member,"Japan Workers' Cooperative Union is an ICA member.",https://jwcu.coop/en/
+rel_ica_nacf,org_762096,org_911005,national_member,"National Agricultural Co-operative Federation (Korea) is an ICA member.",https://www.nonghyup.com/
+rel_ica_pacu,org_762096,org_911010,national_member,"Palestinian Agriculture Cooperative Union is an ICA member.",https://ica.coop/
+rel_ica_accu,org_762096,org_911026,regional_member,"Association of Asian Confederations of Credit Unions is an ICA-affiliated regional body.",https://www.aaccu.coop/
+rel_ica_cacr,org_762096,org_911035,national_member,"Co-operative Association of the Czech Republic is an ICA member.",https://www.coop-cs.cz/
+rel_ica_mondragon,org_762096,org_764819,industrial_member,"Mondragon Corporation is a federation of worker cooperatives and a member of the ICA.",https://www.mondragon-corporation.com/
+rel_jccu_jwcu,org_910995,org_911002,national_partner,"Japanese consumer and worker co-op unions are co-members of the Japan Co-operative Alliance.",https://www.japan.coop/jca-en/
+rel_jca_jccu,org_911196,org_910995,parent_member,"Japanese Consumers' Co-operative Union is a member of the Japan Co-operative Alliance.",https://www.japan.coop/jca-en/
+rel_jca_jwcu,org_911196,org_911002,parent_member,"Japan Workers' Co-operative Union is a member of the Japan Co-operative Alliance.",https://www.japan.coop/jca-en/
+rel_jca_zengyoren,org_911196,org_910997,parent_member,"JF ZENGYOREN is a member of the Japan Co-operative Alliance.",https://www.japan.coop/jca-en/
+rel_jca_zenmoriren,org_911196,org_910998,parent_member,"ZENMORI-REN is a member of the Japan Co-operative Alliance.",https://www.japan.coop/jca-en/
+rel_jca_nfuca,org_911196,org_911094,parent_member,"NFUCA is a member of the Japan Co-operative Alliance.",https://www.japan.coop/jca-en/
+rel_jca_kokumin,org_911196,org_910999,parent_member,"Kokumin Kyosai is a member of the Japan Co-operative Alliance.",https://www.japan.coop/jca-en/
+rel_jca_norinchukin,org_911196,org_911003,parent_member,"The Norinchukin Bank is a member of the Japan Co-operative Alliance.",https://www.nochubank.or.jp/en/
+rel_pr_coopaca_liga,org_910971,org_911082,parent_member,"COOPACA is a member of the Liga de Cooperativas de Puerto Rico.",https://ligacoopr.com/
+rel_pr_seguros_liga,org_910971,org_910969,parent_member,"Cooperativa de Seguros Múltiples de PR is a member of the Liga de Cooperativas de PR.",https://ligacoopr.com/
+rel_pr_bancoop_liga,org_910971,org_911168,parent_member,"Banco Cooperativo de Puerto Rico is a member of the Liga de Cooperativas de PR.",https://ligacoopr.com/
+rel_ps_pacu_esdc,org_911010,org_911177,regional_partner,"PACU and ESDC both work on Palestinian cooperative development.",https://ica.coop/
+rel_ps_pacu_cwa,org_911010,org_911231,regional_partner,"PACU and Cooperative Work Agency both serve Palestinian cooperatives.",https://ica.coop/
+rel_py_fecopar_uni,org_911185,org_910990,national_member,"Cooperativa Universitaria is a member of FECOPAR Paraguay.",https://www.fecopar.coop.py/
+rel_oxfam_oxfam_it,org_723280,org_903040,national_affiliate,"Oxfam Italia is part of the Oxfam International confederation.",https://www.oxfam.org/en/countries
+rel_fairtrade_uk_int,org_738067,org_762096,sector_partner,"Fairtrade Foundation UK and ICA both promote cooperative and fair-trade economies.",https://www.fairtrade.org.uk/
+rel_foe_permaculture,org_729444,org_748112,uk_eco_partner,"Friends of the Earth and Permaculture Association both work on UK ecological resilience.",https://friendsoftheearth.uk/
+rel_habitat_intl_us,org_4012,org_4036,parent_affiliate,"Greater Birmingham Habitat for Humanity is a US affiliate of Habitat for Humanity International.",https://www.habitat.org/
+rel_habitat_intl_ar,org_4012,org_764676,national_affiliate,"Habitat for Humanity Argentina is a national affiliate of Habitat International.",https://www.habitat.org/where-we-build/argentina
+rel_habitat_intl_au,org_4012,org_764678,national_affiliate,"Habitat for Humanity Australia is a national affiliate of Habitat International.",https://www.habitat.org.au/
+rel_habitat_intl_ug,org_4012,org_718251,national_affiliate,"Habitat for Humanity Uganda is a national affiliate of Habitat International.",https://www.habitat.org/where-we-build/uganda
+rel_habitat_intl_br,org_4012,org_764682,national_affiliate,"Habitat for Humanity Brazil is a national affiliate of Habitat International.",https://www.habitat.org/where-we-build/brazil
+rel_habitat_intl_kh,org_4012,org_764684,national_affiliate,"Habitat for Humanity Cambodia is a national affiliate of Habitat International.",https://www.habitat.org/where-we-build/cambodia
+rel_habitat_intl_bg,org_4012,org_764683,national_affiliate,"Habitat for Humanity Bulgaria is a national affiliate of Habitat International.",https://www.habitat.org/where-we-build/bulgaria
+rel_habitat_intl_bd,org_4012,org_764679,national_affiliate,"Habitat for Humanity Bangladesh is a national affiliate of Habitat International.",https://www.habitat.org/where-we-build/bangladesh
+rel_habitat_intl_bo,org_4012,org_764680,national_affiliate,"Habitat for Humanity Bolivia is a national affiliate of Habitat International.",https://www.habitat.org/where-we-build/bolivia
+rel_habitat_intl_bw,org_4012,org_764681,national_affiliate,"Habitat for Humanity Botswana is a national affiliate of Habitat International.",https://www.habitat.org/where-we-build/botswana
+rel_habitat_intl_am,org_4012,org_764677,national_affiliate,"Habitat for Humanity Armenia is a national affiliate of Habitat International.",https://www.habitat.org/where-we-build/armenia

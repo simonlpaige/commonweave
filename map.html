@@ -29,6 +29,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- MapLibre GL: free vector basemap rendering. OpenFreeMap serves the
+     tiles. No token needed. Loaded only because Phase 2 swaps the geographic
+     mode to a real slippy map; network mode still uses the canvas below. -->
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<!-- deck.gl: GPU layers over the MapLibre canvas. Used for ScatterplotLayer
+     (org points), LineLayer (dashed proximity edges), ArcLayer (verified +
+     federation arcs). Single bundle from CDN. -->
+<script src="https://unpkg.com/deck.gl@9.0.27/dist.min.js"></script>
+<!-- Turf.js: viewport spatial joins, distance calculations, used by Phase 3
+     need-pathway scoring and Phase 4 system-health calculations. -->
+<script src="https://unpkg.com/@turf/turf@7/turf.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -137,6 +149,70 @@ html, body {
 #layout { position: relative; height: 100vh; width: 100vw; }
 #canvas-container { position: absolute; top: 0; bottom: 0; left: var(--sidebar-w); right: 0; background: var(--bg-deep); }
 #viz-canvas { display: block; width: 100%; height: 100%; cursor: default; }
+
+/* MapLibre container, lives behind the deck.gl overlay. Network mode hides
+   it (display:none) and shows #viz-canvas instead. */
+#ml-map {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  background: var(--bg-deep);
+}
+.maplibregl-ctrl-bottom-left,
+.maplibregl-ctrl-bottom-right { display: none !important; }
+.maplibregl-canvas { outline: none; }
+/* Tone the OpenFreeMap basemap toward the brand palette. The basemap canvas
+   is desaturated and tinted toward ink/moss so points read on top. */
+#ml-map .maplibregl-canvas-container > canvas {
+  filter: hue-rotate(80deg) saturate(0.55) brightness(0.45) contrast(0.95);
+}
+
+/* Edge popover: shown when hovering an edge or in the detail panel's
+   "Connections" section. Reads explanation, weight, type. */
+.edge-tooltip {
+  position: fixed; display: none;
+  background: rgba(13,25,13,0.97); backdrop-filter: blur(14px);
+  border: 1px solid var(--border-bright);
+  border-radius: 10px; padding: 10px 12px;
+  font-family: var(--f-body); pointer-events: none;
+  z-index: 110; max-width: 300px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  font-size: 11px; color: var(--text-secondary); line-height: 1.5;
+}
+.edge-tooltip .et-type {
+  font-family: var(--f-mono); font-size: 9px;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--accent); margin-bottom: 4px;
+}
+.edge-tooltip .et-weight {
+  font-size: 9px; color: var(--text-dim); margin-top: 4px;
+}
+
+/* Connections list inside the detail panel. */
+.pop-connections {
+  margin-top: 14px; padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.pop-connections-label {
+  font-family: var(--f-mono); font-size: 9px;
+  letter-spacing: 0.16em; color: var(--text-muted);
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.conn-row {
+  display: block; padding: 7px 9px; margin-bottom: 4px;
+  border-radius: 6px; background: var(--bg-surface);
+  border: 1px solid var(--border);
+  cursor: pointer; transition: background 0.15s, border-color 0.15s;
+  text-decoration: none; color: var(--text-secondary);
+}
+.conn-row:hover { background: var(--bg-elevated); border-color: var(--border-bright); color: var(--text-primary); }
+.conn-name { font-size: 11px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+.conn-type { font-family: var(--f-mono); font-size: 8.5px; letter-spacing: 0.08em; text-transform: uppercase; }
+.conn-type.tier-V { color: #7be38a; }
+.conn-type.tier-F { color: var(--accent); }
+.conn-type.tier-S { color: var(--text-dim); }
+.conn-type.tier-C { color: var(--clay-pale); }
+.conn-explain { font-size: 10px; color: var(--text-dim); margin-top: 3px; line-height: 1.4; }
+.conn-empty { font-size: 11px; color: var(--text-dim); font-style: italic; }
 
 /* ═══════════ SIDEBAR ═══════════ */
 #sidebar {
@@ -576,6 +652,10 @@ html, body {
   </div>
 
   <div id="canvas-container">
+    <!-- Geographic mode: MapLibre vector basemap + deck.gl overlay. Hidden in
+         Network mode. Toggling viewMode swaps display:none between the two. -->
+    <div id="ml-map" style="display:none"></div>
+    <!-- Network mode: existing D3 force canvas. Hidden in Geographic mode. -->
     <canvas id="viz-canvas"></canvas>
   </div>
 </div>
@@ -595,6 +675,7 @@ html, body {
   <div class="tt-country" id="tt-country"></div>
 </div>
 <div id="detail-panel"></div>
+<div id="edge-tooltip" class="edge-tooltip"></div>
 
 <script src="https://unpkg.com/d3@7/dist/d3.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
@@ -845,9 +926,13 @@ function animateCounter(el, target, duration = 700) {
 async function loadData() {
   setProgress(5);
 
-  const [pointsData, edgesData, statsData, coverageData] = await Promise.all([
+  // Phase 2: edges live at data/map/edges.json (richer schema with explanations
+  // and id-keyed endpoints). The legacy data/search/map_edges.json is only
+  // used as a fallback for older deployments where build_edges.py has not run.
+  const [pointsData, edgesData, edgesLegacy, statsData, coverageData] = await Promise.all([
     fetch('data/search/map_points_v2.json').then(r => r.json()),
-    fetch('data/search/map_edges.json').then(r => r.json()),
+    fetch('data/map/edges.json').then(r => r.ok ? r.json() : null).catch(() => null),
+    fetch('data/search/map_edges.json').then(r => r.ok ? r.json() : []).catch(() => []),
     fetch('data/map/stats.json').then(r => r.ok ? r.json() : null).catch(() => null),
     // Audit coverage. Optional: missing file is fine, all pins fall back
     // to solid. See tools/build-coverage-summary.py.
@@ -870,7 +955,9 @@ async function loadData() {
   setProgress(18);
 
   allPoints = pointsData;
-  allEdges = Array.isArray(edgesData) ? edgesData : (edgesData.edges || []);
+  // Prefer the new edges file. Fall back to legacy.
+  const rawEdges = edgesData || edgesLegacy;
+  allEdges = Array.isArray(rawEdges) ? rawEdges : (rawEdges && rawEdges.edges) || [];
   mapStats = statsData;
 
   // Build coordHash and id index. The id index lets the URL hash and the
@@ -880,12 +967,17 @@ async function loadData() {
     if (p.id) pointsById.set(p.id, i);
   });
 
-  // Resolve edge endpoints + build nodeEdgesMap
+  // Resolve edge endpoints. New edges have source_id/target_id (preferred);
+  // legacy edges have s/t coord pairs. Either way, we land on simNode indices
+  // so the canvas renderer can draw them.
   allEdges.forEach((edge, ei) => {
-    const sk = coordKey(edge.s[0], edge.s[1]);
-    const tk = coordKey(edge.t[0], edge.t[1]);
-    edge._si = coordHash.get(sk);
-    edge._ti = coordHash.get(tk);
+    if (edge.source_id !== undefined && edge.target_id !== undefined) {
+      edge._si = pointsById.get(edge.source_id);
+      edge._ti = pointsById.get(edge.target_id);
+    } else if (Array.isArray(edge.s) && Array.isArray(edge.t)) {
+      edge._si = coordHash.get(coordKey(edge.s[0], edge.s[1]));
+      edge._ti = coordHash.get(coordKey(edge.t[0], edge.t[1]));
+    }
 
     if (edge._si !== undefined) {
       if (!nodeEdgesMap.has(edge._si)) nodeEdgesMap.set(edge._si, []);
@@ -984,6 +1076,10 @@ function rebuildQuadtree() {
     .x(d => viewMode === 'geo' ? d.geoX : d.x)
     .y(d => viewMode === 'geo' ? d.geoY : d.y)
     .addAll(simNodes.filter(n => isNodeVisible(n)));
+  // Filter changes also need to repaint deck.gl in geo mode. Cheap enough
+  // to call here since rebuildQuadtree runs only on state change, not per
+  // frame.
+  if (typeof refreshGeoIfActive === 'function') refreshGeoIfActive();
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -1224,6 +1320,7 @@ function showDetailPanel(node) {
           &#9998; Suggest correction
         </a>
       </div>
+      ${renderConnections(node)}
     </div>`;
   panel.classList.add('open');
 
@@ -1231,6 +1328,123 @@ function showDetailPanel(node) {
   // because we mutate the button text on success.
   const cb = document.getElementById('copy-share-btn');
   if (cb) cb.addEventListener('click', () => copyShareLink(cb));
+
+  // Connection rows are clickable: clicking jumps to the other org.
+  panel.querySelectorAll('.conn-row').forEach(row => {
+    row.addEventListener('click', (e) => {
+      e.preventDefault();
+      const otherId = row.getAttribute('data-other-id');
+      if (otherId && pointsById.has(otherId)) {
+        const idx = pointsById.get(otherId);
+        const next = simNodes[idx];
+        if (next) {
+          selectedNode = next;
+          showDetailPanel(next);
+          if (mlMap && viewMode === 'geo') {
+            mlMap.flyTo({ center: [next.lo, next.la], zoom: Math.max(mlMap.getZoom(), 7) });
+            updateDeckLayers();
+          }
+          render();
+          writeUrlState();
+        }
+      }
+    });
+  });
+}
+
+// When filters change, refresh the deck.gl layers if we're in geo mode. The
+// canvas renderer already handles its own redraw on filter change.
+function refreshGeoIfActive() {
+  if (viewMode === 'geo' && deckOverlay) updateDeckLayers();
+}
+
+// Top-25 connections list. Phase 2 acceptance: clicking an org shows no more
+// than 25 most relevant connections, each with an explanation. We rank by
+// edge weight (already a normalised score) with verified > federation >
+// proximity used as a tiebreaker.
+const EDGE_TYPE_RANK = {
+  verified_relationship: 0,
+  federation_membership: 1,
+  attestation: 2,
+  cross_section_complementarity: 3,
+  same_section_proximity: 4,
+  shared_resource: 5,
+  user_need_match: 6,
+};
+const EDGE_TYPE_LABEL = {
+  verified_relationship: 'Verified',
+  federation_membership: 'Federation',
+  attestation: 'Attestation',
+  cross_section_complementarity: 'Complementary',
+  same_section_proximity: 'Same-area',
+  shared_resource: 'Shared resource',
+  user_need_match: 'Need match',
+};
+const EDGE_TYPE_TIER = {
+  verified_relationship: 'V',
+  federation_membership: 'F',
+  attestation: 'V',
+  cross_section_complementarity: 'C',
+  same_section_proximity: 'S',
+  shared_resource: 'C',
+  user_need_match: 'V',
+};
+
+function getTopConnectionsForNode(node, max = 25) {
+  if (!node || node.index === undefined) return [];
+  const edgeIdx = nodeEdgesMap.get(node.index) || [];
+  const rows = [];
+  edgeIdx.forEach(ei => {
+    const e = allEdges[ei];
+    if (!e) return;
+    const otherIdx = e._si === node.index ? e._ti : e._si;
+    if (otherIdx === undefined) return;
+    const other = simNodes[otherIdx];
+    if (!other) return;
+    rows.push({
+      edge: e,
+      other,
+      type: e.edge_type || (e.e === 's' ? 'same_section_proximity' : 'cross_section_complementarity'),
+      weight: typeof e.weight === 'number' ? e.weight : (e.w || 0),
+    });
+  });
+  // Rank: verified/federation first, then by weight descending.
+  rows.sort((a, b) => {
+    const ra = EDGE_TYPE_RANK[a.type] ?? 99;
+    const rb = EDGE_TYPE_RANK[b.type] ?? 99;
+    if (ra !== rb) return ra - rb;
+    return b.weight - a.weight;
+  });
+  return rows.slice(0, max);
+}
+
+function renderConnections(node) {
+  const rows = getTopConnectionsForNode(node, 25);
+  if (!rows.length) {
+    return `
+      <div class="pop-connections">
+        <div class="pop-connections-label">Connections</div>
+        <div class="conn-empty">No edges found for this org. Phase 2 only renders edges between Tier A/B/C orgs in the same proximity grid or curated federations.</div>
+      </div>`;
+  }
+  const items = rows.map(r => {
+    const tier = EDGE_TYPE_TIER[r.type] || 'S';
+    const label = EDGE_TYPE_LABEL[r.type] || r.type;
+    const explain = r.edge.explanation || '';
+    const otherName = r.other.n || r.other.id;
+    const wPct = Math.round((r.weight || 0) * 100);
+    return `
+      <a class="conn-row" data-other-id="${escHtml(r.other.id)}" href="#${escHtml(r.other.id)}">
+        <span class="conn-type tier-${tier}">${escHtml(label)} &middot; ${wPct}%</span>
+        <div class="conn-name">${escHtml(otherName)}</div>
+        ${explain ? `<div class="conn-explain">${escHtml(explain)}</div>` : ''}
+      </a>`;
+  }).join('');
+  return `
+    <div class="pop-connections">
+      <div class="pop-connections-label">Top ${rows.length} connection${rows.length === 1 ? '' : 's'}</div>
+      ${items}
+    </div>`;
 }
 
 function buildShareUrl(node) {
@@ -1343,14 +1557,15 @@ function drawGeoBackground() {
 // ══════════════════════════════════════════════════════════════
 function render() {
   if (!ctx) return;
+  // In geo mode the MapLibre + deck.gl overlay does the painting; the canvas
+  // is hidden. Skip the work to save CPU and battery.
+  if (viewMode === 'geo') return;
   const w = canvas.width, h = canvas.height;
   ctx.clearRect(0, 0, w, h);
 
   ctx.save();
   ctx.translate(transform.x, transform.y);
   ctx.scale(transform.k, transform.k);
-
-  if (viewMode === 'geo') drawGeoBackground();
 
   drawEdges();
   drawNodes();
@@ -1717,12 +1932,272 @@ function setViewMode(mode) {
   document.getElementById('btn-geo').classList.toggle('active', mode === 'geo');
   setHoveredNode(null);
   hideTooltip();
-  rebuildQuadtree();
   setupRegions();
-  if (mode === 'geo') loadWorldData();
-  fitView(true);
-  render();
+
+  // Toggle visibility between the canvas (network mode) and the MapLibre
+  // container (geographic mode). Lazy-init MapLibre on first geo entry.
+  const cnv = document.getElementById('viz-canvas');
+  const ml = document.getElementById('ml-map');
+  if (mode === 'geo') {
+    if (cnv) cnv.style.display = 'none';
+    if (ml) ml.style.display = 'block';
+    initGeoMapIfNeeded();
+    if (mlMap) {
+      requestAnimationFrame(() => {
+        mlMap.resize();
+        updateDeckLayers();
+      });
+    }
+  } else {
+    if (cnv) cnv.style.display = 'block';
+    if (ml) ml.style.display = 'none';
+    rebuildQuadtree();
+    fitView(true);
+    render();
+  }
   writeUrlState();
+}
+
+// ══════════════════════════════════════════════════════════════
+// MAPLIBRE + DECK.GL (Geographic mode)
+// ══════════════════════════════════════════════════════════════
+let mlMap = null;
+let deckOverlay = null;
+let geoInited = false;
+
+function initGeoMapIfNeeded() {
+  if (geoInited) return;
+  geoInited = true;
+  if (typeof maplibregl === 'undefined') {
+    console.warn('MapLibre GL not loaded; geographic mode unavailable.');
+    return;
+  }
+  mlMap = new maplibregl.Map({
+    container: 'ml-map',
+    style: 'https://tiles.openfreemap.org/styles/liberty',
+    center: [10, 30],
+    zoom: 1.6,
+    minZoom: 0,
+    maxZoom: 18,
+    attributionControl: { compact: true },
+    hash: false,
+  });
+  mlMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+  if (typeof deck !== 'undefined' && deck.MapboxOverlay) {
+    deckOverlay = new deck.MapboxOverlay({
+      interleaved: false,
+      layers: [],
+      onClick: handleDeckClick,
+      onHover: handleDeckHover,
+    });
+    mlMap.addControl(deckOverlay);
+  } else {
+    console.warn('deck.gl MapboxOverlay not available.');
+  }
+
+  mlMap.on('load', () => {
+    updateDeckLayers();
+    if (selectedNode && selectedNode.lo !== undefined) {
+      mlMap.flyTo({ center: [selectedNode.lo, selectedNode.la], zoom: 6 });
+    }
+  });
+  mlMap.on('moveend', () => {
+    if (typeof updateViewportHealth === 'function') updateViewportHealth();
+    writeUrlState();
+  });
+}
+
+function visiblePointsForGeo() {
+  return simNodes.filter(n => isNodeVisible(n));
+}
+
+function colourForNode(n) {
+  const hex = AREA_COLORS[n.f] || '#888888';
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  const a = n.t === 'C' ? 140 : 230;
+  return [r, g, b, a];
+}
+
+function radiusForNode(n) {
+  const base = n.t === 'A' ? 6 : n.t === 'B' ? 4.5 : 3.5;
+  const deg = (nodeEdgesMap.get(n.index) || []).length;
+  return base + Math.min(deg * 0.25, 3);
+}
+
+function edgesForGeoRender() {
+  // Default rule from the brief: only edges connected to the selected node.
+  // Phase 2 acceptance: top 25 edges with explanations on click.
+  if (!selectedNode) return { arcs: [], lines: [] };
+  const top = getTopConnectionsForNode(selectedNode, 25);
+  const arcs = [];
+  const lines = [];
+  top.forEach(r => {
+    const a = selectedNode;
+    const b = r.other;
+    if (!a || !b || a.lo === undefined || b.lo === undefined) return;
+    const colour = colourForNode(a);
+    const e = r.edge;
+    const isCurated = e && (e.edge_type === 'verified_relationship' ||
+                            e.edge_type === 'federation_membership' ||
+                            e.edge_type === 'attestation');
+    if (isCurated) {
+      arcs.push({
+        from: [a.lo, a.la],
+        to: [b.lo, b.la],
+        colour: e.edge_type === 'verified_relationship' ? [123, 227, 138, 220] : [184, 196, 168, 200],
+        weight: r.weight,
+        edge: e,
+        otherId: b.id,
+      });
+    } else {
+      lines.push({
+        from: [a.lo, a.la],
+        to: [b.lo, b.la],
+        colour: [...colour.slice(0, 3), 130],
+        weight: r.weight,
+        edge: e,
+        otherId: b.id,
+      });
+    }
+  });
+  return { arcs, lines };
+}
+
+function updateDeckLayers() {
+  if (!deckOverlay) return;
+  const points = visiblePointsForGeo();
+  const { arcs, lines } = edgesForGeoRender();
+
+  const layers = [];
+  if (lines.length) {
+    layers.push(new deck.LineLayer({
+      id: 'edges-line',
+      data: lines,
+      pickable: true,
+      getSourcePosition: d => d.from,
+      getTargetPosition: d => d.to,
+      getColor: d => d.colour,
+      getWidth: d => 1.2 + (d.weight || 0) * 1.5,
+      widthUnits: 'pixels',
+    }));
+  }
+  if (arcs.length) {
+    layers.push(new deck.ArcLayer({
+      id: 'edges-arc',
+      data: arcs,
+      pickable: true,
+      getSourcePosition: d => d.from,
+      getTargetPosition: d => d.to,
+      getSourceColor: d => d.colour,
+      getTargetColor: d => d.colour,
+      getWidth: d => 1.5 + (d.weight || 0) * 2,
+      widthUnits: 'pixels',
+      greatCircle: false,
+    }));
+  }
+  layers.push(new deck.ScatterplotLayer({
+    id: 'orgs',
+    data: points,
+    pickable: true,
+    stroked: true,
+    filled: true,
+    getPosition: d => [d.lo, d.la],
+    getRadius: d => radiusForNode(d),
+    radiusUnits: 'pixels',
+    getFillColor: d => colourForNode(d),
+    getLineColor: d => (selectedNode && selectedNode.id === d.id) ? [255, 255, 255, 255] : [0, 0, 0, 0],
+    getLineWidth: d => (selectedNode && selectedNode.id === d.id) ? 2 : 0,
+    lineWidthUnits: 'pixels',
+    updateTriggers: {
+      getLineColor: [selectedNode && selectedNode.id],
+      getLineWidth: [selectedNode && selectedNode.id],
+      getFillColor: [activeSection, [...activeTiers].join(',')],
+    },
+  }));
+
+  deckOverlay.setProps({ layers });
+}
+
+function handleDeckClick(info) {
+  if (!info || !info.layer) {
+    selectedNode = null;
+    hideDetailPanel();
+    updateDeckLayers();
+    writeUrlState();
+    return;
+  }
+  if (info.layer.id === 'orgs' && info.object) {
+    selectedNode = info.object;
+    showDetailPanel(info.object);
+    updateDeckLayers();
+    writeUrlState();
+  } else if ((info.layer.id === 'edges-line' || info.layer.id === 'edges-arc') && info.object) {
+    const otherId = info.object.otherId;
+    if (otherId && pointsById.has(otherId)) {
+      const next = simNodes[pointsById.get(otherId)];
+      if (next) {
+        selectedNode = next;
+        showDetailPanel(next);
+        updateDeckLayers();
+        writeUrlState();
+      }
+    }
+  }
+}
+
+function handleDeckHover(info) {
+  const tt = document.getElementById('tooltip');
+  const et = document.getElementById('edge-tooltip');
+  if (!info || !info.object) {
+    if (tt) tt.style.display = 'none';
+    if (et) et.style.display = 'none';
+    if (mlMap && mlMap.getCanvas()) mlMap.getCanvas().style.cursor = '';
+    return;
+  }
+  if (info.layer && info.layer.id === 'orgs') {
+    if (et) et.style.display = 'none';
+    updateTooltip(info.object, info.x, info.y);
+    if (mlMap && mlMap.getCanvas()) mlMap.getCanvas().style.cursor = 'pointer';
+  } else if (info.layer && (info.layer.id === 'edges-line' || info.layer.id === 'edges-arc')) {
+    if (tt) tt.style.display = 'none';
+    showEdgeTooltip(info.object.edge, info.x, info.y);
+    if (mlMap && mlMap.getCanvas()) mlMap.getCanvas().style.cursor = 'pointer';
+  }
+}
+
+function showEdgeTooltip(edge, x, y) {
+  const et = document.getElementById('edge-tooltip');
+  if (!et || !edge) return;
+  const type = edge.edge_type || 'edge';
+  const label = EDGE_TYPE_LABEL[type] || type;
+  const weight = typeof edge.weight === 'number' ? Math.round(edge.weight * 100) : '';
+  // Build tooltip via DOM nodes (no innerHTML) so user-supplied explanation
+  // text never gets parsed as HTML.
+  while (et.firstChild) et.removeChild(et.firstChild);
+  const t = document.createElement('div');
+  t.className = 'et-type';
+  t.textContent = label + (weight !== '' ? ' · ' + weight + '%' : '');
+  et.appendChild(t);
+  if (edge.explanation) {
+    const d = document.createElement('div');
+    d.textContent = edge.explanation;
+    et.appendChild(d);
+  }
+  if (edge.confidence) {
+    const w = document.createElement('div');
+    w.className = 'et-weight';
+    w.textContent = 'confidence: ' + edge.confidence;
+    et.appendChild(w);
+  }
+  et.style.display = 'block';
+  let tx = x + 16, ty = y - 12;
+  if (tx + 320 > window.innerWidth) tx = x - 320 - 16;
+  if (ty < 10) ty = y + 12;
+  et.style.left = tx + 'px';
+  et.style.top = ty + 'px';
 }
 
 // ══════════════════════════════════════════════════════════════
