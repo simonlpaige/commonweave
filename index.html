@@ -146,15 +146,49 @@
 .note em { color: var(--moss-deep); }
 .note.warm { border-left-color: var(--clay); }
 
-/* ───── Map embed ───── */
-.map-frame {
+/* ───── Map preview (static, no iframe) ───── */
+.map-preview {
   border: var(--rule); margin-top: var(--s-5);
-  background: var(--ink);
+  background: var(--moss-deep);
 }
-.map-frame iframe { width: 100%; height: 600px; border: none; display: block; }
+.map-preview-image {
+  display: block; position: relative; overflow: hidden;
+  background: var(--moss-deep);
+  aspect-ratio: 16 / 9;
+  border-bottom: var(--rule-soft);
+}
+.map-preview-image img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  transition: transform 0.4s ease, opacity 0.2s ease;
+}
+.map-preview-image:hover img,
+.map-preview-image:focus-visible img { transform: scale(1.015); }
+.map-preview-overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-end; justify-content: flex-end;
+  padding: var(--s-5);
+  background: linear-gradient(180deg, transparent 55%, rgba(22, 32, 26, 0.55) 100%);
+  pointer-events: none;
+}
+.map-preview-cta {
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--paper);
+  background: var(--moss); border: 1px solid var(--moss);
+  padding: 10px 18px;
+}
+.map-preview-image:hover .map-preview-cta,
+.map-preview-image:focus-visible .map-preview-cta { background: var(--clay); border-color: var(--clay); }
+.map-preview-actions {
+  display: flex; gap: var(--s-3); flex-wrap: wrap;
+  padding: var(--s-4) var(--s-5);
+  background: var(--paper);
+  border-bottom: var(--rule-soft);
+}
 .map-foot {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 10px var(--s-5); border-top: var(--rule-soft);
+  padding: 10px var(--s-5);
   font-family: var(--f-mono); font-size: 10px;
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--ink-muted); background: var(--paper);
@@ -262,7 +296,8 @@
 }
 @media (max-width: 600px) {
   .nav-links a:not(.nav-cta) { display: none; }
-  .map-frame iframe { height: 400px; }
+  .map-preview-overlay { padding: var(--s-4); }
+  .map-preview-cta { font-size: 10px; padding: 8px 14px; }
   .nav-mark svg { height: 28px; }
 }
 </style>
@@ -346,17 +381,26 @@
 </section>
 
 <!-- MAP -->
-<section id="map" class="page-section" role="region" aria-label="Interactive world map">
+<section id="map" class="page-section" role="region" aria-label="Interactive world map preview">
   <div class="section-head">
     <div class="eyebrow">&sect; 01 &middot; Explore</div>
     <h2>Global directory map.</h2>
     <p class="blurb">Filter by section. Hover any dot for details. Scroll to zoom, drag to pan. Default view shows high-confidence entries only (Tier A and B).</p>
   </div>
-  <div class="map-frame">
-    <iframe src="map.html" title="Commonweave global directory: an interactive map of mapped organizations" loading="lazy" aria-label="Interactive directory network"></iframe>
+  <div class="map-preview">
+    <a class="map-preview-image" href="map.html" aria-label="Open the interactive Commonweave directory map">
+      <img src="screenshot_final.png" alt="Preview of the Commonweave directory map showing geocoded organizations across all populated continents" loading="lazy" decoding="async" width="1600" height="900">
+      <span class="map-preview-overlay" aria-hidden="true">
+        <span class="map-preview-cta">Explore the map &rarr;</span>
+      </span>
+    </a>
+    <div class="map-preview-actions">
+      <a class="btn btn-primary" href="map.html" aria-label="Open the full interactive map">Explore the map &rarr;</a>
+      <a class="btn btn-ghost" href="directory.html" aria-label="Browse the full directory">Browse directory</a>
+    </div>
     <div class="map-foot">
       <span><span data-stat="orgs_on_map">X</span> mapped &middot; <span data-stat="countries_geocoded">X</span> countries &middot; <span data-stat="orgs_in_directory">X</span> candidates total &middot; <a href="directory.html">full directory</a></span>
-      <a href="map.html" target="_blank" rel="noopener" aria-label="Open map in full screen">Full screen &rarr;</a>
+      <a href="map.html" aria-label="Open the interactive map">Open interactive map &rarr;</a>
     </div>
   </div>
 </section>
