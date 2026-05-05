@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -789,8 +789,8 @@ html, body {
         </button>
       </div>
       <div id="tier-filter">
-        <button class="tier-btn active" data-tier="A" title="Curated: manually reviewed, has description and website">A Curated</button>
-        <button class="tier-btn active" data-tier="B" title="Verified (from registry): sourced from an official charity registry or manual curation">B Verified</button>
+        <button class="tier-btn active" data-tier="A" title="Curated: manually reviewed entries (currently empty &mdash; community auditing is open)">A Curated</button>
+        <button class="tier-btn active" data-tier="B" title="Registry-backed: sourced from an official registry or structured public source">B Registry-backed</button>
         <button class="tier-btn inactive" data-tier="C" title="Inferred: passed keyword scoring, not yet reviewed">C Inferred</button>
       </div>
       <div class="tier-legend" id="tier-legend"></div>
@@ -810,7 +810,7 @@ html, body {
       <div class="health-dots" id="health-dots"></div>
       <div class="health-text" id="health-text">- of 10 sections in dataset</div>
     </div>
-    <div class="sb-pdf"><a href="pipeline.pdf" title="How the directory gets built">📄 How we find these organizations (PDF)</a></div>
+    <div class="sb-pdf"><a href="pipeline.html" title="How the directory gets built">📄 How we find these organizations</a></div>
     <div class="sb-hint">scroll to zoom · drag to pan · click nodes for details</div>
     <div class="sb-built" id="sb-built">
       <span>Data last built: <strong id="built-date">-</strong></span>
@@ -923,7 +923,7 @@ const TIER_LABELS = {
   D: 'Unverified, not on map'
 };
 const TIER_DESCRIPTIONS = {
-  A: 'Manually reviewed. Has description and website.',
+  A: 'Reserved for manually reviewed entries; currently empty until community auditing promotes rows.',
   B: 'Sourced from a public charity registry or manual curation.',
   C: 'Passed keyword scoring, not yet reviewed.',
   D: 'Did not pass scoring or registry match. Excluded from the map.'
@@ -2930,7 +2930,7 @@ const PRESETS = [
   {
     id: 'high_confidence',
     label: 'High-confidence only',
-    desc: 'Tier A + B. ~15,854 orgs.',
+    desc: 'Tier A + B. Tier A is currently empty (community auditing open); ~15,550 Tier B orgs.',
     tiers: new Set(['A', 'B']),
     section: null,
   },
@@ -3305,3 +3305,5 @@ main().catch(e => {
 </script>
 </body>
 </html>
+
+

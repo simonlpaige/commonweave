@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Commonweave Finds and Grades Organizations</title>
+  <meta name="description" content="An editable HTML field guide to how Commonweave finds, scores, audits, and publishes organizations.">
+  <link rel="canonical" href="https://commonweave.earth/pipeline.html">
+  <meta property="og:title" content="How Commonweave Finds and Grades Organizations">
+  <meta property="og:description" content="A plain-language guide to the Commonweave data pipeline, updated with the current recovered database caveat.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://commonweave.earth/pipeline.html">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"How Commonweave Finds and Grades Organizations","dateModified":"2026-05-04","author":{"@type":"Organization","name":"Commonweave"},"about":"Commonweave data pipeline"}</script>
+  <style>
+    :root { --ink:#24170f; --muted:#6f5a49; --paper:#fbf4e8; --card:#fffaf1; --line:#d9c7ad; --clay:#a45735; --green:#2f6f4e; --gold:#d79828; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; background:var(--paper); color:var(--ink); line-height:1.62; }
+    a { color:var(--green); text-decoration-thickness:2px; text-underline-offset:3px; }
+    header { border-bottom:1px solid var(--line); background:linear-gradient(180deg,#fff8ed,var(--paper)); }
+    nav { max-width:1120px; margin:0 auto; padding:18px 24px; display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:space-between; }
+    .brand { font-weight:800; letter-spacing:.02em; color:var(--clay); text-decoration:none; }
+    .navlinks { display:flex; gap:14px; flex-wrap:wrap; font-size:.95rem; }
+    main { max-width:920px; margin:0 auto; padding:42px 24px 72px; }
+    .hero { margin-bottom:34px; }
+    .eyebrow { color:var(--clay); text-transform:uppercase; letter-spacing:.12em; font-size:.78rem; font-weight:800; }
+    h1 { font-family: Georgia, serif; font-size:clamp(2.25rem,6vw,4.7rem); line-height:.95; margin:.18em 0; max-width:11ch; }
+    h2 { font-family: Georgia, serif; font-size:2rem; line-height:1.1; margin-top:2.2em; border-top:1px solid var(--line); padding-top:1em; }
+    h3 { font-size:1.25rem; margin-top:1.8em; color:var(--clay); }
+    .dek { font-size:1.18rem; color:var(--muted); max-width:720px; }
+    .notice { background:var(--card); border:2px solid var(--gold); border-radius:18px; padding:18px 20px; margin:28px 0; box-shadow:0 8px 24px rgba(80,45,20,.08); }
+    p, li { font-size:1.02rem; }
+    ul, ol { padding-left:1.45rem; } li { margin:.42em 0; }
+    code { background:#f0e2cd; padding:.12em .35em; border-radius:5px; font-size:.92em; }
+    pre { overflow:auto; background:#24170f; color:#fff6e8; padding:18px; border-radius:14px; }
+    img { max-width:100%; border:1px solid var(--line); border-radius:16px; background:white; padding:10px; }
+    hr { border:0; border-top:1px solid var(--line); margin:36px 0; }
+    .doc-card { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:24px; margin:24px 0 34px; }
+    .toc { columns:2; column-gap:28px; font-size:.95rem; } .toc a { display:block; break-inside:avoid; margin:0 0 8px; }
+    footer { max-width:920px; margin:0 auto; padding:0 24px 48px; color:var(--muted); }
+    @media (max-width:720px){ .toc{columns:1;} nav{align-items:flex-start;} }
+  </style>
+</head>
+<body>
+<header><nav aria-label="Commonweave navigation"><a class="brand" href="index.html">Commonweave</a><div class="navlinks"><a href="directory.html">Directory</a><a href="map.html">Map</a><a href="doc.html?file=README">Docs</a><a href="pipeline.html" aria-current="page">Pipeline</a></div></nav></header>
+<main>
+  <section class="hero"><div class="eyebrow">Editable field guide</div><h1>How Commonweave finds and grades organizations</h1><p class="dek">A plain-language guide to how Commonweave finds aligned organizations, grades them, audits the list, and keeps the directory honest.</p><div class="notice"><strong>Current data caveat:</strong> recovered working DB verified 2026-05-04 has <strong>149,507 organizations</strong>, <strong>29,422 mapped rows</strong>, and <strong>158 countries</strong>. The public static export is older than the recovered working DB, so directory and map counts can differ until the next full export. Tier A is manually reviewed, Tier B is registry-backed, and Tier C is inferred from keyword scoring and not yet reviewed.</div></section>
+  <section class="doc-card" aria-label="Table of contents"><div class="eyebrow">Contents</div><div class="toc"><a href="#one-sentence-summary">One-sentence summary</a><a href="#why-this-document-exists">Why this document exists</a><a href="#stage-by-stage-walkthrough">Stage-by-stage walkthrough</a><a href="#the-grading-ladder-legibility-and-alignment">The grading ladder</a><a href="#labor-unions">Labor unions</a><a href="#land-and-housing">Land and housing</a><a href="#appendix-a-how-to-add-a-new-source">Appendix A - add a source</a><a href="#appendix-b-how-to-audit-the-list-yourself">Appendix B - audit the list</a></div></section>
+<h1 id="how-commonweave-finds-and-grades-organizations">How Commonweave Finds and Grades Organizations</h1>
+<p><em>A field guide to how we find aligned organizations, grade them, and keep the list honest.</em></p>
+<p><em>Editable HTML version - updated 2026-05-04. Current recovered working DB verified 2026-05-04: 149,507 organizations, 29,422 mapped rows, 158 countries. The public static export is older than the recovered working DB, so displayed directory/map counts may differ until the next full export.</em></p>
+<hr>
+<h2 id="one-sentence-summary">One-sentence summary</h2>
+<p>The pipeline pulls organization records from public registries and the open web, throws away the ones that obviously do not fit, scores what is left for alignment with the framework, merges duplicates only when the location agrees, flags dead-looking rows for a human to look at, and then publishes the survivors as the map, the directory, and a search index.</p>
+<p>That is it. The rest of this document is what each of those steps actually looks like in code, and why a few of the choices are stricter than they look.</p>
+<hr>
+<h2 id="why-this-document-exists">Why this document exists</h2>
+<p>Two audiences.</p>
+<p><strong>Humans</strong> - founders, journalists, skeptics, would-be contributors - keep asking a reasonable question: <em>where do all these organizations come from, and how do I know the list is not just scraped nonsense?</em> The answer is in this document, in plain language.</p>
+<p><strong>AI agents</strong> - the ones Simon or anyone else might run next week to add a source for a new country - need to know the shape of the pipeline well enough to slot a new ingester in without reading every script. Appendix A is for them.</p>
+<p>The pipeline is a bunch of small Python scripts stitched together by convention, not a big framework. If that sounds hacky, it is also the thing that lets a single person keep the whole picture in their head. That trade is deliberate.</p>
+<hr>
+<h2 id="the-big-picture">The big picture</h2>
+<p><img src="assets/pipeline-diagram.svg" alt="The Commonweave pipeline, source to published directory."></p>
+<h2 id="stage-by-stage-walkthrough">Stage-by-stage walkthrough</h2>
+<p>Each stage has a short plain description, the files that do the work, what goes in, what comes out, and one choice worth knowing about.</p>
+<h3 id="stage-1-sources">Stage 1 - Sources</h3>
+<p>We treat the world like a filing cabinet with uneven drawers. Some drawers are tidy (the IRS file of US nonprofits, the UK Charity Commission register, Wikidata). Some are a mess or offline (most of India&#39;s village-level cooperative world). We pull from the tidy drawers first because it is easy, and we keep honest notes about the drawers we have not opened yet so the list does not secretly become &quot;whatever is in English and already registered in a Western country.&quot;</p>
+<p>The sources we use today:</p>
+<ul>
+<li><strong>IRS Exempt Organizations Business Master File</strong> (US, public domain, about 1.8 million rows before filtering).</li>
+<li><strong>UK Charity Commission</strong> (England and Wales register, plus Scotland&#39;s OSCR).</li>
+<li><strong>Wikidata</strong> (a SPARQL query for cooperative, credit union, mutual aid society, and similar classes).</li>
+<li><strong>Open Food Network</strong> (the cooperative food-distribution platform and its national instances).</li>
+<li><strong>ProPublica Nonprofit Explorer</strong> (enriched US nonprofit records).</li>
+<li><strong>Targeted web research</strong> (one country at a time, written by a researcher bot that reads a recipe of searches).</li>
+<li><strong>Manual curation</strong> (hand-added entries, usually from DIRECTORY.md edits).</li>
+<li><strong>Labor unions</strong> (a Wikidata SPARQL pass for trade union federations and national unions, plus the ITUC affiliate list with a Wikipedia-mirror fallback).</li>
+<li><strong>Land and housing</strong> (a Wikidata pass for community land trusts and housing cooperatives, a seed list of Grounded Solutions Network US CLTs, Habitat for Humanity international country offices with in-place enrichment of the ~355 US Habitat affiliates already pulled from IRS data, and a construction-cooperatives source that combines Wikidata with seed entries for Mondragon, Italian construction co-ops, and French SCOPs).</li>
+</ul>
+<h3 id="stage-2-ingest">Stage 2 - Ingest</h3>
+<p>Every source has its own ingester. They all write into one SQLite database: <code>data/commonweave_directory.db</code>. The ingester&#39;s job is narrow. Download the data, turn each row into the Commonweave shape, and write it in.</p>
+<ul>
+<li><code>ingest_wikidata_bulk.py</code> runs SPARQL queries against <code>query.wikidata.org</code> for the cooperative and mutual-aid classes, optionally per-country, respects a polite two-second sleep between queries, and writes rows with <code>source=&#39;wikidata_bulk&#39;</code> and <code>legibility=&#39;formal&#39;</code>.</li>
+<li><code>ingest_gov_registry.py</code> downloads bulk files from UK, France, Japan, Australia, and New Zealand registries. It knows how to read each one&#39;s quirks and has multilingual keyword lists for English, French, Japanese, Portuguese, Spanish, and German so a French association does not get scored with only English words.</li>
+<li><code>ingest_ofn.py</code> is a hand-written list of every Open Food Network instance around the world. It is short and specific because that platform has about twenty instances, not two million.</li>
+<li><code>ingest_india.py</code> is an honest dispatcher. Today it runs the India slice of the Wikidata pull and writes a log of every other India source we <em>should</em> be pulling from (NGO Darpan, NCDC, NABARD PACS, Kudumbashree, JEEViKA, Van Panchayats, and so on), what tier each belongs to, and how long it would take to build. The point of writing those TODOs into the code is that the weekly pipeline auditor will see the gap and keep nagging until it closes.</li>
+<li><code>ingest_labor.py</code> is another dispatcher. It runs <code>ingest_unions.py</code> (Wikidata SPARQL for trade union federations, national unions, and works councils) and then <code>ingest_ituc.py</code> (affiliates of the International Trade Union Confederation). Together they add roughly 800 federation- and national-tier labor organizations with <code>legibility=&#39;formal&#39;</code> and <code>source</code> tags of <code>wikidata_unions</code> or <code>ituc_affiliates</code>. Locals are out of scope for this first pass.</li>
+<li><code>ingest_land_and_housing.py</code> is the land-and-housing dispatcher. It runs four children: <code>ingest_land_trusts.py</code> (Wikidata SPARQL for community land trusts Q3278937 and housing cooperatives Q562166, ~440 new rows), <code>ingest_grounded_solutions.py</code> (the Grounded Solutions Network member-spotlight feed plus a curated seed list of US, UK, Canadian, and Belgian CLTs, ~40 rows), <code>ingest_habitat.py</code> (enriches the ~355 US Habitat for Humanity affiliates already in IRS_EO_BMF and adds ~65 international country offices), and <code>ingest_construction_coops.py</code> (Wikidata plus a seed list of Mondragon, Italian, French SCOP, and US/UK worker-owned construction firms, ~80 rows). Every row gets <code>legibility=&#39;formal&#39;</code>.</li>
+<li><code>researcher_HN.py</code> and its siblings are per-country research bots. Each one runs a fixed set of searches in the local language, validates the results, and writes a markdown file under <code>data/regional/</code>. <code>run_next_country.py</code> is the orchestrator that picks the next country off <code>QUEUE.txt</code> that has not been completed, runs the researcher, and updates <code>country_research_state.json</code>.</li>
+</ul>
+<p>Every ingester tags the rows it writes with a <strong>legibility</strong> value (see Stage 4), a <strong>source</strong> string, and a <strong>source_id</strong> (for example the Wikidata QID, the IRS EIN, or the UK charity number). The source_id is what lets us avoid inserting the same row twice when we re-run.</p>
+<h3 id="stage-3-classify-and-score">Stage 3 - Classify and score</h3>
+<p>Raw records are useless if you cannot tell a community land trust from a country club. Classification happens in two places.</p>
+<p>The ingester makes a first pass using <code>classify_org_ml</code> in <code>ingest_gov_registry.py</code>. This function looks at the name and description in the row&#39;s native language, checks it against keyword lists for each framework area (healthcare, food, democracy, and so on), and returns three things: the best-guess framework area, an alignment score, and a &quot;should exclude&quot; flag. Obvious exclusions (churches that are only places of worship, golf clubs, homeowners associations, chambers of commerce, booster clubs) are dropped at this step.</p>
+<p>A second pass, <code>phase2_filter.py</code>, re-scores every active row in the whole database using a combined bank of English terms and the multilingual bank from <code>i18n_terms.py</code> (about 350 alignment terms across roughly 30 languages). This pass also sets a <code>model_type</code> column (cooperative, mutual_aid, foundation, research, federation, or nonprofit) so we can filter by shape of organization, not just topic.</p>
+<p><code>phase3_intl_fix.py</code> cleans up international rows that still do not have a framework area by scoring their name and description against a small English keyword set, so a row like &quot;Kenya Community Health Network&quot; gets <code>framework_area=&#39;healthcare&#39;</code> rather than <code>NULL</code>.</p>
+<p>One design choice worth naming: the pipeline never invents alignment that is not in the text. If a registry says &quot;The Acme Society&quot; and gives no description, the row gets a low score and usually gets trimmed. The pipeline would rather under-count than pretend it knows things it does not.</p>
+<h3 id="stage-4-the-legibility-ladder">Stage 4 - The legibility ladder</h3>
+<p>This one matters on its own, so it gets its own section below. Short version: every row also carries a <code>legibility</code> value - <code>formal</code>, <code>hybrid</code>, <code>informal</code>, or <code>unknown</code> - that tracks <em>how</em> we found the organization. A formal cooperative with a government registration number is easy to find and easy to verify. An informal mutual aid network in a village is often not. We do not hide that difference, we label it.</p>
+<h3 id="stage-5-geocode">Stage 5 - Geocode</h3>
+<p><code>phase1_geocode.py</code> gives every active row a latitude and longitude, with a <code>geo_source</code> tag that says how precise the coordinate is.</p>
+<ul>
+<li>US rows: try an exact city match against a cached US cities file, then fall back to the state centroid.</li>
+<li>International rows: use the country centroid.</li>
+</ul>
+<p>This is not surveying-grade accuracy. It is good enough for a world map that is honest about its resolution. The map&#39;s popup will tell you whether a pin came from a city match or a country centroid, so nobody mistakes a country-level dot for a specific street address.</p>
+<h3 id="stage-6-audit-passes">Stage 6 - Audit passes</h3>
+<p>Before anything goes out, we run through three audit passes and a quality pass. Each pass labels rows it disqualifies, rather than deleting them. The CSVs of what was excluded live in <code>data/trim_audit/</code> so anyone can look at what got cut and argue with the call.</p>
+<ul>
+<li><code>audit_pass1.py</code> - Pass 1, hard exclusion by name pattern. Churches that are only houses of worship, fraternal orders, homeowners associations, booster clubs, cemeteries, kennel clubs, professional guilds, and political party committees. Their <code>status</code> becomes <code>excluded_audit_p1</code>.</li>
+<li><code>audit_pass2.py</code> - Pass 2, strict alignment. A row has to match at least one strong positive signal (cooperative, community land trust, mutual aid, food sovereignty, and so on) to survive. Zero-signal rows become <code>excluded_audit_p2</code>.</li>
+<li><code>audit_pass3_ntee.py</code> - Pass 3, for US rows only. Keep only the NTEE major categories that match Commonweave&#39;s scope (C, E, F, I, J, K, L, O, P, Q, R, S, W). Everything else becomes <code>excluded_audit_p3</code>.</li>
+<li><code>audit_quality.py</code> - A random-sample auditor that flags suspicious patterns after the passes have run.</li>
+<li><code>run_audit.py</code> - An agent-style runner that does both filtering and enrichment (filling in missing websites and descriptions) in resumable batches.</li>
+</ul>
+<p><code>trim_to_aligned.py</code> is the last stop. It keeps only rows with <code>status=&#39;active&#39;</code> and <code>alignment_score &gt;= 2</code>. Everything else gets exported to a CSV and deleted. That is the only destructive step, and it happens after every prior label has been written so nothing disappears quietly.</p>
+<h3 id="stage-7-deduplicate-only-when-the-location-agrees">Stage 7 - Deduplicate (only when the location agrees)</h3>
+<p><code>dedup_merge.py</code> is where the pipeline is most careful.</p>
+<p>The naive version is: group by normalized name plus country code, collapse each group into a single row. That is the version that deletes real organizations. &quot;Farmers Cooperative Society&quot; exists in thousands of Indian villages. A matching name in the same country tells us nothing about whether two rows are the same group.</p>
+<p>So the script splits each candidate group into two tiers:</p>
+<ul>
+<li><strong>Auto-merge</strong>: rows that share a location signal. Either the same city, the same postal code, or latitudes and longitudes within about five kilometers of each other.</li>
+<li><strong>Review</strong>: rows whose locations disagree, or whose locations are missing. These get written to a review file for a human to decide.</li>
+</ul>
+<p>Auto-merged rows are soft-deleted with <code>status=&#39;merged&#39;</code> and a <code>merged_into</code> pointer back to the canonical row, so any link in the wild that points to the old ID keeps working.</p>
+<h3 id="stage-8-staleness-check-never-auto-archives">Stage 8 - Staleness check (never auto-archives)</h3>
+<p><code>staleness_check.py</code> pings the website on each organization&#39;s row and counts how many times it fails. After three fails it sets <code>staleness_flag=&#39;needs_review&#39;</code>. It never flips the row to archived on its own.</p>
+<p>The reason for the care: a website-centric check, applied naively, systematically prunes the most marginalized organizations. Grassroots, informal, non-Western, or social-media-first groups often have no domain or a link that is down for a month and then back. The script skips those on purpose:</p>
+<ul>
+<li>Rows with <code>legibility=&#39;informal&#39;</code> or <code>&#39;hybrid&#39;</code> are skipped entirely.</li>
+<li>Rows whose description or notes point at Facebook, WhatsApp, Telegram, Twitter, Instagram, YouTube, or TikTok are skipped. A social-first organization is not dead because its website is down or never existed.</li>
+<li>Rows added in the last thirty days are skipped. Let them settle.</li>
+<li>Rows with no website are skipped. Their presence in the directory is not conditional on having one.</li>
+</ul>
+<h3 id="stage-9-publish">Stage 9 - Publish</h3>
+<p>Three build scripts turn the database into the things people look at.</p>
+<ul>
+<li><code>build_map_v2.py</code> assigns a quality tier (A manually reviewed, B registry-backed, C inferred, D unreviewed) to each active row based on data completeness and review status, computes network edges between organizations that share a framework area and are close by, and writes <code>map_points_v2.json</code>, <code>map_edges.json</code>, and <code>map_aggregates.json</code>. The front-end at <code>map.html</code> reads those.</li>
+<li><code>build_search_index.py</code> writes one JSON file per country under <code>data/search/</code>. The directory at <code>directory.html</code> loads these on demand as the user picks a country.</li>
+<li><code>export_directory.py</code> writes a curated markdown summary at <code>DIRECTORY.md</code> with stats, featured organizations, and embedded regional research.</li>
+</ul>
+<h3 id="stage-10-the-self-improvement-loop">Stage 10 - The self-improvement loop</h3>
+<p><code>pipeline_auditor.py</code> runs once a week. It is read-only. It never writes to the database. Its job is to look at the current state of the pipeline and write a short proposal file to <code>data/trim_audit/proposals-YYYY-MM-DD.md</code>.</p>
+<p>Every proposal has to cite a named source and specific numbers from this run. Generic proposals get dropped before the file is written. If a proposal has been ignored for three weeks in a row, the auditor retires it to <code>rejected-proposals.md</code> so we do not nag forever about something that has been decided.</p>
+<p>This is the sharpening wheel. It means the pipeline gets a little better every week without Simon having to remember what it forgot last month.</p>
+<h2 id="the-grading-ladder-legibility-and-alignment">The grading ladder (legibility and alignment)</h2>
+<p>Commonweave tries to be honest about what it can and cannot see. Two columns do the heavy lifting.</p>
+<h3 id="legibility-how-an-organization-became-visible-to-us">Legibility: how an organization became visible to us</h3>
+<p>The <code>legibility</code> column was added on 2026-04-22 because the pipeline was pulling almost entirely from Western, English-language, government-registered sources, and that was starting to look like the framework&#39;s answer rather than its starting point. The column takes four values:</p>
+<ul>
+<li><strong>formal</strong> - registered legal entity found through a government registry, Wikidata, or an official NGO directory. The default for most of the current database.</li>
+<li><strong>hybrid</strong> - registered but primarily operates informally. A farmer producer organization that exists on paper but lives through village-level practice. A self-help-group federation that has a state identifier but works person-to-person.</li>
+<li><strong>informal</strong> - unregistered. A sangha, a mutual aid network, a forest or water commons, a neighborhood collective. These are the hardest to find and usually come from hand research, not from bulk ingest.</li>
+<li><strong>unknown</strong> - not yet classified. The migration default for existing rows.</li>
+</ul>
+<p>The legibility ladder does not say one tier is better than another. It says: here is what we are biased toward, in numbers, so you can argue with us.</p>
+<h3 id="alignment-how-well-the-row-matches-the-framework">Alignment: how well the row matches the framework</h3>
+<p>The <code>alignment_score</code> column runs from about minus three to plus ten. It is the sum of keyword hits in the name and description, weighted by how strong each signal is, with penalties for exclusion words. A row scoring less than two gets trimmed at <code>trim_to_aligned.py</code>. A row scoring five or more is in the defensible core that shows up in featured counts.</p>
+<p>Alignment is a text-matching score, not an ideological read. A health nonprofit that lobbies against universal healthcare would match the keyword &quot;health&quot; just fine. The framework acknowledges this openly and treats the score as a <em>sector relevance</em> signal, not a political one. Human review is the layer where political fit gets sharpened.</p>
+<hr>
+<h2 id="labor-unions">Labor unions</h2>
+<p>Labor unions are one of the oldest working examples of democratic ownership of a commons, and yet the first pass of Commonweave did not include them. The labor branch closes that gap. It runs in two sources stitched together by <code>ingest_labor.py</code>.</p>
+<p><code>ingest_unions.py</code> queries Wikidata for three classes: trade union federation (Q3395115), national trade union center (Q11038979), and trade union (Q178790). The third class is broad enough to include locals, so it is restricted to organizations with both a country (P17) and a headquarters (P159) set, which in practice keeps only the national-tier bodies. A fourth class, works council (Q1141395), is included for the legally-mandated worker representation systems in Germany, Austria, the Netherlands, and similar jurisdictions. Every row inserted gets <code>legibility=&#39;formal&#39;</code>, because Wikidata-notable unions are by definition registered and documented. The Wikidata item URL is stored as the evidence URL so a reader can verify each row.</p>
+<p><code>ingest_ituc.py</code> pulls the list of ITUC affiliates. The ITUC site itself returns 403 Forbidden to non-browser clients, so the script falls back to the Wikipedia article &quot;International Trade Union Confederation&quot;, whose community-maintained affiliate table is the public mirror of the ITUC list. The fallback is documented in the script header. HTML and wikitext responses are cached under <code>data/sources/ituc-cache/</code> so a re-run does not re-hit the network.</p>
+<p>Both ingesters are idempotent. Wikidata unions key on the QID; ITUC affiliates key on the Wikipedia article title. Re-running updates the existing row rather than creating a duplicate. The federation-and-national-only scope is a deliberate v1 choice. Locals are a v2 conversation and would require either a country-by-country registry ingest or a much heavier scrape of each national federation&#39;s site.</p>
+<p>Federation names in the ITUC list are carried with their acronym and, where Wikipedia has it, their 2012 membership count in the description field, so a reader can see &quot;CGT, 700,000 members&quot; rather than just the name. Dedup is left to the normal <code>dedup_merge.py</code> pass, which will collapse the occasional Wikidata-plus-ITUC duplicate only when the location agrees.</p>
+<h2 id="land-and-housing">Land and housing</h2>
+<p>Community land trusts, housing cooperatives, sweat-equity programs, and construction cooperatives are the second pillar of the framework after labor. The land-and-housing branch closes that gap. It runs in four sources stitched together by <code>ingest_land_and_housing.py</code>.</p>
+<p><code>ingest_land_trusts.py</code> queries Wikidata for two classes: community land trust (Q3278937) and housing cooperative (Q562166). The brief that scoped this pass cited the wrong QIDs for both, which is a small but instructive reminder that Wikidata IDs should be verified by running a label query before they are trusted. The correct IDs above were found by <code>wbsearchentities</code> and confirmed against instance counts. Every row inserted gets <code>legibility=&#39;formal&#39;</code> and the Wikidata item URL as the evidence URL.</p>
+<p><code>ingest_grounded_solutions.py</code> is a two-part source. The Grounded Solutions Network&#39;s US CLT directory URL is a 404 as of 2026-04-24 and has no Wayback snapshot, so the primary path only caches the failure as evidence we tried. The fallback uses the WordPress REST API on <code>/wp-json/wp/v2/posts</code> with category filters for the Member Profile and Member Spotlight categories, which yields about eight blog posts about specific members. On top of that the script adds a curated seed list of 35 well-documented CLTs (Champlain Housing Trust, Dudley Neighbors, Oakland CLT, London CLT, and so on) so the branch has a real CLT footprint even though the global directory is not scrapeable today. Adding or editing names in the seed list is a normal code change rather than a data migration.</p>
+<p><code>ingest_habitat.py</code> does two things. First, it enriches the ~355 Habitat-for-Humanity rows already in the database from IRS_EO_BMF, tagging them with <code>registration_type=&#39;land_and_housing/sweat_equity_program&#39;</code>, <code>framework_area=&#39;housing_land&#39;</code>, <code>model_type=&#39;sweat_equity_program&#39;</code>, and <code>legibility=&#39;formal&#39;</code>. Second, it inserts ~65 international Habitat country offices (Habitat Brazil, Habitat Kenya, Habitat Philippines, and so on) from a hand-maintained seed list, with the country-office website as the evidence URL. The international list is kept in the script rather than scraped because habitat.org renders its where-we-work page client-side; a plain GET returns an HTML shell with no affiliate data.</p>
+<p><code>ingest_construction_coops.py</code> combines a Wikidata SPARQL query for cooperatives whose English label contains a construction-related token (construction, building, trades, and the German Bau) with a seed list of about 45 well-known construction and trades co-ops. The Mondragon Corporation (Spain), CMC Ravenna and CMB Carpi (Italy), Scopelec and UTB (France), South Mountain Company and Namaste Solar (US), and Co-operatives UK (UK) are all in the seed list. Construction co-ops are worker co-ops whose industry happens to be construction, so rows land in <code>framework_area=&#39;cooperatives&#39;</code> with <code>registration_type=&#39;labor/construction_cooperative&#39;</code>, not in the housing branch. The Wikidata half is noisy (about three quarters of the rows are German Baugenossenschaft entries that overlap with housing cooperatives) and dedup is left to <code>dedup_merge.py</code> as usual.</p>
+<p>Across all four, about 630 new rows land in the database per run, plus another ~355 IRS Habitat rows get enriched in place. The branch is federation- and regional-tier only; individual housing co-op tenants, unregistered squats, and informal settlements are deliberately out of scope for v1 and would need human review before landing in the directory.</p>
+<h2 id="the-self-improvement-loop-up-close">The self-improvement loop, up close</h2>
+<p>One more word on <code>pipeline_auditor.py</code>, because it is the part that keeps the list from rotting.</p>
+<p>Every Sunday, the auditor walks the database and the logs and asks five questions:</p>
+<ol>
+<li><strong>Coverage.</strong> Which countries are thin? Which framework areas are thin, relative to population and to the framework&#39;s own predictions?</li>
+<li><strong>Legibility.</strong> What fraction of each country is formal, hybrid, informal, or unknown? Flag countries that are nearly all formal as bias-narrow.</li>
+<li><strong>Quality.</strong> How filled-in are the fields? What is the staleness rate? How is the alignment score distributed?</li>
+<li><strong>Source performance.</strong> Which ingesters are plateauing? Which sources have stopped paying for their slot?</li>
+<li><strong>Unbuilt proposals.</strong> Read the last four weeks of proposals. Anything still not built? If it has been ignored three weeks in a row, retire it.</li>
+</ol>
+<p>The proposals file is how Codex, or a future maintainer, or Simon when he has a Saturday, knows what to look at next. It is the to-do list the pipeline writes for itself.</p>
+<h2 id="appendix-a-how-to-add-a-new-source">Appendix A - How to add a new source</h2>
+<p>For humans or AI agents extending the pipeline. Follow these steps in order.</p>
+<ol>
+<li><strong>Pick the source.</strong> A public registry, an open dataset, a thematic directory, or a single website worth scraping once. Write a one-paragraph note about what it is, how big it is, what license it uses, and what shape the data is in (CSV, JSON, XML, API, a web page). If it is a web-only source with no open data, expect to spend most of your time on a scraper, not on ingestion.</li>
+</ol>
+<ol>
+<li><strong>Write a new file at <code>commonweave/data/ingest_&lt;source&gt;.py</code>.</strong> Model it after the closest existing ingester:</li>
+</ol>
+<p>   - Bulk CSV or ZIP download → copy <code>ingest_gov_registry.py</code>.    - SPARQL or REST API with per-class or per-country queries → copy <code>ingest_wikidata_bulk.py</code>.    - A hand-written list of known entities → copy <code>ingest_ofn.py</code>.    - A dispatcher that runs multiple slices and writes a log of TODO sources → copy <code>ingest_india.py</code>.</p>
+<ol>
+<li><strong>Use the shared helpers in <code>_common.py</code>.</strong> Use <code>DB_PATH</code> so you write to the right database. Call <code>ensure_column</code> if your source needs a new column. Call <code>normalize_name</code> before any dedup check. Use <code>trim_audit_path(&#39;ingest-&lt;source&gt;&#39;)</code> for your run log.</li>
+</ol>
+<ol>
+<li><strong>Populate these database columns on every row you insert</strong> (the minimum):</li>
+</ol>
+<p>   - <code>name</code>, <code>country_code</code>, <code>country_name</code>    - <code>registration_id</code>, <code>registration_type</code> (for example <code>&#39;WIKIDATA_QID&#39;</code>, <code>&#39;UK_CHARITY&#39;</code>, <code>&#39;IRS_EIN&#39;</code>)    - <code>description</code>, <code>website</code> (both allowed empty but better if filled)    - <code>source</code> - the short identifier you will grep for later    - <code>source_id</code> - the unique key in the source system (so re-runs do not duplicate)    - <code>framework_area</code>, <code>alignment_score</code> - set by <code>classify_org_ml</code> or the equivalent    - <code>legibility</code> - one of <code>formal</code>, <code>hybrid</code>, <code>informal</code>. Do not guess. If your source is a government registry, <code>formal</code>. If it is informal mutual aid research, <code>informal</code>. If mixed, <code>hybrid</code>.    - <code>status=&#39;active&#39;</code>    - <code>date_added</code> - ISO timestamp</p>
+<ol>
+<li><strong>Always use <code>INSERT OR IGNORE</code></strong> keyed on <code>source</code> plus <code>source_id</code>. Re-running your ingester should be a no-op on rows already present.</li>
+</ol>
+<ol>
+<li><strong>Score, do not assume.</strong> Route every row through <code>classify_org_ml</code> (import from <code>ingest_gov_registry</code>). If the exclude flag is true, skip. If the score is below one and the name is not a recognized nonprofit entity type (cooperative, foundation, trust, charity, and so on in several languages via <code>is_nonprofit_entity_type</code>), skip.</li>
+</ol>
+<ol>
+<li><strong>Log the run</strong> to <code>data/trim_audit/ingest-&lt;source&gt;-YYYY-MM-DD.md</code> with counts: rows seen, rows inserted, rows skipped with reason, rows excluded by the scorer, errors.</li>
+</ol>
+<ol>
+<li><strong>Register the source in the weekly auditor.</strong> Nothing formal. Just make sure the auditor&#39;s coverage report will see your new rows. The auditor reads the whole <code>organizations</code> table, so as long as your rows are in, they will show up.</li>
+</ol>
+<ol>
+<li><strong>Document.</strong> Add a one-line entry for your new source to <code>DATA.md</code> under the Current Composition table. If the source deserves its own note, add a subsection to <code>META-DIRECTORY.md</code>.</li>
+</ol>
+<ol>
+<li><strong>Test, then run.</strong> Run with <code>--dry-run</code> first if the ingester supports it, check a sample of rows by hand, then run for real. Expect the first real run to surface bugs in your classification call.</li>
+</ol>
+<p>A brand-new ingester done right is about 200 lines of Python plus a day of watching what it actually pulled.</p>
+<hr>
+<h2 id="appendix-b-how-to-audit-the-list-yourself">Appendix B - How to audit the list yourself</h2>
+<p>Three places to look.</p>
+<p><strong>The trim audit folder</strong>, at <code>commonweave/data/trim_audit/</code>. Every exclusion pass writes a CSV there of the rows it cut and why. <code>proposals-YYYY-MM-DD.md</code> files are the weekly auditor&#39;s notes. Reading a month&#39;s worth of proposals is the fastest way to see what is wrong with the pipeline right now.</p>
+<p><strong>The search JSON</strong>, at <code>commonweave/data/search/&lt;COUNTRY&gt;.json</code>. One file per country. Pick one with fewer than fifty organizations and read it end to end. Any row that looks wrong is a finding. File a pull request with corrections and a one-line note at the top of the JSON explaining what you checked.</p>
+<p><strong>The database directly</strong>, at <code>commonweave/data/commonweave_directory.db</code> (gitignored, local only). SQLite, so <code>sqlite3</code> from the command line works. The schema is in <code>DATA.md</code>. Two queries worth running:</p>
+<ul>
+<li><code>SELECT country_code, legibility, COUNT(*) FROM organizations WHERE status=&#39;active&#39; GROUP BY country_code, legibility</code> - shows which countries lean formal and which have any informal coverage.</li>
+<li><code>SELECT framework_area, COUNT(*) FROM organizations WHERE status=&#39;active&#39; GROUP BY framework_area</code> - shows where the data is thin (energy_digital at 40 rows, for example).</li>
+</ul>
+<p>Anything surprising in either of those is worth writing up.</p>
+<hr>
+<h2 id="footer">Footer</h2>
+<ul>
+<li>Repository: <a href="https://github.com/simonlpaige/commonweave">github.com/simonlpaige/commonweave</a></li>
+<li>Directory: <a href="https://commonweave.earth/directory.html">commonweave.earth/directory</a></li>
+<li>Interactive map: <a href="https://commonweave.earth/map.html">commonweave.earth/map</a></li>
+</ul>
+<p><em>This document describes how the list is made. The list itself lives at the directory link above. Corrections and pull requests welcome.</em></p>
+</main><footer><p>Commonweave is public work. Corrections welcome.</p></footer>
+</body>
+</html>
+

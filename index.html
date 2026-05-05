@@ -347,7 +347,7 @@
   <p class="hero-sub">
     Commonweave is an open directory of organizations already weaving healthier communities together.
     Cooperatives, mutual aid networks, community land trusts, community energy, open governance tools.
-    The map shows <span data-stat="orgs_on_map">X</span> entries with verified coordinates across <span data-stat="countries_geocoded">X</span> countries, drawn from a wider candidate pool of <span data-stat="orgs_in_directory">X</span> organisations.
+    The map shows <span data-stat="orgs_on_map">29,566</span> entries with geocoded coordinates across <span data-stat="countries_geocoded">102</span> countries, drawn from a wider candidate pool of <span data-stat="orgs_in_directory">168,650</span> organisations.
   </p>
   <div class="btn-row">
     <a href="#map" class="btn btn-primary">Explore the map</a>
@@ -359,9 +359,9 @@
 
 <!-- STATS -->
 <div class="stats-strip" role="region" aria-label="Project statistics">
-  <div class="stat-cell"><div class="stat-n" data-stat="orgs_in_directory">X</div><div class="stat-l">Candidates in directory</div></div>
-  <div class="stat-cell"><div class="stat-n" data-stat="orgs_on_map">X</div><div class="stat-l">Mapped organizations</div></div>
-  <div class="stat-cell"><div class="stat-n" data-stat="countries_geocoded">X</div><div class="stat-l">Countries on the map</div></div>
+  <div class="stat-cell"><div class="stat-n" data-stat="orgs_in_directory">168,650</div><div class="stat-l">Candidates in directory</div></div>
+  <div class="stat-cell"><div class="stat-n" data-stat="orgs_on_map">29,566</div><div class="stat-l">Mapped organizations</div></div>
+  <div class="stat-cell"><div class="stat-n" data-stat="countries_geocoded">102</div><div class="stat-l">Countries on the map</div></div>
   <div class="stat-cell"><div class="stat-n">~30</div><div class="stat-l">Languages in the pipeline</div></div>
   <div class="stat-cell"><div class="stat-n">10</div><div class="stat-l">Framework sections</div></div>
   <div class="stat-cell"><div class="stat-n">CC0</div><div class="stat-l">Fully open data</div></div>
@@ -370,13 +370,13 @@
 <!-- METHODOLOGY -->
 <section class="page-section narrow" role="note" aria-label="Data methodology">
   <div class="note">
-    <strong>About this data.</strong> Commonweave pulls from 25+ public registries and thematic global networks: IRS Exempt Organizations BMF, UK Charity Commission, Australia ACNC, Brazil Mapa das OSCs, the ICA, RIPESS, Mutual Aid Hub, the Transition Network, and many more. The pipeline runs candidates through a multilingual alignment filter to keep only entries that actually embody one of the framework sections (cooperatives, mutual aid, community land trusts, food sovereignty, participatory democracy, restorative justice, and the rest). Right now <span data-stat="orgs_in_directory">X</span> organisations have survived the filter; <span data-stat="orgs_on_map">X</span> of those have coordinates and appear on the map across <span data-stat="countries_geocoded">X</span> countries. Tier A entries are manually reviewed; Tier B is registry-backed; Tier C is inferred from keyword scoring and not yet reviewed. <a href="DATA.md">Full methodology &rarr;</a>
+    <strong>About this data.</strong> Commonweave pulls from 25+ public registries and thematic global networks: IRS Exempt Organizations BMF, UK Charity Commission, Australia ACNC, Brazil Mapa das OSCs, the ICA, RIPESS, Mutual Aid Hub, the Transition Network, and many more. The pipeline runs candidates through a multilingual alignment filter to keep only entries that actually embody one of the framework sections (cooperatives, mutual aid, community land trusts, food sovereignty, participatory democracy, restorative justice, and the rest). Right now <span data-stat="orgs_in_directory">168,650</span> organisations have survived the filter; <span data-stat="orgs_on_map">29,566</span> of those have coordinates and appear on the map across <span data-stat="countries_geocoded">102</span> countries. Tier A is reserved for manually reviewed entries (currently empty &mdash; community auditing is open); Tier B is registry-backed; Tier C is inferred from keyword scoring and not yet reviewed. <a href="https://github.com/simonlpaige/commonweave/blob/master/DATA.md">Full methodology &rarr;</a>
   </div>
   <div class="note">
-    <strong>Multilingual pipeline.</strong> The scoring bots now recognise alignment terms in roughly 30 languages: Spanish <em>cooperativa</em>, Portuguese <em>economia solid&aacute;ria</em>, Japanese <em>&#21332;&#21516;&#32068;&#21512;</em>, Mandarin <em>&#21512;&#20316;&#31038;</em>, Arabic <em>&#1578;&#1593;&#1575;&#1608;&#1606;&#1610;&#1577;</em>, Yoruba <em>egbe ajose</em>, Quechua <em>ayni/minga</em>, Amharic <em>&#4840;&#4764;&#4672;&#4725;</em>, plus Indigenous land-commons concepts like <em>ejido</em>, <em>waqf</em>, <em>hima</em>, <em>gotong-royong</em>, <em>iriai-chi</em>, <em>usi civici</em>. Researcher bots build search queries in every language spoken in a country, not just English. Full term bank: <a href="MULTILINGUAL-TERMS.md">MULTILINGUAL-TERMS.md</a>.
+    <strong>Multilingual pipeline.</strong> The scoring bots now recognise alignment terms in roughly 30 languages: Spanish <em>cooperativa</em>, Portuguese <em>economia solid&aacute;ria</em>, Japanese <em>&#21332;&#21516;&#32068;&#21512;</em>, Mandarin <em>&#21512;&#20316;&#31038;</em>, Arabic <em>&#1578;&#1593;&#1575;&#1608;&#1606;&#1610;&#1577;</em>, Yoruba <em>egbe ajose</em>, Quechua <em>ayni/minga</em>, Amharic <em>&#4840;&#4764;&#4672;&#4725;</em>, plus Indigenous land-commons concepts like <em>ejido</em>, <em>waqf</em>, <em>hima</em>, <em>gotong-royong</em>, <em>iriai-chi</em>, <em>usi civici</em>. Researcher bots build search queries in every language spoken in a country, not just English. Full term bank: <a href="https://github.com/simonlpaige/commonweave/blob/master/MULTILINGUAL-TERMS.md">MULTILINGUAL-TERMS.md</a>.
   </div>
-  <div class="last-updated-note">
-    Public page counters reflect the last generated site export, <strong id="stats-last-built">&mdash;</strong>. Current recovered working DB verified 2026-05-04: 149,507 organizations, 29,422 mapped rows, 158 countries.
+  <div class="note">
+    <strong>Data snapshot.</strong> Headline counts above are pulled at runtime from the published static export (last built <strong id="stats-last-built">2026-04-28</strong>). The working database has since been recovered and re-verified; rebuilt totals are tracked in <a href="https://github.com/simonlpaige/commonweave/blob/master/README.md">README.md</a>. Treat these numbers as a public snapshot, not a real-time count.
   </div>
 </section>
 
@@ -385,7 +385,7 @@
   <div class="section-head">
     <div class="eyebrow">&sect; 01 &middot; Explore</div>
     <h2>Global directory map.</h2>
-    <p class="blurb">Filter by section. Hover any dot for details. Scroll to zoom, drag to pan. Default view shows high-confidence entries only (Tier A and B).</p>
+    <p class="blurb">Filter by section. Hover any dot for details. Scroll to zoom, drag to pan. Default view hides Tier C (inferred) candidates; flip the switch in the map sidebar to include them.</p>
   </div>
   <div class="map-preview">
     <a class="map-preview-image" href="map.html" aria-label="Open the interactive Commonweave directory map">
@@ -399,7 +399,7 @@
       <a class="btn btn-ghost" href="directory.html" aria-label="Browse the full directory">Browse directory</a>
     </div>
     <div class="map-foot">
-      <span><span data-stat="orgs_on_map">X</span> mapped &middot; <span data-stat="countries_geocoded">X</span> countries &middot; <span data-stat="orgs_in_directory">X</span> candidates total &middot; <a href="directory.html">full directory</a></span>
+      <span><span data-stat="orgs_on_map">29,566</span> mapped &middot; <span data-stat="countries_geocoded">102</span> countries &middot; <span data-stat="orgs_in_directory">168,650</span> candidates total &middot; <a href="directory.html">full directory</a></span>
       <a href="map.html" aria-label="Open the interactive map">Open interactive map &rarr;</a>
     </div>
   </div>
@@ -417,61 +417,61 @@
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Healthcare</div>
       <div class="sec-desc">Open-source health IT, community health worker models, universal systems that demonstrably work.</div>
-      <div class="sec-meta"><strong data-section="healthcare">X</strong> organizations</div>
+      <div class="sec-meta"><strong data-section="healthcare">6,064</strong> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#8E7B4E">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Education</div>
       <div class="sec-desc">Open courseware, democratic schooling, offline-first platforms, 300M+ Moodle users.</div>
-      <div class="sec-meta"><strong data-section="education">X</strong> organizations</div>
+      <div class="sec-meta"><strong data-section="education">3,871</strong> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#D9A78F">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Food sovereignty</div>
       <div class="sec-desc">Agroecology, seed sovereignty, open food networks, CSA movements, 200M peasant farmers.</div>
-      <div class="sec-meta"><strong data-section="food">X</strong> organizations</div>
+      <div class="sec-meta"><strong data-section="food">3,507</strong> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#4A6B4F">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Democratic infrastructure</div>
       <div class="sec-desc">Verifiable voting, liquid democracy, sortition, participatory platforms, citizens' assemblies.</div>
-      <div class="sec-meta"><strong data-section="democracy">X</strong> organizations</div>
+      <div class="sec-meta"><strong data-section="democracy">8,816</strong> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#C9B98C">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Land &amp; housing</div>
       <div class="sec-desc">Community land trusts, Vienna social housing, stewardship over speculation.</div>
-      <div class="sec-meta"><strong data-section="housing_land">X</strong> organizations</div>
+      <div class="sec-meta"><strong data-section="housing_land">2,611</strong> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#2F4A33">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Ecological restoration</div>
       <div class="sec-desc">Beyond-GDP governance, regenerative ecology, watershed stewardship, biodiversity recovery.</div>
-      <div class="sec-meta"><strong data-section="ecology">X</strong> organizations</div>
+      <div class="sec-meta"><strong data-section="ecology">2,269</strong> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#7E3C26">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Conflict resolution</div>
       <div class="sec-desc">Restorative justice, transitional justice, community accountability. Significant recidivism reduction in studied programs.</div>
-      <div class="sec-meta"><strong data-section="conflict">X</strong> organizations</div>
+      <div class="sec-meta"><strong data-section="conflict">895</strong> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#1E3322">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Cooperatives &amp; solidarity</div>
       <div class="sec-desc">Worker cooperatives, mutual aid networks, community wealth building, credit unions.</div>
-      <div class="sec-meta"><strong data-section="cooperatives">X</strong> organizations</div>
+      <div class="sec-meta"><strong data-section="cooperatives">1,332</strong> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#B8C4A8">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Recreation &amp; arts</div>
       <div class="sec-desc">Basic income for artists, open cultural heritage, freely licensed media.</div>
-      <div class="sec-meta"><strong data-section="recreation_arts">X</strong> organizations</div>
+      <div class="sec-meta"><strong data-section="recreation_arts">127</strong> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#5A6A5C">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Energy &amp; digital commons</div>
       <div class="sec-desc">Community energy cooperatives, federated protocols, 900 US rural electric co-ops serving 42M.</div>
-      <div class="sec-meta"><strong data-section="energy_digital">X</strong> organizations</div>
+      <div class="sec-meta"><strong data-section="energy_digital">74</strong> organizations</div>
     </div>
   </div>
 </section>
@@ -485,7 +485,7 @@
   <p>Here is a thing that is true and that almost no one talks about clearly: <strong>the machines are going to do most of the work.</strong> Not eventually. Now, and accelerating. The interesting question isn't whether that happens. It's who benefits when it does.</p>
   <p>Right now the answer is: whoever owns the machines. That's a design choice, not a law of nature. You could design it differently.</p>
   <p>Commonweave is an attempt to think carefully about what "differently" actually means. What systems would need to exist, how you'd build them, what's already being built, and how you get from here to there without everything going badly wrong in the middle.</p>
-  <p>The directory indexes organizations from public registries across <span data-stat="countries_any">X</span> countries: <strong>community land trusts, worker cooperatives, open-source health systems, participatory democracy tools, community energy grids</strong>. Filtered to entries that actually embody pieces of the answer. That's what Paul Hawken saw in 2007. That's what this continues.</p>
+  <p>The directory indexes organizations from public registries across <span data-stat="countries_any">183</span> countries: <strong>community land trusts, worker cooperatives, open-source health systems, participatory democracy tools, community energy grids</strong>. Filtered to entries that actually embody pieces of the answer. That's what Paul Hawken saw in 2007. That's what this continues.</p>
 </section>
 
 <!-- DOCS -->
@@ -510,11 +510,11 @@
         <div class="docs-card-desc">How to stitch labor, land, and housing into one democratic pipeline. PDF.</div>
       </div>
     </a>
-    <a class="docs-card" href="pipeline.pdf">
+    <a class="docs-card" href="pipeline.html">
       <div class="docs-card-num">iii.</div>
       <div>
         <div class="docs-card-title">How the directory gets built</div>
-        <div class="docs-card-desc">A plain-language field guide to how Commonweave finds, scores, and publishes organizations. PDF.</div>
+        <div class="docs-card-desc">A plain-language field guide to how Commonweave finds, scores, and publishes organizations. Editable HTML.</div>
       </div>
     </a>
     <a class="docs-card" href="directory.html">
@@ -556,7 +556,7 @@
       <div class="docs-card-num">ix.</div>
       <div>
         <div class="docs-card-title">taxonomy.yaml</div>
-        <div class="docs-card-desc">WiserEarth's 381-node civil society taxonomy as CC0 YAML. 8 sections, 50+ subsections.</div>
+        <div class="docs-card-desc">WiserEarth's civil society taxonomy as CC0 YAML. 47 issue areas, 381 sub-issues.</div>
       </div>
     </a>
   </div>
@@ -572,7 +572,7 @@
 <!-- TRUST LAYER NOTE -->
 <section class="page-section narrow" role="note" aria-label="Note on the trust layer">
   <div class="note warm">
-    <strong>On the horizon: a trust-based internet.</strong> A directory is only half the problem. The other half is how aligned organisations federate, verify each other, and coordinate without routing every relationship through a central platform. The <a href="https://open.coop/2026/03/20/relaunching-the-open-co-op-preparing-for-a-trust-based-internet/" target="_blank" rel="noopener">Open Co-op's PLANET</a> project and the <a href="https://www.firstperson.network/" target="_blank" rel="noopener">First Person Project</a> (under <a href="https://www.lfdecentralizedtrust.org/" target="_blank" rel="noopener">Linux Foundation Decentralized Trust</a>) are building verifiable-identity infrastructure that could let these organisations cooperate at scale without platform capture. Commonweave's next data-model change will add an <em>attestations</em> field so directory entries can eventually carry cryptographically-signed vouching from peers. Background: <a href="OPENCOOP-RESEARCH.md">OPENCOOP-RESEARCH.md</a>.
+    <strong>On the horizon: a trust-based internet.</strong> A directory is only half the problem. The other half is how aligned organisations federate, verify each other, and coordinate without routing every relationship through a central platform. The <a href="https://open.coop/2026/03/20/relaunching-the-open-co-op-preparing-for-a-trust-based-internet/" target="_blank" rel="noopener">Open Co-op's PLANET</a> project and the <a href="https://www.firstperson.network/" target="_blank" rel="noopener">First Person Project</a> (under <a href="https://www.lfdecentralizedtrust.org/" target="_blank" rel="noopener">Linux Foundation Decentralized Trust</a>) are building verifiable-identity infrastructure that could let these organisations cooperate at scale without platform capture. Commonweave's next data-model change will add an <em>attestations</em> field so directory entries can eventually carry cryptographically-signed vouching from peers. Background: <a href="https://github.com/simonlpaige/commonweave/blob/master/OPENCOOP-RESEARCH.md">OPENCOOP-RESEARCH.md</a>.
   </div>
 </section>
 
@@ -638,3 +638,4 @@
 
 </body>
 </html>
+

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -364,7 +364,7 @@ select:focus { border-color: var(--moss); }
 <header class="page-head">
   <div class="eyebrow">&sect; 02 &middot; Directory</div>
   <h1>Browse the threads.</h1>
-  <p class="blurb">Search the latest published directory export by country, by US state, or by category. Each entry comes from a public registry or a curated source. Open data, CC0. Note: the public export is older than the recovered working database and needs a rebuild.</p>
+  <p class="blurb">Search the directory by country, by US state, or by category. Each entry was ingested from a public registry, an open dataset, or curated network membership lists. Open data, CC0.</p>
 </header>
 
 <div class="page">
@@ -537,7 +537,7 @@ function showPrompt() {
   const researchCodes = Object.keys(countries).filter(c => countries[c].source === 'research' || (countries[c].count < 5000 && c !== 'US'));
 
   let html = `<div class="data-note">
-    <strong>About this data.</strong> The directory indexes aligned civil society organizations selected from public registries (IRS, UK Charity Commission, Wikidata) via multi-pass keyword alignment scoring against the framework. Entries are being actively enriched with descriptions and links. Headline counts on the homepage and the map are pulled from <code>data/map/stats.json</code> at runtime, so they reflect what is actually verified.
+    <strong>About this data.</strong> The directory indexes aligned civil society organizations selected from public registries (IRS EO BMF, UK Charity Commission, Brazil Mapa das OSCs, Australia ACNC, Wikidata) and thematic networks via multi-pass keyword alignment scoring against the framework. Entries are being actively enriched with descriptions and links. Headline counts on the homepage and the map are pulled from <code>data/map/stats.json</code> at runtime; counts here come from the per-country <code>data/search/index.json</code> built alongside it. Both reflect the last published static snapshot &mdash; the working database may be ahead.
   </div>`;
 
   html += '<div class="section-title">Featured organizations</div>';
