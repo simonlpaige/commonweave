@@ -1,5 +1,5 @@
 # Commonweave country research queue — WAVE 2 + RE-RUNS
-# Format: CC  Country Name
+# Format: CC  status  Country Name
 # Completed countries are auto-skipped (DIRECTORY_CC.md exists check)
 
 # WAVE 1 — COMPLETE (93 countries, 698K orgs)
@@ -10,92 +10,92 @@
 # The runner needs to detect existing DIRECTORY_CC.md and
 # re-run anyway. Prefixed with RE-RUN flag.
 # ============================================================
-CN  China
-IN  India
-RU  Russia
-KR  South Korea
-PK  Pakistan
-BD  Bangladesh
-TR  Turkey
-VN  Vietnam
-PL  Poland
-UA  Ukraine
-DE  Germany
-FR  France
-GB  United Kingdom
-JP  Japan
-IT  Italy
-ES  Spain
-ID  Indonesia
-BR  Brazil
-MX  Mexico
-PH  Philippines
+CN  pending   China
+IN  pending   India
+RU  pending   Russia
+KR  pending   South Korea
+PK  pending   Pakistan
+BD  pending   Bangladesh
+TR  pending   Turkey
+VN  pending   Vietnam
+PL  pending   Poland
+UA  pending   Ukraine
+DE  pending   Germany
+FR  pending   France
+GB  pending   United Kingdom
+JP  pending   Japan
+IT  pending   Italy
+ES  pending   Spain
+ID  pending   Indonesia
+BR  pending   Brazil
+MX  pending   Mexico
+PH  pending   Philippines
 
 # WAVE 2 — EUROPE (missing)
-CZ  Czechia
-SK  Slovakia
-HR  Croatia
-SI  Slovenia
-LT  Lithuania
-LV  Latvia
-EE  Estonia
-BY  Belarus
-MD  Moldova
-IS  Iceland
-CY  Cyprus
-MT  Malta
-LU  Luxembourg
-ME  Montenegro
+CZ  pending   Czechia
+SK  pending   Slovakia
+HR  pending   Croatia
+SI  pending   Slovenia
+LT  pending   Lithuania
+LV  pending   Latvia
+EE  pending   Estonia
+BY  pending   Belarus
+MD  pending   Moldova
+IS  pending   Iceland
+CY  pending   Cyprus
+MT  pending   Malta
+LU  pending   Luxembourg
+ME  pending   Montenegro
 
 # WAVE 2 — MIDDLE EAST
-SA  Saudi Arabia
-AE  United Arab Emirates
-IQ  Iraq
-KW  Kuwait
-OM  Oman
-YE  Yemen
-SY  Syria
-QA  Qatar
-BH  Bahrain
-PS  Palestine
+SA  pending   Saudi Arabia
+AE  pending   United Arab Emirates
+IQ  pending   Iraq
+KW  pending   Kuwait
+OM  pending   Oman
+YE  pending   Yemen
+SY  pending   Syria
+QA  pending   Qatar
+BH  pending   Bahrain
+PS  pending   Palestine
 
 # WAVE 2 — AFRICA (larger nations)
-AO  Angola
-CD  Democratic Republic of the Congo
-ML  Mali
-BF  Burkina Faso
-NE  Niger
-TD  Chad
-SO  Somalia
-SD  Sudan
-SS  South Sudan
-ER  Eritrea
-LY  Libya
-GA  Gabon
-CG  Republic of the Congo
-NA  Namibia
-BW  Botswana
-SZ  Eswatini
-LS  Lesotho
-SL  Sierra Leone
-LR  Liberia
-GN  Guinea
-TG  Togo
-BJ  Benin
-GM  Gambia
-GW  Guinea-Bissau
-DJ  Djibouti
+AO  pending   Angola
+CD  pending   Democratic Republic of the Congo
+ML  pending   Mali
+BF  pending   Burkina Faso
+NE  pending   Niger
+TD  pending   Chad
+SO  pending   Somalia
+SD  pending   Sudan
+SS  pending   South Sudan
+ER  pending   Eritrea
+LY  pending   Libya
+GA  pending   Gabon
+CG  pending   Republic of the Congo
+NA  pending   Namibia
+BW  pending   Botswana
+SZ  pending   Eswatini
+LS  pending   Lesotho
+SL  pending   Sierra Leone
+LR  pending   Liberia
+GN  pending   Guinea
+TG  pending   Togo
+BJ  pending   Benin
+GM  pending   Gambia
+GW  pending   Guinea-Bissau
+DJ  pending   Djibouti
 
 # WAVE 2 — ASIA (missing)
-AF  Afghanistan
-LA  Laos
-TL  Timor-Leste
-BN  Brunei
-TJ  Tajikistan
-TM  Turkmenistan
-KG  Kyrgyzstan
+AF  pending   Afghanistan
+LA  pending   Laos
+TL  pending   Timor-Leste
+BN  pending   Brunei
+TJ  pending   Tajikistan
+TM  pending   Turkmenistan
+KG  pending   Kyrgyzstan
 
 # WAVE 2 — AMERICAS
-BZ  Belize
-SV  El Salvador
-BO  Bolivia
+BZ  pending   Belize
+SV  pending   El Salvador
+BO  pending   Bolivia

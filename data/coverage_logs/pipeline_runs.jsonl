@@ -1,0 +1,3 @@
+{"country_code": "CN", "country_name": "China", "dry_run": true, "found": 0, "inserted": 0, "returncode": 0, "source": "globalgiving", "status": "complete", "timestamp": "2026-05-13T03:42:25.690537+00:00"}
+{"country_code": "CN", "country_name": "China", "dry_run": true, "found": 0, "inserted": 0, "returncode": 0, "source": "opencorporates", "status": "complete", "timestamp": "2026-05-13T03:42:25.809437+00:00"}
+{"country_code": "CN", "country_name": "China", "dry_run": true, "found": 0, "inserted": 0, "returncode": 0, "source": "ica_coops", "status": "complete", "timestamp": "2026-05-13T03:42:26.683166+00:00"}

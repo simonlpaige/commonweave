@@ -1,0 +1,87 @@
+{
+  "countries": {
+    "CN": {
+      "country_name": "China",
+      "last_updated": "2026-05-13T03:42:26.676788+00:00",
+      "sources": {
+        "globalgiving": {
+          "dry_run": true,
+          "found": 0,
+          "gaps": [],
+          "inserted": 0,
+          "last_run_at": "2026-05-13T03:42:25.684864+00:00",
+          "notes": "globalgiving run via run_pipeline.py; Atlas may require paid v2 license; v1 fallback is project-level only when enabled",
+          "returncode": 0,
+          "status": "complete"
+        },
+        "ica_coops": {
+          "dry_run": true,
+          "found": 0,
+          "gaps": [],
+          "inserted": 0,
+          "last_run_at": "2026-05-13T03:42:26.676788+00:00",
+          "notes": "ica_coops run via run_pipeline.py",
+          "returncode": 0,
+          "status": "complete"
+        },
+        "opencorporates": {
+          "dry_run": true,
+          "found": 0,
+          "gaps": [],
+          "inserted": 0,
+          "last_run_at": "2026-05-13T03:42:25.803317+00:00",
+          "notes": "opencorporates run via run_pipeline.py",
+          "returncode": 0,
+          "status": "complete"
+        }
+      }
+    }
+  },
+  "runs": [
+    {
+      "country_code": "CN",
+      "country_name": "China",
+      "extra": {
+        "dry_run": true,
+        "returncode": 0
+      },
+      "found": 0,
+      "gaps": [],
+      "inserted": 0,
+      "notes": "globalgiving run via run_pipeline.py; Atlas may require paid v2 license; v1 fallback is project-level only when enabled",
+      "source": "globalgiving",
+      "status": "complete",
+      "timestamp": "2026-05-13T03:42:25.684864+00:00"
+    },
+    {
+      "country_code": "CN",
+      "country_name": "China",
+      "extra": {
+        "dry_run": true,
+        "returncode": 0
+      },
+      "found": 0,
+      "gaps": [],
+      "inserted": 0,
+      "notes": "opencorporates run via run_pipeline.py",
+      "source": "opencorporates",
+      "status": "complete",
+      "timestamp": "2026-05-13T03:42:25.803317+00:00"
+    },
+    {
+      "country_code": "CN",
+      "country_name": "China",
+      "extra": {
+        "dry_run": true,
+        "returncode": 0
+      },
+      "found": 0,
+      "gaps": [],
+      "inserted": 0,
+      "notes": "ica_coops run via run_pipeline.py",
+      "source": "ica_coops",
+      "status": "complete",
+      "timestamp": "2026-05-13T03:42:26.676788+00:00"
+    }
+  ]
+}

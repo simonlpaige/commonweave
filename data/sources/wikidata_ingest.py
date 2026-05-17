@@ -1,64 +1,34 @@
-﻿"""
-Wikidata SPARQL ingest for Commonweave.
-Queries multiple org types per country - nonprofits, cooperatives, NGOs, trade unions,
-environmental orgs, community orgs, foundations, etc.
-Free, no API key, returns structured data with descriptions and coordinates.
 """
+Wikidata SPARQL ingest for Commonweave.
+
+Layer 1/2 foundation script:
+- validates ISO country codes with pycountry
+- loads ISO alpha-2 -> Wikidata QID from wikidata_qid_map.json
+- supports --all to process every mapped pycountry country
+- writes to the current commonweave_directory.db schema
+"""
+import argparse
+import hashlib
 import json
+import os
 import sqlite3
 import sys
 import time
-import urllib.request
-import urllib.parse
 import urllib.error
-from datetime import datetime
+import urllib.parse
+import urllib.request
+from datetime import datetime, timezone
+
+import pycountry
 
 DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+QID_MAP_PATH = os.path.join(THIS_DIR, 'wikidata_qid_map.json')
 WIKIDATA_ENDPOINT = 'https://query.wikidata.org/sparql'
+SOURCE = 'wikidata'
 
-# ISO 3166-1 alpha-2 to Wikidata country QID
-COUNTRY_QID = {
-    'CR':'Q800','MX':'Q96','CO':'Q739','AR':'Q414','PE':'Q419',
-    'CL':'Q298','VE':'Q717','BO':'Q750','EC':'Q736','PY':'Q733',
-    'UY':'Q77','GT':'Q774','HN':'Q783','NI':'Q811','PA':'Q804',
-    'CU':'Q241','DO':'Q786','SR':'Q730','GY':'Q734','BR':'Q155',
-    'IN':'Q668','BD':'Q902','NP':'Q837','LK':'Q854','PK':'Q843',
-    'ID':'Q252','PH':'Q928','VN':'Q881','TH':'Q869','KH':'Q424',
-    'MM':'Q836','MY':'Q833','CN':'Q148','JP':'Q17','KR':'Q884',
-    'TW':'Q865','DE':'Q183','FR':'Q142','GB':'Q145','IT':'Q38',
-    'ES':'Q29','PL':'Q36','UA':'Q212','TR':'Q43','EG':'Q79',
-    'MA':'Q1028','GH':'Q117','ET':'Q115','TZ':'Q924','UG':'Q1036',
-    'RW':'Q1037','MZ':'Q1029','ZM':'Q953','ZA':'Q258','KE':'Q114',
-    'NG':'Q1033','SN':'Q1041','CI':'Q1008','CM':'Q1009','MG':'Q1019',
-    'TN':'Q948','JO':'Q810','LB':'Q822','CA':'Q16','AU':'Q408',
-    'NZ':'Q664','FJ':'Q712','PG':'Q691','JM':'Q766','TT':'Q754',
-    'HT':'Q790','SE':'Q34','NO':'Q20','DK':'Q35','FI':'Q33',
-    'CH':'Q39','AT':'Q40','IE':'Q27','NL':'Q55','BE':'Q31',
-    'PT':'Q45','GR':'Q41','RO':'Q218','HU':'Q28','RS':'Q403',
-    'BG':'Q219','GE':'Q230','AM':'Q399','KZ':'Q232','UZ':'Q265',
-}
-
-# Wikidata classes that represent org types we care about
-ORG_TYPES = [
-    ('Q163740', 'nonprofit'),        # nonprofit organization
-    ('Q4830453', 'cooperative'),      # business (too broad alone, but subclassed)
-    ('Q49773', 'cooperative'),        # social movement
-    ('Q15911314', 'cooperative'),     # cooperative
-    ('Q7210356', 'cooperative'),      # political organization
-    ('Q2659904', 'nonprofit'),        # government agency (some overlap)
-    ('Q43229', 'nonprofit'),          # organization (very broad - use with country filter)
-    ('Q476068', 'nonprofit'),         # environmental organization
-    ('Q708676', 'nonprofit'),         # workers' union / trade union
-    ('Q1127126', 'nonprofit'),        # international NGO
-    ('Q38026614', 'foundation'),      # foundation (charity)
-    ('Q157031', 'foundation'),        # foundation
-    ('Q484652', 'nonprofit'),         # international organization
-    ('Q11032', 'nonprofit'),          # newspaper (skip)
-]
-
-# More targeted queries that return better results
+# Wikidata queries tuned for Commonweave-relevant orgs.
 SPARQL_QUERIES = [
-    # Nonprofits, NGOs, foundations
     """
     SELECT DISTINCT ?org ?orgLabel ?desc ?website ?lat ?lon ?inception WHERE {{
       VALUES ?type {{ wd:Q163740 wd:Q1127126 wd:Q157031 wd:Q38026614 wd:Q476068 }}
@@ -72,7 +42,6 @@ SPARQL_QUERIES = [
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en,es,fr,pt,de" }}
     }} LIMIT 500
     """,
-    # Cooperatives
     """
     SELECT DISTINCT ?org ?orgLabel ?desc ?website ?lat ?lon ?inception WHERE {{
       ?org wdt:P31/wdt:P279* wd:Q15911314 .
@@ -85,7 +54,6 @@ SPARQL_QUERIES = [
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en,es,fr,pt,de" }}
     }} LIMIT 500
     """,
-    # Trade unions, workers' organizations
     """
     SELECT DISTINCT ?org ?orgLabel ?desc ?website ?lat ?lon ?inception WHERE {{
       VALUES ?type {{ wd:Q708676 wd:Q178790 }}
@@ -99,7 +67,6 @@ SPARQL_QUERIES = [
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en,es,fr,pt,de" }}
     }} LIMIT 500
     """,
-    # Educational institutions, research institutes
     """
     SELECT DISTINCT ?org ?orgLabel ?desc ?website ?lat ?lon ?inception WHERE {{
       VALUES ?type {{ wd:Q31855 wd:Q3918 wd:Q1664720 }}
@@ -113,7 +80,6 @@ SPARQL_QUERIES = [
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en,es,fr,pt,de" }}
     }} LIMIT 300
     """,
-    # Community organizations, social enterprises, mutual aid
     """
     SELECT DISTINCT ?org ?orgLabel ?desc ?website ?lat ?lon ?inception WHERE {{
       VALUES ?type {{ wd:Q49773 wd:Q7210356 wd:Q15925165 }}
@@ -127,7 +93,6 @@ SPARQL_QUERIES = [
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en,es,fr,pt,de" }}
     }} LIMIT 300
     """,
-    # Hospitals, clinics, health organizations
     """
     SELECT DISTINCT ?org ?orgLabel ?desc ?website ?lat ?lon ?inception WHERE {{
       VALUES ?type {{ wd:Q16917 wd:Q7075 wd:Q35535 }}
@@ -156,212 +121,268 @@ FRAMEWORK_KEYWORDS = {
     'recreation_arts': ['arts','culture','recreation','sport','music','theater','museum','heritage','creative','cultura','arte'],
 }
 
-
-# Orgs to filter out - sports clubs, churches, political parties, etc.
 FILTER_KEYWORDS = [
     'football club', 'soccer club', 'basketball club', 'rugby club', 'cricket club',
     'association football', 'f.c.', ' fc ', 'cf ', 'sport club', 'sports club',
-    'club de futbol', 'club deportivo', 'racing club', 'tennis club',
-    'country club', 'golf club', 'yacht club', 'polo club',
-    'diocese', 'archdiocese', 'parish', 'cathedral', 'church of',
-    'roman catholic', 'evangelical', 'pentecostal', 'baptist church',
-    'political party', 'partido politico', 'military', 'armed forces',
-    'national team', 'seleccion nacional', 'olympic committee',
-    'beauty pageant', 'miss universe', 'miss world',
-    'national football', 'futbol club', 'atletico',
+    'country club', 'golf club', 'yacht club', 'polo club', 'diocese', 'archdiocese',
+    'parish', 'cathedral', 'political party', 'military', 'armed forces',
+    'national team', 'olympic committee', 'beauty pageant',
 ]
 
-def is_relevant_org(name, desc):
-    """Filter out sports clubs, religious institutions, political parties."""
-    combined = (name + ' ' + desc).lower()
-    for kw in FILTER_KEYWORDS:
-        if kw in combined:
-            return False
-    return True
-
-
-# Multilingual alignment scoring - sourced from MULTILINGUAL-TERMS.md via i18n_align.py
 try:
+    sys.path.insert(0, THIS_DIR)
     from i18n_align import alignment_score_multilingual as _alignment_score
-except ImportError:
-    import os, sys
-    sys.path.insert(0, os.path.dirname(__file__))
-    from i18n_align import alignment_score_multilingual as _alignment_score
+except Exception:  # import should never block ingest
+    def _alignment_score(name, desc):
+        combined = f'{name} {desc}'.lower()
+        return sum(1 for words in FRAMEWORK_KEYWORDS.values() for kw in words if kw in combined)
+
+
+def now_iso():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def stable_id(source, source_id):
+    digest = hashlib.sha256(f'{source}:{source_id}'.encode('utf-8')).hexdigest()[:16]
+    return f'rec_{digest}'
+
+
+def load_qid_map():
+    with open(QID_MAP_PATH, encoding='utf-8') as f:
+        data = json.load(f)
+    return {k.upper(): v for k, v in data.items()}
+
+
+def country_for_code(cc):
+    country = pycountry.countries.get(alpha_2=cc.upper())
+    if not country:
+        raise ValueError(f'Unknown ISO alpha-2 country code: {cc}')
+    return getattr(country, 'common_name', None) or country.name
+
+
+def mapped_countries():
+    qids = load_qid_map()
+    for c in sorted(pycountry.countries, key=lambda x: x.alpha_2):
+        qid = qids.get(c.alpha_2)
+        if qid:
+            yield c.alpha_2, (getattr(c, 'common_name', None) or c.name), qid
+
+
+def is_relevant_org(name, desc):
+    combined = f'{name} {desc}'.lower()
+    return not any(kw in combined for kw in FILTER_KEYWORDS)
 
 
 def classify_framework(name, desc):
-    combined = (name + ' ' + desc).lower()
-    best_area = None
-    best_score = 0
+    combined = f'{name} {desc}'.lower()
+    best_area, best_score = 'democracy', 0
     for area, keywords in FRAMEWORK_KEYWORDS.items():
         score = sum(1 for kw in keywords if kw in combined)
         if score > best_score:
-            best_score = score
-            best_area = area
-    return best_area or 'democracy'
+            best_area, best_score = area, score
+    return best_area
 
 
-def run_sparql(query):
-    """Execute a SPARQL query against Wikidata."""
+def classify_model(name, desc):
+    combined = f'{name} {desc}'.lower()
+    if any(x in combined for x in ('cooperative', 'co-op', 'coop', 'cooperativa', 'credit union')):
+        return 'cooperative'
+    if 'foundation' in combined or 'stiftung' in combined:
+        return 'foundation'
+    if 'union' in combined or 'trade union' in combined:
+        return 'labor_union'
+    if 'mutual aid' in combined:
+        return 'mutual_aid'
+    return 'nonprofit'
+
+
+def run_sparql(query, retries=1):
     params = urllib.parse.urlencode({'format': 'json', 'query': query})
-    url = f'{WIKIDATA_ENDPOINT}?{params}'
-    req = urllib.request.Request(url, headers={
-        'User-Agent': 'Commonweave/1.0 (https://github.com/simonlpaige/commonweave)',
-        'Accept': 'application/sparql-results+json'
+    req = urllib.request.Request(f'{WIKIDATA_ENDPOINT}?{params}', headers={
+        'User-Agent': 'Commonweave/1.0 (https://commonweave.earth)',
+        'Accept': 'application/sparql-results+json',
     })
-    try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            data = json.loads(resp.read().decode('utf-8'))
-            return data.get('results', {}).get('bindings', [])
-    except urllib.error.HTTPError as e:
-        if e.code == 429:
-            print(f'  Rate limited, waiting 30s...')
-            time.sleep(30)
+    for attempt in range(retries + 1):
+        try:
             with urllib.request.urlopen(req, timeout=60) as resp:
                 data = json.loads(resp.read().decode('utf-8'))
-                return data.get('results', {}).get('bindings', [])
-        print(f'  SPARQL error: {e.code} {e.reason}')
-        return []
-    except Exception as e:
-        print(f'  SPARQL error: {e}')
-        return []
+            return data.get('results', {}).get('bindings', [])
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < retries:
+                print('  Rate limited, waiting 30s...')
+                time.sleep(30)
+                continue
+            print(f'  SPARQL error: HTTP {e.code} {e.reason}')
+            return []
+        except Exception as e:
+            print(f'  SPARQL error: {e}')
+            return []
+    return []
 
 
 def get_val(binding, key):
-    """Extract a value from a SPARQL binding."""
-    if key in binding:
-        return binding[key].get('value', '')
-    return ''
+    return binding.get(key, {}).get('value', '')
 
 
-def fetch_country(cc, country_name):
-    """Fetch all org types from Wikidata for a country."""
-    qid = COUNTRY_QID.get(cc)
+def fetch_country(cc, country_name=None, delay=3, query_index=None):
+    cc = cc.upper()
+    country_name = country_name or country_for_code(cc)
+    qid = load_qid_map().get(cc)
     if not qid:
         print(f'  No Wikidata QID for {cc}, skipping')
         return []
 
     all_orgs = {}
-    for i, query_template in enumerate(SPARQL_QUERIES):
-        query = query_template.format(qid=qid)
-        print(f'  Query {i+1}/{len(SPARQL_QUERIES)}...')
-        results = run_sparql(query)
-        print(f'    Got {len(results)} results')
+    queries = list(enumerate(SPARQL_QUERIES, start=1))
+    if query_index is not None:
+        if query_index < 1 or query_index > len(SPARQL_QUERIES):
+            raise ValueError(f'--query-index must be 1..{len(SPARQL_QUERIES)}')
+        queries = [(query_index, SPARQL_QUERIES[query_index - 1])]
 
+    for i, query_template in queries:
+        print(f'  Query {i}/{len(SPARQL_QUERIES)}...')
+        results = run_sparql(query_template.format(qid=qid), retries=1)
+        print(f'    Got {len(results)} results')
         for r in results:
-            name = get_val(r, 'orgLabel')
-            if not name or name.startswith('Q') and name[1:].isdigit():
+            name = get_val(r, 'orgLabel').strip()
+            if not name or (name.startswith('Q') and name[1:].isdigit()):
                 continue
-            wikidata_id = get_val(r, 'org').split('/')[-1]
-            desc = get_val(r, 'desc')
-            website = get_val(r, 'website')
+            desc = get_val(r, 'desc').strip()
+            if not is_relevant_org(name, desc):
+                continue
+            wikidata_id = get_val(r, 'org').rsplit('/', 1)[-1]
+            if wikidata_id in all_orgs:
+                continue
             lat = get_val(r, 'lat')
             lon = get_val(r, 'lon')
-
-            if wikidata_id not in all_orgs:
-                if not is_relevant_org(name, desc):
-                    continue
-                all_orgs[wikidata_id] = {
-                    'name': name,
-                    'wikidata_id': wikidata_id,
-                    'description': desc[:500] if desc else '',
-                    'website': website,
-                    'lat': float(lat) if lat else None,
-                    'lon': float(lon) if lon else None,
-                    'country_code': cc,
-                    'country_name': country_name,
-                    'framework_area': classify_framework(name, desc),
-                }
-
-        time.sleep(2)  # Be nice to Wikidata
-
+            all_orgs[wikidata_id] = {
+                'wikidata_id': wikidata_id,
+                'name': name,
+                'description': desc[:2000],
+                'website': get_val(r, 'website').strip(),
+                'lat': float(lat) if lat else None,
+                'lon': float(lon) if lon else None,
+                'country_code': cc,
+                'country': country_name,
+                'framework_area': classify_framework(name, desc),
+                'model_type': classify_model(name, desc),
+                'inception': get_val(r, 'inception'),
+            }
+        time.sleep(delay)
     return list(all_orgs.values())
 
 
-def ingest_to_db(orgs, cc, country_name):
-    """Insert Wikidata orgs into the Commonweave DB."""
+def ingest_to_db(orgs, cc, country_name, dry_run=False):
     if not orgs:
         return 0
+    if dry_run:
+        print(f'  Dry-run: would insert/update up to {len(orgs)} Wikidata orgs')
+        return len(orgs)
 
     db = sqlite3.connect(DB_PATH)
     c = db.cursor()
-    now = datetime.utcnow().isoformat()
+    now = now_iso()
     inserted = 0
+    updated = 0
     rejected = 0
 
     for org in orgs:
-        try:
-            # Gate: score >= 2 for large countries, score >= 0 for thin countries (<50 orgs)
-            score = _alignment_score(org['name'], org.get('description', ''))
-            c.execute("SELECT COUNT(*) FROM organizations WHERE country_code=? AND status='active'", (cc,))
-            existing_count = c.fetchone()[0]
-            min_score = 0 if existing_count < 50 else 2
-            if score < min_score:
-                rejected += 1
-                continue
+        score = _alignment_score(org['name'], org.get('description', ''))
+        c.execute("SELECT COUNT(*) FROM organizations WHERE country_code=? AND status != 'removed'", (cc,))
+        existing_count = c.fetchone()[0]
+        min_score = 0 if existing_count < 50 else 2
+        if score < min_score:
+            rejected += 1
+            continue
 
-            # Check for existing by name + country to avoid duplicates
-            c.execute("SELECT id FROM organizations WHERE name=? AND country_code=?",
-                      (org['name'], cc))
-            if c.fetchone():
-                continue
-
-            c.execute("""INSERT INTO organizations
-                (name, country_code, country_name, description, website, source, source_id,
-                 date_added, status, framework_area, model_type, alignment_score,
-                 lat, lon, geo_source)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-                (org['name'], cc, country_name, org['description'], org['website'],
-                 'wikidata', org['wikidata_id'], now, 'active',
-                 org['framework_area'], 'nonprofit', score,
-                 org.get('lat'), org.get('lon'),
-                 'wikidata' if org.get('lat') else None))
-            inserted += c.rowcount
-        except Exception as e:
-            pass
-    if rejected:
-        print(f'  Rejected {rejected} low-signal orgs before DB insert')
+        rec_id = stable_id(SOURCE, org['wikidata_id'])
+        raw = json.dumps({**org, 'alignment_score': score}, ensure_ascii=False, sort_keys=True)
+        params = (
+            rec_id, org['name'], org.get('description', ''), org.get('website', ''),
+            None, None, country_name, cc, None, org.get('framework_area'), org.get('model_type'),
+            'B', SOURCE, f'https://www.wikidata.org/wiki/{org["wikidata_id"]}', None,
+            org.get('lat'), org.get('lon'), 'wikidata' if org.get('lat') is not None else None,
+            'active', 'indicated', raw, now, now,
+        )
+        c.execute(
+            """INSERT OR IGNORE INTO organizations
+               (id, name, description, website, city, state_province, country, country_code,
+                ntee_code, framework_area, model_type, tier, source, source_file,
+                annual_revenue, lat, lon, geo_source, status, legibility, raw_json,
+                created_at, updated_at)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+            params,
+        )
+        if c.rowcount:
+            inserted += 1
+        else:
+            c.execute(
+                """UPDATE organizations
+                   SET name=?, description=COALESCE(NULLIF(description,''), ?),
+                       website=COALESCE(NULLIF(website,''), ?), framework_area=?, model_type=?,
+                       lat=COALESCE(lat, ?), lon=COALESCE(lon, ?), geo_source=COALESCE(geo_source, ?),
+                       legibility='indicated', raw_json=?, updated_at=?
+                   WHERE id=?""",
+                (
+                    org['name'], org.get('description', ''), org.get('website', ''),
+                    org.get('framework_area'), org.get('model_type'), org.get('lat'), org.get('lon'),
+                    'wikidata' if org.get('lat') is not None else None, raw, now, rec_id,
+                ),
+            )
+            if c.rowcount:
+                updated += 1
 
     db.commit()
     c.execute("SELECT COUNT(*) FROM organizations WHERE status != 'removed'")
     total = c.fetchone()[0]
     db.close()
-    print(f'  DB: +{inserted} new from Wikidata, total active={total:,}')
-    return inserted
+    if rejected:
+        print(f'  Rejected {rejected} low-signal orgs before DB insert')
+    print(f'  DB: +{inserted} new, {updated} updated from Wikidata, total active={total:,}')
+    return inserted + updated
 
 
-def main():
-    if len(sys.argv) < 2:
-        print('Usage: python wikidata_ingest.py <CC> [country_name]')
-        print('  e.g. python wikidata_ingest.py CR "Costa Rica"')
-        print('  or:  python wikidata_ingest.py ALL  (run all countries)')
-        sys.exit(1)
-
-    cc = sys.argv[1].upper()
-
-    if cc == 'ALL':
-        total_inserted = 0
-        for country_cc in sorted(COUNTRY_QID.keys()):
-            print(f'\n=== {country_cc} ===')
-            orgs = fetch_country(country_cc, country_cc)
-            inserted = ingest_to_db(orgs, country_cc, country_cc)
-            total_inserted += inserted
-            print(f'  {country_cc}: {len(orgs)} found, {inserted} new')
-            time.sleep(3)
-        print(f'\nTotal inserted across all countries: {total_inserted}')
-        return
-
-    country_name = sys.argv[2] if len(sys.argv) > 2 else cc
+def run_one(cc, country_name=None, dry_run=False, delay=3, query_index=None):
+    cc = cc.upper()
+    country_name = country_name or country_for_code(cc)
     print(f'\n=== Wikidata ingest: {country_name} ({cc}) ===')
-    orgs = fetch_country(cc, country_name)
+    orgs = fetch_country(cc, country_name, delay=delay, query_index=query_index)
     print(f'Found {len(orgs)} unique organizations')
-    inserted = ingest_to_db(orgs, cc, country_name)
-    print(f'Done: {inserted} new orgs inserted')
-
-    # Print sample
+    changed = ingest_to_db(orgs, cc, country_name, dry_run=dry_run)
+    print(f'Done: {changed} orgs inserted/updated')
     for org in orgs[:10]:
-        print(f"  - {org['name']}: {org['description'][:80]}")
+        print(f"  - {org['name']}: {org.get('description','')[:80]}")
+    return {'country_code': cc, 'country': country_name, 'found': len(orgs), 'changed': changed}
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description='Ingest Commonweave-relevant organizations from Wikidata.')
+    ap.add_argument('country', nargs='?', help='ISO alpha-2 code, or ALL for legacy all-country mode')
+    ap.add_argument('country_name', nargs='?', help='Optional display name override')
+    ap.add_argument('--all', action='store_true', help='Process every pycountry country with a QID')
+    ap.add_argument('--dry-run', action='store_true', help='Fetch and score but do not write DB')
+    ap.add_argument('--delay', type=float, default=3.0, help='Delay between SPARQL queries/countries')
+    ap.add_argument('--query-index', type=int, help='Run only one SPARQL query (1-6), useful for endpoint smoke tests')
+    args = ap.parse_args(argv)
+
+    run_all = args.all or (args.country and args.country.upper() == 'ALL')
+    if run_all:
+        total = {'found': 0, 'changed': 0, 'countries': 0}
+        for cc, country_name, _qid in mapped_countries():
+            result = run_one(cc, country_name, dry_run=args.dry_run, delay=args.delay, query_index=args.query_index)
+            total['found'] += result['found']
+            total['changed'] += result['changed']
+            total['countries'] += 1
+            time.sleep(args.delay)
+        print(f"\nTotal: {total['countries']} countries, {total['found']} found, {total['changed']} inserted/updated")
+        return 0
+
+    if not args.country:
+        ap.print_help()
+        return 2
+    run_one(args.country, args.country_name, dry_run=args.dry_run, delay=args.delay, query_index=args.query_index)
+    return 0
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())
