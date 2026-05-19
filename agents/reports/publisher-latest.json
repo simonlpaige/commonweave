@@ -1,0 +1,24 @@
+{
+  "run_at": "2026-05-19T02:48:11.169Z",
+  "version": "1.0",
+  "db_snapshot": {
+    "total": 154101,
+    "geocoded": 29423,
+    "geocoded_pct": 19.1,
+    "countries": 175
+  },
+  "quality_gate": {
+    "passes": true,
+    "issues": [],
+    "geocoding_improved": false,
+    "net_positive": true
+  },
+  "drafts": {
+    "readme_update": "## Directory Status\n\nAs of May 2026:\n\n- **154,101 organizations** mapped across **175 countries**\n- **19.1% geocoded** (29,423 with map coordinates)\n- Coverage strongest in North America and Europe; actively expanding in AG, OM, BH\n\n[View the map](https://simonlpaige.github.io/commonweave/map.html) | [Search the directory](https://simonlpaige.github.io/commonweave/directory.html)\n\n*The map shows all geocoded entries. If your organization is missing, [open an issue](https://github.com/simonlpaige/commonweave/issues/new).*",
+    "newsletter_blurb": "**Commonweave update**\n\nThe directory now has 154,101 organizations across 175 countries.\n\nThe mapping is the hard part. Every geocoded organization is a pin on a map that shows the commons economy is real, global, and distributed - not theoretical.",
+    "telegram_heartbeat": "📍 Commonweave Weekly\n\nDB: 154,101 orgs | 175 countries | 19.1% geocoded\nSynthesizer: 10 framework proposals\nCoverage gap priority: AG, OM, BH\n\n✅ Quality gate passed. README + newsletter drafts ready for your approval.\nReview: commonweave/agents/reports/publisher-latest.json"
+  },
+  "coordinator_context_used": false,
+  "agent": "publisher",
+  "written_at": "2026-05-19T02:48:11.169Z"
+}

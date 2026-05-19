@@ -1,0 +1,17 @@
+{
+  "run_at": "2026-05-19T02:46:23.263Z",
+  "version": "1.0",
+  "target_regions": [
+    "latin_america",
+    "middle_east",
+    "africa"
+  ],
+  "repos_found": 0,
+  "new_drafts_queued": 0,
+  "queue_pending_approval": 0,
+  "sample_drafts": [],
+  "cartographer_input_used": true,
+  "coordinator_context_used": false,
+  "agent": "scout",
+  "written_at": "2026-05-19T02:46:23.277Z"
+}

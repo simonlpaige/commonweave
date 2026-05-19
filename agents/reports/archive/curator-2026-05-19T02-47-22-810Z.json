@@ -1,0 +1,46 @@
+{
+  "run_at": "2026-05-19T02:47:22.810Z",
+  "version": "1.0",
+  "before": {
+    "total": 154101,
+    "geocoded": 29422,
+    "geocoded_pct": 19.1
+  },
+  "after": {
+    "total": 154101,
+    "geocoded": 29423,
+    "geocoded_pct": 19.1
+  },
+  "quarantine": {
+    "quarantined": 66,
+    "sample": [
+      "Alfred Road",
+      "Herne Hill - Carver Road",
+      "Monsell Road",
+      "Preston road",
+      "Sanderstead Road",
+      "York Holgate, Poppleton Road and Leeman Road",
+      "PEOPLE FOR PORTLAND ROAD",
+      "Herbert Road",
+      "Kingsdown road",
+      "poet’s corner Sackville road"
+    ]
+  },
+  "taxonomy_fixes": {
+    "fixed": 7
+  },
+  "geocoding": {
+    "attempted": 50,
+    "geocoded": 1,
+    "failed": 49
+  },
+  "remaining_taxonomy_issues": 0,
+  "geocoding_to_70pct": {
+    "needed": 78448,
+    "at_50_per_day_days": 1569
+  },
+  "coordinator_context_used": false,
+  "cartographer_input_used": true,
+  "agent": "curator",
+  "written_at": "2026-05-19T02:47:22.810Z"
+}

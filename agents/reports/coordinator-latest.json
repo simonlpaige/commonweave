@@ -1,0 +1,42 @@
+{
+  "run_at": "2026-05-19T02:49:23.471Z",
+  "version": "1.0",
+  "global_priorities": [
+    "Geocoding is critical - less than 30% of orgs on the map",
+    "Data quality: quarantine suspect non-org entries",
+    "Expand coverage in Africa, Southeast Asia, Latin America"
+  ],
+  "agent_guidance": {
+    "cartographer": {
+      "focus": "Continue gap analysis, prioritize Africa and Southeast Asia"
+    },
+    "curator": {
+      "focus": "Geocoding priority until 24% reached"
+    },
+    "scout": {
+      "focus": "Target thin-coverage regions with contribution-first outreach"
+    },
+    "synthesizer": {
+      "focus": "Review high-priority proposals from previous week"
+    },
+    "publisher": {
+      "focus": "Hold publish until quality gate passes consistently"
+    }
+  },
+  "patterns": [
+    "Geocoding at 19.1% - map shows 19% of real coverage",
+    "Formal org bias in Wikidata sources - informal networks still underrepresented"
+  ],
+  "quality_score": 34,
+  "simon_decision": null,
+  "contradictions": [],
+  "db_snapshot": {
+    "total": 154101,
+    "geocoded": 29423,
+    "geocoded_pct": 19.1,
+    "countries": 175
+  },
+  "synthesis_method": "llm",
+  "agent": "coordinator",
+  "written_at": "2026-05-19T02:49:23.478Z"
+}

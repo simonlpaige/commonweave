@@ -1,0 +1,811 @@
+{
+  "run_at": "2026-05-19T02:43:55.198Z",
+  "version": "1.0",
+  "db_snapshot": {
+    "total": 154101,
+    "geocoded": 29422,
+    "geocoded_pct": 19.1,
+    "countries": 175,
+    "with_website": 49377
+  },
+  "country_gaps": [
+    {
+      "country_code": "AG",
+      "count": 1,
+      "severity": "critical",
+      "score": 9,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "OM",
+      "count": 1,
+      "severity": "critical",
+      "score": 9,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "BH",
+      "count": 2,
+      "severity": "critical",
+      "score": 9,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "BZ",
+      "count": 2,
+      "severity": "critical",
+      "score": 9,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "GW",
+      "count": 2,
+      "severity": "critical",
+      "score": 9,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "SM",
+      "count": 2,
+      "severity": "critical",
+      "score": 9,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "LS",
+      "count": 3,
+      "severity": "high",
+      "score": 7,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "AL",
+      "count": 4,
+      "severity": "high",
+      "score": 7,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "BY",
+      "count": 4,
+      "severity": "high",
+      "score": 7,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "KG",
+      "count": 4,
+      "severity": "high",
+      "score": 7,
+      "region": "central_asia",
+      "recommended_sources": [
+        {
+          "name": "Wikidata SPARQL - Central Asia cooperatives",
+          "query": "cooperative Kazakhstan Uzbekistan",
+          "type": "wikidata"
+        }
+      ]
+    },
+    {
+      "country_code": "PG",
+      "count": 4,
+      "severity": "high",
+      "score": 7,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "PR",
+      "count": 4,
+      "severity": "high",
+      "score": 7,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "SZ",
+      "count": 4,
+      "severity": "high",
+      "score": 7,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "TJ",
+      "count": 4,
+      "severity": "high",
+      "score": 7,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "YE",
+      "count": 4,
+      "severity": "high",
+      "score": 7,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "GY",
+      "count": 5,
+      "severity": "high",
+      "score": 7,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "IS",
+      "count": 5,
+      "severity": "high",
+      "score": 7,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "LY",
+      "count": 5,
+      "severity": "high",
+      "score": 7,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "MK",
+      "count": 5,
+      "severity": "high",
+      "score": 7,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "CD",
+      "count": 6,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "CY",
+      "count": 6,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "MN",
+      "count": 6,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "MZ",
+      "count": 6,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "KI",
+      "count": 7,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "KN",
+      "count": 7,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "KZ",
+      "count": 7,
+      "severity": "medium",
+      "score": 5,
+      "region": "central_asia",
+      "recommended_sources": [
+        {
+          "name": "Wikidata SPARQL - Central Asia cooperatives",
+          "query": "cooperative Kazakhstan Uzbekistan",
+          "type": "wikidata"
+        }
+      ]
+    },
+    {
+      "country_code": "SK",
+      "count": 7,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "AM",
+      "count": 8,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "LV",
+      "count": 8,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "TO",
+      "count": 8,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "LR",
+      "count": 9,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "MW",
+      "count": 9,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "RS",
+      "count": 9,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "SD",
+      "count": 9,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "SA",
+      "count": 10,
+      "severity": "medium",
+      "score": 5,
+      "region": "middle_east",
+      "recommended_sources": [
+        {
+          "name": "ICA MENA",
+          "url": "https://ica.coop/en/regions/mena",
+          "type": "scrape"
+        }
+      ]
+    },
+    {
+      "country_code": "IL",
+      "count": 11,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "IQ",
+      "count": 11,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "JO",
+      "count": 11,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "PS",
+      "count": 11,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "QA",
+      "count": 11,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "BN",
+      "count": 12,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "GM",
+      "count": 12,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "LT",
+      "count": 12,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "UK",
+      "count": 12,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "ER",
+      "count": 13,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "MM",
+      "count": 13,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "NA",
+      "count": 13,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "TM",
+      "count": 13,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "VN",
+      "count": 13,
+      "severity": "medium",
+      "score": 5,
+      "region": "south_east_asia",
+      "recommended_sources": [
+        {
+          "name": "ICA Asia-Pacific",
+          "url": "https://ica.coop/en/regions/asia-pacific",
+          "type": "scrape"
+        },
+        {
+          "name": "Wikidata SPARQL - Philippines cooperatives",
+          "query": "cooperative Philippines",
+          "type": "wikidata"
+        },
+        {
+          "name": "DGRV Asia",
+          "url": "https://www.dgrv.coop/en/international-cooperative-work/asia.html",
+          "type": "scrape"
+        }
+      ]
+    },
+    {
+      "country_code": "EG",
+      "count": 14,
+      "severity": "medium",
+      "score": 5,
+      "region": "middle_east",
+      "recommended_sources": [
+        {
+          "name": "ICA MENA",
+          "url": "https://ica.coop/en/regions/mena",
+          "type": "scrape"
+        }
+      ]
+    },
+    {
+      "country_code": "ET",
+      "count": 14,
+      "severity": "medium",
+      "score": 5,
+      "region": "africa",
+      "recommended_sources": [
+        {
+          "name": "ICA Africa",
+          "url": "https://ica.coop/en/regions/africa",
+          "type": "scrape"
+        },
+        {
+          "name": "COOPIGAD",
+          "url": "https://www.coopigad.org/members",
+          "type": "scrape"
+        },
+        {
+          "name": "Wikidata SPARQL - Nigeria cooperatives",
+          "query": "cooperative Nigeria",
+          "type": "wikidata"
+        }
+      ]
+    },
+    {
+      "country_code": "IR",
+      "count": 14,
+      "severity": "medium",
+      "score": 5,
+      "region": "middle_east",
+      "recommended_sources": [
+        {
+          "name": "ICA MENA",
+          "url": "https://ica.coop/en/regions/mena",
+          "type": "scrape"
+        }
+      ]
+    },
+    {
+      "country_code": "SS",
+      "count": 14,
+      "severity": "medium",
+      "score": 5,
+      "region": "unknown",
+      "recommended_sources": []
+    }
+  ],
+  "top_priority_gaps": [
+    {
+      "country_code": "AG",
+      "count": 1,
+      "severity": "critical",
+      "score": 9,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "OM",
+      "count": 1,
+      "severity": "critical",
+      "score": 9,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "BH",
+      "count": 2,
+      "severity": "critical",
+      "score": 9,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "BZ",
+      "count": 2,
+      "severity": "critical",
+      "score": 9,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "GW",
+      "count": 2,
+      "severity": "critical",
+      "score": 9,
+      "region": "unknown",
+      "recommended_sources": []
+    },
+    {
+      "country_code": "SM",
+      "count": 2,
+      "severity": "critical",
+      "score": 9,
+      "region": "unknown",
+      "recommended_sources": []
+    }
+  ],
+  "framework_area_gaps": [
+    {
+      "area": "democratic_sovereignty",
+      "count": 49441,
+      "severity": "ok",
+      "score": 0
+    },
+    {
+      "area": "universal_sufficiency",
+      "count": 44935,
+      "severity": "ok",
+      "score": 0
+    },
+    {
+      "area": "ecological_equilibrium",
+      "count": 2118,
+      "severity": "ok",
+      "score": 0
+    },
+    {
+      "area": "economic_democracy",
+      "count": 909,
+      "severity": "ok",
+      "score": 0
+    },
+    {
+      "area": "transparency_by_default",
+      "count": 17064,
+      "severity": "ok",
+      "score": 0
+    },
+    {
+      "area": "healthcare",
+      "count": 6072,
+      "severity": "ok",
+      "score": 0
+    },
+    {
+      "area": "education",
+      "count": 3867,
+      "severity": "ok",
+      "score": 0
+    },
+    {
+      "area": "food",
+      "count": 3518,
+      "severity": "ok",
+      "score": 0
+    },
+    {
+      "area": "housing_land",
+      "count": 2642,
+      "severity": "ok",
+      "score": 0
+    },
+    {
+      "area": "energy_digital",
+      "count": 75,
+      "severity": "ok",
+      "score": 0
+    }
+  ],
+  "taxonomy_fragmentation": [
+    {
+      "key": "democratic_sovereignty",
+      "variants": [
+        "democratic sovereignty",
+        "democratic_sovereignty"
+      ]
+    }
+  ],
+  "suspect_orgs": {
+    "count": 66,
+    "sample": [
+      {
+        "id": "rec_168f272d47d71b21",
+        "name": "Alfred Road",
+        "description": "",
+        "source": "Field research + Wikidata",
+        "country_code": "GB"
+      },
+      {
+        "id": "rec_fb630fb3c4448d87",
+        "name": "Herne Hill - Carver Road",
+        "description": "",
+        "source": "Field research + Wikidata",
+        "country_code": "GB"
+      },
+      {
+        "id": "rec_adf286c5b82b1586",
+        "name": "Monsell Road",
+        "description": "",
+        "source": "Field research + Wikidata",
+        "country_code": "GB"
+      },
+      {
+        "id": "rec_99661bbc35672adb",
+        "name": "Preston road",
+        "description": "",
+        "source": "Field research + Wikidata",
+        "country_code": "GB"
+      },
+      {
+        "id": "rec_fab85ce4191ec595",
+        "name": "Sanderstead Road",
+        "description": "",
+        "source": "Field research + Wikidata",
+        "country_code": "GB"
+      },
+      {
+        "id": "rec_ed5b0b00ae5ff825",
+        "name": "York Holgate, Poppleton Road and Leeman Road",
+        "description": "",
+        "source": "Field research + Wikidata",
+        "country_code": "GB"
+      },
+      {
+        "id": "rec_c2b4467fa4e6271d",
+        "name": "PEOPLE FOR PORTLAND ROAD",
+        "description": "Our five core aims for the conservation and enhancement of Portland Road are to improve:? its physical appearance? community facilities? accessibility from the local area and wider area? safety? commu",
+        "source": "Field research + Wikidata",
+        "country_code": "GB"
+      },
+      {
+        "id": "org_904237",
+        "name": "Herbert Road",
+        "description": "",
+        "source": "mutual_aid_wiki",
+        "country_code": "US"
+      },
+      {
+        "id": "org_904472",
+        "name": "Kingsdown road",
+        "description": "",
+        "source": "mutual_aid_wiki",
+        "country_code": "US"
+      },
+      {
+        "id": "org_905065",
+        "name": "poet’s corner Sackville road",
+        "description": "",
+        "source": "mutual_aid_wiki",
+        "country_code": "US"
+      },
+      {
+        "id": "org_905216",
+        "name": "Twickenham Third Cross road",
+        "description": "",
+        "source": "mutual_aid_wiki",
+        "country_code": "US"
+      },
+      {
+        "id": "org_906210",
+        "name": "Rattray Road",
+        "description": "",
+        "source": "mutual_aid_wiki",
+        "country_code": "US"
+      },
+      {
+        "id": "org_906237",
+        "name": "Boundary Road",
+        "description": "",
+        "source": "mutual_aid_wiki",
+        "country_code": "US"
+      },
+      {
+        "id": "org_906367",
+        "name": "Forest Hill Road",
+        "description": "",
+        "source": "mutual_aid_wiki",
+        "country_code": "US"
+      },
+      {
+        "id": "org_906393",
+        "name": "C-19 Coldharbour / New Road",
+        "description": "",
+        "source": "mutual_aid_wiki",
+        "country_code": "US"
+      },
+      {
+        "id": "org_906608",
+        "name": "Mile End - Zone D - Bartlett Park to East India Dock Road",
+        "description": "",
+        "source": "mutual_aid_wiki",
+        "country_code": "US"
+      },
+      {
+        "id": "org_907084",
+        "name": "Bernard Road",
+        "description": "",
+        "source": "mutual_aid_wiki",
+        "country_code": "US"
+      },
+      {
+        "id": "org_907320",
+        "name": "Mid Avonvale Road",
+        "description": "",
+        "source": "mutual_aid_wiki",
+        "country_code": "US"
+      },
+      {
+        "id": "org_908039",
+        "name": "Covid-19 Mutual Aid - Dewsbury - Thornhill Road",
+        "description": "",
+        "source": "mutual_aid_wiki",
+        "country_code": "US"
+      },
+      {
+        "id": "better-wikidata-Q60773117",
+        "name": "Al Majd Road",
+        "description": "road in Qatar",
+        "source": "commonweave-better-ingest-agent:wikidata",
+        "country_code": "QA"
+      }
+    ]
+  },
+  "coordinator_context_used": false,
+  "recommendations_for_scout": [
+    {
+      "region": "unknown",
+      "country_code": "AG",
+      "count": 1,
+      "sources": []
+    },
+    {
+      "region": "unknown",
+      "country_code": "OM",
+      "count": 1,
+      "sources": []
+    },
+    {
+      "region": "unknown",
+      "country_code": "BH",
+      "count": 2,
+      "sources": []
+    },
+    {
+      "region": "unknown",
+      "country_code": "BZ",
+      "count": 2,
+      "sources": []
+    },
+    {
+      "region": "unknown",
+      "country_code": "GW",
+      "count": 2,
+      "sources": []
+    },
+    {
+      "region": "unknown",
+      "country_code": "SM",
+      "count": 2,
+      "sources": []
+    }
+  ],
+  "recommendations_for_curator": {
+    "geocoding_priority": "CRITICAL - only 19% geocoded, map is 80% empty",
+    "taxonomy_fixes_needed": 1,
+    "suspect_orgs_to_quarantine": 66
+  },
+  "agent": "cartographer",
+  "written_at": "2026-05-19T02:43:55.199Z"
+}

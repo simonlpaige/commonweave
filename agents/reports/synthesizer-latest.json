@@ -1,0 +1,100 @@
+{
+  "run_at": "2026-05-19T02:45:38.316Z",
+  "version": "1.0",
+  "area_assessments": [
+    {
+      "area": "democratic_sovereignty",
+      "count": 59025,
+      "assessment": {
+        "status": "well_supported",
+        "confidence": "high"
+      }
+    },
+    {
+      "area": "universal_sufficiency",
+      "count": 44935,
+      "assessment": {
+        "status": "well_supported",
+        "confidence": "high"
+      }
+    },
+    {
+      "area": "ecological_equilibrium",
+      "count": 2118,
+      "assessment": {
+        "status": "well_supported",
+        "confidence": "high"
+      }
+    },
+    {
+      "area": "economic_democracy",
+      "count": 2176,
+      "assessment": {
+        "status": "well_supported",
+        "confidence": "high"
+      }
+    },
+    {
+      "area": "healthcare",
+      "count": 6072,
+      "assessment": {
+        "status": "well_supported",
+        "confidence": "high"
+      }
+    },
+    {
+      "area": "education",
+      "count": 3867,
+      "assessment": {
+        "status": "well_supported",
+        "confidence": "high"
+      }
+    },
+    {
+      "area": "food",
+      "count": 3518,
+      "assessment": {
+        "status": "well_supported",
+        "confidence": "high"
+      }
+    },
+    {
+      "area": "housing_land",
+      "count": 3000,
+      "assessment": {
+        "status": "well_supported",
+        "confidence": "high"
+      }
+    },
+    {
+      "area": "energy_digital",
+      "count": 75,
+      "assessment": {
+        "status": "supported",
+        "confidence": "medium"
+      }
+    },
+    {
+      "area": "transparency_by_default",
+      "count": 17064,
+      "assessment": {
+        "status": "well_supported",
+        "confidence": "high"
+      }
+    }
+  ],
+  "proposals_count": 10,
+  "proposals_by_priority": {
+    "high": 1,
+    "medium": 0,
+    "low": 9
+  },
+  "proposals_file": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\trim_audit\\proposals-2026-05-19.md",
+  "research_md_age_days": 17,
+  "overall_framework_quality": 9,
+  "areas_needing_hedges": [],
+  "coordinator_context_used": false,
+  "cartographer_input_used": true,
+  "agent": "synthesizer",
+  "written_at": "2026-05-19T02:45:38.316Z"
+}

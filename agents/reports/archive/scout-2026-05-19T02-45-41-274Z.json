@@ -1,0 +1,13 @@
+{
+  "run_at": "2026-05-19T02:45:41.274Z",
+  "version": "1.0",
+  "target_regions": [],
+  "repos_found": 0,
+  "new_drafts_queued": 0,
+  "queue_pending_approval": 0,
+  "sample_drafts": [],
+  "cartographer_input_used": true,
+  "coordinator_context_used": false,
+  "agent": "scout",
+  "written_at": "2026-05-19T02:45:41.275Z"
+}

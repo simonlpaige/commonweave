@@ -1,0 +1,34 @@
+{
+  "run_at": "2026-05-19T02:47:23.243Z",
+  "version": "1.0",
+  "before": {
+    "total": 154101,
+    "geocoded": 29422,
+    "geocoded_pct": 19.1
+  },
+  "after": {
+    "total": 154101,
+    "geocoded": 29423,
+    "geocoded_pct": 19.1
+  },
+  "quarantine": {
+    "quarantined": 0
+  },
+  "taxonomy_fixes": {
+    "fixed": 7
+  },
+  "geocoding": {
+    "attempted": 50,
+    "geocoded": 0,
+    "failed": 50
+  },
+  "remaining_taxonomy_issues": 0,
+  "geocoding_to_70pct": {
+    "needed": 78448,
+    "at_50_per_day_days": 1569
+  },
+  "coordinator_context_used": false,
+  "cartographer_input_used": true,
+  "agent": "curator",
+  "written_at": "2026-05-19T02:47:23.245Z"
+}
