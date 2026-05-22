@@ -1,7 +1,7 @@
 {
-  "orgs_total_db": 153426,
-  "orgs_in_directory": 153426,
-  "orgs_on_map": 29422,
+  "orgs_total_db": 154480,
+  "orgs_in_directory": 154480,
+  "orgs_on_map": 29423,
   "countries_with_at_least_one_org": 174,
   "countries_with_geocoded_org": 102,
   "by_tier": {
@@ -11,16 +11,16 @@
     "D_unverified_off_map": 0
   },
   "by_section": {
-    "democracy": 8698,
+    "democracy": 9583,
     "healthcare": 6072,
     "education": 3867,
     "food": 3518,
     "housing_land": 2642,
     "ecology": 2274,
     "cooperatives": 1264,
-    "conflict": 885,
     "recreation_arts": 127,
-    "energy_digital": 75
+    "energy_digital": 75,
+    "unknown": 1
   },
   "by_country": {
     "US": 13557,
@@ -86,7 +86,7 @@
     "recreation_arts",
     "ecology"
   ],
-  "last_built": "2026-05-17T12:56:03Z",
-  "last_built_date": "2026-05-17",
+  "last_built": "2026-05-22T23:29:26Z",
+  "last_built_date": "2026-05-22",
   "source_script": "commonweave/tools/rebuild_map_data.py"
 }

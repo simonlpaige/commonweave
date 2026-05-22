@@ -1,19 +1,19 @@
 {
   "countries": {
     "AE": {
-      "total": 3,
+      "total": 18,
       "mapped": 0
     },
     "AF": {
-      "total": 3,
+      "total": 32,
       "mapped": 0
     },
     "AG": {
-      "total": 1,
+      "total": 16,
       "mapped": 0
     },
     "AL": {
-      "total": 4,
+      "total": 17,
       "mapped": 0
     },
     "AM": {
@@ -37,7 +37,7 @@
       "mapped": 85
     },
     "AZ": {
-      "total": 2,
+      "total": 77,
       "mapped": 0
     },
     "BA": {
@@ -73,7 +73,7 @@
       "mapped": 0
     },
     "BN": {
-      "total": 1,
+      "total": 12,
       "mapped": 0
     },
     "BO": {
@@ -157,7 +157,7 @@
       "mapped": 389
     },
     "DJ": {
-      "total": 1,
+      "total": 39,
       "mapped": 0
     },
     "DK": {
@@ -185,7 +185,7 @@
       "mapped": 5
     },
     "ER": {
-      "total": 3,
+      "total": 13,
       "mapped": 0
     },
     "ES": {
@@ -209,7 +209,7 @@
       "mapped": 150
     },
     "GA": {
-      "total": 110,
+      "total": 117,
       "mapped": 0
     },
     "GB": {
@@ -217,7 +217,7 @@
       "mapped": 13316
     },
     "GE": {
-      "total": 1,
+      "total": 64,
       "mapped": 0
     },
     "GH": {
@@ -241,7 +241,7 @@
       "mapped": 8
     },
     "GW": {
-      "total": 2,
+      "total": 12,
       "mapped": 0
     },
     "GY": {
@@ -281,7 +281,7 @@
       "mapped": 22
     },
     "IQ": {
-      "total": 4,
+      "total": 33,
       "mapped": 0
     },
     "IR": {
@@ -313,7 +313,7 @@
       "mapped": 39
     },
     "KG": {
-      "total": 4,
+      "total": 18,
       "mapped": 0
     },
     "KH": {
@@ -333,7 +333,7 @@
       "mapped": 4
     },
     "KW": {
-      "total": 2,
+      "total": 32,
       "mapped": 0
     },
     "KZ": {
@@ -341,12 +341,12 @@
       "mapped": 2
     },
     "LA": {
-      "total": 2,
+      "total": 37,
       "mapped": 0
     },
     "LB": {
       "total": 103,
-      "mapped": 1
+      "mapped": 2
     },
     "LI": {
       "total": 30,
@@ -389,7 +389,7 @@
       "mapped": 0
     },
     "ME": {
-      "total": 36,
+      "total": 38,
       "mapped": 0
     },
     "MG": {
@@ -425,7 +425,7 @@
       "mapped": 0
     },
     "MW": {
-      "total": 3,
+      "total": 9,
       "mapped": 0
     },
     "MX": {
@@ -437,7 +437,7 @@
       "mapped": 3
     },
     "MZ": {
-      "total": 6,
+      "total": 19,
       "mapped": 2
     },
     "NA": {
@@ -473,7 +473,7 @@
       "mapped": 14
     },
     "OM": {
-      "total": 1,
+      "total": 11,
       "mapped": 0
     },
     "PA": {
@@ -517,7 +517,7 @@
       "mapped": 6
     },
     "QA": {
-      "total": 1,
+      "total": 11,
       "mapped": 0
     },
     "RO": {
@@ -537,7 +537,7 @@
       "mapped": 4
     },
     "SA": {
-      "total": 5,
+      "total": 10,
       "mapped": 0
     },
     "SC": {
@@ -545,7 +545,7 @@
       "mapped": 0
     },
     "SD": {
-      "total": 6,
+      "total": 9,
       "mapped": 0
     },
     "SE": {
@@ -593,7 +593,7 @@
       "mapped": 0
     },
     "SY": {
-      "total": 3,
+      "total": 72,
       "mapped": 0
     },
     "SZ": {
@@ -613,11 +613,11 @@
       "mapped": 10
     },
     "TJ": {
-      "total": 1,
+      "total": 4,
       "mapped": 0
     },
     "TL": {
-      "total": 3,
+      "total": 19,
       "mapped": 0
     },
     "TM": {
@@ -637,7 +637,7 @@
       "mapped": 14
     },
     "TT": {
-      "total": 3,
+      "total": 21,
       "mapped": 2
     },
     "TW": {
@@ -657,7 +657,7 @@
       "mapped": 30
     },
     "UK": {
-      "total": 1,
+      "total": 12,
       "mapped": 1
     },
     "US": {
@@ -669,7 +669,7 @@
       "mapped": 0
     },
     "UZ": {
-      "total": 2,
+      "total": 33,
       "mapped": 0
     },
     "VE": {
@@ -1376,6 +1376,7 @@
     }
   },
   "tier_counts": {
+    "candidate": 1,
     "B": 15042,
     "C": 4538,
     "K31": 1546,
@@ -1933,5 +1934,5 @@
     "recreation_arts",
     "ecology"
   ],
-  "total_points": 29422
+  "total_points": 29423
 }
