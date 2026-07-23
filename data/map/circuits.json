@@ -1,0 +1,636 @@
+{
+ "generated_at": "2026-07-03T12:00:42Z",
+ "source_script": "data/build_edges.py",
+ "note": "Circuit candidates: groups of nearby organizations that jointly fill the roles of a documented solution circuit. Derived, unverified - treat as introductions worth making, not existing partnerships.",
+ "circuits": [
+  {
+   "id": "labor_for_housing",
+   "name": "Labor-for-housing pipeline",
+   "problem": "Affordable homeownership without lifelong debt: land held in trust keeps homes permanently affordable, organized labor turns work-hours into equity, and cooperative finance bridges construction costs.",
+   "evidence": "LABOR-FOR-HOUSING-GUIDE.md"
+  },
+  {
+   "id": "community_food_system",
+   "name": "Local food security loop",
+   "problem": "A local food system that survives supply shocks: growers produce, a cooperative channel distributes, and access organizations get food to people who cannot pay market prices.",
+   "evidence": "data/taxonomy.yaml (Food and Nourishment; Local Food Systems; Food Sovereignty)"
+  },
+  {
+   "id": "housing_justice_pipeline",
+   "name": "Housing justice pipeline",
+   "problem": "Stopping displacement takes three capacities at once: tenants organized to resist eviction, legal capacity to fight cases, and a permanent- affordability vehicle to move buildings out of the speculative market.",
+   "evidence": "data/taxonomy.yaml (Housing Rights [NEW_2026]; Community Land Trusts)"
+  },
+  {
+   "id": "community_health_mesh",
+   "name": "Community health mesh",
+   "problem": "Clinical care alone misses people; mutual aid alone lacks clinical capacity. A clinic, a neighborhood outreach network, and a health educator together form last-mile public health infrastructure.",
+   "evidence": "data/taxonomy.yaml (Community Health Workers [NEW_2026]; Mutual Aid)"
+  },
+  {
+   "id": "worker_transition",
+   "name": "Worker ownership transition",
+   "problem": "When firms close or owners retire, jobs vanish. A union to organize the workforce, a cooperative developer to structure worker buyouts, and a trainer to reskill make business succession into worker ownership.",
+   "evidence": "START-A-LABOR-UNION.md; data/taxonomy.yaml (Worker Cooperatives [NEW_2026])"
+  },
+  {
+   "id": "land_stewardship_alliance",
+   "name": "Land stewardship alliance",
+   "problem": "Conservation without production becomes a museum; production without stewardship strips the land. A land-holding entity, an ecological steward, and a working farm together keep land healthy and in use.",
+   "evidence": "data/taxonomy.yaml (Land Stewardship; Land Return [NEW_2026]; Regenerative Agriculture)"
+  },
+  {
+   "id": "food_waste_loop",
+   "name": "Food waste-to-soil loop",
+   "problem": "Edible surplus feeds people, inedible surplus feeds soil, and gardens close the loop by growing more food. Requires rescue logistics, composting capacity, and growing space in the same city.",
+   "evidence": "data/taxonomy.yaml (Composting; Recycling and Reuse; Community Gardens via Gardening)"
+  },
+  {
+   "id": "civic_information_commons",
+   "name": "Civic information commons",
+   "problem": "Local news deserts starve local democracy. Community media, an education partner, and civic organizing groups can together rebuild a shared information base that residents actually use.",
+   "evidence": "data/taxonomy.yaml (Open Source Journalism [NEW_2026]; Media; Democracy Education)"
+  },
+  {
+   "id": "cooperative_incubator",
+   "name": "Cooperative development pipeline",
+   "problem": "New co-ops fail alone: they need an apex body for peer support and standards, patient cooperative finance, and technical education. Together these form a regional co-op incubator.",
+   "evidence": "data/relationships.csv (apex membership patterns); MAP-V3-PLAN.md phase 2"
+  },
+  {
+   "id": "disaster_resilience_grid",
+   "name": "Disaster resilience grid",
+   "problem": "When infrastructure fails, response speed depends on relationships that already exist: neighborhood mutual aid for distribution, clinical capacity for care, and a coordinating body for logistics.",
+   "evidence": "data/taxonomy.yaml (Mutual Aid [NEW_2026]; Climate Adaptation [NEW_2026])"
+  },
+  {
+   "id": "community_energy_transition",
+   "name": "Community energy transition",
+   "problem": "Energy bills drain neighborhoods; community-owned generation keeps the money local. Needs a generation co-op, finance for the capital cost, and a civic anchor to aggregate demand and host installations.",
+   "evidence": "data/taxonomy.yaml (Community Energy [NEW_2026]; Renewable Energy)"
+  },
+  {
+   "id": "eldercare_commons",
+   "name": "Eldercare commons",
+   "problem": "Aging in place fails without three supports: cooperative or co-housing arrangements, day-to-day practical help, and accessible clinical care.",
+   "evidence": "data/taxonomy.yaml (Eldercare Commons [NEW_2026]; Seniors' Health)"
+  }
+ ],
+ "total_candidates": 76,
+ "candidates_by_country": {
+  "BG": [
+   {
+    "group_id": "community_food_system_7133cc6010",
+    "circuit": "community_food_system",
+    "circuit_name": "Local food security loop",
+    "problem": "A local food system that survives supply shocks: growers produce, a cooperative channel distributes, and access organizations get food to people who cannot pay market prices.",
+    "evidence": "data/taxonomy.yaml (Food and Nourishment; Local Food Systems; Food Sovereignty)",
+    "score": 0.9,
+    "avg_km": 1.4,
+    "span_km": 2.0,
+    "country": "BG",
+    "centroid": [
+     42.6877,
+     23.3305
+    ],
+    "explanation": "Together: Farmhopping (grower) + Hrancoop (distribution) + Bulgarian Food Bank (access) could close a local food loop (grow + distribute + guarantee access).",
+    "members": [
+     {
+      "id": "org_902290",
+      "name": "Farmhopping",
+      "role": "grower",
+      "role_label": "grower",
+      "framework": "food",
+      "model": "nonprofit"
+     },
+     {
+      "id": "org_902364",
+      "name": "Hrancoop",
+      "role": "distribution",
+      "role_label": "distribution",
+      "framework": "food",
+      "model": "cooperative"
+     },
+     {
+      "id": "org_902352",
+      "name": "Bulgarian Food Bank",
+      "role": "access",
+      "role_label": "access",
+      "framework": "food",
+      "model": "nonprofit"
+     }
+    ]
+   }
+  ],
+  "NG": [
+   {
+    "group_id": "land_stewardship_alliance_5ae95aa3bc",
+    "circuit": "land_stewardship_alliance",
+    "circuit_name": "Land stewardship alliance",
+    "problem": "Conservation without production becomes a museum; production without stewardship strips the land. A land-holding entity, an ecological steward, and a working farm together keep land healthy and in use.",
+    "evidence": "data/taxonomy.yaml (Land Stewardship; Land Return [NEW_2026]; Regenerative Agriculture)",
+    "score": 0.8709,
+    "avg_km": 0.0,
+    "span_km": 0.0,
+    "country": "NG",
+    "centroid": [
+     9.08,
+     8.67
+    ],
+    "explanation": "Together: Aya International Development Indigenous Knowledge Initiative Nigeria (land tenure) + Nigerian Conservation Foundation (ecological stewardship) + Edo Co-operative Farmers (regenerative production) could hold, restore and work land together (secure tenure + ecological stewardship + regenerative production).",
+    "members": [
+     {
+      "id": "rec_37a96b11038babdc",
+      "name": "Edo Co-operative Farmers",
+      "role": "producer",
+      "role_label": "regenerative production",
+      "framework": "food",
+      "model": "cooperative"
+     },
+     {
+      "id": "rec_272eb6fb4fac1ecd",
+      "name": "Aya International Development Indigenous Knowledge Initiative Nigeria",
+      "role": "tenure",
+      "role_label": "land tenure",
+      "framework": "democratic_sovereignty",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_b29a3b004eccdbdc",
+      "name": "Nigerian Conservation Foundation",
+      "role": "steward",
+      "role_label": "ecological stewardship",
+      "framework": "ecology",
+      "model": "foundation"
+     }
+    ]
+   }
+  ],
+  "US": [
+   {
+    "group_id": "community_health_mesh_ed3e827f6e",
+    "circuit": "community_health_mesh",
+    "circuit_name": "Community health mesh",
+    "problem": "Clinical care alone misses people; mutual aid alone lacks clinical capacity. A clinic, a neighborhood outreach network, and a health educator together form last-mile public health infrastructure.",
+    "evidence": "data/taxonomy.yaml (Community Health Workers [NEW_2026]; Mutual Aid)",
+    "score": 0.8489,
+    "avg_km": 0.1,
+    "span_km": 0.1,
+    "country": "US",
+    "centroid": [
+     35.3869,
+     -119.017
+    ],
+    "explanation": "Together: COMMUNITY MEDICAL EDUCATION AND RESEARCH FOUNDATION (clinical care) + Kern County Mutual Aid (neighborhood outreach) + COUNCIL FOR BLACK HEALTH EDUCATION & WELLNESS (health education) could run last-mile community health (clinic + neighborhood outreach + health education).",
+    "members": [
+     {
+      "id": "rec_76f9053bf4b48edc",
+      "name": "COUNCIL FOR BLACK HEALTH EDUCATION & WELLNESS",
+      "role": "education",
+      "role_label": "health education",
+      "framework": "healthcare",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_7335a682f7bb7495",
+      "name": "COMMUNITY MEDICAL EDUCATION AND RESEARCH FOUNDATION",
+      "role": "clinic",
+      "role_label": "clinical care",
+      "framework": "healthcare",
+      "model": "foundation"
+     },
+     {
+      "id": "rec_e6240be1fc6995bb",
+      "name": "Kern County Mutual Aid",
+      "role": "outreach",
+      "role_label": "neighborhood outreach",
+      "framework": "democratic_sovereignty",
+      "model": "mutual_aid"
+     }
+    ]
+   },
+   {
+    "group_id": "community_health_mesh_39dfa477c7",
+    "circuit": "community_health_mesh",
+    "circuit_name": "Community health mesh",
+    "problem": "Clinical care alone misses people; mutual aid alone lacks clinical capacity. A clinic, a neighborhood outreach network, and a health educator together form last-mile public health infrastructure.",
+    "evidence": "data/taxonomy.yaml (Community Health Workers [NEW_2026]; Mutual Aid)",
+    "score": 0.8487,
+    "avg_km": 0.1,
+    "span_km": 0.1,
+    "country": "US",
+    "centroid": [
+     42.2623,
+     -71.803
+    ],
+    "explanation": "Together: EDWARD M KENNEDY COMMUNITY HEALTH CENTER INC (clinical care) + Mutual Aid Worcester (neighborhood outreach) + SALVATION HEALTH EDUCATION AND DISEASE PREVENTION OUTREACH INC (health education) could run last-mile community health (clinic + neighborhood outreach + health education).",
+    "members": [
+     {
+      "id": "rec_6d449782b86ba9a1",
+      "name": "SALVATION HEALTH EDUCATION AND DISEASE PREVENTION OUTREACH INC",
+      "role": "education",
+      "role_label": "health education",
+      "framework": "healthcare",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_b48ad99f198219b7",
+      "name": "EDWARD M KENNEDY COMMUNITY HEALTH CENTER INC",
+      "role": "clinic",
+      "role_label": "clinical care",
+      "framework": "healthcare",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_85b3a9133bd564c9",
+      "name": "Mutual Aid Worcester",
+      "role": "outreach",
+      "role_label": "neighborhood outreach",
+      "framework": "democratic_sovereignty",
+      "model": "mutual_aid"
+     }
+    ]
+   },
+   {
+    "group_id": "disaster_resilience_grid_5bb2dfa1a0",
+    "circuit": "disaster_resilience_grid",
+    "circuit_name": "Disaster resilience grid",
+    "problem": "When infrastructure fails, response speed depends on relationships that already exist: neighborhood mutual aid for distribution, clinical capacity for care, and a coordinating body for logistics.",
+    "evidence": "data/taxonomy.yaml (Mutual Aid [NEW_2026]; Climate Adaptation [NEW_2026])",
+    "score": 0.8474,
+    "avg_km": 0.1,
+    "span_km": 0.2,
+    "country": "US",
+    "centroid": [
+     41.8245,
+     -71.4123
+    ],
+    "explanation": "Together: AMOR - COVID19 Community Response Volunteer Sign Up (neighborhood distribution) + RHODE ISLAND FREE CLINIC INC (clinical care) + Rhode Island Pride COVID-19 Emergency Food/Toiletries/Sanitation Supply Drive (coordination) could form a pre-wired disaster response grid (neighborhood distribution + clinical care + coordination).",
+    "members": [
+     {
+      "id": "rec_4bc89cc09f8eab58",
+      "name": "Rhode Island Pride COVID-19 Emergency Food/Toiletries/Sanitation Supply Drive",
+      "role": "coordination",
+      "role_label": "coordination",
+      "framework": "democratic_sovereignty",
+      "model": "mutual_aid"
+     },
+     {
+      "id": "rec_132008209b27a30a",
+      "name": "AMOR - COVID19 Community Response Volunteer Sign Up",
+      "role": "distribution",
+      "role_label": "neighborhood distribution",
+      "framework": "democratic_sovereignty",
+      "model": "mutual_aid"
+     },
+     {
+      "id": "rec_f2678ccdb82700be",
+      "name": "RHODE ISLAND FREE CLINIC INC",
+      "role": "care",
+      "role_label": "clinical care",
+      "framework": "healthcare",
+      "model": "nonprofit"
+     }
+    ]
+   },
+   {
+    "group_id": "disaster_resilience_grid_6c88266798",
+    "circuit": "disaster_resilience_grid",
+    "circuit_name": "Disaster resilience grid",
+    "problem": "When infrastructure fails, response speed depends on relationships that already exist: neighborhood mutual aid for distribution, clinical capacity for care, and a coordinating body for logistics.",
+    "evidence": "data/taxonomy.yaml (Mutual Aid [NEW_2026]; Climate Adaptation [NEW_2026])",
+    "score": 0.8456,
+    "avg_km": 0.2,
+    "span_km": 0.4,
+    "country": "US",
+    "centroid": [
+     35.9958,
+     -78.8973
+    ],
+    "explanation": "Together: COVID-19 Resource Spreadsheet - Durham (neighborhood distribution) + LINCOLN COMMUNITY HEALTH CENTER INCORPORATED (clinical care) + CHRISTIAN ASSEMBLY EMERGENCY FOOD PANTRY (coordination) could form a pre-wired disaster response grid (neighborhood distribution + clinical care + coordination).",
+    "members": [
+     {
+      "id": "rec_ca4b5ad732a68d31",
+      "name": "CHRISTIAN ASSEMBLY EMERGENCY FOOD PANTRY",
+      "role": "coordination",
+      "role_label": "coordination",
+      "framework": "food",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_f5d5c0c8e9ecf69d",
+      "name": "COVID-19 Resource Spreadsheet - Durham",
+      "role": "distribution",
+      "role_label": "neighborhood distribution",
+      "framework": "democratic_sovereignty",
+      "model": "mutual_aid"
+     },
+     {
+      "id": "rec_6874025da267e771",
+      "name": "LINCOLN COMMUNITY HEALTH CENTER INCORPORATED",
+      "role": "care",
+      "role_label": "clinical care",
+      "framework": "healthcare",
+      "model": "nonprofit"
+     }
+    ]
+   },
+   {
+    "group_id": "community_health_mesh_749faac21c",
+    "circuit": "community_health_mesh",
+    "circuit_name": "Community health mesh",
+    "problem": "Clinical care alone misses people; mutual aid alone lacks clinical capacity. A clinic, a neighborhood outreach network, and a health educator together form last-mile public health infrastructure.",
+    "evidence": "data/taxonomy.yaml (Community Health Workers [NEW_2026]; Mutual Aid)",
+    "score": 0.8437,
+    "avg_km": 0.3,
+    "span_km": 0.5,
+    "country": "US",
+    "centroid": [
+     43.0466,
+     -76.151
+    ],
+    "explanation": "Together: Syracuse Community Health Center Inc (clinical care) + Westcott Mutual Aid (neighborhood outreach) + CENTRAL NEW YORK AREA HEALTH EDUCATION CENTER INC (health education) could run last-mile community health (clinic + neighborhood outreach + health education).",
+    "members": [
+     {
+      "id": "rec_fd28ca9a46d23eca",
+      "name": "CENTRAL NEW YORK AREA HEALTH EDUCATION CENTER INC",
+      "role": "education",
+      "role_label": "health education",
+      "framework": "healthcare",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_cc6ff11b990520ad",
+      "name": "Syracuse Community Health Center Inc",
+      "role": "clinic",
+      "role_label": "clinical care",
+      "framework": "healthcare",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_bbe1926cfd533f6b",
+      "name": "Westcott Mutual Aid",
+      "role": "outreach",
+      "role_label": "neighborhood outreach",
+      "framework": "democratic_sovereignty",
+      "model": "mutual_aid"
+     }
+    ]
+   },
+   {
+    "group_id": "disaster_resilience_grid_f89af5b745",
+    "circuit": "disaster_resilience_grid",
+    "circuit_name": "Disaster resilience grid",
+    "problem": "When infrastructure fails, response speed depends on relationships that already exist: neighborhood mutual aid for distribution, clinical capacity for care, and a coordinating body for logistics.",
+    "evidence": "data/taxonomy.yaml (Mutual Aid [NEW_2026]; Climate Adaptation [NEW_2026])",
+    "score": 0.8279,
+    "avg_km": 1.2,
+    "span_km": 1.8,
+    "country": "US",
+    "centroid": [
+     39.2146,
+     -76.8719
+    ],
+    "explanation": "Together: Ffdc Mutual Aid Network Inc (neighborhood distribution) + EMMANUEL HEALTH EDUCATION INC (clinical care) + Howard County Community Organizations Active in Disaster (coordination) could form a pre-wired disaster response grid (neighborhood distribution + clinical care + coordination).",
+    "members": [
+     {
+      "id": "rec_f6f5e4892a54c342",
+      "name": "Howard County Community Organizations Active in Disaster",
+      "role": "coordination",
+      "role_label": "coordination",
+      "framework": "democratic_sovereignty",
+      "model": "mutual_aid"
+     },
+     {
+      "id": "rec_78cf453e090d5916",
+      "name": "Ffdc Mutual Aid Network Inc",
+      "role": "distribution",
+      "role_label": "neighborhood distribution",
+      "framework": "economic_democracy",
+      "model": "mutual_aid"
+     },
+     {
+      "id": "rec_64a862832e6379b1",
+      "name": "EMMANUEL HEALTH EDUCATION INC",
+      "role": "care",
+      "role_label": "clinical care",
+      "framework": "healthcare",
+      "model": "nonprofit"
+     }
+    ]
+   },
+   {
+    "group_id": "community_food_system_947003c3af",
+    "circuit": "community_food_system",
+    "circuit_name": "Local food security loop",
+    "problem": "A local food system that survives supply shocks: growers produce, a cooperative channel distributes, and access organizations get food to people who cannot pay market prices.",
+    "evidence": "data/taxonomy.yaml (Food and Nourishment; Local Food Systems; Food Sovereignty)",
+    "score": 0.7959,
+    "avg_km": 0.0,
+    "span_km": 0.0,
+    "country": "US",
+    "centroid": [
+     40.8222,
+     -73.9217
+    ],
+    "explanation": "Together: RAINBOW LIFE COMMUNITY GARDEN INC (grower) + BLACK FORUM OF CO-OP CITY (distribution) + FOOD BANK FOR NEW YORK CITY (access) could close a local food loop (grow + distribute + guarantee access).",
+    "members": [
+     {
+      "id": "rec_e778b27d9beec550",
+      "name": "RAINBOW LIFE COMMUNITY GARDEN INC",
+      "role": "grower",
+      "role_label": "grower",
+      "framework": "food",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_9ea9c8e341b41046",
+      "name": "BLACK FORUM OF CO-OP CITY",
+      "role": "distribution",
+      "role_label": "distribution",
+      "framework": "food",
+      "model": "cooperative"
+     },
+     {
+      "id": "rec_21fba585e1b64825",
+      "name": "FOOD BANK FOR NEW YORK CITY",
+      "role": "access",
+      "role_label": "access",
+      "framework": "democratic_sovereignty",
+      "model": "nonprofit"
+     }
+    ]
+   },
+   {
+    "group_id": "labor_for_housing_e201bdc4d6",
+    "circuit": "labor_for_housing",
+    "circuit_name": "Labor-for-housing pipeline",
+    "problem": "Affordable homeownership without lifelong debt: land held in trust keeps homes permanently affordable, organized labor turns work-hours into equity, and cooperative finance bridges construction costs.",
+    "evidence": "LABOR-FOR-HOUSING-GUIDE.md",
+    "score": 0.7559,
+    "avg_km": 0.0,
+    "span_km": 0.0,
+    "country": "US",
+    "centroid": [
+     36.0557,
+     -96.0602
+    ],
+    "explanation": "Together: CROSSOVER COMMUNITY LAND TRUST INC (land) + HABITAT FOR HUMANITY INTERNATIONAL INC (build labor) + WESTREET FEDERAL CREDIT UNION (finance) could run a labor-for-housing pipeline (land in trust + labor as equity + cooperative finance).",
+    "members": [
+     {
+      "id": "rec_c9518232bd6354bb",
+      "name": "WESTREET FEDERAL CREDIT UNION",
+      "role": "finance",
+      "role_label": "finance",
+      "framework": "democratic_sovereignty",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_e868c1527499c501",
+      "name": "CROSSOVER COMMUNITY LAND TRUST INC",
+      "role": "land",
+      "role_label": "land",
+      "framework": "housing_land",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_90d53ba7f4daae9d",
+      "name": "HABITAT FOR HUMANITY INTERNATIONAL INC",
+      "role": "build_labor",
+      "role_label": "build labor",
+      "framework": "housing_land",
+      "model": "sweat_equity_program"
+     }
+    ]
+   },
+   {
+    "group_id": "labor_for_housing_062b7d5b5e",
+    "circuit": "labor_for_housing",
+    "circuit_name": "Labor-for-housing pipeline",
+    "problem": "Affordable homeownership without lifelong debt: land held in trust keeps homes permanently affordable, organized labor turns work-hours into equity, and cooperative finance bridges construction costs.",
+    "evidence": "LABOR-FOR-HOUSING-GUIDE.md",
+    "score": 0.7559,
+    "avg_km": 0.0,
+    "span_km": 0.0,
+    "country": "US",
+    "centroid": [
+     32.7469,
+     -97.3268
+    ],
+    "explanation": "Together: FORT WORTH COMMUNITY LAND TRUST (land) + HABITAT FOR HUMANITY INTERNATIONAL INC (build labor) + CREDIT UNION WOMENS LEADERSHIP ALLIANCE INC (finance) could run a labor-for-housing pipeline (land in trust + labor as equity + cooperative finance).",
+    "members": [
+     {
+      "id": "rec_f5de00cce0e9999c",
+      "name": "CREDIT UNION WOMENS LEADERSHIP ALLIANCE INC",
+      "role": "finance",
+      "role_label": "finance",
+      "framework": "economic_democracy",
+      "model": "federation"
+     },
+     {
+      "id": "rec_3be58a68c5f0bb27",
+      "name": "FORT WORTH COMMUNITY LAND TRUST",
+      "role": "land",
+      "role_label": "land",
+      "framework": "housing_land",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_e191a4704fe52494",
+      "name": "HABITAT FOR HUMANITY INTERNATIONAL INC",
+      "role": "build_labor",
+      "role_label": "build labor",
+      "framework": "housing_land",
+      "model": "sweat_equity_program"
+     }
+    ]
+   },
+   {
+    "group_id": "labor_for_housing_1d488117bc",
+    "circuit": "labor_for_housing",
+    "circuit_name": "Labor-for-housing pipeline",
+    "problem": "Affordable homeownership without lifelong debt: land held in trust keeps homes permanently affordable, organized labor turns work-hours into equity, and cooperative finance bridges construction costs.",
+    "evidence": "LABOR-FOR-HOUSING-GUIDE.md",
+    "score": 0.7403,
+    "avg_km": 3.9,
+    "span_km": 5.9,
+    "country": "US",
+    "centroid": [
+     41.7692,
+     -72.663
+    ],
+    "explanation": "Together: NORTH HARTFORD COMMUNITY LAND TRUST (land) + HABITAT FOR HUMANITY OF NORTH CENTRAL CONNECTICUT (build labor) + AMERICAN EAGLE FINANCIAL CREDIT UNION INCORPORATED (finance) could run a labor-for-housing pipeline (land in trust + labor as equity + cooperative finance).",
+    "members": [
+     {
+      "id": "rec_80bfcb26fc67a39c",
+      "name": "AMERICAN EAGLE FINANCIAL CREDIT UNION INCORPORATED",
+      "role": "finance",
+      "role_label": "finance",
+      "framework": "democratic_sovereignty",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_4025e2497718b264",
+      "name": "NORTH HARTFORD COMMUNITY LAND TRUST",
+      "role": "land",
+      "role_label": "land",
+      "framework": "housing_land",
+      "model": "nonprofit"
+     },
+     {
+      "id": "rec_f2ee3c295daa51da",
+      "name": "HABITAT FOR HUMANITY OF NORTH CENTRAL CONNECTICUT",
+      "role": "build_labor",
+      "role_label": "build labor",
+      "framework": "housing_land",
+      "model": "sweat_equity_program"
+     }
+    ]
+   }
+  ],
+  "GB": [
+   {
+    "group_id": "community_food_system_b06e2cae36",
+    "circuit": "community_food_system",
+    "circuit_name": "Local food security loop",
+    "problem": "A local food system that survives supply shocks: growers produce, a cooperative channel distributes, and access organizations get food to people who cannot pay market prices.",
+    "evidence": "data/taxonomy.yaml (Food and Nourishment; Local Food Systems; Food Sovereignty)",
+    "score": 0.7255,
+    "avg_km": 7.4,
+    "span_km": 11.1,
+    "country": "GB",
+    "centroid": [
+     53.4761,
+     -2.1912
+    ],
+    "explanation": "Together: Hulme Community Garden Centre (grower) + 8th Day (distribution) + Ashton Central Mosque Food Bank for Cov-ID 19 Support (access) could close a local food loop (grow + distribute + guarantee access).",
+    "members": [
+     {
+      "id": "org_902776",
+      "name": "Hulme Community Garden Centre",
+      "role": "grower",
+      "role_label": "grower",
+      "framework": "food",
+      "model": "collective"
+     },
+     {
+      "id": "org_902281",
+      "name": "8th Day",
+      "role": "distribution",
+      "role_label": "distribution",
+      "framework": "food",
+      "model": "cooperative"
+     },
+     {
+      "id": "rec_b06f500ac4bc406e",
+      "name": "Ashton Central Mosque Food Bank for Cov-ID 19 Support",
+      "role": "access",
+      "role_label": "access",
+      "framework": "democratic_sovereignty",
+      "model": "mutual_aid"
+     }
+    ]
+   }
+  ]
+ }
+}

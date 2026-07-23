@@ -1,0 +1,360 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-03T12:00:42Z",
+  "source": "data/map/orgs.v3.geojson",
+  "note": "Compact public-field snapshot for deterministic circuit brief builds; contains only organizations referenced by circuits.json.",
+  "records": [
+    {
+      "id": "org_902281"
+    },
+    {
+      "id": "org_902290"
+    },
+    {
+      "id": "org_902352"
+    },
+    {
+      "id": "org_902364"
+    },
+    {
+      "id": "org_902776"
+    },
+    {
+      "id": "org_rec_132008209b27a30a",
+      "n": "AMOR - COVID19 Community Response Volunteer Sign Up",
+      "w": "www.facebook.com/amornetwork",
+      "src": "mutual_aid_hub",
+      "t": "B",
+      "m": "mutual_aid",
+      "ci": "Providence",
+      "st": "RI",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_21fba585e1b64825",
+      "n": "FOOD BANK FOR NEW YORK CITY",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "BRONX",
+      "st": "NY",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_272eb6fb4fac1ecd",
+      "n": "Aya International Development Indigenous Knowledge Initiative Nigeria",
+      "src": "Field research + Wikidata",
+      "t": "B",
+      "m": "nonprofit",
+      "cc": "NG"
+    },
+    {
+      "id": "org_rec_37a96b11038babdc",
+      "n": "Edo Co-operative Farmers",
+      "src": "Field research + Wikidata",
+      "t": "B",
+      "m": "cooperative",
+      "cc": "NG"
+    },
+    {
+      "id": "org_rec_3be58a68c5f0bb27",
+      "n": "FORT WORTH COMMUNITY LAND TRUST",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "FORT WORTH",
+      "st": "TX",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_4025e2497718b264",
+      "n": "NORTH HARTFORD COMMUNITY LAND TRUST",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "HARTFORD",
+      "st": "CT",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_4bc89cc09f8eab58",
+      "n": "Rhode Island Pride COVID-19 Emergency Food/Toiletries/Sanitation Supply Drive",
+      "src": "mutual_aid_hub",
+      "t": "B",
+      "m": "mutual_aid",
+      "ci": "Providence",
+      "st": "RI",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_64a862832e6379b1",
+      "n": "EMMANUEL HEALTH EDUCATION INC",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "COLUMBIA",
+      "st": "MD",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_6874025da267e771",
+      "n": "LINCOLN COMMUNITY HEALTH CENTER INCORPORATED",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "DURHAM",
+      "st": "NC",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_6d449782b86ba9a1",
+      "n": "SALVATION HEALTH EDUCATION AND DISEASE PREVENTION OUTREACH INC",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "WORCESTER",
+      "st": "MA",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_7335a682f7bb7495",
+      "n": "COMMUNITY MEDICAL EDUCATION AND RESEARCH FOUNDATION",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "foundation",
+      "ci": "BAKERSFIELD",
+      "st": "CA",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_76f9053bf4b48edc",
+      "n": "COUNCIL FOR BLACK HEALTH EDUCATION & WELLNESS",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "BAKERSFIELD",
+      "st": "CA",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_78cf453e090d5916",
+      "n": "Ffdc Mutual Aid Network Inc",
+      "src": "ProPublica",
+      "t": "B",
+      "m": "mutual_aid",
+      "ci": "Columbia",
+      "st": "MD",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_80bfcb26fc67a39c",
+      "n": "AMERICAN EAGLE FINANCIAL CREDIT UNION INCORPORATED",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "EAST HARTFORD",
+      "st": "CT",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_85b3a9133bd564c9",
+      "n": "Mutual Aid Worcester",
+      "w": "www.facebook.com/groups/MutualAidWorcester",
+      "src": "mutual_aid_hub",
+      "t": "B",
+      "m": "mutual_aid",
+      "ci": "Worcester",
+      "st": "MA",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_90d53ba7f4daae9d",
+      "n": "HABITAT FOR HUMANITY INTERNATIONAL INC",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "sweat_equity_program",
+      "ci": "TULSA",
+      "st": "OK",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_9ea9c8e341b41046",
+      "n": "BLACK FORUM OF CO-OP CITY",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "cooperative",
+      "ci": "BRONX",
+      "st": "NY",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_b06f500ac4bc406e",
+      "n": "Ashton Central Mosque Food Bank for Cov-ID 19 Support",
+      "w": "www.ashtoncentralmosque.com/wp/index.php/services/tameside-f",
+      "src": "Field research + Wikidata",
+      "t": "C",
+      "m": "mutual_aid",
+      "cc": "GB"
+    },
+    {
+      "id": "org_rec_b29a3b004eccdbdc",
+      "n": "Nigerian Conservation Foundation",
+      "w": "ncfnigeria.org",
+      "src": "Field research + Wikidata",
+      "t": "B",
+      "m": "foundation",
+      "cc": "NG"
+    },
+    {
+      "id": "org_rec_b48ad99f198219b7",
+      "n": "EDWARD M KENNEDY COMMUNITY HEALTH CENTER INC",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "WORCESTER",
+      "st": "MA",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_bbe1926cfd533f6b",
+      "n": "Westcott Mutual Aid",
+      "src": "mutual_aid_hub",
+      "t": "B",
+      "m": "mutual_aid",
+      "ci": "Syracuse",
+      "st": "NY",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_c9518232bd6354bb",
+      "n": "WESTREET FEDERAL CREDIT UNION",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "TULSA",
+      "st": "OK",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_ca4b5ad732a68d31",
+      "n": "CHRISTIAN ASSEMBLY EMERGENCY FOOD PANTRY",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "DURHAM",
+      "st": "NC",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_cc6ff11b990520ad",
+      "n": "Syracuse Community Health Center Inc",
+      "src": "ProPublica",
+      "t": "B",
+      "m": "nonprofit",
+      "ci": "Syracuse",
+      "st": "NY",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_e191a4704fe52494",
+      "n": "HABITAT FOR HUMANITY INTERNATIONAL INC",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "sweat_equity_program",
+      "ci": "FORT WORTH",
+      "st": "TX",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_e6240be1fc6995bb",
+      "n": "Kern County Mutual Aid",
+      "w": "www.facebook.com/DSAkerncounty",
+      "src": "mutual_aid_hub",
+      "t": "B",
+      "m": "mutual_aid",
+      "ci": "Bakersfield",
+      "st": "CA",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_e778b27d9beec550",
+      "n": "RAINBOW LIFE COMMUNITY GARDEN INC",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "BRONX",
+      "st": "NY",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_e868c1527499c501",
+      "n": "CROSSOVER COMMUNITY LAND TRUST INC",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "TULSA",
+      "st": "OK",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_f2678ccdb82700be",
+      "n": "RHODE ISLAND FREE CLINIC INC",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "PROVIDENCE",
+      "st": "RI",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_f2ee3c295daa51da",
+      "n": "HABITAT FOR HUMANITY OF NORTH CENTRAL CONNECTICUT",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "sweat_equity_program",
+      "ci": "HARTFORD",
+      "st": "CT",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_f5d5c0c8e9ecf69d",
+      "n": "COVID-19 Resource Spreadsheet - Durham",
+      "src": "mutual_aid_hub",
+      "t": "B",
+      "m": "mutual_aid",
+      "ci": "Durham",
+      "st": "NC",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_f5de00cce0e9999c",
+      "n": "CREDIT UNION WOMENS LEADERSHIP ALLIANCE INC",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "federation",
+      "ci": "FORT WORTH",
+      "st": "TX",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_f6f5e4892a54c342",
+      "n": "Howard County Community Organizations Active in Disaster",
+      "src": "mutual_aid_hub",
+      "t": "B",
+      "m": "mutual_aid",
+      "ci": "Columbia",
+      "st": "MD",
+      "cc": "US"
+    },
+    {
+      "id": "org_rec_fd28ca9a46d23eca",
+      "n": "CENTRAL NEW YORK AREA HEALTH EDUCATION CENTER INC",
+      "src": "IRS_EO_BMF",
+      "t": "C",
+      "m": "nonprofit",
+      "ci": "SYRACUSE",
+      "st": "NY",
+      "cc": "US"
+    }
+  ]
+}

@@ -43,6 +43,10 @@ node_modules/
 **/node_modules/
 npm-debug.log*
 
+# Python
+__pycache__/
+*.py[cod]
+
 # Local civic-identity/neighborhood-os runtime artifacts
 civic-identity.db
 neighborhood-os.db

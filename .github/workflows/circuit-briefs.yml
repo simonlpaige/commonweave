@@ -1,0 +1,35 @@
+name: Circuit brief integrity
+
+on:
+  pull_request:
+    paths:
+      - "data/map/circuits.json"
+      - "data/map/orgs.v3.geojson"
+      - "data/map/stats.v3.json"
+      - "tools/build-circuit-briefs.py"
+      - "briefs/**"
+      - "sitemap.xml"
+  push:
+    branches: [master]
+    paths:
+      - "data/map/circuits.json"
+      - "data/map/orgs.v3.geojson"
+      - "data/map/stats.v3.json"
+      - "tools/build-circuit-briefs.py"
+      - "briefs/**"
+      - "sitemap.xml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify generated briefs
+        run: python tools/build-circuit-briefs.py --check
