@@ -4,12 +4,13 @@ build.py -- single-command rebuild for the Commonweave site/data layer.
 Steps (in order):
   1. data/build_search_index.py
   2. data/build_map_v2.py
-  3. tools/wiki-update.py        (skip with --skip-wiki)
-  4. tools/gen-audit-data.py --region usa
-  5. tools/gen-audit-data.py --region india
-  6. tools/gen-audit-data.py --region latam
-     (skip 4-6 with --skip-audit)
-  7. Write data/generated/MANIFEST.json with built_at, org_count,
+  3. tools/build-circuit-briefs.py
+  4. tools/wiki-update.py        (skip with --skip-wiki)
+  5. tools/gen-audit-data.py --region usa
+  6. tools/gen-audit-data.py --region india
+  7. tools/gen-audit-data.py --region latam
+     (skip 5-7 with --skip-audit)
+  8. Write data/generated/MANIFEST.json with built_at, org_count,
      country_count, geocoded_count, files_generated, db_path.
 
 Each step prints its wall-clock duration. A failing step is logged as a
@@ -120,6 +121,7 @@ def list_generated_files():
         os.path.join(DATA_DIR, 'search'),
         os.path.join(DATA_DIR, 'map'),
         os.path.abspath(os.path.join(WORKSPACE, 'audit')),
+        os.path.abspath(os.path.join(WORKSPACE, 'briefs')),
     ]
     files = []
     for root in targets:
@@ -171,7 +173,15 @@ def main():
         results=results,
     )
 
-    # 3. wiki update
+    # 3. printable, shareable circuit briefs
+    run_step(
+        'build-circuit-briefs',
+        [os.path.abspath(os.path.join(TOOLS_DIR, 'build-circuit-briefs.py'))],
+        dry_run=args.dry_run,
+        results=results,
+    )
+
+    # 4. wiki update
     if args.skip_wiki:
         print('\n>>> [wiki-update] skipped (--skip-wiki)')
         results.append({'step': 'wiki-update', 'status': 'skipped', 'duration_s': 0.0})
@@ -183,7 +193,7 @@ def main():
             results=results,
         )
 
-    # 4-6. audit data per region
+    # 5-7. audit data per region
     if args.skip_audit:
         print('\n>>> [gen-audit-data] skipped (--skip-audit)')
         for region in ('usa', 'india', 'latam'):

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-03T12:00:42Z",
+  "source_script": "tools/build-circuit-briefs.py",
+  "source_files": [
+    "data/map/circuits.json",
+    "briefs/source-records.json (compact fallback from data/map/orgs.v3.geojson)",
+    "data/map/stats.v3.json"
+  ],
+  "stats_build_date": "2026-07-03",
+  "brief_count": 13,
+  "source_declared_candidate_count": 76,
+  "source_count_matches": false,
+  "briefs": [
+    {
+      "group_id": "community_food_system_7133cc6010",
+      "circuit": "community_food_system",
+      "country": "BG",
+      "location": "BG",
+      "member_ids": [
+        "org_902290",
+        "org_902364",
+        "org_902352"
+      ]
+    },
+    {
+      "group_id": "land_stewardship_alliance_5ae95aa3bc",
+      "circuit": "land_stewardship_alliance",
+      "country": "NG",
+      "location": "NG",
+      "member_ids": [
+        "org_rec_272eb6fb4fac1ecd",
+        "org_rec_b29a3b004eccdbdc",
+        "org_rec_37a96b11038babdc"
+      ]
+    },
+    {
+      "group_id": "community_health_mesh_ed3e827f6e",
+      "circuit": "community_health_mesh",
+      "country": "US",
+      "location": "Bakersfield, CA, US",
+      "member_ids": [
+        "org_rec_7335a682f7bb7495",
+        "org_rec_e6240be1fc6995bb",
+        "org_rec_76f9053bf4b48edc"
+      ]
+    },
+    {
+      "group_id": "community_health_mesh_39dfa477c7",
+      "circuit": "community_health_mesh",
+      "country": "US",
+      "location": "Worcester, MA, US",
+      "member_ids": [
+        "org_rec_b48ad99f198219b7",
+        "org_rec_85b3a9133bd564c9",
+        "org_rec_6d449782b86ba9a1"
+      ]
+    },
+    {
+      "group_id": "disaster_resilience_grid_5bb2dfa1a0",
+      "circuit": "disaster_resilience_grid",
+      "country": "US",
+      "location": "Providence, RI, US",
+      "member_ids": [
+        "org_rec_132008209b27a30a",
+        "org_rec_f2678ccdb82700be",
+        "org_rec_4bc89cc09f8eab58"
+      ]
+    },
+    {
+      "group_id": "disaster_resilience_grid_6c88266798",
+      "circuit": "disaster_resilience_grid",
+      "country": "US",
+      "location": "Durham, NC, US",
+      "member_ids": [
+        "org_rec_f5d5c0c8e9ecf69d",
+        "org_rec_6874025da267e771",
+        "org_rec_ca4b5ad732a68d31"
+      ]
+    },
+    {
+      "group_id": "community_health_mesh_749faac21c",
+      "circuit": "community_health_mesh",
+      "country": "US",
+      "location": "Syracuse, NY, US",
+      "member_ids": [
+        "org_rec_cc6ff11b990520ad",
+        "org_rec_bbe1926cfd533f6b",
+        "org_rec_fd28ca9a46d23eca"
+      ]
+    },
+    {
+      "group_id": "disaster_resilience_grid_f89af5b745",
+      "circuit": "disaster_resilience_grid",
+      "country": "US",
+      "location": "Columbia, MD, US",
+      "member_ids": [
+        "org_rec_78cf453e090d5916",
+        "org_rec_64a862832e6379b1",
+        "org_rec_f6f5e4892a54c342"
+      ]
+    },
+    {
+      "group_id": "community_food_system_947003c3af",
+      "circuit": "community_food_system",
+      "country": "US",
+      "location": "Bronx, NY, US",
+      "member_ids": [
+        "org_rec_e778b27d9beec550",
+        "org_rec_9ea9c8e341b41046",
+        "org_rec_21fba585e1b64825"
+      ]
+    },
+    {
+      "group_id": "labor_for_housing_062b7d5b5e",
+      "circuit": "labor_for_housing",
+      "country": "US",
+      "location": "Fort Worth, TX, US",
+      "member_ids": [
+        "org_rec_3be58a68c5f0bb27",
+        "org_rec_e191a4704fe52494",
+        "org_rec_f5de00cce0e9999c"
+      ]
+    },
+    {
+      "group_id": "labor_for_housing_e201bdc4d6",
+      "circuit": "labor_for_housing",
+      "country": "US",
+      "location": "Tulsa, OK, US",
+      "member_ids": [
+        "org_rec_e868c1527499c501",
+        "org_rec_90d53ba7f4daae9d",
+        "org_rec_c9518232bd6354bb"
+      ]
+    },
+    {
+      "group_id": "labor_for_housing_1d488117bc",
+      "circuit": "labor_for_housing",
+      "country": "US",
+      "location": "Hartford, CT, US",
+      "member_ids": [
+        "org_rec_4025e2497718b264",
+        "org_rec_f2ee3c295daa51da",
+        "org_rec_80bfcb26fc67a39c"
+      ]
+    },
+    {
+      "group_id": "community_food_system_b06e2cae36",
+      "circuit": "community_food_system",
+      "country": "GB",
+      "location": "GB",
+      "member_ids": [
+        "org_902776",
+        "org_902281",
+        "org_rec_b06f500ac4bc406e"
+      ]
+    }
+  ]
+}

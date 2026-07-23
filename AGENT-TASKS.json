@@ -160,6 +160,22 @@
         "Both link to canonical site URLs (commonweave.earth or simonlpaige.com/commonweave/) where applicable",
         "Both are kept short enough to be useful (no whole-file dumps)"
       ]
+    },
+    {
+      "id": "cw-circuit-brief-audit-001",
+      "title": "Audit the first four circuit briefs before outreach",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "Audit the Hartford, Syracuse, Tulsa, and Durham circuit briefs against current public sources before any brief is delivered through a local channel.",
+      "files": ["briefs/", "data/map/circuits.json", "OUTREACH-ATTRACTION-PLAN.md"],
+      "acceptance_criteria": [
+        "All listed organizations still have a current public presence",
+        "Each proposed role is supported by a cited public source or the brief is corrected",
+        "No listed organization is made more visible than its own public communications support",
+        "The review records whether the brief should be delivered, revised, or withdrawn",
+        "No outreach is sent as part of the audit"
+      ]
     }
   ]
 }
