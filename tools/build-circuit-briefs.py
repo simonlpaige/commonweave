@@ -627,6 +627,7 @@ def render_sitemap(groups: list[dict], stats: dict) -> str:
         (f"{SITE_ORIGIN}/", "1.0"),
         (f"{SITE_ORIGIN}/directory.html", "0.9"),
         (f"{SITE_ORIGIN}/map.html", "0.9"),
+        (f"{SITE_ORIGIN}/participate.html", "0.8"),
         (f"{SITE_ORIGIN}/briefs/index.html", "0.8"),
         (f"{SITE_ORIGIN}/doc.html?file=DIRECTORY", "0.7"),
     ]

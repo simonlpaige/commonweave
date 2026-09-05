@@ -347,10 +347,10 @@
   <p class="hero-sub">
     Commonweave is an open directory of organizations already weaving healthier communities together.
     Cooperatives, mutual aid networks, community land trusts, community energy, open governance tools.
-    The map shows <span data-stat="orgs_on_map">29,422</span> entries with geocoded coordinates across <span data-stat="countries_geocoded">102</span> countries, drawn from a wider candidate pool of <span data-stat="orgs_in_directory">153,426</span> organisations.
+    Start with a need, find relevant organizations, and see which roles could fit together. The map contains <span data-stat="orgs_on_map">&mdash;</span> exported pins; the separate searchable directory contains <span data-stat="orgs_in_directory">&mdash;</span> candidate records. Locations and proposed connections need checking.
   </p>
   <div class="btn-row">
-    <a href="#map" class="btn btn-primary">Explore the map</a>
+    <a href="map.html" class="btn btn-primary">Explore the map</a>
     <a href="directory.html" class="btn btn-ghost">Browse the directory</a>
     <a href="https://github.com/simonlpaige/commonweave" target="_blank" rel="noopener" class="btn btn-ghost">Source on GitHub</a>
     <a href="audit/" class="btn btn-ghost">Help audit the data</a>
@@ -359,9 +359,9 @@
 
 <!-- STATS -->
 <div class="stats-strip" role="region" aria-label="Project statistics">
-  <div class="stat-cell"><div class="stat-n" data-stat="orgs_in_directory">153,426</div><div class="stat-l">Candidates in directory</div></div>
-  <div class="stat-cell"><div class="stat-n" data-stat="orgs_on_map">29,422</div><div class="stat-l">Mapped organizations</div></div>
-  <div class="stat-cell"><div class="stat-n" data-stat="countries_geocoded">102</div><div class="stat-l">Countries on the map</div></div>
+  <div class="stat-cell"><div class="stat-n" data-stat="orgs_in_directory">&mdash;</div><div class="stat-l">Searchable candidate records</div></div>
+  <div class="stat-cell"><div class="stat-n" data-stat="orgs_on_map">&mdash;</div><div class="stat-l">Exported map pins</div></div>
+  <div class="stat-cell"><div class="stat-n" data-stat="countries_geocoded">&mdash;</div><div class="stat-l">Map country / region buckets</div></div>
   <div class="stat-cell"><div class="stat-n">~30</div><div class="stat-l">Languages in the pipeline</div></div>
   <div class="stat-cell"><div class="stat-n">10</div><div class="stat-l">Framework sections</div></div>
   <div class="stat-cell"><div class="stat-n">CC0</div><div class="stat-l">Fully open data</div></div>
@@ -370,13 +370,13 @@
 <!-- METHODOLOGY -->
 <section class="page-section narrow" role="note" aria-label="Data methodology">
   <div class="note">
-    <strong>About this data.</strong> Commonweave pulls from 25+ public registries and thematic global networks: IRS Exempt Organizations BMF, UK Charity Commission, Australia ACNC, Brazil Mapa das OSCs, the ICA, RIPESS, Mutual Aid Hub, the Transition Network, and many more. The pipeline runs candidates through a multilingual alignment filter to keep only entries that actually embody one of the framework sections (cooperatives, mutual aid, community land trusts, food sovereignty, participatory democracy, restorative justice, and the rest). Right now <span data-stat="orgs_in_directory">153,426</span> organisations have survived the filter; <span data-stat="orgs_on_map">29,422</span> of those have coordinates and appear on the map across <span data-stat="countries_geocoded">102</span> countries. Tier A is reserved for manually reviewed entries (currently empty &mdash; community auditing is open); Tier B is registry-backed; Tier C is inferred from keyword scoring and not yet reviewed. <a href="https://github.com/simonlpaige/commonweave/blob/master/DATA.md">Full methodology &rarr;</a>
+    <strong>About this data.</strong> Public registries, thematic networks, and web research supply candidates. Keyword scoring helps prioritize review; it does not verify an organization's mission, activity, or suitability. A map pin may be approximate, and a suggested connection does not establish a partnership. Check an organization's own information before relying on its services. <a href="docs/DATA-AUDIT-2026-09-05.md">Read the full published-list audit</a> or <a href="participate.html">help correct the data</a>.
   </div>
   <div class="note">
     <strong>Multilingual pipeline.</strong> The scoring bots now recognise alignment terms in roughly 30 languages: Spanish <em>cooperativa</em>, Portuguese <em>economia solid&aacute;ria</em>, Japanese <em>&#21332;&#21516;&#32068;&#21512;</em>, Mandarin <em>&#21512;&#20316;&#31038;</em>, Arabic <em>&#1578;&#1593;&#1575;&#1608;&#1606;&#1610;&#1577;</em>, Yoruba <em>egbe ajose</em>, Quechua <em>ayni/minga</em>, Amharic <em>&#4840;&#4764;&#4672;&#4725;</em>, plus Indigenous land-commons concepts like <em>ejido</em>, <em>waqf</em>, <em>hima</em>, <em>gotong-royong</em>, <em>iriai-chi</em>, <em>usi civici</em>. Researcher bots build search queries in every language spoken in a country, not just English. Full term bank: <a href="https://github.com/simonlpaige/commonweave/blob/master/MULTILINGUAL-TERMS.md">MULTILINGUAL-TERMS.md</a>.
   </div>
   <div class="note">
-    <strong>Data snapshot.</strong> Headline counts above are pulled at runtime from the published static export (last built <strong id="stats-last-built">2026-04-28</strong>). The working database has since been recovered and re-verified; rebuilt totals are tracked in <a href="https://github.com/simonlpaige/commonweave/blob/master/README.md">README.md</a>. Treat these numbers as a public snapshot, not a real-time count.
+    <strong>Different snapshots.</strong> Search counts describe the country files actually available to browse. Map statistics come from the map export (dated <strong id="stats-last-built">date unavailable</strong>). The downloadable release is a third snapshot. Their totals differ; none is a real-time count of verified organizations. Recounting files does not make their information current.
   </div>
 </section>
 
@@ -400,7 +400,7 @@
       <a class="btn btn-ghost" href="briefs/index.html" aria-label="Explore possible local solution circuits">Possible collaborations</a>
     </div>
     <div class="map-foot">
-      <span><span data-stat="orgs_on_map">29,422</span> mapped &middot; <span data-stat="countries_geocoded">102</span> countries &middot; <span data-stat="orgs_in_directory">153,426</span> candidates total &middot; <a href="directory.html">full directory</a></span>
+      <span><span data-stat="orgs_on_map">&mdash;</span> exported pins &middot; <span data-stat="countries_geocoded">&mdash;</span> map country / region buckets &middot; <span data-stat="orgs_in_directory">&mdash;</span> searchable candidates &middot; <a href="directory.html">full directory</a></span>
       <a href="map.html" aria-label="Open the interactive map">Open interactive map &rarr;</a>
     </div>
   </div>
@@ -483,10 +483,10 @@
     <div class="eyebrow">&sect; 03 &middot; What this is</div>
     <h2 id="about-heading">An engineering problem, not a manifesto.</h2>
   </div>
-  <p>Here is a thing that is true and that almost no one talks about clearly: <strong>the machines are going to do most of the work.</strong> Not eventually. Now, and accelerating. The interesting question isn't whether that happens. It's who benefits when it does.</p>
+  <p><strong>When technology reduces the work needed to meet a need, who benefits?</strong> Commonweave explores shared ownership and democratic governance as possible answers. It does not depend on automation eliminating most work; land, care, resources, and public accountability remain real constraints.</p>
   <p>Right now the answer is: whoever owns the machines. That's a design choice, not a law of nature. You could design it differently.</p>
   <p>Commonweave is an attempt to think carefully about what "differently" actually means. What systems would need to exist, how you'd build them, what's already being built, and how you get from here to there without everything going badly wrong in the middle.</p>
-  <p>The directory indexes organizations from public registries across <span data-stat="countries_any">174</span> countries: <strong>community land trusts, worker cooperatives, open-source health systems, participatory democracy tools, community energy grids</strong>. Filtered to entries that actually embody pieces of the answer. That's what Paul Hawken saw in 2007. That's what this continues.</p>
+  <p>The searchable directory spans <span data-stat="countries_any">&mdash;</span> country or territory buckets and includes leads for <strong>community land trusts, worker cooperatives, open-source health systems, participatory democracy tools, and community energy</strong>. Their relevance and possible collaboration need evidence. The <a href="FRAMEWORK-OPERATING-MODEL.md">operating model</a> turns the framework into small tests with named responsibilities, budgets, and reasons to stop.</p>
 </section>
 
 <!-- DOCS -->
@@ -580,9 +580,9 @@
 <!-- CTA -->
 <div class="cta-block" role="complementary" aria-label="Contribute">
   <h2>This belongs to everyone.</h2>
-  <p>The data is CC0. Fork it, extend it, add organizations, correct errors. Leadership is transparent and accountable. No personality cults, no inner circles. If you know something the directory doesn't, that's what pull requests are for.</p>
+  <p>Help make the directory useful where you live. Correct a listing, check a local brief, or explain how two organizations could help with the same problem. Every suggestion is reviewed; listing an organization does not imply its endorsement.</p>
   <div class="btn-row" style="justify-content: center;">
-    <a href="https://github.com/simonlpaige/commonweave" target="_blank" rel="noopener" class="btn btn-primary">Contribute on GitHub</a>
+    <a href="participate.html" class="btn btn-primary">Make a contribution</a>
     <a href="directory.html" class="btn btn-ghost">Browse the directory</a>
   </div>
 </div>
@@ -600,9 +600,8 @@
 
 <script src="assets/js/theme.js"></script>
 <script>
-// Pull every public count from data/map/stats.json so the homepage can never
-// drift from what the map actually shows. The "X" placeholders in the HTML
-// are a readable fallback if the fetch fails (e.g. on a stale CDN).
+// Search and map are separate snapshots. Never use the map's database count
+// as the number of records a person can actually browse in the directory.
 (function () {
   function fmt(n) { return Number(n).toLocaleString('en-US'); }
   fetch('data/map/stats.json', { cache: 'no-cache' })
@@ -611,13 +610,12 @@
       if (!s) return;
       var statMap = {
         orgs_total_db:     s.orgs_total_db,
-        orgs_in_directory: s.orgs_in_directory,
         orgs_on_map:       s.orgs_on_map,
-        countries_any:     s.countries_with_at_least_one_org,
         countries_geocoded:s.countries_with_geocoded_org,
         edges_total:       s.edges_total
       };
       Object.keys(statMap).forEach(function (key) {
+        if (!Number.isFinite(statMap[key])) return;
         document.querySelectorAll('[data-stat="' + key + '"]').forEach(function (el) {
           el.textContent = fmt(statMap[key]);
         });
@@ -634,6 +632,16 @@
       }
     })
     .catch(function () { /* fall back to placeholder values */ });
+  fetch('data/search/index.json', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (s) {
+      if (!s) return;
+      const values = {orgs_in_directory: s.total_orgs, countries_any: s.total_countries};
+      Object.keys(values).forEach(function (key) {
+        if (!Number.isFinite(values[key])) return;
+        document.querySelectorAll('[data-stat="' + key + '"]').forEach(function (el) { el.textContent = fmt(values[key]); });
+      });
+    }).catch(function () { /* Unknown is more honest than a stale database count. */ });
 })();
 </script>
 

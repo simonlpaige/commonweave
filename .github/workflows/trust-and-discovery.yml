@@ -1,0 +1,38 @@
+name: Trust and discovery checks
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check discovery and contribution behavior
+        run: node --test tests/*.test.js assets/js/map/*.test.cjs
+      - name: Check safe ingestion and publication
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Verify search metadata matches available files
+        run: python data/reconcile_search_index.py --check
+      - name: Verify brief generation
+        run: python tools/build-circuit-briefs.py --check
+      - name: Validate the dated, pending field-review packet
+        run: python data/stage_organizations.py data/proposals/ofn-field-review-2026-09-05.json --as-of 2026-09-05
+      - name: Audit all public exports without changing them
+        run: python data/audit_public_exports.py --as-of 2026-09-05 --output /tmp/commonweave-audit
+      - uses: actions/upload-artifact@v4
+        with:
+          name: public-export-audit
+          path: /tmp/commonweave-audit

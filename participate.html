@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Improve a listing or lend a hand | Commonweave</title>
+  <meta name="description" content="Correct an organization, suggest a useful connection, or offer a small contribution to Commonweave. Prepare a draft, review it, and choose how to share it.">
+  <meta name="referrer" content="no-referrer">
+  <link rel="canonical" href="https://commonweave.earth/participate.html">
+  <link rel="stylesheet" href="assets/css/brand.css">
+  <link rel="stylesheet" href="assets/css/participate.css">
+  <script src="assets/js/participation.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to contribution form</a>
+<nav class="participation-nav" aria-label="Site navigation">
+  <a class="wordmark" href="index.html">commonweave</a>
+  <div><a href="map.html">Explore the map</a><a href="directory.html">Directory</a><a href="briefs/">Local briefs</a></div>
+</nav>
+<main id="main-content" class="participation-page">
+  <header>
+    <h1>Make one thread stronger.</h1>
+    <p class="intro">Know an organization, a useful connection, or something we got wrong? A small, specific contribution makes this directory more useful.</p>
+  </header>
+  <div class="participation-layout">
+    <aside aria-label="Ways to help">
+      <h2>Start with what you know.</h2>
+      <p><strong>Five minutes:</strong> correct a website or explain what an organization actually offers.</p>
+      <p><strong>Half an hour:</strong> check three organizations in a local brief. Which roles fit? Which are missing?</p>
+      <p><strong>One small project:</strong> help a network review its member directory, translate a field note, or test the map with an organizer.</p>
+      <p>Being listed does not mean an organization endorses Commonweave. Suggested connections need checking with the organizations involved.</p>
+      <a href="briefs/">Find a brief to check</a>
+      <h2>Your contribution stays yours.</h2>
+      <p>This form prepares a draft in your browser. It does not send it or change a listing. Download it without an account, or review it on GitHub before posting.</p>
+      <p id="privacy-note">GitHub issues are public. Include public organizational information only. For removal or location protection, a listing name or ID and a short request are enough; do not explain a person's situation or add an address.</p>
+    </aside>
+    <section aria-label="Prepare a contribution">
+      <form id="contribution-form" aria-describedby="privacy-note">
+        <label for="request-type">What would you like to do?</label>
+        <select id="request-type" name="type">
+          <option value="correct">Correct a listing</option>
+          <option value="add">Suggest an organization</option>
+          <option value="verify">Review my organization's listing</option>
+          <option value="connection">Suggest or correct a connection</option>
+          <option value="help">Offer a small contribution</option>
+          <option value="obscure">Reduce location detail</option>
+          <option value="remove">Request removal</option>
+        </select>
+        <p id="type-help" class="field-help"></p>
+        <label for="organization">Organization or contribution topic</label>
+        <input id="organization" name="org" required maxlength="180" autocomplete="organization">
+        <div class="field-pair">
+          <div><label for="record-id">Listing ID (optional)</label><input id="record-id" name="id" maxlength="100" autocomplete="off"></div>
+          <div><label for="country">Country or region (optional)</label><input id="country" name="country" maxlength="80" autocomplete="off"></div>
+        </div>
+        <label for="details">What should change, or what can you help with?</label>
+        <textarea id="details" name="details" required maxlength="3000" rows="5" aria-describedby="details-help"></textarea>
+        <p id="details-help" class="field-help">Be specific about the need, the proposed change, and what still needs checking. For a connection, name both organizations and distinguish an existing relationship from a possibility.</p>
+        <label for="source">Public source URL <span id="source-required">(optional)</span></label>
+        <input id="source" name="source" type="url" maxlength="1000" placeholder="https://" aria-describedby="source-help">
+        <p id="source-help" class="field-help">An official organization page or public source supporting this change. Leave private group invitations and personal profiles out.</p>
+        <label for="relationship">Your relationship to this information</label>
+        <select id="relationship" name="relationship">
+          <option value="Public-source contributor">I found this in public sources</option>
+          <option value="Organization representative (unverified)">I represent the organization</option>
+          <option value="Community member">I am a community member</option>
+          <option value="Prospective volunteer">I would like to help</option>
+          <option value="Prefer not to say">Prefer not to say</option>
+        </select>
+        <button type="submit">Prepare my draft</button>
+      </form>
+      <div id="draft-status" role="status" aria-live="polite"></div>
+      <section id="draft-section" hidden aria-labelledby="draft-heading">
+        <h2 id="draft-heading" tabindex="-1">Review your draft</h2>
+        <pre id="draft-preview"></pre>
+        <p>Nothing has been sent. A maintainer must review the evidence before any listing or relationship changes. Representing an organization here does not create a verified badge.</p>
+        <div class="draft-actions">
+          <button id="download-draft" type="button">Download draft</button>
+          <a id="github-draft" target="_blank" rel="noopener noreferrer">Review on GitHub</a>
+        </div>
+        <p id="github-help" class="field-help">GitHub requires an account. Review the draft there, then choose whether to post it publicly. A downloaded draft still needs to be shared; downloading does not submit a request.</p>
+      </section>
+      <noscript><p>The draft builder needs JavaScript. You can also <a href="https://github.com/simonlpaige/commonweave/issues/new?template=org-request.md">open an organization request on GitHub</a>. Issues are public; use only a listing ID and minimal context for sensitive requests.</p></noscript>
+    </section>
+  </div>
+</main>
+<footer class="participation-page"><p><a href="data/CONTRIBUTING-DATA.md">How data is reviewed</a> · <a href="FRAMEWORK-OPERATING-MODEL.md">How the project is tested</a> · <a href="https://github.com/simonlpaige/commonweave">Open project on GitHub</a></p></footer>
+</body>
+</html>
