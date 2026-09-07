@@ -48,7 +48,7 @@ sensitive contacts/invitations.
 
 ## Repairs included
 
-- Reconciled searchable counts; separate map/search counters on the homepage.
+- Reconciled searchable counts; distinct snapshots explained in the data notes.
 - Stale-response, missing-file recovery, and safe-link fixes in the directory.
 - Canonical search builder preserving identity/provenance, normalizing US
   states, retaining unresolved states, and filtering removed/merged rows.

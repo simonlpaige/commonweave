@@ -22,6 +22,7 @@ from pathlib import Path
 import re
 import sys
 from urllib.parse import quote, urlencode, urlparse
+from site_navigation import header_markup as shared_header, footer_markup as shared_footer, version_assets
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -341,32 +342,15 @@ def logo_markup() -> str:
 
 
 def nav_markup(prefix: str = "../") -> str:
-    return f"""<a href="#main-content" class="skip-link">Skip to main content</a>
-<nav class="site-nav" aria-label="Site navigation">
-  <div class="nav-mark"><a href="{prefix}index.html" aria-label="Commonweave home">{logo_markup()}</a></div>
-  <div class="nav-links" role="list">
-    <a href="{prefix}map.html" role="listitem">Map</a>
-    <a href="{prefix}directory.html" role="listitem">Directory</a>
-    <a href="{prefix}briefs/index.html" class="active" role="listitem">Briefs</a>
-    <a href="{REPO_ORIGIN}" class="nav-cta" role="listitem">Source &rarr;</a>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Switch to dark mode">
-      <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-      <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-    </button>
-  </div>
-</nav>"""
+    return '<a href="#main-content" class="skip-link">Skip to main content</a>\n' + shared_header(prefix, 'map')
 
 
 def footer_markup() -> str:
-    return f"""<footer class="site-foot" role="contentinfo">
-  <p>Derived circuit data: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>
-  &middot; Framework: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-  &middot; <a href="{REPO_ORIGIN}">Source on GitHub</a></p>
-</footer>"""
+    return shared_footer('../')
 
 
 def head_markup(title: str, description: str, canonical: str) -> str:
-    return f"""<!doctype html>
+    return version_assets(f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -386,7 +370,8 @@ def head_markup(title: str, description: str, canonical: str) -> str:
 <link rel="stylesheet" href="../assets/css/brand.css">
 <link rel="stylesheet" href="../assets/css/commonweave.css">
 <link rel="stylesheet" href="briefs.css">
-</head>"""
+<link rel="stylesheet" href="../assets/css/site-shell.css">
+</head>""", OUTPUT_DIR, {(OUTPUT_DIR / 'briefs.css').resolve(): BRIEFS_CSS.encode('utf-8')})
 
 
 def correction_url(group: dict) -> str:
@@ -461,7 +446,7 @@ def render_brief(group: dict, stats: dict, generated_at: str) -> str:
         for member in group["members"]
     )
     return f"""{head_markup(title, description, canonical)}
-<body>
+<body class="cw-page">
 {nav_markup()}
 <main id="main-content" class="brief-shell" tabindex="-1">
   <header class="brief-hero">
@@ -519,7 +504,7 @@ def render_brief(group: dict, stats: dict, generated_at: str) -> str:
   </section>
 </main>
 {footer_markup()}
-<script src="../assets/js/theme.js"></script>
+
 <script src="briefs.js"></script>
 </body>
 </html>
@@ -556,7 +541,7 @@ def render_index(groups: list[dict], stats: dict, generated_at: str) -> str:
   <a href="{html(group['group_id'])}.html">Open field note &rarr;</a>
 </article>""")
     return f"""{head_markup(title, description, f"{SITE_ORIGIN}/briefs/index.html")}
-<body>
+<body class="cw-page">
 {nav_markup()}
 <main id="main-content" class="brief-shell" tabindex="-1">
   <header class="brief-index-hero">
@@ -586,7 +571,7 @@ def render_index(groups: list[dict], stats: dict, generated_at: str) -> str:
   </section>
 </main>
 {footer_markup()}
-<script src="../assets/js/theme.js"></script>
+
 <script src="briefs.js"></script>
 </body>
 </html>
@@ -622,14 +607,16 @@ def render_manifest(groups: list[dict], circuits: dict, stats: dict) -> str:
 
 
 def render_sitemap(groups: list[dict], stats: dict) -> str:
-    lastmod = stats.get("last_built_date") or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    lastmod = "2026-09-06"  # Public page/navigation revision; source snapshot dates stay separate.
     urls = [
         (f"{SITE_ORIGIN}/", "1.0"),
-        (f"{SITE_ORIGIN}/directory.html", "0.9"),
+        (f"{SITE_ORIGIN}/knowledge.html", "1.0"),
+        (f"{SITE_ORIGIN}/directory.html", "0.7"),
         (f"{SITE_ORIGIN}/map.html", "0.9"),
         (f"{SITE_ORIGIN}/participate.html", "0.8"),
         (f"{SITE_ORIGIN}/briefs/index.html", "0.8"),
-        (f"{SITE_ORIGIN}/doc.html?file=DIRECTORY", "0.7"),
+        (f"{SITE_ORIGIN}/doc.html?file=README", "0.8"),
+        (f"{SITE_ORIGIN}/pipeline.html", "0.6"),
     ]
     urls.extend(
         (f"{SITE_ORIGIN}/briefs/{group['group_id']}.html", "0.6")

@@ -1,4 +1,4 @@
-# Commonweave: Find organizations and explore how their work could connect
+# Commonweave: A framework and map for meeting shared needs
 
 > **Skeptics start here:** [CRITIQUE.md](CRITIQUE.md) is a section-by-section honest audit of where this framework is weak, magical, or incomplete. It's linked first on purpose. If you're looking for the case against this project, it's already written, and we'd rather you sharpened it than discovered it.
 
@@ -10,7 +10,7 @@
 
 Commonweave is an open directory of cooperative, commons, ecological, and community organizations, with working notes on how their efforts might complement one another. Start with a problem and a place; find possible contributors, inspect the evidence, and see which roles are missing.
 
-The directory is the concrete deliverable. The framework supplies hypotheses to test with people doing the work. [Explore the map](https://commonweave.earth/map.html), [search the directory](https://commonweave.earth/directory.html), or [suggest a correction or contribution](https://commonweave.earth/participate.html).
+Start with the [framework knowledge base](https://commonweave.earth/knowledge.html) to explore principles, evidence and open questions. Use the [map](https://commonweave.earth/map.html) to investigate organizations and possible roles in a community project. The [organization directory](https://commonweave.earth/directory.html) and [contribution form](https://commonweave.earth/participate.html) support those two main paths.
 
 See the [September implementation review](docs/REVIEW-2026-09-05.md) for the data audit, new planning flow, named-organization offers, validation and remaining release work.
 

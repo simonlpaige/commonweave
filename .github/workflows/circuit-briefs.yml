@@ -7,6 +7,7 @@ on:
       - "data/map/orgs.v3.geojson"
       - "data/map/stats.v3.json"
       - "tools/build-circuit-briefs.py"
+      - "tools/site_navigation.py"
       - "briefs/**"
       - "sitemap.xml"
   push:
@@ -16,6 +17,7 @@ on:
       - "data/map/orgs.v3.geojson"
       - "data/map/stats.v3.json"
       - "tools/build-circuit-briefs.py"
+      - "tools/site_navigation.py"
       - "briefs/**"
       - "sitemap.xml"
   workflow_dispatch:

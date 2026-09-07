@@ -1,0 +1,9 @@
+body.cw-review { --bg:var(--paper); --surface:var(--paper-2); --s2:var(--paper-2); --s3:var(--paper-3); --border:#D0C6AE; --border2:#87937D; --text:var(--ink); --muted:var(--ink-soft); --dim:var(--ink-muted); --accent:var(--moss); --warm:var(--moss-mid); --teal:var(--moss-mid); --earth:var(--clay); --red:#98472E; --orange:#8B512F; --yellow:#725C2B; }
+.cw-review h1 { font:clamp(38px,5vw,62px)/1.05 var(--f-display); margin:16px 0 28px; }
+.cw-review h2 { font:30px/1.15 var(--f-display); }
+.cw-review main { max-width:920px; padding:32px 24px 60px; }
+.cw-review button { border-radius:2px; min-height:42px; }
+.cw-review .org-card, .cw-review .region-card { border-radius:2px; box-shadow:none; }
+.cw-review .org-name { font-family:var(--f-display); font-weight:400; }
+.cw-review .progress-wrap { font-size:14px; }
+.cw-review .review-intro { max-width:62ch; margin-bottom:24px; color:var(--ink-soft); }

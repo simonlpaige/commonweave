@@ -24,6 +24,8 @@ jobs:
         run: node --test tests/*.test.js assets/js/map/*.test.cjs
       - name: Check safe ingestion and publication
         run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Verify shared navigation is current
+        run: python tools/site_navigation.py --check
       - name: Verify search metadata matches available files
         run: python data/reconcile_search_index.py --check
       - name: Verify brief generation

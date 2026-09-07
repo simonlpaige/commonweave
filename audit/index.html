@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Commonweave Audit Portal</title>
+<title>Review organization records</title>
 <meta name="description" content="Audit Commonweave directory entries and help separate source-backed records from inferred candidates.">
 <link rel="canonical" href="https://commonweave.earth/audit/">
-<meta property="og:title" content="Commonweave Audit Portal">
+<meta property="og:title" content="Review organization records">
 <meta property="og:description" content="Audit Commonweave directory entries and help separate source-backed records from inferred candidates.">
 <meta property="og:url" content="https://commonweave.earth/audit/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Commonweave Audit Portal","url":"https://commonweave.earth/audit/","description":"Audit Commonweave directory entries and help separate source-backed records from inferred candidates.","applicationCategory":"CivicTechnology"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Review organization records","url":"https://commonweave.earth/audit/","description":"Audit Commonweave directory entries and help separate source-backed records from inferred candidates.","applicationCategory":"CivicTechnology"}</script>
 <style>
 :root {
   --bg:      #0d1a0d;
@@ -180,13 +180,29 @@ main { max-width: 780px; margin: 0 auto; padding: 24px 20px 80px; }
 .toast-section { background: rgba(196,165,93,0.2); border: 1px solid var(--earth); color: var(--earth); }
 .toast-skip    { background: rgba(61,94,53,0.2); border: 1px solid var(--dim); color: var(--muted); }
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/brand.css?v=ac1ae7a4a9c0">
+<link rel="stylesheet" href="../assets/css/commonweave.css?v=61c3d54ad08e">
+<link rel="stylesheet" href="../assets/css/review-tools.css?v=31f0b4ee0bbe">
+<link rel="stylesheet" href="../assets/css/site-shell.css?v=ddf093745d61">
 </head>
-<body>
+<body class="cw-page cw-review">
+<a class="skip-link" href="#main">Skip to review tools</a>
 
-<nav>
-  <a href="/commonweave/" class="nav-logo">commonweave</a>
-  <span class="nav-sub">audit portal</span>
-</nav>
+<!-- cw:header:start -->
+<header data-site-header>
+  <nav class="cw-nav" aria-label="Main navigation">
+    <a class="cw-brand" href="../index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
+    <div class="cw-primary"><a href="../knowledge.html">Knowledge base</a><a href="../map.html">Map</a></div>
+    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
+      <a href="../directory.html">Organization directory</a>
+      <a href="../participate.html" aria-current="page">Contribute or correct</a>
+      <a href="../pipeline.html">About the data</a>
+      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
+    </div></details>
+  </nav>
+</header>
+<!-- cw:header:end -->
 
 <div class="progress-wrap" id="progress-wrap" style="display:none">
   <div class="progress-row">
@@ -202,18 +218,18 @@ main { max-width: 780px; margin: 0 auto; padding: 24px 20px 80px; }
   </div>
 </div>
 
-<main id="main">
-<h1>Commonweave Audit Portal</h1>
+<main id="main" tabindex="-1"><p class="review-intro"><a href="../participate.html">Contribute or correct</a> / Advanced review<br>These tools save review drafts in your browser. A saved decision is not a verified public record.</p>
+<h1>Review organization records</h1>
   <div class="region-picker" id="region-picker">
     <h2>Help us verify the data</h2>
     <p style="max-width:520px;margin:0 auto 8px;line-height:1.7">
-      Commonweave is an open directory of 168,000+ cooperatives, mutual aid networks, community land trusts,
-      and other organizations building alternatives to the systems that don't work.
+      Commonweave collects records of cooperatives, mutual aid networks, community land trusts
+      and other community organizations.
       The data comes from public registries and global networks -- but automated scoring can't replace human judgment.
     </p>
     <p style="max-width:520px;margin:0 auto 24px;line-height:1.7;color:var(--muted);font-size:14px">
-      Pick a region. Review a sample. For each organization: is it genuinely aligned with community ownership,
-      mutual aid, or democratic infrastructure? Each review takes about 20 seconds.
+      Pick a region. Review a sample. For each organization: what evidence supports its recorded category,
+      current work and public details? Leave uncertain claims for further review.
       Your decisions are saved in your browser -- export them when done and share with
       <a href="https://github.com/simonlpaige/commonweave" target="_blank" rel="noopener">the project</a>
       or <a href="mailto:simon@simonlpaige.com">Simon directly</a>.
@@ -563,5 +579,11 @@ if (urlRegion) {
   if (r) loadRegion(r);
 }
 </script>
+<!-- cw:footer:start -->
+<footer data-site-footer class="cw-footer">
+  <p>A shared framework. Evidence to inspect. Work to improve together.</p>
+  <div><a href="../knowledge.html">Knowledge base</a><a href="../map.html">Map</a><a href="../participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
+</footer>
+<!-- cw:footer:end -->
 </body>
 </html>

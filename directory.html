@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Commonweave: Global Directory</title>
-<meta name="description" content="Search the Commonweave directory. Aligned civil society organizations across many countries. CC0 open data.">
-<meta property="og:title" content="Commonweave Global Directory">
-<meta property="og:description" content="Search the Commonweave directory. Aligned civil society organizations across many countries. CC0 open data.">
+<title>Organization directory · Commonweave</title>
+<meta name="description" content="Search organization records by country, region and category. Review source notes and confirm current services before making a plan.">
+<meta property="og:title" content="Organization directory · Commonweave">
+<meta property="og:description" content="Search organization records by country, region and category. Review source notes and confirm current services before making a plan.">
 <meta property="og:url" content="https://commonweave.earth/directory.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
@@ -15,10 +15,10 @@
 {
   "@context": "https://schema.org",
   "@type": "DataCatalog",
-  "name": "Commonweave Global Directory",
+  "name": "Commonweave organization directory",
   "url": "https://commonweave.earth/directory.html",
-  "description": "Searchable directory of aligned civil-society organizations across many countries.",
-  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "description": "Search organization records by country, region and category. Review source notes and confirm current services before making a plan.",
+  "license": "https://github.com/simonlpaige/commonweave/blob/master/LICENSE",
   "isAccessibleForFree": true,
   "isPartOf": {
     "@type": "WebSite",
@@ -30,8 +30,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/brand.css">
-<link rel="stylesheet" href="assets/css/commonweave.css">
+<link rel="stylesheet" href="assets/css/brand.css?v=ac1ae7a4a9c0">
+<link rel="stylesheet" href="assets/css/commonweave.css?v=61c3d54ad08e">
 <style>
 .page-head {
   max-width: 1180px; margin: 0 auto;
@@ -329,55 +329,35 @@ select:focus { border-color: var(--moss); }
   .country-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }
 </style>
+<link rel="stylesheet" href="assets/css/site-shell.css?v=ddf093745d61">
 </head>
-<body>
+<body class="cw-page">
+<a class="skip-link" href="#main-content">Skip to directory</a>
 <h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">Commonweave Global Directory</h1>
 
-<nav class="site-nav" role="navigation" aria-label="Site navigation">
-  <div class="nav-mark">
-    <a href="index.html" aria-label="Commonweave home">
-      <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="commonweave">
-        <g transform="translate(0,5)">
-          <circle cx="60" cy="60" r="56" fill="none" stroke="#16201A" stroke-width="1.6"/>
-          <line x1="6" y1="60" x2="114" y2="60" stroke="#16201A" stroke-width="0.8" opacity="0.4"/>
-          <path d="M 30 30 C 50 60, 70 60, 90 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <path d="M 90 30 C 70 60, 50 60, 30 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <circle cx="60" cy="60" r="3" fill="#B4593A"/>
-        </g>
-        <text x="140" y="80" font-family="Instrument Serif, Source Serif 4, Georgia, serif" font-style="italic" font-size="64" fill="#16201A" letter-spacing="-1.5">commonweave</text>
-      </svg>
-    </a>
-  </div>
-  <div class="nav-links" role="list">
-    <a href="map.html">Map</a>
-    <a href="index.html#sections">Sections</a>
-    <a href="index.html#docs">Docs</a>
-    <a href="index.html#about">About</a>
-    <a href="directory.html" class="active">Directory</a>
-    <a href="participate.html">Contribute</a>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Switch to dark mode">
-      <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-      <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-    </button>
-  </div>
-</nav>
+<!-- cw:header:start -->
+<header data-site-header>
+  <nav class="cw-nav" aria-label="Main navigation">
+    <a class="cw-brand" href="index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
+    <div class="cw-primary"><a href="knowledge.html">Knowledge base</a><a href="map.html">Map</a></div>
+    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
+      <a href="directory.html" aria-current="page">Organization directory</a>
+      <a href="participate.html">Contribute or correct</a>
+      <a href="pipeline.html">About the data</a>
+      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
+    </div></details>
+  </nav>
+</header>
+<!-- cw:header:end -->
 
-<header class="page-head">
-  <div class="eyebrow">&sect; 02 &middot; Directory</div>
-  <h1>Browse the threads.</h1>
-  <p class="blurb">Search the directory by country, by US state, or by category. Each entry was ingested from a public registry, an open dataset, or curated network membership lists. Open data, CC0.</p>
+<header class="page-head" id="main-content" tabindex="-1">
+  <div class="eyebrow">Organizations &middot; A supporting resource</div>
+  <h1>Organization directory</h1>
+  <p class="blurb">Search published organization records by country, US state or category. To explore how different roles could fit together, start with the <a href="map.html">map</a>. Listings need review before you rely on their services.</p>
 </header>
 
 <div class="page">
-  <div class="pdf-link-row">
-    <a href="pipeline.pdf">How we find these organizations <span class="pdf-ext">PDF</span></a>
-    <span class="pdf-note">the full pipeline, sources, and grading ladder explained plainly</span>
-  </div>
-
-  <div class="pdf-link-row">
-    <a href="labor-for-housing-guide.pdf">A field guide to labor-for-housing cooperatives <span class="pdf-ext">PDF</span></a>
-    <span class="pdf-note">how to stitch labor, land, and housing into one democratic pipeline</span>
-  </div>
+  <p class="pdf-link-row"><a href="pipeline.html">About this data</a><span>What the sources, dates and review labels can tell you.</span></p>
 
   <div class="stats-bar" id="stats-bar">
     <div class="stat"><div class="stat-num" id="stat-total">&mdash;</div><div class="stat-label">Indexed candidates</div></div>
@@ -418,7 +398,7 @@ select:focus { border-color: var(--moss); }
   </div>
 </div>
 
-<script src="assets/js/directory-data.js"></script>
+<script src="assets/js/directory-data.js?v=030d67339767"></script>
 <script>
 const BASE = 'data/search/';
 const PAGE_SIZE = 50;
@@ -926,6 +906,11 @@ $('sort-select').addEventListener('change', e => {
 // ── Init ─────────────────────────────────────────────────────────────────────
 loadIndex();
 </script>
-<script src="assets/js/theme.js"></script>
+<!-- cw:footer:start -->
+<footer data-site-footer class="cw-footer">
+  <p>A shared framework. Evidence to inspect. Work to improve together.</p>
+  <div><a href="knowledge.html">Knowledge base</a><a href="map.html">Map</a><a href="participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
+</footer>
+<!-- cw:footer:end -->
 </body>
 </html>

@@ -1,652 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Commonweave</title>
-<meta name="description" content="Commonweave is an open framework for a regenerative global economy - mapping sustainability organizations, governance models, and evidence-based pathways toward ecological and social balance.">
-<meta property="og:description" content="Commonweave is an open framework for a regenerative global economy - mapping sustainability organizations, governance models, and evidence-based pathways toward ecological and social balance.">
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<style>
-/* ── Reset & tokens ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg:      #0d1a0d;
-  --surface: #132013;
-  --s2:      #192819;
-  --s3:      #1f321f;
-  --border:  #253825;
-  --border2: #30483a;
-  --text:    #cce8b0;
-  --muted:   #5e8a52;
-  --dim:     #3d5e35;
-  --accent:  #78c87a;
-  --a2:      #56a85a;
-  --warm:    #a8c87e;
-  --teal:    #4fc4b0;
-  --earth:   #c4a55d;
-  --focus:   #4fc4b0;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-  font-size: 16px;
-}
-
-/* ── Skip link (ADA) ── */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 16px;
-  background: var(--accent);
-  color: #081208;
-  padding: 8px 16px;
-  border-radius: 0 0 8px 8px;
-  font-weight: 700;
-  font-size: 14px;
-  z-index: 200;
-  text-decoration: none;
-  transition: top 0.15s;
-}
-.skip-link:focus { top: 0; outline: 3px solid var(--focus); }
-
-/* ── Focus styles ── */
-:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 3px;
-  border-radius: 3px;
-}
-
-a { color: var(--accent); }
-a:hover { color: var(--warm); }
-a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
-
-/* ── Nav ── */
-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(13,26,13,0.95);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
-  padding: 0 28px;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 52px;
-}
-
-.nav-logo {
-  font-size: 14px; font-weight: 800;
-  letter-spacing: 0.06em; text-transform: lowercase;
-  color: var(--accent); text-decoration: none;
-}
-.nav-logo:hover { color: var(--warm); text-decoration: none; }
-.nav-logo:focus-visible { outline: 2px solid var(--focus); border-radius: 3px; }
-
-.nav-links { display: flex; gap: 0; }
-.nav-links a {
-  padding: 0 13px; height: 52px;
-  display: flex; align-items: center;
-  font-size: 13px; color: var(--muted);
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
-  text-decoration: none;
-}
-.nav-links a:hover { color: var(--text); text-decoration: none; border-bottom-color: var(--accent); }
-.nav-links a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
-
-.nav-cta {
-  margin-left: 6px;
-  height: auto !important; padding: 6px 14px !important;
-  background: var(--s2); border: 1px solid var(--border2) !important;
-  border-radius: 6px; border-bottom: none !important;
-  color: var(--warm) !important; font-weight: 600;
-}
-.nav-cta:hover { background: var(--s3) !important; border-bottom: none !important; }
-
-/* ── Breadcrumb ── */
-.breadcrumb {
-  max-width: 860px; margin: 0 auto;
-  padding: 16px 28px 0;
-  font-size: 12px; color: var(--dim);
-  display: flex; gap: 6px; align-items: center;
-  flex-wrap: wrap;
-}
-.breadcrumb a { color: var(--muted); text-decoration: none; }
-.breadcrumb a:hover { color: var(--accent); }
-.breadcrumb span { color: var(--dim); }
-
-/* ── Main layout ── */
-main {
-  max-width: 860px; margin: 0 auto;
-  padding: 32px 28px 80px;
-}
-
-/* ── Loading / error ── */
-#loading {
-  text-align: center; padding: 80px 28px;
-  color: var(--muted); font-size: 15px;
-}
-.error-box {
-  background: var(--surface); border: 1px solid var(--border2);
-  border-left: 3px solid var(--earth); border-radius: 10px;
-  padding: 24px; margin: 40px 0;
-}
-.error-box h2 { color: var(--earth); margin-bottom: 10px; font-size: 18px; }
-.error-box p { color: var(--muted); font-size: 14px; }
-
-/* ── Markdown content styles ── */
-#content h1 {
-  font-size: clamp(24px, 4vw, 38px);
-  font-weight: 800; line-height: 1.1;
-  letter-spacing: -0.02em; color: #dff5c0;
-  margin-bottom: 20px; margin-top: 0;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--border);
-}
-
-#content h2 {
-  font-size: clamp(18px, 2.5vw, 24px);
-  font-weight: 700; color: #c8e0a8;
-  margin: 48px 0 16px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
-}
-
-#content h3 {
-  font-size: 18px; font-weight: 700;
-  color: var(--warm); margin: 32px 0 12px;
-}
-
-#content h4 {
-  font-size: 15px; font-weight: 700;
-  color: var(--muted); margin: 24px 0 8px;
-  text-transform: uppercase; letter-spacing: 0.06em;
-}
-
-#content p {
-  color: #7aaa6a;
-  margin-bottom: 18px;
-  font-size: 16px; line-height: 1.8;
-}
-
-#content p strong { color: var(--text); font-weight: 600; }
-#content p em { color: var(--warm); font-style: italic; }
-
-#content a { color: var(--accent); }
-#content a:hover { color: var(--warm); }
-
-/* Lists */
-#content ul, #content ol {
-  margin: 0 0 20px 0;
-  padding-left: 24px;
-}
-#content li {
-  color: #7aaa6a;
-  font-size: 16px; line-height: 1.75;
-  margin-bottom: 6px;
-}
-#content li strong { color: var(--text); }
-
-/* Nested lists */
-#content li > ul, #content li > ol { margin: 8px 0 4px; }
-
-/* Checkboxes */
-#content input[type="checkbox"] {
-  accent-color: var(--accent);
-  margin-right: 6px;
-}
-
-/* Blockquotes */
-#content blockquote {
-  border-left: 3px solid var(--earth);
-  background: var(--surface);
-  margin: 24px 0;
-  padding: 16px 20px;
-  border-radius: 0 8px 8px 0;
-}
-#content blockquote p {
-  color: var(--muted); font-style: italic;
-  margin-bottom: 0; font-size: 15px;
-}
-
-/* Code */
-#content code {
-  background: var(--s2);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 1px 6px;
-  font-size: 14px;
-  color: var(--teal);
-  font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
-}
-#content pre {
-  background: var(--s2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 20px;
-  overflow-x: auto;
-  margin: 20px 0;
-}
-#content pre code {
-  background: none; border: none; padding: 0;
-  font-size: 13px; line-height: 1.6;
-  color: var(--warm);
-}
-
-/* Tables -- wrapped for mobile scroll */
-.table-wrap {
-  width: 100%; overflow-x: auto;
-  margin: 24px 0;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  -webkit-overflow-scrolling: touch;
-}
-.table-wrap:focus-within { outline: 2px solid var(--focus); }
-
-#content table {
-  width: 100%; border-collapse: collapse;
-  font-size: 14px; min-width: 500px;
-}
-#content thead { background: var(--s2); }
-#content th {
-  padding: 10px 14px; text-align: left;
-  font-size: 11px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--muted); border-bottom: 1px solid var(--border2);
-  white-space: nowrap;
-}
-#content td {
-  padding: 10px 14px; color: #7aaa6a;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top; line-height: 1.55;
-}
-#content tr:last-child td { border-bottom: none; }
-#content tr:hover td { background: var(--surface); }
-#content td strong { color: var(--text); }
-#content td a { color: var(--accent); font-size: 12px; }
-
-/* HR */
-#content hr {
-  border: none; border-top: 1px solid var(--border);
-  margin: 40px 0;
-}
-
-/* Images */
-#content img { max-width: 100%; border-radius: 8px; }
-
-/* ── TOC sidebar (desktop) ── */
-.doc-layout {
-  display: flex; gap: 40px; align-items: flex-start;
-}
-#toc {
-  position: sticky; top: 72px;
-  width: 220px; min-width: 220px;
-  max-height: calc(100vh - 100px);
-  overflow-y: auto; flex-shrink: 0;
-  padding: 0 0 20px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
-}
-#toc::-webkit-scrollbar { width: 4px; }
-#toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-#toc h2 {
-  font-size: 10px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--dim); margin-bottom: 12px; padding-bottom: 0;
-  border-bottom: none; margin-top: 0;
-}
-#toc ul { list-style: none; padding: 0; margin: 0; }
-#toc li { margin: 0; }
-#toc a {
-  display: block; padding: 4px 8px;
-  font-size: 12px; color: var(--muted);
-  border-left: 2px solid var(--border);
-  text-decoration: none; line-height: 1.5;
-  transition: color 0.15s, border-color 0.15s;
-  border-radius: 0 4px 4px 0;
-}
-#toc a:hover { color: var(--accent); border-left-color: var(--accent); }
-#toc a.toc-h3 { padding-left: 18px; font-size: 11px; color: var(--dim); }
-#toc a.toc-h3:hover { color: var(--muted); }
-#toc a.toc-active { color: var(--accent); border-left-color: var(--accent); }
-
-/* ── Doc nav bottom ── */
-.doc-nav {
-  display: flex; justify-content: space-between; flex-wrap: wrap;
-  gap: 12px; margin-top: 60px; padding-top: 32px;
-  border-top: 1px solid var(--border);
-}
-.doc-nav a {
-  display: flex; align-items: center; gap: 6px;
-  padding: 10px 18px; border-radius: 8px;
-  background: var(--surface); border: 1px solid var(--border);
-  font-size: 13px; font-weight: 600; color: var(--text);
-  text-decoration: none; transition: all 0.15s;
-}
-.doc-nav a:hover { background: var(--s2); border-color: var(--border2); color: var(--accent); text-decoration: none; }
-
-/* ── Footer ── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 24px 28px; text-align: center;
-  font-size: 11px; color: var(--dim);
-}
-footer a { color: var(--dim); }
-footer a:hover { color: var(--muted); }
-
-/* ── Mobile ── */
-@media (max-width: 900px) {
-  #toc { display: none; }
-  .doc-layout { display: block; }
-}
-@media (max-width: 640px) {
-  nav { padding: 0 16px; }
-  .nav-links a { padding: 0 9px; font-size: 12px; }
-  main { padding: 24px 16px 60px; }
-  .breadcrumb { padding: 12px 16px 0; }
-  #content h1 { font-size: 24px; }
-  #content h2 { font-size: 19px; }
-  #content p, #content li { font-size: 15px; }
-}
-
-/* ── Print ── */
-@media print {
-  nav, .breadcrumb, #toc, .doc-nav, footer { display: none; }
-  body { background: white; color: black; font-size: 12pt; }
-  #content h1, #content h2, #content h3 { color: black; }
-  #content p, #content li { color: #333; }
-  a::after { content: " (" attr(href) ")"; font-size: 10pt; color: #666; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge base · Commonweave</title>
+  <meta name="description" content="Read Commonweave's framework, evidence, critiques and practical guides.">
   <link rel="canonical" href="https://commonweave.earth/doc.html">
-
-  <meta property="og:title" content="Commonweave - Framework">
-  <meta property="og:description" content="An open framework for a regenerative global economy.">
-  <meta property="og:url" content="https://commonweave.earth/doc.html">
-  <meta property="og:type" content="article">
-  <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Commonweave Framework",
-  "url": "https://commonweave.earth/doc.html",
-  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "dateModified": "2026-05-04"
-}
-</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/brand.css?v=ac1ae7a4a9c0">
+  <link rel="stylesheet" href="assets/css/commonweave.css?v=61c3d54ad08e">
+  <style>
+    .reader { max-width: 1180px; margin: 0 auto; padding: 32px clamp(20px, 4vw, 48px) 80px; }
+    .reader-breadcrumb { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font-size: 15px; color: var(--ink-muted); margin-bottom: 36px; }
+    .reader-breadcrumb a { white-space: nowrap; }
+    .reader-heading { max-width: 800px; margin: 0 0 24px 252px; }
+    .reader-heading h1 { font-size: clamp(38px, 5vw, 64px); line-height: 1.07; color: var(--moss-deep); text-wrap: balance; overflow-wrap: anywhere; }
+    .reader-tools { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 20px 0 0; font-size: 15px; }
+    .reader-outline { position: sticky; top: 88px; padding-right: 16px; max-height: calc(100vh - 110px); overflow-y: auto; border-right: var(--rule-soft); font-size: 14px; }
+    .reader-outline summary { cursor: pointer; padding: 10px 0; font-weight: 600; color: var(--moss-deep); }
+    .reader-outline ul { list-style: none; padding: 0; margin: 8px 0 0; }
+    .reader-outline li { margin: 0; }
+    .reader-outline a { display: block; border-left: 2px solid transparent; padding: 5px 10px; text-decoration: none; color: var(--ink-muted); line-height: 1.45; }
+    .reader-outline a:hover, .reader-outline a[aria-current="location"] { color: var(--moss-deep); border-left-color: var(--moss); background: var(--paper-2); }
+    .reader-outline .toc-h3 { padding-left: 22px; font-size: 13px; }
+    .reader-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: start; }
+    .reader-layout > aside { position: sticky; top: 88px; }
+    .reader-body { min-width: 0; max-width: 76ch; }
+    .reader-notice { margin: 0 0 28px; padding: 16px 20px; border-left: 3px solid var(--thread); background: var(--paper-2); font-size: 15px; color: var(--ink-soft); }
+    .reader-notice p:last-child { margin-bottom: 0; }
+    .reader-status { padding: 24px 0; }
+    .reader-status h2 { font-size: 28px; font-style: normal; margin-bottom: 12px; }
+    .reader-status button { background: var(--moss); color: var(--paper); border: 1px solid var(--moss); font: inherit; padding: 10px 18px; cursor: pointer; }
+    #content { font-size: 18px; line-height: 1.75; overflow-wrap: anywhere; }
+    #content > :first-child { margin-top: 0; }
+    #content h1, #content h2, #content h3, #content h4, #content h5, #content h6, .reader-heading h1 { scroll-margin-top: 120px; }
+    #content h1, #content h2 { font-size: clamp(30px, 3vw, 40px); font-style: normal; line-height: 1.2; margin: 48px 0 18px; color: var(--moss-deep); }
+    #content h3 { font-size: 28px; line-height: 1.2; margin: 32px 0 12px; }
+    #content h4, #content h5, #content h6 { font-family: var(--f-body); font-size: 19px; font-weight: 600; margin: 24px 0 10px; }
+    #content p { max-width: none; margin-bottom: 20px; }
+    #content ul, #content ol { padding-left: 26px; margin: 0 0 24px; }
+    #content li { margin: 7px 0; }
+    #content li > ul, #content li > ol { margin: 8px 0; }
+    #content blockquote { margin: 28px 0; padding: 12px 22px; border-left: 3px solid var(--moss-mid); color: var(--ink-soft); background: var(--paper-2); }
+    #content blockquote p:last-child { margin-bottom: 0; }
+    #content pre { overflow-x: auto; background: var(--paper-2); border: var(--rule-soft); padding: 20px; font-size: 14px; line-height: 1.6; }
+    #content code { font-family: ui-monospace, Consolas, monospace; font-size: .85em; background: var(--paper-2); padding: 2px 4px; }
+    #content pre code { padding: 0; font-size: inherit; }
+    #content hr { border: 0; border-top: var(--rule-soft); margin: 40px 0; }
+    #content img { max-width: 100%; height: auto; }
+    #content input[type="checkbox"] { accent-color: var(--moss); }
+    #content details { margin: 24px 0; padding: 16px; border: var(--rule-soft); }
+    #content summary { cursor: pointer; font-weight: 600; }
+    .reader-table { max-width: 100%; overflow-x: auto; margin: 28px 0; border: var(--rule-soft); }
+    #content table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.55; }
+    #content th, #content td { padding: 12px 14px; min-width: 130px; text-align: left; vertical-align: top; border-bottom: var(--rule-soft); }
+    #content th { background: var(--paper-2); font-weight: 600; }
+    #content tr:last-child td { border-bottom: 0; }
+    .reader-next { border-top: var(--rule-soft); margin-top: 48px; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 16px; }
+    [hidden] { display: none !important; }
+    @media (max-width: 900px) {
+      .reader { padding-top: 24px; }
+      .reader-breadcrumb { margin-bottom: 28px; }
+      .reader-heading { margin-left: 0; }
+      .reader-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+      .reader-layout > aside { position: static; }
+      .reader-outline { position: static; max-height: 40vh; padding: 0 12px; border: var(--rule-soft); }
+      .reader-body { max-width: none; }
+      #content { font-size: 17px; }
+      #content h1, #content h2, #content h3, #content h4, .reader-heading h1 { scroll-margin-top: 140px; }
+    }
+    @media print {
+      [data-site-header], [data-site-footer], .reader-breadcrumb, .reader-tools, .reader-outline, .reader-next { display: none; }
+      body, .reader { padding: 0 !important; background: white; color: black; }
+      .reader-heading { margin-left: 0; }
+      .reader-layout { display: block; }
+      .reader-body { max-width: none; }
+      #content { font-size: 11pt; }
+      #content a { color: black; }
+      .reader-table { overflow: visible; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+  <link rel="stylesheet" href="assets/css/site-shell.css?v=ddf093745d61">
+  <script defer src="assets/js/vendor/marked-9.1.6.min.js?v=6002af63485b"></script>
+  <script defer src="assets/js/vendor/dompurify-3.4.14.min.js?v=c2f26ea4fc0d"></script>
+  <script defer src="assets/js/document-reader.js?v=7e6cd85d4050"></script>
 </head>
-<body>
-
-<a href="#main-content" class="skip-link">Skip to main content</a>
-
-<nav role="navigation" aria-label="Site navigation">
-  <a href="/commonweave/" class="nav-logo" aria-label="Commonweave home">commonweave</a>
-  <div class="nav-links" role="list">
-    <a href="/commonweave/#map" role="listitem">Map</a>
-    <a href="/commonweave/#sections" role="listitem">Sections</a>
-    <a href="/commonweave/#docs" role="listitem">Docs</a>
-    <a href="/commonweave/#about" role="listitem">About</a>
-    <a href="/commonweave/directory.html" role="listitem" class="nav-cta">Directory →</a>
-  </div>
-</nav>
-
-<nav aria-label="Breadcrumb" class="breadcrumb">
-  <a href="/commonweave/">Home</a>
-  <span aria-hidden="true">/</span>
-  <span id="breadcrumb-current" aria-current="page">Loading...</span>
-</nav>
-
-<div class="doc-layout">
-  <aside id="toc" aria-label="Table of contents" role="navigation">
-    <h2>On this page</h2>
-    <ul id="toc-list"></ul>
-  </aside>
-
-  <main id="main-content" tabindex="-1">
-    <div id="loading" role="status" aria-live="polite" aria-label="Loading document">
-      <p>Loading...</p>
-    </div>
-    <noscript>
-      <div style="max-width:660px;margin:40px auto;padding:0 28px;">
-        <h1 style="color:#dff5c0;font-size:28px;margin-bottom:20px;">Commonweave Framework</h1>
-        <p style="color:#7aaa6a;line-height:1.8;margin-bottom:16px;">This page renders markdown documents dynamically. For the best experience, enable JavaScript.</p>
-        <p style="color:#7aaa6a;line-height:1.8;margin-bottom:24px;">All documents are also available as plain markdown on GitHub:</p>
-        <ul style="list-style:none;padding:0;">
-          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/README.md" style="color:#78c87a;">README.md - Project Overview</a></li>
-          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/DEEP-DIVE.md" style="color:#78c87a;">DEEP-DIVE.md - Framework &amp; Evidence</a></li>
-          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/GOVERNANCE.md" style="color:#78c87a;">GOVERNANCE.md - Governance</a></li>
-          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/SUSTAINABILITY.md" style="color:#78c87a;">SUSTAINABILITY.md - Sustainability Plan</a></li>
-          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/WISEREARTH.md" style="color:#78c87a;">WISEREARTH.md - WiserEarth Analysis</a></li>
-        </ul>
+<body class="cw-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <!-- cw:header:start -->
+<header data-site-header>
+  <nav class="cw-nav" aria-label="Main navigation">
+    <a class="cw-brand" href="index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
+    <div class="cw-primary"><a href="knowledge.html" aria-current="page">Knowledge base</a><a href="map.html">Map</a></div>
+    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
+      <a href="directory.html">Organization directory</a>
+      <a href="participate.html">Contribute or correct</a>
+      <a href="pipeline.html">About the data</a>
+      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
+    </div></details>
+  </nav>
+</header>
+<!-- cw:header:end -->
+  <main id="main-content" class="reader" tabindex="-1">
+    <nav class="reader-breadcrumb" aria-label="Breadcrumb">
+      <a href="knowledge.html">Knowledge base</a><span aria-hidden="true">/</span><span id="breadcrumb-current" aria-current="page">Document</span>
+    </nav>
+    <header class="reader-heading">
+      <h1 id="document-heading">Knowledge base</h1>
+      <div class="reader-tools" id="document-tools" hidden>
+        <a id="document-source" href="https://github.com/simonlpaige/commonweave">View source on GitHub</a>
+        <a id="document-download" href="README.md" download>Download text</a>
       </div>
-    </noscript>
-    <article id="content" aria-live="polite"></article>
-    <nav class="doc-nav" aria-label="Document navigation" id="doc-nav" style="display:none"></nav>
+    </header>
+    <div class="reader-layout">
+      <aside>
+        <details id="document-outline" class="reader-outline" hidden>
+          <summary>On this page</summary>
+          <nav aria-label="Document outline"><ul id="toc-list"></ul></nav>
+        </details>
+      </aside>
+      <div class="reader-body">
+        <div id="document-notice" class="reader-notice" hidden></div>
+        <div id="document-status" class="reader-status" role="status" aria-live="polite"><p>Loading document…</p></div>
+        <noscript>
+          <p>Enable JavaScript to read this document here, or <a href="https://github.com/simonlpaige/commonweave/blob/master/README.md">read the framework on GitHub</a>.</p>
+        </noscript>
+        <article id="content" aria-label="Document content"></article>
+        <nav id="document-next" class="reader-next" aria-label="Continue reading" hidden></nav>
+      </div>
+    </div>
   </main>
-</div>
-
-<footer role="contentinfo">
-  <p>
-    <a href="https://github.com/simonlpaige/commonweave" target="_blank" rel="noopener">github.com/simonlpaige/commonweave</a>
-    &middot; Data: <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a>
-    &middot; Framework: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
-    &middot; Inspired by <a href="https://web.archive.org/web/20140411042711/http://wiser.org/" target="_blank" rel="noopener">WiserEarth</a> (2007&ndash;2014)
-  </p>
+  <!-- cw:footer:start -->
+<footer data-site-footer class="cw-footer">
+  <p>A shared framework. Evidence to inspect. Work to improve together.</p>
+  <div><a href="knowledge.html">Knowledge base</a><a href="map.html">Map</a><a href="participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
 </footer>
-
-<script>
-// ── Doc registry ──
-const DOCS = {
-  README: { title: "Project Overview", prev: null, next: "DEEP-DIVE" },
-  DIRECTORY:    { title: "Organization Directory",  prev: "README",       next: "DEEP-DIVE" },
-  "DEEP-DIVE":  { title: "Deep Research",           prev: "DIRECTORY",    next: "GOVERNANCE" },
-  GOVERNANCE:   { title: "Governance",              prev: "DEEP-DIVE",    next: "SUSTAINABILITY" },
-  SUSTAINABILITY:{ title: "Sustainability",         prev: "GOVERNANCE",   next: "WISEREARTH" },
-  WISEREARTH:   { title: "WiserEarth Analysis",     prev: "SUSTAINABILITY",next: "MULTILINGUAL-TERMS" },
-  "MULTILINGUAL-TERMS": { title: "Multilingual Terms Bank", prev: "WISEREARTH",         next: "OPENCOOP-RESEARCH" },
-  "OPENCOOP-RESEARCH":  { title: "Open.coop and Trust Layer", prev: "MULTILINGUAL-TERMS", next: "BOT-CRITIQUE" },
-  "BOT-CRITIQUE":       { title: "Bot Pipeline Critique", prev: "OPENCOOP-RESEARCH",     next: null },
-};
-
-// ── Parse query param ──
-const params = new URLSearchParams(location.search);
-const file = params.get("file") || "README";
-const meta = DOCS[file] || { title: file, prev: null, next: null };
-
-// Set page title
-document.title = `${meta.title} - Commonweave`;
-
-// Breadcrumb
-document.getElementById("breadcrumb-current").textContent = meta.title;
-
-// Highlight nav
-const navEl = document.getElementById("nav-" + file.toLowerCase().replace(/-/g,""));
-if (navEl) navEl.setAttribute("aria-current", "page");
-
-// Mark active nav link
-document.querySelectorAll(".nav-links a").forEach(a => {
-  if (a.href.includes(file)) a.setAttribute("aria-current", "page");
-});
-
-// ── Fetch and render ──
-const mdUrl = `./${file}.md`;
-
-marked.setOptions({
-  gfm: true,
-  breaks: false,
-});
-
-// Custom renderer: wrap tables
-const renderer = new marked.Renderer();
-renderer.table = function(header, body) {
-  return `<div class="table-wrap" role="region" aria-label="Data table" tabindex="0"><table><thead>${header}</thead><tbody>${body}</tbody></table></div>`;
-};
-// Open external links in new tab
-renderer.link = function(href, title, text) {
-  const isExternal = href && (href.startsWith("http") || href.startsWith("//"));
-  const attrs = isExternal
-    ? ` target="_blank" rel="noopener noreferrer" aria-label="${text}${title ? ': ' + title : ''} (opens in new tab)"`
-    : ``;
-  const titleAttr = title ? ` title="${title}"` : "";
-  return `<a href="${href}"${titleAttr}${attrs}>${text}</a>`;
-};
-
-marked.use({ renderer });
-
-fetch(mdUrl)
-  .then(r => {
-    if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
-    return r.text();
-  })
-  .then(md => {
-    document.getElementById("loading").style.display = "none";
-    const contentEl = document.getElementById("content");
-    contentEl.innerHTML = marked.parse(md);
-
-    // Fix checkbox inputs -- mark readonly for ADA
-    contentEl.querySelectorAll("input[type=checkbox]").forEach(cb => {
-      cb.setAttribute("readonly", "");
-      cb.setAttribute("aria-readonly", "true");
-      cb.setAttribute("tabindex", "-1");
-    });
-
-    // GitHub-compatible slug -- matches anchors already in DIRECTORY.md etc.
-    function ghSlug(text) {
-      return text.toLowerCase()
-        .replace(/[^\w\s-]/g, "")   // strip punctuation except hyphens
-        .trim()
-        .replace(/\s+/g, "-");       // spaces to hyphens (no collapse -- GH keeps doubles)
-    }
-    // But GH actually does: keep spaces as -, strip all non-alphanumeric except - and space
-    // More precisely: lowercase, strip anything not [a-z0-9 -], collapse spaces to single -
-    function githubSlug(rawText) {
-      return rawText
-        .toLowerCase()
-        .replace(/[^\w\s-]/g, "")   // remove punctuation (& . , ! etc.)
-        .replace(/\s+/g, "-")       // spaces -> hyphens
-        .replace(/-{2,}/g, "-")     // DIRECTORY.md uses -- for & so preserve that
-    }
-    // Actually GH preserves runs: '& ' -> ' ' -> '-', '--' stays '--' because it's already hyphens
-    // The real GH algorithm: keep [a-z0-9 \-], spaces to -, no collapsing
-    function slug(rawText) {
-      return rawText
-        .toLowerCase()
-        .replace(/[^\w\s-]/g, "")   // strip non-word chars (removes & . etc.)
-        .replace(/ +/g, "-");        // single spaces to hyphens (runs of spaces collapse)
-    }
-
-    // Assign IDs using GH-compatible slug
-    const slugCounts = {};
-    contentEl.querySelectorAll("h1,h2,h3,h4").forEach(h => {
-      if (!h.id) {
-        let base = slug(h.textContent);
-        // deduplicate
-        if (slugCounts[base] === undefined) {
-          slugCounts[base] = 0;
-          h.id = base;
-        } else {
-          slugCounts[base]++;
-          h.id = base + "-" + slugCounts[base];
-        }
-      }
-      h.setAttribute("tabindex", "-1"); // allow focus for skip links
-    });
-
-    // Fix in-document anchor links to use the same slugs
-    contentEl.querySelectorAll('a[href^="#"]').forEach(a => {
-      const target = a.getAttribute("href").slice(1);
-      // If the target element exists by ID, it's fine; else try slugging the href text
-      if (!document.getElementById(target)) {
-        const fixed = slug(decodeURIComponent(target).replace(/-/g, " "));
-        if (document.getElementById(fixed)) a.setAttribute("href", "#" + fixed);
-      }
-    });
-
-    // Build TOC
-    buildTOC(contentEl);
-
-    // Doc nav
-    buildDocNav();
-
-    // Scroll spy
-    initScrollSpy();
-  })
-  .catch(err => {
-    document.getElementById("loading").style.display = "none";
-    document.getElementById("content").innerHTML = `
-      <div class="error-box" role="alert">
-        <h2>Document not found</h2>
-        <p>Could not load <code>${file}.md</code>. ${err.message}</p>
-        <p style="margin-top:12px"><a href="/commonweave/">Back to home</a></p>
-      </div>`;
-  });
-
-// ── Build TOC ──
-function buildTOC(contentEl) {
-  // Skip headings that are in-document TOC sections ("Table of Contents", "Contents")
-  const TOC_SKIP = /^(table of contents|contents)$/i;
-  const headings = [...contentEl.querySelectorAll("h2, h3")].filter(
-    h => !TOC_SKIP.test(h.textContent.trim())
-  );
-  if (headings.length < 3) { document.getElementById("toc").style.display = "none"; return; }
-  const list = document.getElementById("toc-list");
-  headings.forEach(h => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.href = "#" + h.id;
-    a.textContent = h.textContent.trim();
-    a.className = h.tagName === "H3" ? "toc-h3" : "toc-h2";
-    a.addEventListener("click", e => {
-      e.preventDefault();
-      h.focus();
-      h.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-    li.appendChild(a);
-    list.appendChild(li);
-  });
-}
-
-// ── Build doc nav (prev/next) ──
-function buildDocNav() {
-  const nav = document.getElementById("doc-nav");
-  const items = [];
-  if (meta.prev) {
-    const p = DOCS[meta.prev];
-    items.push(`<a href="doc.html?file=${meta.prev}" aria-label="Previous document: ${p.title}">&larr; ${p.title}</a>`);
-  }
-  if (meta.next) {
-    const n = DOCS[meta.next];
-    items.push(`<a href="doc.html?file=${meta.next}" aria-label="Next document: ${n.title}">${n.title} &rarr;</a>`);
-  }
-  if (items.length) {
-    nav.innerHTML = items.join("");
-    nav.style.display = "flex";
-  }
-}
-
-// ── Scroll spy for TOC ──
-function initScrollSpy() {
-  const headings = [...document.getElementById("content").querySelectorAll("h2,h3")];
-  if (!headings.length) return;
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const id = entry.target.id;
-      const link = document.querySelector(`#toc-list a[href="#${id}"]`);
-      if (!link) return;
-      if (entry.isIntersecting) {
-        document.querySelectorAll("#toc-list a").forEach(a => a.classList.remove("toc-active"));
-        link.classList.add("toc-active");
-      }
-    });
-  }, { rootMargin: "-20% 0px -70% 0px" });
-  headings.forEach(h => observer.observe(h));
-}
-</script>
+<!-- cw:footer:end -->
 </body>
 </html>

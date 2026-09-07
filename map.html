@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Commonweave Map: networks of change</title>
-<meta property="og:title" content="Commonweave Map: networks of change">
-<meta property="og:description" content="An interactive map of aligned civil society organizations. Open data, CC0. Numbers reflect what is actually verified.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Map · Commonweave</title>
+<meta property="og:title" content="Map · Commonweave">
+<meta property="og:description" content="Explore organization records by place and possible role. Check sources, location precision and current availability.">
 <meta property="og:url" content="https://commonweave.earth/map.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -16,16 +16,16 @@
   "@type": "WebPage",
   "name": "Commonweave Map",
   "url": "https://commonweave.earth/map.html",
-  "description": "An interactive map of aligned civil society organizations. Counts and provenance pulled at runtime from the data build.",
+  "description": "Explore organization records by place and possible role. Check sources, location precision and current availability.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Commonweave",
     "url": "https://commonweave.earth/"
   },
-  "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+  "license": "https://github.com/simonlpaige/commonweave/blob/master/LICENSE"
 }
 </script>
-<meta name="description" content="Commonweave map: an interactive map of aligned civil society organizations. Open data, CC0.">
+<meta name="description" content="Explore organization records by place and possible role. Check sources, location precision and current availability.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Preconnect to the basemap host: warms TLS + DNS while the JS loads, so
@@ -741,8 +741,27 @@ button:disabled { opacity: .45; cursor: default; }
 @keyframes counter-up { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
 .stat-animate { animation: counter-up 0.5s cubic-bezier(0.4,0,0.2,1) forwards; }
 </style>
+<link rel="stylesheet" href="assets/css/brand.css?v=ac1ae7a4a9c0">
+<link rel="stylesheet" href="assets/css/commonweave.css?v=61c3d54ad08e">
+<link rel="stylesheet" href="assets/css/map-paper.css?v=0e23940bced8">
+<link rel="stylesheet" href="assets/css/site-shell.css?v=ddf093745d61">
 </head>
-<body>
+<body class="cw-page cw-map">
+<a class="skip-link" href="#layout" onclick="event.preventDefault();document.getElementById('layout').focus()">Skip to map</a>
+<!-- cw:header:start -->
+<header data-site-header>
+  <nav class="cw-nav" aria-label="Main navigation">
+    <a class="cw-brand" href="index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
+    <div class="cw-primary"><a href="knowledge.html">Knowledge base</a><a href="map.html" aria-current="page">Map</a></div>
+    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
+      <a href="directory.html">Organization directory</a>
+      <a href="participate.html">Contribute or correct</a>
+      <a href="pipeline.html">About the data</a>
+      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
+    </div></details>
+  </nav>
+</header>
+<!-- cw:header:end -->
 <h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">Commonweave Map</h1>
 
 <!-- ═══════════ LOADING ═══════════ -->
@@ -785,35 +804,23 @@ button:disabled { opacity: .45; cursor: default; }
   <div class="loading-title">commonweave<span class="seed">.</span></div>
   <div class="loading-sub">mapping the networks of change</div>
   <div class="loading-progress"><div class="loading-progress-bar" id="progress-bar"></div></div>
-  <div class="loading-status" id="loading-status">Loading organisations…</div>
+  <div class="loading-status" id="loading-status">Loading organizations…</div>
 </div>
 
 <!-- ═══════════ MAIN LAYOUT ═══════════ -->
-<div id="layout">
+<main id="layout" tabindex="-1">
   <div id="sidebar">
-    <div class="sb-header">
-      <a href="/" class="sb-mark" aria-label="Commonweave home">
-        <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="commonweave">
-          <g transform="translate(0,5)">
-            <circle cx="60" cy="60" r="56" fill="none" stroke="#F2EBDC" stroke-width="1.6"/>
-            <line x1="6" y1="60" x2="114" y2="60" stroke="#F2EBDC" stroke-width="0.8" opacity="0.4"/>
-            <path d="M 30 30 C 50 60, 70 60, 90 90" stroke="#B8C4A8" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-            <path d="M 90 30 C 70 60, 50 60, 30 90" stroke="#B8C4A8" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-            <circle cx="60" cy="60" r="3" fill="#B4593A"/>
-          </g>
-          <text x="140" y="80" font-family="Instrument Serif, Source Serif 4, Georgia, serif" font-style="italic" font-size="64" fill="#F2EBDC" letter-spacing="-1.5">commonweave</text>
-        </svg>
-      </a>
-      <div class="sb-sub">mapping the networks of change</div>
-    </div>
+    <div class="sb-header"><h2>Map</h2><p>Explore organizations and the roles a community project needs.</p></div>
     <div class="sb-scroll">
-      <div class="sb-stats">
-        <div class="stat-card"><div class="stat-value" id="stat-orgs">-</div><div class="stat-label">Exported records</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-edges">-</div><div class="stat-label">Shared-area links</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-visible">-</div><div class="stat-label">Visible</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-tiers">-</div><div class="stat-label">Tiers</div></div>
+      <div class="sb-label">View Mode</div>
+      <div class="view-mode-wrap">
+        <button class="view-btn active" id="btn-network">Network</button>
+        <button class="view-btn" id="btn-geo">Places</button>
+        <button class="view-btn" id="btn-health">Coverage</button>
+        <button class="view-btn" id="btn-list">List</button>
       </div>
-      <p id="tier-quality-note" class="nr-meta" style="padding:0 16px 12px"></p>
+
+
       <div class="sb-search" hidden>
         <div class="search-wrap">
           <span class="search-icon">⌕</span>
@@ -825,7 +832,7 @@ button:disabled { opacity: .45; cursor: default; }
            location, sections, and offers/needs words. Returns ranked matches
            plus complementary nearby orgs and local gaps. -->
       <div id="discovery-home"><section class="sb-need" id="discovery-controls" aria-label="Find organizations and possible pathways">
-        <h2 class="discovery-title">What could work together?</h2>
+        <h2 class="discovery-title">Find organizations</h2>
         <label class="discovery-label" for="need-goal">Start with a goal</label>
         <select id="need-goal" class="need-input"><option value="">Browse organizations</option></select>
         <label class="discovery-label" for="need-country">Country</label>
@@ -844,7 +851,15 @@ button:disabled { opacity: .45; cursor: default; }
         <p id="need-status" role="status" aria-live="polite"></p>
         <div class="need-result" id="need-result" hidden></div>
       </section></div>
-      <div class="sb-label">Networks</div>
+      <details class="map-details"><summary>Filters and data details</summary>
+      <div class="sb-stats">
+        <div class="stat-card"><div class="stat-value" id="stat-orgs">-</div><div class="stat-label">Exported records</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-edges">-</div><div class="stat-label">Shared-area links</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-visible">-</div><div class="stat-label">Visible</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-tiers">-</div><div class="stat-label">Tiers</div></div>
+      </div>
+      <p id="tier-quality-note" class="nr-meta" style="padding:0 16px 12px"></p>
+      <div class="sb-label">Categories</div>
       <div id="filters"></div>
       <div class="sb-label">Data Quality</div>
       <div class="hc-toggle-wrap">
@@ -861,24 +876,18 @@ button:disabled { opacity: .45; cursor: default; }
         <button class="tier-btn inactive" data-tier="C" title="Inferred: passed keyword scoring, not yet reviewed">C Inferred</button>
       </div>
       <div class="tier-legend" id="tier-legend"></div>
-      <div class="sb-label">View Mode</div>
-      <div class="view-mode-wrap">
-        <button class="view-btn active" id="btn-network">🕸 Network</button>
-        <button class="view-btn" id="btn-geo">🌍 Geographic</button>
-        <button class="view-btn" id="btn-health">⚖️ Coverage</button>
-        <button class="view-btn" id="btn-list">List</button>
-      </div>
-      <div class="sb-label">Guided Views</div>
+      <div class="sb-label">Guided views</div>
       <div id="presets"></div>
       <div class="sb-label">Explore by Section</div>
       <div id="regions"></div>
+      </details>
     </div>
     <div class="sb-health">
       <div class="health-label">Dataset category coverage</div>
       <div class="health-dots" id="health-dots"></div>
       <div class="health-text" id="health-text">- of 10 sections in dataset</div>
     </div>
-    <div class="sb-pdf"><a href="pipeline.html" title="How the directory gets built">📄 How we find these organizations</a></div>
+    <div class="sb-pdf"><a href="pipeline.html" title="How the directory gets built">About the data</a></div>
     <div class="sb-hint">scroll to zoom · drag to pan · click nodes for details</div>
     <div class="sb-built" id="sb-built">
       <span>Data last built: <strong id="built-date">-</strong></span>
@@ -889,7 +898,7 @@ button:disabled { opacity: .45; cursor: default; }
   <div id="canvas-container">
     <div class="map-trust-note">Pins may be city or country approximations. Lines suggest connections unless a source is shown. <button type="button" onclick="window._showDiscoveryList()">Use List view</button></div>
     <section id="discovery-list" hidden aria-label="Organization results">
-      <div class="discovery-list-heading"><h2>Find the pieces. Check the fit.</h2><button class="need-clear" id="list-edit" type="button">Change goal or place</button></div>
+      <div class="discovery-list-heading"><h2>Organizations and possible roles</h2><button class="need-clear" id="list-edit" type="button">Change goal or place</button></div>
       <div id="discovery-list-results"></div>
     </section>
     <!-- Geographic mode: MapLibre vector basemap + deck.gl overlay. Hidden in
@@ -898,7 +907,7 @@ button:disabled { opacity: .45; cursor: default; }
     <!-- Network mode: existing D3 force canvas. Hidden in Geographic mode. -->
     <canvas id="viz-canvas"></canvas>
   </div>
-</div>
+</main>
 
 <!-- Mobile -->
 <button id="mobile-fab" aria-label="Open discovery and filters" aria-controls="mobile-sheet" aria-expanded="false">
@@ -946,9 +955,9 @@ button:disabled { opacity: .45; cursor: default; }
 <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
 <!-- Phase 3: need-pathway scoring + search panel. Pure functions; no DOM
      work happens until init() is called from the main script. -->
-<script src="assets/js/map/scoring.js"></script>
-<script src="assets/js/map/pathways.js"></script>
-<script src="assets/js/map/search.js"></script>
+<script src="assets/js/map/scoring.js?v=93f540fb8718"></script>
+<script src="assets/js/map/pathways.js?v=e2e325b6c7c4"></script>
+<script src="assets/js/map/search.js?v=015583a9313f"></script>
 <script>
 'use strict';
 
@@ -1035,6 +1044,7 @@ const TAU = Math.PI * 2;
 // STATE
 // ══════════════════════════════════════════════════════════════
 let allPoints = [], allEdges = [];
+let pendingNetworkSimulation = null;
 let simNodes = [], simLinks = [];
 let coordHash = new Map();       // "lon,lat" → node index
 let pointsById = new Map();      // stable id (org_X) → node index, for URL state
@@ -1255,7 +1265,7 @@ let orgsFeatureCollection = null;
 
 async function loadData() {
   setProgress(5);
-  setLoadingStatus('Loading organisations…');
+  setLoadingStatus('Loading organizations…');
 
   // Phase 5: edges are lazy-loaded. Only points + stats + coverage hit the
   // network at startup. Edges fetch on first selection. This is the biggest
@@ -1370,14 +1380,15 @@ function mulberry32(a) {
 }
 
 function runSimulation(sim, onDone) {
-  // The d3 force layout runs in the background after the loading overlay
-  // is gone, so we no longer drive the progress bar from in here. Settling
-  // 250 ticks chunked across rAF keeps the main thread responsive.
-  const TOTAL = 250;
+  // Only Network view needs a force layout. Yield between individual ticks
+  // so a large export cannot block place/list browsing for seconds at a time.
+  const TOTAL = 120;
   let tick = 0;
 
   function chunk() {
-    for (let i = 0; i < 20 && tick < TOTAL; i++, tick++) sim.tick();
+    if (viewMode !== 'network') { pendingNetworkSimulation = sim; return; }
+    sim.tick(); tick++;
+    if (viewMode === 'network') { rebuildQuadtree(); render(); }
     if (tick < TOTAL) requestAnimationFrame(chunk);
     else { sim.stop(); onDone(); }
   }
@@ -2093,8 +2104,8 @@ async function loadWorldData() {
 function drawGeoBackground() {
   if (!worldFeatures || worldFeatures.length === 0) return;
   ctx.save();
-  ctx.strokeStyle = '#1d3d1d';
-  ctx.fillStyle = '#0a1a0a';
+  ctx.strokeStyle = '#B8C4A8';
+  ctx.fillStyle = '#E1E5D8';
   ctx.lineWidth = 0.5;
   ctx.setLineDash([]);
   worldFeatures.forEach(feature => {
@@ -2126,7 +2137,7 @@ function render() {
   if (!ctx) return;
   // In geo mode the MapLibre + deck.gl overlay does the painting; the canvas
   // is hidden. Skip the work to save CPU and battery.
-  if (viewMode === 'geo') return;
+  if (viewMode !== 'network') return;
   const w = canvas.width, h = canvas.height;
   ctx.clearRect(0, 0, w, h);
 
@@ -2494,6 +2505,11 @@ function renderBuiltFooter() {
 
 function setViewMode(mode) {
   viewMode = mode;
+  if (mode === 'network' && pendingNetworkSimulation) {
+    const simulation = pendingNetworkSimulation;
+    pendingNetworkSimulation = null;
+    runSimulation(simulation, () => { rebuildQuadtree(); render(); });
+  }
   document.getElementById('btn-network').classList.toggle('active', mode === 'network');
   document.getElementById('btn-geo').classList.toggle('active', mode === 'geo');
   document.getElementById('btn-list').classList.toggle('active', mode === 'list');
@@ -3271,10 +3287,10 @@ function setupMobile() {
   });
 
   // ---- View mode quick switch ----
-  addLabel('View mode');
+  const viewLabel = addLabel('View');
   const viewRow = document.createElement('div');
   viewRow.style.cssText = 'display:flex;gap:6px;margin-top:4px';
-  [['network', 'Network'], ['geo', 'Geographic'], ['list', 'List'], ['health', 'Coverage']].forEach(([m, lab]) => {
+  [['geo', 'Places'], ['list', 'List'], ['network', 'Network'], ['health', 'Coverage']].forEach(([m, lab]) => {
     const b = document.createElement('button');
     b.className = 'sheet-need-btn';
     b.style.cssText = 'flex:1';
@@ -3288,7 +3304,7 @@ function setupMobile() {
     });
     viewRow.appendChild(b);
   });
-  content.appendChild(viewRow);
+  content.prepend(viewLabel, viewRow);
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -3342,6 +3358,7 @@ async function main() {
   // mode. Building them is fast - running the d3 force ticks is what's slow,
   // so we defer those until the loading screen is gone.
   const sim = buildSimulation();
+  pendingNetworkSimulation = sim;
   buildQuadtree();
   setupCanvas();
   setupSidebar(tierCounts);
@@ -3380,26 +3397,11 @@ async function main() {
     startAnimationLoop();
   }
 
-  // Geo/health: hide the loading overlay as soon as MapLibre has the
-  // basemap + cluster source ready. The d3 simulation keeps running in the
-  // background so a later switch to network mode finds a settled layout.
-  // Network: wait for the simulation to settle before fading, otherwise the
-  // user would see a scattered cloud reorganise itself into sections.
-  if (viewMode === 'list') {
-    finishBoot();
-    runSimulation(sim, () => { rebuildQuadtree(); if (viewMode === 'network') render(); });
-  } else if (viewMode === 'geo' || viewMode === 'health') {
+  // Places and lists do not run the unrelated network force simulation.
+  if (viewMode === 'geo' || viewMode === 'health') {
     waitForMapReady(finishBoot);
-    runSimulation(sim, () => {
-      rebuildQuadtree();
-      if (viewMode === 'network') render();
-    });
   } else {
-    runSimulation(sim, () => {
-      rebuildQuadtree();
-      if (viewMode === 'network') render();
-      finishBoot();
-    });
+    finishBoot();
   }
 
   // Listen for hash changes (back/forward navigation) so the map keeps state
