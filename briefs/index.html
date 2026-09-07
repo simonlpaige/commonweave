@@ -15,34 +15,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/brand.css">
-<link rel="stylesheet" href="../assets/css/commonweave.css">
-<link rel="stylesheet" href="briefs.css">
+<link rel="stylesheet" href="../assets/css/brand.css?v=ac1ae7a4a9c0">
+<link rel="stylesheet" href="../assets/css/commonweave.css?v=61c3d54ad08e">
+<link rel="stylesheet" href="briefs.css?v=429579d82a8c">
+<link rel="stylesheet" href="../assets/css/site-shell.css?v=ddf093745d61">
 </head>
-<body>
+<body class="cw-page">
 <a href="#main-content" class="skip-link">Skip to main content</a>
-<nav class="site-nav" aria-label="Site navigation">
-  <div class="nav-mark"><a href="../index.html" aria-label="Commonweave home"><svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="commonweave">
-  <g transform="translate(0,5)">
-    <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="1.6"/>
-    <line x1="6" y1="60" x2="114" y2="60" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
-    <path d="M 30 30 C 50 60, 70 60, 90 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-    <path d="M 90 30 C 70 60, 50 60, 30 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-    <circle cx="60" cy="60" r="3" fill="#B4593A"/>
-  </g>
-  <text x="140" y="80" font-family="Instrument Serif, Source Serif 4, Georgia, serif" font-style="italic" font-size="64" fill="currentColor" letter-spacing="-1.5">commonweave</text>
-</svg></a></div>
-  <div class="nav-links" role="list">
-    <a href="../map.html" role="listitem">Map</a>
-    <a href="../directory.html" role="listitem">Directory</a>
-    <a href="../briefs/index.html" class="active" role="listitem">Briefs</a>
-    <a href="https://github.com/simonlpaige/commonweave" class="nav-cta" role="listitem">Source &rarr;</a>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Switch to dark mode">
-      <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-      <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-    </button>
-  </div>
-</nav>
+<!-- cw:header:start -->
+<header data-site-header>
+  <nav class="cw-nav" aria-label="Main navigation">
+    <a class="cw-brand" href="../index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
+    <div class="cw-primary"><a href="../knowledge.html">Knowledge base</a><a href="../map.html" aria-current="page">Map</a></div>
+    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
+      <a href="../directory.html">Organization directory</a>
+      <a href="../participate.html">Contribute or correct</a>
+      <a href="../pipeline.html">About the data</a>
+      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
+    </div></details>
+  </nav>
+</header>
+<!-- cw:header:end -->
 <main id="main-content" class="brief-shell" tabindex="-1">
   <header class="brief-index-hero">
     <div class="eyebrow">Commonweave field notes &middot; Map snapshot 2026-07-03</div>
@@ -164,12 +157,13 @@
     <div id="brief-empty" class="empty-result">No briefs match those filters. Clear the search or choose another country.</div>
   </section>
 </main>
-<footer class="site-foot" role="contentinfo">
-  <p>Derived circuit data: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>
-  &middot; Framework: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-  &middot; <a href="https://github.com/simonlpaige/commonweave">Source on GitHub</a></p>
+<!-- cw:footer:start -->
+<footer data-site-footer class="cw-footer">
+  <p>A shared framework. Evidence to inspect. Work to improve together.</p>
+  <div><a href="../knowledge.html">Knowledge base</a><a href="../map.html">Map</a><a href="../participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
 </footer>
-<script src="../assets/js/theme.js"></script>
+<!-- cw:footer:end -->
+
 <script src="briefs.js"></script>
 </body>
 </html>

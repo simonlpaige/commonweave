@@ -1,0 +1,30 @@
+.participation-nav { display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap; padding:20px clamp(20px,5vw,72px); border-bottom:var(--rule-soft); }
+.participation-nav div { display:flex; gap:24px; flex-wrap:wrap; }
+.wordmark { font:italic 30px var(--f-display); text-decoration:none; }
+.participation-page { max-width:1180px; margin:auto; padding:48px 28px; }
+.participation-page h1 { font:400 clamp(40px,5vw,68px)/1.05 var(--f-display); margin:0 0 20px; }
+.participation-page h2 { font:400 29px/1.2 var(--f-display); margin:0 0 20px; }
+.participation-page .intro { max-width:65ch; font-size:21px; margin-bottom:40px; }
+.participation-layout { display:grid; grid-template-columns:minmax(220px,1fr) minmax(320px,1.6fr); gap:64px; align-items:start; }
+.participation-layout aside { border-top:3px solid var(--moss); padding-top:24px; }
+.participation-layout aside h2:not(:first-child) { margin-top:36px; }
+.participation-layout aside p { max-width:50ch; }
+.participation-layout form { border:var(--rule-soft); padding:28px; background:var(--paper-2); }
+.participation-layout label { display:block; margin-bottom:6px; font-weight:600; }
+.participation-layout input, .participation-layout select, .participation-layout textarea { display:block; width:100%; min-height:44px; padding:10px 12px; font:inherit; color:var(--ink); background:var(--paper); border:1px solid var(--ink-muted); border-radius:3px; margin-bottom:18px; }
+.participation-layout textarea { resize:vertical; }
+.field-help { font-size:15px; color:var(--ink-soft); margin:-8px 0 22px; }
+.field-pair { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.participation-page button, .draft-actions a { display:inline-block; padding:12px 18px; min-height:44px; background:var(--moss); color:var(--paper); border:1px solid var(--moss); border-radius:3px; font:600 17px var(--f-body); text-decoration:none; cursor:pointer; }
+.participation-page button:hover, .draft-actions a:hover { background:var(--moss-deep); }
+.draft-actions { display:flex; flex-wrap:wrap; gap:14px; margin:20px 0; }
+.draft-actions a { background:transparent; color:var(--moss); }
+.draft-actions a:hover { color:var(--paper); }
+#draft-section { margin-top:32px; }
+#draft-preview { white-space:pre-wrap; overflow-wrap:anywhere; padding:22px; background:var(--paper-2); font:16px/1.6 var(--f-body); border:var(--rule-soft); }
+#draft-status { margin-top:16px; }
+:focus-visible { outline:3px solid var(--moss); outline-offset:4px; }
+.skip-link { position:absolute; left:-10000px; top:8px; }
+.skip-link:focus { left:8px; padding:12px; background:var(--paper); z-index:20; }
+[hidden] { display:none !important; }
+@media (max-width:720px) { .participation-layout { grid-template-columns:1fr; gap:28px; } .participation-layout aside { order:2; } .participation-page { padding:32px 20px; } .participation-layout form { padding:20px; } .field-pair { grid-template-columns:1fr; gap:0; } .participation-nav div { gap:16px; } }

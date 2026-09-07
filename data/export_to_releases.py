@@ -66,9 +66,14 @@ PUBLIC_COLUMNS = [
     "evidence_url",
     "evidence_quote",
     "last_verified_at",
+    "source_url",
+    "tier",
+    "legibility",
+    "location_precision",
+    "geo_source",
 ]
 
-SCHEMA_VERSION = "1.0.0"
+SCHEMA_VERSION = "1.1.0"
 
 
 def find_db():
@@ -91,11 +96,18 @@ def safe_filename(s):
 
 
 def fetch_rows(db_path, min_score):
-    db = sqlite3.connect(str(db_path))
+    db = sqlite3.connect(Path(db_path).resolve().as_uri() + '?mode=ro', uri=True)
     db.row_factory = sqlite3.Row
     cur = db.cursor()
 
-    placeholders = ", ".join(PUBLIC_COLUMNS)
+    existing = {r[1] for r in db.execute('PRAGMA table_info(organizations)')}
+    if not {'id', 'name', 'country_code', 'status'} <= existing:
+        db.close()
+        raise ValueError('Missing organization identity/status columns; refusing an ambiguous public export')
+    if min_score is not None and 'alignment_score' not in existing:
+        db.close()
+        raise ValueError('This database has no alignment_score. Use --include-unaligned for candidate rows, not an invented score.')
+    placeholders = ", ".join(col if col in existing else f'NULL AS {col}' for col in PUBLIC_COLUMNS)
     where = []
     params = []
     if min_score is not None:
@@ -103,7 +115,11 @@ def fetch_rows(db_path, min_score):
         where.append("(alignment_score IS NOT NULL AND alignment_score >= ?)")
         params.append(min_score)
     # Filter merged-out duplicates.
-    where.append("(merged_into IS NULL OR merged_into = 0)")
+    if 'merged_into' in existing:
+        where.append("(merged_into IS NULL OR merged_into = 0 OR merged_into = '')")
+    # Historical exports accidentally included removed rows. Publication must
+    # respect the explicit status regardless of a former keyword score.
+    where.append("status = 'active'")
 
     sql = f"SELECT {placeholders} FROM organizations"
     if where:
@@ -149,7 +165,9 @@ def get_git_hash(repo_dir):
 def main():
     ap = argparse.ArgumentParser(description="Export Commonweave directory to releases/")
     ap.add_argument("--min-score", type=int, default=2,
-                    help="minimum alignment_score to include (default 2 = aligned)")
+                    help="minimum heuristic alignment_score to include (default 2; not verification)")
+    ap.add_argument("--db", type=Path, help="explicit source database (opened read-only)")
+    ap.add_argument("--output", type=Path, help="explicit release output directory")
     ap.add_argument("--include-unaligned", action="store_true",
                     help="include all rows regardless of alignment_score")
     ap.add_argument("--by-country", action="store_true", default=True,
@@ -160,8 +178,8 @@ def main():
 
     min_score = None if args.include_unaligned else args.min_score
 
-    db_path = find_db()
-    releases = find_releases_dir(db_path)
+    db_path = args.db.resolve() if args.db else find_db()
+    releases = args.output.resolve() if args.output else find_releases_dir(db_path)
     releases.mkdir(parents=True, exist_ok=True)
 
     print(f"Reading from: {db_path}")

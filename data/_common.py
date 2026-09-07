@@ -6,12 +6,14 @@ import os
 import re
 import sqlite3
 import unicodedata
+from pathlib import Path
 from datetime import datetime
 
-DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
-TRIM_AUDIT_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data\trim_audit'
-WORKSPACE_DIR = r'C:\Users\simon\.openclaw\workspace'
-DATA_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data'
+# A clone must never silently read or mutate another checkout's database.
+DATA_DIR = str(Path(__file__).resolve().parent)
+DB_PATH = os.environ.get('COMMONWEAVE_DB', str(Path(DATA_DIR) / 'commonweave_directory.db'))
+TRIM_AUDIT_DIR = str(Path(DATA_DIR) / 'trim_audit')
+WORKSPACE_DIR = str(Path(DATA_DIR).parent.parent)
 
 
 # US state name -> 2-letter code. Called by every ingester before writing state_province.
@@ -49,7 +51,10 @@ def normalize_us_state(value):
 
 
 def get_db():
-    db = sqlite3.connect(DB_PATH)
+    path = Path(DB_PATH).resolve()
+    if not path.is_file():
+        raise FileNotFoundError(f'Database missing: {path}. Restore a reviewed copy or set COMMONWEAVE_DB explicitly.')
+    db = sqlite3.connect(path.as_uri() + '?mode=rw', uri=True)
     db.row_factory = sqlite3.Row
     return db
 

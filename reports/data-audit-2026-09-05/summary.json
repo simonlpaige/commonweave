@@ -1,0 +1,2151 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-05",
+  "method": "Complete offline structural audit; no organization existence, services, alignment, location or relationships verified.",
+  "release": {
+    "rows": 158715,
+    "country_codes": 182,
+    "iso_country_codes": 177,
+    "countries": {
+      "BR": 80783,
+      "AU": 48701,
+      "US": 12078,
+      "GB": 9367,
+      "(missing)": 2568,
+      "BG": 2544,
+      "DE": 321,
+      "CH": 285,
+      "CA": 201,
+      "ES": 116,
+      "IN": 82,
+      "IT": 75,
+      "FR": 74,
+      "NO": 60,
+      "AT": 55,
+      "ZA": 55,
+      "KE": 54,
+      "UG": 52,
+      "BE": 47,
+      "JP": 46,
+      "PH": 36,
+      "SE": 33,
+      "CO": 31,
+      "NZ": 30,
+      "CR": 29,
+      "MX": 29,
+      "IE": 28,
+      "NL": 28,
+      "GR": 27,
+      "NG": 25,
+      "DK": 24,
+      "EC": 24,
+      "AR": 23,
+      "CL": 23,
+      "FI": 23,
+      "PT": 20,
+      "TR": 20,
+      "HU": 19,
+      "PE": 19,
+      "ZM": 19,
+      "PL": 18,
+      "TH": 18,
+      "MT": 15,
+      "EG": 14,
+      "HN": 14,
+      "PA": 14,
+      "ET": 13,
+      "GH": 13,
+      "HR": 13,
+      "PY": 13,
+      "TZ": 13,
+      "NP": 12,
+      "RO": 12,
+      "GT": 11,
+      "NI": 11,
+      "BO": 10,
+      "CN": 10,
+      "EE": 10,
+      "ID": 10,
+      "KR": 10,
+      "LK": 10,
+      "SR": 10,
+      "BD": 9,
+      "CZ": 8,
+      "DO": 8,
+      "PR": 8,
+      "PS": 8,
+      "VE": 8,
+      "BJ": 7,
+      "IL": 7,
+      "IR": 7,
+      "JM": 7,
+      "MZ": 7,
+      "SN": 7,
+      "VN": 7,
+      "CM": 6,
+      "LU": 6,
+      "RU": 6,
+      "RW": 6,
+      "SI": 6,
+      "CD": 5,
+      "GLOBAL": 5,
+      "HT": 5,
+      "JO": 5,
+      "KH": 5,
+      "LT": 5,
+      "MA": 5,
+      "MY": 5,
+      "UA": 5,
+      "UY": 5,
+      "AM": 4,
+      "BF": 4,
+      "BY": 4,
+      "CI": 4,
+      "GN": 4,
+      "MG": 4,
+      "MR": 4,
+      "MU": 4,
+      "NE": 4,
+      "SK": 4,
+      "BW": 3,
+      "CG": 3,
+      "FJ": 3,
+      "HK": 3,
+      "IS": 3,
+      "LV": 3,
+      "MK": 3,
+      "MM": 3,
+      "MN": 3,
+      "NA": 3,
+      "PK": 3,
+      "RS": 3,
+      "SG": 3,
+      "SM": 3,
+      "SV": 3,
+      "SZ": 3,
+      "TG": 3,
+      "TT": 3,
+      "TW": 3,
+      "AG": 2,
+      "AL": 2,
+      "AO": 2,
+      "BB": 2,
+      "BI": 2,
+      "BM": 2,
+      "CF": 2,
+      "CU": 2,
+      "CV": 2,
+      "DD": 2,
+      "DZ": 2,
+      "KG": 2,
+      "KI": 2,
+      "KW": 2,
+      "KZ": 2,
+      "LC": 2,
+      "LI": 2,
+      "LR": 2,
+      "LS": 2,
+      "MD": 2,
+      "ML": 2,
+      "MW": 2,
+      "SL": 2,
+      "SO": 2,
+      "ST": 2,
+      "TD": 2,
+      "TN": 2,
+      "VU": 2,
+      "ZW": 2,
+      "AE": 1,
+      "AW": 1,
+      "AZ": 1,
+      "BA": 1,
+      "BH": 1,
+      "BQ": 1,
+      "BS": 1,
+      "BT": 1,
+      "BZ": 1,
+      "CK": 1,
+      "CW": 1,
+      "CY": 1,
+      "DG": 1,
+      "GD": 1,
+      "GW": 1,
+      "GY": 1,
+      "IQ": 1,
+      "KM": 1,
+      "KN": 1,
+      "LB": 1,
+      "LY": 1,
+      "ME": 1,
+      "MV": 1,
+      "NC": 1,
+      "PG": 1,
+      "SB": 1,
+      "SS": 1,
+      "TL": 1,
+      "TM": 1,
+      "TO": 1,
+      "VA": 1,
+      "WS": 1,
+      "XK": 1,
+      "YE": 1
+    },
+    "sources": {
+      "mapa_oscs_brazil": 80754,
+      "acnc_charity_register": 48597,
+      "IRS_EO_BMF": 9386,
+      "uk_charity_commission": 7259,
+      "mutual_aid_wiki": 4145,
+      "wikidata_bg_npo": 2534,
+      "mutual_aid_hub": 897,
+      "ic_directory": 867,
+      "ProPublica": 602,
+      "transition_network": 484,
+      "wikidata_land_trusts": 444,
+      "wikidata": 412,
+      "clt_world_map": 406,
+      "wikidata_unions": 405,
+      "ica_directory": 321,
+      "susy_map": 297,
+      "ituc_affiliates": 297,
+      "nec_members": 143,
+      "wikidata_subregion": 135,
+      "construction_coops": 81,
+      "ripess_family": 73,
+      "habitat_affiliates": 66,
+      "web_research": 58,
+      "grounded_solutions": 39,
+      "manual_curation": 13
+    },
+    "framework_areas": {
+      "housing_land": 51691,
+      "education": 39836,
+      "healthcare": 29646,
+      "democracy": 15459,
+      "(missing)": 6789,
+      "ecology": 4571,
+      "recreation_arts": 3807,
+      "food": 3259,
+      "cooperatives": 2659,
+      "conflict": 919,
+      "energy_digital": 79
+    },
+    "issues": {
+      "coordinate_precision_unknown": 24759,
+      "coordinates_missing": 133956,
+      "invalid_website": 24205,
+      "invite_link_visibility_review": 214,
+      "missing_country": 2568,
+      "missing_evidence_excerpt": 158715,
+      "missing_evidence_url": 17865,
+      "missing_framework_area": 6789,
+      "missing_website": 110813,
+      "non_iso_country": 9,
+      "thin_description": 42893,
+      "verification_date_unknown": 158706
+    },
+    "same_name_country_groups": 6259,
+    "same_name_country_rows": 26919,
+    "duplicate_id_groups": 0,
+    "rows_in_top_two_countries": 129484,
+    "countries_with_fewer_than_50_rows": 160,
+    "manifest_generated_at": "2026-04-27T04:23:00.819004+00:00",
+    "manifest_row_count": 158715,
+    "csv_json_content_equal": true,
+    "split_integrity": {
+      "by-country": {
+        "files": 182,
+        "rows": 158715,
+        "same_content_as_full_release": true,
+        "extra_or_changed_rows": 0,
+        "missing_or_changed_rows": 0
+      },
+      "by-source": {
+        "files": 25,
+        "rows": 158715,
+        "same_content_as_full_release": true,
+        "extra_or_changed_rows": 0,
+        "missing_or_changed_rows": 0
+      }
+    }
+  },
+  "search": {
+    "rows": 144731,
+    "country_codes": 156,
+    "iso_country_codes": 156,
+    "countries": {
+      "BR": 64737,
+      "AU": 48562,
+      "GB": 13533,
+      "US": 12163,
+      "BG": 2185,
+      "DE": 406,
+      "CH": 308,
+      "CA": 213,
+      "IT": 170,
+      "FR": 159,
+      "AT": 147,
+      "ES": 147,
+      "ZA": 81,
+      "KE": 77,
+      "SE": 73,
+      "IN": 71,
+      "JP": 69,
+      "NG": 67,
+      "BE": 59,
+      "NO": 58,
+      "GR": 53,
+      "PT": 42,
+      "CR": 40,
+      "FI": 40,
+      "HU": 39,
+      "EE": 38,
+      "RO": 38,
+      "IE": 36,
+      "CO": 35,
+      "PH": 33,
+      "UG": 32,
+      "DK": 31,
+      "HR": 31,
+      "MX": 29,
+      "MT": 28,
+      "EC": 27,
+      "NZ": 27,
+      "NP": 25,
+      "PL": 24,
+      "BO": 23,
+      "SI": 23,
+      "AR": 22,
+      "SN": 22,
+      "CL": 19,
+      "PE": 19,
+      "CZ": 18,
+      "TR": 18,
+      "TW": 18,
+      "ZW": 18,
+      "BW": 17,
+      "FJ": 17,
+      "NL": 16,
+      "SL": 16,
+      "TH": 16,
+      "PY": 15,
+      "ML": 14,
+      "SS": 14,
+      "BA": 13,
+      "PA": 13,
+      "CN": 12,
+      "GM": 12,
+      "HN": 12,
+      "LK": 11,
+      "TM": 11,
+      "ZM": 11,
+      "GT": 10,
+      "KR": 10,
+      "SR": 10,
+      "BD": 9,
+      "ET": 9,
+      "ID": 9,
+      "NI": 9,
+      "PS": 9,
+      "BJ": 8,
+      "DO": 8,
+      "EG": 8,
+      "IR": 8,
+      "TZ": 8,
+      "CM": 7,
+      "JM": 7,
+      "CD": 6,
+      "GH": 6,
+      "HT": 6,
+      "JO": 6,
+      "KH": 6,
+      "LU": 6,
+      "MA": 6,
+      "MY": 6,
+      "RU": 6,
+      "RW": 6,
+      "UA": 6,
+      "UY": 6,
+      "AM": 5,
+      "BF": 5,
+      "CI": 5,
+      "GN": 5,
+      "LT": 5,
+      "LV": 5,
+      "MG": 5,
+      "NE": 5,
+      "SK": 5,
+      "VN": 5,
+      "BY": 4,
+      "CG": 4,
+      "MK": 4,
+      "MM": 4,
+      "MN": 4,
+      "MZ": 4,
+      "NA": 4,
+      "RS": 4,
+      "SV": 4,
+      "SZ": 4,
+      "TG": 4,
+      "VE": 4,
+      "AL": 3,
+      "AO": 3,
+      "IS": 3,
+      "KG": 3,
+      "KZ": 3,
+      "LR": 3,
+      "LS": 3,
+      "MW": 3,
+      "PK": 3,
+      "SO": 3,
+      "TD": 3,
+      "TN": 3,
+      "TT": 3,
+      "BH": 2,
+      "BZ": 2,
+      "CU": 2,
+      "GW": 2,
+      "GY": 2,
+      "LB": 2,
+      "LY": 2,
+      "MD": 2,
+      "PG": 2,
+      "TL": 2,
+      "YE": 2,
+      "AE": 1,
+      "AF": 1,
+      "BN": 1,
+      "CY": 1,
+      "DJ": 1,
+      "ER": 1,
+      "GA": 1,
+      "GE": 1,
+      "IQ": 1,
+      "KW": 1,
+      "LA": 1,
+      "ME": 1,
+      "QA": 1,
+      "SA": 1,
+      "SD": 1,
+      "SY": 1,
+      "TJ": 1,
+      "UZ": 1
+    },
+    "sources": {
+      "(missing)": 144731
+    },
+    "framework_areas": {
+      "(missing)": 144731
+    },
+    "issues": {
+      "coordinates_missing": 144731,
+      "invalid_website": 27017,
+      "invite_link_visibility_review": 82,
+      "missing_evidence_excerpt": 144731,
+      "missing_evidence_url": 144731,
+      "missing_framework_area": 144731,
+      "missing_source": 144731,
+      "missing_website": 95680,
+      "thin_description": 40741,
+      "verification_date_unknown": 144731
+    },
+    "same_name_country_groups": 632,
+    "same_name_country_rows": 1882,
+    "duplicate_id_groups": 0,
+    "rows_in_top_two_countries": 113299,
+    "countries_with_fewer_than_50_rows": 135,
+    "index_generated_at": "2026-04-28T22:06:33.544609Z",
+    "index_total": 144731,
+    "files": [
+      {
+        "path": "data/search/AE.json",
+        "rows": 1,
+        "country": "AE"
+      },
+      {
+        "path": "data/search/AF.json",
+        "rows": 1,
+        "country": "AF"
+      },
+      {
+        "path": "data/search/AL.json",
+        "rows": 3,
+        "country": "AL"
+      },
+      {
+        "path": "data/search/AM.json",
+        "rows": 5,
+        "country": "AM"
+      },
+      {
+        "path": "data/search/AO.json",
+        "rows": 3,
+        "country": "AO"
+      },
+      {
+        "path": "data/search/AR.json",
+        "rows": 22,
+        "country": "AR"
+      },
+      {
+        "path": "data/search/AT.json",
+        "rows": 147,
+        "country": "AT"
+      },
+      {
+        "path": "data/search/AU.json",
+        "rows": 48562,
+        "country": "AU"
+      },
+      {
+        "path": "data/search/BA.json",
+        "rows": 13,
+        "country": "BA"
+      },
+      {
+        "path": "data/search/BD.json",
+        "rows": 9,
+        "country": "BD"
+      },
+      {
+        "path": "data/search/BE.json",
+        "rows": 59,
+        "country": "BE"
+      },
+      {
+        "path": "data/search/BF.json",
+        "rows": 5,
+        "country": "BF"
+      },
+      {
+        "path": "data/search/BG.json",
+        "rows": 2185,
+        "country": "BG"
+      },
+      {
+        "path": "data/search/BH.json",
+        "rows": 2,
+        "country": "BH"
+      },
+      {
+        "path": "data/search/BJ.json",
+        "rows": 8,
+        "country": "BJ"
+      },
+      {
+        "path": "data/search/BN.json",
+        "rows": 1,
+        "country": "BN"
+      },
+      {
+        "path": "data/search/BO.json",
+        "rows": 23,
+        "country": "BO"
+      },
+      {
+        "path": "data/search/BR.json",
+        "rows": 64737,
+        "country": "BR"
+      },
+      {
+        "path": "data/search/BW.json",
+        "rows": 17,
+        "country": "BW"
+      },
+      {
+        "path": "data/search/BY.json",
+        "rows": 4,
+        "country": "BY"
+      },
+      {
+        "path": "data/search/BZ.json",
+        "rows": 2,
+        "country": "BZ"
+      },
+      {
+        "path": "data/search/CA.json",
+        "rows": 213,
+        "country": "CA"
+      },
+      {
+        "path": "data/search/CD.json",
+        "rows": 6,
+        "country": "CD"
+      },
+      {
+        "path": "data/search/CG.json",
+        "rows": 4,
+        "country": "CG"
+      },
+      {
+        "path": "data/search/CH.json",
+        "rows": 308,
+        "country": "CH"
+      },
+      {
+        "path": "data/search/CI.json",
+        "rows": 5,
+        "country": "CI"
+      },
+      {
+        "path": "data/search/CL.json",
+        "rows": 19,
+        "country": "CL"
+      },
+      {
+        "path": "data/search/CM.json",
+        "rows": 7,
+        "country": "CM"
+      },
+      {
+        "path": "data/search/CN.json",
+        "rows": 12,
+        "country": "CN"
+      },
+      {
+        "path": "data/search/CO.json",
+        "rows": 35,
+        "country": "CO"
+      },
+      {
+        "path": "data/search/CR.json",
+        "rows": 40,
+        "country": "CR"
+      },
+      {
+        "path": "data/search/CU.json",
+        "rows": 2,
+        "country": "CU"
+      },
+      {
+        "path": "data/search/CY.json",
+        "rows": 1,
+        "country": "CY"
+      },
+      {
+        "path": "data/search/CZ.json",
+        "rows": 18,
+        "country": "CZ"
+      },
+      {
+        "path": "data/search/DE.json",
+        "rows": 406,
+        "country": "DE"
+      },
+      {
+        "path": "data/search/DJ.json",
+        "rows": 1,
+        "country": "DJ"
+      },
+      {
+        "path": "data/search/DK.json",
+        "rows": 31,
+        "country": "DK"
+      },
+      {
+        "path": "data/search/DO.json",
+        "rows": 8,
+        "country": "DO"
+      },
+      {
+        "path": "data/search/EC.json",
+        "rows": 27,
+        "country": "EC"
+      },
+      {
+        "path": "data/search/EE.json",
+        "rows": 38,
+        "country": "EE"
+      },
+      {
+        "path": "data/search/EG.json",
+        "rows": 8,
+        "country": "EG"
+      },
+      {
+        "path": "data/search/ER.json",
+        "rows": 1,
+        "country": "ER"
+      },
+      {
+        "path": "data/search/ES.json",
+        "rows": 147,
+        "country": "ES"
+      },
+      {
+        "path": "data/search/ET.json",
+        "rows": 9,
+        "country": "ET"
+      },
+      {
+        "path": "data/search/FI.json",
+        "rows": 40,
+        "country": "FI"
+      },
+      {
+        "path": "data/search/FJ.json",
+        "rows": 17,
+        "country": "FJ"
+      },
+      {
+        "path": "data/search/FR.json",
+        "rows": 159,
+        "country": "FR"
+      },
+      {
+        "path": "data/search/GA.json",
+        "rows": 1,
+        "country": "GA"
+      },
+      {
+        "path": "data/search/GB.json",
+        "rows": 13533,
+        "country": "GB"
+      },
+      {
+        "path": "data/search/GE.json",
+        "rows": 1,
+        "country": "GE"
+      },
+      {
+        "path": "data/search/GH.json",
+        "rows": 6,
+        "country": "GH"
+      },
+      {
+        "path": "data/search/GM.json",
+        "rows": 12,
+        "country": "GM"
+      },
+      {
+        "path": "data/search/GN.json",
+        "rows": 5,
+        "country": "GN"
+      },
+      {
+        "path": "data/search/GR.json",
+        "rows": 53,
+        "country": "GR"
+      },
+      {
+        "path": "data/search/GT.json",
+        "rows": 10,
+        "country": "GT"
+      },
+      {
+        "path": "data/search/GW.json",
+        "rows": 2,
+        "country": "GW"
+      },
+      {
+        "path": "data/search/GY.json",
+        "rows": 2,
+        "country": "GY"
+      },
+      {
+        "path": "data/search/HN.json",
+        "rows": 12,
+        "country": "HN"
+      },
+      {
+        "path": "data/search/HR.json",
+        "rows": 31,
+        "country": "HR"
+      },
+      {
+        "path": "data/search/HT.json",
+        "rows": 6,
+        "country": "HT"
+      },
+      {
+        "path": "data/search/HU.json",
+        "rows": 39,
+        "country": "HU"
+      },
+      {
+        "path": "data/search/ID.json",
+        "rows": 9,
+        "country": "ID"
+      },
+      {
+        "path": "data/search/IE.json",
+        "rows": 36,
+        "country": "IE"
+      },
+      {
+        "path": "data/search/IN.json",
+        "rows": 71,
+        "country": "IN"
+      },
+      {
+        "path": "data/search/IQ.json",
+        "rows": 1,
+        "country": "IQ"
+      },
+      {
+        "path": "data/search/IR.json",
+        "rows": 8,
+        "country": "IR"
+      },
+      {
+        "path": "data/search/IS.json",
+        "rows": 3,
+        "country": "IS"
+      },
+      {
+        "path": "data/search/IT.json",
+        "rows": 170,
+        "country": "IT"
+      },
+      {
+        "path": "data/search/JM.json",
+        "rows": 7,
+        "country": "JM"
+      },
+      {
+        "path": "data/search/JO.json",
+        "rows": 6,
+        "country": "JO"
+      },
+      {
+        "path": "data/search/JP.json",
+        "rows": 69,
+        "country": "JP"
+      },
+      {
+        "path": "data/search/KE.json",
+        "rows": 77,
+        "country": "KE"
+      },
+      {
+        "path": "data/search/KG.json",
+        "rows": 3,
+        "country": "KG"
+      },
+      {
+        "path": "data/search/KH.json",
+        "rows": 6,
+        "country": "KH"
+      },
+      {
+        "path": "data/search/KR.json",
+        "rows": 10,
+        "country": "KR"
+      },
+      {
+        "path": "data/search/KW.json",
+        "rows": 1,
+        "country": "KW"
+      },
+      {
+        "path": "data/search/KZ.json",
+        "rows": 3,
+        "country": "KZ"
+      },
+      {
+        "path": "data/search/LA.json",
+        "rows": 1,
+        "country": "LA"
+      },
+      {
+        "path": "data/search/LB.json",
+        "rows": 2,
+        "country": "LB"
+      },
+      {
+        "path": "data/search/LK.json",
+        "rows": 11,
+        "country": "LK"
+      },
+      {
+        "path": "data/search/LR.json",
+        "rows": 3,
+        "country": "LR"
+      },
+      {
+        "path": "data/search/LS.json",
+        "rows": 3,
+        "country": "LS"
+      },
+      {
+        "path": "data/search/LT.json",
+        "rows": 5,
+        "country": "LT"
+      },
+      {
+        "path": "data/search/LU.json",
+        "rows": 6,
+        "country": "LU"
+      },
+      {
+        "path": "data/search/LV.json",
+        "rows": 5,
+        "country": "LV"
+      },
+      {
+        "path": "data/search/LY.json",
+        "rows": 2,
+        "country": "LY"
+      },
+      {
+        "path": "data/search/MA.json",
+        "rows": 6,
+        "country": "MA"
+      },
+      {
+        "path": "data/search/MD.json",
+        "rows": 2,
+        "country": "MD"
+      },
+      {
+        "path": "data/search/ME.json",
+        "rows": 1,
+        "country": "ME"
+      },
+      {
+        "path": "data/search/MG.json",
+        "rows": 5,
+        "country": "MG"
+      },
+      {
+        "path": "data/search/MK.json",
+        "rows": 4,
+        "country": "MK"
+      },
+      {
+        "path": "data/search/ML.json",
+        "rows": 14,
+        "country": "ML"
+      },
+      {
+        "path": "data/search/MM.json",
+        "rows": 4,
+        "country": "MM"
+      },
+      {
+        "path": "data/search/MN.json",
+        "rows": 4,
+        "country": "MN"
+      },
+      {
+        "path": "data/search/MT.json",
+        "rows": 28,
+        "country": "MT"
+      },
+      {
+        "path": "data/search/MW.json",
+        "rows": 3,
+        "country": "MW"
+      },
+      {
+        "path": "data/search/MX.json",
+        "rows": 29,
+        "country": "MX"
+      },
+      {
+        "path": "data/search/MY.json",
+        "rows": 6,
+        "country": "MY"
+      },
+      {
+        "path": "data/search/MZ.json",
+        "rows": 4,
+        "country": "MZ"
+      },
+      {
+        "path": "data/search/NA.json",
+        "rows": 4,
+        "country": "NA"
+      },
+      {
+        "path": "data/search/NE.json",
+        "rows": 5,
+        "country": "NE"
+      },
+      {
+        "path": "data/search/NG.json",
+        "rows": 67,
+        "country": "NG"
+      },
+      {
+        "path": "data/search/NI.json",
+        "rows": 9,
+        "country": "NI"
+      },
+      {
+        "path": "data/search/NL.json",
+        "rows": 16,
+        "country": "NL"
+      },
+      {
+        "path": "data/search/NO.json",
+        "rows": 58,
+        "country": "NO"
+      },
+      {
+        "path": "data/search/NP.json",
+        "rows": 25,
+        "country": "NP"
+      },
+      {
+        "path": "data/search/NZ.json",
+        "rows": 27,
+        "country": "NZ"
+      },
+      {
+        "path": "data/search/OM.json",
+        "rows": 0,
+        "country": "OM"
+      },
+      {
+        "path": "data/search/PA.json",
+        "rows": 13,
+        "country": "PA"
+      },
+      {
+        "path": "data/search/PE.json",
+        "rows": 19,
+        "country": "PE"
+      },
+      {
+        "path": "data/search/PG.json",
+        "rows": 2,
+        "country": "PG"
+      },
+      {
+        "path": "data/search/PH.json",
+        "rows": 33,
+        "country": "PH"
+      },
+      {
+        "path": "data/search/PK.json",
+        "rows": 3,
+        "country": "PK"
+      },
+      {
+        "path": "data/search/PL.json",
+        "rows": 24,
+        "country": "PL"
+      },
+      {
+        "path": "data/search/PS.json",
+        "rows": 9,
+        "country": "PS"
+      },
+      {
+        "path": "data/search/PT.json",
+        "rows": 42,
+        "country": "PT"
+      },
+      {
+        "path": "data/search/PY.json",
+        "rows": 15,
+        "country": "PY"
+      },
+      {
+        "path": "data/search/QA.json",
+        "rows": 1,
+        "country": "QA"
+      },
+      {
+        "path": "data/search/RO.json",
+        "rows": 38,
+        "country": "RO"
+      },
+      {
+        "path": "data/search/RS.json",
+        "rows": 4,
+        "country": "RS"
+      },
+      {
+        "path": "data/search/RU.json",
+        "rows": 6,
+        "country": "RU"
+      },
+      {
+        "path": "data/search/RW.json",
+        "rows": 6,
+        "country": "RW"
+      },
+      {
+        "path": "data/search/SA.json",
+        "rows": 1,
+        "country": "SA"
+      },
+      {
+        "path": "data/search/SD.json",
+        "rows": 1,
+        "country": "SD"
+      },
+      {
+        "path": "data/search/SE.json",
+        "rows": 73,
+        "country": "SE"
+      },
+      {
+        "path": "data/search/SI.json",
+        "rows": 23,
+        "country": "SI"
+      },
+      {
+        "path": "data/search/SK.json",
+        "rows": 5,
+        "country": "SK"
+      },
+      {
+        "path": "data/search/SL.json",
+        "rows": 16,
+        "country": "SL"
+      },
+      {
+        "path": "data/search/SN.json",
+        "rows": 22,
+        "country": "SN"
+      },
+      {
+        "path": "data/search/SO.json",
+        "rows": 3,
+        "country": "SO"
+      },
+      {
+        "path": "data/search/SR.json",
+        "rows": 10,
+        "country": "SR"
+      },
+      {
+        "path": "data/search/SS.json",
+        "rows": 14,
+        "country": "SS"
+      },
+      {
+        "path": "data/search/SV.json",
+        "rows": 4,
+        "country": "SV"
+      },
+      {
+        "path": "data/search/SY.json",
+        "rows": 1,
+        "country": "SY"
+      },
+      {
+        "path": "data/search/SZ.json",
+        "rows": 4,
+        "country": "SZ"
+      },
+      {
+        "path": "data/search/TD.json",
+        "rows": 3,
+        "country": "TD"
+      },
+      {
+        "path": "data/search/TG.json",
+        "rows": 4,
+        "country": "TG"
+      },
+      {
+        "path": "data/search/TH.json",
+        "rows": 16,
+        "country": "TH"
+      },
+      {
+        "path": "data/search/TJ.json",
+        "rows": 1,
+        "country": "TJ"
+      },
+      {
+        "path": "data/search/TL.json",
+        "rows": 2,
+        "country": "TL"
+      },
+      {
+        "path": "data/search/TM.json",
+        "rows": 11,
+        "country": "TM"
+      },
+      {
+        "path": "data/search/TN.json",
+        "rows": 3,
+        "country": "TN"
+      },
+      {
+        "path": "data/search/TR.json",
+        "rows": 18,
+        "country": "TR"
+      },
+      {
+        "path": "data/search/TT.json",
+        "rows": 3,
+        "country": "TT"
+      },
+      {
+        "path": "data/search/TW.json",
+        "rows": 18,
+        "country": "TW"
+      },
+      {
+        "path": "data/search/TZ.json",
+        "rows": 8,
+        "country": "TZ"
+      },
+      {
+        "path": "data/search/UA.json",
+        "rows": 6,
+        "country": "UA"
+      },
+      {
+        "path": "data/search/UG.json",
+        "rows": 32,
+        "country": "UG"
+      },
+      {
+        "path": "data/search/US_AA.json",
+        "rows": 1,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_AE.json",
+        "rows": 38,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_AK.json",
+        "rows": 65,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_AL.json",
+        "rows": 129,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_AP.json",
+        "rows": 30,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_AR.json",
+        "rows": 92,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_AS.json",
+        "rows": 1,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_AZ.json",
+        "rows": 206,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_CA.json",
+        "rows": 1305,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_CO.json",
+        "rows": 258,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_CT.json",
+        "rows": 127,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_DC.json",
+        "rows": 131,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_DE.json",
+        "rows": 50,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_FL.json",
+        "rows": 521,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_FM.json",
+        "rows": 2,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_GA.json",
+        "rows": 271,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_GU.json",
+        "rows": 1,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_HI.json",
+        "rows": 79,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_IA.json",
+        "rows": 158,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_ID.json",
+        "rows": 93,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_IL.json",
+        "rows": 461,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_IN.json",
+        "rows": 247,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_KA.json",
+        "rows": 1,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_KS.json",
+        "rows": 109,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_KY.json",
+        "rows": 130,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_LA.json",
+        "rows": 109,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_MA.json",
+        "rows": 439,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_MD.json",
+        "rows": 260,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_ME.json",
+        "rows": 152,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_MI.json",
+        "rows": 392,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_MN.json",
+        "rows": 302,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_MO.json",
+        "rows": 229,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_MP.json",
+        "rows": 42,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_MS.json",
+        "rows": 80,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_MT.json",
+        "rows": 125,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_NC.json",
+        "rows": 365,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_ND.json",
+        "rows": 62,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_NE.json",
+        "rows": 70,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_NH.json",
+        "rows": 87,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_NJ.json",
+        "rows": 254,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_NM.json",
+        "rows": 109,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_NV.json",
+        "rows": 83,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_NY.json",
+        "rows": 756,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_OH.json",
+        "rows": 335,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_OK.json",
+        "rows": 359,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_OR.json",
+        "rows": 258,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_PA.json",
+        "rows": 416,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_PR.json",
+        "rows": 16,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_RI.json",
+        "rows": 60,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_SC.json",
+        "rows": 132,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_SD.json",
+        "rows": 34,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_TN.json",
+        "rows": 185,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_TX.json",
+        "rows": 566,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_UT.json",
+        "rows": 99,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_VA.json",
+        "rows": 306,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_VI.json",
+        "rows": 2,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_VT.json",
+        "rows": 155,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_WA.json",
+        "rows": 380,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_WI.json",
+        "rows": 311,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_WV.json",
+        "rows": 84,
+        "country": "US"
+      },
+      {
+        "path": "data/search/US_WY.json",
+        "rows": 43,
+        "country": "US"
+      },
+      {
+        "path": "data/search/UY.json",
+        "rows": 6,
+        "country": "UY"
+      },
+      {
+        "path": "data/search/UZ.json",
+        "rows": 1,
+        "country": "UZ"
+      },
+      {
+        "path": "data/search/VE.json",
+        "rows": 4,
+        "country": "VE"
+      },
+      {
+        "path": "data/search/VN.json",
+        "rows": 5,
+        "country": "VN"
+      },
+      {
+        "path": "data/search/YE.json",
+        "rows": 2,
+        "country": "YE"
+      },
+      {
+        "path": "data/search/ZA.json",
+        "rows": 81,
+        "country": "ZA"
+      },
+      {
+        "path": "data/search/ZM.json",
+        "rows": 11,
+        "country": "ZM"
+      },
+      {
+        "path": "data/search/ZW.json",
+        "rows": 18,
+        "country": "ZW"
+      }
+    ],
+    "file_count_mismatches": [],
+    "index_country_mismatches": [],
+    "unindexed_country_files": [],
+    "indexed_countries_without_shards": []
+  },
+  "map": {
+    "rows": 29423,
+    "country_codes": 102,
+    "iso_country_codes": 101,
+    "countries": {
+      "US": 13557,
+      "GB": 13316,
+      "DE": 389,
+      "CH": 302,
+      "IT": 157,
+      "FR": 150,
+      "AT": 140,
+      "ES": 125,
+      "CA": 93,
+      "AU": 85,
+      "JP": 54,
+      "SE": 51,
+      "NO": 50,
+      "GR": 47,
+      "BE": 43,
+      "ZA": 41,
+      "KE": 39,
+      "HU": 37,
+      "RO": 36,
+      "EE": 36,
+      "FI": 34,
+      "HR": 31,
+      "BR": 30,
+      "IE": 30,
+      "UG": 30,
+      "PT": 28,
+      "DK": 25,
+      "MT": 24,
+      "IN": 22,
+      "SI": 22,
+      "PL": 18,
+      "CZ": 17,
+      "PH": 15,
+      "PE": 14,
+      "TR": 14,
+      "NZ": 14,
+      "CO": 13,
+      "NG": 13,
+      "CL": 12,
+      "BG": 12,
+      "MX": 12,
+      "AR": 10,
+      "TH": 10,
+      "ZM": 10,
+      "SR": 9,
+      "EC": 9,
+      "GT": 8,
+      "BO": 8,
+      "NL": 8,
+      "BD": 7,
+      "ID": 7,
+      "NP": 7,
+      "PA": 7,
+      "NI": 6,
+      "CR": 6,
+      "HN": 6,
+      "PY": 6,
+      "EG": 5,
+      "LK": 5,
+      "SN": 5,
+      "TZ": 5,
+      "VN": 4,
+      "UA": 4,
+      "KR": 4,
+      "KH": 4,
+      "ET": 4,
+      "HT": 4,
+      "PR": 4,
+      "RW": 4,
+      "MG": 4,
+      "JM": 3,
+      "CN": 3,
+      "TW": 3,
+      "LV": 3,
+      "MY": 3,
+      "PK": 3,
+      "PS": 3,
+      "MA": 3,
+      "CM": 3,
+      "LB": 2,
+      "TN": 2,
+      "AM": 2,
+      "DO": 2,
+      "FJ": 2,
+      "JO": 2,
+      "MZ": 2,
+      "SK": 2,
+      "IR": 2,
+      "MM": 2,
+      "TT": 2,
+      "VE": 2,
+      "RS": 2,
+      "GH": 2,
+      "KZ": 2,
+      "GY": 1,
+      "UK": 1,
+      "MK": 1,
+      "LU": 1,
+      "CY": 1,
+      "RU": 1,
+      "CI": 1,
+      "CU": 1
+    },
+    "sources": {
+      "Field research + Wikidata": 13657,
+      "IRS_EO_BMF": 9762,
+      "mutual_aid_wiki": 2196,
+      "mutual_aid_hub": 894,
+      "susy_map": 877,
+      "transition_network": 792,
+      "wikidata_unions": 327,
+      "wikidata_land_trusts": 315,
+      "ProPublica": 266,
+      "uk_charity_commission": 96,
+      "habitat_affiliates": 51,
+      "wikidata_subregion": 46,
+      "ripess_family": 40,
+      "construction_coops": 39,
+      "ica_directory": 33,
+      "wikidata": 13,
+      "grounded_solutions": 9,
+      "manual_curation": 7,
+      "web_research": 2,
+      "country-broad-scraper:wikipedia-fr": 1
+    },
+    "framework_areas": {
+      "democracy": 9583,
+      "healthcare": 6072,
+      "education": 3867,
+      "food": 3518,
+      "housing_land": 2642,
+      "ecology": 2274,
+      "cooperatives": 1264,
+      "recreation_arts": 127,
+      "energy_digital": 75,
+      "unknown": 1
+    },
+    "issues": {
+      "coordinate_precision_unknown": 29423,
+      "invalid_record_tier": 9843,
+      "missing_evidence_excerpt": 29423,
+      "missing_evidence_url": 29423,
+      "missing_framework_area": 1,
+      "missing_website": 29423,
+      "non_iso_country": 1,
+      "thin_description": 29423,
+      "verification_date_unknown": 29423
+    },
+    "same_name_country_groups": 528,
+    "same_name_country_rows": 1655,
+    "duplicate_id_groups": 0,
+    "rows_in_top_two_countries": 26873,
+    "countries_with_fewer_than_50_rows": 88,
+    "coordinate_groups_with_at_least_10_rows": 166,
+    "rows_at_shared_coordinates_10_plus": 16175,
+    "largest_coordinate_groups": [
+      {
+        "lat": 55.38,
+        "lon": -3.44,
+        "rows": 11399,
+        "countries": {
+          "GB": 11399
+        }
+      },
+      {
+        "lat": 35.3337,
+        "lon": -97.4922,
+        "rows": 263,
+        "countries": {
+          "US": 263
+        }
+      },
+      {
+        "lat": 46.82,
+        "lon": 8.23,
+        "rows": 258,
+        "countries": {
+          "CH": 258
+        }
+      },
+      {
+        "lat": 51.17,
+        "lon": 10.45,
+        "rows": 234,
+        "countries": {
+          "DE": 234
+        }
+      },
+      {
+        "lat": 27.8,
+        "lon": -81.6,
+        "rows": 107,
+        "countries": {
+          "US": 107
+        }
+      },
+      {
+        "lat": 40.7484,
+        "lon": -73.9967,
+        "rows": 107,
+        "countries": {
+          "US": 107
+        }
+      },
+      {
+        "lat": 38.9122,
+        "lon": -77.0177,
+        "rows": 103,
+        "countries": {
+          "US": 103
+        }
+      },
+      {
+        "lat": 33.9731,
+        "lon": -118.2479,
+        "rows": 93,
+        "countries": {
+          "US": 93
+        }
+      },
+      {
+        "lat": 41.8858,
+        "lon": -87.6181,
+        "rows": 90,
+        "countries": {
+          "US": 90
+        }
+      },
+      {
+        "lat": 36.8,
+        "lon": -119.4,
+        "rows": 70,
+        "countries": {
+          "US": 70
+        }
+      },
+      {
+        "lat": 29.5962,
+        "lon": -95.4587,
+        "rows": 60,
+        "countries": {
+          "US": 60
+        }
+      },
+      {
+        "lat": 33.7498,
+        "lon": -84.3169,
+        "rows": 60,
+        "countries": {
+          "US": 60
+        }
+      },
+      {
+        "lat": 39.865,
+        "lon": -75.2752,
+        "rows": 52,
+        "countries": {
+          "US": 52
+        }
+      },
+      {
+        "lat": 40.694,
+        "lon": -73.9903,
+        "rows": 52,
+        "countries": {
+          "US": 52
+        }
+      },
+      {
+        "lat": 47.6114,
+        "lon": -122.3305,
+        "rows": 52,
+        "countries": {
+          "US": 52
+        }
+      },
+      {
+        "lat": 38.6426,
+        "lon": -90.3242,
+        "rows": 48,
+        "countries": {
+          "US": 48
+        }
+      },
+      {
+        "lat": 60.47,
+        "lon": 8.47,
+        "rows": 48,
+        "countries": {
+          "NO": 48
+        }
+      },
+      {
+        "lat": 38.5816,
+        "lon": -121.4933,
+        "rows": 47,
+        "countries": {
+          "US": 47
+        }
+      },
+      {
+        "lat": 40.46,
+        "lon": -3.75,
+        "rows": 47,
+        "countries": {
+          "ES": 47
+        }
+      },
+      {
+        "lat": 42.3474,
+        "lon": -83.0604,
+        "rows": 47,
+        "countries": {
+          "US": 47
+        }
+      }
+    ],
+    "cross_country_coordinate_groups": 220,
+    "edges": {
+      "rows": 20474,
+      "types": {
+        "verified_relationship": 37,
+        "federation_membership": 260,
+        "cross_section_complementarity": 8259,
+        "same_section_proximity": 11918
+      },
+      "dangling_endpoints": 16397,
+      "without_evidence_url": 20437
+    },
+    "metadata": {
+      "stats.json": {
+        "orgs_total_db": 154480,
+        "orgs_in_directory": 154480,
+        "orgs_on_map": 29423,
+        "countries_with_at_least_one_org": 174,
+        "countries_with_geocoded_org": 102,
+        "by_tier": {
+          "A_curated": 0,
+          "B_verified": 15042,
+          "C_inferred": 4538,
+          "D_unverified_off_map": 0
+        },
+        "by_section": {
+          "democracy": 9583,
+          "healthcare": 6072,
+          "education": 3867,
+          "food": 3518,
+          "housing_land": 2642,
+          "ecology": 2274,
+          "cooperatives": 1264,
+          "recreation_arts": 127,
+          "energy_digital": 75,
+          "unknown": 1
+        },
+        "by_country": {
+          "US": 13557,
+          "GB": 13316,
+          "DE": 389,
+          "CH": 302,
+          "IT": 157,
+          "FR": 150,
+          "AT": 140,
+          "ES": 125,
+          "CA": 93,
+          "AU": 85,
+          "JP": 54,
+          "SE": 51,
+          "NO": 50,
+          "GR": 47,
+          "BE": 43,
+          "ZA": 41,
+          "KE": 39,
+          "HU": 37,
+          "RO": 36,
+          "EE": 36,
+          "FI": 34,
+          "HR": 31,
+          "BR": 30,
+          "IE": 30,
+          "UG": 30,
+          "PT": 28,
+          "DK": 25,
+          "MT": 24,
+          "IN": 22,
+          "SI": 22,
+          "PL": 18,
+          "CZ": 17,
+          "PH": 15,
+          "PE": 14,
+          "TR": 14,
+          "NZ": 14,
+          "CO": 13,
+          "NG": 13,
+          "CL": 12,
+          "BG": 12,
+          "MX": 12,
+          "AR": 10,
+          "TH": 10,
+          "ZM": 10,
+          "SR": 9,
+          "EC": 9,
+          "GT": 8,
+          "BO": 8,
+          "NL": 8,
+          "BD": 7
+        },
+        "sections": [
+          "democracy",
+          "cooperatives",
+          "healthcare",
+          "food",
+          "education",
+          "housing_land",
+          "conflict",
+          "energy_digital",
+          "recreation_arts",
+          "ecology"
+        ],
+        "last_built": "2026-05-22T23:29:26Z",
+        "last_built_date": "2026-05-22",
+        "source_script": "commonweave/tools/rebuild_map_data.py"
+      },
+      "stats.v3.json": {
+        "orgs_total_db": 165143,
+        "orgs_in_directory": 163625,
+        "orgs_on_map": 29378,
+        "countries_with_at_least_one_org": 174,
+        "countries_with_geocoded_org": 102,
+        "by_tier": {
+          "A_curated": 0,
+          "B_verified": 15217,
+          "C_inferred": 14161,
+          "D_unverified_off_map": 3800
+        },
+        "by_tier_full": {
+          "A": 0,
+          "B": 144205,
+          "C": 15620,
+          "D": 3800
+        },
+        "by_section": {
+          "democracy": 9562,
+          "healthcare": 6071,
+          "education": 3866,
+          "food": 3516,
+          "housing_land": 2637,
+          "ecology": 2273,
+          "cooperatives": 1251,
+          "recreation_arts": 127,
+          "energy_digital": 74,
+          "unknown": 1
+        },
+        "by_country": {
+          "US": 13545,
+          "GB": 13309,
+          "DE": 389,
+          "CH": 302,
+          "IT": 157,
+          "FR": 150,
+          "AT": 140,
+          "ES": 125,
+          "CA": 93,
+          "AU": 85,
+          "JP": 54,
+          "SE": 51,
+          "NO": 50,
+          "GR": 47,
+          "BE": 43,
+          "ZA": 41,
+          "KE": 39,
+          "HU": 37,
+          "RO": 36,
+          "EE": 36,
+          "FI": 34,
+          "HR": 31,
+          "BR": 30,
+          "IE": 30,
+          "UG": 30,
+          "PT": 28,
+          "DK": 25,
+          "MT": 24,
+          "IN": 22,
+          "SI": 22,
+          "PL": 18,
+          "CZ": 17,
+          "PH": 15,
+          "NZ": 14,
+          "PE": 14,
+          "TR": 14,
+          "CO": 13,
+          "NG": 13,
+          "BG": 12,
+          "CL": 12,
+          "MX": 12,
+          "AR": 10,
+          "TH": 10,
+          "ZM": 10,
+          "EC": 9,
+          "SR": 9,
+          "BO": 8,
+          "GT": 8,
+          "NL": 8,
+          "BD": 7,
+          "ID": 7,
+          "NP": 7,
+          "PA": 7,
+          "CR": 6,
+          "HN": 6,
+          "PY": 6,
+          "LK": 5,
+          "SN": 5,
+          "TZ": 5,
+          "HT": 4,
+          "KH": 4,
+          "KR": 4,
+          "MG": 4,
+          "RW": 4,
+          "UA": 4,
+          "VN": 4,
+          "PR": 4,
+          "CM": 3,
+          "JM": 3,
+          "MA": 3,
+          "MY": 3,
+          "PK": 3,
+          "PS": 3,
+          "TW": 3,
+          "LV": 3,
+          "AM": 2,
+          "DO": 2,
+          "FJ": 2,
+          "GH": 2,
+          "JO": 2,
+          "KZ": 2,
+          "MZ": 2,
+          "RS": 2,
+          "TN": 2,
+          "TT": 2,
+          "LB": 2,
+          "SK": 2,
+          "CI": 1,
+          "GY": 1,
+          "UK": 1,
+          "MK": 1,
+          "LU": 1,
+          "CY": 1
+        },
+        "edges_total": 6471,
+        "edges_by_type": {
+          "verified_relationship": 12,
+          "circuit_candidate": 228,
+          "cross_section_complementarity": 3367,
+          "same_section_proximity": 2864
+        },
+        "sections": [
+          "democracy",
+          "cooperatives",
+          "healthcare",
+          "food",
+          "education",
+          "housing_land",
+          "conflict",
+          "energy_digital",
+          "recreation_arts",
+          "ecology"
+        ],
+        "sensitive_pins_withheld": {
+          "CN": 3,
+          "EG": 5,
+          "ET": 4,
+          "MM": 2,
+          "NI": 6,
+          "RU": 1,
+          "VE": 2,
+          "IR": 2,
+          "CU": 1
+        },
+        "sensitive_pins_withheld_total": 26,
+        "last_built": "2026-07-03T12:00:25Z",
+        "last_built_date": "2026-07-03",
+        "source_script": "data/build_map_v2.py",
+        "circuit_groups_total": 76,
+        "edges_built_by": "data/build_edges.py",
+        "edges_built_at": "2026-07-03T12:00:42Z"
+      }
+    }
+  },
+  "review_queue_entries": 380081,
+  "input_sha256": {
+    "releases/organizations.json.gz": "fb7568f5a276a651da6372ef422e5e05f13551b2e5df6bfaf66f9d92c4bc0324",
+    "releases/organizations.csv.gz": "577adfd617ed78229a1f4c5bfc7e2ac1e95545294a1e54d61aa69d0c2f5c93b2",
+    "data/search/index.json": "0591566d16c90721fb56d3804099d7ae5d6df23c5cfe3d239f4bd893b290628e",
+    "data/map/orgs.geojson": "f6d5567ff3c10225c180530a84231dbac3380ad415c5fe60218985857bb10cee",
+    "data/map/edges.json": "785835e2ac5aa533a81612d59f3b5ba9a79d938735d869d1418ad3dd7ae0cf02"
+  }
+}

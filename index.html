@@ -3,640 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Commonweave: A field guide to the threads that hold a community together</title>
-<meta name="description" content="Commonweave is an open directory of cooperatives, mutual aid networks, community land trusts, community energy, and open governance tools, mapped to a working framework. Open data. CC0. Numbers reflect what is actually verified.">
-<meta property="og:title" content="Commonweave">
-<meta property="og:description" content="An open directory of organizations already weaving healthier communities. Cooperatives, mutual aid, community land trusts, community energy, open governance. Open data. CC0.">
+<title>Commonweave — A framework and map for meeting shared needs</title>
+<meta name="description" content="Explore Commonweave’s working framework for meeting shared needs. Read the knowledge base, find organizations on the map, and investigate how their roles could connect.">
+<meta property="og:title" content="Commonweave — Knowledge base and map">
+<meta property="og:description" content="A working framework for meeting shared needs, and a map of organizations to explore. Read the ideas, inspect the evidence, and find possible connections.">
 <meta property="og:url" content="https://commonweave.earth/">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Commonweave">
-<meta name="twitter:description" content="An open framework for healthier communities. Open directory, open data, open framework. CC0.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Commonweave — Knowledge base and map">
+<meta name="twitter:description" content="Explore a working framework for meeting shared needs and a map of organizations whose roles might connect.">
 <link rel="canonical" href="https://commonweave.earth/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://commonweave.earth/#website",
-      "url": "https://commonweave.earth/",
-      "name": "Commonweave",
-      "description": "An open framework for healthier communities.",
-      "inLanguage": "en",
-      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://commonweave.earth/directory.html?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@type": "Dataset",
-      "name": "Commonweave Civil Society Organization Directory",
-      "description": "Open directory of cooperatives, mutual aid, community land trusts, transition initiatives, and open governance tools, scored against a working framework. Counts are pulled at runtime from the build output.",
-      "url": "https://commonweave.earth/directory.html",
-      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "isAccessibleForFree": true,
-      "creator": {
-        "@type": "Person",
-        "name": "Simon L. Paige"
-      },
-      "keywords": ["civil society", "sustainability", "regenerative economy", "cooperatives", "mutual aid", "commons"]
-    }
-  ]
+  "@type": "WebSite",
+  "@id": "https://commonweave.earth/#website",
+  "url": "https://commonweave.earth/",
+  "name": "Commonweave",
+  "description": "A working framework and organization map for exploring how communities could meet shared needs.",
+  "inLanguage": "en"
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/brand.css">
-<link rel="stylesheet" href="assets/css/commonweave.css">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand.css?v=ac1ae7a4a9c0">
+<link rel="stylesheet" href="assets/css/commonweave.css?v=61c3d54ad08e">
 <style>
-/* ============================================================
-   index.html: page-specific layout. Site chrome (nav, skip
-   link, focus ring, footer) comes from commonweave.css.
-   ============================================================ */
-
-/* ───── Hero ───── */
-.hero {
-  max-width: 920px; margin: 0 auto;
-  padding: clamp(60px, 9vw, 120px) clamp(20px, 4vw, 40px) var(--s-9);
-}
-.hero .eyebrow { margin-bottom: var(--s-5); }
-.hero h1 {
-  font-family: var(--f-display); font-style: italic;
-  font-size: clamp(48px, 8vw, 112px); line-height: 0.95;
-  letter-spacing: -0.02em; margin: 0 0 var(--s-5);
-  max-width: 18ch;
-}
-.hero h1 .accent { color: var(--clay); }
-.hero h1 em { color: var(--moss-deep); font-style: italic; }
-.hero-lede {
-  font-family: var(--f-display); font-style: italic;
-  font-size: clamp(22px, 2.4vw, 30px); line-height: 1.3;
-  color: var(--ink-soft); max-width: 38ch; margin-bottom: var(--s-5);
-}
-.hero-sub {
-  font-size: 16px; color: var(--ink-soft);
-  max-width: 56ch; margin-bottom: var(--s-7);
-}
-.btn-row { display: flex; gap: var(--s-3); flex-wrap: wrap; }
-.btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 10px 18px; font-family: var(--f-mono);
-  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-  text-decoration: none; cursor: pointer; transition: background 0.18s, color 0.18s, border-color 0.18s;
-  border: 1px solid var(--ink);
-}
-.btn-primary { background: var(--moss); color: var(--paper); border-color: var(--moss); }
-.btn-primary:hover { background: var(--moss-deep); color: var(--paper); }
-.btn-ghost { background: transparent; color: var(--ink); }
-.btn-ghost:hover { background: var(--paper-2); color: var(--moss-deep); }
-
-/* ───── Stats strip ───── */
-.stats-strip {
-  border-top: var(--rule); border-bottom: var(--rule);
-  display: grid; grid-template-columns: repeat(6, 1fr);
-  background: color-mix(in oklab, var(--paper-2) 60%, var(--paper));
-}
-.stat-cell {
-  padding: var(--s-6) var(--s-4);
-  border-right: var(--rule-soft);
-  display: flex; flex-direction: column; gap: 6px;
-  min-width: 0;
-}
-.stat-cell:last-child { border-right: none; }
-.stat-cell .stat-n {
-  font-family: var(--f-display); font-style: italic;
-  font-size: clamp(28px, 3.6vw, 44px); line-height: 1;
-  color: var(--moss-deep); letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
-}
-.stat-cell .stat-l {
-  font-family: var(--f-mono); font-size: 10px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--ink-muted); line-height: 1.4;
-}
-
-/* ───── Page sections ───── */
-.page-section {
-  max-width: 1180px; margin: 0 auto;
-  padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 40px) 0;
-}
-.page-section.narrow { max-width: 720px; }
-.section-head { margin-bottom: var(--s-7); }
-.section-head .eyebrow { margin-bottom: var(--s-3); color: var(--clay); }
-.section-head h2 { font-style: italic; max-width: 22ch; }
-.section-head .blurb {
-  font-family: var(--f-body); font-size: 17px;
-  color: var(--ink-soft); max-width: 60ch; margin-top: var(--s-4);
-}
-
-/* ───── Methodology notes ───── */
-.note {
-  background: color-mix(in oklab, var(--paper-2) 50%, var(--paper));
-  border: var(--rule-soft); border-left: 3px solid var(--moss);
-  padding: var(--s-5) var(--s-6); margin-top: var(--s-4);
-  font-size: 15px; color: var(--ink-soft); line-height: 1.65;
-}
-.note + .note { margin-top: var(--s-3); }
-.note strong { color: var(--ink); font-weight: 600; }
-.note a { color: var(--moss-deep); }
-.note em { color: var(--moss-deep); }
-.note.warm { border-left-color: var(--clay); }
-
-/* ───── Map preview (static, no iframe) ───── */
-.map-preview {
-  border: var(--rule); margin-top: var(--s-5);
-  background: var(--moss-deep);
-}
-.map-preview-image {
-  display: block; position: relative; overflow: hidden;
-  background: var(--moss-deep);
-  aspect-ratio: 16 / 9;
-  border-bottom: var(--rule-soft);
-}
-.map-preview-image img {
-  display: block; width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-  transition: transform 0.4s ease, opacity 0.2s ease;
-}
-.map-preview-image:hover img,
-.map-preview-image:focus-visible img { transform: scale(1.015); }
-.map-preview-overlay {
-  position: absolute; inset: 0;
-  display: flex; align-items: flex-end; justify-content: flex-end;
-  padding: var(--s-5);
-  background: linear-gradient(180deg, transparent 55%, rgba(22, 32, 26, 0.55) 100%);
-  pointer-events: none;
-}
-.map-preview-cta {
-  font-family: var(--f-mono); font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--paper);
-  background: var(--moss); border: 1px solid var(--moss);
-  padding: 10px 18px;
-}
-.map-preview-image:hover .map-preview-cta,
-.map-preview-image:focus-visible .map-preview-cta { background: var(--clay); border-color: var(--clay); }
-.map-preview-actions {
-  display: flex; gap: var(--s-3); flex-wrap: wrap;
-  padding: var(--s-4) var(--s-5);
-  background: var(--paper);
-  border-bottom: var(--rule-soft);
-}
-.map-foot {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px var(--s-5);
-  font-family: var(--f-mono); font-size: 10px;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--ink-muted); background: var(--paper);
-  flex-wrap: wrap; gap: var(--s-3);
-}
-.map-foot a { color: var(--ink-muted); }
-.map-foot a:hover { color: var(--moss-deep); }
-.last-updated-note {
-  margin-top: var(--s-3);
-  font-family: var(--f-mono); font-size: 11px;
-  color: var(--ink-muted); letter-spacing: 0.04em;
-}
-.last-updated-note strong { color: var(--moss); font-weight: 500; }
-
-/* ───── Sections grid ───── */
-.sections-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 0;
-  border-top: var(--rule); border-left: var(--rule);
-}
-.sec-card {
-  border-right: var(--rule); border-bottom: var(--rule);
-  padding: var(--s-5) var(--s-5);
-  display: flex; flex-direction: column; gap: var(--s-3);
-  background: var(--paper); transition: background 0.18s;
-}
-.sec-card:hover { background: color-mix(in oklab, var(--paper-2) 60%, var(--paper)); }
-.sec-pip {
-  width: 10px; height: 10px; background: var(--card-color, var(--moss));
-}
-.sec-name {
-  font-family: var(--f-display); font-style: italic;
-  font-size: 22px; line-height: 1.15; color: var(--ink);
-}
-.sec-desc {
-  font-size: 14px; color: var(--ink-soft); line-height: 1.55;
-  flex: 1;
-}
-.sec-meta {
-  font-family: var(--f-mono); font-size: 11px;
-  letter-spacing: 0.08em; color: var(--ink-muted);
-  margin-top: var(--s-3);
-}
-.sec-meta strong { color: var(--moss-deep); font-weight: 500; }
-
-/* ───── Long-form / about ───── */
-.longform p {
-  font-size: 17px; line-height: 1.7; color: var(--ink-soft);
-  margin-bottom: var(--s-5); max-width: 60ch;
-}
-.longform p:last-child { margin-bottom: 0; }
-.longform p strong { color: var(--ink); font-weight: 600; }
-
-/* ───── Docs grid ───── */
-.docs-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0; border-top: var(--rule); border-left: var(--rule);
-}
-.docs-card {
-  display: flex; gap: var(--s-4);
-  padding: var(--s-5);
-  border-right: var(--rule); border-bottom: var(--rule);
-  text-decoration: none; color: inherit;
-  background: var(--paper); transition: background 0.18s;
-  align-items: flex-start;
-}
-.docs-card:hover { background: color-mix(in oklab, var(--paper-2) 60%, var(--paper)); text-decoration: none; }
-.docs-card-num {
-  font-family: var(--f-mono); font-size: 11px;
-  letter-spacing: 0.14em; color: var(--clay);
-  flex-shrink: 0; padding-top: 3px; min-width: 32px;
-}
-.docs-card-title {
-  font-family: var(--f-display); font-style: italic;
-  font-size: 20px; line-height: 1.2; color: var(--ink);
-  margin-bottom: var(--s-2);
-}
-.docs-card-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
-
-/* ───── CTA ───── */
-.cta-block {
-  margin-top: var(--s-9);
-  border-top: var(--rule); border-bottom: var(--rule);
-  background: var(--ink); color: var(--paper);
-  padding: var(--s-9) clamp(20px, 4vw, 40px);
-  text-align: center;
-}
-.cta-block h2 { color: var(--paper); font-style: italic; }
-.cta-block p {
-  color: color-mix(in oklab, var(--paper) 80%, transparent);
-  max-width: 50ch; margin: var(--s-4) auto var(--s-6); font-size: 16px;
-}
-.cta-block .btn-ghost { color: var(--paper); border-color: var(--paper); }
-.cta-block .btn-ghost:hover { background: var(--moss); color: var(--paper); border-color: var(--moss); }
-.cta-block .btn-primary { background: var(--clay); border-color: var(--clay); color: var(--paper); }
-.cta-block .btn-primary:hover { background: #9c4a30; border-color: #9c4a30; }
-
-/* ───── Responsive ───── */
-@media (max-width: 900px) {
-  .stats-strip { grid-template-columns: repeat(2, 1fr); }
-  .stat-cell { border-bottom: var(--rule-soft); }
-  .stat-cell:nth-child(2n) { border-right: none; }
-  .stat-cell:nth-last-child(-n+2) { border-bottom: none; }
-}
-@media (max-width: 600px) {
-  .nav-links a:not(.nav-cta) { display: none; }
-  .map-preview-overlay { padding: var(--s-4); }
-  .map-preview-cta { font-size: 10px; padding: 8px 14px; }
-  .nav-mark svg { height: 28px; }
+.home-main { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) 72px; }
+.home-intro { padding: clamp(44px, 6vw, 80px) 0 clamp(32px, 4vw, 48px); }
+.home-intro h1 { max-width: 19ch; font-size: clamp(44px, 6.3vw, 80px); line-height: 1.03; letter-spacing: -.025em; }
+.home-intro p { max-width: 68ch; font-size: clamp(17px, 1.8vw, 20px); line-height: 1.6; color: var(--ink-soft); margin: 24px 0 0; }
+.home-destinations { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.home-destination { display: flex; flex-direction: column; padding: clamp(24px, 3.2vw, 40px); min-width: 0; min-height: 316px; border: var(--rule-soft); border-radius: 4px; text-decoration: none; color: var(--ink); background: var(--paper-2); }
+.home-destination h2 { font-style: normal; font-size: clamp(38px, 4vw, 50px); line-height: 1.08; }
+.home-destination p { font-size: 17px; line-height: 1.55; max-width: 38ch; margin: 18px 0 24px; }
+.home-destination:focus-visible { outline-offset: 5px; outline-width: 3px; }
+.home-destination:hover { color: var(--ink); border-color: var(--moss); }
+.home-destination:hover .destination-action { text-decoration-thickness: 2px; }
+.home-destination-map { background: #2F4A33; color: #F2EBDC; border-color: #2F4A33; }
+.home-destination-map:hover { color: #F2EBDC; border-color: #16201A; }
+.destination-action { display: inline-block; align-self: flex-start; font-size: 17px; font-weight: 600; text-decoration: underline; text-underline-offset: 5px; margin-top: auto; }
+.destination-contents { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 0 0 28px; padding: 0; list-style: none; font-size: 14px; }
+.destination-contents li { border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent); padding-bottom: 4px; }
+.home-topics { padding-top: clamp(48px, 6vw, 72px); scroll-margin-top: 120px; }
+.home-section-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 24px; }
+.home-section-heading h2 { font-size: clamp(32px, 4vw, 44px); font-style: normal; line-height: 1.15; }
+.home-section-heading p { font-size: 16px; color: var(--ink-soft); margin: 0; }
+.home-topic-list { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+.home-topic-list li { border-top: var(--rule-soft); }
+.home-topic-list a { display: block; padding: 17px 0; text-decoration: none; color: var(--ink); }
+.home-topic-list strong { display: block; font-weight: 600; font-size: 17px; }
+.home-topic-list span { display: block; color: var(--ink-soft); font-size: 15px; line-height: 1.5; margin-top: 3px; }
+.home-topic-list a:hover strong { text-decoration: underline; text-underline-offset: 4px; }
+.home-about { border-top: var(--rule); padding-top: 28px; margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; scroll-margin-top: 120px; }
+.home-about h2 { font-size: 28px; font-style: normal; line-height: 1.15; margin-bottom: 12px; }
+.home-about p { color: var(--ink-soft); font-size: 16px; line-height: 1.6; margin-bottom: 12px; }
+.home-about p:last-child { margin-bottom: 0; }
+.home-anchor { scroll-margin-top: 120px; }
+@media (max-width: 640px) {
+  .home-main { padding-bottom: 48px; }
+  .home-destinations, .home-topic-list, .home-about { grid-template-columns: 1fr; }
+  .home-destination { min-height: 0; }
+  .home-destination p { margin-bottom: 18px; }
+  .destination-contents { margin-bottom: 24px; }
+  .home-about { margin-top: 36px; }
+  .home-intro h1 { max-width: 17ch; }
 }
 </style>
+<link rel="stylesheet" href="assets/css/site-shell.css?v=ddf093745d61">
 </head>
-<body>
+<body class="cw-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<!-- cw:header:start -->
+<header data-site-header>
+  <nav class="cw-nav" aria-label="Main navigation">
+    <a class="cw-brand" href="index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
+    <div class="cw-primary"><a href="knowledge.html">Knowledge base</a><a href="map.html">Map</a></div>
+    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
+      <a href="directory.html">Organization directory</a>
+      <a href="participate.html">Contribute or correct</a>
+      <a href="pipeline.html">About the data</a>
+      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
+    </div></details>
+  </nav>
+</header>
+<!-- cw:header:end -->
+<main id="main-content" class="home-main" tabindex="-1">
+  <section class="home-intro" aria-labelledby="home-heading">
+    <h1 id="home-heading">How could communities meet their needs together?</h1>
+    <p>Explore a working framework for food, housing, care, energy and democratic life. Use the map to find organizations and consider how their different roles could work together.</p>
+  </section>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
-
-<nav class="site-nav" role="navigation" aria-label="Site navigation">
-  <div class="nav-mark">
-    <a href="index.html" aria-label="Commonweave home">
-      <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="commonweave">
-        <g transform="translate(0,5)">
-          <circle cx="60" cy="60" r="56" fill="none" stroke="#16201A" stroke-width="1.6"/>
-          <line x1="6" y1="60" x2="114" y2="60" stroke="#16201A" stroke-width="0.8" opacity="0.4"/>
-          <path d="M 30 30 C 50 60, 70 60, 90 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <path d="M 90 30 C 70 60, 50 60, 30 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <circle cx="60" cy="60" r="3" fill="#B4593A"/>
-        </g>
-        <text x="140" y="80" font-family="Instrument Serif, Source Serif 4, Georgia, serif" font-style="italic" font-size="64" fill="#16201A" letter-spacing="-1.5">commonweave</text>
-      </svg>
+  <div class="home-destinations" aria-label="Start exploring Commonweave">
+    <a class="home-destination" href="knowledge.html">
+      <h2>Knowledge base</h2>
+      <p>Understand the framework: its principles, practical proposals, evidence and unresolved questions.</p>
+      <ul class="destination-contents" aria-label="Inside the knowledge base">
+        <li>Core ideas</li><li>Ten areas of everyday life</li><li>Critique and evidence</li>
+      </ul>
+      <span class="destination-action">Explore the knowledge base</span>
+    </a>
+    <a id="map" class="home-destination home-destination-map home-anchor" href="map.html">
+      <h2>Map</h2>
+      <p>Start with a need and a place. Explore organizations, compare possible roles and build a plan to investigate.</p>
+      <ul class="destination-contents" aria-label="Ways to explore the map">
+        <li>Find organizations</li><li>Explore connections</li><li>See missing roles</li>
+      </ul>
+      <span class="destination-action">Open the map</span>
     </a>
   </div>
-  <div class="nav-links" role="list">
-    <a href="#map" role="listitem">Map</a>
-    <a href="#sections" role="listitem">Sections</a>
-    <a href="#docs" role="listitem">Docs</a>
-    <a href="#about" role="listitem">About</a>
-    <a href="https://neighborhoodos.org" role="listitem" target="_blank" rel="noopener">NeighborhoodOS &#8599;</a>
-    <a href="directory.html" class="nav-cta" role="listitem">Directory &rarr;</a>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Switch to dark mode">
-      <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-      <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-    </button>
-  </div>
-</nav>
 
-<main id="main-content" tabindex="-1">
+  <section id="sections" class="home-topics" aria-labelledby="topics-heading">
+    <div class="home-section-heading">
+      <h2 id="topics-heading">Explore a part of the framework</h2>
+      <p>Start with the needs that matter to you.</p>
+    </div>
+    <ul class="home-topic-list">
+      <li><a href="knowledge.html#healthcare"><strong>Healthcare</strong><span>Care, access and the people who provide it</span></a></li>
+      <li><a href="knowledge.html#education"><strong>Education</strong><span>Learning, shared knowledge and opportunity</span></a></li>
+      <li><a href="knowledge.html#food"><strong>Food sovereignty</strong><span>Growing, distributing and accessing food</span></a></li>
+      <li><a href="knowledge.html#democracy"><strong>Democratic infrastructure</strong><span>Making decisions and holding power accountable</span></a></li>
+      <li><a href="knowledge.html#housing-land"><strong>Land and housing</strong><span>Secure homes and stewardship of land</span></a></li>
+      <li><a href="knowledge.html#ecology"><strong>Ecological restoration</strong><span>Caring for the systems that sustain life</span></a></li>
+      <li><a href="knowledge.html#conflict"><strong>Conflict resolution</strong><span>Addressing harm and resolving disagreements</span></a></li>
+      <li><a href="knowledge.html#cooperatives"><strong>Cooperatives and solidarity</strong><span>Shared ownership and mutual support</span></a></li>
+      <li><a href="knowledge.html#recreation-arts"><strong>Recreation and arts</strong><span>Time, culture and creative participation</span></a></li>
+      <li><a href="knowledge.html#energy-digital"><strong>Energy and digital commons</strong><span>Shared infrastructure, from power to software</span></a></li>
+    </ul>
+  </section>
 
-<!-- HERO -->
-<section class="hero" aria-labelledby="hero-heading">
-  <div class="eyebrow">Open source &middot; CC0 &middot; A working draft</div>
-  <h1 id="hero-heading">A community is a kind of <span class="accent">cloth.</span></h1>
-  <p class="hero-lede">
-    Pull one thread and you can feel the others move.
-  </p>
-  <p class="hero-sub">
-    Commonweave is an open directory of organizations already weaving healthier communities together.
-    Cooperatives, mutual aid networks, community land trusts, community energy, open governance tools.
-    The map shows <span data-stat="orgs_on_map">29,422</span> entries with geocoded coordinates across <span data-stat="countries_geocoded">102</span> countries, drawn from a wider candidate pool of <span data-stat="orgs_in_directory">153,426</span> organisations.
-  </p>
-  <div class="btn-row">
-    <a href="#map" class="btn btn-primary">Explore the map</a>
-    <a href="directory.html" class="btn btn-ghost">Browse the directory</a>
-    <a href="https://github.com/simonlpaige/commonweave" target="_blank" rel="noopener" class="btn btn-ghost">Source on GitHub</a>
-    <a href="audit/" class="btn btn-ghost">Help audit the data</a>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="stats-strip" role="region" aria-label="Project statistics">
-  <div class="stat-cell"><div class="stat-n" data-stat="orgs_in_directory">153,426</div><div class="stat-l">Candidates in directory</div></div>
-  <div class="stat-cell"><div class="stat-n" data-stat="orgs_on_map">29,422</div><div class="stat-l">Mapped organizations</div></div>
-  <div class="stat-cell"><div class="stat-n" data-stat="countries_geocoded">102</div><div class="stat-l">Countries on the map</div></div>
-  <div class="stat-cell"><div class="stat-n">~30</div><div class="stat-l">Languages in the pipeline</div></div>
-  <div class="stat-cell"><div class="stat-n">10</div><div class="stat-l">Framework sections</div></div>
-  <div class="stat-cell"><div class="stat-n">CC0</div><div class="stat-l">Fully open data</div></div>
-</div>
-
-<!-- METHODOLOGY -->
-<section class="page-section narrow" role="note" aria-label="Data methodology">
-  <div class="note">
-    <strong>About this data.</strong> Commonweave pulls from 25+ public registries and thematic global networks: IRS Exempt Organizations BMF, UK Charity Commission, Australia ACNC, Brazil Mapa das OSCs, the ICA, RIPESS, Mutual Aid Hub, the Transition Network, and many more. The pipeline runs candidates through a multilingual alignment filter to keep only entries that actually embody one of the framework sections (cooperatives, mutual aid, community land trusts, food sovereignty, participatory democracy, restorative justice, and the rest). Right now <span data-stat="orgs_in_directory">153,426</span> organisations have survived the filter; <span data-stat="orgs_on_map">29,422</span> of those have coordinates and appear on the map across <span data-stat="countries_geocoded">102</span> countries. Tier A is reserved for manually reviewed entries (currently empty &mdash; community auditing is open); Tier B is registry-backed; Tier C is inferred from keyword scoring and not yet reviewed. <a href="https://github.com/simonlpaige/commonweave/blob/master/DATA.md">Full methodology &rarr;</a>
-  </div>
-  <div class="note">
-    <strong>Multilingual pipeline.</strong> The scoring bots now recognise alignment terms in roughly 30 languages: Spanish <em>cooperativa</em>, Portuguese <em>economia solid&aacute;ria</em>, Japanese <em>&#21332;&#21516;&#32068;&#21512;</em>, Mandarin <em>&#21512;&#20316;&#31038;</em>, Arabic <em>&#1578;&#1593;&#1575;&#1608;&#1606;&#1610;&#1577;</em>, Yoruba <em>egbe ajose</em>, Quechua <em>ayni/minga</em>, Amharic <em>&#4840;&#4764;&#4672;&#4725;</em>, plus Indigenous land-commons concepts like <em>ejido</em>, <em>waqf</em>, <em>hima</em>, <em>gotong-royong</em>, <em>iriai-chi</em>, <em>usi civici</em>. Researcher bots build search queries in every language spoken in a country, not just English. Full term bank: <a href="https://github.com/simonlpaige/commonweave/blob/master/MULTILINGUAL-TERMS.md">MULTILINGUAL-TERMS.md</a>.
-  </div>
-  <div class="note">
-    <strong>Data snapshot.</strong> Headline counts above are pulled at runtime from the published static export (last built <strong id="stats-last-built">2026-04-28</strong>). The working database has since been recovered and re-verified; rebuilt totals are tracked in <a href="https://github.com/simonlpaige/commonweave/blob/master/README.md">README.md</a>. Treat these numbers as a public snapshot, not a real-time count.
-  </div>
-</section>
-
-<!-- MAP -->
-<section id="map" class="page-section" role="region" aria-label="Interactive world map preview">
-  <div class="section-head">
-    <div class="eyebrow">&sect; 01 &middot; Explore</div>
-    <h2>Global directory map.</h2>
-    <p class="blurb">Filter by section. Hover any dot for details. Scroll to zoom, drag to pan. Default view hides Tier C (inferred) candidates; flip the switch in the map sidebar to include them.</p>
-  </div>
-  <div class="map-preview">
-    <a class="map-preview-image" href="map.html" aria-label="Open the interactive Commonweave directory map">
-      <img src="screenshot_final.png" alt="Preview of the Commonweave directory map showing geocoded organizations across all populated continents" loading="lazy" decoding="async" width="1600" height="900">
-      <span class="map-preview-overlay" aria-hidden="true">
-        <span class="map-preview-cta">Explore the map &rarr;</span>
-      </span>
-    </a>
-    <div class="map-preview-actions">
-      <a class="btn btn-primary" href="map.html" aria-label="Open the full interactive map">Explore the map &rarr;</a>
-      <a class="btn btn-ghost" href="directory.html" aria-label="Browse the full directory">Browse directory</a>
-      <a class="btn btn-ghost" href="briefs/index.html" aria-label="Explore possible local solution circuits">Possible collaborations</a>
+  <section id="about" class="home-about" aria-labelledby="about-heading">
+    <div>
+      <h2 id="about-heading">A framework open to correction</h2>
+      <p>The framework is a set of proposals to test. The directory contains research leads; a listing does not establish current services, and a suggested connection is not a confirmed partnership.</p>
+      <p id="docs" class="home-anchor"><a href="knowledge.html#evidence">Read the evidence and limits</a></p>
     </div>
-    <div class="map-foot">
-      <span><span data-stat="orgs_on_map">29,422</span> mapped &middot; <span data-stat="countries_geocoded">102</span> countries &middot; <span data-stat="orgs_in_directory">153,426</span> candidates total &middot; <a href="directory.html">full directory</a></span>
-      <a href="map.html" aria-label="Open the interactive map">Open interactive map &rarr;</a>
+    <div>
+      <h2>Make one part more useful</h2>
+      <p>Correct an organization, add a public source, challenge a claim or help test a local idea. Small, specific contributions make the next person’s search better.</p>
+      <p><a href="participate.html">Contribute a correction or idea</a></p>
     </div>
-  </div>
-</section>
-
-<!-- SECTIONS -->
-<section id="sections" class="page-section" role="region" aria-label="Framework sections">
-  <div class="section-head">
-    <div class="eyebrow">&sect; 02 &middot; Sections</div>
-    <h2>Ten sections, mapped.</h2>
-    <p class="blurb">Counts are mapped organizations per section: the points you can click on the map. Each section also has off-map candidates pending geocoding. <a href="directory.html">Browse the full directory &rarr;</a></p>
-  </div>
-  <div class="sections-grid">
-    <div class="sec-card" style="--card-color:#B4593A">
-      <div class="sec-pip" aria-hidden="true"></div>
-      <div class="sec-name">Healthcare</div>
-      <div class="sec-desc">Open-source health IT, community health worker models, universal systems that demonstrably work.</div>
-      <div class="sec-meta"><strong data-section="healthcare">6,072</strong> organizations</div>
-    </div>
-    <div class="sec-card" style="--card-color:#8E7B4E">
-      <div class="sec-pip" aria-hidden="true"></div>
-      <div class="sec-name">Education</div>
-      <div class="sec-desc">Open courseware, democratic schooling, offline-first platforms, 300M+ Moodle users.</div>
-      <div class="sec-meta"><strong data-section="education">3,867</strong> organizations</div>
-    </div>
-    <div class="sec-card" style="--card-color:#D9A78F">
-      <div class="sec-pip" aria-hidden="true"></div>
-      <div class="sec-name">Food sovereignty</div>
-      <div class="sec-desc">Agroecology, seed sovereignty, open food networks, CSA movements, 200M peasant farmers.</div>
-      <div class="sec-meta"><strong data-section="food">3,518</strong> organizations</div>
-    </div>
-    <div class="sec-card" style="--card-color:#4A6B4F">
-      <div class="sec-pip" aria-hidden="true"></div>
-      <div class="sec-name">Democratic infrastructure</div>
-      <div class="sec-desc">Verifiable voting, liquid democracy, sortition, participatory platforms, citizens' assemblies.</div>
-      <div class="sec-meta"><strong data-section="democracy">8,698</strong> organizations</div>
-    </div>
-    <div class="sec-card" style="--card-color:#C9B98C">
-      <div class="sec-pip" aria-hidden="true"></div>
-      <div class="sec-name">Land &amp; housing</div>
-      <div class="sec-desc">Community land trusts, Vienna social housing, stewardship over speculation.</div>
-      <div class="sec-meta"><strong data-section="housing_land">2,642</strong> organizations</div>
-    </div>
-    <div class="sec-card" style="--card-color:#2F4A33">
-      <div class="sec-pip" aria-hidden="true"></div>
-      <div class="sec-name">Ecological restoration</div>
-      <div class="sec-desc">Beyond-GDP governance, regenerative ecology, watershed stewardship, biodiversity recovery.</div>
-      <div class="sec-meta"><strong data-section="ecology">2,274</strong> organizations</div>
-    </div>
-    <div class="sec-card" style="--card-color:#7E3C26">
-      <div class="sec-pip" aria-hidden="true"></div>
-      <div class="sec-name">Conflict resolution</div>
-      <div class="sec-desc">Restorative justice, transitional justice, community accountability. Significant recidivism reduction in studied programs.</div>
-      <div class="sec-meta"><strong data-section="conflict">885</strong> organizations</div>
-    </div>
-    <div class="sec-card" style="--card-color:#1E3322">
-      <div class="sec-pip" aria-hidden="true"></div>
-      <div class="sec-name">Cooperatives &amp; solidarity</div>
-      <div class="sec-desc">Worker cooperatives, mutual aid networks, community wealth building, credit unions.</div>
-      <div class="sec-meta"><strong data-section="cooperatives">1,264</strong> organizations</div>
-    </div>
-    <div class="sec-card" style="--card-color:#B8C4A8">
-      <div class="sec-pip" aria-hidden="true"></div>
-      <div class="sec-name">Recreation &amp; arts</div>
-      <div class="sec-desc">Basic income for artists, open cultural heritage, freely licensed media.</div>
-      <div class="sec-meta"><strong data-section="recreation_arts">127</strong> organizations</div>
-    </div>
-    <div class="sec-card" style="--card-color:#5A6A5C">
-      <div class="sec-pip" aria-hidden="true"></div>
-      <div class="sec-name">Energy &amp; digital commons</div>
-      <div class="sec-desc">Community energy cooperatives, federated protocols, 900 US rural electric co-ops serving 42M.</div>
-      <div class="sec-meta"><strong data-section="energy_digital">75</strong> organizations</div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="page-section narrow longform" aria-labelledby="about-heading">
-  <div class="section-head">
-    <div class="eyebrow">&sect; 03 &middot; What this is</div>
-    <h2 id="about-heading">An engineering problem, not a manifesto.</h2>
-  </div>
-  <p>Here is a thing that is true and that almost no one talks about clearly: <strong>the machines are going to do most of the work.</strong> Not eventually. Now, and accelerating. The interesting question isn't whether that happens. It's who benefits when it does.</p>
-  <p>Right now the answer is: whoever owns the machines. That's a design choice, not a law of nature. You could design it differently.</p>
-  <p>Commonweave is an attempt to think carefully about what "differently" actually means. What systems would need to exist, how you'd build them, what's already being built, and how you get from here to there without everything going badly wrong in the middle.</p>
-  <p>The directory indexes organizations from public registries across <span data-stat="countries_any">174</span> countries: <strong>community land trusts, worker cooperatives, open-source health systems, participatory democracy tools, community energy grids</strong>. Filtered to entries that actually embody pieces of the answer. That's what Paul Hawken saw in 2007. That's what this continues.</p>
-</section>
-
-<!-- DOCS -->
-<section id="docs" class="page-section" role="region" aria-label="Project documents">
-  <div class="section-head">
-    <div class="eyebrow">&sect; 04 &middot; Read</div>
-    <h2>All documents.</h2>
-    <p class="blurb">Everything is public, CC0 or CC BY-SA. Read it, fork it, disagree with it in a pull request.</p>
-  </div>
-  <div class="docs-grid">
-    <a class="docs-card" href="doc.html?file=README">
-      <div class="docs-card-num">i.</div>
-      <div>
-        <div class="docs-card-title">README</div>
-        <div class="docs-card-desc">What Commonweave is, how it relates to WiserEarth, the three-phase blueprint, and how to contribute.</div>
-      </div>
-    </a>
-    <a class="docs-card" href="labor-for-housing-guide.pdf">
-      <div class="docs-card-num">ii.</div>
-      <div>
-        <div class="docs-card-title">A field guide to labor-for-housing cooperatives</div>
-        <div class="docs-card-desc">How to stitch labor, land, and housing into one democratic pipeline. PDF.</div>
-      </div>
-    </a>
-    <a class="docs-card" href="pipeline.html">
-      <div class="docs-card-num">iii.</div>
-      <div>
-        <div class="docs-card-title">How the directory gets built</div>
-        <div class="docs-card-desc">A plain-language field guide to how Commonweave finds, scores, and publishes organizations. Editable HTML.</div>
-      </div>
-    </a>
-    <a class="docs-card" href="directory.html">
-      <div class="docs-card-num">iv.</div>
-      <div>
-        <div class="docs-card-title">DIRECTORY</div>
-        <div class="docs-card-desc">Curated organizations across all framework sections. Tables with descriptions, regions, and links.</div>
-      </div>
-    </a>
-    <a class="docs-card" href="doc.html?file=DEEP-DIVE">
-      <div class="docs-card-num">v.</div>
-      <div>
-        <div class="docs-card-title">DEEP-DIVE</div>
-        <div class="docs-card-desc">Historical evidence, empirical data, failure modes, open questions, Ostrom's eight design principles.</div>
-      </div>
-    </a>
-    <a class="docs-card" href="doc.html?file=GOVERNANCE">
-      <div class="docs-card-num">vi.</div>
-      <div>
-        <div class="docs-card-title">GOVERNANCE</div>
-        <div class="docs-card-desc">Rough consensus and running code. No founder authority. How maintainers work.</div>
-      </div>
-    </a>
-    <a class="docs-card" href="doc.html?file=SUSTAINABILITY">
-      <div class="docs-card-num">vii.</div>
-      <div>
-        <div class="docs-card-title">SUSTAINABILITY</div>
-        <div class="docs-card-desc">How this project survives past its funding. Federated hosting, five hard constraints, wind-down procedure.</div>
-      </div>
-    </a>
-    <a class="docs-card" href="doc.html?file=WISEREARTH">
-      <div class="docs-card-num">viii.</div>
-      <div>
-        <div class="docs-card-title">WISEREARTH</div>
-        <div class="docs-card-desc">Full history of wiser.org (2007 &ndash; 2014): what it built, the 381-node taxonomy, why it failed, recovered data.</div>
-      </div>
-    </a>
-    <a class="docs-card" href="https://github.com/simonlpaige/commonweave/blob/master/data/taxonomy.yaml" target="_blank" rel="noopener">
-      <div class="docs-card-num">ix.</div>
-      <div>
-        <div class="docs-card-title">taxonomy.yaml</div>
-        <div class="docs-card-desc">WiserEarth's civil society taxonomy as CC0 YAML. 47 issue areas, 381 sub-issues.</div>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- WISEREARTH NOTE -->
-<section class="page-section narrow" role="note" aria-label="Note on WiserEarth">
-  <div class="note warm">
-    <strong>On the shoulders of WiserEarth.</strong> From 2007 to 2014, wiser.org was the only place that tried to map the civil society commons at global scale: 114,994 NGOs in 243 countries, a 381-node taxonomy, women-led, ad-free, genuinely beautiful. It closed because it depended on one organization's philanthropy. The data is mostly gone. The structural lesson is documented in <a href="doc.html?file=SUSTAINABILITY">SUSTAINABILITY.md</a>.
-  </div>
-</section>
-
-<!-- TRUST LAYER NOTE -->
-<section class="page-section narrow" role="note" aria-label="Note on the trust layer">
-  <div class="note warm">
-    <strong>On the horizon: a trust-based internet.</strong> A directory is only half the problem. The other half is how aligned organisations federate, verify each other, and coordinate without routing every relationship through a central platform. The <a href="https://open.coop/2026/03/20/relaunching-the-open-co-op-preparing-for-a-trust-based-internet/" target="_blank" rel="noopener">Open Co-op's PLANET</a> project and the <a href="https://www.firstperson.network/" target="_blank" rel="noopener">First Person Project</a> (under <a href="https://www.lfdecentralizedtrust.org/" target="_blank" rel="noopener">Linux Foundation Decentralized Trust</a>) are building verifiable-identity infrastructure that could let these organisations cooperate at scale without platform capture. Commonweave's next data-model change will add an <em>attestations</em> field so directory entries can eventually carry cryptographically-signed vouching from peers. Background: <a href="https://github.com/simonlpaige/commonweave/blob/master/OPENCOOP-RESEARCH.md">OPENCOOP-RESEARCH.md</a>.
-  </div>
-</section>
-
-<!-- CTA -->
-<div class="cta-block" role="complementary" aria-label="Contribute">
-  <h2>This belongs to everyone.</h2>
-  <p>The data is CC0. Fork it, extend it, add organizations, correct errors. Leadership is transparent and accountable. No personality cults, no inner circles. If you know something the directory doesn't, that's what pull requests are for.</p>
-  <div class="btn-row" style="justify-content: center;">
-    <a href="https://github.com/simonlpaige/commonweave" target="_blank" rel="noopener" class="btn btn-primary">Contribute on GitHub</a>
-    <a href="directory.html" class="btn btn-ghost">Browse the directory</a>
-  </div>
-</div>
-
+  </section>
 </main>
-
-<footer class="site-foot" role="contentinfo">
-  <p>
-    Framework: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
-    &middot; Data: <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a>
-    &middot; Inspired by <a href="https://web.archive.org/web/20140411042711/http://wiser.org/" target="_blank" rel="noopener">WiserEarth</a> (2007 &ndash; 2014)
-    &middot; <a href="https://github.com/simonlpaige/commonweave" target="_blank" rel="noopener">github.com/simonlpaige/commonweave</a>
-  </p>
+<!-- cw:footer:start -->
+<footer data-site-footer class="cw-footer">
+  <p>A shared framework. Evidence to inspect. Work to improve together.</p>
+  <div><a href="knowledge.html">Knowledge base</a><a href="map.html">Map</a><a href="participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
 </footer>
-
-<script src="assets/js/theme.js"></script>
-<script>
-// Pull every public count from data/map/stats.json so the homepage can never
-// drift from what the map actually shows. The "X" placeholders in the HTML
-// are a readable fallback if the fetch fails (e.g. on a stale CDN).
-(function () {
-  function fmt(n) { return Number(n).toLocaleString('en-US'); }
-  fetch('data/map/stats.json', { cache: 'no-cache' })
-    .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (s) {
-      if (!s) return;
-      var statMap = {
-        orgs_total_db:     s.orgs_total_db,
-        orgs_in_directory: s.orgs_in_directory,
-        orgs_on_map:       s.orgs_on_map,
-        countries_any:     s.countries_with_at_least_one_org,
-        countries_geocoded:s.countries_with_geocoded_org,
-        edges_total:       s.edges_total
-      };
-      Object.keys(statMap).forEach(function (key) {
-        document.querySelectorAll('[data-stat="' + key + '"]').forEach(function (el) {
-          el.textContent = fmt(statMap[key]);
-        });
-      });
-      var by = s.by_section || {};
-      Object.keys(by).forEach(function (sec) {
-        document.querySelectorAll('[data-section="' + sec + '"]').forEach(function (el) {
-          el.textContent = fmt(by[sec]);
-        });
-      });
-      var lb = document.getElementById('stats-last-built');
-      if (lb && (s.last_built_date || s.last_built)) {
-        lb.textContent = s.last_built_date || (s.last_built || '').slice(0, 10);
-      }
-    })
-    .catch(function () { /* fall back to placeholder values */ });
-})();
-</script>
+<!-- cw:footer:end -->
 
 </body>
 </html>
-

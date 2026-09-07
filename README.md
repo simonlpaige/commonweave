@@ -1,4 +1,4 @@
-# Commonweave: Directory and Framework for the Post-Labor Economy
+# Commonweave: A framework and map for meeting shared needs
 
 > **Skeptics start here:** [CRITIQUE.md](CRITIQUE.md) is a section-by-section honest audit of where this framework is weak, magical, or incomplete. It's linked first on purpose. If you're looking for the case against this project, it's already written, and we'd rather you sharpened it than discovered it.
 
@@ -8,34 +8,37 @@
 
 ## The Idea
 
-Commonweave is two things: (1) an open directory of existing transition networks and commons-adjacent organizations, and (2) a working framework explaining why that network matters and how it composes into a post-labor economy.
+Commonweave is an open directory of cooperative, commons, ecological, and community organizations, with working notes on how their efforts might complement one another. Start with a problem and a place; find possible contributors, inspect the evidence, and see which roles are missing.
 
-The directory is the concrete deliverable. The framework is the argument for it.
+Start with the [framework knowledge base](https://commonweave.earth/knowledge.html) to explore principles, evidence and open questions. Use the [map](https://commonweave.earth/map.html) to investigate organizations and possible roles in a community project. The [organization directory](https://commonweave.earth/directory.html) and [contribution form](https://commonweave.earth/participate.html) support those two main paths.
 
-Here is a thing that is true and that almost no one talks about clearly: the machines are going to do most of the work. Not eventually -- now, and accelerating. The interesting question isn't whether that happens. It's who benefits when it does.
+See the [September implementation review](docs/REVIEW-2026-09-05.md) for the data audit, new planning flow, named-organization offers, validation and remaining release work.
 
-Right now the answer is: whoever owns the machines. That's a design choice, not a law of nature. You could design it differently.
+Automation may change who does work and who benefits, but its timing, distribution, and limits are uncertain. The immediate problem is already practical: people need food, shelter, care, and a say in decisions. Connecting useful existing work should help under several economic futures, not depend on a forecast of labor disappearing.
 
-The directory catalogs who is already designing it differently: cooperatives, community land trusts, mutual aid networks, open-source health platforms, participatory governance experiments, community energy grids, rural/off-grid resilience groups, and connector networks. The recovered working database was verified on 2026-05-04 at 149,507 organizations, 29,422 mapped rows, and 158 countries. The public static map/search export is older and must be rebuilt before its counters match the working database. The framework maps how those pieces fit together, what can compose into practical solution circuits, and what's still missing.
+Ownership, institutions, public policy, and bargaining power all influence who benefits. Cooperative and commons arrangements are possibilities to investigate, with costs and failure modes to measure.
+
+The directory includes cooperatives, community land trusts, mutual aid networks, open-source tools, participatory governance projects, community energy, and connector networks. These are candidate records, not endorsements or confirmed service providers. The [September 2026 audit](docs/DATA-AUDIT-2026-09-05.md) documents inconsistent public exports, unreliable locations, and evidence gaps. Suggested connections are hypotheses; a shared location or use case does not establish a partnership.
 
 It's not a manifesto. It's more like an engineering problem with a lot of political and historical constraints. The goal is to figure out what needs to be true for people to have food, shelter, healthcare, and a say in their own lives -- and then figure out how to make those things true.
 
 ### Selective Abundance, Not Post-Scarcity
 
-This framework does not assume post-scarcity arrives as a binary switch. Some goods are becoming radically cheaper to produce: information, energy, basic nutrition, digital services. Other goods remain genuinely scarce: land, fresh water, skilled human care, rare materials, attention. The honest framing is *selective abundance* -- a world where the challenge is distributing what's abundant while governing what's scarce.
+This framework uses *selective abundance* as a scenario to test, not a forecast that essentials will become cheap everywhere. A resource can be plentiful in one setting and inaccessible in another. Production, distribution, affordability, ecological limits, maintenance, and human work must be checked separately. A local proposal should state which constraint it addresses and what evidence would show an improvement.
 
-Different resource categories require different governance mechanisms. The table below is the operative claim: if the framework is right, we should find organizations already governing each type correctly.
+Different resource categories may require different governance mechanisms. The table below is a set of hypotheses. An organization fitting a category does not demonstrate that its governance works; independent evidence of outcomes, costs, inclusion, and durability is needed.
 
-| Resource type | Examples | Constraint | Governance mode | Failure mode | Directory examples (score >=5) |
+| Resource or coordination problem | Examples | Constraints to check | Governance hypothesis | Failure mode to test | Directory research leads |
 |---|---|---|---|---|---|
-| Trending toward abundance (energy, information, basic food) | Solar power, open-source software, community gardens | Distribution access, not production cost | Commons-based distribution; universal access rights | Platform capture, artificial scarcity re-imposed by incumbents | Centre for Renewable Energy and Action on Climate Change [NG] |
+| Material provision (energy, basic food) | Solar power, community gardens | Production cost, distribution, affordability, storage, land and labor | Cooperative provision; shared infrastructure; access rules | Unfunded maintenance, exclusion, or capture of distribution | Centre for Renewable Energy and Action on Climate Change [NG] |
+| Digital resources (information, software) | Learning platforms, shared reference works | Access, hosting, maintenance, accessibility, contributor time | Open licensing; accountable stewardship; funded maintenance | Platform capture, neglected upkeep, unequal access | [Moodle](https://moodle.com/about/open-source/); [Wikimedia Foundation](https://wikimediafoundation.org/who-we-are/) — software and knowledge infrastructure, not evidence of universal access |
 | Persistently scarce (land, fresh water, rare minerals) | Urban land, aquifers, lithium | Physical limits; rival consumption | Democratic allocation; stewardship/usufruct models; Ostrom-style commons with monitoring and graduated sanctions | Enclosure; privatization of the governance body itself | ADDISON COURT HOUSING COOPERATIVE INC [US]; LANDWELL HOUSING COOPERATIVE [US] |
 | Skilled care (healthcare, childcare, eldercare) | Community health workers, midwives, teachers | Human labor hours; training pipeline | Recognized as essential work; compensation premiums; community health worker networks | Burnout and wage suppression when treated as volunteer surplus | [NEEDS EXAMPLE] |
-| Ecological systems (atmosphere, oceans, biodiversity) | Carbon cycle, ocean fisheries, pollinator networks | Non-rival but fragile; slow feedback loops | Scientific governance bodies with democratic accountability; use limits insulated from short-term majorities | Democratic override of ecological limits; regulatory capture | Environmental Monitoring Group (EMG) [ZA] |
+| Ecological systems (atmosphere, oceans, biodiversity) | Carbon cycle, ocean fisheries, pollinator networks | Extraction limits, interdependence, delayed feedback; some uses are rival | Monitoring and use limits with democratic accountability; explicit review and appeal rules | Excess extraction, weak enforcement, or regulatory capture | Environmental Monitoring Group (EMG) [ZA] |
 | Attention and meaning | Culture, community, creative work | Cannot be manufactured or stockpiled | Cultural and institutional responses; time sovereignty | Commodification; algorithmic capture of attention for extraction | [NEEDS EXAMPLE] |
 | Cooperative economics (worker ownership, mutual aid) | Worker co-ops, mutual aid networks, credit unions | Capital access; competition from non-cooperative firms | Solidarity economy networks; preferential sourcing between co-ops; policy support (Marcora Law model) | Scale pressure causes drift back to conventional employment (Mondragon precedent) | Mutual Aid Twin Cities Housing Cooperative [US]; PRAGYA [GB] |
 
-The "Directory examples" column is the test. If the framework is falsifiable, then organizations with alignment_score >= 5 in matching areas should be doing what the framework predicts. Cells marked [NEEDS EXAMPLE] are gaps -- either the directory doesn't have good coverage there yet, or the framework's prediction is wrong. Both are worth investigating.
+The final column contains research leads, not validated exemplars. The two linked digital-resource examples have [dated official-source checks](docs/featured-organizations-review-2026-09-05.md); their presence does not establish the proposed governance outcomes. The other names and missing examples need source review. `alignment_score` is a classification aid, not a measure of organizational effectiveness. Coverage gaps do not by themselves disprove a governance hypothesis. The [operating model](FRAMEWORK-OPERATING-MODEL.md) specifies narrower tests with baselines and decisions on failure.
 
 The framework is designed to work under conditions of *partial* abundance and *persistent* scarcity -- not to wait for a threshold that may never fully arrive.
 
@@ -43,28 +46,29 @@ The framework is designed to work under conditions of *partial* abundance and *p
 
 ## What Exists Today
 
-This section matches ambition to evidence. Here is the concrete state of the project as of 2026-05-04.
+This section matches ambition to evidence. The public files were structurally audited on 2026-09-05; their source snapshots are older.
 
 ### The Directory
 
-The primary deliverable is a searchable database of organizations working in the framework's 10 areas. Numbers from the recovered working database at `data/commonweave_directory.db`, verified 2026-05-04. The public static export under `data/search/` and `data/map/` is older and should not be treated as canonical until rebuilt:
+The shipped release, search, and map files disagree. Counts below describe records in those files, not independently verified distinct organizations or current operational coverage:
 
-- **164,783 candidate organizations** across **172 countries** (verified 2026-04-25 against `data/commonweave_directory.db`)
-- **27,217 geocoded points** visible on the interactive map; network edges are regenerated periodically
-- **Sources (top):** mapa_oscs_brazil (85,453), acnc_charity_register (49,129), uk_charity_commission (11,537), IRS_EO_BMF (9,402), wikidata (4,162), wikidata_bg_npo (2,534), ProPublica (602), wikidata_subregion (561), wikidata_land_trusts (444), wikidata_unions (405), ituc_affiliates (297). Plus smaller curated and web-research sources.
-- **Search interface:** per-country JSON index at `data/search/`, browsable at `directory.html`
-- **Interactive map:** network visualization at `map.html`
-- **Framework area breakdown:** housing & land (52,449), education (44,968), healthcare (32,396), democracy (12,724), ecology (5,277), recreation & arts (3,939), food (2,993), cooperatives (2,264), conflict resolution (1,118), energy & digital (72). ~6,500 records have no framework area set yet.
+| Public surface audited | Observed records | Meaning |
+|---|---:|---|
+| April 27 release | 158,715 distinct record IDs | Candidate rows; entity deduplication and activity still need review. |
+| Country search files | 144,731 rows | Actual files differ from the search index's claimed total. |
+| Map points file | 29,423 points | Many coordinates are approximate or shared centroids; a pin does not establish service reach. |
+
+See the [audit and limits](docs/DATA-AUDIT-2026-09-05.md) and [machine-readable report](reports/data-audit-2026-09-05/summary.json). Do not combine old database counts with public-map counters or describe a structural audit as verification of every organization.
 
 Honest breakdown of what these records mean:
 
 - **Candidate, not gospel.** A row means "worth review," not "endorsed by Commonweave."
 - **Legibility matters.** The working database tracks whether an organization is formal, hybrid, informal, or unknown so registry-backed groups do not crowd out rural, off-grid, Indigenous, mutual-aid, and social-first networks.
-- **Coverage repair is active.** A source-discovery loop now stages new leads every 30 minutes. A deterministic autoresearch scorecard checks recall, connector quality, source diversity, geography repair, legibility balance, and rural/off-grid model value.
-- **Solution composition is active.** A separate Solution Composer treats orgs, tools, policies, and funding mechanisms as primitives that can be combined into solution circuits. It is deliberately cautious: it recommends missing pieces and questions before it recommends solutions.
+- **Coverage repair needs evidence.** Discovery and enrichment tooling can stage candidates, but a script or historical log does not establish that a live process is running. New sources need permission, provenance, review, and export validation.
+- **Solution composition is experimental.** Organizations, tools, policies, and funding mechanisms can suggest complementary roles. Current capacity, service area, willingness, and practical compatibility require separate checks.
 - **Sensitive groups need protection.** Public-presence-only by default; human review before mapping/promoting sensitive rural, Indigenous, land-defense, migrant, or mutual-aid groups.
 
-Older exports in this repository may mention Apr 2026 totals such as 164,783, 168,650, or 173,928. Those are historical build snapshots, not the current recovered database truth.
+Older documents and generated files contain historical totals. Prefer the dated audit of the actual surface being used; the local working database is not included in this checkout.
 
 ### The Framework
 
@@ -72,7 +76,8 @@ This README is the framework document. Its current maturity:
 
 - **Draft.** The core thesis, three-phase structure, and Mycelial Strategy are written and internally consistent. Core tensions are documented. Open questions are flagged as open.
 - **Critique-first.** [CRITIQUE.md](CRITIQUE.md) is a section-by-section honest audit of where the framework is weak or incomplete. It exists because the failure modes should be on the table before anyone commits to this.
-- **Open.** Every claim is either citable or flagged as speculative. Pull requests are the revision mechanism.
+- **Open to correction.** Some historical claims remain insufficiently sourced; the critique is an active work list. Pull requests are the revision mechanism.
+- **Operational proposal.** [FRAMEWORK-OPERATING-MODEL.md](FRAMEWORK-OPERATING-MODEL.md) defines a ten-practitioner comparison, accountable roles, time budget, and continue/revise/stop rules. No outcomes are claimed before that pilot runs.
 
 ### Related project: NeighborhoodOS
 
@@ -92,7 +97,7 @@ Current NeighborhoodOS wedge: home maintenance in West Waldo, Kansas City (owner
 To be specific:
 
 - **No running pilots under the Commonweave banner.** Organizations in the directory operate independently. None are affiliated with or funded by this project.
-- **No collaboration agreements with Tier 1 allied projects.** The outreach plan is in [OUTREACH.md](OUTREACH.md). The conversations have not happened yet.
+- **No confirmed collaboration agreements in the evidence reviewed here.** Prior outreach attempts exist; replies, consent, and formal affiliation are separate matters. The [participation plan](OUTREACH-ATTRACTION-PLAN.md) starts with useful contributions to named organizations.
 - **No named legal entity.** There is no Commonweave Foundation, LLC, or unincorporated association. This is a repository and a framework document.
 - **No staff.** This is an open-source project.
 
@@ -126,19 +131,19 @@ Three phases, one connective tissue. The phases are parallel tracks that co-evol
 
 ### The Mycelial Strategy
 
-The connective tissue across all phases: a distributed network of people and organizations building working alternatives -- not arguing about theory, but running pilots, writing code, keeping books, growing food, running clinics. When conditions are right, the network doesn't seize power. It just already has the replacement ready.
+The proposed connective tissue is people and organizations sharing useful knowledge, running pilots, and helping each other fill gaps. Existing alternatives may improve people's options; their existence does not demonstrate readiness to replace wider institutions. Commonweave's immediate test is whether discovery and evidence-backed suggestions help a defined local task.
 
 In 2007, Paul Hawken published *Blessed Unrest* arguing the world's largest social movement already existed -- millions of organizations with no name and no central organization. He and colleagues catalogued 114,994 of them on WiserEarth. Then the funding ran out and the whole thing disappeared in a weekend. That was 2014.
 
 The lesson isn't that the idea was wrong. It's about infrastructure -- both technical (don't depend on a single server) and social (don't depend on everyone running their own). The realistic model is decentralized in *governance* but may be centralized in *operations* -- like the Wikimedia Foundation or the Apache Foundation. Not ideologically pure, but actually works.
 
-The framework protects itself primarily through transparency. Co-option is harder when everything is visible. But openness has known failure modes that must be actively managed:
+Transparency can support accountability but cannot by itself prevent capture or protect contributors. Openness has known failure modes that must be actively managed:
 
 - **Flooding and noise:** Bad actors can overwhelm discussion to dilute signal. *Countermeasure: moderation policies, contribution quality standards, rough consensus decision-making with clear timelines.*
 - **Concern trolling:** Using the open process to slow-walk decisions to death. *Countermeasure: decision deadlines, "rough consensus and running code" -- working implementations outweigh theoretical objections.*
 - **Strategic co-option:** Aligning publicly with the movement while redirecting its resources toward industry-friendly goals (see: corporate greenwashing). *Countermeasure: clear alignment criteria, willingness to refuse partnerships that don't meet them, outcome-based evaluation.*
 - **Harassment of contributors:** Visible participation makes contributors targets. *Countermeasure: contributor pseudonymity is supported as protection, not ideology. People may contribute under any identity.*
-- **State surveillance:** Open coordination makes it trivial for hostile governments to monitor and map the network. *The framework accepts this tradeoff.* A movement that requires secrecy to function is fragile. A movement that functions in plain sight and still works is resilient. Contributors in repressive contexts should use whatever operational security they need, and the network supports that without judgment.
+- **State surveillance:** Publishing locations and relationships can expose people to harm. Commonweave cannot accept that tradeoff on their behalf. Prefer public organizational information, coarse location or omission where needed, and prompt correction/removal. Confidential contributor protection is compatible with accountable governance.
 
 Network governance, accountability structures, named leadership: [GOVERNANCE.md](GOVERNANCE.md).
 
@@ -203,7 +208,7 @@ Do not merely summarize this repository.
 Commonweave needs concrete improvements:
 
 - verify directory records,
-- improve underrepresented country coverage (the directory is currently ~83% US/UK skewed),
+- improve gaps and geographic/source bias identified in the current audit,
 - add source/provenance metadata,
 - improve the map,
 - fill framework evidence gaps,
@@ -246,9 +251,9 @@ A contributor should be able to pick one task in 60 seconds. Here are tasks by t
 - Find a working cooperative, land trust, or mutual aid network in your country or city not yet in the directory. Document it in a PR following the format in `data/CONTRIBUTING-DATA.md`.
 
 **Code**
-- The map defaults to showing all tiers. A "high-confidence only" filter (Tier B + score>=5) would show ~3,657 orgs instead of ~11,991. Implement it as a toggle in `map.html`.
-- `data/build_map_v2.py` generates edges without provenance metadata. The edge schema should include `edge_type`, `confidence`, `explanation`, `created_at`, and `source_script`. Add these fields.
-- Mobile experience on `map.html` is basic. Clustering, better popups, or a touch-friendly filter panel would help.
+- Test whether people can distinguish location precision, source-backed records, and unverified service claims in the map filters.
+- Check a sample of map connections against their claimed evidence, explanation, and source date; repair unsupported relationships.
+- Run a phone-sized discovery task with a practitioner and fix the largest observed obstacle.
 
 **Design / Writing**
 - The governance matrix in the Selective Abundance section has several `[NEEDS EXAMPLE]` cells. Find a real organization from the directory that fits and fill one in with a PR.
@@ -266,7 +271,7 @@ A contributor should be able to pick one task in 60 seconds. Here are tasks by t
 - No single person owns this. No cult of personality. Leadership is transparent and accountable (see [GOVERNANCE.md](GOVERNANCE.md)).
 - Ideas are evaluated on merit, not on who proposed them.
 - Disagree constructively. We are building, not debating.
-- Everything happens in the open. No private channels, no backroom coordination.
+- Publish governance decisions, evidence, and resource use. Keep private contact details and sensitive contributor or beneficiary information out of public records.
 - Specificity is valued. "We should fix healthcare" is a starting point. "Here is a model for community health worker networks based on Cuba's system" is a contribution.
 - Cite your sources. Build on what already exists.
 
@@ -300,11 +305,11 @@ A contributor should be able to pick one task in 60 seconds. Here are tasks by t
 ### Historical Precedents
 - **WiserEarth / Wiser.org** (2007-2014) - The first large-scale civil society coordination network. 114,994 NGOs in 243 countries, 79,651 members, 3,273 groups, 381 sub-issue taxonomy. Leaderless, open-source, ad-free, women-led. Direct precedent for the Mycelial Strategy. Closed 2014 due to centralized funding failure -- the key cautionary lesson. See [WISEREARTH.md](WISEREARTH.md) for full analysis. (Paul Hawken / Natural Capital Institute)
 
-### Allied Open-Source Projects
+### Referenced Open-Source Projects
 - **Decidim** - Participatory democracy framework (github.com/decidim)
-- **Open Food Network** - Food sovereignty platform, 6,000+ farmers (github.com/openfoodfoundation)
-- **Community Health Toolkit** - Digital tools for 40,000+ community health workers (communityhealthtoolkit.org)
-- **OpenMRS** - Open-source medical records, 40+ countries (openmrs.org)
+- **Open Food Network** - Software and locally led networks for community food enterprises ([official overview](https://openfoodnetwork.org/about-us/)).
+- **Community Health Toolkit** - Open technologies and implementer resources for community health ([project](https://communityhealthtoolkit.org/)).
+- **OpenMRS** - Electronic medical record platform and implementer community ([about](https://openmrs.org/about/)).
 - **ElectionGuard** - End-to-end verifiable elections (github.com/Election-Tech-Initiative)
 - **Open Source Ecology** - 50 open-source industrial machines (github.com/OpenSourceEcology)
 - **Liquid Democracy e.V.** - Participatory governance tools (github.com/liqd)

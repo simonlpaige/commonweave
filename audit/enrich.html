@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Commonweave Enrich Portal</title>
+<title>Review enrichment proposals</title>
 <meta name="description" content="Review and enrich public Commonweave directory entries with safer source-backed details.">
 <link rel="canonical" href="https://commonweave.earth/audit/enrich.html">
-<meta property="og:title" content="Commonweave Enrich Portal">
+<meta property="og:title" content="Review enrichment proposals">
 <meta property="og:description" content="Review and enrich public Commonweave directory entries with safer source-backed details.">
 <meta property="og:url" content="https://commonweave.earth/audit/enrich.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Commonweave Enrich Portal","url":"https://commonweave.earth/audit/enrich.html","description":"Review and enrich public Commonweave directory entries with safer source-backed details.","applicationCategory":"CivicTechnology"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Review enrichment proposals","url":"https://commonweave.earth/audit/enrich.html","description":"Review and enrich public Commonweave directory entries with safer source-backed details.","applicationCategory":"CivicTechnology"}</script>
 <style>
 :root {
   --bg:      #0d1a0d;
@@ -161,13 +161,29 @@ main { max-width: 760px; margin: 0 auto; padding: 24px 20px 100px; }
 .kbd-hint { font-size: 11px; color: var(--dim); margin-top: 12px; text-align: center; }
 .kbd { display: inline-block; background: var(--s3); border: 1px solid var(--border2); border-radius: 4px; padding: 1px 6px; font-family: monospace; font-size: 11px; }
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/brand.css?v=ac1ae7a4a9c0">
+<link rel="stylesheet" href="../assets/css/commonweave.css?v=61c3d54ad08e">
+<link rel="stylesheet" href="../assets/css/review-tools.css?v=31f0b4ee0bbe">
+<link rel="stylesheet" href="../assets/css/site-shell.css?v=ddf093745d61">
 </head>
-<body>
+<body class="cw-page cw-review">
+<a class="skip-link" href="#main">Skip to review tools</a>
 
-<nav>
-  <a class="nav-logo" href="index.html">commonweave</a>
-  <span class="nav-sub">enrichment review</span>
-</nav>
+<!-- cw:header:start -->
+<header data-site-header>
+  <nav class="cw-nav" aria-label="Main navigation">
+    <a class="cw-brand" href="../index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
+    <div class="cw-primary"><a href="../knowledge.html">Knowledge base</a><a href="../map.html">Map</a></div>
+    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
+      <a href="../directory.html">Organization directory</a>
+      <a href="../participate.html" aria-current="page">Contribute or correct</a>
+      <a href="../pipeline.html">About the data</a>
+      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
+    </div></details>
+  </nav>
+</header>
+<!-- cw:header:end -->
 
 <div class="progress-wrap">
   <div class="progress-row">
@@ -182,8 +198,8 @@ main { max-width: 760px; margin: 0 auto; padding: 24px 20px 100px; }
   </div>
 </div>
 
-<main id="main">
-<h1>Commonweave Enrich Portal</h1>
+<main id="main" tabindex="-1"><p class="review-intro"><a href="../participate.html">Contribute or correct</a> / Advanced review<br>These tools save review drafts in your browser. A saved decision is not a verified public record.</p>
+<h1>Review enrichment proposals</h1>
   <div class="empty-state" id="loadingMsg"><h2>Loading proposals...</h2></div>
 </main>
 
@@ -509,5 +525,11 @@ document.addEventListener('keydown', e => {
 })();
 </script>
 
+<!-- cw:footer:start -->
+<footer data-site-footer class="cw-footer">
+  <p>A shared framework. Evidence to inspect. Work to improve together.</p>
+  <div><a href="../knowledge.html">Knowledge base</a><a href="../map.html">Map</a><a href="../participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
+</footer>
+<!-- cw:footer:end -->
 </body>
 </html>

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Commonweave Map: networks of change</title>
-<meta property="og:title" content="Commonweave Map: networks of change">
-<meta property="og:description" content="An interactive map of aligned civil society organizations. Open data, CC0. Numbers reflect what is actually verified.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Map · Commonweave</title>
+<meta property="og:title" content="Map · Commonweave">
+<meta property="og:description" content="Explore organization records by place and possible role. Check sources, location precision and current availability.">
 <meta property="og:url" content="https://commonweave.earth/map.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -16,16 +16,16 @@
   "@type": "WebPage",
   "name": "Commonweave Map",
   "url": "https://commonweave.earth/map.html",
-  "description": "An interactive map of aligned civil society organizations. Counts and provenance pulled at runtime from the data build.",
+  "description": "Explore organization records by place and possible role. Check sources, location precision and current availability.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Commonweave",
     "url": "https://commonweave.earth/"
   },
-  "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+  "license": "https://github.com/simonlpaige/commonweave/blob/master/LICENSE"
 }
 </script>
-<meta name="description" content="Commonweave map: an interactive map of aligned civil society organizations. Open data, CC0.">
+<meta name="description" content="Explore organization records by place and possible role. Check sources, location precision and current availability.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Preconnect to the basemap host: warms TLS + DNS while the JS loads, so
@@ -277,6 +277,64 @@ html, body {
 .need-result .nr-gaps { font-size: 10px; color: var(--clay-pale); }
 .need-result .nr-empty { font-style: italic; color: var(--text-dim); }
 .need-result .nr-summary { font-size: 10px; color: var(--text-dim); margin-bottom: 7px; }
+
+/* Discovery is a working notebook: a goal, the pieces it needs, and the
+   handoffs to investigate. Paper/moss/clay follow the existing map brand. */
+#discovery-controls { padding: 16px; }
+.discovery-title { font: 26px/1.05 var(--f-display); margin: 0 0 14px; }
+.discovery-label { display: block; font: 13px/1.4 var(--f-body); margin: 10px 0 4px; color: var(--paper); }
+#discovery-controls .need-input { min-height: 40px; font-size: 14px; width: 100%; }
+.need-row { flex-wrap: wrap; align-items: center; }
+.need-btn, .need-clear { min-height: 40px; font-size: 13px; }
+#need-list { width: 100%; margin-top: 8px; }
+#discovery-controls .need-hint, #need-status { font: 12px/1.5 var(--f-body); color: var(--paper-dim); margin-top: 10px; }
+#need-result { max-height: none; overflow: visible; padding: 0; background: none; border: 0; }
+.nr-row { display: block; width: 100%; text-align: left; padding: 11px 8px; border: 0; border-bottom: 1px solid var(--border-bright); background: transparent; color: var(--paper); font-family: var(--f-body); cursor: pointer; }
+.nr-row:hover { background: var(--bg-elevated); }
+.nr-name, .nr-meta { display: block; }
+#need-result .nr-name, .nr-name { font: 600 15px/1.35 var(--f-body); }
+#need-result .nr-meta, .nr-meta { font: 12px/1.45 var(--f-body); color: var(--paper-dim); margin-top: 4px; }
+#need-result .nr-summary, .nr-summary { font: 13px/1.5 var(--f-body); color: var(--paper-dim); margin: 14px 0; }
+.pathway-caution, .pathway-gap { font: 13px/1.5 var(--f-body); color: var(--paper-dim); margin: 12px 0; }
+.pathway-gap { border-left: 2px dashed var(--clay-pale); padding-left: 10px; }
+.pathway-steps { padding-left: 22px; margin: 18px 0; }
+.pathway-step { border-left: 1px dashed var(--thread-pale); padding: 0 0 22px 14px; }
+.pathway-step::marker { color: var(--clay-pale); font: 17px var(--f-display); }
+.pathway-step h3, .pathway-bridges h3 { font: 23px/1.15 var(--f-display); margin-bottom: 8px; }
+.pathway-step p { font: 13px/1.5 var(--f-body); color: var(--paper-dim); }
+.pathway-bridge { font: 14px/1.5 var(--f-body); margin: 14px 0; }
+.pathway-thread { color: var(--clay-pale); }
+.pathway-role-sequence { display: flex; flex-wrap: wrap; gap: 12px; padding: 0; list-style: none; margin: 16px 0; }
+.pathway-role { flex: 1 1 180px; padding: 14px; border: 1px dashed var(--thread-pale); font: 15px/1.4 var(--f-body); }
+.pathway-role .pathway-thread { display: block; font-size: 26px; margin-top: 8px; }
+.pathway-role button { margin-top: 8px; }
+.pathway-candidate { padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 10px; }
+.pathway-candidate > button[aria-pressed="true"] { color: var(--paper); border-color: var(--moss-pale); }
+.discovery-link { display: inline-block; color: var(--moss-pale); font-size: 13px; margin: 16px 0; }
+.map-trust-note { position: absolute; top: 10px; left: 12px; right: 55px; z-index: 3; max-width: 680px; padding: 9px 12px; background: var(--ink); color: var(--paper-dim); font: 12px/1.4 var(--f-body); border: 1px solid var(--border-bright); }
+.map-trust-note button { color: var(--paper); background: none; border: 0; text-decoration: underline; font: inherit; cursor: pointer; padding: 3px; }
+#discovery-list { position: absolute; inset: 0; z-index: 4; overflow-y: auto; background: var(--ink); padding: 30px clamp(18px, 4vw, 64px) 80px; }
+#discovery-list[hidden] { display: none; }
+.discovery-list-heading { max-width: 760px; display: flex; flex-wrap: wrap; gap: 16px; align-items: start; justify-content: space-between; margin-bottom: 20px; }
+.discovery-list-heading h2 { font: 36px/1.05 var(--f-display); max-width: 18ch; }
+#discovery-list-results { max-width: 760px; }
+#discovery-list-results .pathway-steps { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
+:is(button, input, select, a):focus-visible { outline: 2px solid var(--thread-pale); outline-offset: 3px; }
+button:disabled { opacity: .45; cursor: default; }
+@media (max-width: 600px) {
+  #mobile-fab { width: auto !important; border-radius: 8px !important; padding: 0 14px; font-size: 14px !important; background: var(--paper) !important; }
+  #mobile-fab::after { content: 'Find / filters'; margin-left: 8px; }
+  #mobile-fab.open { transform: none !important; }
+  #mobile-fab.open::after { content: 'Close'; }
+  #mobile-sheet { max-height: 86vh !important; }
+  .sheet-content { padding-bottom: 88px !important; }
+  #mobile-sheet:not(.open) { visibility: hidden; }
+  #discovery-controls { padding: 8px 0; }
+  .pathway-thread { display: inline-block; transform: rotate(90deg); }
+  .map-trust-note { font-size: 11px; }
+  .discovery-list-heading h2 { font-size: 31px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 
 /* Phase 4: viewport System Health bar. Pinned to the bottom of the map area
    in Geographic / System Health modes. Updates when the user pans/zooms. */
@@ -678,13 +736,32 @@ html, body {
   /* Tighter spacing on the smallest screens. */
   .vh-row { gap: 8px; font-size: 10px; }
 }
-@media (min-width: 481px) { #mobile-fab, #mobile-sheet { display: none !important; } }
+@media (min-width: 601px) { #mobile-fab, #mobile-sheet { display: none !important; } }
 
 @keyframes counter-up { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
 .stat-animate { animation: counter-up 0.5s cubic-bezier(0.4,0,0.2,1) forwards; }
 </style>
+<link rel="stylesheet" href="assets/css/brand.css?v=ac1ae7a4a9c0">
+<link rel="stylesheet" href="assets/css/commonweave.css?v=61c3d54ad08e">
+<link rel="stylesheet" href="assets/css/map-paper.css?v=0e23940bced8">
+<link rel="stylesheet" href="assets/css/site-shell.css?v=ddf093745d61">
 </head>
-<body>
+<body class="cw-page cw-map">
+<a class="skip-link" href="#layout" onclick="event.preventDefault();document.getElementById('layout').focus()">Skip to map</a>
+<!-- cw:header:start -->
+<header data-site-header>
+  <nav class="cw-nav" aria-label="Main navigation">
+    <a class="cw-brand" href="index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
+    <div class="cw-primary"><a href="knowledge.html">Knowledge base</a><a href="map.html" aria-current="page">Map</a></div>
+    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
+      <a href="directory.html">Organization directory</a>
+      <a href="participate.html">Contribute or correct</a>
+      <a href="pipeline.html">About the data</a>
+      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
+    </div></details>
+  </nav>
+</header>
+<!-- cw:header:end -->
 <h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">Commonweave Map</h1>
 
 <!-- ═══════════ LOADING ═══════════ -->
@@ -727,35 +804,24 @@ html, body {
   <div class="loading-title">commonweave<span class="seed">.</span></div>
   <div class="loading-sub">mapping the networks of change</div>
   <div class="loading-progress"><div class="loading-progress-bar" id="progress-bar"></div></div>
-  <div class="loading-status" id="loading-status">Loading organisations…</div>
+  <div class="loading-status" id="loading-status">Loading organizations…</div>
 </div>
 
 <!-- ═══════════ MAIN LAYOUT ═══════════ -->
-<div id="layout">
+<main id="layout" tabindex="-1">
   <div id="sidebar">
-    <div class="sb-header">
-      <a href="/" class="sb-mark" aria-label="Commonweave home">
-        <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="commonweave">
-          <g transform="translate(0,5)">
-            <circle cx="60" cy="60" r="56" fill="none" stroke="#F2EBDC" stroke-width="1.6"/>
-            <line x1="6" y1="60" x2="114" y2="60" stroke="#F2EBDC" stroke-width="0.8" opacity="0.4"/>
-            <path d="M 30 30 C 50 60, 70 60, 90 90" stroke="#B8C4A8" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-            <path d="M 90 30 C 70 60, 50 60, 30 90" stroke="#B8C4A8" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-            <circle cx="60" cy="60" r="3" fill="#B4593A"/>
-          </g>
-          <text x="140" y="80" font-family="Instrument Serif, Source Serif 4, Georgia, serif" font-style="italic" font-size="64" fill="#F2EBDC" letter-spacing="-1.5">commonweave</text>
-        </svg>
-      </a>
-      <div class="sb-sub">mapping the networks of change</div>
-    </div>
+    <div class="sb-header"><h2>Map</h2><p>Explore organizations and the roles a community project needs.</p></div>
     <div class="sb-scroll">
-      <div class="sb-stats">
-        <div class="stat-card"><div class="stat-value" id="stat-orgs">-</div><div class="stat-label">Organizations</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-edges">-</div><div class="stat-label">Shared-area links</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-visible">-</div><div class="stat-label">Visible</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-tiers">-</div><div class="stat-label">Tiers</div></div>
+      <div class="sb-label">View Mode</div>
+      <div class="view-mode-wrap">
+        <button class="view-btn active" id="btn-network">Network</button>
+        <button class="view-btn" id="btn-geo">Places</button>
+        <button class="view-btn" id="btn-health">Coverage</button>
+        <button class="view-btn" id="btn-list">List</button>
       </div>
-      <div class="sb-search">
+
+
+      <div class="sb-search" hidden>
         <div class="search-wrap">
           <span class="search-icon">⌕</span>
           <input type="text" class="search-input" id="search-input" placeholder="Search organizations…" autocomplete="off" spellcheck="false">
@@ -765,52 +831,63 @@ html, body {
       <!-- Phase 3: Need-pathway panel. Plain language box that parses out a
            location, sections, and offers/needs words. Returns ranked matches
            plus complementary nearby orgs and local gaps. -->
-      <div class="sb-label">What are you trying to do?</div>
-      <div class="sb-need">
-        <textarea class="need-input" id="need-input"
-          placeholder="e.g. housing co-ops near Kansas City that need volunteers"
-          rows="2" autocomplete="off" spellcheck="false"></textarea>
+      <div id="discovery-home"><section class="sb-need" id="discovery-controls" aria-label="Find organizations and possible pathways">
+        <h2 class="discovery-title">Find organizations</h2>
+        <label class="discovery-label" for="need-goal">Start with a goal</label>
+        <select id="need-goal" class="need-input"><option value="">Browse organizations</option></select>
+        <label class="discovery-label" for="need-country">Country</label>
+        <select id="need-country" class="need-input"><option value="">All countries</option></select>
+        <label class="discovery-label" for="need-city">Recorded city (optional)</label>
+        <input id="need-city" class="need-input" list="need-cities" placeholder="Choose a city from the list" autocomplete="off">
+        <datalist id="need-cities"></datalist>
+        <label class="discovery-label" for="need-input">Name or topic (optional)</label>
+        <input class="need-input" id="need-input" placeholder="e.g. cooperative or an organization name" autocomplete="off">
         <div class="need-row">
-          <button class="need-btn" id="need-go" type="button">Find</button>
-          <button class="need-clear" id="need-clear" type="button" hidden>Clear</button>
+          <button class="need-btn" id="need-go" type="button">Find candidates</button>
+          <button class="need-clear" id="need-clear" type="button">Reset all</button>
         </div>
-        <div class="need-hint">Looks up city centroids, framework sections, and offers/needs words. No external geocoder.</div>
+        <button class="need-clear" id="need-list" type="button">Open full results in List view</button>
+        <p class="need-hint">Locations and categories need review. City search uses recorded city names; pins do not establish distance or service area.</p>
+        <p id="need-status" role="status" aria-live="polite"></p>
         <div class="need-result" id="need-result" hidden></div>
+      </section></div>
+      <details class="map-details"><summary>Filters and data details</summary>
+      <div class="sb-stats">
+        <div class="stat-card"><div class="stat-value" id="stat-orgs">-</div><div class="stat-label">Exported records</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-edges">-</div><div class="stat-label">Shared-area links</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-visible">-</div><div class="stat-label">Visible</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-tiers">-</div><div class="stat-label">Tiers</div></div>
       </div>
-      <div class="sb-label">Networks</div>
+      <p id="tier-quality-note" class="nr-meta" style="padding:0 16px 12px"></p>
+      <div class="sb-label">Categories</div>
       <div id="filters"></div>
       <div class="sb-label">Data Quality</div>
       <div class="hc-toggle-wrap">
         <button class="hc-toggle on" id="hc-toggle" type="button"
                 aria-pressed="true"
-                title="When on, only high-confidence rows (Tier A and B) appear on the map. Switch off to also include Tier C inferred candidates.">
+                title="Show Tier A and B source-backed records. Source tier does not verify alignment, services or current capacity.">
           <span class="hc-track" aria-hidden="true"><span class="hc-thumb"></span></span>
-          <span class="hc-label">High-confidence only<div class="hc-help">Hides Tier C inferred candidates. On by default.</div></span>
+          <span class="hc-label">Source-backed records<div class="hc-help">Tier A/B. Services and alignment still need review.</div></span>
         </button>
       </div>
       <div id="tier-filter">
         <button class="tier-btn active" data-tier="A" title="Curated: manually reviewed entries (currently empty &mdash; community auditing is open)">A Curated</button>
-        <button class="tier-btn active" data-tier="B" title="Registry-backed: sourced from an official registry or structured public source">B Registry-backed</button>
+        <button class="tier-btn active" data-tier="B" title="Source backed: registry and web-research records; services and alignment need review">B Source backed</button>
         <button class="tier-btn inactive" data-tier="C" title="Inferred: passed keyword scoring, not yet reviewed">C Inferred</button>
       </div>
       <div class="tier-legend" id="tier-legend"></div>
-      <div class="sb-label">View Mode</div>
-      <div class="view-mode-wrap">
-        <button class="view-btn active" id="btn-network">🕸 Network</button>
-        <button class="view-btn" id="btn-geo">🌍 Geographic</button>
-        <button class="view-btn" id="btn-health">⚖️ System Health</button>
-      </div>
-      <div class="sb-label">Guided Views</div>
+      <div class="sb-label">Guided views</div>
       <div id="presets"></div>
       <div class="sb-label">Explore by Section</div>
       <div id="regions"></div>
+      </details>
     </div>
     <div class="sb-health">
-      <div class="health-label">System Health: Section Coverage</div>
+      <div class="health-label">Dataset category coverage</div>
       <div class="health-dots" id="health-dots"></div>
       <div class="health-text" id="health-text">- of 10 sections in dataset</div>
     </div>
-    <div class="sb-pdf"><a href="pipeline.html" title="How the directory gets built">📄 How we find these organizations</a></div>
+    <div class="sb-pdf"><a href="pipeline.html" title="How the directory gets built">About the data</a></div>
     <div class="sb-hint">scroll to zoom · drag to pan · click nodes for details</div>
     <div class="sb-built" id="sb-built">
       <span>Data last built: <strong id="built-date">-</strong></span>
@@ -819,16 +896,21 @@ html, body {
   </div>
 
   <div id="canvas-container">
+    <div class="map-trust-note">Pins may be city or country approximations. Lines suggest connections unless a source is shown. <button type="button" onclick="window._showDiscoveryList()">Use List view</button></div>
+    <section id="discovery-list" hidden aria-label="Organization results">
+      <div class="discovery-list-heading"><h2>Organizations and possible roles</h2><button class="need-clear" id="list-edit" type="button">Change goal or place</button></div>
+      <div id="discovery-list-results"></div>
+    </section>
     <!-- Geographic mode: MapLibre vector basemap + deck.gl overlay. Hidden in
          Network mode. Toggling viewMode swaps display:none between the two. -->
     <div id="ml-map" style="display:none"></div>
     <!-- Network mode: existing D3 force canvas. Hidden in Geographic mode. -->
     <canvas id="viz-canvas"></canvas>
   </div>
-</div>
+</main>
 
 <!-- Mobile -->
-<button id="mobile-fab" aria-label="Open filters">
+<button id="mobile-fab" aria-label="Open discovery and filters" aria-controls="mobile-sheet" aria-expanded="false">
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
     <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
   </svg>
@@ -859,10 +941,10 @@ html, body {
     </div>
     <div class="vh-cell vh-verified">
       <span class="vh-num" id="vh-verified">-</span>
-      <span class="vh-lab">verified ratio</span>
+      <span class="vh-lab">source-backed ratio</span>
     </div>
     <div class="vh-cell vh-missing" id="vh-missing-cell">
-      <span class="vh-lab">missing</span>
+      <span class="vh-lab">not recorded here</span>
       <span class="vh-list" id="vh-missing">-</span>
     </div>
     <button class="vh-close" id="vh-close" type="button" title="Hide">×</button>
@@ -873,8 +955,9 @@ html, body {
 <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
 <!-- Phase 3: need-pathway scoring + search panel. Pure functions; no DOM
      work happens until init() is called from the main script. -->
-<script src="assets/js/map/scoring.js"></script>
-<script src="assets/js/map/search.js"></script>
+<script src="assets/js/map/scoring.js?v=93f540fb8718"></script>
+<script src="assets/js/map/pathways.js?v=e2e325b6c7c4"></script>
+<script src="assets/js/map/search.js?v=015583a9313f"></script>
 <script>
 'use strict';
 
@@ -915,16 +998,16 @@ const AREA_SHORT = {
 };
 
 const AREAS_ORDERED = Object.keys(AREA_COLORS);
-// Phase 1: pick "Verified (from registry)" for Tier B and use it everywhere.
+// Tiers describe record provenance, not service quality or availability.
 const TIER_LABELS = {
   A: 'Curated',
-  B: 'Verified (from registry)',
+  B: 'Source backed',
   C: 'Inferred',
   D: 'Unverified, not on map'
 };
 const TIER_DESCRIPTIONS = {
   A: 'Reserved for manually reviewed entries; currently empty until community auditing promotes rows.',
-  B: 'Sourced from a public charity registry or manual curation.',
+  B: 'Source-backed classification, including registry and web-research records. Current services and alignment are not verified by this tier.',
   C: 'Passed keyword scoring, not yet reviewed.',
   D: 'Did not pass scoring or registry match. Excluded from the map.'
 };
@@ -961,6 +1044,7 @@ const TAU = Math.PI * 2;
 // STATE
 // ══════════════════════════════════════════════════════════════
 let allPoints = [], allEdges = [];
+let pendingNetworkSimulation = null;
 let simNodes = [], simLinks = [];
 let coordHash = new Map();       // "lon,lat" → node index
 let pointsById = new Map();      // stable id (org_X) → node index, for URL state
@@ -968,9 +1052,9 @@ let nodeEdgesMap = new Map();    // nodeIndex → [edgeIndices]
 let quadtree = null;
 let zoomBehavior = null;
 let transform = d3.zoomIdentity;
-let viewMode = 'network';        // 'network' | 'geo'
+let viewMode = 'geo';        // 'network' | 'geo' | 'health' | 'list'
 let activeSection = null;
-// Default: high-confidence only (Tier A + B). Tier C toggled off until user enables.
+// Default: source-backed records (Tier A + B). Tier C is opt-in.
 let activeTiers = new Set(['A', 'B']);
 let searchTerm = '';
 let hoveredNode = null;
@@ -1074,8 +1158,8 @@ function _writeUrlState() {
   const tierStr = ['A', 'B', 'C'].filter(t => activeTiers.has(t)).join('');
   // Only write if it differs from the default A+B; keeps URLs short.
   if (tierStr !== 'AB') params.set('tiers', tierStr || '-');
-  if (searchTerm) params.set('q', searchTerm);
-  if (viewMode && viewMode !== 'network') params.set('view', viewMode);
+  addDiscoveryUrl(params);
+  if (viewMode) params.set('view', viewMode);
   if (selectedNode && selectedNode.id) params.set('selectedId', selectedNode.id);
   if (transform && transform.k && Math.abs(transform.k - 1) > 0.001) {
     // Round zoom and pan so the hash is short. Pan in canvas pixels.
@@ -1102,7 +1186,8 @@ function applyUrlState() {
   isRestoringUrl = true;
   try {
     const sec = params.get('section');
-    if (sec) activeSection = sec;
+    activeSection = AREAS_ORDERED.includes(sec) ? sec : null;
+    activeTiers = new Set(['A', 'B']);
 
     const tiers = params.get('tiers');
     if (tiers !== null) {
@@ -1114,11 +1199,11 @@ function applyUrlState() {
       }
     }
 
-    const q = params.get('q');
-    if (q) searchTerm = q;
+    searchTerm = '';
+    restoreDiscoveryUrl();
 
     const view = params.get('view');
-    if (view === 'geo' || view === 'network' || view === 'health') viewMode = view;
+    if (view === 'geo' || view === 'network' || view === 'health' || view === 'list') viewMode = view;
   } finally {
     isRestoringUrl = false;
   }
@@ -1180,7 +1265,7 @@ let orgsFeatureCollection = null;
 
 async function loadData() {
   setProgress(5);
-  setLoadingStatus('Loading organisations…');
+  setLoadingStatus('Loading organizations…');
 
   // Phase 5: edges are lazy-loaded. Only points + stats + coverage hit the
   // network at startup. Edges fetch on first selection. This is the biggest
@@ -1295,14 +1380,15 @@ function mulberry32(a) {
 }
 
 function runSimulation(sim, onDone) {
-  // The d3 force layout runs in the background after the loading overlay
-  // is gone, so we no longer drive the progress bar from in here. Settling
-  // 250 ticks chunked across rAF keeps the main thread responsive.
-  const TOTAL = 250;
+  // Only Network view needs a force layout. Yield between individual ticks
+  // so a large export cannot block place/list browsing for seconds at a time.
+  const TOTAL = 120;
   let tick = 0;
 
   function chunk() {
-    for (let i = 0; i < 20 && tick < TOTAL; i++, tick++) sim.tick();
+    if (viewMode !== 'network') { pendingNetworkSimulation = sim; return; }
+    sim.tick(); tick++;
+    if (viewMode === 'network') { rebuildQuadtree(); render(); }
     if (tick < TOTAL) requestAnimationFrame(chunk);
     else { sim.stop(); onDone(); }
   }
@@ -1388,13 +1474,10 @@ function screenToSim(sx, sy) {
 // VISIBILITY / FILTERING
 // ══════════════════════════════════════════════════════════════
 function isNodeVisible(node) {
+  if (window.discoveryResultIds && !window.discoveryResultIds.has(node.id)) return false;
   if (activeSection && node.f !== activeSection) return false;
   if (!activeTiers.has(node.t)) return false;
   if (activePresetFilterFn && !activePresetFilterFn(node)) return false;
-  if (searchTerm) {
-    const s = searchTerm.toLowerCase();
-    if (!(node.n || '').toLowerCase().includes(s) && !(node.cc || '').toLowerCase().includes(s)) return false;
-  }
   return true;
 }
 
@@ -1507,7 +1590,8 @@ function showDetailPanel(node) {
   const tier = node.t || 'C';
   const tierLabel = TIER_LABELS[tier] || tier;
   const tierDesc = TIER_DESCRIPTIONS[tier] || '';
-  const website = node.w ? (node.w.startsWith('http') ? node.w : 'https://' + node.w) : '';
+  const website = node.w ? CommonweavePathways.safeUrl(node.w.startsWith('http') ? node.w : 'https://' + node.w) : '';
+  const contactUrl = CommonweavePathways.safeUrl(node.cu);
   const websiteDomain = node.w ? node.w.replace(/^https?:\/\//, '').split('/')[0] : '';
   const badgeBg = color + '1a';
   const badgeBorder = color + '35';
@@ -1528,7 +1612,7 @@ function showDetailPanel(node) {
     '',
     '(describe the correction here)'
   ].join('\n');
-  const corrUrl = `${REPO_ISSUE_BASE}?title=${encodeURIComponent(corrTitle)}&labels=data-correction&body=${encodeURIComponent(corrBody)}`;
+  const corrUrl = 'participate.html?' + new URLSearchParams({type: 'correct', org: node.n || '', id: node.id || '', country: node.cc || ''});
 
   // Location string: city + state + country, drop the empties.
   const locParts = [node.ci, node.st, node.cc].filter(Boolean);
@@ -1545,7 +1629,7 @@ function showDetailPanel(node) {
   const shareUrl = buildShareUrl(node);
 
   panel.innerHTML = `
-    <button class="detail-close" onclick="window._closeDetail()">&#215;</button>
+    <button class="detail-close" aria-label="Close organization details" onclick="window._closeDetail()">&#215;</button>
     <div class="pop-inner">
       <div class="pop-header">
         <div class="pop-badge" style="background:${badgeBg};border:1px solid ${badgeBorder};color:${color}" title="${escHtml(areaFull)}">
@@ -1563,11 +1647,12 @@ function showDetailPanel(node) {
       </div>
       ${desc ? `<div class="pop-desc">${escHtml(desc)}</div>` : ''}
       <div class="pop-row"><strong>Section.</strong> ${escHtml(areaFull)}${secondary ? ` <span style="color:var(--text-dim)">(also: ${escHtml(secondary)})</span>` : ''}</div>
-      ${loc ? `<div class="pop-row"><strong>Location.</strong> ${escHtml(loc)}</div>` : ''}
+      ${loc ? `<div class="pop-row"><strong>Recorded location.</strong> ${escHtml(loc)}</div>` : ''}
+      <div class="pop-row">Pin precision and current service area are unverified. Confirm the locality before planning a visit or referral.</div>
       ${website ? `<div class="pop-row"><strong>Website.</strong> <a href="${escHtml(website)}" target="_blank" rel="noopener">${escHtml(websiteDomain)} &#8599;</a></div>` : ''}
-      ${node.cu ? `<div class="pop-row"><strong>Contact.</strong> <a href="${escHtml(node.cu)}" target="_blank" rel="noopener">${escHtml(node.cu.replace(/^https?:\/\//, '').split('/')[0])} &#8599;</a></div>` : ''}
+      ${contactUrl ? `<div class="pop-row"><strong>Contact.</strong> <a href="${escHtml(contactUrl)}" target="_blank" rel="noopener">${escHtml(contactUrl.replace(/^https?:\/\//, '').split('/')[0])} &#8599;</a></div>` : ''}
       ${srcLabel ? `<div class="pop-row"><strong>Source.</strong> ${escHtml(srcLabel)}</div>` : ''}
-      ${node.lv ? `<div class="pop-row"><strong>Last verified.</strong> ${escHtml(String(node.lv).slice(0, 10))}</div>` : ''}
+      ${node.lv ? `<div class="pop-row"><strong>Last verified.</strong> ${escHtml(String(node.lv).slice(0, 10))}</div>` : '<div class="pop-row">No verification date is included in this map record.</div>'}
       ${node.id ? `<div class="pop-row" style="color:var(--text-dim);font-size:10px"><strong>Id.</strong> ${escHtml(node.id)}</div>` : ''}
       <div class="pop-actions">
         <button type="button" class="pop-action-btn" id="copy-share-btn" data-share="${escHtml(shareUrl)}" title="Copy a link to this exact view">
@@ -1747,6 +1832,45 @@ window._setNeedHighlight = function (h) {
   // highlight matches by selecting them via the result list.
 };
 
+window._discoveryFilters = () => ({ tiers: [...activeTiers], area: activeSection, filter: activePresetFilterFn });
+window._setDiscoveryResultIds = function(ids) {
+  window.discoveryResultIds = new Set(ids);
+  if (selectedNode && !isNodeVisible(selectedNode)) {
+    selectedNode = null; hideDetailPanel();
+  }
+  if (hoveredNode && !isNodeVisible(hoveredNode)) { setHoveredNode(null); hideTooltip(); }
+  rebuildQuadtree();
+  applyMaplibreFilters();
+  updateDeckLayers();
+  updateViewportHealth();
+  const el = document.getElementById('stat-visible');
+  if (el) el.textContent = simNodes.filter(isNodeVisible).length.toLocaleString();
+  render();
+};
+window._resetDiscoveryFilters = function() {
+  activeTiers = new Set(['A', 'B']); activeSection = null; activePresetFilterFn = null; searchTerm = '';
+  document.getElementById('search-input').value = '';
+  syncTierButtons(); syncHighConfidenceToggle();
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.add('active'));
+  selectedNode = null; hideDetailPanel();
+  writeUrlState();
+};
+window._showDiscoveryList = () => setViewMode('list');
+function addDiscoveryUrl(params) {
+  [['need-input', 'q'], ['need-goal', 'goal'], ['need-country', 'country'], ['need-city', 'city']].forEach(([id, key]) => {
+    const value = document.getElementById(id).value.trim();
+    if (value) params.set(key, value);
+  });
+}
+function restoreDiscoveryUrl() {
+  const params = readUrlState() || new URLSearchParams();
+  [['need-input', 'q'], ['need-goal', 'goal'], ['need-country', 'country'], ['need-city', 'city']].forEach(([id, key]) => {
+    document.getElementById(id).value = params.get(key) || '';
+  });
+}
+window._restoreDiscoveryUrl = restoreDiscoveryUrl;
+window._writeDiscoveryUrl = () => writeUrlState();
+
 // Search-result row click handler used by search.js. Selects the org as if
 // the user had clicked the dot, restoring the same detail panel and edges.
 window._selectOrgById = function (orgId) {
@@ -1756,6 +1880,7 @@ window._selectOrgById = function (orgId) {
   if (!node) return;
   selectedNode = node;
   showDetailPanel(node);
+  ensureEdgesLoaded().then(() => { if (selectedNode && selectedNode.id === node.id) showDetailPanel(node); });
   if (mlMap && viewMode === 'geo') {
     mlMap.flyTo({ center: [node.lo, node.la], zoom: Math.max(mlMap.getZoom(), 7) });
     updateDeckLayers();
@@ -1875,21 +2000,23 @@ function renderConnections(node) {
     return `
       <div class="pop-connections">
         <div class="pop-connections-label">Connections</div>
-        <div class="conn-empty">No edges found for this org. Phase 2 only renders edges between Tier A/B/C orgs in the same proximity grid or curated federations.</div>
+        <div class="conn-empty">${edgesLoaded ? 'No usable connection is included for this record. Try a goal pathway to explore complementary categories; missing data does not establish isolation.' : 'Loading available connection evidence…'}</div>
       </div>`;
   }
   const items = rows.map(r => {
     const tier = EDGE_TYPE_TIER[r.type] || 'S';
-    const label = EDGE_TYPE_LABEL[r.type] || r.type;
-    const explain = r.edge.explanation || '';
+    const evidence = CommonweavePathways.evidence(r.edge);
+    const label = evidence.label;
+    const explain = evidence.explanation;
+    const sources = evidence.links.map(url => `<a class="discovery-link" href="${escHtml(url)}" target="_blank" rel="noopener noreferrer">${evidence.documented ? 'Read relationship source' : 'Read supplied source'}</a>`).join(' ');
     const otherName = r.other.n || r.other.id;
     const wPct = Math.round((r.weight || 0) * 100);
     return `
       <a class="conn-row" data-other-id="${escHtml(r.other.id)}" href="#${escHtml(r.other.id)}">
-        <span class="conn-type tier-${tier}">${escHtml(label)} &middot; ${wPct}%</span>
+        <span class="conn-type tier-${tier}">${escHtml(label)}</span>
         <div class="conn-name">${escHtml(otherName)}</div>
         ${explain ? `<div class="conn-explain">${escHtml(explain)}</div>` : ''}
-      </a>`;
+      </a>${!evidence.documented ? '<p class="conn-explain">Inferred lead only. Location or category similarity does not establish collaboration.</p>' : ''}${sources}`;
   }).join('');
   return `
     <div class="pop-connections">
@@ -1904,8 +2031,8 @@ function buildShareUrl(node) {
   if (activeSection) params.set('section', activeSection);
   const tierStr = ['A', 'B', 'C'].filter(t => activeTiers.has(t)).join('');
   if (tierStr !== 'AB') params.set('tiers', tierStr || '-');
-  if (searchTerm) params.set('q', searchTerm);
-  if (viewMode && viewMode !== 'network') params.set('view', viewMode);
+  addDiscoveryUrl(params);
+  if (viewMode) params.set('view', viewMode);
   if (node && node.id) params.set('selectedId', node.id);
   if (transform && transform.k) {
     params.set('z', transform.k.toFixed(3));
@@ -1977,8 +2104,8 @@ async function loadWorldData() {
 function drawGeoBackground() {
   if (!worldFeatures || worldFeatures.length === 0) return;
   ctx.save();
-  ctx.strokeStyle = '#1d3d1d';
-  ctx.fillStyle = '#0a1a0a';
+  ctx.strokeStyle = '#B8C4A8';
+  ctx.fillStyle = '#E1E5D8';
   ctx.lineWidth = 0.5;
   ctx.setLineDash([]);
   worldFeatures.forEach(feature => {
@@ -2010,7 +2137,7 @@ function render() {
   if (!ctx) return;
   // In geo mode the MapLibre + deck.gl overlay does the painting; the canvas
   // is hidden. Skip the work to save CPU and battery.
-  if (viewMode === 'geo') return;
+  if (viewMode !== 'network') return;
   const w = canvas.width, h = canvas.height;
   ctx.clearRect(0, 0, w, h);
 
@@ -2196,6 +2323,7 @@ function updateVisibleCount() {
   simNodes.forEach(n => { if (isNodeVisible(n)) count++; });
   const el = document.getElementById('stat-visible');
   if (el) el.textContent = count.toLocaleString();
+  if (window.CommonweaveSearch) window.CommonweaveSearch.refresh();
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -2286,6 +2414,7 @@ function setupSidebar(tierCounts) {
   // View mode
   document.getElementById('btn-network').addEventListener('click', () => setViewMode('network'));
   document.getElementById('btn-geo').addEventListener('click', () => setViewMode('geo'));
+  document.getElementById('btn-list').addEventListener('click', () => setViewMode('list'));
   const btnHealth = document.getElementById('btn-health');
   if (btnHealth) btnHealth.addEventListener('click', () => setViewMode('health'));
 
@@ -2318,11 +2447,12 @@ function setupSidebar(tierCounts) {
 }
 
 function syncTierButtons() {
-  document.querySelectorAll('.tier-btn').forEach(btn => {
+  document.querySelectorAll('.tier-btn, .sheet-tier-btn').forEach(btn => {
     const t = btn.dataset.tier;
     const on = activeTiers.has(t);
     btn.classList.toggle('active', on);
     btn.classList.toggle('inactive', !on);
+    btn.setAttribute('aria-pressed', String(on));
   });
 }
 
@@ -2339,19 +2469,9 @@ function syncHighConfidenceToggle() {
 function renderTierLegend() {
   const el = document.getElementById('tier-legend');
   if (!el) return;
-  // Counts come from stats.json so the legend never lies. Fall back to live
-  // tier counts if stats fetch failed.
-  const counts = (mapStats && mapStats.by_tier) ? {
-    A: mapStats.by_tier.A_curated,
-    B: mapStats.by_tier.B_verified,
-    C: mapStats.by_tier.C_inferred,
-    D: mapStats.by_tier.D_unverified_off_map,
-  } : {};
-  if (!Object.keys(counts).length) {
-    const live = { A: 0, B: 0, C: 0 };
-    allPoints.forEach(p => { if (live[p.t] !== undefined) live[p.t]++; });
-    counts.A = live.A; counts.B = live.B; counts.C = live.C; counts.D = '-';
-  }
+  // Count the actual loaded export, independently of older metadata.
+  const counts = { A: 0, B: 0, C: 0, D: 0 };
+  allPoints.forEach(p => { if (typeof counts[p.t] === 'number') counts[p.t]++; });
   const rows = ['A', 'B', 'C', 'D'].map(tier => {
     const c = counts[tier];
     const cStr = (typeof c === 'number') ? c.toLocaleString() : (c || '-');
@@ -2366,6 +2486,9 @@ function renderTierLegend() {
       </div>`;
   }).join('');
   el.innerHTML = rows;
+  const invalid = allPoints.filter(p => !['A', 'B', 'C', 'D'].includes(p.t)).length;
+  document.getElementById('tier-quality-note').textContent = invalid
+    ? invalid.toLocaleString() + ' exported records have an invalid source tier and are excluded from results pending review.' : '';
 }
 
 function renderBuiltFooter() {
@@ -2374,17 +2497,23 @@ function renderBuiltFooter() {
   if (!mapStats) return;
   if (dateEl) dateEl.textContent = mapStats.last_built_date || (mapStats.last_built || '').slice(0, 10) || '-';
   if (cntEl && mapStats.orgs_on_map !== undefined) {
-    const onMap = mapStats.orgs_on_map.toLocaleString();
-    const dir = (mapStats.orgs_in_directory || 0).toLocaleString();
-    cntEl.textContent = `${onMap} / ${dir} on map`;
-    cntEl.title = `${onMap} mapped, ${dir} candidates total`;
+    const onMap = allPoints.length.toLocaleString();
+    cntEl.textContent = `${onMap} records in this map`;
+    cntEl.title = 'Counted from the loaded map file; the full directory has separate coverage.';
   }
 }
 
 function setViewMode(mode) {
   viewMode = mode;
+  if (mode === 'network' && pendingNetworkSimulation) {
+    const simulation = pendingNetworkSimulation;
+    pendingNetworkSimulation = null;
+    runSimulation(simulation, () => { rebuildQuadtree(); render(); });
+  }
   document.getElementById('btn-network').classList.toggle('active', mode === 'network');
   document.getElementById('btn-geo').classList.toggle('active', mode === 'geo');
+  document.getElementById('btn-list').classList.toggle('active', mode === 'list');
+  document.getElementById('discovery-list').hidden = mode !== 'list';
   const healthBtn = document.getElementById('btn-health');
   if (healthBtn) healthBtn.classList.toggle('active', mode === 'health');
   setHoveredNode(null);
@@ -2413,7 +2542,7 @@ function setViewMode(mode) {
     }
     if (vh) vh.hidden = false;
   } else {
-    if (cnv) cnv.style.display = 'block';
+    if (cnv) cnv.style.display = mode === 'list' ? 'none' : 'block';
     if (ml) ml.style.display = 'none';
     if (vh) vh.hidden = true;
     rebuildQuadtree();
@@ -2435,13 +2564,14 @@ function initGeoMapIfNeeded() {
   geoInited = true;
   if (typeof maplibregl === 'undefined') {
     console.warn('MapLibre GL not loaded; geographic mode unavailable.');
+    setViewMode('list');
     return;
   }
   // Mobile gets a slightly more zoomed-out start and a fatter cluster radius
   // so the first paint is dominated by ~10 big bubbles rather than thousands
   // of overlapping pins.
   const initialZoom = IS_MOBILE ? 1.0 : 1.6;
-  mlMap = new maplibregl.Map({
+  try { mlMap = new maplibregl.Map({
     container: 'ml-map',
     style: 'https://tiles.openfreemap.org/styles/liberty',
     center: [10, 30],
@@ -2450,7 +2580,7 @@ function initGeoMapIfNeeded() {
     maxZoom: 18,
     attributionControl: { compact: true },
     hash: false,
-  });
+  }); } catch (e) { console.warn('Basemap unavailable; showing list results.', e); setViewMode('list'); return; }
   mlMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
   // deck.gl overlay (for edges) is created lazily - only when we actually
@@ -2631,13 +2761,17 @@ function addOrgClusterSource() {
 // per filter - the cluster bubbles always reflect the full dataset, which
 // matches the existing UX where cluster counts are a "where are the orgs"
 // answer rather than a filtered subset).
+let lastGeoFilterKey = null;
 function applyMaplibreFilters() {
   if (!mlMap || !mlMap.getLayer('orgs-points')) return;
-  const tierList = [...activeTiers];
-  const f = ['all', ['!', ['has', 'point_count']]];
-  if (tierList.length) f.push(['in', ['get', 't'], ['literal', tierList]]);
-  if (activeSection) f.push(['==', ['get', 'f'], activeSection]);
-  mlMap.setFilter('orgs-points', f);
+  const visible = new Set(simNodes.filter(isNodeVisible).map(p => p.id));
+  const key = [...visible].join('|');
+  if (key !== lastGeoFilterKey) {
+    lastGeoFilterKey = key;
+    // Filter the source, so cluster counts and unclustered points agree.
+    mlMap.getSource('orgs-src').setData({ type: 'FeatureCollection', features: orgsFeatureCollection.features.filter(f => visible.has((f.properties || {}).id || f.id)) });
+  }
+  mlMap.setFilter('orgs-points', ['!', ['has', 'point_count']]);
 }
 
 // Attach the deck.gl overlay to MapLibre once deck.gl is loaded. Idempotent.
@@ -2888,21 +3022,21 @@ function showEdgeTooltip(edge, x, y) {
   const et = document.getElementById('edge-tooltip');
   if (!et || !edge) return;
   const type = edge.edge_type || 'edge';
-  const label = EDGE_TYPE_LABEL[type] || type;
+  const label = CommonweavePathways.evidence(edge).label;
   const weight = typeof edge.weight === 'number' ? Math.round(edge.weight * 100) : '';
   // Build tooltip via DOM nodes (no innerHTML) so user-supplied explanation
   // text never gets parsed as HTML.
   while (et.firstChild) et.removeChild(et.firstChild);
   const t = document.createElement('div');
   t.className = 'et-type';
-  t.textContent = label + (weight !== '' ? ' · ' + weight + '%' : '');
+  t.textContent = label;
   et.appendChild(t);
   if (edge.explanation) {
     const d = document.createElement('div');
-    d.textContent = edge.explanation;
+    d.textContent = CommonweavePathways.evidence(edge).explanation;
     et.appendChild(d);
   }
-  if (edge.confidence) {
+  if (edge.confidence && CommonweavePathways.evidence(edge).documented) {
     const w = document.createElement('div');
     w.className = 'et-weight';
     w.textContent = 'confidence: ' + edge.confidence;
@@ -2922,15 +3056,15 @@ function showEdgeTooltip(edge, x, y) {
 const PRESETS = [
   {
     id: 'skeptic',
-    label: 'Start with the skeptic view',
-    desc: 'Tier B (registry-backed) only. The honest map.',
+      label: 'Start with source-backed records',
+    desc: 'Tier B records from registry and web-research sources. Check current work and service availability.',
     tiers: new Set(['B']),
     section: null,
   },
   {
     id: 'high_confidence',
-    label: 'High-confidence only',
-    desc: 'Tier A + B. Tier A is currently empty (community auditing open); ~15,550 Tier B orgs.',
+    label: 'Reviewed and source-backed records',
+    desc: 'Tier A + B; this provenance filter does not verify suitability or current services.',
     tiers: new Set(['A', 'B']),
     section: null,
   },
@@ -3068,6 +3202,10 @@ function setupMobile() {
   fab.addEventListener('click', () => {
     fab.classList.toggle('open');
     sheet.classList.toggle('open');
+    fab.setAttribute('aria-expanded', String(sheet.classList.contains('open')));
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { sheet.classList.remove('open'); fab.classList.remove('open'); fab.setAttribute('aria-expanded', 'false'); hideDetailPanel(); }
   });
   const content = document.getElementById('sheet-content');
   if (!content) return;
@@ -3081,31 +3219,15 @@ function setupMobile() {
     return l;
   }
 
-  // ---- Need-pathway input (mirrors the desktop sidebar) ----
-  addLabel('What are you trying to do?');
-  const ta = document.createElement('textarea');
-  ta.className = 'sheet-need-input';
-  ta.id = 'sheet-need-input';
-  ta.rows = 2;
-  ta.placeholder = 'e.g. land trusts in Atlanta';
-  content.appendChild(ta);
-  const needRow = document.createElement('div');
-  needRow.className = 'sheet-need-row';
-  const goBtn = document.createElement('button');
-  goBtn.className = 'sheet-need-btn';
-  goBtn.type = 'button';
-  goBtn.textContent = 'Find';
-  needRow.appendChild(goBtn);
-  content.appendChild(needRow);
-  goBtn.addEventListener('click', () => {
-    const inp = document.getElementById('need-input');
-    if (inp) {
-      inp.value = ta.value;
-      if (window.CommonweaveSearch) window.CommonweaveSearch.run();
-    }
-    fab.classList.remove('open');
-    sheet.classList.remove('open');
-  });
+  // Move the same controls and results at the breakpoint. No hidden duplicate
+  // search state, and results stay in the open sheet after pressing Find.
+  const discovery = document.getElementById('discovery-controls');
+  const media = matchMedia('(max-width: 600px)');
+  const moveDiscovery = () => {
+    if (media.matches) content.prepend(discovery);
+    else document.getElementById('discovery-home').append(discovery);
+  };
+  media.addEventListener('change', moveDiscovery); moveDiscovery();
 
   // ---- Tier filter ----
   addLabel('Data quality');
@@ -3116,8 +3238,9 @@ function setupMobile() {
     b.className = 'sheet-tier-btn' + (activeTiers.has(t) ? ' active' : '');
     b.dataset.tier = t;
     b.type = 'button';
-    b.textContent = t + (t === 'A' ? ' Curated' : t === 'B' ? ' Verified' : ' Inferred');
+    b.textContent = t + (t === 'A' ? ' Curated' : t === 'B' ? ' Source backed' : ' Inferred');
     b.addEventListener('click', () => {
+      activePresetFilterFn = null;
       if (activeTiers.has(t)) activeTiers.delete(t);
       else activeTiers.add(t);
       b.classList.toggle('active');
@@ -3136,6 +3259,9 @@ function setupMobile() {
   addLabel('Tap section to filter');
   AREAS_ORDERED.forEach(area => {
     const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (!activeSection || activeSection === area ? ' active' : '');
+    btn.dataset.area = area;
+    btn.type = 'button';
     btn.style.cssText = 'display:flex;align-items:center;gap:8px;width:100%;padding:8px 4px;background:none;border:none;color:var(--text-secondary);font-family:inherit;font-size:13px;cursor:pointer;border-bottom:1px solid var(--border);';
     const dot = document.createElement('span');
     dot.style.cssText = `width:10px;height:10px;border-radius:50%;background:${AREA_COLORS[area]};flex-shrink:0`;
@@ -3148,21 +3274,23 @@ function setupMobile() {
     btn.appendChild(cnt);
     btn.addEventListener('click', () => {
       activeSection = activeSection === area ? null : area;
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.toggle('active', !activeSection || b.dataset.area === activeSection);
+        b.setAttribute('aria-pressed', String(!activeSection || b.dataset.area === activeSection));
+      });
       rebuildQuadtree();
       updateVisibleCount();
       render();
       writeUrlState();
-      fab.classList.remove('open');
-      sheet.classList.remove('open');
     });
     content.appendChild(btn);
   });
 
   // ---- View mode quick switch ----
-  addLabel('View mode');
+  const viewLabel = addLabel('View');
   const viewRow = document.createElement('div');
   viewRow.style.cssText = 'display:flex;gap:6px;margin-top:4px';
-  [['network', 'Network'], ['geo', 'Geographic'], ['health', 'System Health']].forEach(([m, lab]) => {
+  [['geo', 'Places'], ['list', 'List'], ['network', 'Network'], ['health', 'Coverage']].forEach(([m, lab]) => {
     const b = document.createElement('button');
     b.className = 'sheet-need-btn';
     b.style.cssText = 'flex:1';
@@ -3172,10 +3300,11 @@ function setupMobile() {
       setViewMode(m);
       fab.classList.remove('open');
       sheet.classList.remove('open');
+      fab.setAttribute('aria-expanded', 'false');
     });
     viewRow.appendChild(b);
   });
-  content.appendChild(viewRow);
+  content.prepend(viewLabel, viewRow);
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -3193,7 +3322,12 @@ function waitForMapReady(cb) {
   if (mapReady) { cb(); return; }
   mapReadyResolvers.push(cb);
   // Safety: don't sit on the loading screen forever if MapLibre never fires.
-  setTimeout(() => { if (!mapReady) cb(); }, 6000);
+  setTimeout(() => {
+    if (!mapReady) {
+      if (viewMode === 'geo' || viewMode === 'health') setViewMode('list');
+      notifyMapReady();
+    }
+  }, 6000);
 }
 function fadeOutLoading() {
   const loading = document.getElementById('loading');
@@ -3224,6 +3358,7 @@ async function main() {
   // mode. Building them is fast - running the d3 force ticks is what's slow,
   // so we defer those until the loading screen is gone.
   const sim = buildSimulation();
+  pendingNetworkSimulation = sim;
   buildQuadtree();
   setupCanvas();
   setupSidebar(tierCounts);
@@ -3262,23 +3397,11 @@ async function main() {
     startAnimationLoop();
   }
 
-  // Geo/health: hide the loading overlay as soon as MapLibre has the
-  // basemap + cluster source ready. The d3 simulation keeps running in the
-  // background so a later switch to network mode finds a settled layout.
-  // Network: wait for the simulation to settle before fading, otherwise the
-  // user would see a scattered cloud reorganise itself into sections.
+  // Places and lists do not run the unrelated network force simulation.
   if (viewMode === 'geo' || viewMode === 'health') {
     waitForMapReady(finishBoot);
-    runSimulation(sim, () => {
-      rebuildQuadtree();
-      if (viewMode === 'network') render();
-    });
   } else {
-    runSimulation(sim, () => {
-      rebuildQuadtree();
-      if (viewMode === 'network') render();
-      finishBoot();
-    });
+    finishBoot();
   }
 
   // Listen for hash changes (back/forward navigation) so the map keeps state
@@ -3286,6 +3409,7 @@ async function main() {
   window.addEventListener('hashchange', () => {
     if (isRestoringUrl) return;
     applyUrlState();
+    if (window.CommonweaveSearch) window.CommonweaveSearch.refresh();
     syncTierButtons();
     syncHighConfidenceToggle();
     document.querySelectorAll('.filter-btn').forEach(b => {

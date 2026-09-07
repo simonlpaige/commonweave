@@ -1,136 +1,70 @@
-# Attraction Plan: how organizations find Commonweave and want to stay
+# Participation and traction: a 30-day test
 
-*2026-07-03, written as part of the red-team rebuild. Companion to OUTREACH.md
-(which governs how we contact people). This document is about the opposite
-direction: making the directory useful enough that orgs, networks, and
-organizers come to it, claim their place in it, and tell others.*
+Updated 2026-09-05. The objective is a useful correction, a reusable local resource, or a mutually agreed introduction. Directory size, messages sent, and backlinks are not evidence of coordination. This plan is ready for review; deliveries, recruitment, and external publication have not occurred as part of this revision.
 
-The May 2026 automated outreach experiment taught the lesson the hard way:
-push doesn't work for a project whose entire value is trust. A cold email
-from an unknown directory is spam; the same directory handing you something
-you actually need is infrastructure. Everything below is a variation on one
-move: **give a specific, verifiable, locally-relevant gift, and make the
-next step obvious and voluntary.**
+**Offer:** help a person solve one defined discovery problem, then make it easy to correct what we got wrong. Named organizations should receive value through their existing work and processes. Participation in Commonweave is optional.
 
-The asset that makes this possible now exists: `data/map/circuits.json`
-identifies groups of nearby organizations that jointly fill the roles of a
-documented solution circuit (land + build labor + finance = housing pipeline;
-grower + distributor + food access = local food loop; and eight more). That
-is information almost no local org has about itself.
+## What prior outreach actually establishes
 
----
+The repository [outreach log](outreach-log.md) contains April attempts, with responses recorded as pending. The later local working log dated May 27 contains mixed dry-run and live-send records, including duplicate entries. It is not a clean delivery or conversion denominator. On September 5 the [Decidim invitation](https://github.com/decidim/decidim/issues/16554) was closed and the [Open Food Network invitation](https://github.com/openfoodfoundation/openfoodnetwork/issues/14155) was closed as not planned. The complete comment history and reasons were not established in this review.
 
-## Mechanism 1: Circuit introduction briefs (the gift that's also the thesis)
+These facts justify retiring broad invitations through issue trackers. They do not prove every cold contact fails, establish a response rate, or authorize a new follow-up. Reconcile delivery evidence and prior conversations before another approach to an already contacted organization. Keep drafts, simulations, deliveries, replies, and outcomes distinct.
 
-**What.** A one-page brief per circuit candidate: "Within 12 km of each
-other: {Land steward} + {Build labor} + {Community finance}. Together these
-three could run a labor-for-housing pipeline. Here's the documented pattern
-(LABOR-FOR-HOUSING-GUIDE.md), here's what each role contributes, here's what
-usually goes wrong." Rendered from circuits.json with a stable URL per
-circuit group (map deep-link + printable page).
+## Four mechanisms with a concrete return
 
-**Why it attracts.** It's the only artifact in this space that tells three
-specific orgs something actionable about *each other*. Nobody has to join
-anything: the brief is complete without us. If it's wrong, the correction
-flow teaches us; if it's right, we're the project that introduced them.
+| Audience | Value available before participation | Voluntary next step | Evidence of value |
+|---|---|---|---|
+| Local organizer | A shareable map/brief for one problem: roles, sources, coverage gaps, constraints, and a source-directory alternative. | Correct one role or keep a shortlist. | Useful lead confirmed in a task; later reuse. |
+| Listed organization | Its source-linked record, with explanation of how the map uses it. | [Suggest a correction](participate.html), evidence of representation, or removal/coarser location. | Accepted correction and visible disposition; self-attestation does not become independent verification. |
+| Federation or source-directory steward | A small, reproducible comparison report: ten checked rows, uncertainty, provenance, and suggested upstream changes. | Accept a correction in their own workflow or review one field mapping. | Upstream acceptance; agreed refresh/deletion convention. |
+| Practitioner/contributor | A bounded task with sources, output format, review owner, and completion criteria. | Check one record, translate five labels, or test a discovery task. | First accepted contribution and a voluntary second contribution. |
 
-**How it ships with zero budget.**
-- Generator: `tools/build-circuit-briefs.py` renders a static `briefs/` index,
-  printable page per group, machine-readable manifest, and sitemap entries.
-  As of 2026-07-22, the source declares 76 candidates but contains 13 groups;
-  the manifest records that mismatch, and public copy must not claim 76 until
-  the export is repaired.
-- Distribution is NOT bulk email. Route each brief through the most
-  credible LOCAL channel: the city's co-op development center, a CLT
-  network's newsletter, one warm human. One brief, hand-delivered, per week
-  beats 500 sends.
-- Every brief ends with: "Are we wrong about one of these three orgs?
-  Correct us" → prefilled GitHub issue (already wired in map.html).
+The existing [circuit briefs](briefs/index.html) are candidate introductions. Audit every proposed role before distribution. A nearby credit union is not necessarily development finance; a land organization is not necessarily a housing steward; a toolkit is not a staffed service. Where evidence is absent, show the missing role instead of completing a misleading circuit.
 
-**Success metric.** Replies/corrections per brief delivered (target: any
-response on 1 in 4); one documented introduction that led to a real meeting
-within 90 days.
+## Named organizations and sequence
 
-## Mechanism 2: Serve federations, not individual orgs
+The [nine-entity source review and draft messages](docs/participation-partners-2026-09-05.md) contain dated official links, observed remit, proposed correction, unknowns, and a bounded offer for each organization.
 
-**What.** Every federation/network in the directory (ICA, RIPESS, Grounded
-Solutions, Transition Network, mutual aid hubs...) maintains a member
-directory, and every one of those directories is partly stale. We generate
-**member-directory health reports**: dead websites, moved orgs, missing
-geocodes, members that appear in other networks, members that show up in
-circuit candidates. CC0, no strings.
+Start with **Data Commons Cooperative / Find.coop** and **Transition Network**: both already support distributed directory work. Prepare one useful packet for each; the proposal does not assume either wants a new partner. **Grounded Solutions Network**, **RIPESS**, and **ICA** are second-stage source/role reviewers after the relevant terms and regional scope are clear. **OFN**, **Decidim**, **CHT**, and **OpenMRS** are contribution opportunities through their own processes, not an immediate invitation campaign.
 
-**Why it attracts.** One conversation with a network reaches hundreds of
-orgs with borrowed trust. Networks have a real, unglamorous maintenance
-problem we can partially automate. The report is useful even if they ignore
-us forever — which is exactly why it works.
+Grounded Solutions' [map terms](https://groundedsolutions.org/SEHmap/) require advance permission for wider circulation of its census data. Offer links and original analysis first. Neither publicly accessible data nor Commonweave's repository license grants a blanket right to relicense source datasets as CC0.
 
-**How it ships.** `tools/federation-health-report.py` reading the DB +
-link-checker (a weekend). Deliver v1 to the two networks already curated in
-`data/federations.yaml` (ICA, and pick one of RIPESS/Grounded Solutions).
-Ask nothing except "is this useful? what did we get wrong?"
+## First 30 days
 
-**Success metric.** 1 network integrates or replies substantively per
-quarter; their members start appearing in the corrections queue (that means
-they're looking).
+This is a relative schedule starting when a maintainer accepts ownership. Suggested capacity is 24 maintainer hours; no staff, cash, reviewer, or partner is presumed committed. The complete pilot card and decision rules are in the [operating model](FRAMEWORK-OPERATING-MODEL.md).
 
-## Mechanism 3: Claim your listing (make the directory self-improving)
+| Days | Work and accountable role to confirm | Reviewable output / gate |
+|---|---|---|
+| 1–7 | Maintainer and data reviewer reconcile published counts; choose one local problem and audit ten records, twenty proposed roles, and source permissions. | One corrected shortlist and one ten-row source comparison. Every claim has a source/date or is marked unknown. No credible local scope: narrow the task. |
+| 8–14 | Pilot lead recruits consenting practitioners through an existing relationship or a host-approved invitation. Maintainer prepares two named-network packets. | Ten-person task protocol, comparator, draft artifacts, and reviewed participation route. No willing reviewer: do not represent a local pilot as active. |
+| 15–21 | Run discovery sessions, alternate task order, repair observed failures. If separately authorized, a human delivers up to four distinct reviewed artifacts through appropriate channels. | Session outcomes and fixes; actual delivery evidence, one useful question per artifact, no automatic follow-up. A draft is not a delivery. |
+| 22–30 | Maintainer closes the correction loop; consenting participants may reuse resources. Result reviewer compares the baseline and publishes aggregate learning after review. | Continue/revise/stop decision, maintenance time, unresolved errors, accepted upstream corrections, and any mutually agreed introduction. |
 
-**What.** A visible, low-friction path for an org to verify and own its
-entry: "This is us" → confirm/fix details → entry gets the reviewed marker
-(Tier A path) and a `claimed` badge on the map + a small embeddable badge
-("On the Commonweave map — 29,378 organizations weaving healthier
-communities") for their site, which links back to their map deep-link.
+## Scorecard and stop rules
 
-**Why it attracts.** The badge is a tiny status good and a backlink engine;
-each claimed listing is a unit of Tier A data we didn't have to research;
-each embed is organic distribution to exactly the right audience.
+Start every numerator at **not measured**. Record denominators; exclude maintainer/agent activity from external participation metrics.
 
-**How it ships.** Phase 1 needs no backend: "Claim this listing" button in
-the map detail panel → prefilled GitHub issue with a `claim` label + an
-email fallback (hello@commonweave.earth). A maintainer verifies (reply from
-an org-domain address or the org's listed site referencing the claim),
-flips `review_status`, done. Badge = one static SVG endpoint per org id.
+| Metric | Proposed initial gate | What changes on failure |
+|---|---|---|
+| Discovery success | At least 7 of 10 practitioners find a checked useful lead within ten minutes. | Improve scope, evidence, or interface before growth. |
+| Value over usual method | Lower median time at comparable usefulness, or an additional useful lead for 3 of 10 participants. | Prefer helping the existing directory where it performs equally well. |
+| Suggestion clarity | 9 of 10 correctly distinguish inferred and sourced relationships. | Simplify/remove connection displays that imply unsupported partnerships. |
+| Artifact response | At least one substantive correction/use report from four confirmed deliveries. | Review audience, deliverability, and offer; pause expansion. |
+| Retention | Three practitioners voluntarily reuse a resource or contribute again during the month. | Fix recurring value before badges, newsletters, or further invitations. |
+| Sustainability | Stay within 24 maintainer hours and two weeks of available correction capacity. | Pause new acquisition/ingest and service the queue. |
 
-**Success metric.** Claims per month (target: 5/mo by day 90); % of claims
-that arrive via another org's badge or brief (the compounding signal).
+An organization-confirmed introduction is a later outcome, not a condition imposed on participants. Stop contact immediately on decline or opt-out. Unresolved source restrictions, harmful exposure, or material role errors hold the affected artifact from delivery.
 
----
+## Attraction after the first useful result
 
-## Grassroots sequencing (30 / 60 / 90)
+Use problem-and-place titles people actually search for; each page must offer its answer, sources, correction route, and an obvious next action without a signup. A corrected brief can be printed or shared by a practitioner with permission. Return improvements to original directories and credit their stewardship. Publish a short change report only when something meaningful changes: corrections, stronger evidence, an invalidated connection, or a confirmed use case.
 
-**Days 1–30 — prove the gift works.** Ship brief generator; hand-deliver 4
-circuit briefs (one per week) through one warm channel each, chosen from the
-strongest US candidates in circuits.json (Hartford, Syracuse, Tulsa, Durham
-are already promising). Add the claim button. Effort: ~2 evenings/week.
-Gate: if 0 of 4 briefs get any response, the brief format is wrong — revise
-before scaling, don't send more.
+After measured repeat use, a network may choose a correction session or ongoing data exchange with an agreed workload. Defer claimed badges, recurring newsletters, paid promotion, broad integrations, and formal affiliations until value and capacity are demonstrated. No automatic badge or Tier A upgrade follows a form submission.
 
-**Days 31–60 — borrow a network's trust.** Federation health report v1 to
-ICA + one other. Post ONE show-don't-tell artifact where practitioners
-already talk (co-op listservs, a CLT network call, r/cooperatives): the
-city-level circuit map for one metro, framed as a question — "we think
-these three orgs could build housing together; what are we missing?" —
-not an announcement.
+## Concrete packet ready for review
 
-**Days 61–90 — make it a habit.** Monthly "weave report": what got added,
-what got corrected, which circuits got stronger, one introduction that
-happened. Same post, three places (site, one listserv, one fediverse
-account). Invite one guest correction-sprint with a partner network's
-members.
+The [five-record OFN correction packet](docs/participation-ofn-corrections-2026-09-05.md) is prepared with exact release IDs, missing fields, proposed wording, primary sources, and uncertainties. Review and apply these Commonweave corrections first; no OFN reply or new contact is needed. Its primary draft message is in the [named organization review](docs/participation-partners-2026-09-05.md#a-completed-packet-and-primary-draft). Publication and sending remain undone.
 
-**What we deliberately do NOT do:** bulk email campaigns, GitHub issue
-outreach, engagement-bait threads, press releases, "launch" theater. The
-directory is infrastructure; infrastructure earns trust by being repeatedly
-useful in small ways.
+## Next bounded contribution
 
----
-
-## Honesty rails (applies to every mechanism)
-
-- Every number quoted anywhere comes from `data/map/stats.v3.json` with its
-  build date. No exceptions (OUTREACH.md rule 6).
-- Circuit briefs say "derived, unverified — treat as an introduction worth
-  making, not an existing partnership" in the body, not a footnote.
-- Every artifact carries its correction path. The gift includes the ability
-  to tell us we're wrong; that's what makes it credible.
+Finish the ten-row Data Commons packet specified in the [source review](docs/participation-partners-2026-09-05.md#acceptance-criteria-for-the-next-contribution). Mark it ready for review; a maintainer then has a concrete artifact to consider. Follow [OUTREACH.md](OUTREACH.md) for any later contact.

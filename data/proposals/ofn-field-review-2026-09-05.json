@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "status": "pending_maintainer_review",
+  "source_snapshot": "releases/organizations.json.gz",
+  "source_sha256": "fb7568f5a276a651da6372ef422e5e05f13551b2e5df6bfaf66f9d92c4bc0324",
+  "review_note": "docs/participation-ofn-corrections-2026-09-05.md",
+  "limitations": "Compare expected fields with current canonical database before acceptance. No tier promotion, partnership, service availability or new location is established. Source website content retains its own terms.",
+  "proposals": [
+    {
+      "proposal_id": "ofn-field-review-2026-09-05-689396",
+      "operation": "update",
+      "organization_id": "689396",
+      "changes": {
+        "description": "Belgian Open Food Network instance linked from OFN's global site; local operation and current service scope need review.",
+        "website": "https://www.openfoodnetwork.be/"
+      },
+      "expected": {
+        "description": "Deployed November 2018; community managed by Oxfam-Magasins du monde, supporting local food access in Belgium.",
+        "website": null
+      },
+      "visibility_review": {
+        "decision": "public",
+        "reason": "Public national software instance; no coordinates, people or private group data added."
+      },
+      "reuse": {
+        "basis": "original_factual_summary",
+        "url": "https://openfoodnetwork.org/about-us/"
+      },
+      "review": {
+        "decision": "pending",
+        "reviewer": "",
+        "researcher": "Codex source review"
+      },
+      "evidence": [
+        {
+          "fields": [
+            "description",
+            "website"
+          ],
+          "url": "https://openfoodnetwork.org/about-us/",
+          "excerpt": "Reviewer summary (not a direct quotation): The global OFN overview links this Belgian instance; direct national-site availability was not verified.",
+          "checked_at": "2026-09-05"
+        }
+      ]
+    },
+    {
+      "proposal_id": "ofn-field-review-2026-09-05-689397",
+      "operation": "update",
+      "organization_id": "689397",
+      "changes": {
+        "description": "Open Food Network platform for finding regional producers and shops in Germany; pickup and delivery options depend on each shop.",
+        "website": "https://openfoodnetwork.de/"
+      },
+      "expected": {
+        "description": "Launched 2019; supports food access throughout village centres across Germany, developing new cooperative governance structures.",
+        "website": null
+      },
+      "visibility_review": {
+        "decision": "public",
+        "reason": "Public national software instance; no coordinates, people or private group data added."
+      },
+      "reuse": {
+        "basis": "original_factual_summary",
+        "url": "https://openfoodnetwork.de/"
+      },
+      "review": {
+        "decision": "pending",
+        "reviewer": "",
+        "researcher": "Codex source review"
+      },
+      "evidence": [
+        {
+          "fields": [
+            "description",
+            "website"
+          ],
+          "url": "https://openfoodnetwork.de/",
+          "excerpt": "Reviewer summary (not a direct quotation): The national site provides shops, producers and shop-specific delivery or pickup; launch date and countrywide coverage were not established.",
+          "checked_at": "2026-09-05"
+        }
+      ]
+    },
+    {
+      "proposal_id": "ofn-field-review-2026-09-05-689394",
+      "operation": "update",
+      "organization_id": "689394",
+      "changes": {
+        "description": "Open Food Network Canada provides an online marketplace connecting food producers, shops, hubs, and buyers. Availability and fulfilment depend on the participating enterprise."
+      },
+      "expected": {
+        "description": "Launched 2017; most active in Ontario, building capacity to deploy food sovereignty infrastructure broadly across Canada."
+      },
+      "visibility_review": {
+        "decision": "public",
+        "reason": "Public national software instance; no coordinates, people or private group data added."
+      },
+      "reuse": {
+        "basis": "original_factual_summary",
+        "url": "https://openfoodnetwork.ca/"
+      },
+      "review": {
+        "decision": "pending",
+        "reviewer": "",
+        "researcher": "Codex source review"
+      },
+      "evidence": [
+        {
+          "fields": [
+            "description"
+          ],
+          "url": "https://openfoodnetwork.ca/",
+          "excerpt": "Reviewer summary (not a direct quotation): The national site describes these platform functions; headquarters, Ontario concentration and founding date were not checked.",
+          "checked_at": "2026-09-05"
+        }
+      ]
+    },
+    {
+      "proposal_id": "ofn-field-review-2026-09-05-689398",
+      "operation": "update",
+      "organization_id": "689398",
+      "changes": {
+        "description": "Open Food Brasil provides an Open Food Network site with producer, shop, and map views; consult the participating shop for availability."
+      },
+      "expected": {
+        "description": "Launched 2019; brings open-source food sovereignty infrastructure to Brazilian food hubs, farmers, and cooperatives."
+      },
+      "visibility_review": {
+        "decision": "public",
+        "reason": "Public national software instance; no coordinates, people or private group data added."
+      },
+      "reuse": {
+        "basis": "original_factual_summary",
+        "url": "https://openfoodbrasil.com.br/"
+      },
+      "review": {
+        "decision": "pending",
+        "reviewer": "",
+        "researcher": "Codex source review"
+      },
+      "evidence": [
+        {
+          "fields": [
+            "description"
+          ],
+          "url": "https://openfoodbrasil.com.br/",
+          "excerpt": "Reviewer summary (not a direct quotation): The national site displays the Open Food Brasil identity and producer, shop and map views; launch date and service reach were not checked.",
+          "checked_at": "2026-09-05"
+        }
+      ]
+    },
+    {
+      "proposal_id": "ofn-field-review-2026-09-05-689395",
+      "operation": "update",
+      "organization_id": "689395",
+      "changes": {
+        "description": "US Open Food Network instance linked by OFN's global site, providing shop and producer discovery. Local availability requires checking the participating enterprise."
+      },
+      "expected": {
+        "description": "Launched 2018 as a cooperative; growing network of member producers and food hubs stretching coast to coast."
+      },
+      "visibility_review": {
+        "decision": "public",
+        "reason": "Public national software instance; no coordinates, people or private group data added."
+      },
+      "reuse": {
+        "basis": "original_factual_summary",
+        "url": "https://openfoodnetwork.net/"
+      },
+      "review": {
+        "decision": "pending",
+        "reviewer": "",
+        "researcher": "Codex source review"
+      },
+      "evidence": [
+        {
+          "fields": [
+            "description"
+          ],
+          "url": "https://openfoodnetwork.net/",
+          "excerpt": "Reviewer summary (not a direct quotation): The national site returned OFN platform content and the global overview linked it as USA; legal form and coast-to-coast service were not established.",
+          "checked_at": "2026-09-05"
+        }
+      ]
+    }
+  ]
+}

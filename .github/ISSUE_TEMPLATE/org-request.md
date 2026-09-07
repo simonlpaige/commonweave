@@ -10,15 +10,19 @@ assignees: simonlpaige
 <!-- The name as it appears (or should appear) in the directory -->
 
 **Request type:**
-<!-- Choose one: Remove / Correct / Obscure location / Other -->
+<!-- Choose one: Remove / Correct / Reduce location detail / Add / Review my listing / Connection / Other -->
 
 **What needs to change:**
 <!-- If removing: just say "please remove"
      If correcting: describe what is wrong and what is correct
-     If obscuring location: we will use city-centroid (about 1km precision) instead of exact coordinates -->
+     If reducing location detail: request country-only visibility or no map pin.
+     Do not post private addresses, personal situations, or private group invitations.
+     Issues are public. A listing name or ID is sufficient for a protection request. -->
 
 **How we can verify (optional):**
-<!-- Not required. But if you'd like to share a website, social media, or other public link that confirms this is your organization, that helps us act quickly. -->
+<!-- Optional for removal/location protection. For additions or factual corrections,
+     include an official public page supporting the claim. Self-identification does
+     not automatically verify authority or establish a partnership. -->
 
 **Additional context:**
 <!-- Anything else we should know -->

@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Commonweave: Global Directory</title>
-<meta name="description" content="Search the Commonweave directory. Aligned civil society organizations across many countries. CC0 open data.">
-<meta property="og:title" content="Commonweave Global Directory">
-<meta property="og:description" content="Search the Commonweave directory. Aligned civil society organizations across many countries. CC0 open data.">
+<title>Organization directory · Commonweave</title>
+<meta name="description" content="Search organization records by country, region and category. Review source notes and confirm current services before making a plan.">
+<meta property="og:title" content="Organization directory · Commonweave">
+<meta property="og:description" content="Search organization records by country, region and category. Review source notes and confirm current services before making a plan.">
 <meta property="og:url" content="https://commonweave.earth/directory.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
@@ -15,10 +15,10 @@
 {
   "@context": "https://schema.org",
   "@type": "DataCatalog",
-  "name": "Commonweave Global Directory",
+  "name": "Commonweave organization directory",
   "url": "https://commonweave.earth/directory.html",
-  "description": "Searchable directory of aligned civil-society organizations across many countries.",
-  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "description": "Search organization records by country, region and category. Review source notes and confirm current services before making a plan.",
+  "license": "https://github.com/simonlpaige/commonweave/blob/master/LICENSE",
   "isAccessibleForFree": true,
   "isPartOf": {
     "@type": "WebSite",
@@ -30,8 +30,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/brand.css">
-<link rel="stylesheet" href="assets/css/commonweave.css">
+<link rel="stylesheet" href="assets/css/brand.css?v=ac1ae7a4a9c0">
+<link rel="stylesheet" href="assets/css/commonweave.css?v=61c3d54ad08e">
 <style>
 .page-head {
   max-width: 1180px; margin: 0 auto;
@@ -329,58 +329,39 @@ select:focus { border-color: var(--moss); }
   .country-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }
 </style>
+<link rel="stylesheet" href="assets/css/site-shell.css?v=ddf093745d61">
 </head>
-<body>
+<body class="cw-page">
+<a class="skip-link" href="#main-content">Skip to directory</a>
 <h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">Commonweave Global Directory</h1>
 
-<nav class="site-nav" role="navigation" aria-label="Site navigation">
-  <div class="nav-mark">
-    <a href="index.html" aria-label="Commonweave home">
-      <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="commonweave">
-        <g transform="translate(0,5)">
-          <circle cx="60" cy="60" r="56" fill="none" stroke="#16201A" stroke-width="1.6"/>
-          <line x1="6" y1="60" x2="114" y2="60" stroke="#16201A" stroke-width="0.8" opacity="0.4"/>
-          <path d="M 30 30 C 50 60, 70 60, 90 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <path d="M 90 30 C 70 60, 50 60, 30 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <circle cx="60" cy="60" r="3" fill="#B4593A"/>
-        </g>
-        <text x="140" y="80" font-family="Instrument Serif, Source Serif 4, Georgia, serif" font-style="italic" font-size="64" fill="#16201A" letter-spacing="-1.5">commonweave</text>
-      </svg>
-    </a>
-  </div>
-  <div class="nav-links" role="list">
-    <a href="index.html#map">Map</a>
-    <a href="index.html#sections">Sections</a>
-    <a href="index.html#docs">Docs</a>
-    <a href="index.html#about">About</a>
-    <a href="directory.html" class="active">Directory</a>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Switch to dark mode">
-      <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-      <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-    </button>
-  </div>
-</nav>
+<!-- cw:header:start -->
+<header data-site-header>
+  <nav class="cw-nav" aria-label="Main navigation">
+    <a class="cw-brand" href="index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
+    <div class="cw-primary"><a href="knowledge.html">Knowledge base</a><a href="map.html">Map</a></div>
+    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
+      <a href="directory.html" aria-current="page">Organization directory</a>
+      <a href="participate.html">Contribute or correct</a>
+      <a href="pipeline.html">About the data</a>
+      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
+    </div></details>
+  </nav>
+</header>
+<!-- cw:header:end -->
 
-<header class="page-head">
-  <div class="eyebrow">&sect; 02 &middot; Directory</div>
-  <h1>Browse the threads.</h1>
-  <p class="blurb">Search the directory by country, by US state, or by category. Each entry was ingested from a public registry, an open dataset, or curated network membership lists. Open data, CC0.</p>
+<header class="page-head" id="main-content" tabindex="-1">
+  <div class="eyebrow">Organizations &middot; A supporting resource</div>
+  <h1>Organization directory</h1>
+  <p class="blurb">Search published organization records by country, US state or category. To explore how different roles could fit together, start with the <a href="map.html">map</a>. Listings need review before you rely on their services.</p>
 </header>
 
 <div class="page">
-  <div class="pdf-link-row">
-    <a href="pipeline.pdf">How we find these organizations <span class="pdf-ext">PDF</span></a>
-    <span class="pdf-note">the full pipeline, sources, and grading ladder explained plainly</span>
-  </div>
-
-  <div class="pdf-link-row">
-    <a href="labor-for-housing-guide.pdf">A field guide to labor-for-housing cooperatives <span class="pdf-ext">PDF</span></a>
-    <span class="pdf-note">how to stitch labor, land, and housing into one democratic pipeline</span>
-  </div>
+  <p class="pdf-link-row"><a href="pipeline.html">About this data</a><span>What the sources, dates and review labels can tell you.</span></p>
 
   <div class="stats-bar" id="stats-bar">
-    <div class="stat"><div class="stat-num" id="stat-total">&mdash;</div><div class="stat-label">Organizations</div></div>
-    <div class="stat"><div class="stat-num" id="stat-countries">&mdash;</div><div class="stat-label">Countries</div></div>
+    <div class="stat"><div class="stat-num" id="stat-total">&mdash;</div><div class="stat-label">Indexed candidates</div></div>
+    <div class="stat"><div class="stat-num" id="stat-countries">&mdash;</div><div class="stat-label">Country / region buckets</div></div>
     <div class="stat"><div class="stat-num" id="stat-loaded">&mdash;</div><div class="stat-label">Currently showing</div></div>
   </div>
 
@@ -390,18 +371,20 @@ select:focus { border-color: var(--moss); }
     <button class="clear-btn" id="clear-btn" style="display:none">Clear</button>
   </div>
   <div class="filter-row">
-    <span class="filter-label">Country:</span>
+    <label class="filter-label" for="country-select">Country:</label>
     <select id="country-select"><option value="">select country</option></select>
     <span id="state-wrap" style="display:none">
-      <select id="state-select"><option value="">All states</option></select>
+      <select id="state-select" aria-label="US state"><option value="">Choose a state</option></select>
     </span>
-    <select id="ntee-select" style="display:none"><option value="">All categories</option></select>
-    <select id="sort-select">
+    <select id="ntee-select" aria-label="Organization category" style="display:none"><option value="">All categories</option></select>
+    <select id="sort-select" aria-label="Sort results">
       <option value="name">Sort: Name A&ndash;Z</option>
       <option value="revenue">Sort: Revenue, high to low</option>
       <option value="relevance">Sort: Relevance</option>
     </select>
   </div>
+  <p id="search-scope" role="status" aria-live="polite">Choose a country to search its listings. For needs and nearby connections, <a href="map.html">explore the map</a>.</p>
+  <p class="data-note">Entries are candidates for research, not endorsements or a guarantee of available services. <a href="map.html">Explore needs and connections on the map</a>, <a href="docs/DATA-AUDIT-2026-09-05.md">read the published-list audit</a>, or <a href="participate.html?type=add">suggest an organization</a>.</p>
 
   <!-- Content area -->
   <div id="content">
@@ -415,6 +398,7 @@ select:focus { border-color: var(--moss); }
   </div>
 </div>
 
+<script src="assets/js/directory-data.js?v=030d67339767"></script>
 <script>
 const BASE = 'data/search/';
 const PAGE_SIZE = 50;
@@ -423,19 +407,19 @@ const FEATURED_ORGS = [
   {
     name: 'Decidim',
     url: 'https://decidim.org',
-    desc: 'Open-source participatory democracy platform used by Barcelona and 400+ cities worldwide.',
+    desc: 'Open-source software for participatory processes and democratic decision-making. A platform to implement, not a local public service.',
     tags: ['Platform', 'Democracy', 'Open Source']
   },
   {
     name: 'Mondragon Corporation',
     url: 'https://www.mondragon-corporation.com',
-    desc: "World's largest worker cooperative federation. 80,000+ worker-owners across manufacturing, finance, and retail in Spain's Basque Country.",
+    desc: "A cooperative group with activities in finance, industry, retail, and knowledge. Its workforce should not be described as entirely worker-owners.",
     tags: ['Cooperative', 'Manufacturing', 'Spain']
   },
   {
     name: 'Moodle',
     url: 'https://moodle.org',
-    desc: 'Open-source learning management platform powering 300M+ users across universities, schools, and workplaces globally.',
+    desc: 'Open-source learning management software for educators and learners. Running a service also requires hosting, support, and teaching capacity.',
     tags: ['EdTech', 'Open Source', 'Australia']
   },
   {
@@ -447,25 +431,25 @@ const FEATURED_ORGS = [
   {
     name: 'Wikimedia Foundation',
     url: 'https://wikimediafoundation.org',
-    desc: 'Nonprofit operating Wikipedia and 14 free-knowledge projects, the largest open knowledge commons in history.',
+    desc: 'Nonprofit supporting Wikipedia and other Wikimedia free-knowledge projects and communities.',
     tags: ['Knowledge', 'Nonprofit', 'USA']
   },
   {
     name: 'Community Land Trust Network',
     url: 'https://www.communitylandtrusts.org.uk',
-    desc: 'UK umbrella body supporting 300+ community land trusts providing permanently affordable homes and community assets.',
+    desc: 'A network supporting community ownership of housing and land. Check individual trusts for their location, projects, and availability.',
     tags: ['Housing', 'CLT', 'UK']
   },
   {
     name: 'NRECA (Rural Electric Co-ops)',
     url: 'https://www.electric.coop',
-    desc: '900+ US electric cooperatives serving 42M people in 48 states. Member-owned energy infrastructure at scale.',
+    desc: 'The US association representing electric cooperatives. Check a local cooperative for its service territory and energy mix; ownership alone does not establish ecological performance.',
     tags: ['Energy', 'Cooperative', 'USA']
   },
   {
     name: 'OpenMRS',
     url: 'https://openmrs.org',
-    desc: 'Open-source medical records platform deployed in 40+ low-resource countries, enabling community-driven healthcare.',
+    desc: 'Electronic medical records software developed by a global community. It supports health systems; it is not a healthcare provider.',
     tags: ['Health', 'Open Source', 'Global']
   }
 ];
@@ -480,6 +464,7 @@ let currentNtee = '';
 let searchQuery = '';
 let sortBy = 'name';
 let usStateMeta = null;
+const requests = CommonweaveDirectory.latestRequest();
 
 const $ = id => document.getElementById(id);
 const content = $('content');
@@ -488,14 +473,23 @@ const content = $('content');
 async function loadIndex() {
   try {
     const r = await fetch(BASE + 'index.json?_=' + Date.now());
+    if (!r.ok) throw new Error('Index unavailable');
     indexData = await r.json();
     populateCountrySelect();
     $('stat-total').textContent = indexData.total_orgs.toLocaleString();
     $('stat-countries').textContent = indexData.total_countries;
     $('stat-loaded').textContent = '0';
     showPrompt();
+    const initial = new URLSearchParams(location.search);
+    const initialCountry = initial.get('country');
+    if (initialCountry && Object.hasOwn(indexData.countries, initialCountry)) {
+      searchQuery = (initial.get('q') || '').slice(0, 200);
+      $('search-input').value = searchQuery;
+      $('clear-btn').style.display = searchQuery ? '' : 'none';
+      await selectCountry(initialCountry);
+    }
   } catch(e) {
-    content.innerHTML = '<div class="state-msg"><div class="big">!</div><p>Could not load directory index. Make sure <code>data/search/index.json</code> exists.</p></div>';
+    content.innerHTML = '<div class="state-msg"><p>The directory could not load. <button onclick="location.reload()">Try again</button> or <a href="DIRECTORY.md">read the text directory</a>.</p></div>';
   }
 }
 
@@ -537,7 +531,7 @@ function showPrompt() {
   const researchCodes = Object.keys(countries).filter(c => countries[c].source === 'research' || (countries[c].count < 5000 && c !== 'US'));
 
   let html = `<div class="data-note">
-    <strong>About this data.</strong> The directory indexes aligned civil society organizations selected from public registries (IRS EO BMF, UK Charity Commission, Brazil Mapa das OSCs, Australia ACNC, Wikidata) and thematic networks via multi-pass keyword alignment scoring against the framework. Entries are being actively enriched with descriptions and links. Headline counts on the homepage and the map are pulled from <code>data/map/stats.json</code> at runtime; counts here come from the per-country <code>data/search/index.json</code> built alongside it. Both reflect the last published static snapshot &mdash; the working database may be ahead.
+    <strong>About this data.</strong> Public registries and thematic networks provide leads for review. Keyword matches do not establish an organization's mission, current activity, or willingness to collaborate. The directory, map, and download have different publication dates and totals; the audit records those differences. Search covers the country or US state you select.
   </div>`;
 
   html += '<div class="section-title">Featured organizations</div>';
@@ -573,26 +567,52 @@ function showPrompt() {
 
 // ── Country selection ────────────────────────────────────────────────────────
 async function selectCountry(code) {
+  if (!Object.hasOwn(indexData.countries, code)) return;
+  const token = requests.next();
   currentCountry = code;
   currentState = '';
+  currentNtee = '';
+  countryData = null;
+  filteredOrgs = [];
   currentPage = 1;
+  $('stat-loaded').textContent = '0';
+  $('ntee-select').value = '';
+  $('state-select').innerHTML = '<option value="">Choose a state</option>';
   $('country-select').value = code;
   $('state-wrap').style.display = 'none';
   $('ntee-select').style.display = 'none';
   content.innerHTML = '<div class="loader">Loading</div>';
 
-  if (code === 'US') {
-    await loadUSMeta();
-  } else {
-    await loadCountryData(code);
+  $('search-scope').textContent = code === 'US' ? 'Choose a US state to search its listings.' : `Searching listings in ${indexData.countries[code].name || code}.`;
+  try {
+    if (code === 'US') await loadUSMeta(token);
+    else await loadCountryData(code, token);
+  } catch (error) {
+    if (requests.isCurrent(token)) showLoadError();
   }
 }
 
-async function loadUSMeta() {
+function showLoadError() {
+  countryData = null;
+  filteredOrgs = [];
+  $('stat-loaded').textContent = '0';
+  content.innerHTML = '<div class="state-msg"><p>These listings could not load. Choose another place, or <button onclick="retryListings()">try this place again</button>. You can also <a href="DIRECTORY.md">read the text directory</a>.</p></div>';
+}
+
+function retryListings() {
+  if (currentCountry === 'US' && currentState) selectState(currentState);
+  else if (currentCountry) selectCountry(currentCountry);
+}
+
+async function loadUSMeta(token) {
   if (!usStateMeta) {
     const r = await fetch(BASE + 'US_meta.json?_=' + Date.now());
-    usStateMeta = await r.json();
+    if (!r.ok) throw new Error('State index unavailable');
+    const next = await r.json();
+    if (!requests.isCurrent(token)) return;
+    usStateMeta = next;
   }
+  if (!requests.isCurrent(token)) return;
   // Show NTEE filter and state selector
   populateNteeSelect();
   $('ntee-select').style.display = '';
@@ -614,7 +634,12 @@ function showUSStateSelector() {
 }
 
 async function selectState(code) {
+  if (currentCountry !== 'US' || !Object.hasOwn(usStateMeta?.states || {}, code)) return;
+  const token = requests.next();
   currentState = code;
+  countryData = null;
+  filteredOrgs = [];
+  $('stat-loaded').textContent = '0';
   currentPage = 1;
   // Highlight active state button
   document.querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
@@ -630,25 +655,32 @@ async function selectState(code) {
   }
   $('state-select').value = code;
   content.innerHTML = '<div class="loader">Loading ' + (usStateMeta.states[code]?.name||code) + '</div>';
-  const r = await fetch(BASE + `US_${code}.json?_=` + Date.now());
-  countryData = await r.json();
-  applyFilters();
+  $('search-scope').textContent = `Searching listings in ${usStateMeta.states[code]?.name || code}, United States.`;
+  try {
+    const r = await fetch(BASE + `US_${code}.json?_=` + Date.now());
+    if (!r.ok) throw new Error('State data unavailable');
+    const next = await r.json();
+    if (!requests.isCurrent(token)) return;
+    countryData = {orgs: CommonweaveDirectory.organizations(next)};
+    applyFilters();
+  } catch (error) {
+    if (requests.isCurrent(token)) showLoadError();
+  }
 }
 
-async function loadCountryData(code) {
-  try {
-    const r = await fetch(BASE + `${code}.json?_=` + Date.now());
-    countryData = await r.json();
-    applyFilters();
-  } catch(e) {
-    content.innerHTML = `<div class="state-msg"><p>No data file found for ${code}. Research may be in progress.</p></div>`;
-  }
+async function loadCountryData(code, token) {
+  const r = await fetch(BASE + `${code}.json?_=` + Date.now());
+  if (!r.ok) throw new Error('Country data unavailable');
+  const next = await r.json();
+  if (!requests.isCurrent(token)) return;
+  countryData = {orgs: CommonweaveDirectory.organizations(next)};
+  applyFilters();
 }
 
 function populateNteeSelect() {
   const sel = $('ntee-select');
   sel.innerHTML = '<option value="">All categories</option>';
-  for (const [letter, name] of Object.entries(indexData.ntee_categories)) {
+  for (const [letter, name] of Object.entries(indexData.ntee_categories || {})) {
     const cnt = usStateMeta?.ntee_counts?.[letter] || 0;
     if (cnt === 0) continue;
     const opt = document.createElement('option');
@@ -712,7 +744,7 @@ function renderResults() {
     : (indexData?.countries?.[currentCountry]?.name || currentCountry);
 
   let html = `<div class="results-header">
-    <div class="results-count">Showing <strong>${start+1}&ndash;${end}</strong> of <strong>${total.toLocaleString()}</strong> orgs in ${escHtml(countryLabel)}</div>
+    <div class="results-count" role="status">Showing <strong>${total ? start+1 : 0}&ndash;${end}</strong> of <strong>${total.toLocaleString()}</strong> listings in ${escHtml(countryLabel)}</div>
   </div>`;
 
   if (total === 0) {
@@ -726,7 +758,8 @@ function renderResults() {
     const name = org.name || org.n || '';
     const city = org.city || org.c || '';
     const ntee = org.ntee_code || org.t || '';
-    const website = org.website || org.w || '';
+    const website = CommonweaveDirectory.safeWebsite(org.website || org.w);
+    const sourceUrl = CommonweaveDirectory.safeWebsite(org.source_url);
     const revenue = org.annual_revenue || org.r || 0;
     const desc = org.description || org.d || '';
     const nteeLabel = ntee ? (indexData?.ntee_categories?.[ntee[0]] || ntee) : '';
@@ -741,11 +774,11 @@ function renderResults() {
     if (revenue > 1000000) tags += `<span class="tag tag-revenue">$${(revenue/1000000).toFixed(1)}M / yr</span>`;
 
     const displayName = website
-      ? `<a href="${website.startsWith('http')?website:'https://'+website}" target="_blank" rel="noopener">${escHtml(name)}</a>`
+      ? `<a href="${escHtml(website)}" target="_blank" rel="noopener noreferrer">${escHtml(name)}</a>`
       : escHtml(name);
 
-    const encodedName = encodeURIComponent(name);
-    const requestUrl = `https://github.com/simonlpaige/commonweave/issues/new?template=org-request.md&title=[Org+Request]+${encodedName}`;
+    const requestParams = new URLSearchParams({org: name, id: String(org.id || org.i || ''), country: currentCountry, type: 'correct'});
+    const requestUrl = `participate.html?${requestParams}`;
 
     html += `<div class="org-card">
       <div class="org-top">
@@ -756,7 +789,8 @@ function renderResults() {
         </div>
       </div>
       <div class="org-footer">
-        <a href="${requestUrl}" target="_blank" rel="noopener" class="org-request-link" title="Request a change to this listing">Edit or remove this listing &rarr;</a>
+        <span>${sourceUrl ? `<a href="${escHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">Source record</a>` : 'Source evidence needs review'}</span>
+        <a href="${escHtml(requestUrl)}" class="org-request-link" title="Prepare a correction or removal request">Correct or review this listing</a>
       </div>
     </div>`;
   }
@@ -784,7 +818,7 @@ function renderResults() {
   }
 
   content.innerHTML = html;
-  content.scrollIntoView({behavior:'smooth', block:'start'});
+  // Keep the search field in view while typing; pagination scrolls explicitly.
 }
 
 function pageRange(cur, total) {
@@ -809,6 +843,7 @@ function goPage(p) {
   if (p < 1 || p > totalPages) return;
   currentPage = p;
   renderResults();
+  content.scrollIntoView({behavior:'auto', block:'start'});
 }
 
 function escHtml(s) {
@@ -824,7 +859,7 @@ $('search-input').addEventListener('input', e => {
   searchTimer = setTimeout(() => {
     if (countryData) applyFilters();
     else if (searchQuery.length >= 3) {
-      // No country selected but user is typing - show prompt to select one
+      $('search-scope').textContent = currentCountry === 'US' ? 'Choose a US state to search its listings.' : 'Choose a country first. Your search will run when its listings load.';
     }
   }, 250);
 });
@@ -839,8 +874,14 @@ $('clear-btn').addEventListener('click', () => {
 $('country-select').addEventListener('change', e => {
   if (e.target.value) selectCountry(e.target.value);
   else {
+    requests.next();
     currentCountry = '';
+    currentState = '';
+    currentNtee = '';
     countryData = null;
+    filteredOrgs = [];
+    $('stat-loaded').textContent = '0';
+    $('search-scope').textContent = 'Choose a country to search its listings.';
     $('state-wrap').style.display = 'none';
     $('ntee-select').style.display = 'none';
     showPrompt();
@@ -849,6 +890,7 @@ $('country-select').addEventListener('change', e => {
 
 $('state-select').addEventListener('change', e => {
   if (e.target.value) selectState(e.target.value);
+  else selectCountry('US');
 });
 
 $('ntee-select').addEventListener('change', e => {
@@ -864,6 +906,11 @@ $('sort-select').addEventListener('change', e => {
 // ── Init ─────────────────────────────────────────────────────────────────────
 loadIndex();
 </script>
-<script src="assets/js/theme.js"></script>
+<!-- cw:footer:start -->
+<footer data-site-footer class="cw-footer">
+  <p>A shared framework. Evidence to inspect. Work to improve together.</p>
+  <div><a href="knowledge.html">Knowledge base</a><a href="map.html">Map</a><a href="participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
+</footer>
+<!-- cw:footer:end -->
 </body>
 </html>
