@@ -12,6 +12,8 @@ The canonical store is `data/commonweave_directory.db`, intentionally absent fro
 
 Search and map files are generated artifacts. Do not edit a country JSON file as the sole correction record: rebuilding would erase it. Do not insert comments or change a generated file's top-level shape. Research prose, scraped text, and AI output are leads, not publishable organization records.
 
+When the operational DB's relationship to a historical public release cannot be established, a narrow [reviewed release amendment](../docs/RELEASE-AMENDMENTS.md) can preserve that public snapshot's original IDs. It requires exact input hashes, field acceptance and evidence, consistent affected download formats and directory rows, and a durable `releases/AMENDMENTS.json` ledger. The ordinary DB exporter refuses to overwrite an amended release; reconcile into a new output directory first. This path does not establish authority of a recovered DB or permit a whole map/directory rebuild from an older download.
+
 1. Find a public organization page or source record; preserve source identity and identifiers. Prefer documented feeds/APIs to scraping presentation pages.
 2. Check reuse terms and discoverability. Public access does not make a dataset CC0. Use original factual summaries, compatible open licenses, or explicit permission; do not copy restricted directories.
 3. Separate identity, role, locality and service area. Software and federations are not local providers. Unknown is a valid value.
