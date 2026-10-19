@@ -45,6 +45,14 @@
   "notes": [
     "Built from commonweave/data/commonweave_directory.db.",
     "DB itself stays gitignored; this folder is the public artifact.",
-    "Regenerate with: python commonweave/data/export_to_releases.py"
+    "Regenerate with: python commonweave/data/export_to_releases.py",
+    "Reviewed amendments overlay the historical extraction; original generated_at and source provenance are retained. Rebuilds must explicitly reconcile AMENDMENTS.json."
+  ],
+  "amendments": [
+    {
+      "id": "maine-contact-format-2026-10-19",
+      "ledger": "AMENDMENTS.json",
+      "scope": "4 fields across 3 Maine records; directory shard reconciled."
+    }
   ]
 }

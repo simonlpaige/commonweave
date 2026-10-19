@@ -176,6 +176,25 @@
         "The review records whether the brief should be delivered, revised, or withdrawn",
         "No outreach is sent as part of the audit"
       ]
+    },
+    {
+      "id": "cw-release-amendment-reconciliation-001",
+      "title": "Preserve reviewed amendments across a new canonical export",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "hard",
+      "goal": "Reconcile releases/AMENDMENTS.json into a separately staged canonical export without losing source identities or earlier accepted field corrections.",
+      "files": [
+        "data/amend_maine_release.py",
+        "data/export_to_releases.py",
+        "releases/AMENDMENTS.json"
+      ],
+      "acceptance_criteria": [
+        "Inputs remain read-only and ambiguous identity or changed expected values fail before output",
+        "Sequential amendment history and field evidence survive without overwriting earlier decisions",
+        "Affected download formats and directory representations agree, while unrelated snapshots are preserved",
+        "Conflict and replay tests pass; public verification dates are not invented"
+      ]
     }
   ]
 }

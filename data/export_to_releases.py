@@ -180,6 +180,8 @@ def main():
 
     db_path = args.db.resolve() if args.db else find_db()
     releases = args.output.resolve() if args.output else find_releases_dir(db_path)
+    if (releases / 'AMENDMENTS.json').exists():
+        raise ValueError('This release has reviewed amendments. Reconcile AMENDMENTS.json in a separate output directory before replacing it.')
     releases.mkdir(parents=True, exist_ok=True)
 
     print(f"Reading from: {db_path}")
