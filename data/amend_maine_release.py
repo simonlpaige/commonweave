@@ -166,7 +166,7 @@ def prepare(root, plan, as_of=None):
     outputs['releases/MANIFEST.json'] = encoded(manifest)
     outputs['releases/AMENDMENTS.json'] = encoded({
         'schema_version': 1, 'amendments': history + [plan],
-        'history_receipts': receipts,
+        **({'history_receipts': receipts} if receipts else {}),
         'output_sha256': {name: sha(raw) for name, raw in outputs.items()},
         'verification_scope': 'Field review only; no service, availability, legal form or whole-record verification.',
     })

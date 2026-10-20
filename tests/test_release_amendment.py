@@ -74,6 +74,7 @@ class ReleaseAmendmentTests(unittest.TestCase):
         self.assertEqual(json.loads(out[amend.FILES[4]])['orgs'][0]['c'], 'Blue Hill')
         self.assertEqual(json.loads(out[amend.FILES[5]])['generated_at'], 'historical')
         ledger = json.loads(out['releases/AMENDMENTS.json'])
+        self.assertNotIn('history_receipts', ledger)  # Preserve the published first-ledger bytes.
         self.assertTrue(all(amend.sha(out[n]) == value for n, value in ledger['output_sha256'].items()))
 
     def test_source_unchanged_and_new_output_required(self):
