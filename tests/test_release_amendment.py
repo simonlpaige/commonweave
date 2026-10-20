@@ -27,6 +27,8 @@ class ReleaseAmendmentTests(unittest.TestCase):
                           country_code='US', state_province='Maine', source='ic_directory', source_id='source-1', last_verified_at=None),
                      dict(id=2, name='Untouched', city='Elsewhere', website='https://example.org/other',
                           country_code='US', state_province='Maine', source='ic_directory', source_id='source-2', last_verified_at=None)]
+        self.rows[0]['description'] = 'Original long description with an outdated membership statement.'
+        self.rows[1]['description'] = 'Unchanged description.'
         text = io.StringIO(newline='')
         writer = csv.DictWriter(text, fieldnames=list(self.rows[0]))
         writer.writeheader()
@@ -36,7 +38,7 @@ class ReleaseAmendmentTests(unittest.TestCase):
             amend.FILES[0]: gzip.compress(amend.encoded(self.rows), mtime=0),
             amend.FILES[1]: gzip.compress(raw_csv, mtime=0),
             amend.FILES[2]: raw_csv, amend.FILES[3]: raw_csv,
-            amend.FILES[4]: amend.encoded({'count': 2, 'orgs': [dict(n=r['name'], c=r['city'], w=r['website']) for r in self.rows]}),
+            amend.FILES[4]: amend.encoded({'count': 2, 'orgs': [dict(n=r['name'], c=r['city'], w=r['website'], d=r['description'][:20]) for r in self.rows]}),
             amend.FILES[5]: amend.encoded({'row_count': 2, 'generated_at': 'historical', 'notes': []}),
         }
         for name, raw in payloads.items():
@@ -58,6 +60,8 @@ class ReleaseAmendmentTests(unittest.TestCase):
     def test_coherent_outputs_and_determinism(self):
         out = self.run_prepare()
         self.assertEqual(out, self.run_prepare())
+        self.assertEqual(out[amend.FILES[0]][9], 255)
+        self.assertEqual(out[amend.FILES[1]][9], 255)
         rows = json.loads(gzip.decompress(out[amend.FILES[0]]))
         expected = copy.deepcopy(self.rows)
         expected[0]['city'] = 'Blue Hill'
@@ -148,7 +152,7 @@ class ReleaseAmendmentTests(unittest.TestCase):
     def test_ledger_replay_and_export_overwrite_refused(self):
         ledger = self.root / 'releases/AMENDMENTS.json'
         ledger.write_text('{}')
-        with self.assertRaisesRegex(ValueError, 'Existing amendment ledger'):
+        with self.assertRaisesRegex(ValueError, 'base files and ledger'):
             self.run_prepare()
         db = Path(self.temp.name) / 'missing.db'
         exporter = Path(__file__).resolve().parents[1] / 'data/export_to_releases.py'
@@ -158,6 +162,65 @@ class ReleaseAmendmentTests(unittest.TestCase):
         self.assertFalse(db.exists())
         self.assertEqual(ledger.read_text(), '{}')
 
+
+    def second_batch(self):
+        first = self.run_prepare()
+        source = Path(self.temp.name) / 'second-source'
+        for name, raw in first.items():
+            path = source / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(raw)
+        plan = copy.deepcopy(self.plan)
+        plan['amendment_id'] = 'second-amendment'
+        plan['base_files'] = {n: amend.input_sha(n, b) for n, b in first.items()}
+        proposal = plan['proposals'][0]
+        proposal['expected'] = {'city': 'Blue Hill'}
+        proposal['changes'] = {'city': 'Blue Hill Village'}
+        proposal['search_selector']['c'] = 'Blue Hill'
+        return source, plan, first
+
+    def test_second_batch_preserves_previous_history_and_receipts(self):
+        source, plan, first = self.second_batch()
+        out = amend.prepare(source, plan, date(2026, 10, 20))
+        previous = json.loads(first[amend.LEDGER])
+        ledger = json.loads(out[amend.LEDGER])
+        self.assertEqual(ledger['amendments'][0], previous['amendments'][0])
+        self.assertEqual([p['amendment_id'] for p in ledger['amendments']], ['test-amendment', 'second-amendment'])
+        self.assertEqual(ledger['history_receipts'][-1]['output_sha256'], previous['output_sha256'])
+        self.assertEqual(ledger['history_receipts'][-1]['ledger_sha256'], amend.input_sha(amend.LEDGER, first[amend.LEDGER]))
+        self.assertEqual(len(json.loads(out['releases/MANIFEST.json'])['amendments']), 2)
+        self.assertEqual(json.loads(gzip.decompress(out[amend.FILES[0]]))[0]['city'], 'Blue Hill Village')
+
+    def test_second_batch_requires_pinned_ledger_and_rejects_replay(self):
+        source, plan, first = self.second_batch()
+        del plan['base_files'][amend.LEDGER]
+        with self.assertRaisesRegex(ValueError, 'base files and ledger'):
+            amend.prepare(source, plan)
+        plan['base_files'][amend.LEDGER] = amend.input_sha(amend.LEDGER, first[amend.LEDGER])
+        plan['amendment_id'] = 'test-amendment'
+        with self.assertRaisesRegex(ValueError, 'Amendment replay'):
+            amend.prepare(source, plan)
+
+    def test_second_batch_rejects_changed_prior_published_output(self):
+        source, plan, first = self.second_batch()
+        name = amend.FILES[2]
+        changed = first[name] + b'\n'
+        (source / name).write_bytes(changed)
+        plan['base_files'][name] = amend.input_sha(name, changed)
+        with self.assertRaisesRegex(ValueError, 'Prior published output changed'):
+            amend.prepare(source, plan)
+
+    def test_description_has_explicit_truncated_directory_precondition(self):
+        proposal = self.plan['proposals'][0]
+        proposal['expected'] = {'description': self.rows[0]['description']}
+        proposal['changes'] = {'description': 'Neutral sourced description; consult the community for current information.'}
+        proposal['search_expected'] = {'description': self.rows[0]['description'][:20]}
+        proposal['evidence'][0]['fields'] = ['description']
+        out = self.run_prepare()
+        self.assertEqual(json.loads(out[amend.FILES[4]])['orgs'][0]['d'], proposal['changes']['description'])
+        proposal['search_expected']['description'] = 'Wrong text'
+        with self.assertRaisesRegex(ValueError, 'Directory precondition mismatch'):
+            self.run_prepare()
 
 if __name__ == '__main__':
     unittest.main()

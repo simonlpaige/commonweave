@@ -53,6 +53,11 @@
       "id": "maine-contact-format-2026-10-19",
       "ledger": "AMENDMENTS.json",
       "scope": "4 fields across 3 Maine records; directory shard reconciled."
+    },
+    {
+      "id": "maine-descriptions-2026-10-20",
+      "ledger": "AMENDMENTS.json",
+      "scope": "2 fields across 2 Maine records; directory shard reconciled."
     }
   ]
 }
