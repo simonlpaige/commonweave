@@ -19,7 +19,8 @@ FILES = (
     'releases/by-country/US.csv', 'releases/by-source/ic_directory.csv',
     'data/search/US_ME.json', 'releases/MANIFEST.json',
 )
-KEYS = {'name': 'n', 'website': 'w', 'city': 'c'}
+KEYS = {'name': 'n', 'website': 'w', 'city': 'c', 'description': 'd'}
+LEDGER = 'releases/AMENDMENTS.json'
 
 
 def sha(data):
@@ -28,6 +29,12 @@ def sha(data):
 
 def input_sha(name, data):
     return sha(data if name.endswith('.gz') else data.replace(b'\r\n', b'\n'))
+
+
+def compressed_bytes(value):
+    raw = gzip.compress(value, compresslevel=9, mtime=0)
+    # Python versions differ in the gzip OS header despite mtime=0.
+    return raw[:9] + b'\xff' + raw[10:]
 
 
 def encoded(value):
@@ -70,18 +77,34 @@ def csv_amend(data, proposals):
     writer.writeheader()
     writer.writerows(changed)
     raw = output.getvalue().encode('utf-8')
-    return gzip.compress(raw, mtime=0) if compressed else raw
+    return compressed_bytes(raw) if compressed else raw
 
 
 def prepare(root, plan, as_of=None):
     root = Path(root)
     as_of = as_of or date.today()
     require(plan.get('schema_version') == 1 and plan.get('amendment_id'), 'Invalid amendment')
-    require(not (root / 'releases/AMENDMENTS.json').exists(), 'Existing amendment ledger: review chain before extending')
-    require(set(plan.get('base_files', {})) == set(FILES), 'Exactly the supported base files must be pinned')
-    inputs = {name: (root / name).read_bytes() for name in FILES}
+    has_ledger = (root / LEDGER).exists()
+    required_files = set(FILES) | ({LEDGER} if has_ledger else set())
+    require(set(plan.get('base_files', {})) == required_files, 'Exactly the current base files and ledger must be pinned')
+    inputs = {name: (root / name).read_bytes() for name in required_files}
     for name, raw in inputs.items():
         require(input_sha(name, raw) == plan['base_files'][name], 'Base hash mismatch: ' + name)
+    prior = json.loads(inputs[LEDGER]) if has_ledger else None
+    history = []
+    receipts = []
+    if prior is not None:
+        require(prior.get('schema_version') == 1, 'Unsupported prior ledger')
+        history = prior.get('amendments', [])
+        require(isinstance(history, list) and bool(history), 'Invalid prior amendment history')
+        prior_ids = [entry.get('amendment_id') for entry in history]
+        require(all(isinstance(value, str) and value for value in prior_ids) and len(set(prior_ids)) == len(prior_ids), 'Invalid prior amendment IDs')
+        require(plan['amendment_id'] not in prior_ids, 'Amendment replay')
+        require(set(prior.get('output_sha256', {})) == set(FILES), 'Incomplete prior output receipt')
+        for name in FILES:
+            require(input_sha(name, inputs[name]) == prior['output_sha256'][name], 'Prior published output changed: ' + name)
+        receipts = list(prior.get('history_receipts', []))
+        receipts.append({'amendment_id': prior_ids[-1], 'ledger_sha256': input_sha(LEDGER, inputs[LEDGER]), 'output_sha256': prior['output_sha256']})
     proposals = plan.get('proposals', [])
     require(bool(proposals), 'No accepted changes')
     ids = set()
@@ -119,22 +142,31 @@ def prepare(root, plan, as_of=None):
         matches = [r for r in shard['orgs'] if all(r.get(k) == v for k, v in selector.items())]
         require(len(matches) == 1, 'Missing or ambiguous directory identity')
         target = matches[0]
-        for key, old in p['expected'].items():
+        search_expected = p.get('search_expected', p['expected'])
+        require(set(search_expected) == set(p['changes']), 'Directory expected fields differ')
+        for key, old in search_expected.items():
+            if key != 'description':
+                require(old == p['expected'][key], 'Directory identity precondition differs')
             require(target.get(KEYS[key]) == old, 'Directory precondition mismatch')
         target.update({KEYS[k]: v for k, v in p['changes'].items()})
     outputs = {
-        FILES[0]: gzip.compress(encoded(amended), mtime=0),
+        FILES[0]: compressed_bytes(encoded(amended)),
         'data/search/US_ME.json': (json.dumps(shard, ensure_ascii=False, separators=(',', ':')) + '\n').encode('utf-8'),
     }
     for name in FILES[1:4]:
         outputs[name] = csv_amend(inputs[name], proposals)
     field_count = sum(len(p['changes']) for p in proposals)
-    manifest['amendments'] = [{'id': plan['amendment_id'], 'ledger': 'AMENDMENTS.json',
+    prior_manifest = manifest.get('amendments', [])
+    require([entry.get('id') for entry in prior_manifest] == [entry['amendment_id'] for entry in history], 'Manifest amendment history differs')
+    manifest['amendments'] = prior_manifest + [{'id': plan['amendment_id'], 'ledger': 'AMENDMENTS.json',
                                'scope': f'{field_count} fields across {len(proposals)} Maine records; directory shard reconciled.'}]
-    manifest['notes'].append('Reviewed amendments overlay the historical extraction; original generated_at and source provenance are retained. Rebuilds must explicitly reconcile AMENDMENTS.json.')
+    note = 'Reviewed amendments overlay the historical extraction; original generated_at and source provenance are retained. Rebuilds must explicitly reconcile AMENDMENTS.json.'
+    if note not in manifest['notes']:
+        manifest['notes'].append(note)
     outputs['releases/MANIFEST.json'] = encoded(manifest)
     outputs['releases/AMENDMENTS.json'] = encoded({
-        'schema_version': 1, 'amendments': [plan],
+        'schema_version': 1, 'amendments': history + [plan],
+        'history_receipts': receipts,
         'output_sha256': {name: sha(raw) for name, raw in outputs.items()},
         'verification_scope': 'Field review only; no service, availability, legal form or whole-record verification.',
     })

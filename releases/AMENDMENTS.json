@@ -149,15 +149,139 @@
         }
       ],
       "scope": "Four factual/formatting fields; prior description and taxonomy proposals remain pending. No whole-record verification date changes."
+    },
+    {
+      "schema_version": 1,
+      "amendment_id": "maine-descriptions-2026-10-20",
+      "base_commit": "a1a05f22d511d974d45ba3de5aa722ac902ba566",
+      "hash_rule": "gzip files: exact bytes; other pinned files: CRLF normalized to LF",
+      "base_files": {
+        "releases/organizations.json.gz": "5fd2b1fdaa16ecd34e7d3c0dab202d81d88ed02624fbefccca3a3112eb315ebc",
+        "releases/organizations.csv.gz": "a4fc6698404682ebda31820b7f03b3f4f0788306fe28d671eb13bbc33f44da3a",
+        "releases/by-country/US.csv": "30ec70e4742207c2ecd27ad6866ea70b9f009839300b8c2cc1759dcf37b60f03",
+        "releases/by-source/ic_directory.csv": "980df692bd354260e01c3d5d0591b5916968ff08c65630a0251eb0fb823e1bd6",
+        "data/search/US_ME.json": "50f78d5d388554add6a112accc1bcab9d9b2881fa7b96c6a9124383157e5fcb0",
+        "releases/MANIFEST.json": "522a4868b75eea303610dc053b2129526db2720a32deed522d21cfbf499c6444",
+        "releases/AMENDMENTS.json": "278f79c4fe08cc7ddf9c052279d112dd1ad89b2546f9ae40449b458d89b287f8"
+      },
+      "proposals": [
+        {
+          "proposal_id": "maine-description-2026-10-20-909540",
+          "organization_id": "909540",
+          "identity": {
+            "source": "ic_directory",
+            "source_id": "39440"
+          },
+          "expected": {
+            "description": "status: Established (At least 4+ adults, 2+ years. type: Ecovillage (organized around ecology and sustainability.), Cohousing (individual homes within group owned property.). open to membership: Not currently~ but there is a list or possibly in the future"
+          },
+          "changes": {
+            "description": "Cohousing and ecovillage in Belfast, Maine, with private homes and shared facilities. Consult the community website for joining and current housing information."
+          },
+          "search_selector": {
+            "n": "Belfast Cohousing & Ecovillage",
+            "c": "Belfast",
+            "w": "https://www.mainecohousing.org/"
+          },
+          "search_expected": {
+            "description": "status: Established (At least 4+ adults, 2+ years. type: Ecovillage (organized around ecology and sustainability.), Cohousing (individual homes within group owned property.). open to membership: Not c"
+          },
+          "visibility_review": {
+            "decision": "public",
+            "reason": "Existing discoverable community; replace undated membership prose with a neutral original summary. No new contact, coordinates, addresses or availability claims."
+          },
+          "reuse": {
+            "basis": "original_factual_summary",
+            "url": "https://www.mainecohousing.org/"
+          },
+          "review": {
+            "decision": "accepted",
+            "reviewer": "Codex automated source review under project-owner authorization",
+            "reviewed_at": "2026-10-20",
+            "scope": "Description only. No legal-form, service capacity or current housing availability verification."
+          },
+          "evidence": [
+            {
+              "fields": [
+                "description"
+              ],
+              "url": "https://www.mainecohousing.org/",
+              "checked_at": "2026-10-20",
+              "summary": "The returned first-party homepage identifies Belfast Cohousing & Ecovillage and describes private homes and a shared Common House. The separate About Cohousing page was inaccessible; no governance or current availability finding is inferred."
+            }
+          ]
+        },
+        {
+          "proposal_id": "maine-description-2026-10-20-910476",
+          "organization_id": "910476",
+          "identity": {
+            "source": "ic_directory",
+            "source_id": "40760"
+          },
+          "expected": {
+            "description": "status: Established (At least 4+ adults, 2+ years. type: Cohousing (individual homes within group owned property.). open to membership: Yes"
+          },
+          "changes": {
+            "description": "Cohousing in Brunswick, Maine. Two Echo describes individually owned homes and shared amenities managed through a homeowners association. Consult its website for current housing information."
+          },
+          "search_selector": {
+            "n": "Two Echo Cohousing",
+            "c": "Brunswick",
+            "w": "https://twoecho.org/"
+          },
+          "search_expected": {
+            "description": "status: Established (At least 4+ adults, 2+ years. type: Cohousing (individual homes within group owned property.). open to membership: Yes"
+          },
+          "visibility_review": {
+            "decision": "public",
+            "reason": "Existing discoverable community; replace undated membership prose with a neutral original summary. No new contact, coordinates, addresses or availability claims."
+          },
+          "reuse": {
+            "basis": "original_factual_summary",
+            "url": "https://twoecho.org/communitypage/introducing-two-echo/"
+          },
+          "review": {
+            "decision": "accepted",
+            "reviewer": "Codex automated source review under project-owner authorization",
+            "reviewed_at": "2026-10-20",
+            "scope": "Description only. No legal-form, service capacity or current housing availability verification."
+          },
+          "evidence": [
+            {
+              "fields": [
+                "description"
+              ],
+              "url": "https://twoecho.org/communitypage/introducing-two-echo/",
+              "checked_at": "2026-10-20",
+              "summary": "The returned first-party introduction describes individually owned homes, shared land/amenities and self-management through a homeowners association. Wording is attributed to Two Echo; no current legal registration, fees, openings or facilities availability is inferred."
+            }
+          ]
+        }
+      ],
+      "scope": "Two neutral descriptions; the two proposed model-type changes remain pending. Preserve the October19 amendment and whole-record/source verification dates."
+    }
+  ],
+  "history_receipts": [
+    {
+      "amendment_id": "maine-contact-format-2026-10-19",
+      "ledger_sha256": "278f79c4fe08cc7ddf9c052279d112dd1ad89b2546f9ae40449b458d89b287f8",
+      "output_sha256": {
+        "releases/organizations.json.gz": "5fd2b1fdaa16ecd34e7d3c0dab202d81d88ed02624fbefccca3a3112eb315ebc",
+        "data/search/US_ME.json": "50f78d5d388554add6a112accc1bcab9d9b2881fa7b96c6a9124383157e5fcb0",
+        "releases/organizations.csv.gz": "a4fc6698404682ebda31820b7f03b3f4f0788306fe28d671eb13bbc33f44da3a",
+        "releases/by-country/US.csv": "30ec70e4742207c2ecd27ad6866ea70b9f009839300b8c2cc1759dcf37b60f03",
+        "releases/by-source/ic_directory.csv": "980df692bd354260e01c3d5d0591b5916968ff08c65630a0251eb0fb823e1bd6",
+        "releases/MANIFEST.json": "522a4868b75eea303610dc053b2129526db2720a32deed522d21cfbf499c6444"
+      }
     }
   ],
   "output_sha256": {
-    "releases/organizations.json.gz": "5fd2b1fdaa16ecd34e7d3c0dab202d81d88ed02624fbefccca3a3112eb315ebc",
-    "data/search/US_ME.json": "50f78d5d388554add6a112accc1bcab9d9b2881fa7b96c6a9124383157e5fcb0",
-    "releases/organizations.csv.gz": "a4fc6698404682ebda31820b7f03b3f4f0788306fe28d671eb13bbc33f44da3a",
-    "releases/by-country/US.csv": "30ec70e4742207c2ecd27ad6866ea70b9f009839300b8c2cc1759dcf37b60f03",
-    "releases/by-source/ic_directory.csv": "980df692bd354260e01c3d5d0591b5916968ff08c65630a0251eb0fb823e1bd6",
-    "releases/MANIFEST.json": "522a4868b75eea303610dc053b2129526db2720a32deed522d21cfbf499c6444"
+    "releases/organizations.json.gz": "5c9e74a61fcf45c2e75e465716740f4dacd357aabf87466d3abb13f482cacbd1",
+    "data/search/US_ME.json": "a9941f8d13cd65a8020def4bc423cc3e0dce047155577f13f1919f19cbb3cbff",
+    "releases/organizations.csv.gz": "ce3ebf5967caff852c257fe9d39c4f902e03e38707d4bfb6e45e0f83661c8997",
+    "releases/by-country/US.csv": "fd33b851feda7fb35f589aa2446ed24474cfe3f4818759599a57ae96d29a06a7",
+    "releases/by-source/ic_directory.csv": "17e8fea45a72211296884f3890019761a789f4e0be5bff6209ea202b493d01b2",
+    "releases/MANIFEST.json": "ba042087f1d268ccd7c1e21faea9c622909f55c26023838f24608e86fddae1c0"
   },
   "verification_scope": "Field review only; no service, availability, legal form or whole-record verification."
 }
