@@ -608,6 +608,11 @@ def render_manifest(groups: list[dict], circuits: dict, stats: dict) -> str:
 
 def render_sitemap(groups: list[dict], stats: dict) -> str:
     lastmod = "2026-09-06"  # Public page/navigation revision; source snapshot dates stay separate.
+    # Only pages actually changed by the discovery revision get a newer date.
+    revised = {f"{SITE_ORIGIN}/{path}" for path in (
+        '', 'knowledge.html', 'map.html', 'doc.html?file=README',
+        'find-community-organizations.html',
+    )}
     urls = [
         (f"{SITE_ORIGIN}/", "1.0"),
         (f"{SITE_ORIGIN}/knowledge.html", "1.0"),
@@ -617,13 +622,14 @@ def render_sitemap(groups: list[dict], stats: dict) -> str:
         (f"{SITE_ORIGIN}/briefs/index.html", "0.8"),
         (f"{SITE_ORIGIN}/doc.html?file=README", "0.8"),
         (f"{SITE_ORIGIN}/pipeline.html", "0.6"),
+        (f"{SITE_ORIGIN}/find-community-organizations.html", "0.8"),
     ]
     urls.extend(
         (f"{SITE_ORIGIN}/briefs/{group['group_id']}.html", "0.6")
         for group in groups
     )
     entries = "\n".join(
-        f"  <url><loc>{html(url)}</loc><lastmod>{html(lastmod)}</lastmod><priority>{priority}</priority></url>"
+        f"  <url><loc>{html(url)}</loc><lastmod>{'2026-11-03' if url in revised else html(lastmod)}</lastmod><priority>{priority}</priority></url>"
         for url, priority in urls
     )
     return (
