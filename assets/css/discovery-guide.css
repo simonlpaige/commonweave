@@ -1,0 +1,22 @@
+/* The guide follows the existing paper, ink and moss site palette. */
+.discovery-guide { max-width: 980px; margin: 0 auto; padding: 48px clamp(20px, 5vw, 48px) 24px; }
+.discovery-guide h1 { font-size: clamp(42px, 6vw, 68px); line-height: 1.05; max-width: 18ch; letter-spacing: -.02em; }
+.discovery-guide h2 { font-size: clamp(28px, 3.5vw, 38px); font-style: normal; line-height: 1.2; }
+.discovery-guide h3 { font: 600 21px/1.3 var(--f-body); margin: 0 0 8px; }
+.discovery-guide p { max-width: 68ch; margin: 14px 0; }
+.discovery-guide .guide-lead { font-size: 22px; line-height: 1.55; margin-top: 24px; }
+.guide-action { display: inline-block; background: var(--moss); color: var(--paper); padding: 12px 20px; margin-top: 12px; border: 1px solid var(--moss); border-radius: 3px; }
+.guide-action:hover { background: var(--moss-deep); color: var(--paper); }
+.guide-starts, .guide-method, .guide-reading, .guide-share { margin-top: 44px; padding-top: 28px; border-top: var(--rule-soft); }
+.guide-starts ul { list-style: none; padding: 0; margin: 24px 0 0; }
+.guide-starts li { display: grid; grid-template-columns: 1fr 1.3fr; gap: 12px 28px; padding: 18px 0; border-top: var(--rule-soft); }
+.guide-starts a { font-weight: 600; }
+.guide-starts span { color: var(--ink-soft); }
+.guide-method ol { margin: 24px 0 0; padding-left: 28px; }
+.guide-method li { padding-left: 12px; margin-bottom: 28px; }
+.guide-method li::marker { color: var(--moss); font-weight: 600; }
+.guide-share { border-top: var(--rule); }
+.guide-share a { overflow-wrap: anywhere; }
+.guide-share button { padding: 10px 16px; min-height: 44px; background: var(--paper-2); color: var(--ink); border: 1px solid var(--moss); border-radius: 3px; cursor: pointer; }
+.guide-share [role="status"] { min-height: 1.55em; font-size: 15px; }
+@media (max-width: 600px) { .discovery-guide { padding-top: 32px; } .guide-starts li { grid-template-columns: 1fr; gap: 6px; } }
