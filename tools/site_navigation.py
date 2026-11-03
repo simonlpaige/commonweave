@@ -8,6 +8,7 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = {
     'index.html': '', 'knowledge.html': 'knowledge', 'doc.html': 'knowledge',
+    'find-community-organizations.html': '',
     'map.html': 'map', 'directory.html': 'directory', 'participate.html': 'participate',
     'pipeline.html': 'pipeline', 'audit/index.html': 'participate', 'audit/enrich.html': 'participate',
 }

@@ -12,6 +12,8 @@ Commonweave is an open directory of cooperative, commons, ecological, and commun
 
 Start with the [framework knowledge base](https://commonweave.earth/knowledge.html) to explore principles, evidence and open questions. Use the [map](https://commonweave.earth/map.html) to investigate organizations and possible roles in a community project. The [organization directory](https://commonweave.earth/directory.html) and [contribution form](https://commonweave.earth/participate.html) support those two main paths.
 
+New to the map? [Find cooperatives and community organizations for a local project](https://commonweave.earth/find-community-organizations.html) with a short discovery guide.
+
 See the [September implementation review](docs/REVIEW-2026-09-05.md) for the data audit, new planning flow, named-organization offers, validation and remaining release work.
 
 Automation may change who does work and who benefits, but its timing, distribution, and limits are uncertain. The immediate problem is already practical: people need food, shelter, care, and a say in decisions. Connecting useful existing work should help under several economic futures, not depend on a forecast of labor disappearing.
