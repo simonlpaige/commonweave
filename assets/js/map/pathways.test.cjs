@@ -86,8 +86,64 @@ test('current exported data yields only existing IDs and finite results without 
   const ids = new Set(records.map(p => p.id));
   for (const goal of P.GOALS) {
     const r = P.discover(records, { goal: goal.id, country: 'US' });
-    assert.equal(r.steps.length, 3);
+    assert.equal(r.steps.length, goal.steps.length);
     assert.ok(r.matches.every(m => ids.has(m.org.id) && m.org.cc === 'US' && m.org.t === 'B'));
+    assert.equal(new Set(r.matches.map(m => m.org.id)).size, r.matches.length);
+    assert.equal(r.total, r.matches.length);
     assert.ok(r.matches.every(m => m.distance === null));
+  }
+});
+
+const circuitGoals = P.GOALS.filter(g => g.circuit);
+const mapRecords = () => JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../../data/map/orgs.geojson'), 'utf8')).features.map(f => f.properties);
+test('circuit goals are generated from data/circuits.yaml with unique step keys and graded evidence', () => {
+  assert.ok(circuitGoals.length >= 20);
+  assert.equal(new Set(P.GOALS.map(g => g.id)).size, P.GOALS.length);
+  assert.equal(new Set(P.GOALS.map(g => g.label)).size, P.GOALS.length);
+  for (const goal of circuitGoals) {
+    assert.ok(goal.steps.length >= 2);
+    assert.equal(new Set(goal.steps.map(s => s[0])).size, goal.steps.length);
+    assert.ok(['combination_documented', 'components_documented', 'hypothesis'].includes(goal.circuit.evidence));
+    assert.ok(goal.steps.every(s => s[3] && Array.isArray(s[3].any_of) && Array.isArray(s[3].none_of)));
+  }
+});
+test('role rules match on name, model and source with whole words and exclusions', () => {
+  const union = circuitGoals.find(g => g.id === 'circuit-labor_for_housing').steps.find(s => s[0] === 'labor_union')[3];
+  assert.equal(P.matchRule(union, { n: 'Anytown Union Chapel Choir', m: 'nonprofit', src: 'x', f: 'democracy' }), false);
+  assert.equal(P.matchRule(union, { n: 'Sindicato dos Metalúrgicos', m: 'nonprofit', src: 'x', f: 'democracy' }), true);
+  assert.equal(P.matchRule(union, { n: 'Anything', m: 'labor_union', src: 'x', f: 'democracy' }), true);
+  assert.equal(P.matchRule(union, { n: 'Anytown Credit Union', m: 'labor_union', src: 'x', f: 'democracy' }), false);
+  assert.equal(P.matchRule(union, { n: 'Reunion Trade Unionists Club', m: 'nonprofit', src: 'x', f: 'democracy' }), false);
+});
+test('a circuit goal lists candidates per role, pairs nobody, and keeps empty roles visible', () => {
+  const pts = [
+    { id: 'u', n: 'Metal Workers Trade Union', f: 'democracy', m: 'labor_union', src: 's', t: 'B', cc: 'US', ci: 'Springfield', st: 'IL' },
+    { id: 'c', n: 'Springfield Community Land Trust', f: 'housing_land', m: 'nonprofit', src: 's', t: 'B', cc: 'US', ci: 'Springfield', st: 'IL' },
+    { id: 'x', n: 'Unrelated Choir', f: 'recreation_arts', m: 'nonprofit', src: 's', t: 'B', cc: 'US', ci: 'Springfield', st: 'IL' },
+  ];
+  const r = P.discover(pts, { goal: 'circuit-labor_for_housing', country: 'US' });
+  const byKey = Object.fromEntries(r.steps.map(s => [s.area, s.candidates.map(c => c.org.id)]));
+  assert.deepEqual(byKey.labor_union, ['u']);
+  assert.deepEqual(byKey.community_land_trust, ['c']);
+  assert.deepEqual(byKey.cooperative_finance, []);
+  assert.ok(!r.matches.some(m => m.org.id === 'x'));
+  assert.ok(r.bridges.every(b => b.basis.includes('no organization or partnership selected') && !('source' in b)));
+  const text = P.planText(r, { labor_union: 'u' });
+  assert.ok(text.includes('Your choice: Metal Workers Trade Union'));
+  assert.ok(!text.includes('Springfield Community Land Trust'));
+  assert.ok(text.includes('Evidence for this combination: Combination documented.'));
+  assert.ok(text.includes('doc.html?file=SOLUTION-CIRCUITS#labor-for-housing-pipeline'));
+  assert.ok(text.includes('Also needed, and not in this directory:'));
+  assert.equal((text.match(/No organization chosen/g) || []).length, r.steps.length - 1);
+});
+test('JavaScript role matching agrees with the Python coverage build on every published map point', () => {
+  const coverage = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../../data/map/circuit-coverage.json'), 'utf8'));
+  const records = mapRecords().filter(p => ['A', 'B', 'C'].includes(p.t));
+  assert.equal(records.length, coverage.inputs.map_points_with_valid_tier);
+  const rules = {};
+  circuitGoals.forEach(g => g.steps.forEach(s => { rules[s[0]] = s[3]; }));
+  assert.deepEqual(Object.keys(rules).sort(), Object.keys(coverage.roles).sort());
+  for (const [key, rule] of Object.entries(rules)) {
+    assert.equal(records.filter(p => P.matchRule(rule, p)).length, coverage.roles[key].map_points, key);
   }
 });

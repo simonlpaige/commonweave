@@ -1,0 +1,927 @@
+# Solution circuits: combinations of organization types that have been used
+# together to address a specific social problem.
+#
+# This file is the single source for:
+#   - SOLUTION-CIRCUITS.md                (human-readable catalogue)
+#   - assets/js/map/circuits-data.js      (goals offered on the map)
+#   - data/map/circuit-coverage.json      (aggregated role coverage)
+# Regenerate all three with:  python data/build_circuits.py
+# Check they are current with: python data/build_circuits.py --check
+#
+# Rules of the file
+#   1. A role rule reads published record fields only (see data/circuit_match.py).
+#      A match is a research lead. It does not show that the organization
+#      performs the role, has capacity, or wants to be contacted.
+#   2. Every precedent needs a public source that a reviewer opened on the
+#      `checked` date. Do not add a precedent from memory.
+#   3. `evidence` states how much the *combination* is supported:
+#        combination_documented  the listed kinds of organization have worked
+#                                together on this problem, per the sources
+#        components_documented   each part has evidence, but the sources do not
+#                                show this exact combination working together
+#        hypothesis              plausible; no precedent located yet
+#   4. Circuits never name directory organizations as partners. The map lets a
+#      person choose candidates per role; the coverage file holds counts only.
+
+schema_version: 1
+
+roles:
+  # ---- land and housing ----------------------------------------------------
+  community_land_trust:
+    label: Community land trust
+    any_of:
+      - {registration_type: [land_and_housing/community_land_trust]}
+      - {tag: [community_land_trust]}
+      - {source: [clt_world_map]}
+      - {name: ["community land trust", "community land trusts", "neighbourhood land trust", "neighborhood land trust", "fideicomiso de la tierra"]}
+      - {name: ["land trust"], area: [housing_land]}
+    none_of:
+      - {name: ["conservancy", "conservation", "farmland", "wildlife", "trustee for"]}
+
+  housing_cooperative:
+    label: Housing cooperative or cohousing group
+    any_of:
+      - {registration_type: [land_and_housing/housing_cooperative]}
+      - {name: ["housing cooperative", "housing co operative", "housing coop", "housing co op", "housing cooperatives", "cooperativa habitacional", "cooperativa de vivienda", "cooperativa de viviendas", "cooperativa de habitacao", "wohnungsgenossenschaft", "baugenossenschaft", "wohnbaugenossenschaft", "cooperative d habitation", "borettslag", "bostadsrattsforening", "mutual housing", "cohousing", "co housing"]}
+      - {tag: ["Cohousing (individual homes within group owned property.)", "Student Housing or Student Co-Op"]}
+
+  self_build_program:
+    label: Self-build or sweat-equity housing program
+    any_of:
+      - {registration_type: [land_and_housing/sweat_equity_program]}
+      - {model: [sweat_equity_program]}
+      - {tag: [habitat_affiliate, sweat_equity]}
+      - {name: ["habitat for humanity", "self help housing", "self build housing", "construcao comunitaria por mutirao"]}
+
+  affordable_housing_developer:
+    label: Nonprofit affordable-housing developer
+    any_of:
+      - {ntee: [L20, L21, L25]}
+      - {name: ["housing association", "housing development corporation", "community development corporation", "affordable housing", "neighborhood housing services", "housing partnership"]}
+
+  tenant_organization:
+    label: Tenant or resident organization
+    any_of:
+      - {name: ["tenants union", "tenant union", "tenants association", "tenant association", "tenants and residents association", "tenants", "renters", "inquilinos", "inquilinas", "mieterverein", "mieterbund", "locataires", "hyresgastforeningen"]}
+    none_of:
+      - {name: ["homeowners association", "property owners", "landlords"]}
+
+  legal_aid:
+    label: Legal aid or community law centre
+    any_of:
+      - {ntee: [I80, I83]}
+      - {name: ["legal aid", "legal services", "law centre", "law center", "community legal", "legal clinic", "legal advice", "assistencia juridica", "assessoria juridica", "defensa legal"]}
+
+  homelessness_services:
+    label: Homelessness outreach or shelter
+    any_of:
+      - {ntee: [L41, P85]}
+      - {name: ["homeless", "homelessness", "rough sleepers", "night shelter", "sem teto", "personas sin hogar", "populacao de rua", "moradores de rua"]}
+
+  # ---- labour and ownership ------------------------------------------------
+  labor_union:
+    label: Labor union
+    any_of:
+      - {model: [labor_union]}
+      - {registration_type: [labor/national_union, labor/union_federation]}
+      - {tag: [labor_union]}
+      - {ntee: [J40]}
+      - {name: ["trade union", "trades union", "labor union", "labour union", "workers union", "sindicato", "sindicatos", "syndicat", "gewerkschaft", "central labor council", "trades council", "trades and labor council", "labor council"]}
+    none_of:
+      - {name: ["credit union", "student union", "students union", "rugby union", "mothers union", "union church", "union chapel", "sindicato rural patronal", "sindicato patronal", "sindicato das empresas", "sindicato das industrias", "sindicato da industria", "sindicato do comercio", "sindicato dos produtores rurais", "sindicato rural"]}
+
+  worker_cooperative:
+    label: Worker cooperative
+    any_of:
+      - {tag: [worker_cooperative]}
+      - {registration_type: [labor/construction_cooperative]}
+      - {name: ["worker cooperative", "workers cooperative", "worker co operative", "workers co operative", "worker coop", "worker co op", "worker owned", "employee owned", "cooperativa de trabalho", "cooperativa de trabajo", "cooperativa de trabajo asociado", "cooperativa de produccion", "cooperativa de producao", "scop", "sociedad laboral", "cooperativa sociale", "cooperativa de catadores", "cooperativa dos catadores", "associacao de catadores", "associacao dos catadores"]}
+
+  cooperative_developer:
+    label: Cooperative developer, federation or support network
+    any_of:
+      - {source: [nec_members, ica_directory, ripess_family]}
+      - {name: ["cooperative development", "co operative development", "coop development", "cooperative federation", "federation of cooperatives", "federation of worker cooperatives", "federacao das cooperativas", "federacion de cooperativas", "confederacion de cooperativas", "cooperative alliance", "co operative alliance", "cooperative association", "co operative association", "cooperative business association", "cooperatives uk", "co operatives uk", "organizacao das cooperativas", "economia solidaria", "economie solidaire", "solidarity economy", "employee ownership center", "employee ownership centre", "center for employee ownership"]}
+
+  cooperative_finance:
+    label: Credit union or cooperative lender
+    any_of:
+      - {ntee: [W61]}
+      - {name: ["credit union", "federal credit union", "cooperative bank", "co operative bank", "cooperativa de credito", "cooperativa de ahorro y credito", "caja popular", "banco comunitario", "banco popular", "community development financial", "community loan fund", "cooperative fund", "revolving loan fund", "savings and credit cooperative", "raiffeisenbank", "volksbank", "microfinance", "microcredito", "caisse populaire", "caisse d economie"]}
+    none_of:
+      - {name: ["credit union league", "credit union foundation", "leadership alliance", "credit union association", "chapter of credit unions", "credit union archives", "council of firefighter credit unions"]}
+
+  workforce_training:
+    label: Workforce training or apprenticeship provider
+    any_of:
+      - {ntee: [J20, J21, J22, J30, J32, J33]}
+      - {name: ["job training", "workforce development", "workforce training", "apprenticeship", "apprenticeships", "vocational training", "training centre", "training center", "skills centre", "skills center", "formacao profissional", "capacitacao profissional", "qualificacao profissional", "formacion profesional", "employment services", "jobs for"]}
+
+  anchor_institution:
+    label: Anchor institution (hospital, university, public body)
+    any_of:
+      - {ntee: [E21, E22, B42, B43]}
+      - {name: ["hospital", "university", "universidade", "universidad", "santa casa", "city council", "county council", "borough council"]}
+    none_of:
+      - {name: ["friends of", "league of friends", "alumni", "students union", "student union", "radio", "chaplaincy", "auxiliary", "volunteers", "foundation", "fundacao de apoio", "museum", "society", "club", "association", "associacao", "trustee for", "scholarship", "animal", "veterinary", "university of the third age", "community health", "health center", "health centre", "patients", "mutual aid", "students", "school of"]}
+
+  # ---- health and care -----------------------------------------------------
+  community_clinic:
+    label: Community clinic or health centre
+    any_of:
+      - {ntee: [E30, E31, E32]}
+      - {name: ["community health center", "community health centre", "health center", "health centre", "free clinic", "community clinic", "family health center", "medical practice", "centro de salud", "centro de saude", "posto de saude", "clinica comunitaria", "aboriginal medical service", "aboriginal health service", "community health service", "rural health"]}
+    none_of:
+      - {name: ["veterinary", "animal", "pet"]}
+
+  behavioral_health:
+    label: Mental health or addiction service
+    any_of:
+      - {ntee: [F20, F21, F22, F30, F31, F32, F33, F40, F42, F60, F70]}
+      - {name: ["mental health", "counselling", "counseling", "crisis line", "crisis center", "crisis centre", "addiction", "recovery", "substance abuse", "saude mental", "salud mental", "alcoholics", "drug and alcohol", "samaritans", "mind"]}
+    none_of:
+      - {name: ["disaster recovery", "resource recovery", "animal", "wildlife", "mind body", "mindfulness", "mastermind", "recovery of"]}
+
+  health_outreach:
+    label: Community health worker or health-education group
+    any_of:
+      - {ntee: [E70, E60, E40, E42]}
+      - {name: ["community health workers", "community health worker", "health education", "health promotion", "public health", "promotoras", "promotores de salud", "agentes comunitarios de saude", "agentes de saude", "health outreach", "health advocates", "healthwatch", "pastoral da saude", "pastoral da crianca"]}
+    none_of:
+      - {name: ["health promotion fund", "health promotion trust", "health promotion charity", "foundation health promotion"]}
+
+  home_care:
+    label: Home-care provider or carers' organization
+    any_of:
+      - {ntee: [E92, P44]}
+      - {name: ["home care", "homecare", "home health", "care cooperative", "care co operative", "care workers", "caregivers", "carers", "cuidadores", "cuidadoras", "domestic workers", "trabalhadoras domesticas", "trabajadoras del hogar", "personal care", "visiting nurse"]}
+    none_of:
+      - {name: ["animal", "pet", "lawn", "child care", "childcare", "wildlife", "foster", "kinship"]}
+
+  eldercare:
+    label: Older people's support organization
+    any_of:
+      - {ntee: [P81, L22, E91, P75, P58]}
+      - {tag: [Seniors, "Older adults"]}
+      - {name: ["age uk", "age concern", "senior center", "senior centre", "senior citizens", "seniors", "elderly", "older people", "aging", "ageing", "council on aging", "idosos", "idoso", "terceira idade", "melhor idade", "adultos mayores", "tercera edad", "meals on wheels", "good neighbour scheme", "good neighbor scheme", "village to village", "u3a", "university of the third age", "abrigo de idosos", "lar dos velhinhos", "lar de idosos", "asilo"]}
+
+  time_bank:
+    label: Time bank or neighbour exchange
+    any_of:
+      - {name: ["time bank", "timebank", "time banking", "timebanking", "banco de tiempo", "banco de tempo", "skill share", "skillshare", "lets scheme", "local exchange trading"]}
+
+  mutual_aid_network:
+    label: Neighbourhood mutual aid network
+    any_of:
+      - {model: [mutual_aid]}
+      - {tag: [mutual_aid]}
+      - {name: ["mutual aid"]}
+    none_of:
+      - {name: ["mutual aid ambulance", "fire", "police", "law enforcement", "mutual aid plan", "navy mutual", "preachers", "pilots"]}
+
+  # ---- food, land and ecology ---------------------------------------------
+  food_grower:
+    label: Community grower or small-farm group
+    any_of:
+      - {ntee: [K20, K25, K26, K28, C42]}
+      - {tag: ["Community Growing"]}
+      - {name: ["community garden", "community gardens", "community farm", "city farm", "urban farm", "allotment", "allotments", "community orchard", "community supported agriculture", "csa", "agricultura familiar", "agricultores familiares", "produtores rurais", "pequenos produtores", "agricultores", "agroecologia", "agroecology", "horta comunitaria", "huerta comunitaria", "huerto comunitario", "jardin partage", "gemeinschaftsgarten", "solidarische landwirtschaft", "solawi", "gelawi", "farmers cooperative", "growers", "incredible edible", "community growing"]}
+
+  food_distribution:
+    label: Food cooperative, hub or market
+    any_of:
+      - {name: ["food coop", "food co op", "food cooperative", "food co operative", "food hub", "farmers market", "farmers markets", "consumer cooperative", "consumers cooperative", "cooperativa de consumo", "open food network", "community shop", "community supermarket", "community grocery", "biocoop", "food assembly", "buying club", "mercado solidario", "feira agroecologica", "feira da agricultura familiar"]}
+      - {source: [manual_curation], area: [food]}
+
+  food_access:
+    label: Food bank or free-food program
+    any_of:
+      - {ntee: [K30, K31, K34, K35, K36]}
+      - {name: ["food bank", "foodbank", "food pantry", "food shelf", "food rescue", "community fridge", "soup kitchen", "banco de alimentos", "banque alimentaire", "tafel", "second harvest", "feeding", "meals program", "free meals", "community pantry", "foodshare", "food share", "comedor comunitario", "comedor popular", "cozinha comunitaria", "cozinha solidaria"]}
+
+  compost_reuse:
+    label: Composting, repair or reuse group
+    any_of:
+      - {ntee: [C27]}
+      - {tag: ["Repair or reuse"]}
+      - {name: ["compost", "composting", "repair cafe", "repair café", "reuse", "re use", "recycling", "recycle", "scrapstore", "tool library", "library of things", "catadores", "recicladores", "reciclagem", "materiais reciclaveis", "zero waste", "freecycle", "community wood recycling", "furniture project"]}
+
+  conservation_steward:
+    label: Conservation or watershed steward
+    any_of:
+      - {ntee: [C32, C34, C35, C36]}
+      - {name: ["land trust"], area: [ecology]}
+      - {name: ["land conservancy", "conservancy", "conservation trust", "wildlife trust", "watershed", "river trust", "rivers trust", "riverkeeper", "landcare", "catchment", "friends of the creek", "nature reserve", "forest trust", "woodland trust", "community woodland", "conservation society", "conservation foundation", "preservacao ambiental", "defesa ambiental", "protecao ambiental", "reserva natural", "bushcare", "coastcare"]}
+    none_of:
+      - {name: ["community land trust", "housing"]}
+
+  # ---- energy and infrastructure ------------------------------------------
+  energy_cooperative:
+    label: Community energy group or energy cooperative
+    any_of:
+      - {tag: [Energy]}
+      - {name: ["energy cooperative", "energy co operative", "energy coop", "energy co op", "community energy", "community solar", "solar cooperative", "solar co op", "solar coop", "electric cooperative", "electric membership", "electric coop", "rural electric", "energiegenossenschaft", "burgerenergie", "buergerenergie", "energia comunitaria", "cooperativa de energia", "cooperativa de eletrificacao", "community power", "community wind", "community hydro", "community renewables", "low carbon", "sustainable energy"]}
+    none_of:
+      - {name: ["energy drink", "energy healing", "reiki"]}
+
+  transition_group:
+    label: Local transition or sustainability group
+    any_of:
+      - {source: [transition_network]}
+      - {tag: ["Transition Group"]}
+      - {name: ["transition town", "transition initiative", "climate action group", "climate action network", "friends of the earth", "sustainable living"]}
+    none_of:
+      - {name: ["sustainable energy"]}
+
+  # ---- justice, safety and conflict ---------------------------------------
+  restorative_practice:
+    label: Mediation or restorative-justice organization
+    any_of:
+      - {ntee: [I50, I51]}
+      - {name: ["mediation", "restorative", "restorative justice", "conflict resolution", "dispute resolution", "community justice", "peacemaking", "peace circles", "justica restaurativa", "justicia restaurativa", "mediacao", "mediacion", "neighbourhood justice", "neighborhood justice", "victim offender"]}
+    none_of:
+      - {name: ["meditation"]}
+
+  reentry_support:
+    label: Re-entry or post-prison support organization
+    any_of:
+      - {ntee: [I40, I43, I44]}
+      - {name: ["reentry", "re entry", "ex offenders", "ex offender", "prisoners", "prison fellowship", "prisoner", "returning citizens", "formerly incarcerated", "egressos do sistema prisional", "assistencia aos condenados", "after prison"]}
+    none_of:
+      - {name: ["prisoners of war"]}
+
+  violence_prevention:
+    label: Community violence-prevention or survivor-support group
+    any_of:
+      - {ntee: [I21]}
+      - {name: ["violence prevention", "violence intervention", "cure violence", "peacekeepers", "street outreach", "anti violence", "victim support", "victim services", "victims of crime", "community safety", "neighbourhood watch", "neighborhood watch", "safe streets"]}
+
+  # ---- civic life and knowledge -------------------------------------------
+  community_media:
+    label: Community media outlet
+    any_of:
+      - {ntee: [A30, A31, A32, A33, A34]}
+      - {name: ["community radio", "community media", "community television", "community tv", "public access", "community newspaper", "community news", "talking newspaper", "radio comunitaria", "radio comunitária", "independent media", "public radio", "public broadcasting", "hospital radio", "press cooperative"]}
+
+  library_or_learning:
+    label: Library or community learning centre
+    any_of:
+      - {ntee: [B70, B60, B80]}
+      - {name: ["library", "libraries", "biblioteca", "bibliotheque", "bibliothek", "chitalishte", "adult education", "community learning", "folk high school", "workers educational association", "educacao popular"]}
+      - {text: ["chitalishte"]}
+    none_of:
+      - {name: ["toy library", "tool library", "wig library", "early learning", "library fund"]}
+
+  school:
+    label: School or school community
+    any_of:
+      - {ntee: [B20, B21, B24, B25, B28, B29, B94]}
+      - {name: ["school", "schools", "escola", "escuela", "ecole", "schule", "parent teacher", "pta", "parents and citizens", "caixa escolar", "associacao de pais e mestres", "apm", "community school"]}
+    none_of:
+      - {name: ["driving school", "dance school", "school of dance", "school of music", "music school", "ski school", "sunday school", "old scholars", "riding school", "flying school", "sailing school", "art school", "school of art", "school of arts", "bible school", "school of ministry", "comedy school", "creche", "escola de teologia", "artes marciais", "escola de samba", "escola de futebol", "escolinha", "building fund"]}
+
+  civic_association:
+    label: Neighbourhood or civic association
+    any_of:
+      - {ntee: [S21, S22, W24, R40]}
+      - {name: ["neighborhood association", "neighbourhood association", "civic association", "residents association", "residents and tenants association", "community association", "community council", "neighborhood council", "neighbourhood forum", "associacao de moradores", "associacao dos moradores", "associacao comunitaria", "junta de vecinos", "asociacion de vecinos", "asociacion vecinal", "comite de quartier", "burgerverein", "progress association", "ratepayers", "participatory budgeting", "citizens assembly", "community organizing", "league of women voters"]}
+
+  civil_liberties:
+    label: Civil-liberties or digital-rights organization
+    any_of:
+      - {ntee: [R60, R62, R63]}
+      - {name: ["civil liberties", "digital rights", "privacy", "electronic frontier", "open rights", "digitale gesellschaft", "data protection", "direitos digitais", "derechos digitales", "internet freedom", "algorithmic justice", "surveillance", "human rights law"]}
+
+  disaster_coordination:
+    label: Disaster preparedness or relief coordinator
+    any_of:
+      - {ntee: [M20, M23, M24, M40, M41]}
+      - {name: ["organizations active in disaster", "voad", "coad", "disaster relief", "disaster recovery", "disaster response", "disaster preparedness", "emergency response", "emergency management", "emergency relief", "red cross", "cruz vermelha", "cruz roja", "croix rouge", "defesa civil", "proteccion civil", "resilience hub", "community emergency", "flood action", "flood group", "state emergency service", "search and rescue", "bushfire", "rural fire"]}
+
+# -----------------------------------------------------------------------------
+# Circuits
+#
+# Source checks: every `source` below was opened by an automated research pass
+# on the `checked` date (2026-11-26), and the stated finding was read on that
+# page. No human has re-checked them yet. Figures that could only be seen in a
+# search snippet were left out. See OPEN-PROBLEMS.md for the wider evidence.
+#
+# `outside_directory` lists parts of a circuit that no role rule can find in
+# the published data (public agencies, rights-holding nations, national law).
+# -----------------------------------------------------------------------------
+
+circuits:
+  - id: labor_for_housing
+    name: Labor-for-housing pipeline
+    goal: Build permanently affordable homes with organized labor
+    problem: Homes that stay affordable need land held outside the speculative market, skilled construction labor, residents who govern the result, and patient finance. No single kind of organization holds all four.
+    evidence: combination_documented
+    evidence_note: Unions have sponsored cooperative housing at scale in several countries. None of the sources shows a union working with a community land trust specifically, so that pairing is still a proposal (see LABOR-FOR-HOUSING-GUIDE.md).
+    open_problems: [land-transition, power-transfer]
+    roles:
+      - {role: labor_union, label: Find organized labor, question: "Ask whether the local or its trades council has a housing committee, apprenticeship program, or pension capital it can direct."}
+      - {role: community_land_trust, label: Hold the land in trust, question: "Ask about resale rules, who sits on the board, and whether it can take on new parcels."}
+      - {role: self_build_program, label: Organize build labor and training, question: "Ask how resident hours are credited, supervised and insured."}
+      - {role: housing_cooperative, label: Plan resident ownership, question: "Ask how members govern, and what stops a later vote to sell at market price."}
+      - {role: cooperative_finance, label: Find patient finance, question: "Ask whether it lends on leasehold or limited-equity homes."}
+    precedents:
+      - name: Amalgamated Housing Cooperative
+        place: New York, United States
+        finding: Sponsored by the Amalgamated Clothing Workers union; the first 303 households moved in on 1 November 1927.
+        source: https://amalgamated-bronx.coop/?p=7
+        checked: 2026-11-26
+      - name: Riksbyggen
+        place: Sweden
+        finding: Established on the initiative of the building workers' unions during a housing shortage; it reports about 1,700 housing associations under management.
+        source: https://www.riksbyggen.se/om-riksbyggen/about-us/
+        checked: 2026-11-26
+      - name: FUCVAM mutual-aid housing cooperatives
+        place: Uruguay
+        finding: Cooperatives with collective ownership, built largely by members' own labor and rooted in the trade-union movement. The transfer of the model won a World Habitat Award in 2012.
+        source: https://world-habitat.org/world-habitat-awards/winners-and-finalists/south-south-cooperation-international-transfer-of-the-fucvam-model-of-mutual-aid-housing-cooperatives/
+        checked: 2026-11-26
+      - name: AFL-CIO Housing Investment Trust
+        place: United States
+        finding: A fixed-income fund of about $7.6 billion with a 100% union labor requirement for on-site construction; it reports 133,429 housing and healthcare units financed since 1984. Figures are self-reported.
+        source: https://www.aflcio-hit.com/wp-content/uploads/2026/10/3Q26-HIT-Factsheet.pdf
+        checked: 2026-11-26
+      - name: Co-operative Housing Foundation of Canada
+        place: Canada
+        finding: Founded in 1968 by the Canadian Labour Congress, the Co-operative Union of Canada and the Canadian Union of Students; about 2,000 housing co-ops followed, until federal financing of new projects stopped in the early 1990s.
+        source: https://www.thecanadianencyclopedia.ca/en/article/housing-co-operatives
+        checked: 2026-11-26
+    limits:
+      - finding: Co-op City, built by the union-backed United Housing Foundation, went through a thirteen-month rent strike that destroyed the Foundation and nearly bankrupted the state housing finance agency.
+        source: https://www.gothamcenter.org/blog/after-the-rent-strike-neoliberalism-and-co-op-city
+      - finding: Neue Heimat, the West German union-owned housing group that built more than 460,000 apartments, collapsed after a public scandal in 1982.
+        source: https://www.tum.de/en/about-tum/news/press-releases/details/35274/
+      - finding: Seward Park Cooperative, a union-sponsored limited-equity co-op, voted in 1995 to become a full-equity co-op and lifted its price ceilings over five years. Penn South voted the other way and stayed limited-equity.
+        source: https://sewardparkcoop.com/spc_history.html
+      - finding: Electchester, built by an electrical workers' local, has been described by a housing historian as a homogeneous and exclusive enclave.
+        source: https://urbanomnibus.net/2013/12/electchester-a-city-made-for-workers/
+    outside_directory:
+      - Public land, zoning and subsidy decisions made by local government.
+    falsifier: If a search of union-sponsored housing in three countries finds that most projects converted to market-rate resale or failed financially within 40 years, the circuit should be described as a way to build homes, not to keep them affordable.
+
+  - id: housing_justice_pipeline
+    name: Tenant purchase and anti-displacement pipeline
+    goal: Help tenants stay, or buy their building
+    problem: Preventing displacement takes organized tenants, legal capacity to use the rights they have, and an owner that will keep the building affordable after purchase.
+    evidence: combination_documented
+    open_problems: [land-transition, power-transfer]
+    roles:
+      - {role: tenant_organization, label: Find organized tenants, question: "Ask whether a tenant association exists in the building or neighbourhood and what it has already tried."}
+      - {role: legal_aid, label: Find legal capacity, question: "Ask about eligibility, current caseload and whether it takes eviction or purchase cases."}
+      - {role: community_land_trust, label: Find a long-term owner, question: "Ask whether it can acquire occupied buildings and on what terms."}
+      - {role: affordable_housing_developer, label: Find a development partner, question: "Ask about experience with tenant purchases and how tenants keep a say."}
+      - {role: cooperative_finance, label: Find acquisition finance, question: "Ask how quickly it can commit funds inside a legal purchase window."}
+    precedents:
+      - name: Tenant Opportunity to Purchase Act
+        place: Washington DC, United States
+        finding: A study commissioned by the city housing department found 16,224 affordable units developed or preserved through the law.
+        source: https://cnhed.org/news/cnhed-releases-comprehensive-analysis-of-dcs-tenant-opportunity-to-purchase-act-topa/
+        checked: 2026-11-26
+      - name: Right to counsel in eviction cases
+        place: New York City, United States
+        finding: In fiscal year 2025, 83% of fully represented households were allowed to remain. That category includes households given extra time to move, so it is not the same as avoiding eviction.
+        source: https://www.nyc.gov/assets/hra/downloads/pdf/services/civiljustice/OCJ_Annual_Report_2025.pdf
+        checked: 2026-11-26
+      - name: Dudley Neighbors Inc.
+        place: Boston, United States
+        finding: A resident-created land trust that reports more than 30 acres of community-controlled land and 228 housing units, including rental, ownership and co-op homes.
+        source: https://www.dudleyneighborsinc.org/
+        checked: 2026-11-26
+    limits:
+      - finding: In 95% of Washington DC transactions with a tenant association, tenants assigned their purchase rights and did not buy; the process can delay sales by up to 420 days.
+        source: https://www.dcpolicycenter.org/publications/topas-promise-and-pitfalls-in-dc/
+      - finding: New York's citywide representation rate fell from 71% in fiscal 2021 to 42% in fiscal 2024, with legal-service attrition of 20-55% a year.
+        source: https://comptroller.nyc.gov/reports/evictions-up-representation-down/
+    outside_directory:
+      - A law that gives tenants a purchase right or a right to counsel. Without one, the legal role has little to enforce.
+    falsifier: If tenant purchase laws in two or more cities show that fewer than one building in ten ends in resident or nonprofit ownership, describe this as an eviction-delay circuit and drop the purchase claim.
+
+  - id: housing_first
+    name: Housing First partnership
+    goal: Move people from homelessness into stable housing
+    problem: People leaving long-term homelessness need a tenancy first and voluntary support around it. That takes outreach, a landlord willing to house without preconditions, and health support.
+    evidence: combination_documented
+    open_problems: [partial-abundance]
+    sensitive: People using these services are at risk from exposure. Work with organizations, never with client details.
+    roles:
+      - {role: homelessness_services, label: Find outreach, question: "Ask who they reach, and how referrals are made with consent."}
+      - {role: affordable_housing_developer, label: Find homes, question: "Ask whether tenancies are offered without treatment or sobriety conditions."}
+      - {role: behavioral_health, label: Find health and recovery support, question: "Ask whether support is voluntary and continues after move-in."}
+      - {role: community_clinic, label: Find primary care, question: "Ask about access for people without documents or a fixed address."}
+    precedents:
+      - name: At Home / Chez Soi randomized trial
+        place: Canada (five cities)
+        finding: Among 2,148 participants, 62% of those given Housing First were housed all of the time in the last six months, against 31% receiving usual services.
+        source: https://mentalhealthcommission.ca/wp-content/uploads/2021/09/At2520Home2520Final2520Report2520-2520Exec2520Summary2520-2520ENG_0.pdf
+        checked: 2026-11-26
+    limits:
+      - finding: The same trial found mental health and substance use improved by a similar amount in both groups. A 2019 systematic review found housing stability improved but most health effects were imprecisely estimated.
+        source: https://pmc.ncbi.nlm.nih.gov/articles/PMC6581117/
+      - finding: Finland, the usual national example, reported about 4,579 homeless people in 2025, a 20% rise that the Y-Foundation attributes to benefit cuts. Gains depend on continued public funding.
+        source: https://ysaatio.fi/en/housing-first/homelessness-in-finland/
+    outside_directory:
+      - Rent subsidy or social housing allocation from government.
+    falsifier: If local data show fewer than half of housed participants still housed after two years, the local version is not delivering the trial result and should be reviewed before more referrals.
+
+  - id: worker_transition
+    name: Worker ownership transition
+    goal: Keep jobs when a firm closes or its owner retires
+    problem: When a viable firm is about to close, the workers can sometimes buy it. They need to be organized, advised on structure, and financed quickly.
+    evidence: combination_documented
+    open_problems: [tipping-point, power-transfer, developing-nations]
+    roles:
+      - {role: labor_union, label: Find the organized workforce, question: "Ask whether the union has handled a closure or buyout and what members want."}
+      - {role: cooperative_developer, label: Find conversion advice, question: "Ask about feasibility studies, legal structure and how many conversions it has completed."}
+      - {role: cooperative_finance, label: Find buyout finance, question: "Ask what it lends without personal guarantees."}
+      - {role: workforce_training, label: Find management and skills training, question: "Ask whether training covers governance and finance for new worker-owners."}
+    precedents:
+      - name: Marcora Law worker buyouts
+        place: Italy
+        finding: Researchers tracked 257 worker buyouts to the end of 2014; 131 were still active. Of 81 started after the 2001 reform, 10 had closed.
+        source: https://geo.coop/sites/default/files/2021-07/ItalyWBOReport-15_17RapportoVietaDepedriCarrano.pdf
+        checked: 2026-11-26
+      - name: USW-Mondragon union co-op model
+        place: United States
+        finding: The United Steelworkers and Mondragon signed an agreement in 2009 to promote union co-ops; a 2017 study counted eleven US initiatives applying the model and described both possibilities and dilemmas.
+        source: https://cleo.rutgers.edu/articles/stronger-together-the-usw-mondragon-union-co-op-model/
+        checked: 2026-11-26
+      - name: Worker-managed firms in Uruguay
+        place: Uruguay
+        finding: The hazard of dissolution was 29% lower for worker-managed firms than for conventional firms, after excluding microenterprises.
+        source: https://ideas.repec.org/a/sae/ilrrev/v67y2014i1p202-238.html
+        checked: 2026-11-26
+    limits:
+      - finding: About half of all Italian buyouts ever tracked had closed by 2014. The high survival figure applies only to the post-2001 cohort.
+        source: https://geo.coop/sites/default/files/2021-07/ItalyWBOReport-15_17RapportoVietaDepedriCarrano.pdf
+      - finding: When Mondragon's Fagor Electrodomésticos closed in 2013, worker-members lost capital and savings. Three years on, 92% had a solution (relocation, early retirement or new work) and 8% remained unemployed.
+        source: https://cleo.rutgers.edu/wp-content/uploads/2020/02/Inter-Cooperation-Mechanisms-in-Mondragon-Managing-the-Crisis-of-Fagor-ElectrodomEsticos.pdf
+      - finding: The US Main Street Employee Ownership Act of 2018 did not remove the personal-guarantee barrier; the Small Business Administration said it would not move forward with an alternative.
+        source: https://us.coop/blog/new-sba-report-on-financing-alternatives-does-not-fulfill-congresss-directive-in-main-street-employee-ownership-act/
+    outside_directory:
+      - A legal right for workers to be told before a sale, and public co-investment such as Italy's.
+    falsifier: If a review of conversions in a country without Marcora-style co-investment finds fewer than half survive five years, the circuit depends on the law and should not be offered as a local remedy on its own.
+
+  - id: care_work_ownership
+    name: Care work with a union and a stake
+    goal: Make care jobs sustainable for the people doing them
+    problem: Home care and similar work is essential, poorly paid and has very high turnover. Worker ownership and collective bargaining are two routes to better jobs; a few organizations combine them.
+    evidence: combination_documented
+    open_problems: [unglamorous-work, partial-abundance]
+    roles:
+      - {role: home_care, label: Find care providers and carers' groups, question: "Ask about pay, hours, turnover and whether workers have a say."}
+      - {role: labor_union, label: Find worker representation, question: "Ask which union organizes care workers locally and what it has bargained."}
+      - {role: cooperative_developer, label: Explore worker ownership, question: "Ask whether it has supported a care co-op and how it was financed."}
+      - {role: workforce_training, label: Find training, question: "Ask whether training is paid and leads to higher wages."}
+    precedents:
+      - name: Cooperative Home Care Associates
+        place: New York, United States
+        finding: A worker cooperative founded in 1985 whose workers unionized with 1199SEIU in 2003. Its turnover has been reported as lower than at comparable agencies. It now employs over 1,600 people.
+        source: https://cleo.rutgers.edu/wp-content/uploads/2023/01/CASE-STUDY-CHCA.pdf
+        checked: 2026-11-26
+      - name: Self Employed Women's Association
+        place: India
+        finding: A trade union registered in 1972 that has also promoted more than 100 member-owned cooperatives, federated in a separate body.
+        source: https://www.ilo.org/resource/article/sewa-cooperative-federation-india-towards-self-reliance
+        checked: 2026-11-26
+    limits:
+      - finding: Just under half of Cooperative Home Care Associates' workers are members, a share that fell as it absorbed other agencies. Its income depends on public reimbursement rates.
+        source: https://cleo.rutgers.edu/wp-content/uploads/2023/01/CASE-STUDY-CHCA.pdf
+      - finding: Japan's Fureai Kippu time-credit schemes for eldercare declined after public long-term care insurance began in 2000, and there are no statistics on participants or hours. Volunteer credit did not replace paid care.
+        source: https://www.ijccr.net/article/view/9150
+    outside_directory:
+      - Public payers that set reimbursement rates, which largely determine care wages.
+    falsifier: This circuit tests FALSIFIERS.md F-FW-2 from the other side. If unionized care co-ops show turnover no lower than conventional agencies paying the same wage, ownership adds nothing beyond pay.
+
+  - id: anchor_procurement
+    name: Anchor procurement and community wealth
+    goal: Keep institutional spending in the local economy
+    problem: Hospitals, universities and councils buy large volumes of goods and services. Redirecting part of that to local and worker-owned suppliers needs a willing buyer, a supplier able to deliver, and finance to start or convert firms.
+    evidence: combination_documented
+    open_problems: [power-transfer, nation-states]
+    roles:
+      - {role: anchor_institution, label: Find a large local buyer, question: "Ask what it buys locally now and which contracts are coming up."}
+      - {role: worker_cooperative, label: Find or start a worker-owned supplier, question: "Ask what it can supply at the volume and standard required."}
+      - {role: cooperative_developer, label: Find business development support, question: "Ask whether it has prepared firms for institutional contracts."}
+      - {role: cooperative_finance, label: Find start-up finance, question: "Ask how much of the start-up cost can be equity or grant, not debt."}
+    precedents:
+      - name: Preston community wealth building
+        place: Preston, United Kingdom
+        finding: Six anchor institutions' spending with Preston-based businesses rose from £37 million (5%) in 2012/13 to over £112 million (18.2%) in 2016/17, while their total spending fell.
+        source: https://www.councils.coop/wp-content/uploads/2017/10/Community-Wealth-Building-Preston-City-Council.pdf
+        checked: 2026-11-26
+      - name: Evergreen Cooperatives
+        place: Cleveland, United States
+        finding: Launched in 2008 by a working group including the Cleveland Foundation, Cleveland Clinic, University Hospitals and Case Western Reserve University to build worker-owned suppliers.
+        source: https://evgoh.com/about
+        checked: 2026-11-26
+    limits:
+      - finding: A policy review concluded there is little evidence on the impact of community wealth building, and that not all local improvement can be attributed to the Preston model.
+        source: https://wcpp.org.uk/blog-posts/the-preston-model-a-panacea-for-wales/
+      - finding: The first Evergreen businesses were entirely debt financed, which made profitability very difficult, and key decisions were made before worker-owners were included.
+        source: https://geo.coop/blog/critical-look-evergreen-model
+    outside_directory:
+      - Procurement law and the anchor's own purchasing rules.
+    falsifier: If local spending rises but local wages and employment do not move relative to comparable towns over five years, the circuit shifts invoices without building wealth.
+
+  - id: community_health_mesh
+    name: Community health mesh
+    goal: Reach people that clinics miss
+    problem: Clinics treat the people who arrive. Community health workers and neighbourhood groups reach people who do not, and connect them to care.
+    evidence: components_documented
+    evidence_note: The clinic plus community-health-worker pairing has trial evidence. The sources do not show mutual aid networks formally joined to it.
+    open_problems: [unglamorous-work, partial-abundance]
+    roles:
+      - {role: community_clinic, label: Find a clinic, question: "Ask who is eligible, what it costs and whether it accepts outside referrals."}
+      - {role: health_outreach, label: Find community health workers, question: "Ask whether workers are paid, how they are supervised and which neighbourhoods they cover."}
+      - {role: mutual_aid_network, label: Find neighbourhood networks, question: "Ask whether the group is still active and wants health referrals at all."}
+    precedents:
+      - name: IMPaCT community health worker program
+        place: Philadelphia, United States
+        finding: An economic analysis estimated a return of $2.47 to an average Medicaid payer for every dollar invested within the fiscal year.
+        source: https://pmc.ncbi.nlm.nih.gov/articles/PMC8564553/
+        checked: 2026-11-26
+    limits:
+      - finding: The return estimate rests on differences in hospital use that were not statistically significant in the underlying trial (for example 31.6% against 23.3% hospitalized, p = 0.11).
+        source: https://pmc.ncbi.nlm.nih.gov/articles/PMC8564553/
+      - finding: Many mutual aid groups in the directory were listed during the 2020 pandemic response and may no longer be active.
+        source: https://github.com/simonlpaige/commonweave/blob/master/docs/DATA-AUDIT-2026-09-05.md
+    falsifier: If paid community health workers attached to a clinic produce no measurable change in missed appointments or avoidable admissions after a year, the outreach role is not adding to clinical care in that setting.
+
+  - id: crisis_response
+    name: Non-police crisis response
+    goal: Send health responders to mental health and welfare calls
+    problem: Many emergency calls concern mental distress, intoxication or homelessness. A health-led response needs trained responders, a route into ongoing care, and a place in the emergency dispatch system.
+    evidence: combination_documented
+    open_problems: [prisons, partial-abundance]
+    sensitive: Never record or share details about people in crisis.
+    roles:
+      - {role: behavioral_health, label: Find crisis and mental health responders, question: "Ask about hours of cover, training and what they do not handle."}
+      - {role: community_clinic, label: Find follow-up care, question: "Ask whether it accepts handovers from a crisis team."}
+      - {role: homelessness_services, label: Find shelter and outreach, question: "Ask about night-time capacity and how handovers work."}
+    precedents:
+      - name: Support Team Assisted Response (STAR)
+        place: Denver, United States
+        finding: A six-month pilot was associated with a 34% fall in reports of targeted, less serious crimes and no detectable effect on more serious crimes.
+        source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9176742
+        checked: 2026-11-26
+      - name: CAHOOTS
+        place: Eugene, United States
+        finding: A clinic-run mobile crisis service that operated for decades inside the city's emergency system. A police analysis put the true diversion rate at roughly 5-8% of calls, lower than commonly reported.
+        source: https://csgjusticecenter.org/wp-content/uploads/2021/12/CAHOOTS-Program-Analysis.pdf
+        checked: 2026-11-26
+    limits:
+      - finding: CAHOOTS stopped serving Eugene in April 2025 because the parties lacked the financial capacity to continue. A long track record did not protect it from a funding gap.
+        source: https://opb.org/article/2025/04/08/cahoots-service-ending-in-eugene-effective-immediately
+      - finding: The Denver study was quasi-experimental; its authors note part of the drop is mechanical because health responders are less likely to record people as offenders.
+        source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9176742
+    outside_directory:
+      - The public emergency dispatch centre and the budget that pays responders. Community organizations cannot substitute for either.
+    falsifier: If a local service cannot secure multi-year public funding, treat it as a pilot. The Eugene closure is the reference case.
+
+  - id: safety_and_repair
+    name: Community safety and repair
+    goal: Reduce violence and repair harm without relying only on prison
+    problem: Reducing repeat harm takes several things at once, namely a way for the people involved to address what happened, paid work and support after prison, and local organizations that keep young people connected.
+    evidence: components_documented
+    evidence_note: Each part has its own evaluations, some with null results. No source shows the parts run together as one local system.
+    open_problems: [prisons, historical-wrongs]
+    sensitive: This work involves survivors and people leaving prison. Use organizational information only, and do not publish participant details.
+    roles:
+      - {role: restorative_practice, label: Find restorative and mediation practice, question: "Ask which kinds of harm it handles, and how survivors consent."}
+      - {role: reentry_support, label: Find re-entry support, question: "Ask how soon after release people can enrol."}
+      - {role: workforce_training, label: Find paid transitional work, question: "Ask whether jobs are paid from day one and what follows them."}
+      - {role: violence_prevention, label: Find violence-prevention and survivor support, question: "Ask how it works with, or keeps distance from, police."}
+    precedents:
+      - name: Restorative justice conferencing (systematic review)
+        place: Australia, United Kingdom, United States
+        finding: Across ten randomized trials, conferences produced a modest but cost-effective reduction in repeat offending and higher victim satisfaction. All cases had consent from both parties before randomization.
+        source: https://econpapers.repec.org/RePEc:wly:camsys:v:9:y:2013:i:1:p:1-59
+        checked: 2026-11-26
+      - name: Center for Employment Opportunities
+        place: New York, United States
+        finding: A randomized evaluation found 16-22% reductions in recidivism among people who enrolled within three months of release. Employment gains faded over time.
+        source: https://www.mdrc.org/work/publications/more-job
+        checked: 2026-11-26
+      - name: Local nonprofits and the crime decline
+        place: United States (264 cities)
+        finding: Every 10 additional organizations focused on crime and community life per 100,000 residents was associated with a 9% drop in murder. This is an instrumental-variables estimate, not an experiment.
+        source: https://inequality.stanford.edu/node/9575
+        checked: 2026-11-26
+    limits:
+      - finding: The READI Chicago randomized trial of jobs plus cognitive behavioural therapy found no statistically significant change in its primary index of serious violence after 20 months.
+        source: https://www.nber.org/papers/w30852
+      - finding: A review of violence-interruption programs judged the evidence mixed at best, meriting the label promising and not effective.
+        source: https://jeffreybutts.net/2014/12/30/arph2015/
+      - finding: Restorative conferencing evidence covers willing parties. It says nothing about cases where a survivor or the person responsible refuses.
+        source: https://econpapers.repec.org/RePEc:wly:camsys:v:9:y:2013:i:1:p:1-59
+    outside_directory:
+      - Courts and prosecutors, who decide whether a case can be diverted at all.
+    falsifier: If a city with all four roles active shows no difference in repeat-harm rates from a matched city without them over five years, the parts do not add up to a system.
+
+  - id: community_food_system
+    name: Local food security loop
+    goal: Connect growers, a food hub and food access
+    problem: A local food system needs growers, a channel that aggregates and sells what they grow, and organizations that get food to people who cannot pay market prices.
+    evidence: combination_documented
+    open_problems: [partial-abundance, developing-nations]
+    roles:
+      - {role: food_grower, label: Find growers, question: "Ask what they grow, in what volume and season."}
+      - {role: food_distribution, label: Find a cooperative channel, question: "Ask about minimum volumes, food safety requirements and who it sells to."}
+      - {role: food_access, label: Find food access, question: "Ask whether it can accept fresh produce and how it is funded."}
+    precedents:
+      - name: United States food hubs
+        place: United States
+        finding: In the 2025 national survey, 65% of food hubs sold to schools or food banks, so the grower-hub-access chain is common practice.
+        source: https://rmfu.org/wp-content/uploads/National-Food-Hub-Survey-Report-2025Final1-1.pdf
+        checked: 2026-11-26
+    limits:
+      - finding: In the same survey more than half of hubs were highly dependent on grants, the largest share in six survey rounds, and public purchasing programs were cancelled in March 2025.
+        source: https://rmfu.org/wp-content/uploads/National-Food-Hub-Survey-Report-2025Final1-1.pdf
+      - finding: The directory has very few food hubs or food co-ops (34 release records match the rule), so the middle role will usually look empty.
+        source: https://github.com/simonlpaige/commonweave/blob/master/SOLUTION-CIRCUITS.md
+    falsifier: If a local loop cannot cover its distribution costs without grants after three years, it is a subsidized service. That may still be worth funding, but it should be described that way.
+
+  - id: food_waste_loop
+    name: Food waste-to-soil loop
+    goal: Turn surplus food into meals and compost
+    problem: Edible surplus can feed people and inedible surplus can become compost for local growing, if rescue, composting and growing space exist in the same place.
+    evidence: hypothesis
+    evidence_note: No precedent has been source-checked for this circuit. It is carried over from the earlier circuit list.
+    open_problems: [ecological-limits]
+    roles:
+      - {role: food_access, label: Find food rescue, question: "Ask what surplus it cannot use."}
+      - {role: compost_reuse, label: Find composting or reuse, question: "Ask what material it accepts and in what volume."}
+      - {role: food_grower, label: Find growing space, question: "Ask whether it wants compost and can check its quality."}
+    precedents: []
+    limits: []
+    falsifier: If no documented case of the three working together can be found and source-checked, remove this circuit.
+
+  - id: land_stewardship_alliance
+    name: Land stewardship alliance
+    goal: Keep land healthy and in use
+    problem: Land protected without people using it is hard to maintain; land used without stewardship degrades. Secure community tenure, ecological monitoring and working use together are associated with better outcomes.
+    evidence: components_documented
+    evidence_note: The strongest evidence is for secure Indigenous and community tenure. The sources do not test this three-role combination.
+    open_problems: [ecological-limits, historical-wrongs, land-transition]
+    sensitive: Land defenders and Indigenous communities can be endangered by visibility. Indigenous nations are rights-holders and governments, not a role to be slotted into someone else's plan. Approach them on their terms or not at all.
+    roles:
+      - {role: conservation_steward, label: Find ecological stewards, question: "Ask what they monitor and whether they share data."}
+      - {role: food_grower, label: Find working land users, question: "Ask about tenure, and which practices they would change with secure access."}
+      - {role: community_land_trust, label: Find community land holders, question: "Ask whether the trust holds farmland or open land as well as housing."}
+    precedents:
+      - name: Titling of Indigenous communities
+        place: Peruvian Amazon
+        finding: Titling reduced forest clearing by more than three-quarters and disturbance by roughly two-thirds in the two years around the award of title.
+        source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5402456/
+        checked: 2026-11-26
+      - name: Indigenous Protected Areas and rangers
+        place: Australia
+        finding: A government-commissioned review of five areas valued outcomes at $96.5 million for $35.2 million invested. It monetizes stakeholder-reported outcomes and is not an ecological measurement.
+        source: https://www.niaa.gov.au/sites/default/files/documents/publications/SROI-Consolidated-Report-IPA_1.pdf
+        checked: 2026-11-26
+      - name: Community ownership of land
+        place: Scotland
+        finding: At December 2025, 554 community groups owned 214,883 hectares, 2.8% of Scotland's land. 72% of that area is in the Western Isles.
+        source: https://www.gov.scot/publications/community-ownership-in-scotland-2025/pages/key-points/
+        checked: 2026-11-26
+    limits:
+      - finding: The Peruvian result is short-term by the authors' own account. Canada's evaluation of its Indigenous Guardians initiative found a need to improve data collection to demonstrate results.
+        source: https://www.canada.ca/en/environment-climate-change/corporate/transparency/priorities-management/evaluations/evaluation-eccc-indigenous-guardians-initiative-2024/at-a-glance.html
+    outside_directory:
+      - Indigenous nations and customary land-holding communities.
+      - Land law, which decides whether community tenure is recognized.
+    falsifier: If long-run studies show the short-term forest gains from community titling disappear within a decade, tenure alone is not enough and the monitoring role needs separate evidence.
+
+  - id: community_energy_transition
+    name: Community energy transition
+    goal: Start a community energy project
+    problem: Community-owned generation keeps energy income local, but it needs an organization to own and run it, capital on patient terms, and a stable price or support scheme.
+    evidence: components_documented
+    evidence_note: Citizen ownership at scale is well documented. The role of local sustainability groups in starting energy co-ops is not source-checked here.
+    open_problems: [ecological-limits, power-transfer]
+    roles:
+      - {role: energy_cooperative, label: Find energy experience, question: "Ask what it has built, how members invest and what it earns per unit."}
+      - {role: cooperative_finance, label: Find capital, question: "Ask whether it finances community shares or small generation projects."}
+      - {role: transition_group, label: Find local organizers, question: "Ask whether the group has an active energy project or only an interest."}
+    precedents:
+      - name: REScoop.eu
+        place: Europe
+        finding: The federation reports a network of 2,500 energy communities representing over 2 million citizens. The figure is self-reported.
+        source: https://www.rescoop.eu/about-us/
+        checked: 2026-11-26
+      - name: Citizen-owned renewables
+        place: Germany
+        finding: Private individuals and farmers owned 40.4% of installed renewable capacity in 2019, down from 42% in 2016 and more than half about a decade earlier.
+        source: https://www.unendlich-viel-energie.de/studie-buergerenergie-bleibt-zentrale-saeule-der-energiewende
+        checked: 2026-11-26
+    limits:
+      - finding: In the United Kingdom, closure of the feed-in tariff made the most prominent community energy business model unviable; 97% of new community capacity in 2019 had depended on it.
+        source: https://www.communityenergyengland.org/files/document/484/1615989181_CommunityEnergy-StateoftheSector2020Report.pdf
+    outside_directory:
+      - The grid operator and the national support scheme or price rules.
+    falsifier: This circuit bears on CLAIMS.md C2. If community energy organizations formed before a subsidy withdrawal mostly stop building or dissolve within five years of it, commons-based provision here depends on policy more than the framework says.
+
+  - id: community_broadband
+    name: Cooperative rural broadband
+    goal: Bring fast internet to an underserved rural area
+    problem: Commercial providers often skip sparse rural areas. Member-owned utilities already have poles, rights of way and customers, and some have added fibre.
+    evidence: combination_documented
+    open_problems: [partial-abundance, nation-states]
+    roles:
+      - {role: energy_cooperative, label: Find a member-owned utility, question: "Ask whether it has studied fibre and how it would finance it."}
+      - {role: anchor_institution, label: Find public partners, question: "Ask whether the council or hospital would be an early customer or guarantor, and what risk that carries."}
+      - {role: library_or_learning, label: Find public access and digital skills, question: "Ask whether it offers public connections and training."}
+    precedents:
+      - name: Rural electric cooperatives building fibre
+        place: United States
+        finding: More than 109 rural electric co-ops had started fibre projects by 2020, and co-ops provided about 30% of the fibre service available in rural areas. The source is an advocacy organization.
+        source: https://ilsr.org/wp-content/uploads/2020/05/2020_05_19_Rural-Co-op-Report.pdf
+        checked: 2026-11-26
+    limits:
+      - finding: RS Fiber, a Minnesota broadband co-op backed by city bonds, could not make its bond payments in 2018 and member cities raised local taxes to cover a shortfall of about $1.07 million over two years.
+        source: https://www.nujournal.com/news/local-news/2018/12/02/taxpayers-asked-to-pony-up-for-rs-fiber-shortfall/
+    outside_directory:
+      - Public broadband grants and the rules for pole access.
+    falsifier: If take-up in a planned area is too low to service the debt without public guarantees, the project transfers risk to taxpayers, as at RS Fiber.
+
+  - id: disaster_resilience_grid
+    name: Disaster resilience grid
+    goal: Prepare neighbours and services before a disaster
+    problem: After a disaster, help moves through relationships that already exist. Neighbourhood groups know who needs what, coordinating bodies hold logistics, and clinics provide care.
+    evidence: components_documented
+    open_problems: [tipping-point, leaderless-coordination]
+    roles:
+      - {role: mutual_aid_network, label: Find neighbourhood networks, question: "Ask whether the group is still active and what it would do in an emergency."}
+      - {role: disaster_coordination, label: Find coordinating bodies, question: "Ask how unaffiliated volunteers and local groups are included in plans."}
+      - {role: community_clinic, label: Find clinical capacity, question: "Ask what it can provide if power or transport fails."}
+    precedents:
+      - name: Occupy Sandy
+        place: New York, United States
+        finding: A study prepared for the Department of Homeland Security estimated the volunteer network grew to about 60,000 people at its peak, more than four times the number deployed by the American Red Cross. The report notes the count is hard to estimate reliably.
+        source: https://mirror.explodie.org/the-resilient-social-network.pdf
+        checked: 2026-11-26
+    limits:
+      - finding: A review of research on social capital and recovery notes that tight local networks are double-edged; strong groups can exclude outsiders from help.
+        source: https://blogs.lse.ac.uk/lsereviewofbooks/2013/02/14/book-review-building-resilience-social-capital-in-post-disaster-recovery
+      - finding: The directory lists 4,145 mutual aid records from one 2020 wiki. Their current activity is unknown.
+        source: https://github.com/simonlpaige/commonweave/blob/master/docs/DATA-AUDIT-2026-09-05.md
+    outside_directory:
+      - Public emergency management, which controls access, funding and official information.
+    falsifier: If fewer than one in five listed mutual aid groups in a pilot locality can be reached, the directory cannot support this circuit there.
+
+  - id: eldercare_commons
+    name: Eldercare commons
+    goal: Help older neighbours stay at home
+    problem: Ageing at home depends on everyday practical help, social contact, paid care when needed and reachable clinical care.
+    evidence: components_documented
+    open_problems: [unglamorous-work, partial-abundance]
+    roles:
+      - {role: eldercare, label: Find older people's organizations, question: "Ask what members need most and who is left out."}
+      - {role: time_bank, label: Find neighbour exchange, question: "Ask how many active members it has and what cannot be exchanged."}
+      - {role: home_care, label: Find paid care, question: "Ask about cost, waiting times and worker conditions."}
+      - {role: community_clinic, label: Find clinical care, question: "Ask about home visits and transport."}
+    precedents:
+      - name: Village model of member-run ageing support
+        place: United States and elsewhere
+        finding: The movement that began with Beacon Hill Village in Boston now counts approximately 350 villages.
+        source: https://www.beaconhillvillage.org/pages/10062-village-to-village-network
+        checked: 2026-11-26
+    limits:
+      - finding: Japan's Fureai Kippu time-credit schemes fell from 132 in 2005 to 95 in 2008, and the researcher concludes no universal panacea can be expected from time banking in eldercare.
+        source: https://www.ijccr.net/article/view/9150
+      - finding: Only three release records match the time bank rule, so that role will nearly always appear missing.
+        source: https://github.com/simonlpaige/commonweave/blob/master/SOLUTION-CIRCUITS.md
+    falsifier: If neighbour exchange cannot be shown to reduce paid-care hours or loneliness measures in a pilot, keep it as social contact and stop presenting it as care provision.
+
+  - id: cooperative_incubator
+    name: Cooperative development pipeline
+    goal: Set up cooperative development support
+    problem: New cooperatives need advice from people who have done it, finance that accepts their ownership model, and training in running a member-owned business.
+    evidence: combination_documented
+    open_problems: [power-transfer, nation-states]
+    roles:
+      - {role: cooperative_developer, label: Find cooperative experience, question: "Ask about formation, governance and support for your sector."}
+      - {role: cooperative_finance, label: Find cooperative finance, question: "Ask what it lends to start-ups and on what security."}
+      - {role: workforce_training, label: Build skills together, question: "Ask whether training is open to your members."}
+    precedents:
+      - name: Mutual funds for cooperative development
+        place: Italy
+        finding: Law 59/1992 requires cooperatives affiliated to the national associations to pay 3% of annual profits into funds that promote and finance new cooperatives.
+        source: https://www.diritto.it/i-fondi-mutualistici-per-la-promozione-e-lo-sviluppo-della-cooperazione/
+        checked: 2026-11-26
+      - name: Co-op Cincy
+        place: Cincinnati, United States
+        finding: Began as the Cincinnati Union Co-op Initiative and has incubated or supported over a dozen co-ops employing more than 100 workers, with finance from a cooperative loan network.
+        source: https://seedcommons.org/projects/building-a-cooperative-economy-in-cincinnati
+        checked: 2026-11-26
+    limits:
+      - finding: A review of worker co-op research finds they survive at least as long as other firms, but notes much of the survival evidence comes from countries whose co-op law prevents the usual failure modes.
+        source: https://base.socioeco.org/docs/worker_co-op_report.pdf
+      - finding: At Mondragon, depending on the sector, only 32% to 45% of workers were owner-members in 2019. Growth has come with a large non-member workforce.
+        source: https://dare.uva.nl/id/b3080656-1109-4b7e-b5c1-fa68b007dada
+    outside_directory:
+      - Cooperative law and tax treatment, which differ sharply between countries.
+    falsifier: If co-ops started through a local pipeline fail at the same rate as other small firms in that place, the support roles are not adding survival and should be redesigned.
+
+  - id: community_schools
+    name: Community school hub
+    goal: Support children and families through a school
+    problem: Schools are where families already go. Bringing health care, food and family services into the school can raise attendance, if partners stay.
+    evidence: combination_documented
+    open_problems: [partial-abundance, cultural-diversity]
+    sensitive: Children's information must never be collected or shared through this directory.
+    roles:
+      - {role: school, label: Find the school community, question: "Ask what families say they need and who decides what happens on site."}
+      - {role: community_clinic, label: Find health partners, question: "Ask whether it can run sessions at the school."}
+      - {role: food_access, label: Find food partners, question: "Ask whether it can supply a school pantry without stigma."}
+      - {role: behavioral_health, label: Find counselling, question: "Ask about waiting times and parental consent."}
+    precedents:
+      - name: New York City Community Schools Initiative
+        place: New York, United States
+        finding: A RAND evaluation found a positive impact on attendance in all grades across all three study years, and on graduation in two of three years.
+        source: https://www.rand.org/pubs/research_reports/RR3245.html
+        checked: 2026-11-26
+    limits:
+      - finding: The same evaluation found no significant effect on reading in any year, on maths in the first two years, or on family engagement. The design was quasi-experimental.
+        source: https://www.rand.org/pubs/research_reports/RR3245.html
+    outside_directory:
+      - The school district or education authority that funds the coordinator post.
+    falsifier: If attendance does not improve within two years of adding partners, the partnership is not reproducing the evaluated result.
+
+  - id: participatory_budgeting
+    name: Participatory budgeting
+    goal: Give residents a say over part of a public budget
+    problem: Residents know local needs but rarely decide spending. Participatory budgeting gives them a defined share to allocate, which requires a public body to commit money and local groups to bring people in.
+    evidence: combination_documented
+    open_problems: [leaderless-coordination, nation-states, principled-refusers]
+    roles:
+      - {role: anchor_institution, label: Find the public body, question: "Ask what share of which budget could be opened, and whether results would be binding."}
+      - {role: civic_association, label: Find neighbourhood organizers, question: "Ask who usually does not take part and how to reach them."}
+      - {role: library_or_learning, label: Find a neutral venue and information, question: "Ask whether it can host meetings and publish proposals."}
+    precedents:
+      - name: Participatory budgeting in large Brazilian cities
+        place: Brazil
+        finding: Adoption was associated with an estimated 11% decrease in infant mortality and a 6% increase in health and sanitation spending. The study is observational.
+        source: https://www.oidp.net/docs/repo/doc402.pdf
+        checked: 2026-11-26
+      - name: Participatory Budgeting World Atlas 2019
+        place: Worldwide
+        finding: Counted between 11,690 and 11,825 participatory budgeting processes. These are processes, not cities, and many exist because national law requires them.
+        source: https://npms.paginas.ufsc.br/files/2019/12/Atlas-2019-Web.pdf
+        checked: 2026-11-26
+    limits:
+      - finding: The Brazilian association was stronger under one party's mayors, a possible confound the authors acknowledge.
+        source: https://www.oidp.net/docs/repo/doc402.pdf
+    outside_directory:
+      - The elected council that must agree to share budget authority.
+    falsifier: If participants in a local process are less representative of the area than voters in the last local election, the process is concentrating influence, not spreading it.
+
+  - id: civic_information_commons
+    name: Civic information commons
+    goal: Rebuild shared local information
+    problem: Where local news has thinned out, residents lack a common source on local decisions. Community media, libraries and civic groups each hold part of what is needed.
+    evidence: hypothesis
+    evidence_note: No precedent has been source-checked for this circuit. It is carried over from the earlier circuit list.
+    open_problems: [transparency-limits, ideology-drift]
+    roles:
+      - {role: community_media, label: Find community media, question: "Ask who owns it, how it is funded and how corrections are handled."}
+      - {role: library_or_learning, label: Find a library or learning partner, question: "Ask whether it archives local records or runs media-literacy sessions."}
+      - {role: civic_association, label: Find civic groups, question: "Ask which local decisions residents find hardest to follow."}
+    precedents: []
+    limits: []
+    falsifier: If no documented case of the three working together can be found and source-checked, remove this circuit.
+
+  - id: technology_oversight
+    name: Community oversight of technology
+    goal: Give workers and residents a say over AI and surveillance tools
+    problem: Decisions about automated systems are mostly made by vendors and employers. Bargaining and local law are the two routes that have produced binding limits so far.
+    evidence: components_documented
+    evidence_note: Union bargaining and local oversight ordinances are each documented. The sources do not show them combined, and voluntary public-input exercises have not been shown to change company decisions.
+    open_problems: [ai-governance, transparency-limits]
+    roles:
+      - {role: labor_union, label: Find worker representation, question: "Ask whether automation or monitoring is covered in any agreement."}
+      - {role: civil_liberties, label: Find legal and rights expertise, question: "Ask whether it has drafted or reviewed a local oversight ordinance."}
+      - {role: civic_association, label: Find residents' organizations, question: "Ask which public technologies residents are worried about."}
+    precedents:
+      - name: Writers Guild of America 2023 agreement
+        place: United States
+        finding: The union's summary states that AI cannot write or rewrite literary material, AI output is not source material, and a company cannot require a writer to use AI software.
+        source: https://www.wgacontract2023.org/the-campaign/summary-of-the-2023-wga-mba
+        checked: 2026-11-26
+      - name: Community Control Over Police Surveillance laws
+        place: United States
+        finding: The sponsoring organization reports such laws adopted in 26 jurisdictions covering nearly 18 million people. The count is self-reported and undated.
+        source: https://www.aclu.org/community-control-over-police-surveillance
+        checked: 2026-11-26
+    limits:
+      - finding: Driver's Seat, a data cooperative for gig workers, has been wound down and its work absorbed into a university project. The data co-op form has not yet shown durability.
+        source: https://wao.cs.princeton.edu/
+      - finding: A study of one company's public-input program identifies unspoken assumptions, such as that participation must be scalable, that limit what such exercises can decide.
+        source: https://arxiv.org/abs/2407.11613
+    outside_directory:
+      - Legislatures and regulators. Most binding rules on AI come from law, not from community organizations.
+    falsifier: If oversight ordinances are adopted but audits show agencies acquire tools without the required approval, the circuit produces paper rules only.

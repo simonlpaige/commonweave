@@ -57,6 +57,18 @@
     box.append(download);
     return box;
   }
+  function circuitNote(circuit) {
+    const box = el('div', 'pathway-evidence');
+    box.append(el('p', 'pathway-caution', 'Evidence for this combination: ' + circuit.evidenceLabel + '.'));
+    const link = el('a', 'discovery-link', 'Read where it has been done, what went wrong, and what would count against it');
+    link.href = 'doc.html?file=SOLUTION-CIRCUITS#' + circuit.anchor; box.append(link);
+    if (circuit.outside.length) {
+      box.append(el('p', 'pathway-gap', 'Also needed, and not something this directory can find:'));
+      const list = el('ul', 'pathway-outside'); circuit.outside.forEach(o => list.append(el('li', '', o))); box.append(list);
+    }
+    if (circuit.sensitive) box.append(el('p', 'pathway-gap', 'Care needed: ' + circuit.sensitive));
+    return box;
+  }
   function renderResults() {
     resultInto($('need-result'), false);
     resultInto($('discovery-list-results'), true);
@@ -83,7 +95,10 @@
     }
     if (r.goal) {
       container.append(planDiagram(r));
-      container.append(el('p', 'pathway-caution', 'Category matches are research leads, shown alphabetically when no topic is entered. For example, a cooperative may operate a service without advising new cooperatives. Open a record to check its work before choosing it.'));
+      if (r.goal.circuit) container.append(circuitNote(r.goal.circuit));
+      container.append(el('p', 'pathway-caution', r.goal.circuit
+        ? 'Candidates match a rule on the record name, model or source list. A match is a research lead: it does not show that the organization does this work, has capacity, or knows the others. Open a record to check before choosing it.'
+        : 'Category matches are research leads, shown alphabetically when no topic is entered. For example, a cooperative may operate a service without advising new cooperatives. Open a record to check its work before choosing it.'));
       const steps = el('ol', 'pathway-steps');
       r.steps.forEach(step => {
         const item = el('li', 'pathway-step');
@@ -92,7 +107,7 @@
         if (step.total) {
           const stepPage = stepPages[step.area] || 0;
           const start = stepPage * 3;
-          item.append(el('p', 'nr-meta', 'Showing ' + (start + 1) + '–' + Math.min(start + 3, step.total) + ' of ' + step.total.toLocaleString() + ' category candidates'));
+          item.append(el('p', 'nr-meta', 'Showing ' + (start + 1) + '–' + Math.min(start + 3, step.total) + ' of ' + step.total.toLocaleString() + (r.goal.circuit ? ' rule matches' : ' category candidates')));
           step.candidates.slice(start, start + 3).forEach(c => {
             const candidate = el('div', 'pathway-candidate'); candidate.append(row(c));
             const selected = chosen[step.area] === c.org.id;
@@ -188,7 +203,13 @@
   }
   function refresh() { if (ready) run(); }
   async function init() {
-    P().GOALS.forEach(g => $('need-goal').append(option(g.id, g.label)));
+    const groups = [['Broad category pathways', g => !g.circuit], ['Combinations with a track record', g => g.circuit && g.circuit.evidence === 'combination_documented'],
+      ['Parts evidenced separately', g => g.circuit && g.circuit.evidence === 'components_documented'], ['Untested ideas', g => g.circuit && g.circuit.evidence === 'hypothesis']];
+    groups.forEach(([label, test]) => {
+      const group = el('optgroup'); group.label = label;
+      P().GOALS.filter(test).forEach(g => group.append(option(g.id, g.label)));
+      if (group.children.length) $('need-goal').append(group);
+    });
     const countries = [...new Set((global.allPoints || []).map(p => p.cc).filter(Boolean))].sort();
     let names; try { names = new Intl.DisplayNames(['en'], { type: 'region' }); } catch (_) { /* ISO codes remain usable. */ }
     countries.forEach(cc => { let name = cc; try { name = names ? names.of(cc) : cc; } catch (_) {} $('need-country').append(option(cc, name + ' (' + cc + ')')); });

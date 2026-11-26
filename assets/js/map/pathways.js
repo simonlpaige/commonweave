@@ -30,6 +30,19 @@
       ['recreation_arts', 'Explore social connection', 'Ask about accessible activities and whether referrals are welcome.']
     ] }
   ];
+  const CIRCUITS = (global.CommonweaveCircuits || (typeof require === 'function' && typeof module !== 'undefined' ? require('./circuits-data.js') : { circuits: [] })).circuits;
+  // Circuit goals come from data/circuits.yaml. Each step has its own role rule,
+  // so two steps in one circuit can draw on the same broad category.
+  CIRCUITS.forEach(c => GOALS.push({ id: 'circuit-' + c.id, label: c.label, circuit: c, steps: c.steps.map(s => [s.key, s.label, s.question, s.rule, s.roleLabel]) }));
+  function clauseMatches(clause, org, name) {
+    return Object.entries(clause).every(([field, wanted]) => field === 'name' ? wanted.some(w => name.includes(' ' + w + ' '))
+      : wanted.includes(field === 'model' ? org.m : field === 'source' ? org.src : field === 'area' ? org.f : undefined));
+  }
+  /* Mirrors role_matches() in data/circuit_match.py for the fields a map point has. */
+  function matchRule(rule, org) {
+    const name = ' ' + normalize(org.n) + ' ';
+    return rule.any_of.some(c => clauseMatches(c, org, name)) && !rule.none_of.some(c => clauseMatches(c, org, name));
+  }
   function normalize(value) {
     return String(value || '').normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
   }
@@ -40,9 +53,12 @@
   function planText(result, chosen) {
     if (!result || !result.goal) return '';
     const line = value => String(value || '').replace(/[\r\n]+/g, ' ').trim();
+    const circuit = result.goal.circuit;
     const lines = ['COMMONWEAVE — PROPOSED COMMUNITY PLAN', '', line(result.goal.label),
       'Place: ' + (result.city ? [result.city.city, result.city.region, result.city.country].filter(Boolean).map(line).join(', ') : line(result.country) || 'All countries'), '',
       'These are your research choices. Role sequences do not establish partnerships, availability or suitability.', ''];
+    if (circuit) lines.push('Evidence for this combination: ' + line(circuit.evidenceLabel) + '.',
+      'Precedents, failures and what would count against it: https://commonweave.earth/doc.html?file=SOLUTION-CIRCUITS#' + circuit.anchor, '');
     result.steps.forEach((step, i) => {
       const picked = step.candidates.find(c => c.org.id === chosen[step.area]);
       lines.push((i + 1) + '. ' + line(step.label), line(step.question));
@@ -54,6 +70,8 @@
       } else lines.push('No organization chosen. ' + step.total + ' category candidates in this selection.');
       lines.push('Confirm: service area, eligibility, cost, accessibility, capacity and consent to referrals.', 'Notes: ', '');
     });
+    if (circuit && circuit.outside.length) lines.push('Also needed, and not in this directory:', ...circuit.outside.map(o => '- ' + line(o)), '');
+    if (circuit && circuit.sensitive) lines.push('Care needed: ' + line(circuit.sensitive), '');
     lines.push('Suggested next action: check each chosen record with the organization, then agree who will do what. Do not share personal details without consent.',
       'Public data audit: https://github.com/simonlpaige/commonweave/blob/master/docs/DATA-AUDIT-2026-09-05.md');
     return lines.join('\n');
@@ -86,16 +104,21 @@
       const categoryMatch = categories.includes(org.f);
       return { org, distance: null, rank: textMatch ? 2 : categoryMatch ? 1 : 0, reasons: [AREAS[org.f] ? 'Listed under ' + AREAS[org.f] : 'Category not assigned', org.ci ? 'Recorded locality: ' + org.ci : 'Locality not recorded'] };
     }).filter(r => !query || r.rank > 0).sort((a, b) => b.rank - a.rank || (a.distance ?? Infinity) - (b.distance ?? Infinity) || normalize(a.org.n).localeCompare(normalize(b.org.n)) || String(a.org.id).localeCompare(String(b.org.id)));
-    const steps = goal ? goal.steps.map(([area, label, question]) => {
-      const candidates = ranked.filter(r => r.org.f === area);
+    // `area` is the step key used for choices and paging. For category goals it
+    // is the category; for circuit goals it is the role key.
+    const steps = goal ? goal.steps.map(([area, label, question, rule, roleLabel]) => {
+      const candidates = rule ? ranked.filter(r => matchRule(rule, r.org)).map(r => Object.assign({}, r, { reasons: ['Name or source matches the rule for: ' + roleLabel, r.reasons[1]] }))
+        : ranked.filter(r => r.org.f === area);
       return { area, label, question, total: candidates.length, candidates };
     }) : [];
-    const matches = goal ? steps.flatMap(s => s.candidates) : ranked;
+    // An organization can match more than one role in a circuit; list it once.
+    const seen = new Set();
+    const matches = goal ? steps.flatMap(s => s.candidates).filter(c => !seen.has(c.org.id) && seen.add(c.org.id)) : ranked;
     // Connect roles only. Alphabetical category candidates must never be
     // promoted into a named pathway without the user's assessment and choice.
     const bridges = steps.slice(1).map((step, i) => ({ sourceRole: steps[i].label, targetRole: step.label, basis: 'Proposed role sequence; no organization or partnership selected' }));
-    return { goal, steps, matches, bridges, total: goal ? steps.reduce((n, s) => n + s.total, 0) : ranked.length, searched: scoped.length, city, country: opts.country };
+    return { goal, steps, matches, bridges, total: goal ? matches.length : ranked.length, searched: scoped.length, city, country: opts.country };
   }
-  global.CommonweavePathways = { GOALS, AREAS, normalize, phrase, safeUrl, evidence, discover, planText };
+  global.CommonweavePathways = { GOALS, AREAS, matchRule, normalize, phrase, safeUrl, evidence, discover, planText };
   if (typeof module !== 'undefined' && module.exports) module.exports = global.CommonweavePathways;
 })(typeof window !== 'undefined' ? window : globalThis);
