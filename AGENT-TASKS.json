@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-04-25T23:30-05:00",
+  "updated": "2026-11-26T00:00-06:00",
   "notes": "Machine-readable list of agent-ready tasks for Commonweave. Pick one. See AGENTS.md for workflow.",
   "tasks": [
     {
@@ -10,7 +10,10 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Pick one country with fewer than 50 organizations in the directory (most of the 172 countries qualify) and verify or improve at least 10 records.",
-      "files": ["data/search/<country>.json", "data/commonweave_directory.db"],
+      "files": [
+        "data/search/<country>.json",
+        "data/commonweave_directory.db"
+      ],
       "acceptance_criteria": [
         "At least 10 organizations checked",
         "Broken links corrected or marked",
@@ -33,7 +36,9 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Add a map toggle that filters to Tier B organizations with alignment_score >= 5 (~10,824 of ~27,217 geocoded points currently shown).",
-      "files": ["map.html"],
+      "files": [
+        "map.html"
+      ],
       "acceptance_criteria": [
         "Toggle is visible on desktop and mobile",
         "Default map behavior remains unchanged",
@@ -48,7 +53,10 @@
       "agent_ready": true,
       "difficulty": "hard",
       "goal": "Update generated edges in data/build_map_v2.py to include edge_type, confidence, explanation, created_at, and source_script.",
-      "files": ["data/build_map_v2.py", "map.html"],
+      "files": [
+        "data/build_map_v2.py",
+        "map.html"
+      ],
       "acceptance_criteria": [
         "Edge schema includes edge_type, confidence, explanation, created_at, source_script",
         "Map can display or inspect edge explanation (hover, click, or panel)",
@@ -63,7 +71,10 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Classify records in one country as formal, hybrid, informal, or unknown. The legibility column was added 2026-04-22; as of 2026-04-25, ~25,980 records still read 'unknown' and ~138,803 read 'formal' (auto-classified at ingest time). Either subset is worth working in -- pick a country and audit/backfill there.",
-      "files": ["data/commonweave_directory.db", "data/migrate_legibility.py"],
+      "files": [
+        "data/commonweave_directory.db",
+        "data/migrate_legibility.py"
+      ],
       "acceptance_criteria": [
         "At least 20 records reviewed",
         "Each classification has an evidence note in the PR or remains unknown",
@@ -78,7 +89,12 @@
       "agent_ready": true,
       "difficulty": "hard",
       "goal": "Pick one claim in README.md or DEEP-DIVE.md and define what evidence would weaken or falsify it.",
-      "files": ["CLAIMS.md", "FALSIFIERS.md", "README.md", "DEEP-DIVE.md"],
+      "files": [
+        "CLAIMS.md",
+        "FALSIFIERS.md",
+        "README.md",
+        "DEEP-DIVE.md"
+      ],
       "acceptance_criteria": [
         "Claim is quoted or referenced precisely (file + section)",
         "Falsifier is concrete and observable",
@@ -93,7 +109,10 @@
       "agent_ready": true,
       "difficulty": "easy",
       "goal": "The governance matrix in README.md has cells marked [NEEDS EXAMPLE]. Pick one. Find a real organization (preferably already in the directory) that fits. Cite source.",
-      "files": ["README.md", "data/search/"],
+      "files": [
+        "README.md",
+        "data/search/"
+      ],
       "acceptance_criteria": [
         "One cell filled with a named organization",
         "Source cited (URL, registry, news, or peer-reviewed)",
@@ -108,7 +127,10 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Extract at least 10 specific claims from README.md and add them to CLAIMS.md with status, confidence, evidence (or lack of), and falsifier ideas.",
-      "files": ["CLAIMS.md", "README.md"],
+      "files": [
+        "CLAIMS.md",
+        "README.md"
+      ],
       "acceptance_criteria": [
         "At least 10 claims extracted, each tied to a README section",
         "Each has status (draft/supported/disputed/unresolved)",
@@ -124,7 +146,10 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Add at least 3 attack vectors to ATTACK-VECTORS.md (e.g. corporate capture, state surveillance, data extraction, founder bottleneck, spam flooding, ideological hardening).",
-      "files": ["ATTACK-VECTORS.md", "THREAT-MODEL.md"],
+      "files": [
+        "ATTACK-VECTORS.md",
+        "THREAT-MODEL.md"
+      ],
       "acceptance_criteria": [
         "Each vector has: threat, who benefits, who is harmed, early warning signs, countermeasures, open questions",
         "Vectors are realistic, not paranoid",
@@ -138,7 +163,9 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Make map.html usable on a phone. Touch-friendly filter panel, better popups, no horizontal overflow.",
-      "files": ["map.html"],
+      "files": [
+        "map.html"
+      ],
       "acceptance_criteria": [
         "Filter panel is reachable and operable on a 375px-wide screen",
         "Popups don't overflow viewport",
@@ -153,7 +180,10 @@
       "agent_ready": true,
       "difficulty": "easy",
       "goal": "Add a curated llms.txt index pointing to README, CRITIQUE, AGENTS, AGENT-TASKS, data contributing guide, map, directory. Add a longer llms-full.txt digest.",
-      "files": ["llms.txt", "llms-full.txt"],
+      "files": [
+        "llms.txt",
+        "llms-full.txt"
+      ],
       "acceptance_criteria": [
         "llms.txt is a short curated index following the llmstxt.org spec",
         "llms-full.txt contains a longer machine-readable digest",
@@ -168,7 +198,11 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Audit the Hartford, Syracuse, Tulsa, and Durham circuit briefs against current public sources before any brief is delivered through a local channel.",
-      "files": ["briefs/", "data/map/circuits.json", "OUTREACH-ATTRACTION-PLAN.md"],
+      "files": [
+        "briefs/",
+        "data/map/circuits.json",
+        "OUTREACH-ATTRACTION-PLAN.md"
+      ],
       "acceptance_criteria": [
         "All listed organizations still have a current public presence",
         "Each proposed role is supported by a cited public source or the brief is corrected",
@@ -194,6 +228,78 @@
         "Sequential amendment history and field evidence survive without overwriting earlier decisions",
         "Affected download formats and directory representations agree, while unrelated snapshots are preserved",
         "Conflict and replay tests pass; public verification dates are not invented"
+      ]
+    },
+    {
+      "id": "cw-map-gb-centroid-pile-001",
+      "title": "Unstack the 11,399 UK pins that share one coordinate",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "In data/map/orgs.geojson, 11,399 GB points sit on the country centroid (-3.44, 55.38), so the map's largest cluster is one dot in rural Scotland. Geocode these rows to their registered postcode district or town from the Charity Commission extract, record the precision used, and leave rows with no usable locality off the map instead of on the centroid.",
+      "files": [
+        "tools/rebuild_map_data.py",
+        "data/phase1_geocode.py",
+        "data/map/orgs.geojson"
+      ],
+      "acceptance_criteria": [
+        "No more than 50 map points share any single coordinate unless that coordinate is a documented city centroid",
+        "Each moved point records a precision value (postcode_district, city, or country)",
+        "Rows that cannot be placed are counted and reported, not pinned to a centroid",
+        "Requires the canonical database; state which snapshot was used"
+      ]
+    },
+    {
+      "id": "cw-map-tier-field-repair-001",
+      "title": "Repair the 9,843 map rows whose tier field holds an activity code",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "9,843 of 29,423 features in data/map/orgs.geojson have a value other than A/B/C/D in the `t` property (mostly NTEE-style codes), so the default filters hide them. Fix the export mapping in the map build so `t` comes from the canonical tier column.",
+      "files": [
+        "tools/rebuild_map_data.py",
+        "data/build_map_v2.py"
+      ],
+      "acceptance_criteria": [
+        "Every exported feature has t in A/B/C/D",
+        "Tier is read from the canonical column and never inferred from an activity code",
+        "Before/after counts of visible points are reported"
+      ]
+    },
+    {
+      "id": "cw-ingest-murmurations-run-001",
+      "title": "Run the Murmurations ingest against the canonical database and dedupe",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "data/ingest_murmurations.py dry-ran on 2026-11-26 at 6,853 usable rows (6,704 with coordinates, 6,848 with a website, 133 countries). 477 share a normalized name and country with a row in the April release. Run it against the canonical database, then resolve those overlaps with data/dedup_merge.py before any export.",
+      "files": [
+        "data/ingest_murmurations.py",
+        "data/dedup_merge.py",
+        "DATA.md"
+      ],
+      "acceptance_criteria": [
+        "Ingest is run with COMMONWEAVE_DB set explicitly and the row counts are recorded",
+        "Name+country overlaps are reviewed; merged rows keep both source identities",
+        "1,012 rows without a country code are either resolved from coordinates or left blank, not guessed",
+        "DATA.md source table is updated with the real inserted count"
+      ]
+    },
+    {
+      "id": "cw-map-coverage-antimeridian-001",
+      "title": "Fix region polygons that streak across the Coverage view",
+      "type": "code",
+      "agent_ready": true,
+      "difficulty": "easy",
+      "goal": "In Coverage mode, some polygons in data/map/regions.geojson that cross the antimeridian (visible around Russia, Alaska and Fiji) draw as horizontal bands and a wedge across the Atlantic. Split or wrap those geometries in data/build_regions.py.",
+      "files": [
+        "data/build_regions.py",
+        "data/map/regions.geojson"
+      ],
+      "acceptance_criteria": [
+        "No polygon edge spans more than 180 degrees of longitude",
+        "Coverage view at world zoom shows no bands or wedges",
+        "Completeness values are unchanged"
       ]
     }
   ]

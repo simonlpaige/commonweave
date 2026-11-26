@@ -40,6 +40,7 @@
 <!-- Preconnect to the basemap host: warms TLS + DNS while the JS loads, so
      the first vector tile arrives faster on mobile. -->
 <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
+<link rel="preload" href="data/map/orgs.geojson" as="fetch" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <!-- MapLibre GL: free vector basemap rendering. OpenFreeMap serves the
      tiles. No token needed. Loaded eagerly because the cluster layer for the
@@ -181,16 +182,14 @@ html, body {
 #ml-map {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  background: var(--bg-deep);
+  background: #EFE8D8;
 }
 .maplibregl-ctrl-bottom-left,
 .maplibregl-ctrl-bottom-right { display: none !important; }
 .maplibregl-canvas { outline: none; }
-/* Tone the OpenFreeMap basemap toward the brand palette. The basemap canvas
-   is desaturated and tinted toward ink/moss so points read on top. */
-#ml-map .maplibregl-canvas-container > canvas {
-  filter: hue-rotate(80deg) saturate(0.55) brightness(0.45) contrast(0.95);
-}
+/* The basemap is tinted to the brand palette in tintBasemap() by repainting
+   style layers. No CSS filter on the canvas: a filter also recolours the
+   organization points and makes the section colours unreadable. */
 
 /* Edge popover: shown when hovering an edge or in the detail panel's
    "Connections" section. Reads explanation, weight, type. */
@@ -1738,13 +1737,13 @@ async function ensureRegionsSource() {
         paint: {
           'fill-color': [
             'interpolate', ['linear'], ['get', 'completeness'],
-            0,   'rgba(15, 25, 15, 0.10)',
-            10,  'rgba(74, 107, 79, 0.32)',
-            30,  'rgba(106, 191, 108, 0.42)',
-            60,  'rgba(184, 196, 168, 0.55)',
-            90,  'rgba(123, 227, 138, 0.70)',
+            0,   'rgba(180, 89, 58, 0.10)',
+            10,  'rgba(184, 196, 168, 0.45)',
+            30,  'rgba(111, 154, 114, 0.55)',
+            60,  'rgba(74, 107, 79, 0.65)',
+            90,  'rgba(47, 74, 51, 0.78)',
           ],
-          'fill-outline-color': 'rgba(184, 196, 168, 0.35)',
+          'fill-outline-color': 'rgba(47, 74, 51, 0.35)',
         },
       }, mlMap.getLayer('orgs-clusters') ? 'orgs-clusters' : undefined);
       // ^ insert below the cluster bubbles so points stay readable.
@@ -1756,7 +1755,7 @@ async function ensureRegionsSource() {
         source: 'regions',
         layout: { visibility: 'none' },
         paint: {
-          'line-color': 'rgba(184, 196, 168, 0.35)',
+          'line-color': 'rgba(47, 74, 51, 0.35)',
           'line-width': 0.5,
         },
       }, mlMap.getLayer('orgs-clusters') ? 'orgs-clusters' : undefined);
@@ -2568,6 +2567,38 @@ let mlMap = null;
 let deckOverlay = null;
 let geoInited = false;
 
+// Vector-only basemap. The previous style (liberty) also pulled shaded-relief
+// raster tiles, roughly 2.5 MB of PNGs on a first world view.
+const BASEMAP_STYLE = 'https://tiles.openfreemap.org/styles/positron';
+// Layer id -> [paint property, value]. Paper land, sage water, ink labels.
+const BASEMAP_TINT = {
+  background: ['background-color', '#EFE8D8'],
+  water: ['fill-color', '#C3D2CB'],
+  park: ['fill-color', '#DCE3CA'],
+  landcover_wood: ['fill-color', '#D6DFC5'],
+  landuse_residential: ['fill-color', '#E9DFC9'],
+  landcover_glacier: ['fill-color', '#F7F3EA'],
+  landcover_ice_shelf: ['fill-color', '#F7F3EA'],
+  building: ['fill-color', '#DCD0B6'],
+  waterway: ['line-color', '#AFC3BB'],
+  boundary_2: ['line-color', '#8E7B4E'],
+  boundary_3: ['line-color', '#C9B98C'],
+};
+function tintBasemap() {
+  if (!mlMap) return;
+  const layers = (mlMap.getStyle() || {}).layers || [];
+  for (const layer of layers) {
+    try {
+      const tint = BASEMAP_TINT[layer.id];
+      if (tint) mlMap.setPaintProperty(layer.id, tint[0], tint[1]);
+      if (layer.type === 'symbol' && layer.source === 'openmaptiles') {
+        mlMap.setPaintProperty(layer.id, 'text-color', layer.id.startsWith('water') ? '#5A7A72' : '#2C3A30');
+        mlMap.setPaintProperty(layer.id, 'text-halo-color', 'rgba(242,235,220,0.85)');
+      }
+    } catch (e) { /* a missing layer or property must not block the map */ }
+  }
+}
+
 function initGeoMapIfNeeded() {
   if (geoInited) return;
   geoInited = true;
@@ -2582,7 +2613,7 @@ function initGeoMapIfNeeded() {
   const initialZoom = IS_MOBILE ? 1.0 : 1.6;
   try { mlMap = new maplibregl.Map({
     container: 'ml-map',
-    style: 'https://tiles.openfreemap.org/styles/liberty',
+    style: BASEMAP_STYLE,
     center: [10, 30],
     zoom: initialZoom,
     minZoom: 0,
@@ -2591,6 +2622,7 @@ function initGeoMapIfNeeded() {
     hash: false,
   }); } catch (e) { console.warn('Basemap unavailable; showing list results.', e); setViewMode('list'); return; }
   mlMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+  mlMap.once('styledata', tintBasemap);
 
   // deck.gl overlay (for edges) is created lazily - only when we actually
   // need to draw arcs/lines. The bulk org points go through MapLibre's
@@ -2637,18 +2669,18 @@ function addOrgClusterSource() {
     paint: {
       'circle-color': [
         'step', ['get', 'point_count'],
-        '#6abf6c', 50,
-        '#4fc4b0', 200,
-        '#5ba5f0', 1000,
-        '#9b8cdf'
+        '#9DB894', 50,
+        '#6F9A72', 200,
+        '#4A6B4F', 1000,
+        '#2F4A33'
       ],
       'circle-radius': [
         'step', ['get', 'point_count'],
         14, 50, 18, 200, 24, 1000, 32
       ],
-      'circle-opacity': 0.85,
-      'circle-stroke-width': 1.2,
-      'circle-stroke-color': 'rgba(184,196,168,0.9)',
+      'circle-opacity': 0.92,
+      'circle-stroke-width': 2,
+      'circle-stroke-color': '#F2EBDC',
     },
   });
 
@@ -2660,13 +2692,11 @@ function addOrgClusterSource() {
     layout: {
       'text-field': ['get', 'point_count_abbreviated'],
       'text-font': ['Noto Sans Bold'],
-      'text-size': 11,
+      'text-size': 12,
       'text-allow-overlap': true,
     },
     paint: {
-      'text-color': '#0A100C',
-      'text-halo-color': 'rgba(255,255,255,0.55)',
-      'text-halo-width': 0.6,
+      'text-color': ['step', ['get', 'point_count'], '#16201A', 200, '#F2EBDC'],
     },
   });
 
@@ -2681,30 +2711,24 @@ function addOrgClusterSource() {
     paint: {
       'circle-color': [
         'match', ['get', 'f'],
-        'democracy', '#5ba5f0',
-        'cooperatives', '#6abf6c',
-        'healthcare', '#e87b9a',
-        'food', '#e8a05a',
-        'education', '#9b8cdf',
-        'housing_land', '#c4a55d',
-        'conflict', '#e05858',
-        'energy_digital', '#4fc4b0',
-        'recreation_arts', '#c47abf',
-        'ecology', '#7bc47a',
+        // Same hues as the legend (AREA_COLORS); the dark hairline keeps
+        // them legible on the light basemap.
+        ...Object.entries(AREA_COLORS).flat(),
         '#888888'
       ],
       'circle-radius': [
         'match', ['get', 't'],
-        'A', 6,
-        'B', 4.5,
-        3.2
+        'A', 6.5,
+        'B', 5,
+        3.6
       ],
       'circle-opacity': [
         'match', ['get', 't'],
-        'C', 0.55,
-        0.88
+        'C', 0.6,
+        0.92
       ],
-      'circle-stroke-width': 0,
+      'circle-stroke-width': 0.8,
+      'circle-stroke-color': 'rgba(22,32,26,0.6)',
     },
   });
 
@@ -2979,8 +3003,8 @@ function updateSelectedOutline() {
       paint: {
         'circle-radius': 8,
         'circle-color': 'rgba(0,0,0,0)',
-        'circle-stroke-width': 2,
-        'circle-stroke-color': '#ffffff',
+        'circle-stroke-width': 2.5,
+        'circle-stroke-color': '#16201A',
       },
     });
   }
