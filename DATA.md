@@ -42,6 +42,12 @@ As of late April 2026, after Wave A and Wave B of the new-wave ingest, the direc
 | Grounded Solutions | 38 | Curated seed list of US, UK, Canadian, and Belgian CLTs. |
 | Manual curation | 13 | Individually verified and described entries. |
 
+### Staged, not yet in the directory
+
+| Source | Dry-run rows | Status |
+|--------|-------------:|--------|
+| Murmurations index (`organizations_schema-v1.0.0`) | 6,853 usable of 7,242 nodes (2026-11-26) | `data/ingest_murmurations.py` written and tested on a scratch database only. 6,704 rows carry publisher-supplied coordinates and 6,848 a website; 1,012 have no country code. 477 share a normalized name and country with an April release row and need dedup review. No index-wide licence is stated; each profile names its own upstream source (many are Co-operatives UK open data). Not in any published count until it is run against the canonical database. |
+
 ### Quality profile (after Wave A + Wave B)
 
 - **173,106 entries** total active, up from 163,984.

@@ -47,3 +47,10 @@
 - **Issue:** https://github.com/OpenSourceEcology/LifeTrac/issues/79
 - **Response:** Pending
 - **Outcome:** TBD
+
+---
+
+## Correction, 2026-11-26
+
+- No Reddit post is recorded anywhere in this repository. If one was made and drew replies, add its URL, subreddit, date and outcome here; it is the only reported traction and is currently unverifiable from the log.
+- Three unposted Reddit drafts are in [docs/REDDIT-DRAFTS-2026-11-26.md](docs/REDDIT-DRAFTS-2026-11-26.md). Status: `draft`. Nothing was sent.
