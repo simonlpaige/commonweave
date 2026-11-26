@@ -232,7 +232,7 @@ Key framing from the empirical record:
 
 **Restorative justice is moving from margins to mainstream:**
 
-- **Common Justice** (New York City) — The first alternative-to-incarceration and victim-service program in the US focusing on violent felonies in adult courts. Research shows participants are 41.5% less likely to be rearrested than those processed through the traditional criminal legal system.
+- **Common Justice** (New York City) — The first alternative-to-incarceration and victim-service program in the US focusing on violent felonies in adult courts. An earlier version of this entry gave a rearrest figure of 41.5%; no source for it could be found on 2026-11-26 and no independent evaluation of the program was located, so the figure has been removed (see [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md#prisons)).
 - **Impact Justice Restorative Justice Project** — The only national technical assistance and training project partnering with communities for pre-charge restorative justice diversion programs.
 - **Vera Institute of Justice** — Leading research and advocacy on alternatives to incarceration, with comprehensive evaluations of ATI programs.
 - **Dignity & Power Now** — Transformative justice, community healing, and abolition organization in Los Angeles.

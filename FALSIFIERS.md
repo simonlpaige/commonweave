@@ -48,6 +48,13 @@ What changes if falsified: Refocus on the directory as a research artifact, not 
 Test: After 12 months of public visibility with a working PR template and agent-task pipeline, if the project has fewer than 10 external contributors with merged PRs, the contribution funnel is broken.
 What changes if falsified: Reduce scope. Remove participation framing from the README. Either accept that Commonweave is a personal research artifact, or invest in real outreach and onboarding.
 
+### F-PROJ-6. The directory cannot assemble a solution circuit in a real place.
+
+Tied to: C10, C6
+2026-11-26 result: this test was run on the April 2026 release and the directory mostly failed it. Seven of 21 circuits have no recorded city with a rule match for every role; the median is one city. See `data/map/circuit-coverage.json`.
+Test: Rerun `python data/build_circuits.py` after each release. Separately, in one pilot locality, ask a local reviewer whether the candidates offered for each role are plausible.
+What changes if falsified: Already triggered. The README now says local discovery is mostly not yet possible. If coverage does not improve after the missing roles are ingested, remove the circuit goals from the map and keep the catalogue as a reading.
+
 ---
 
 ## Framework-level falsifiers
@@ -76,6 +83,12 @@ Tied to: C7
 Test: Evidence that all framework-relevant goods (including land, fresh water, skilled care, attention) become effectively non-rival within a near-term (25-year) horizon.
 What changes if falsified: Move toward post-scarcity framing. Most current evidence runs the other direction (climate, demographics, attention economy), so this is unlikely — but the falsifier is on the table.
 
+### F-FW-5. Solution circuits survive the loss of their public funding or enabling law.
+
+Tied to: C11, C2
+Test: Take 20 documented cases where a circuit's main public funding line or legal support was withdrawn. Record whether the service was operating at similar scale two years later.
+What changes if falsified: If more than half survive, C11 is wrong and the "partial abundance" position in OPEN-PROBLEMS.md is too pessimistic. If fewer than a quarter survive, the framework should describe these as publicly funded services with community governance, and stop describing them as alternatives to public provision.
+
 ---
 
 ## Data-level falsifiers
@@ -94,6 +107,13 @@ What changes if falsified: Add a "geographic concentration" caveat to the direct
 
 Test: For records flagged with broken websites, re-run liveness checks with stripped UTM/tracking parameters and a real browser User-Agent. If >40% pass after stripping, the broken-site signal is unreliable.
 What changes if falsified: This was already partly addressed in lead-finder v2 (see workspace TOOLS.md). Mirror the same fix in directory liveness checks.
+
+### F-DATA-4. Role rules are too inaccurate to support circuit coverage.
+
+Tied to: C10
+Test: A second reviewer, blind to the first review in `data/audit/circuit-role-precision.json`, judges a fresh sample of 30 matches per role using each organization's own website. If fewer than 60% are plausible for a role, that rule is unreliable.
+2026-11-26 first pass (one AI reviewer, names only, 10 per role): four roles were at or below 5 of 10 (labor union, cooperative developer, workforce training, school) and anchor institution was 3 of 10.
+What changes if falsified: Remove the failing role from coverage counts and from the map until its rule is rebuilt from a better field than the name.
 
 ---
 

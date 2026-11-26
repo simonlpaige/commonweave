@@ -138,3 +138,5 @@ Every PR should leave the repo more legible for the next human or agent.
 - [`ATTACK-VECTORS.md`](ATTACK-VECTORS.md) — how this project could be captured, abused, or decay
 - [`STEELMAN-ALTERNATIVES.md`](STEELMAN-ALTERNATIVES.md) — the strongest competing theories
 - [`benchmarks/README.md`](benchmarks/README.md) — Weaver Bench, the internal eval harness
+- [`OPEN-PROBLEMS.md`](OPEN-PROBLEMS.md) — a working position, checked sources and a test for each open question
+- [`SOLUTION-CIRCUITS.md`](SOLUTION-CIRCUITS.md) — combinations of organization types with graded evidence; generated from `data/circuits.yaml` by `python data/build_circuits.py` (run it with `--check` before a PR that touches circuits)

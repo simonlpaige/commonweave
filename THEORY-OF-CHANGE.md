@@ -142,7 +142,7 @@ The framework's sequencing -- building alternatives in areas where incumbents ar
 
 ### Mechanism 2: Democratic Capture in Reverse
 
-**The argument:** Electing people committed to commons-based policy into existing democratic structures. Not revolutionary, but it works. Participatory budgeting in 7,000+ cities, community wealth building in Preston and Cleveland, state-level cooperative development legislation.
+**The argument:** Electing people committed to commons-based policy into existing democratic structures. Not revolutionary, but it works. Roughly 11,700 participatory budgeting processes were counted worldwide in 2019, many required by national law (see [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md#nation-states)); community wealth building in Preston and Cleveland, state-level cooperative development legislation.
 
 **Where it worked:**
 

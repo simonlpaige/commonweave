@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-04-25T23:30-05:00",
+  "updated": "2026-11-26T00:00-06:00",
   "notes": "Machine-readable list of agent-ready tasks for Commonweave. Pick one. See AGENTS.md for workflow.",
   "tasks": [
     {
@@ -10,7 +10,10 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Pick one country with fewer than 50 organizations in the directory (most of the 172 countries qualify) and verify or improve at least 10 records.",
-      "files": ["data/search/<country>.json", "data/commonweave_directory.db"],
+      "files": [
+        "data/search/<country>.json",
+        "data/commonweave_directory.db"
+      ],
       "acceptance_criteria": [
         "At least 10 organizations checked",
         "Broken links corrected or marked",
@@ -33,7 +36,9 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Add a map toggle that filters to Tier B organizations with alignment_score >= 5 (~10,824 of ~27,217 geocoded points currently shown).",
-      "files": ["map.html"],
+      "files": [
+        "map.html"
+      ],
       "acceptance_criteria": [
         "Toggle is visible on desktop and mobile",
         "Default map behavior remains unchanged",
@@ -48,7 +53,10 @@
       "agent_ready": true,
       "difficulty": "hard",
       "goal": "Update generated edges in data/build_map_v2.py to include edge_type, confidence, explanation, created_at, and source_script.",
-      "files": ["data/build_map_v2.py", "map.html"],
+      "files": [
+        "data/build_map_v2.py",
+        "map.html"
+      ],
       "acceptance_criteria": [
         "Edge schema includes edge_type, confidence, explanation, created_at, source_script",
         "Map can display or inspect edge explanation (hover, click, or panel)",
@@ -63,7 +71,10 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Classify records in one country as formal, hybrid, informal, or unknown. The legibility column was added 2026-04-22; as of 2026-04-25, ~25,980 records still read 'unknown' and ~138,803 read 'formal' (auto-classified at ingest time). Either subset is worth working in -- pick a country and audit/backfill there.",
-      "files": ["data/commonweave_directory.db", "data/migrate_legibility.py"],
+      "files": [
+        "data/commonweave_directory.db",
+        "data/migrate_legibility.py"
+      ],
       "acceptance_criteria": [
         "At least 20 records reviewed",
         "Each classification has an evidence note in the PR or remains unknown",
@@ -78,7 +89,12 @@
       "agent_ready": true,
       "difficulty": "hard",
       "goal": "Pick one claim in README.md or DEEP-DIVE.md and define what evidence would weaken or falsify it.",
-      "files": ["CLAIMS.md", "FALSIFIERS.md", "README.md", "DEEP-DIVE.md"],
+      "files": [
+        "CLAIMS.md",
+        "FALSIFIERS.md",
+        "README.md",
+        "DEEP-DIVE.md"
+      ],
       "acceptance_criteria": [
         "Claim is quoted or referenced precisely (file + section)",
         "Falsifier is concrete and observable",
@@ -93,7 +109,10 @@
       "agent_ready": true,
       "difficulty": "easy",
       "goal": "The governance matrix in README.md has cells marked [NEEDS EXAMPLE]. Pick one. Find a real organization (preferably already in the directory) that fits. Cite source.",
-      "files": ["README.md", "data/search/"],
+      "files": [
+        "README.md",
+        "data/search/"
+      ],
       "acceptance_criteria": [
         "One cell filled with a named organization",
         "Source cited (URL, registry, news, or peer-reviewed)",
@@ -108,7 +127,10 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Extract at least 10 specific claims from README.md and add them to CLAIMS.md with status, confidence, evidence (or lack of), and falsifier ideas.",
-      "files": ["CLAIMS.md", "README.md"],
+      "files": [
+        "CLAIMS.md",
+        "README.md"
+      ],
       "acceptance_criteria": [
         "At least 10 claims extracted, each tied to a README section",
         "Each has status (draft/supported/disputed/unresolved)",
@@ -124,7 +146,10 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Add at least 3 attack vectors to ATTACK-VECTORS.md (e.g. corporate capture, state surveillance, data extraction, founder bottleneck, spam flooding, ideological hardening).",
-      "files": ["ATTACK-VECTORS.md", "THREAT-MODEL.md"],
+      "files": [
+        "ATTACK-VECTORS.md",
+        "THREAT-MODEL.md"
+      ],
       "acceptance_criteria": [
         "Each vector has: threat, who benefits, who is harmed, early warning signs, countermeasures, open questions",
         "Vectors are realistic, not paranoid",
@@ -138,7 +163,9 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Make map.html usable on a phone. Touch-friendly filter panel, better popups, no horizontal overflow.",
-      "files": ["map.html"],
+      "files": [
+        "map.html"
+      ],
       "acceptance_criteria": [
         "Filter panel is reachable and operable on a 375px-wide screen",
         "Popups don't overflow viewport",
@@ -153,7 +180,10 @@
       "agent_ready": true,
       "difficulty": "easy",
       "goal": "Add a curated llms.txt index pointing to README, CRITIQUE, AGENTS, AGENT-TASKS, data contributing guide, map, directory. Add a longer llms-full.txt digest.",
-      "files": ["llms.txt", "llms-full.txt"],
+      "files": [
+        "llms.txt",
+        "llms-full.txt"
+      ],
       "acceptance_criteria": [
         "llms.txt is a short curated index following the llmstxt.org spec",
         "llms-full.txt contains a longer machine-readable digest",
@@ -168,7 +198,11 @@
       "agent_ready": true,
       "difficulty": "medium",
       "goal": "Audit the Hartford, Syracuse, Tulsa, and Durham circuit briefs against current public sources before any brief is delivered through a local channel.",
-      "files": ["briefs/", "data/map/circuits.json", "OUTREACH-ATTRACTION-PLAN.md"],
+      "files": [
+        "briefs/",
+        "data/map/circuits.json",
+        "OUTREACH-ATTRACTION-PLAN.md"
+      ],
       "acceptance_criteria": [
         "All listed organizations still have a current public presence",
         "Each proposed role is supported by a cited public source or the brief is corrected",
@@ -194,6 +228,134 @@
         "Sequential amendment history and field evidence survive without overwriting earlier decisions",
         "Affected download formats and directory representations agree, while unrelated snapshots are preserved",
         "Conflict and replay tests pass; public verification dates are not invented"
+      ]
+    },
+    {
+      "id": "cw-circuit-source-recheck-001",
+      "title": "Re-check the sources behind one solution circuit by hand",
+      "type": "research",
+      "agent_ready": true,
+      "difficulty": "easy",
+      "goal": "Every precedent and limit in data/circuits.yaml was opened by an automated pass on 2026-11-26. Pick one circuit, open each source yourself, and confirm the page says what the `finding` states.",
+      "files": [
+        "data/circuits.yaml",
+        "SOLUTION-CIRCUITS.md"
+      ],
+      "acceptance_criteria": [
+        "Every source for the chosen circuit opened and compared with its finding",
+        "Wrong or drifted findings corrected, or the precedent removed",
+        "`checked` date updated only for sources you opened",
+        "`python data/build_circuits.py --check` passes after rebuilding",
+        "PR lists each source and what you saw"
+      ]
+    },
+    {
+      "id": "cw-role-rule-precision-001",
+      "title": "Run a second, blind precision review of role rules",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "Run FALSIFIERS.md F-DATA-4 for at least five roles. The first review (data/audit/circuit-role-precision.json) used names only and one reviewer.",
+      "files": [
+        "data/circuits.yaml",
+        "data/audit/circuit-role-precision.json",
+        "data/build_circuits.py"
+      ],
+      "acceptance_criteria": [
+        "At least 30 matches per role judged from the organization's own public pages",
+        "Reviewer did not read the earlier scores first",
+        "Results added as a dated second review, not overwriting the first",
+        "Any rule under 60% is tightened or removed from circuits, with the reason in the PR",
+        "No sensitive group contacted or given more detail than its own pages show"
+      ]
+    },
+    {
+      "id": "cw-union-locals-ingest-001",
+      "title": "Scope a source for union locals and central labor councils",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "hard",
+      "goal": "The labor-for-housing, worker-transition and care-work circuits need union locals, and the release has almost none in the United States (26 records modelled as unions; most labor-code rows are joint labor-management funds). Identify a public, reusable source and write an ingest brief. Do not ingest in the same PR.",
+      "files": [
+        "UNIONS-INGEST-BRIEF.md",
+        "data/ingest_unions.py",
+        "data/CONTRIBUTING-DATA.md"
+      ],
+      "acceptance_criteria": [
+        "Source named with its licence or reuse terms",
+        "Sample of 20 rows shown with fields mapped to the directory schema",
+        "Safety note: organizing campaigns and worker centres are not to be listed from non-public sources",
+        "Estimate of how many circuit cities this would add, from `data/build_circuits.py` on a staged sample"
+      ]
+    },
+    {
+      "id": "cw-wikidata-unions-audit-001",
+      "title": "Remove non-unions from the Wikidata union source",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "easy",
+      "goal": "The `wikidata_unions` source labels some non-unions as labor unions. Three found on 2026-11-26: release ids 763497 (Aleph, JP), 763843 (Royal Society of Chemistry, GB) and 763493 (Guerriers de lumières, FR). Audit the 405 rows and propose corrections through data/stage_organizations.py.",
+      "files": [
+        "releases/by-source/wikidata_unions.csv",
+        "data/stage_organizations.py",
+        "data/proposals/"
+      ],
+      "acceptance_criteria": [
+        "All 405 rows reviewed against their Wikidata item",
+        "Proposal file validates without writing data",
+        "Each proposed change cites the Wikidata item or the organization's own site",
+        "No row deleted; misclassified rows are reclassified or flagged"
+      ]
+    },
+    {
+      "id": "cw-circuit-hypothesis-evidence-001",
+      "title": "Find a checked precedent for an untested circuit, or remove it",
+      "type": "research",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "Two circuits (food waste-to-soil loop, civic information commons) have no source-checked precedent. For one of them, find a documented case of the listed roles working together, with at least one documented limit, or delete the circuit.",
+      "files": [
+        "data/circuits.yaml"
+      ],
+      "acceptance_criteria": [
+        "Precedent source opened and quoted accurately, or the circuit removed",
+        "At least one limit recorded",
+        "Evidence level changed to match",
+        "Generated files rebuilt and tests pass"
+      ]
+    },
+    {
+      "id": "cw-brazil-city-accents-001",
+      "title": "Repair Brazilian city names that lost accented letters",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "City names from the Brazil ingest dropped accented characters instead of transliterating them (the release has 'SO PAULO' for São Paulo and 'SO JOO DE MERITI'). This breaks locality matching and display. Find where the characters are lost and propose a repair from the original source values.",
+      "files": [
+        "data/ingest_brazil_oscs.py",
+        "releases/by-country/BR.csv"
+      ],
+      "acceptance_criteria": [
+        "Cause identified in the ingest or export path",
+        "Repair derives names from source data, not from guessing missing letters",
+        "Count of affected rows reported",
+        "No change applied to the release without the amendment process in docs/RELEASE-AMENDMENTS.md"
+      ]
+    },
+    {
+      "id": "cw-open-problem-practitioner-review-001",
+      "title": "Have a practitioner mark up one OPEN-PROBLEMS.md entry",
+      "type": "research",
+      "agent_ready": false,
+      "difficulty": "hard",
+      "goal": "Each entry in OPEN-PROBLEMS.md was written from published sources by an outsider. Find one person who works in the field of one entry (re-entry, development economics, repressive-context organizing, Indigenous land governance) and record their corrections with consent.",
+      "files": [
+        "OPEN-PROBLEMS.md"
+      ],
+      "acceptance_criteria": [
+        "Reviewer consents to how they are credited or stays unnamed",
+        "Their disagreements are recorded even where the position is kept",
+        "No outreach is sent by an automated agent"
       ]
     }
   ]
