@@ -33,6 +33,16 @@ class NavigationTests(unittest.TestCase):
             self.assertNotIn('<header data-site-header></header>', text, name)
             self.assertEqual(text.count('aria-label="Main navigation"'), 1, name)
 
+    def test_analytics_is_on_main_pages_only_and_disclosed(self):
+        beacon = 'static.cloudflareinsights.com/beacon.min.js'
+        for path in ROOT.glob('*.html'):
+            text = path.read_text(encoding='utf-8')
+            self.assertEqual(text.count(beacon), 1, path.name)
+            if path.name != 'map.html':  # the map has no shared footer
+                self.assertIn('Cloudflare Web Analytics. No cookies', text, path.name)
+        for path in (ROOT / 'briefs').glob('*.html'):
+            self.assertNotIn('cloudflareinsights', path.read_text(encoding='utf-8'), path.name)
+
     def test_public_pages_have_existing_local_assets_destinations_and_unique_ids(self):
         for path in [*(ROOT / name for name in PAGES), *(ROOT / 'briefs').glob('*.html')]:
             parser = Links(); parser.feed(path.read_text(encoding='utf-8'))

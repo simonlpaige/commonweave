@@ -34,10 +34,16 @@ def header_markup(prefix='', current=''):
 <!-- cw:header:end -->'''
 
 
+# Shown on the main site pages, which load Cloudflare Web Analytics. Brief
+# pages (prefix '../') load no analytics and say nothing about it.
+ANALYTICS_NOTE = '\n  <p class="cw-footer-note">Visits are counted in aggregate with Cloudflare Web Analytics. No cookies, no accounts, no ad tracking.</p>'
+
+
 def footer_markup(prefix=''):
+    note = '' if prefix else ANALYTICS_NOTE
     return f'''<!-- cw:footer:start -->
 <footer data-site-footer class="cw-footer">
-  <p>A shared framework. Evidence to inspect. Work to improve together.</p>
+  <p>A shared framework. Evidence to inspect. Work to improve together.</p>{note}
   <div><a href="{prefix}knowledge.html">Knowledge base</a><a href="{prefix}map.html">Map</a><a href="{prefix}participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
 </footer>
 <!-- cw:footer:end -->'''
