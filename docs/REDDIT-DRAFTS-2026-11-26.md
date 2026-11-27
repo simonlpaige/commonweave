@@ -5,25 +5,62 @@ own account after reading each community's current rules. Reddit was not
 reachable from the drafting environment, so no subreddit rule, flair or
 self-promotion limit below has been checked. Follow [OUTREACH.md](../OUTREACH.md).
 
-## What is and is not known
+## What the April posts show
 
-- The repository holds no record of an earlier Reddit post. `outreach-log.md`
-  lists one Moltbook post and four GitHub issues from April. If a Reddit post
-  did get replies, add its URL, subreddit, date and what people responded to
-  in the log. That thread is the best evidence available about what works and
-  these drafts should be revised against it.
+Read from a public Reddit archive on 2026-11-27 (Reddit itself was not
+reachable). Scores and counts are as archived and may differ from live values.
+
+| Date | Where | Result |
+|---|---|---|
+| 2026-04-12 | [r/solarpunk](https://www.reddit.com/r/solarpunk/comments/1sj5ppk/) "Ecolibrium: An open-source blueprint for peaceful transition to post-scarcity" | Score 29, 32 comments. Linked the GitHub repo. |
+| 2026-04-13 | [r/singularity](https://www.reddit.com/r/singularity/comments/1sjyz9g/) and [r/accelerate](https://www.reddit.com/r/accelerate/comments/1sjz08q/), same pitch | Score 0, no comments each. |
+| 2026-04-25 | [r/web_design](https://www.reddit.com/r/web_design/comments/1sv0475/) asking to hire a map designer | Removed by moderators under the no-solicitation rule. One person asked for sample data. |
+
+The r/solarpunk thread is the only one that drew a response, and most of the
+response was objection. The comments with the most votes said, in order:
+
+1. Another high-level "how society could be structured" post; the community
+   sees these every few days and prefers do-it-yourself work (17 votes).
+2. The post and the document read as AI-written, and that alone would put
+   people off (12 votes; three more comments made the same point).
+3. Organize something real instead of publishing a framework (7 votes).
+4. It reads as a wishlist that points at other frameworks without the
+   mechanics (4 votes).
+
+The author's replies that told critics to fix it themselves ("then rewrite
+it", "then help") were voted down, to as low as -6. The reply that accepted
+the criticism was not. A few readers were interested, one said they reused
+part of the project, and one asked where to read it.
+
+What this changes:
+
+- **Engagement was not approval.** Thirty-two comments came from a
+  disagreement about AI authorship and manifestos, not from people using the
+  work. It is weak evidence of demand and good evidence about what not to do.
+- **Do not lead with a framework, blueprint, or transition.** The repository
+  has since moved to "a directory and map"; posts should follow.
+- **Write the post by hand.** The drafts below were produced with AI and say
+  so here. Use them for structure and facts; the posted words should be the
+  poster's own.
+- **Say up front how AI was used**: the data pipeline and much of the
+  documentation are AI-assisted. Being told is tolerated far better than
+  finding out.
+- **Never answer a critic with "then fix it."** Thank them, say what will
+  change, change it, and report back.
+- **r/solarpunk has seen the framework pitch once.** A second post there has
+  to be a different thing: a tool someone can use, with the earlier thread
+  acknowledged.
+- **Read the rules first.** The r/web_design removal was avoidable.
 - No analytics baseline exists ([TRAFFIC-2026-11-03.md](TRAFFIC-2026-11-03.md)),
-  so a post's effect cannot be measured yet beyond replies and corrections.
-- Every prior attempt recorded here led with the project. Each draft below
-  leads with something the reader can use or correct in two minutes, states a
-  real weakness, and asks one question.
+  so a post's effect still cannot be measured beyond replies and corrections.
 
 ## Rules for posting
 
-1. One community per post, written for that community. No cross-posting.
+1. One community per post, written for that community, in the poster's own words. No cross-posting.
+   State in the post that the data pipeline and documentation are AI-assisted.
 2. Say you built it. Say what is wrong with it.
 3. Stay in the thread for 48 hours and answer everything. Apply corrections
-   and reply with what changed.
+   and reply with what changed. Do not tell a critic to fix it themselves.
 4. At most one post a week. Stop if a moderator or the thread says it is not
    wanted there.
 5. Log each post in `outreach-log.md`: URL, date, replies, corrections received.
@@ -86,28 +123,32 @@ Questions for people who have done this before:
    organization?
 2. Which open registries with coordinates and websites am I missing?
 
-## Draft 3: place-based or solarpunk communities (for example r/solarpunk)
+## Draft 3: r/solarpunk, only as a follow-up to the April thread
 
-**Title:** A map for answering "who near me is already doing this?" Looking for people to break it
+**Title:** In April I posted a "blueprint" here and you told me to build something instead. Here is the something. Tell me if it is useful.
 
 **Body:**
 
-If you wanted to start a tool library, a food co-op or a community land
-trust, the first question is who nearby already runs one or could help. I
-built a map for that question from open registries and directories:
+In April I posted a framework for a post-scarcity transition. The top replies
+were that it was another manifesto, that it read as AI-written, and that
+organizing beats theorizing. That was fair.
+
+What I kept working on is the practical part: a map for the question "who
+near me is already doing this?" If you want to start a tool library, a food
+co-op or a land trust, it lists organizations nearby to look into, the roles
+a project like that usually needs, and which roles the data has nobody for:
 https://commonweave.earth/find-community-organizations.html
 
-Pick a goal and a place, and it lists organizations to look into along with
-the roles a project like that usually needs and which ones the data has no
-candidate for.
+Plainly: the data pipeline and most of the documentation are built with AI
+assistance, from open registries and directories. I check and correct it by
+hand, and a lot of it is still wrong. Locations are often only city-level,
+coverage outside the US and UK is thin, and the suggested connections between
+organizations are guesses from category and distance. These are leads to
+check, not vetted partners.
 
-It is a list of leads to check, not a list of vetted partners. Locations are
-often city-level, coverage outside the US and UK is thin, and the suggested
-connections between organizations are guesses from category and distance.
-
-I am looking for five people willing to try it for a real place and tell me
-whether it found anything they did not already know about. If it did not, I
-want to know that too.
+I am looking for five people to try it on a place they know and tell me
+whether it found anything they did not already know about. "No, it was
+useless, and here is why" is an answer I can use.
 
 ## After posting
 
