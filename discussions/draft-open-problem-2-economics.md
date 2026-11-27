@@ -19,7 +19,7 @@ Each of these is a *goal*. None of them currently has, in our documents:
 
 ## The specific gaps we know about
 
-**UBI at scale.** The OpenResearch study (Stockton, CA - $1,000/month, 1,000 people, 3 years) showed lifestyle improvements. We cite it as evidence UBI works. But the study's own findings were mixed on labor market effects - participants worked slightly fewer hours and earned slightly less income. And scaling to the US population alone would cost roughly $4 trillion per year - about the entire current federal budget. We don't have a funding theory for that.
+**UBI at scale.** The OpenResearch study (Illinois and Texas - $1,000/month, 1,000 recipients, 3 years; corrected 2026-11-26, an earlier version placed it in Stockton, which ran a separate $500/month pilot for 125 people; see [OPEN-PROBLEMS.md](../OPEN-PROBLEMS.md#economics)) showed lifestyle improvements. We cite it as evidence UBI works. But the study's own findings were mixed on labor market effects - participants worked slightly fewer hours and earned slightly less income. And scaling to the US population alone would cost roughly $4 trillion per year - about the entire current federal budget. We don't have a funding theory for that.
 
 The Marshall Islands' $200/quarter UBI is a meaningful transfer for 42,000 people funded by a finite trust. It is not a model for 8 billion people, and we've been sloppy about implying it's directionally similar.
 

@@ -42,6 +42,7 @@ Evidence: README "Selective Abundance" governance matrix names solar, open-sourc
 Falsifiers: A persistent pattern where commons-based distribution of these goods leads to under-provision or capture more often than market or state distribution does. A study of 50 community energy projects showing >50% revert to private/state ownership within 10 years would meaningfully weaken this.
 Related files: README.md (Selective Abundance section)
 Needed work: Cite at least 3 longitudinal studies of commons-based distribution outcomes for energy, software, or food. Add to RESEARCH.md.
+2026-11-26 note: one relevant case was source-checked. UK community energy growth collapsed when the feed-in tariff closed; 97% of new community capacity in 2019 had depended on it (SOLUTION-CIRCUITS.md, Community energy transition). That is one country and one policy, so the status stays draft, but it points toward the falsifier. See also C11.
 
 ### C3. Skilled care work is a persistent scarcity that requires recognition and compensation premiums.
 
@@ -50,7 +51,8 @@ Confidence: medium
 Evidence: README "Selective Abundance" governance matrix. No directory examples currently filled in (cell marked [NEEDS EXAMPLE]).
 Falsifiers: Evidence that automation or AI substitutes substantially reduce demand for human caregivers (community health workers, midwives, eldercare) within a 10-year horizon. Or evidence that volunteer-only models scale sustainably.
 Related files: README.md (Selective Abundance section)
-Needed work: Fill the [NEEDS EXAMPLE] cell (cw-needs-example-fill-001). Cite community health worker compensation studies.
+Needed work: Cite community health worker compensation studies.
+2026-11-26 note: the README cell is filled with Cooperative Home Care Associates. Checked evidence leans toward the claim: Japan's eldercare time-credit schemes shrank after paid public care insurance began, and most kibbutzim moved to differential wages (OPEN-PROBLEMS.md, Unglamorous work). Neither is a test of the 10-year automation falsifier.
 
 ### C4. Directory entries with alignment_score >= 5 reflect organizations actually doing what the framework predicts.
 
@@ -100,6 +102,33 @@ Evidence: The CRITIQUE.md and the legibility column design explicitly acknowledg
 Falsifiers: Evidence that registry-backed orgs match framework behavior at a rate indistinguishable from informal groups (would suggest the legibility distinction is not informative).
 Related files: README.md, CRITIQUE.md, data/commonweave_directory.db (legibility column)
 Needed work: Once legibility backfill is done, compare framework-fit rates across formal/hybrid/informal groups.
+
+### C9. Some combinations of organization types have a documented record of addressing a specific problem together.
+
+Status: supported (for 12 of 21 listed combinations); draft (for 7); unsupported (for 2)
+Confidence: medium
+Evidence: SOLUTION-CIRCUITS.md grades each combination. Twelve have at least one source showing the listed kinds of organization working together (for example union-sponsored cooperative housing, tenant purchase laws, anchor procurement). Seven have evidence for the parts only. Two carry no checked precedent. Sources were opened by an automated pass on 2026-11-26 and have not been re-checked by a person.
+Falsifiers: A human re-check that finds more than one in five cited sources does not say what is quoted. Or, for any single combination, the test written under "What would count against it" in SOLUTION-CIRCUITS.md.
+Related files: SOLUTION-CIRCUITS.md, data/circuits.yaml, OPEN-PROBLEMS.md
+Needed work: Human source re-check (cw-circuit-source-recheck-001). Find or remove the two hypothesis circuits (cw-circuit-hypothesis-evidence-001).
+
+### C10. The directory can find, in one place, the organizations a combination needs.
+
+Status: disputed
+Confidence: high (that it mostly cannot, on the April 2026 release)
+Evidence: `data/map/circuit-coverage.json`. Of 21 combinations, 7 have no recorded city where every role has a rule match, 19 have fewer than ten, and the median is one city. The roles most often missing are cooperative lenders (188 release records), tenant organizations (21), food hubs (34) and time banks (3). The United States release holds 26 records modelled as labor unions and 136 under the labor-union activity code, of which 84 are joint labor-management funds, so union locals are nearly absent.
+Falsifiers: This claim would be supported if, after targeted ingest of the missing roles, at least half the combinations show 25 or more cities with every role and a local reviewer confirms the role assignments in a sample (FRAMEWORK-OPERATING-MODEL.md "useful suggestions" gate).
+Related files: data/build_circuits.py, data/map/circuit-coverage.json, data/audit/circuit-role-precision.json
+Needed work: cw-union-locals-ingest-001; ingest of credit unions and tenant organizations with consent-appropriate sources; a second, blind review of role rules (cw-role-rule-precision-001).
+
+### C11. Working examples of meeting needs outside the market mostly depend on continuing public funding or enabling law.
+
+Status: draft
+Confidence: medium
+Evidence: OPEN-PROBLEMS.md (Partial abundance). Checked cases where provision shrank or stopped when support was withdrawn: Eugene's crisis service (2025), UK community energy after the feed-in tariff closed, Finland's homelessness rise after benefit cuts (2025), grant dependence among US food hubs. Each circuit lists what it needs that the directory cannot supply.
+Falsifiers: A sample of 20 commons-based services that lost their main public funding line, of which more than half were still operating at similar scale two years later.
+Related files: OPEN-PROBLEMS.md, SOLUTION-CIRCUITS.md, README.md (Selective Abundance)
+Needed work: Build the sample. This claim cuts against a reading of C2 in which commons provision is self-sustaining.
 
 ---
 

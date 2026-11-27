@@ -304,6 +304,8 @@ html, body {
 #need-result .nr-meta, .nr-meta { font: 12px/1.45 var(--f-body); color: var(--paper-dim); margin-top: 4px; }
 #need-result .nr-summary, .nr-summary { font: 13px/1.5 var(--f-body); color: var(--paper-dim); margin: 14px 0; }
 .pathway-caution, .pathway-gap { font: 13px/1.5 var(--f-body); color: var(--paper-dim); margin: 12px 0; }
+.pathway-evidence { border-left: 2px solid var(--moss-pale); padding: 2px 0 2px 12px; margin: 14px 0; }
+.pathway-outside { font: 13px/1.5 var(--f-body); color: var(--paper-dim); margin: 0 0 8px 18px; }
 .pathway-gap { border-left: 2px dashed var(--clay-pale); padding-left: 10px; }
 .pathway-steps { padding-left: 22px; margin: 18px 0; }
 .pathway-step { border-left: 1px dashed var(--thread-pale); padding: 0 0 22px 14px; }
@@ -964,8 +966,9 @@ button:disabled { opacity: .45; cursor: default; }
 <!-- Phase 3: need-pathway scoring + search panel. Pure functions; no DOM
      work happens until init() is called from the main script. -->
 <script src="assets/js/map/scoring.js?v=93f540fb8718"></script>
-<script src="assets/js/map/pathways.js?v=e2e325b6c7c4"></script>
-<script src="assets/js/map/search.js?v=015583a9313f"></script>
+<script src="assets/js/map/circuits-data.js?v=3139dceca5f7"></script>
+<script src="assets/js/map/pathways.js?v=b0e8934e7b98"></script>
+<script src="assets/js/map/search.js?v=fa3b8a686b01"></script>
 <script>
 'use strict';
 

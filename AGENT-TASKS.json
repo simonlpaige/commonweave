@@ -284,6 +284,134 @@
         "1,012 rows without a country code are either resolved from coordinates or left blank, not guessed",
         "DATA.md source table is updated with the real inserted count"
       ]
+    },
+    {
+      "id": "cw-circuit-source-recheck-001",
+      "title": "Re-check the sources behind one solution circuit by hand",
+      "type": "research",
+      "agent_ready": true,
+      "difficulty": "easy",
+      "goal": "Every precedent and limit in data/circuits.yaml was opened by an automated pass on 2026-11-26. Pick one circuit, open each source yourself, and confirm the page says what the `finding` states.",
+      "files": [
+        "data/circuits.yaml",
+        "SOLUTION-CIRCUITS.md"
+      ],
+      "acceptance_criteria": [
+        "Every source for the chosen circuit opened and compared with its finding",
+        "Wrong or drifted findings corrected, or the precedent removed",
+        "`checked` date updated only for sources you opened",
+        "`python data/build_circuits.py --check` passes after rebuilding",
+        "PR lists each source and what you saw"
+      ]
+    },
+    {
+      "id": "cw-role-rule-precision-001",
+      "title": "Run a second, blind precision review of role rules",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "Run FALSIFIERS.md F-DATA-4 for at least five roles. The first review (data/audit/circuit-role-precision.json) used names only and one reviewer.",
+      "files": [
+        "data/circuits.yaml",
+        "data/audit/circuit-role-precision.json",
+        "data/build_circuits.py"
+      ],
+      "acceptance_criteria": [
+        "At least 30 matches per role judged from the organization's own public pages",
+        "Reviewer did not read the earlier scores first",
+        "Results added as a dated second review, not overwriting the first",
+        "Any rule under 60% is tightened or removed from circuits, with the reason in the PR",
+        "No sensitive group contacted or given more detail than its own pages show"
+      ]
+    },
+    {
+      "id": "cw-union-locals-ingest-001",
+      "title": "Scope a source for union locals and central labor councils",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "hard",
+      "goal": "The labor-for-housing, worker-transition and care-work circuits need union locals, and the release has almost none in the United States (26 records modelled as unions; most labor-code rows are joint labor-management funds). Identify a public, reusable source and write an ingest brief. Do not ingest in the same PR.",
+      "files": [
+        "UNIONS-INGEST-BRIEF.md",
+        "data/ingest_unions.py",
+        "data/CONTRIBUTING-DATA.md"
+      ],
+      "acceptance_criteria": [
+        "Source named with its licence or reuse terms",
+        "Sample of 20 rows shown with fields mapped to the directory schema",
+        "Safety note: organizing campaigns and worker centres are not to be listed from non-public sources",
+        "Estimate of how many circuit cities this would add, from `data/build_circuits.py` on a staged sample"
+      ]
+    },
+    {
+      "id": "cw-wikidata-unions-audit-001",
+      "title": "Remove non-unions from the Wikidata union source",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "easy",
+      "goal": "The `wikidata_unions` source labels some non-unions as labor unions. Three found on 2026-11-26: release ids 763497 (Aleph, JP), 763843 (Royal Society of Chemistry, GB) and 763493 (Guerriers de lumières, FR). Audit the 405 rows and propose corrections through data/stage_organizations.py.",
+      "files": [
+        "releases/by-source/wikidata_unions.csv",
+        "data/stage_organizations.py",
+        "data/proposals/"
+      ],
+      "acceptance_criteria": [
+        "All 405 rows reviewed against their Wikidata item",
+        "Proposal file validates without writing data",
+        "Each proposed change cites the Wikidata item or the organization's own site",
+        "No row deleted; misclassified rows are reclassified or flagged"
+      ]
+    },
+    {
+      "id": "cw-circuit-hypothesis-evidence-001",
+      "title": "Find a checked precedent for an untested circuit, or remove it",
+      "type": "research",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "Two circuits (food waste-to-soil loop, civic information commons) have no source-checked precedent. For one of them, find a documented case of the listed roles working together, with at least one documented limit, or delete the circuit.",
+      "files": [
+        "data/circuits.yaml"
+      ],
+      "acceptance_criteria": [
+        "Precedent source opened and quoted accurately, or the circuit removed",
+        "At least one limit recorded",
+        "Evidence level changed to match",
+        "Generated files rebuilt and tests pass"
+      ]
+    },
+    {
+      "id": "cw-brazil-city-accents-001",
+      "title": "Repair Brazilian city names that lost accented letters",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "City names from the Brazil ingest dropped accented characters instead of transliterating them (the release has 'SO PAULO' for São Paulo and 'SO JOO DE MERITI'). This breaks locality matching and display. Find where the characters are lost and propose a repair from the original source values.",
+      "files": [
+        "data/ingest_brazil_oscs.py",
+        "releases/by-country/BR.csv"
+      ],
+      "acceptance_criteria": [
+        "Cause identified in the ingest or export path",
+        "Repair derives names from source data, not from guessing missing letters",
+        "Count of affected rows reported",
+        "No change applied to the release without the amendment process in docs/RELEASE-AMENDMENTS.md"
+      ]
+    },
+    {
+      "id": "cw-open-problem-practitioner-review-001",
+      "title": "Have a practitioner mark up one OPEN-PROBLEMS.md entry",
+      "type": "research",
+      "agent_ready": false,
+      "difficulty": "hard",
+      "goal": "Each entry in OPEN-PROBLEMS.md was written from published sources by an outsider. Find one person who works in the field of one entry (re-entry, development economics, repressive-context organizing, Indigenous land governance) and record their corrections with consent.",
+      "files": [
+        "OPEN-PROBLEMS.md"
+      ],
+      "acceptance_criteria": [
+        "Reviewer consents to how they are credited or stays unnamed",
+        "Their disagreements are recorded even where the position is kept",
+        "No outreach is sent by an automated agent"
+      ]
     }
   ]
 }

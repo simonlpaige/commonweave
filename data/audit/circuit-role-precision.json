@@ -1,0 +1,182 @@
+{
+ "method": {
+  "date": "2026-11-26",
+  "reviewer": "AI agent (Claude Code session), single reviewer, not blind",
+  "summary": "On 2026-11-26 one AI reviewer read up to ten rule matches per role, drawn by `python data/build_circuits.py --sample 10` and spread across sources, and judged from the name alone whether the record plausibly performs the role. Ten names per role is a rough signal, not a measured precision, and no organization was contacted or looked up.",
+  "command": "python data/build_circuits.py --sample 10",
+  "limits": [
+   "Name-only judgement; no websites or registries were opened.",
+   "Ten rows per role gives wide uncertainty.",
+   "Nine rules were tightened after a first pass; those roles were re-sampled and re-judged on the final rules.",
+   "Recall was not measured: organizations that perform a role but do not match its rule are invisible here."
+  ]
+ },
+ "roles": {
+  "community_land_trust": {
+   "plausible": 10,
+   "sampled": 10
+  },
+  "housing_cooperative": {
+   "plausible": 9,
+   "sampled": 10
+  },
+  "self_build_program": {
+   "plausible": 10,
+   "sampled": 10,
+   "note": "Almost all matches are Habitat for Humanity affiliates; the same international filing name appears on many United States rows."
+  },
+  "affordable_housing_developer": {
+   "plausible": 7,
+   "sampled": 10,
+   "note": "NTEE housing codes also cover housing co-ops and tenant groups."
+  },
+  "tenant_organization": {
+   "plausible": 9,
+   "sampled": 10,
+   "note": "Only 21 release records match. Tenant unions are nearly absent from the directory."
+  },
+  "legal_aid": {
+   "plausible": 7,
+   "sampled": 10,
+   "note": "NTEE legal-services codes include mediation and advocacy groups."
+  },
+  "homelessness_services": {
+   "plausible": 8,
+   "sampled": 10
+  },
+  "labor_union": {
+   "plausible": 5,
+   "sampled": 10,
+   "note": "United States matches are mostly joint labor-management funds filed under the labor-union code, not union locals; the directory holds almost no locals. The Wikidata union list also contains non-unions, including a learned society and a religious group."
+  },
+  "worker_cooperative": {
+   "plausible": 10,
+   "sampled": 10,
+   "note": "Three of ten sampled rows were the same organization from different sources."
+  },
+  "cooperative_developer": {
+   "plausible": 5,
+   "sampled": 10,
+   "note": "Membership lists of cooperative networks include ordinary co-ops and a row parsed from research prose."
+  },
+  "cooperative_finance": {
+   "plausible": 9,
+   "sampled": 10
+  },
+  "workforce_training": {
+   "plausible": 5,
+   "sampled": 10,
+   "note": "NTEE employment codes and the phrase \"training centre\" bring in unrelated education groups."
+  },
+  "anchor_institution": {
+   "plausible": 3,
+   "sampled": 10,
+   "note": "Weak rule. Most matches are groups attached to a hospital or university (appeals, student bodies, clinics), not the institution. Treat as a prompt to look up the institution itself."
+  },
+  "community_clinic": {
+   "plausible": 9,
+   "sampled": 10
+  },
+  "behavioral_health": {
+   "plausible": 7,
+   "sampled": 10
+  },
+  "health_outreach": {
+   "plausible": 7,
+   "sampled": 10,
+   "note": "Includes clinics and research institutes filed under public-health codes."
+  },
+  "home_care": {
+   "plausible": 8,
+   "sampled": 10,
+   "note": "Includes support groups for unpaid family carers as well as care providers."
+  },
+  "eldercare": {
+   "plausible": 8,
+   "sampled": 10
+  },
+  "time_bank": {
+   "plausible": 3,
+   "sampled": 3,
+   "note": "Only three release records match."
+  },
+  "mutual_aid_network": {
+   "plausible": 7,
+   "sampled": 10,
+   "note": "Older fraternal and insurance-style mutual aid societies match the phrase. Most records date from 2020 and current activity is unknown."
+  },
+  "food_grower": {
+   "plausible": 9,
+   "sampled": 10
+  },
+  "food_distribution": {
+   "plausible": 8,
+   "sampled": 10,
+   "note": "Only 34 release records match."
+  },
+  "food_access": {
+   "plausible": 10,
+   "sampled": 10
+  },
+  "compost_reuse": {
+   "plausible": 8,
+   "sampled": 10
+  },
+  "conservation_steward": {
+   "plausible": 5,
+   "sampled": 10,
+   "note": "\"Conservation trust\" also names building-preservation charities, and environmental-justice groups share the NTEE codes."
+  },
+  "energy_cooperative": {
+   "plausible": 7,
+   "sampled": 10,
+   "note": "Transition groups tagged with an energy interest are counted; they may have no generation project."
+  },
+  "transition_group": {
+   "plausible": 9,
+   "sampled": 10
+  },
+  "restorative_practice": {
+   "plausible": 7,
+   "sampled": 10,
+   "note": "Includes commercial arbitration chambers and family mediation."
+  },
+  "reentry_support": {
+   "plausible": 7,
+   "sampled": 10
+  },
+  "violence_prevention": {
+   "plausible": 6,
+   "sampled": 10,
+   "note": "The youth-violence NTEE code is applied loosely in the source data."
+  },
+  "community_media": {
+   "plausible": 10,
+   "sampled": 10,
+   "note": "Matches are almost all in Australia and Brazil."
+  },
+  "library_or_learning": {
+   "plausible": 9,
+   "sampled": 10,
+   "note": "About seven in ten matches are Bulgarian chitalishta (community cultural centres with libraries)."
+  },
+  "school": {
+   "plausible": 5,
+   "sampled": 10,
+   "note": "The word \"school\" appears in many names that are not schools or school communities."
+  },
+  "civic_association": {
+   "plausible": 8,
+   "sampled": 10
+  },
+  "civil_liberties": {
+   "plausible": 10,
+   "sampled": 10,
+   "note": "Only 35 release records match."
+  },
+  "disaster_coordination": {
+   "plausible": 9,
+   "sampled": 10
+  }
+ }
+}

@@ -12,7 +12,7 @@ That's not a theory. That's a wish.
 
 ## The actual problem
 
-Power does not become irrelevant just because better alternatives exist. Renewable energy has been cheaper than new coal-fired generation in most markets since roughly 2019. Coal still receives roughly $7 trillion in annual global subsidies. The fossil fuel industry didn't gracefully accept obsolescence - it bought regulatory protection against it.
+Power does not become irrelevant just because better alternatives exist. By 2019, 56% of newly commissioned utility-scale renewable capacity worldwide cost less to generate from than the cheapest new fossil option, on a levelized basis that leaves out grid integration. Fossil fuels as a whole still received about $1.3 trillion in explicit subsidies in 2022; the IMF's widely quoted $7 trillion adds unpriced environmental costs. (Corrected 2026-11-26; an earlier version attributed the $7 trillion to coal alone. Sources in [OPEN-PROBLEMS.md](../OPEN-PROBLEMS.md#power-transfer).) The fossil fuel industry didn't gracefully accept obsolescence - it bought regulatory protection against it.
 
 Same story: taxi medallions vs. Uber. Incumbent telecoms vs. municipal broadband. Big Pharma vs. generics. The pattern is consistent. Entrenched power adapts, captures regulation, and slows its own obsolescence by decades. "Eventually" is real, but it can mean two generations of harm in the meantime.
 

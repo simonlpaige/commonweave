@@ -1,0 +1,2034 @@
+{
+ "schema_version": 1,
+ "source_script": "data/build_circuits.py",
+ "inputs": {
+  "circuits": "data/circuits.yaml",
+  "release": "releases/organizations.json.gz",
+  "release_generated_at": "2026-04-27T04:23:00.819004+00:00",
+  "release_rows": 158715,
+  "release_sha256": "5c9e74a61fcf45c2e75e465716740f4dacd357aabf87466d3abb13f482cacbd1",
+  "map_points": "data/map/orgs.geojson",
+  "map_points_with_valid_tier": 19580
+ },
+ "note": "Counts of published records that match role rules, grouped by recorded city. A match is a research lead, not a confirmed activity; recorded cities can be wrong; no relationship between organizations is implied. No organization is named here.",
+ "roles": {
+  "community_land_trust": {
+   "label": "Community land trust",
+   "release_records": 774,
+   "release_distinct_names": 590,
+   "release_with_locality": 731,
+   "countries": 14,
+   "top_countries": [
+    [
+     "US",
+     409
+    ],
+    [
+     "GB",
+     125
+    ],
+    [
+     "CA",
+     21
+    ],
+    [
+     "AU",
+     5
+    ],
+    [
+     "BE",
+     4
+    ]
+   ],
+   "map_points": 71
+  },
+  "housing_cooperative": {
+   "label": "Housing cooperative or cohousing group",
+   "release_records": 1158,
+   "release_distinct_names": 1126,
+   "release_with_locality": 982,
+   "countries": 45,
+   "top_countries": [
+    [
+     "US",
+     442
+    ],
+    [
+     "CH",
+     252
+    ],
+    [
+     "AU",
+     134
+    ],
+    [
+     "DE",
+     86
+    ],
+    [
+     "CA",
+     44
+    ]
+   ],
+   "map_points": 216
+  },
+  "self_build_program": {
+   "label": "Self-build or sweat-equity housing program",
+   "release_records": 428,
+   "release_distinct_names": 155,
+   "release_with_locality": 426,
+   "countries": 61,
+   "top_countries": [
+    [
+     "US",
+     88
+    ],
+    [
+     "AU",
+     4
+    ],
+    [
+     "BR",
+     2
+    ],
+    [
+     "GB",
+     2
+    ],
+    [
+     "PH",
+     2
+    ]
+   ],
+   "map_points": 52
+  },
+  "affordable_housing_developer": {
+   "label": "Nonprofit affordable-housing developer",
+   "release_records": 1588,
+   "release_distinct_names": 1230,
+   "release_with_locality": 1576,
+   "countries": 3,
+   "top_countries": [
+    [
+     "US",
+     1192
+    ],
+    [
+     "AU",
+     30
+    ],
+    [
+     "GB",
+     8
+    ]
+   ],
+   "map_points": 12
+  },
+  "tenant_organization": {
+   "label": "Tenant or resident organization",
+   "release_records": 21,
+   "release_distinct_names": 21,
+   "release_with_locality": 16,
+   "countries": 3,
+   "top_countries": [
+    [
+     "AU",
+     13
+    ],
+    [
+     "BR",
+     3
+    ],
+    [
+     "US",
+     3
+    ]
+   ],
+   "map_points": 4
+  },
+  "legal_aid": {
+   "label": "Legal aid or community law centre",
+   "release_records": 267,
+   "release_distinct_names": 265,
+   "release_with_locality": 254,
+   "countries": 4,
+   "top_countries": [
+    [
+     "US",
+     183
+    ],
+    [
+     "AU",
+     71
+    ],
+    [
+     "GB",
+     8
+    ],
+    [
+     "BR",
+     3
+    ]
+   ],
+   "map_points": 13
+  },
+  "homelessness_services": {
+   "label": "Homelessness outreach or shelter",
+   "release_records": 101,
+   "release_distinct_names": 100,
+   "release_with_locality": 81,
+   "countries": 4,
+   "top_countries": [
+    [
+     "AU",
+     49
+    ],
+    [
+     "US",
+     25
+    ],
+    [
+     "GB",
+     14
+    ],
+    [
+     "BR",
+     12
+    ]
+   ],
+   "map_points": 45
+  },
+  "labor_union": {
+   "label": "Labor union",
+   "release_records": 842,
+   "release_distinct_names": 831,
+   "release_with_locality": 507,
+   "countries": 158,
+   "top_countries": [
+    [
+     "US",
+     155
+    ],
+    [
+     "DE",
+     127
+    ],
+    [
+     "ES",
+     27
+    ],
+    [
+     "NO",
+     26
+    ],
+    [
+     "SE",
+     22
+    ]
+   ],
+   "map_points": 506
+  },
+  "worker_cooperative": {
+   "label": "Worker cooperative",
+   "release_records": 172,
+   "release_distinct_names": 166,
+   "release_with_locality": 156,
+   "countries": 14,
+   "top_countries": [
+    [
+     "BR",
+     73
+    ],
+    [
+     "DE",
+     31
+    ],
+    [
+     "US",
+     16
+    ],
+    [
+     "ES",
+     10
+    ],
+    [
+     "GB",
+     9
+    ]
+   ],
+   "map_points": 7
+  },
+  "cooperative_developer": {
+   "label": "Cooperative developer, federation or support network",
+   "release_records": 581,
+   "release_distinct_names": 578,
+   "release_with_locality": 351,
+   "countries": 106,
+   "top_countries": [
+    [
+     "US",
+     169
+    ],
+    [
+     "IN",
+     26
+    ],
+    [
+     "BR",
+     18
+    ],
+    [
+     "JP",
+     17
+    ],
+    [
+     "PH",
+     17
+    ]
+   ],
+   "map_points": 90
+  },
+  "cooperative_finance": {
+   "label": "Credit union or cooperative lender",
+   "release_records": 188,
+   "release_distinct_names": 183,
+   "release_with_locality": 183,
+   "countries": 19,
+   "top_countries": [
+    [
+     "US",
+     152
+    ],
+    [
+     "BR",
+     4
+    ],
+    [
+     "DE",
+     4
+    ],
+    [
+     "HN",
+     4
+    ],
+    [
+     "CR",
+     2
+    ]
+   ],
+   "map_points": 11
+  },
+  "workforce_training": {
+   "label": "Workforce training or apprenticeship provider",
+   "release_records": 142,
+   "release_distinct_names": 131,
+   "release_with_locality": 139,
+   "countries": 7,
+   "top_countries": [
+    [
+     "BR",
+     54
+    ],
+    [
+     "US",
+     41
+    ],
+    [
+     "AU",
+     32
+    ],
+    [
+     "ES",
+     1
+    ],
+    [
+     "FR",
+     1
+    ]
+   ],
+   "map_points": 5
+  },
+  "anchor_institution": {
+   "label": "Anchor institution (hospital, university, public body)",
+   "release_records": 1785,
+   "release_distinct_names": 1106,
+   "release_with_locality": 1724,
+   "countries": 25,
+   "top_countries": [
+    [
+     "BR",
+     807
+    ],
+    [
+     "AU",
+     182
+    ],
+    [
+     "US",
+     55
+    ],
+    [
+     "GB",
+     23
+    ],
+    [
+     "BG",
+     7
+    ]
+   ],
+   "map_points": 60
+  },
+  "community_clinic": {
+   "label": "Community clinic or health centre",
+   "release_records": 900,
+   "release_distinct_names": 805,
+   "release_with_locality": 886,
+   "countries": 6,
+   "top_countries": [
+    [
+     "US",
+     721
+    ],
+    [
+     "AU",
+     70
+    ],
+    [
+     "BR",
+     5
+    ],
+    [
+     "CA",
+     4
+    ],
+    [
+     "GB",
+     3
+    ]
+   ],
+   "map_points": 20
+  },
+  "behavioral_health": {
+   "label": "Mental health or addiction service",
+   "release_records": 1656,
+   "release_distinct_names": 1637,
+   "release_with_locality": 1334,
+   "countries": 12,
+   "top_countries": [
+    [
+     "US",
+     1049
+    ],
+    [
+     "GB",
+     280
+    ],
+    [
+     "AU",
+     234
+    ],
+    [
+     "BR",
+     56
+    ],
+    [
+     "CA",
+     8
+    ]
+   ],
+   "map_points": 308
+  },
+  "health_outreach": {
+   "label": "Community health worker or health-education group",
+   "release_records": 642,
+   "release_distinct_names": 639,
+   "release_with_locality": 629,
+   "countries": 6,
+   "top_countries": [
+    [
+     "US",
+     521
+    ],
+    [
+     "BR",
+     87
+    ],
+    [
+     "AU",
+     21
+    ],
+    [
+     "GB",
+     8
+    ],
+    [
+     "NG",
+     1
+    ]
+   ],
+   "map_points": 8
+  },
+  "home_care": {
+   "label": "Home-care provider or carers' organization",
+   "release_records": 119,
+   "release_distinct_names": 117,
+   "release_with_locality": 93,
+   "countries": 4,
+   "top_countries": [
+    [
+     "AU",
+     57
+    ],
+    [
+     "GB",
+     23
+    ],
+    [
+     "US",
+     22
+    ],
+    [
+     "BR",
+     15
+    ]
+   ],
+   "map_points": 60
+  },
+  "eldercare": {
+   "label": "Older people's support organization",
+   "release_records": 2009,
+   "release_distinct_names": 1909,
+   "release_with_locality": 1890,
+   "countries": 4,
+   "top_countries": [
+    [
+     "BR",
+     1248
+    ],
+    [
+     "AU",
+     480
+    ],
+    [
+     "US",
+     105
+    ],
+    [
+     "GB",
+     67
+    ]
+   ],
+   "map_points": 107
+  },
+  "time_bank": {
+   "label": "Time bank or neighbour exchange",
+   "release_records": 3,
+   "release_distinct_names": 2,
+   "release_with_locality": 0,
+   "countries": 1,
+   "top_countries": [
+    [
+     "GB",
+     1
+    ]
+   ],
+   "map_points": 3
+  },
+  "mutual_aid_network": {
+   "label": "Neighbourhood mutual aid network",
+   "release_records": 5164,
+   "release_distinct_names": 4941,
+   "release_with_locality": 1007,
+   "countries": 9,
+   "top_countries": [
+    [
+     "GB",
+     1773
+    ],
+    [
+     "US",
+     967
+    ],
+    [
+     "CA",
+     14
+    ],
+    [
+     "AU",
+     11
+    ],
+    [
+     "ES",
+     4
+    ]
+   ],
+   "map_points": 4911
+  },
+  "food_grower": {
+   "label": "Community grower or small-farm group",
+   "release_records": 2251,
+   "release_distinct_names": 1992,
+   "release_with_locality": 2093,
+   "countries": 28,
+   "top_countries": [
+    [
+     "BR",
+     1178
+    ],
+    [
+     "US",
+     501
+    ],
+    [
+     "AU",
+     69
+    ],
+    [
+     "GB",
+     63
+    ],
+    [
+     "CA",
+     11
+    ]
+   ],
+   "map_points": 74
+  },
+  "food_distribution": {
+   "label": "Food cooperative, hub or market",
+   "release_records": 34,
+   "release_distinct_names": 33,
+   "release_with_locality": 24,
+   "countries": 15,
+   "top_countries": [
+    [
+     "US",
+     15
+    ],
+    [
+     "AU",
+     2
+    ],
+    [
+     "BR",
+     2
+    ],
+    [
+     "FR",
+     2
+    ],
+    [
+     "AT",
+     1
+    ]
+   ],
+   "map_points": 16
+  },
+  "food_access": {
+   "label": "Food bank or free-food program",
+   "release_records": 2202,
+   "release_distinct_names": 2148,
+   "release_with_locality": 2135,
+   "countries": 9,
+   "top_countries": [
+    [
+     "US",
+     2034
+    ],
+    [
+     "GB",
+     60
+    ],
+    [
+     "AU",
+     42
+    ],
+    [
+     "BR",
+     3
+    ],
+    [
+     "CA",
+     2
+    ]
+   ],
+   "map_points": 91
+  },
+  "compost_reuse": {
+   "label": "Composting, repair or reuse group",
+   "release_records": 318,
+   "release_distinct_names": 315,
+   "release_with_locality": 212,
+   "countries": 21,
+   "top_countries": [
+    [
+     "BR",
+     107
+    ],
+    [
+     "AU",
+     30
+    ],
+    [
+     "US",
+     22
+    ],
+    [
+     "GB",
+     14
+    ],
+    [
+     "FR",
+     13
+    ]
+   ],
+   "map_points": 6
+  },
+  "conservation_steward": {
+   "label": "Conservation or watershed steward",
+   "release_records": 735,
+   "release_distinct_names": 733,
+   "release_with_locality": 600,
+   "countries": 8,
+   "top_countries": [
+    [
+     "AU",
+     508
+    ],
+    [
+     "US",
+     114
+    ],
+    [
+     "GB",
+     90
+    ],
+    [
+     "BR",
+     17
+    ],
+    [
+     "NG",
+     1
+    ]
+   ],
+   "map_points": 180
+  },
+  "energy_cooperative": {
+   "label": "Community energy group or energy cooperative",
+   "release_records": 245,
+   "release_distinct_names": 242,
+   "release_with_locality": 162,
+   "countries": 19,
+   "top_countries": [
+    [
+     "US",
+     103
+    ],
+    [
+     "AU",
+     13
+    ],
+    [
+     "GB",
+     12
+    ],
+    [
+     "CA",
+     8
+    ],
+    [
+     "FR",
+     8
+    ]
+   ],
+   "map_points": 51
+  },
+  "transition_group": {
+   "label": "Local transition or sustainability group",
+   "release_records": 497,
+   "release_distinct_names": 493,
+   "release_with_locality": 271,
+   "countries": 38,
+   "top_countries": [
+    [
+     "US",
+     58
+    ],
+    [
+     "AU",
+     42
+    ],
+    [
+     "GB",
+     41
+    ],
+    [
+     "FR",
+     28
+    ],
+    [
+     "CA",
+     21
+    ]
+   ],
+   "map_points": 800
+  },
+  "restorative_practice": {
+   "label": "Mediation or restorative-justice organization",
+   "release_records": 146,
+   "release_distinct_names": 112,
+   "release_with_locality": 139,
+   "countries": 5,
+   "top_countries": [
+    [
+     "US",
+     91
+    ],
+    [
+     "AU",
+     11
+    ],
+    [
+     "GB",
+     5
+    ],
+    [
+     "BR",
+     4
+    ],
+    [
+     "ZA",
+     1
+    ]
+   ],
+   "map_points": 46
+  },
+  "reentry_support": {
+   "label": "Re-entry or post-prison support organization",
+   "release_records": 92,
+   "release_distinct_names": 60,
+   "release_with_locality": 91,
+   "countries": 4,
+   "top_countries": [
+    [
+     "US",
+     25
+    ],
+    [
+     "BR",
+     24
+    ],
+    [
+     "AU",
+     10
+    ],
+    [
+     "VE",
+     1
+    ]
+   ],
+   "map_points": 0
+  },
+  "violence_prevention": {
+   "label": "Community violence-prevention or survivor-support group",
+   "release_records": 74,
+   "release_distinct_names": 71,
+   "release_with_locality": 58,
+   "countries": 3,
+   "top_countries": [
+    [
+     "AU",
+     44
+    ],
+    [
+     "US",
+     16
+    ],
+    [
+     "GB",
+     5
+    ]
+   ],
+   "map_points": 20
+  },
+  "community_media": {
+   "label": "Community media outlet",
+   "release_records": 111,
+   "release_distinct_names": 111,
+   "release_with_locality": 103,
+   "countries": 4,
+   "top_countries": [
+    [
+     "AU",
+     90
+    ],
+    [
+     "BR",
+     19
+    ],
+    [
+     "GB",
+     1
+    ],
+    [
+     "US",
+     1
+    ]
+   ],
+   "map_points": 18
+  },
+  "library_or_learning": {
+   "label": "Library or community learning centre",
+   "release_records": 2199,
+   "release_distinct_names": 1775,
+   "release_with_locality": 186,
+   "countries": 21,
+   "top_countries": [
+    [
+     "BG",
+     1554
+    ],
+    [
+     "AU",
+     117
+    ],
+    [
+     "BR",
+     55
+    ],
+    [
+     "NL",
+     11
+    ],
+    [
+     "GB",
+     10
+    ]
+   ],
+   "map_points": 28
+  },
+  "school": {
+   "label": "School or school community",
+   "release_records": 5641,
+   "release_distinct_names": 5268,
+   "release_with_locality": 5031,
+   "countries": 7,
+   "top_countries": [
+    [
+     "AU",
+     3494
+    ],
+    [
+     "BR",
+     1677
+    ],
+    [
+     "GB",
+     69
+    ],
+    [
+     "US",
+     24
+    ],
+    [
+     "NO",
+     1
+    ]
+   ],
+   "map_points": 115
+  },
+  "civic_association": {
+   "label": "Neighbourhood or civic association",
+   "release_records": 3498,
+   "release_distinct_names": 3269,
+   "release_with_locality": 3377,
+   "countries": 5,
+   "top_countries": [
+    [
+     "BR",
+     2905
+    ],
+    [
+     "AU",
+     142
+    ],
+    [
+     "US",
+     110
+    ],
+    [
+     "GB",
+     90
+    ],
+    [
+     "CA",
+     1
+    ]
+   ],
+   "map_points": 137
+  },
+  "civil_liberties": {
+   "label": "Civil-liberties or digital-rights organization",
+   "release_records": 35,
+   "release_distinct_names": 35,
+   "release_with_locality": 30,
+   "countries": 4,
+   "top_countries": [
+    [
+     "US",
+     25
+    ],
+    [
+     "AU",
+     7
+    ],
+    [
+     "DE",
+     2
+    ],
+    [
+     "GB",
+     1
+    ]
+   ],
+   "map_points": 4
+  },
+  "disaster_coordination": {
+   "label": "Disaster preparedness or relief coordinator",
+   "release_records": 217,
+   "release_distinct_names": 131,
+   "release_with_locality": 191,
+   "countries": 6,
+   "top_countries": [
+    [
+     "AU",
+     72
+    ],
+    [
+     "BR",
+     34
+    ],
+    [
+     "US",
+     9
+    ],
+    [
+     "GB",
+     8
+    ],
+    [
+     "BG",
+     2
+    ]
+   ],
+   "map_points": 22
+  }
+ },
+ "circuits": [
+  {
+   "id": "labor_for_housing",
+   "name": "Labor-for-housing pipeline",
+   "evidence": "combination_documented",
+   "roles": [
+    "labor_union",
+    "community_land_trust",
+    "self_build_program",
+    "housing_cooperative",
+    "cooperative_finance"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "DE",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 1722,
+   "localities_with_every_role": 3,
+   "localities_missing_exactly_one_role": {
+    "labor_union": 3,
+    "community_land_trust": 0,
+    "self_build_program": 2,
+    "housing_cooperative": 2,
+    "cooperative_finance": 6
+   },
+   "role_most_often_missing": "cooperative_finance",
+   "localities": [
+    {
+     "country": "US",
+     "region": "IL",
+     "city": "Chicago",
+     "candidates_per_role": {
+      "labor_union": 1,
+      "community_land_trust": 4,
+      "self_build_program": 1,
+      "housing_cooperative": 5,
+      "cooperative_finance": 4
+     }
+    },
+    {
+     "country": "US",
+     "region": "VA",
+     "city": "Richmond",
+     "candidates_per_role": {
+      "labor_union": 3,
+      "community_land_trust": 3,
+      "self_build_program": 1,
+      "housing_cooperative": 2,
+      "cooperative_finance": 1
+     }
+    },
+    {
+     "country": "US",
+     "region": "AZ",
+     "city": "Phoenix",
+     "candidates_per_role": {
+      "labor_union": 1,
+      "community_land_trust": 1,
+      "self_build_program": 1,
+      "housing_cooperative": 1,
+      "cooperative_finance": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "housing_justice_pipeline",
+   "name": "Tenant purchase and anti-displacement pipeline",
+   "evidence": "combination_documented",
+   "roles": [
+    "tenant_organization",
+    "legal_aid",
+    "community_land_trust",
+    "affordable_housing_developer",
+    "cooperative_finance"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "US"
+   ],
+   "localities_with_any_role": 1428,
+   "localities_with_every_role": 1,
+   "localities_missing_exactly_one_role": {
+    "tenant_organization": 9,
+    "legal_aid": 0,
+    "community_land_trust": 1,
+    "affordable_housing_developer": 0,
+    "cooperative_finance": 2
+   },
+   "role_most_often_missing": "tenant_organization",
+   "localities": [
+    {
+     "country": "US",
+     "region": "MA",
+     "city": "Worcester",
+     "candidates_per_role": {
+      "tenant_organization": 1,
+      "legal_aid": 1,
+      "community_land_trust": 1,
+      "affordable_housing_developer": 3,
+      "cooperative_finance": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "housing_first",
+   "name": "Housing First partnership",
+   "evidence": "combination_documented",
+   "roles": [
+    "homelessness_services",
+    "affordable_housing_developer",
+    "behavioral_health",
+    "community_clinic"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 2039,
+   "localities_with_every_role": 7,
+   "localities_missing_exactly_one_role": {
+    "homelessness_services": 98,
+    "affordable_housing_developer": 1,
+    "behavioral_health": 3,
+    "community_clinic": 2
+   },
+   "role_most_often_missing": "homelessness_services",
+   "localities": [],
+   "localities_withheld": "Circuit is marked sensitive; only country-level coverage is published."
+  },
+  {
+   "id": "worker_transition",
+   "name": "Worker ownership transition",
+   "evidence": "combination_documented",
+   "roles": [
+    "labor_union",
+    "cooperative_developer",
+    "cooperative_finance",
+    "workforce_training"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "BR",
+    "GB",
+    "KE",
+    "US"
+   ],
+   "localities_with_any_role": 746,
+   "localities_with_every_role": 0,
+   "localities_missing_exactly_one_role": {
+    "labor_union": 0,
+    "cooperative_developer": 1,
+    "cooperative_finance": 3,
+    "workforce_training": 3
+   },
+   "role_most_often_missing": "cooperative_finance",
+   "localities": []
+  },
+  {
+   "id": "care_work_ownership",
+   "name": "Care work with a union and a stake",
+   "evidence": "combination_documented",
+   "roles": [
+    "home_care",
+    "labor_union",
+    "cooperative_developer",
+    "workforce_training"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "BR",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 711,
+   "localities_with_every_role": 1,
+   "localities_missing_exactly_one_role": {
+    "home_care": 2,
+    "labor_union": 1,
+    "cooperative_developer": 2,
+    "workforce_training": 0
+   },
+   "role_most_often_missing": "home_care",
+   "localities": [
+    {
+     "country": "US",
+     "region": "CA",
+     "city": "Oakland",
+     "candidates_per_role": {
+      "home_care": 1,
+      "labor_union": 2,
+      "cooperative_developer": 1,
+      "workforce_training": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "anchor_procurement",
+   "name": "Anchor procurement and community wealth",
+   "evidence": "combination_documented",
+   "roles": [
+    "anchor_institution",
+    "worker_cooperative",
+    "cooperative_developer",
+    "cooperative_finance"
+   ],
+   "countries_with_every_role": [
+    "BR",
+    "DE",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 1404,
+   "localities_with_every_role": 0,
+   "localities_missing_exactly_one_role": {
+    "anchor_institution": 1,
+    "worker_cooperative": 3,
+    "cooperative_developer": 1,
+    "cooperative_finance": 4
+   },
+   "role_most_often_missing": "cooperative_finance",
+   "localities": []
+  },
+  {
+   "id": "community_health_mesh",
+   "name": "Community health mesh",
+   "evidence": "components_documented",
+   "roles": [
+    "community_clinic",
+    "health_outreach",
+    "mutual_aid_network"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 1378,
+   "localities_with_every_role": 63,
+   "localities_missing_exactly_one_role": {
+    "community_clinic": 43,
+    "health_outreach": 57,
+    "mutual_aid_network": 74
+   },
+   "role_most_often_missing": "mutual_aid_network",
+   "localities": [
+    {
+     "country": "US",
+     "region": "CA",
+     "city": "Los Angeles",
+     "candidates_per_role": {
+      "community_clinic": 21,
+      "health_outreach": 5,
+      "mutual_aid_network": 16
+     }
+    },
+    {
+     "country": "US",
+     "region": "MA",
+     "city": "Boston",
+     "candidates_per_role": {
+      "community_clinic": 6,
+      "health_outreach": 4,
+      "mutual_aid_network": 20
+     }
+    },
+    {
+     "country": "US",
+     "region": "OR",
+     "city": "Portland",
+     "candidates_per_role": {
+      "community_clinic": 4,
+      "health_outreach": 4,
+      "mutual_aid_network": 12
+     }
+    },
+    {
+     "country": "US",
+     "region": "IL",
+     "city": "Chicago",
+     "candidates_per_role": {
+      "community_clinic": 4,
+      "health_outreach": 3,
+      "mutual_aid_network": 24
+     }
+    },
+    {
+     "country": "US",
+     "region": "WA",
+     "city": "Seattle",
+     "candidates_per_role": {
+      "community_clinic": 3,
+      "health_outreach": 4,
+      "mutual_aid_network": 7
+     }
+    },
+    {
+     "country": "US",
+     "region": "AZ",
+     "city": "Phoenix",
+     "candidates_per_role": {
+      "community_clinic": 3,
+      "health_outreach": 3,
+      "mutual_aid_network": 5
+     }
+    },
+    {
+     "country": "US",
+     "region": "FL",
+     "city": "Miami",
+     "candidates_per_role": {
+      "community_clinic": 4,
+      "health_outreach": 4,
+      "mutual_aid_network": 3
+     }
+    },
+    {
+     "country": "US",
+     "region": "NC",
+     "city": "Charlotte",
+     "candidates_per_role": {
+      "community_clinic": 3,
+      "health_outreach": 3,
+      "mutual_aid_network": 3
+     }
+    },
+    {
+     "country": "US",
+     "region": "MD",
+     "city": "Baltimore",
+     "candidates_per_role": {
+      "community_clinic": 2,
+      "health_outreach": 5,
+      "mutual_aid_network": 31
+     }
+    },
+    {
+     "country": "US",
+     "region": "PA",
+     "city": "Philadelphia",
+     "candidates_per_role": {
+      "community_clinic": 2,
+      "health_outreach": 3,
+      "mutual_aid_network": 13
+     }
+    },
+    {
+     "country": "US",
+     "region": "CA",
+     "city": "San Francisco",
+     "candidates_per_role": {
+      "community_clinic": 2,
+      "health_outreach": 2,
+      "mutual_aid_network": 12
+     }
+    },
+    {
+     "country": "US",
+     "region": "NM",
+     "city": "Albuquerque",
+     "candidates_per_role": {
+      "community_clinic": 4,
+      "health_outreach": 2,
+      "mutual_aid_network": 7
+     }
+    }
+   ]
+  },
+  {
+   "id": "crisis_response",
+   "name": "Non-police crisis response",
+   "evidence": "combination_documented",
+   "roles": [
+    "behavioral_health",
+    "community_clinic",
+    "homelessness_services"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "BR",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 1432,
+   "localities_with_every_role": 8,
+   "localities_missing_exactly_one_role": {
+    "behavioral_health": 4,
+    "community_clinic": 8,
+    "homelessness_services": 199
+   },
+   "role_most_often_missing": "homelessness_services",
+   "localities": [],
+   "localities_withheld": "Circuit is marked sensitive; only country-level coverage is published."
+  },
+  {
+   "id": "safety_and_repair",
+   "name": "Community safety and repair",
+   "evidence": "components_documented",
+   "roles": [
+    "restorative_practice",
+    "reentry_support",
+    "workforce_training",
+    "violence_prevention"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "US"
+   ],
+   "localities_with_any_role": 306,
+   "localities_with_every_role": 0,
+   "localities_missing_exactly_one_role": {
+    "restorative_practice": 1,
+    "reentry_support": 1,
+    "workforce_training": 2,
+    "violence_prevention": 1
+   },
+   "role_most_often_missing": "workforce_training",
+   "localities": [],
+   "localities_withheld": "Circuit is marked sensitive; only country-level coverage is published."
+  },
+  {
+   "id": "community_food_system",
+   "name": "Local food security loop",
+   "evidence": "combination_documented",
+   "roles": [
+    "food_grower",
+    "food_distribution",
+    "food_access"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "BR",
+    "CA",
+    "US"
+   ],
+   "localities_with_any_role": 2988,
+   "localities_with_every_role": 1,
+   "localities_missing_exactly_one_role": {
+    "food_grower": 6,
+    "food_distribution": 154,
+    "food_access": 1
+   },
+   "role_most_often_missing": "food_distribution",
+   "localities": [
+    {
+     "country": "US",
+     "region": "MN",
+     "city": "Saint Paul",
+     "candidates_per_role": {
+      "food_grower": 1,
+      "food_distribution": 1,
+      "food_access": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "food_waste_loop",
+   "name": "Food waste-to-soil loop",
+   "evidence": "hypothesis",
+   "roles": [
+    "food_access",
+    "compost_reuse",
+    "food_grower"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "BR",
+    "CA",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 3086,
+   "localities_with_every_role": 5,
+   "localities_missing_exactly_one_role": {
+    "food_access": 76,
+    "compost_reuse": 150,
+    "food_grower": 5
+   },
+   "role_most_often_missing": "compost_reuse",
+   "localities": [
+    {
+     "country": "US",
+     "region": "CA",
+     "city": "Berkeley",
+     "candidates_per_role": {
+      "food_access": 2,
+      "compost_reuse": 2,
+      "food_grower": 2
+     }
+    },
+    {
+     "country": "US",
+     "region": "WA",
+     "city": "Seattle",
+     "candidates_per_role": {
+      "food_access": 2,
+      "compost_reuse": 1,
+      "food_grower": 6
+     }
+    },
+    {
+     "country": "BR",
+     "region": "SP",
+     "city": "So Paulo",
+     "candidates_per_role": {
+      "food_access": 1,
+      "compost_reuse": 3,
+      "food_grower": 1
+     }
+    },
+    {
+     "country": "US",
+     "region": "SC",
+     "city": "Columbia",
+     "candidates_per_role": {
+      "food_access": 1,
+      "compost_reuse": 2,
+      "food_grower": 2
+     }
+    },
+    {
+     "country": "US",
+     "region": "OH",
+     "city": "Carey",
+     "candidates_per_role": {
+      "food_access": 1,
+      "compost_reuse": 1,
+      "food_grower": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "land_stewardship_alliance",
+   "name": "Land stewardship alliance",
+   "evidence": "components_documented",
+   "roles": [
+    "conservation_steward",
+    "food_grower",
+    "community_land_trust"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 2040,
+   "localities_with_every_role": 7,
+   "localities_missing_exactly_one_role": {
+    "conservation_steward": 54,
+    "food_grower": 8,
+    "community_land_trust": 24
+   },
+   "role_most_often_missing": "conservation_steward",
+   "localities": [],
+   "localities_withheld": "Circuit is marked sensitive; only country-level coverage is published."
+  },
+  {
+   "id": "community_energy_transition",
+   "name": "Community energy transition",
+   "evidence": "components_documented",
+   "roles": [
+    "energy_cooperative",
+    "cooperative_finance",
+    "transition_group"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "GB",
+    "KE",
+    "US"
+   ],
+   "localities_with_any_role": 506,
+   "localities_with_every_role": 0,
+   "localities_missing_exactly_one_role": {
+    "energy_cooperative": 2,
+    "cooperative_finance": 61,
+    "transition_group": 3
+   },
+   "role_most_often_missing": "cooperative_finance",
+   "localities": []
+  },
+  {
+   "id": "community_broadband",
+   "name": "Cooperative rural broadband",
+   "evidence": "combination_documented",
+   "roles": [
+    "energy_cooperative",
+    "anchor_institution",
+    "library_or_learning"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "CA",
+    "GB",
+    "KE",
+    "US"
+   ],
+   "localities_with_any_role": 1226,
+   "localities_with_every_role": 1,
+   "localities_missing_exactly_one_role": {
+    "energy_cooperative": 36,
+    "anchor_institution": 2,
+    "library_or_learning": 2
+   },
+   "role_most_often_missing": "energy_cooperative",
+   "localities": [
+    {
+     "country": "AU",
+     "region": "NSW",
+     "city": "Ultimo",
+     "candidates_per_role": {
+      "energy_cooperative": 1,
+      "anchor_institution": 1,
+      "library_or_learning": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "disaster_resilience_grid",
+   "name": "Disaster resilience grid",
+   "evidence": "components_documented",
+   "roles": [
+    "mutual_aid_network",
+    "disaster_coordination",
+    "community_clinic"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 1187,
+   "localities_with_every_role": 6,
+   "localities_missing_exactly_one_role": {
+    "mutual_aid_network": 3,
+    "disaster_coordination": 114,
+    "community_clinic": 1
+   },
+   "role_most_often_missing": "disaster_coordination",
+   "localities": [
+    {
+     "country": "US",
+     "region": "MD",
+     "city": "Baltimore",
+     "candidates_per_role": {
+      "mutual_aid_network": 31,
+      "disaster_coordination": 1,
+      "community_clinic": 2
+     }
+    },
+    {
+     "country": "US",
+     "region": "TX",
+     "city": "San Antonio",
+     "candidates_per_role": {
+      "mutual_aid_network": 4,
+      "disaster_coordination": 1,
+      "community_clinic": 2
+     }
+    },
+    {
+     "country": "US",
+     "region": "CA",
+     "city": "Santa Rosa",
+     "candidates_per_role": {
+      "mutual_aid_network": 1,
+      "disaster_coordination": 1,
+      "community_clinic": 2
+     }
+    },
+    {
+     "country": "US",
+     "region": "MD",
+     "city": "Columbia",
+     "candidates_per_role": {
+      "mutual_aid_network": 2,
+      "disaster_coordination": 1,
+      "community_clinic": 1
+     }
+    },
+    {
+     "country": "US",
+     "region": "MA",
+     "city": "Lynn",
+     "candidates_per_role": {
+      "mutual_aid_network": 1,
+      "disaster_coordination": 1,
+      "community_clinic": 1
+     }
+    },
+    {
+     "country": "US",
+     "region": "MI",
+     "city": "Pontiac",
+     "candidates_per_role": {
+      "mutual_aid_network": 1,
+      "disaster_coordination": 1,
+      "community_clinic": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "eldercare_commons",
+   "name": "Eldercare commons",
+   "evidence": "components_documented",
+   "roles": [
+    "eldercare",
+    "time_bank",
+    "home_care",
+    "community_clinic"
+   ],
+   "countries_with_every_role": [
+    "GB"
+   ],
+   "localities_with_any_role": 2071,
+   "localities_with_every_role": 0,
+   "localities_missing_exactly_one_role": {
+    "eldercare": 0,
+    "time_bank": 4,
+    "home_care": 0,
+    "community_clinic": 0
+   },
+   "role_most_often_missing": "time_bank",
+   "localities": []
+  },
+  {
+   "id": "cooperative_incubator",
+   "name": "Cooperative development pipeline",
+   "evidence": "combination_documented",
+   "roles": [
+    "cooperative_developer",
+    "cooperative_finance",
+    "workforce_training"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "BR",
+    "GB",
+    "KE",
+    "US"
+   ],
+   "localities_with_any_role": 485,
+   "localities_with_every_role": 0,
+   "localities_missing_exactly_one_role": {
+    "cooperative_developer": 4,
+    "cooperative_finance": 6,
+    "workforce_training": 24
+   },
+   "role_most_often_missing": "workforce_training",
+   "localities": []
+  },
+  {
+   "id": "community_schools",
+   "name": "Community school hub",
+   "evidence": "combination_documented",
+   "roles": [
+    "school",
+    "community_clinic",
+    "food_access",
+    "behavioral_health"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "BR",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 5496,
+   "localities_with_every_role": 5,
+   "localities_missing_exactly_one_role": {
+    "school": 84,
+    "community_clinic": 5,
+    "food_access": 5,
+    "behavioral_health": 2
+   },
+   "role_most_often_missing": "school",
+   "localities": [],
+   "localities_withheld": "Circuit is marked sensitive; only country-level coverage is published."
+  },
+  {
+   "id": "participatory_budgeting",
+   "name": "Participatory budgeting",
+   "evidence": "combination_documented",
+   "roles": [
+    "anchor_institution",
+    "civic_association",
+    "library_or_learning"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "BR",
+    "CA",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 2189,
+   "localities_with_every_role": 22,
+   "localities_missing_exactly_one_role": {
+    "anchor_institution": 10,
+    "civic_association": 15,
+    "library_or_learning": 260
+   },
+   "role_most_often_missing": "library_or_learning",
+   "localities": [
+    {
+     "country": "BR",
+     "region": "MG",
+     "city": "Belo Horizonte",
+     "candidates_per_role": {
+      "anchor_institution": 5,
+      "civic_association": 20,
+      "library_or_learning": 4
+     }
+    },
+    {
+     "country": "BR",
+     "region": "PR",
+     "city": "Curitiba",
+     "candidates_per_role": {
+      "anchor_institution": 14,
+      "civic_association": 22,
+      "library_or_learning": 2
+     }
+    },
+    {
+     "country": "BR",
+     "region": "RJ",
+     "city": "Rio De Janeiro",
+     "candidates_per_role": {
+      "anchor_institution": 13,
+      "civic_association": 21,
+      "library_or_learning": 2
+     }
+    },
+    {
+     "country": "BR",
+     "region": "PA",
+     "city": "Belm",
+     "candidates_per_role": {
+      "anchor_institution": 6,
+      "civic_association": 11,
+      "library_or_learning": 2
+     }
+    },
+    {
+     "country": "BR",
+     "region": "SC",
+     "city": "Florianpolis",
+     "candidates_per_role": {
+      "anchor_institution": 6,
+      "civic_association": 2,
+      "library_or_learning": 2
+     }
+    },
+    {
+     "country": "BR",
+     "region": "SP",
+     "city": "So Paulo",
+     "candidates_per_role": {
+      "anchor_institution": 23,
+      "civic_association": 99,
+      "library_or_learning": 1
+     }
+    },
+    {
+     "country": "BR",
+     "region": "BA",
+     "city": "Salvador",
+     "candidates_per_role": {
+      "anchor_institution": 9,
+      "civic_association": 22,
+      "library_or_learning": 1
+     }
+    },
+    {
+     "country": "BR",
+     "region": "MG",
+     "city": "Betim",
+     "candidates_per_role": {
+      "anchor_institution": 3,
+      "civic_association": 8,
+      "library_or_learning": 1
+     }
+    },
+    {
+     "country": "BR",
+     "region": "AC",
+     "city": "Rio Branco",
+     "candidates_per_role": {
+      "anchor_institution": 1,
+      "civic_association": 8,
+      "library_or_learning": 1
+     }
+    },
+    {
+     "country": "BR",
+     "region": "PE",
+     "city": "Recife",
+     "candidates_per_role": {
+      "anchor_institution": 5,
+      "civic_association": 4,
+      "library_or_learning": 1
+     }
+    },
+    {
+     "country": "BR",
+     "region": "BA",
+     "city": "Alagoinhas",
+     "candidates_per_role": {
+      "anchor_institution": 1,
+      "civic_association": 6,
+      "library_or_learning": 1
+     }
+    },
+    {
+     "country": "BR",
+     "region": "PE",
+     "city": "Caruaru",
+     "candidates_per_role": {
+      "anchor_institution": 3,
+      "civic_association": 1,
+      "library_or_learning": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": "civic_information_commons",
+   "name": "Civic information commons",
+   "evidence": "hypothesis",
+   "roles": [
+    "community_media",
+    "library_or_learning",
+    "civic_association"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "BR",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 1618,
+   "localities_with_every_role": 0,
+   "localities_missing_exactly_one_role": {
+    "community_media": 32,
+    "library_or_learning": 12,
+    "civic_association": 5
+   },
+   "role_most_often_missing": "community_media",
+   "localities": []
+  },
+  {
+   "id": "technology_oversight",
+   "name": "Community oversight of technology",
+   "evidence": "components_documented",
+   "roles": [
+    "labor_union",
+    "civil_liberties",
+    "civic_association"
+   ],
+   "countries_with_every_role": [
+    "AU",
+    "GB",
+    "US"
+   ],
+   "localities_with_any_role": 1726,
+   "localities_with_every_role": 2,
+   "localities_missing_exactly_one_role": {
+    "labor_union": 0,
+    "civil_liberties": 17,
+    "civic_association": 2
+   },
+   "role_most_often_missing": "civil_liberties",
+   "localities": [
+    {
+     "country": "US",
+     "region": "IL",
+     "city": "Chicago",
+     "candidates_per_role": {
+      "labor_union": 1,
+      "civil_liberties": 1,
+      "civic_association": 2
+     }
+    },
+    {
+     "country": "US",
+     "region": "NY",
+     "city": "New York",
+     "candidates_per_role": {
+      "labor_union": 2,
+      "civil_liberties": 1,
+      "civic_association": 1
+     }
+    }
+   ]
+  }
+ ]
+}

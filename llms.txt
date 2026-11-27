@@ -18,6 +18,8 @@ Maintained by Simon L. Paige and contributors. Open contribution welcome.
 - [Directory](https://commonweave.earth/directory.html): searchable org list
 - [Map](https://commonweave.earth/map.html): geographic view
 - [Doc](https://commonweave.earth/doc.html): framework writeup
+- [Solution circuits](https://commonweave.earth/doc.html?file=SOLUTION-CIRCUITS): 21 combinations of organization types tried on one problem, with graded evidence, documented failures and directory coverage
+- [Open problems](https://commonweave.earth/doc.html?file=OPEN-PROBLEMS): a working position, checked sources, counter-evidence and a test for each open question
 
 ## Data license
 CC0 - public domain. Use it however you want.
