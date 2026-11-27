@@ -75,6 +75,86 @@ NUMERIC_TO_ALPHA2 = {
 }
 
 
+def unwrap_ring(ring):
+    """Make a ring that crosses the antimeridian continuous.
+
+    world-atlas stores such rings (Russia's Chukotka, Fiji) with longitudes
+    that jump between +180 and -180. A renderer then draws the jump as an
+    edge across the whole map, which showed up as bands and a wedge in the
+    Coverage view. Walking the ring and carrying a +/-360 offset across each
+    jump gives longitudes slightly past 180 that MapLibre wraps correctly.
+
+    A ring that circles a pole (Antarctica's coast) does not return to its
+    starting offset. It is cut at the jump, unwrapped into one strip, and
+    closed along the pole so it fills toward the pole and not across the map.
+    A polar ring that already runs along the pole is returned unchanged.
+    """
+    if len(ring) < 2:
+        return ring
+    out = [list(ring[0])]
+    offset = 0.0
+    for prev, cur in zip(ring, ring[1:]):
+        step = cur[0] - prev[0]
+        if step > 180:
+            offset -= 360.0
+        elif step < -180:
+            offset += 360.0
+        out.append([cur[0] + offset] + list(cur[1:]))
+    if offset != 0.0:
+        lats = [c[1] for c in ring]
+        if min(lats) < -89 or max(lats) > 89:
+            return ring
+        body = ring[:-1] if ring[0] == ring[-1] else ring
+        cut = next(i for i in range(len(body))
+                   if abs(body[(i + 1) % len(body)][0] - body[i][0]) > 180) + 1
+        body = body[cut:] + body[:cut]
+        strip = [list(body[0])]
+        shift = 0.0
+        for prev, cur in zip(body, body[1:]):
+            step = cur[0] - prev[0]
+            if step > 180:
+                shift -= 360.0
+            elif step < -180:
+                shift += 360.0
+            strip.append([cur[0] + shift] + list(cur[1:]))
+        if shift != 0.0:
+            return ring  # more than one crossing; leave for manual review
+        pole = -90.0 if sum(lats) < 0 else 90.0
+        return strip + [[strip[-1][0], pole], [strip[0][0], pole], list(strip[0])]
+    if min(c[0] for c in out) < -180.0001:
+        out = [[c[0] + 360.0] + c[1:] for c in out]
+    return out
+
+
+def _is_pole_ring(ring):
+    """True for a ring that only traces a parallel right at a pole."""
+    return all(abs(c[1]) > 89.9 for c in ring)
+
+
+def unwrap_polygon(rings):
+    """Unwrap one polygon's rings.
+
+    world-atlas encodes Antarctica as a tiny ring at the pole with the coast
+    as its second ring. On a flat map that is inside-out, so the pole ring is
+    dropped and the coast (closed along the pole by unwrap_ring) becomes the
+    exterior.
+    """
+    if len(rings) > 1:
+        kept = [r for r in rings if not _is_pole_ring(r)]
+        if kept and len(kept) < len(rings):
+            rings = kept
+    return [unwrap_ring(r) for r in rings]
+
+
+def unwrap_geometry(geom):
+    """Apply unwrap_polygon to a Polygon or each part of a MultiPolygon."""
+    if geom['type'] == 'Polygon':
+        geom['coordinates'] = unwrap_polygon(geom['coordinates'])
+    elif geom['type'] == 'MultiPolygon':
+        geom['coordinates'] = [unwrap_polygon(poly) for poly in geom['coordinates']]
+    return geom
+
+
 def topojson_to_geojson(topo, object_name='countries'):
     """Decode TopoJSON to a list of GeoJSON Features. Inline, minimal: the
     repo does not need a full topojson lib for one bake."""
@@ -132,6 +212,7 @@ def topojson_to_geojson(topo, object_name='countries'):
         gj = geom_to_geojson(g)
         if gj is None:
             continue
+        unwrap_geometry(gj)
         out.append({
             'type': 'Feature',
             'id': g.get('id'),

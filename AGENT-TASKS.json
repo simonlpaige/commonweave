@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-11-26T00:00-06:00",
+  "updated": "2026-11-27T00:00-06:00",
   "notes": "Machine-readable list of agent-ready tasks for Commonweave. Pick one. See AGENTS.md for workflow.",
   "tasks": [
     {
@@ -283,23 +283,6 @@
         "Name+country overlaps are reviewed; merged rows keep both source identities",
         "1,012 rows without a country code are either resolved from coordinates or left blank, not guessed",
         "DATA.md source table is updated with the real inserted count"
-      ]
-    },
-    {
-      "id": "cw-map-coverage-antimeridian-001",
-      "title": "Fix region polygons that streak across the Coverage view",
-      "type": "code",
-      "agent_ready": true,
-      "difficulty": "easy",
-      "goal": "In Coverage mode, some polygons in data/map/regions.geojson that cross the antimeridian (visible around Russia, Alaska and Fiji) draw as horizontal bands and a wedge across the Atlantic. Split or wrap those geometries in data/build_regions.py.",
-      "files": [
-        "data/build_regions.py",
-        "data/map/regions.geojson"
-      ],
-      "acceptance_criteria": [
-        "No polygon edge spans more than 180 degrees of longitude",
-        "Coverage view at world zoom shows no bands or wedges",
-        "Completeness values are unchanged"
       ]
     }
   ]
