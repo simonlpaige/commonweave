@@ -51,8 +51,9 @@ What this changes:
   to be a different thing: a tool someone can use, with the earlier thread
   acknowledged.
 - **Read the rules first.** The r/web_design removal was avoidable.
-- No analytics baseline exists ([TRAFFIC-2026-11-03.md](TRAFFIC-2026-11-03.md)),
-  so a post's effect still cannot be measured beyond replies and corrections.
+- Cookieless visit counting was added on 2026-11-27
+  ([TRAFFIC-2026-11-03.md](TRAFFIC-2026-11-03.md)). Wait for two weeks of
+  baseline before posting, so a post's effect can be seen.
 
 ## Rules for posting
 
@@ -76,7 +77,7 @@ organizations, built from public registries and directories such as ICA,
 Transition Network, the Schumacher CLT map and Mutual Aid Hub:
 https://commonweave.earth/map.html
 
-It is free, has no login and no tracking, and the data is downloadable.
+It is free, has no login, no cookies and no ads, and the data is downloadable.
 
 What is wrong with it, so you do not have to find out the hard way:
 

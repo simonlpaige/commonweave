@@ -754,7 +754,7 @@ button:disabled { opacity: .45; cursor: default; }
 <link rel="stylesheet" href="assets/css/brand.css?v=ac1ae7a4a9c0">
 <link rel="stylesheet" href="assets/css/commonweave.css?v=61c3d54ad08e">
 <link rel="stylesheet" href="assets/css/map-paper.css?v=0e23940bced8">
-<link rel="stylesheet" href="assets/css/site-shell.css?v=ddf093745d61">
+<link rel="stylesheet" href="assets/css/site-shell.css?v=062e302a2cba">
 </head>
 <body class="cw-page cw-map">
 <a class="skip-link" href="#layout" onclick="event.preventDefault();document.getElementById('layout').focus()">Skip to map</a>
@@ -3463,6 +3463,8 @@ main().catch(e => {
   document.getElementById('loading').innerHTML = `<div style="color:#e05858;font-family:Inter,sans-serif;padding:2rem;text-align:center"><h3>Failed to load network data</h3><p style="margin-top:1rem;font-size:12px;opacity:.7">${e.message}</p></div>`;
 });
 </script>
+<!-- Cloudflare Web Analytics: cookieless aggregate visit counts. See docs/TRAFFIC-2026-11-03.md -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "c260694eedc24301aa5a35154e63daf2"}'></script>
 </body>
 </html>
 
