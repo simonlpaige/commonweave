@@ -14,21 +14,28 @@ PAGES = {
 }
 
 
+# The mark is a plain weave: two threads over, two under.
+MARK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8H13M19 8H22M2 16H5M11 16H22M8 2V5M8 11V22M16 2V13M16 19V22"/></svg>'
+# Every destination is visible in the header; nothing is tucked into a menu.
+LINKS = [
+    ('map.html', 'Map', 'map'),
+    ('directory.html', 'Directory', 'directory'),
+    ('knowledge.html', 'Framework', 'knowledge'),
+    ('pipeline.html', 'Data', 'pipeline'),
+    ('participate.html', 'Contribute', 'participate'),
+]
+
+
 def header_markup(prefix='', current=''):
     def link(path, label, key):
         active = ' aria-current="page"' if current == key else ''
-        return f'<a href="{prefix}{path}"{active}>{label}</a>'
+        return f'<li><a href="{prefix}{path}"{active}>{label}</a></li>'
+    links = ''.join(link(*item) for item in LINKS)
     return f'''<!-- cw:header:start -->
-<header data-site-header>
+<header data-site-header class="cw-header">
   <nav class="cw-nav" aria-label="Main navigation">
-    <a class="cw-brand" href="{prefix}index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
-    <div class="cw-primary">{link('knowledge.html', 'Knowledge base', 'knowledge')}{link('map.html', 'Map', 'map')}</div>
-    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
-      {link('directory.html', 'Organization directory', 'directory')}
-      {link('participate.html', 'Contribute or correct', 'participate')}
-      {link('pipeline.html', 'About the data', 'pipeline')}
-      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
-    </div></details>
+    <a class="cw-brand" href="{prefix}index.html">{MARK}<span>Commonweave</span></a>
+    <ul class="cw-links">{links}</ul>
   </nav>
 </header>
 <!-- cw:header:end -->'''
@@ -36,15 +43,28 @@ def header_markup(prefix='', current=''):
 
 # Shown on the main site pages, which load Cloudflare Web Analytics. Brief
 # pages (prefix '../') load no analytics and say nothing about it.
-ANALYTICS_NOTE = '\n  <p class="cw-footer-note">Visits are counted in aggregate with Cloudflare Web Analytics. No cookies, no accounts, no ad tracking.</p>'
+ANALYTICS_NOTE = '\n      <p class="cw-footer-note">Visits are counted in aggregate with Cloudflare Web Analytics. No cookies, no accounts, no ad tracking.</p>'
 
 
 def footer_markup(prefix=''):
     note = '' if prefix else ANALYTICS_NOTE
     return f'''<!-- cw:footer:start -->
 <footer data-site-footer class="cw-footer">
-  <p>A shared framework. Evidence to inspect. Work to improve together.</p>{note}
-  <div><a href="{prefix}knowledge.html">Knowledge base</a><a href="{prefix}map.html">Map</a><a href="{prefix}participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
+  <div class="cw-footer-inner">
+    <div>
+      <p>Commonweave is an open directory of community organizations, with working notes on how their efforts might fit together. Records are leads to check, not endorsements.</p>{note}
+    </div>
+    <ul>
+      <li><a href="{prefix}map.html">Map</a></li>
+      <li><a href="{prefix}directory.html">Directory</a></li>
+      <li><a href="{prefix}knowledge.html">Framework</a></li>
+      <li><a href="{prefix}doc.html?file=CRITIQUE">Critique</a></li>
+      <li><a href="{prefix}pipeline.html">About the data</a></li>
+      <li><a href="{prefix}participate.html">Contribute or correct</a></li>
+      <li><a href="https://github.com/simonlpaige/commonweave">GitHub</a></li>
+      <li><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licence and reuse</a></li>
+    </ul>
+  </div>
 </footer>
 <!-- cw:footer:end -->'''
 

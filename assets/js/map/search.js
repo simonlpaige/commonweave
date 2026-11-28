@@ -29,7 +29,7 @@
   }
   function planDiagram(r) {
     const box = el('div', 'pathway-plan');
-    box.append(el('p', 'pathway-caution', 'Your proposed plan · choose records below after checking their fit. Arrows connect roles to investigate; they do not confirm partnerships.'));
+    box.append(el('p', 'pathway-caution', 'Your proposed plan · choose records below after checking their fit. The roles are listed in the order to investigate them; the order does not confirm partnerships.'));
     const roles = el('ol', 'pathway-role-sequence');
     r.steps.forEach((step, i) => {
       const item = el('li', 'pathway-role');

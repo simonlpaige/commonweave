@@ -68,3 +68,19 @@ test('actual search controls hide empty groups, announce results and restore the
   assert.equal(controls['knowledge-clear'].hidden, true);
   assert.equal(controls['knowledge-empty'].hidden, true);
 });
+
+test('home page offers every map goal, with evidence links that resolve', () => {
+  global.window = global;
+  require('../assets/js/map/circuits-data.js');
+  require('../assets/js/map/pathways.js');
+  const goals = global.CommonweavePathways.GOALS;
+  const home = fs.readFileSync(path.join(base, 'index.html'), 'utf8');
+  const linked = [...home.matchAll(/href="map\.html#goal=([^&"]+)&amp;view=list"/g)].map(match => match[1]);
+  assert.deepEqual([...linked].sort(), goals.map(goal => goal.id).sort());
+  const circuits = fs.readFileSync(path.join(base, 'SOLUTION-CIRCUITS.md'), 'utf8');
+  for (const goal of goals.filter(goal => goal.circuit)) {
+    assert.ok(home.includes('doc.html?file=SOLUTION-CIRCUITS#' + goal.circuit.anchor), goal.id);
+    const heading = circuits.split('\n').some(line => line.startsWith('## ') && line.slice(3).trim().toLowerCase().replace(/[^\p{L}\p{N}\s_-]/gu, '').replace(/\s/g, '-') === goal.circuit.anchor);
+    assert.ok(heading, 'Missing circuit heading for ' + goal.circuit.anchor);
+  }
+});

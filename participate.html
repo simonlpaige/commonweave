@@ -7,46 +7,30 @@
   <meta name="description" content="Correct an organization, suggest a useful connection, or offer a small contribution to Commonweave. Prepare a draft, review it, and choose how to share it.">
   <meta name="referrer" content="no-referrer">
   <link rel="canonical" href="https://commonweave.earth/participate.html">
-  <link rel="stylesheet" href="assets/css/brand.css?v=ac1ae7a4a9c0">
-  <link rel="stylesheet" href="assets/css/participate.css?v=aa0b6c0c8a82">
+
+
   <script src="assets/js/participation.js?v=6a8346dd338c" defer></script>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/commonweave.css?v=61c3d54ad08e">
-<link rel="stylesheet" href="assets/css/site-shell.css?v=062e302a2cba">
+
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=bbb05598465e">
 </head>
-<body class="cw-page ">
+<body>
 <a class="skip-link" href="#main-content">Skip to contribution form</a>
 <!-- cw:header:start -->
-<header data-site-header>
+<header data-site-header class="cw-header">
   <nav class="cw-nav" aria-label="Main navigation">
-    <a class="cw-brand" href="index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
-    <div class="cw-primary"><a href="knowledge.html">Knowledge base</a><a href="map.html">Map</a></div>
-    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
-      <a href="directory.html">Organization directory</a>
-      <a href="participate.html" aria-current="page">Contribute or correct</a>
-      <a href="pipeline.html">About the data</a>
-      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
-    </div></details>
+    <a class="cw-brand" href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8H13M19 8H22M2 16H5M11 16H22M8 2V5M8 11V22M16 2V13M16 19V22"/></svg><span>Commonweave</span></a>
+    <ul class="cw-links"><li><a href="map.html">Map</a></li><li><a href="directory.html">Directory</a></li><li><a href="knowledge.html">Framework</a></li><li><a href="pipeline.html">Data</a></li><li><a href="participate.html" aria-current="page">Contribute</a></li></ul>
   </nav>
 </header>
 <!-- cw:header:end -->
-<main id="main-content" class="participation-page">
-  <header>
+<main id="main-content" class="page">
+  <header class="page-head">
     <h1>Contribute or correct</h1>
-    <p class="intro">Know an organization, a useful connection, or something we got wrong? A small, specific contribution makes this directory more useful.</p>
+    <p class="lede">Know an organization, a useful connection, or something we got wrong? A small, specific contribution makes this directory more useful.</p>
   </header>
   <div class="participation-layout">
-    <aside aria-label="Ways to help">
-      <h2>Start with what you know.</h2>
-      <p><strong>A small correction:</strong> correct a website or explain what an organization actually offers.</p>
-      <p><strong>A short review:</strong> check three organizations in a local brief. Which roles fit? Which are missing?</p>
-      <p><strong>One small project:</strong> help a network review its member directory, translate a field note, or test the map with an organizer.</p>
-      <p>Being listed does not mean an organization endorses Commonweave. Suggested connections need checking with the organizations involved.</p>
-      <a href="briefs/">Find a brief to check</a>
-      <h2>Your contribution stays yours.</h2>
-      <p>This form prepares a draft in your browser. It does not send it or change a listing. Download it without an account, or review it on GitHub before posting.</p>
-      <p id="privacy-note">GitHub issues are public. Include public organizational information only. For removal or location protection, a listing name or ID and a short request are enough; do not explain a person's situation or add an address.</p>
-    </aside>
     <section aria-label="Prepare a contribution">
       <form id="contribution-form" aria-describedby="privacy-note">
         <label for="request-type">What would you like to do?</label>
@@ -80,28 +64,52 @@
           <option value="Prospective volunteer">I would like to help</option>
           <option value="Prefer not to say">Prefer not to say</option>
         </select>
-        <button type="submit">Prepare my draft</button>
+        <button class="btn" type="submit">Prepare my draft</button>
       </form>
       <div id="draft-status" role="status" aria-live="polite"></div>
       <section id="draft-section" hidden aria-labelledby="draft-heading">
         <h2 id="draft-heading" tabindex="-1">Review your draft</h2>
         <pre id="draft-preview"></pre>
         <p>Nothing has been sent. A maintainer must review the evidence before any listing or relationship changes. Representing an organization here does not create a verified badge.</p>
-        <div class="draft-actions">
-          <button id="download-draft" type="button">Download draft</button>
-          <a id="github-draft" target="_blank" rel="noopener noreferrer">Review on GitHub</a>
+        <div class="actions">
+          <button id="download-draft" class="btn" type="button">Download draft</button>
+          <a id="github-draft" class="btn-secondary" target="_blank" rel="noopener noreferrer">Review on GitHub</a>
         </div>
         <p id="github-help" class="field-help">GitHub requires an account. Review the draft there, then choose whether to post it publicly. A downloaded draft still needs to be shared; downloading does not submit a request.</p>
       </section>
       <noscript><p>The draft builder needs JavaScript. You can also <a href="https://github.com/simonlpaige/commonweave/issues/new?template=org-request.md">open an organization request on GitHub</a>. Issues are public; use only a listing ID and minimal context for sensitive requests.</p></noscript>
     </section>
+    <aside aria-label="Ways to help">
+      <h2>Start with what you know.</h2>
+      <p><strong>A small correction:</strong> correct a website or explain what an organization actually offers.</p>
+      <p><strong>A short review:</strong> check three organizations in a local brief. Which roles fit? Which are missing?</p>
+      <p><strong>One small project:</strong> help a network review its member directory, translate a field note, or test the map with an organizer.</p>
+      <p>Being listed does not mean an organization endorses Commonweave. Suggested connections need checking with the organizations involved.</p>
+      <p><a href="briefs/">Find a brief to check</a></p>
+      <h2>Your contribution stays yours.</h2>
+      <p>This form prepares a draft in your browser. It does not send it or change a listing. Download it without an account, or review it on GitHub before posting.</p>
+      <p id="privacy-note">GitHub issues are public. Include public organizational information only. For removal or location protection, a listing name or ID and a short request are enough; do not explain a person's situation or add an address.</p>
+    </aside>
   </div>
 </main>
 <!-- cw:footer:start -->
 <footer data-site-footer class="cw-footer">
-  <p>A shared framework. Evidence to inspect. Work to improve together.</p>
-  <p class="cw-footer-note">Visits are counted in aggregate with Cloudflare Web Analytics. No cookies, no accounts, no ad tracking.</p>
-  <div><a href="knowledge.html">Knowledge base</a><a href="map.html">Map</a><a href="participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
+  <div class="cw-footer-inner">
+    <div>
+      <p>Commonweave is an open directory of community organizations, with working notes on how their efforts might fit together. Records are leads to check, not endorsements.</p>
+      <p class="cw-footer-note">Visits are counted in aggregate with Cloudflare Web Analytics. No cookies, no accounts, no ad tracking.</p>
+    </div>
+    <ul>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="knowledge.html">Framework</a></li>
+      <li><a href="doc.html?file=CRITIQUE">Critique</a></li>
+      <li><a href="pipeline.html">About the data</a></li>
+      <li><a href="participate.html">Contribute or correct</a></li>
+      <li><a href="https://github.com/simonlpaige/commonweave">GitHub</a></li>
+      <li><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licence and reuse</a></li>
+    </ul>
+  </div>
 </footer>
 <!-- cw:footer:end -->
 <!-- Cloudflare Web Analytics: cookieless aggregate visit counts. See docs/TRAFFIC-2026-11-03.md -->

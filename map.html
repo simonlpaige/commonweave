@@ -13,12 +13,12 @@
 <meta property="og:image" content="https://commonweave.earth/assets/images/commonweave-share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Commonweave. Ideas for shared needs. Organizations to investigate. Knowledge base and map at commonweave.earth.">
+<meta property="og:image:alt" content="Commonweave. Find organizations working on a shared need. An open directory, with its limits stated. commonweave.earth.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Commonweave map — Find cooperatives and community organizations">
 <meta name="twitter:description" content="Explore organization records by place and possible role. Check sources, location precision and current availability.">
 <meta name="twitter:image" content="https://commonweave.earth/assets/images/commonweave-share.png">
-<meta name="twitter:image:alt" content="Commonweave knowledge base and organization map at commonweave.earth.">
+<meta name="twitter:image:alt" content="Commonweave: find organizations working on a shared need. commonweave.earth.">
 <link rel="canonical" href="https://commonweave.earth/map.html">
 <script type="application/ld+json">
 {
@@ -35,13 +35,10 @@
   "license": "https://github.com/simonlpaige/commonweave/blob/master/LICENSE"
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Preconnect to the basemap host: warms TLS + DNS while the JS loads, so
      the first vector tile arrives faster on mobile. -->
 <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
 <link rel="preload" href="data/map/orgs.geojson" as="fetch" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <!-- MapLibre GL: free vector basemap rendering. OpenFreeMap serves the
      tiles. No token needed. Loaded eagerly because the cluster layer for the
      org points lives on it; network/canvas mode still uses #viz-canvas. -->
@@ -55,911 +52,137 @@
 <!-- Turf.js: viewport spatial joins, distance calculations, used by Phase 3
      need-pathway scoring and Phase 4 system-health calculations. -->
 <script src="https://unpkg.com/@turf/turf@7/turf.min.js"></script>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  /* Brand-aligned palette. The map is a tool, so we keep a dark UI but pull
-     the chrome into the brand: ink for surfaces, paper for primary text,
-     moss-pale for the accent, clay for the warm seed in the wordmark. */
-  --paper:       #F2EBDC;
-  --paper-dim:   #D9D1B8;
-  --moss:        #2F4A33;
-  --moss-deep:   #1E3322;
-  --moss-mid:    #4A6B4F;
-  --moss-pale:   #B8C4A8;
-  --clay:        #B4593A;
-  --clay-pale:   #D9A78F;
-  --thread:      #8E7B4E;
-  --thread-pale: #C9B98C;
-  --ink:         #16201A;
-  --ink-deep:    #0A100C;
-
-  --bg-deep:     var(--ink-deep);
-  --bg-base:     var(--ink);
-  --bg-surface:  #1B2920;
-  --bg-elevated: #213825;
-  --border:        rgba(184, 196, 168, 0.10);
-  --border-bright: rgba(184, 196, 168, 0.28);
-  --text-primary:  var(--paper);
-  --text-secondary: var(--moss-pale);
-  --text-dim:     var(--thread);
-  --text-muted:   #5A6A5C;
-  --accent:       var(--moss-pale);
-  --accent-glow:  rgba(184, 196, 168, 0.30);
-  --earth:        var(--clay);
-  --teal:         var(--thread-pale);
-  --sidebar-w:    300px;
-
-  --f-display: 'Instrument Serif', Georgia, serif;
-  --f-body:    'Source Serif 4', Georgia, serif;
-  --f-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
-}
-
-html, body {
-  font-family: var(--f-body);
-  background: var(--bg-deep);
-  color: var(--text-primary);
-  overflow: hidden;
-  height: 100vh; width: 100vw;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ═══════════ LOADING SCREEN ═══════════ */
-#loading {
-  position: fixed; inset: 0;
-  background: var(--bg-deep);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  z-index: 2000;
-  transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1);
-}
-#loading.fade-out { opacity: 0; pointer-events: none; }
-
-.loading-mycelium { width: 140px; height: 140px; position: relative; margin-bottom: 28px; }
-.loading-mycelium svg { width: 100%; height: 100%; overflow: visible; }
-
-.hypha { fill: none; stroke: var(--moss-pale); stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 3px rgba(184,196,168,0.45)); }
-.hp { animation: hypha-grow 3s ease-out infinite; }
-.hs { animation: hypha-grow 3s ease-out infinite; }
-.ht { animation: hypha-grow 3s ease-out infinite; }
-
-@keyframes hypha-grow {
-  0%   { stroke-dashoffset: var(--dl,50); opacity: 0; }
-  12%  { opacity: 0.7; }
-  55%  { stroke-dashoffset: 0; opacity: 1; }
-  80%  { opacity: 0.5; }
-  100% { stroke-dashoffset: 0; opacity: 0; }
-}
-
-.spore {
-  fill: var(--clay);
-  animation: spore-pulse 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 4px var(--clay));
-}
-@keyframes spore-pulse {
-  0%, 100% { opacity: 0; r: 1.2; }
-  55% { opacity: 0.9; r: 2.8; }
-  80% { opacity: 0.4; r: 2; }
-}
-
-.loading-title {
-  font-family: var(--f-display); font-style: italic;
-  font-size: 40px; font-weight: 400; letter-spacing: -0.02em;
-  color: var(--paper);
-  text-shadow: 0 0 28px var(--accent-glow);
-  margin-bottom: 6px;
-}
-.loading-title .seed { color: var(--clay); }
-.loading-sub {
-  font-family: var(--f-mono); font-size: 10px;
-  font-weight: 500; color: var(--text-dim);
-  letter-spacing: 0.16em; text-transform: uppercase;
-}
-.loading-progress { margin-top: 24px; width: 160px; height: 2px; background: var(--border); border-radius: 1px; overflow: hidden; }
-.loading-progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--teal)); border-radius: 1px; transition: width 0.3s ease; box-shadow: 0 0 8px var(--accent-glow); }
-.loading-status {
-  margin-top: 14px; font-family: var(--f-mono); font-size: 10px;
-  font-weight: 500; color: var(--text-secondary);
-  letter-spacing: 0.10em; text-transform: uppercase;
-  max-width: 260px; text-align: center; line-height: 1.5;
-}
-
-/* On phones: keep the loading state minimal so a slow connection never sits
-   on a heavy SVG animation. The text + progress bar is enough feedback. */
-@media (max-width: 600px) {
-  .loading-mycelium { display: none; }
-  .loading-title { font-size: 30px; }
-}
-
-/* ═══════════ LAYOUT ═══════════ */
-#layout { position: relative; height: 100vh; width: 100vw; }
-#canvas-container { position: absolute; top: 0; bottom: 0; left: var(--sidebar-w); right: 0; background: var(--bg-deep); }
-#viz-canvas { display: block; width: 100%; height: 100%; cursor: default; }
-
-/* MapLibre container, lives behind the deck.gl overlay. Network mode hides
-   it (display:none) and shows #viz-canvas instead. */
-#ml-map {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  background: #EFE8D8;
-}
-.maplibregl-ctrl-bottom-left,
-.maplibregl-ctrl-bottom-right { display: none !important; }
-.maplibregl-canvas { outline: none; }
-/* The basemap is tinted to the brand palette in tintBasemap() by repainting
-   style layers. No CSS filter on the canvas: a filter also recolours the
-   organization points and makes the section colours unreadable. */
-
-/* Edge popover: shown when hovering an edge or in the detail panel's
-   "Connections" section. Reads explanation, weight, type. */
-.edge-tooltip {
-  position: fixed; display: none;
-  background: rgba(13,25,13,0.97); backdrop-filter: blur(14px);
-  border: 1px solid var(--border-bright);
-  border-radius: 10px; padding: 10px 12px;
-  font-family: var(--f-body); pointer-events: none;
-  z-index: 110; max-width: 300px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-  font-size: 11px; color: var(--text-secondary); line-height: 1.5;
-}
-.edge-tooltip .et-type {
-  font-family: var(--f-mono); font-size: 9px;
-  text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--accent); margin-bottom: 4px;
-}
-.edge-tooltip .et-weight {
-  font-size: 9px; color: var(--text-dim); margin-top: 4px;
-}
-
-/* Connections list inside the detail panel. */
-.pop-connections {
-  margin-top: 14px; padding-top: 12px;
-  border-top: 1px solid var(--border);
-}
-.pop-connections-label {
-  font-family: var(--f-mono); font-size: 9px;
-  letter-spacing: 0.16em; color: var(--text-muted);
-  text-transform: uppercase; margin-bottom: 8px;
-}
-.conn-row {
-  display: block; padding: 7px 9px; margin-bottom: 4px;
-  border-radius: 6px; background: var(--bg-surface);
-  border: 1px solid var(--border);
-  cursor: pointer; transition: background 0.15s, border-color 0.15s;
-  text-decoration: none; color: var(--text-secondary);
-}
-.conn-row:hover { background: var(--bg-elevated); border-color: var(--border-bright); color: var(--text-primary); }
-.conn-name { font-size: 11px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
-.conn-type { font-family: var(--f-mono); font-size: 8.5px; letter-spacing: 0.08em; text-transform: uppercase; }
-.conn-type.tier-V { color: #7be38a; }
-.conn-type.tier-F { color: var(--accent); }
-.conn-type.tier-S { color: var(--text-dim); }
-.conn-type.tier-C { color: var(--clay-pale); }
-.conn-explain { font-size: 10px; color: var(--text-dim); margin-top: 3px; line-height: 1.4; }
-.conn-empty { font-size: 11px; color: var(--text-dim); font-style: italic; }
-
-/* Need-pathway panel */
-.sb-need { padding: 0 14px 14px; }
-.need-input {
-  width: 100%; padding: 8px 10px;
-  background: var(--bg-surface); border: 1px solid var(--border);
-  border-radius: 8px; color: var(--text-primary);
-  font-family: var(--f-body); font-size: 12px; line-height: 1.45;
-  outline: none; resize: vertical; min-height: 44px;
-  transition: border-color 0.18s, box-shadow 0.18s;
-}
-.need-input::placeholder { color: var(--text-muted); }
-.need-input:focus { border-color: var(--border-bright); box-shadow: 0 0 0 3px rgba(106,191,108,0.07); }
-.need-row { display: flex; gap: 6px; margin-top: 6px; }
-.need-btn, .need-clear {
-  padding: 6px 10px; border-radius: 7px;
-  font-family: var(--f-body); font-size: 11px; font-weight: 600;
-  cursor: pointer; border: 1px solid var(--border-bright);
-  background: var(--bg-elevated); color: var(--accent);
-}
-.need-btn:hover, .need-clear:hover { background: #1a2e1a; }
-.need-clear { color: var(--text-dim); border-color: var(--border); background: var(--bg-surface); }
-.need-hint { margin-top: 5px; font-size: 9px; color: var(--text-muted); line-height: 1.5; }
-.need-result {
-  margin-top: 9px; padding: 8px 10px;
-  background: var(--bg-surface); border: 1px solid var(--border);
-  border-radius: 7px; font-size: 11px; color: var(--text-secondary);
-  line-height: 1.5;
-}
-.need-result h4 {
-  font-family: var(--f-mono); font-size: 9px; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--text-muted); margin: 8px 0 4px;
-}
-.need-result h4:first-child { margin-top: 0; }
-.need-result .nr-row {
-  display: block; padding: 5px 7px; margin-bottom: 3px;
-  background: var(--bg-base); border: 1px solid var(--border);
-  border-radius: 5px; cursor: pointer; text-decoration: none;
-  color: var(--text-secondary); transition: background 0.15s;
-}
-.need-result .nr-row:hover { background: var(--bg-elevated); color: var(--text-primary); }
-.need-result .nr-row .nr-name { font-weight: 600; font-size: 11px; }
-.need-result .nr-row .nr-meta { font-size: 9px; color: var(--text-dim); margin-top: 1px; }
-.need-result .nr-gaps { font-size: 10px; color: var(--clay-pale); }
-.need-result .nr-empty { font-style: italic; color: var(--text-dim); }
-.need-result .nr-summary { font-size: 10px; color: var(--text-dim); margin-bottom: 7px; }
-
-/* Discovery is a working notebook: a goal, the pieces it needs, and the
-   handoffs to investigate. Paper/moss/clay follow the existing map brand. */
-#discovery-controls { padding: 16px; }
-.discovery-title { font: 26px/1.05 var(--f-display); margin: 0 0 14px; }
-.discovery-label { display: block; font: 13px/1.4 var(--f-body); margin: 10px 0 4px; color: var(--paper); }
-#discovery-controls .need-input { min-height: 40px; font-size: 14px; width: 100%; }
-.need-row { flex-wrap: wrap; align-items: center; }
-.need-btn, .need-clear { min-height: 40px; font-size: 13px; }
-#need-list { width: 100%; margin-top: 8px; }
-#discovery-controls .need-hint, #need-status { font: 12px/1.5 var(--f-body); color: var(--paper-dim); margin-top: 10px; }
-#need-result { max-height: none; overflow: visible; padding: 0; background: none; border: 0; }
-.nr-row { display: block; width: 100%; text-align: left; padding: 11px 8px; border: 0; border-bottom: 1px solid var(--border-bright); background: transparent; color: var(--paper); font-family: var(--f-body); cursor: pointer; }
-.nr-row:hover { background: var(--bg-elevated); }
-.nr-name, .nr-meta { display: block; }
-#need-result .nr-name, .nr-name { font: 600 15px/1.35 var(--f-body); }
-#need-result .nr-meta, .nr-meta { font: 12px/1.45 var(--f-body); color: var(--paper-dim); margin-top: 4px; }
-#need-result .nr-summary, .nr-summary { font: 13px/1.5 var(--f-body); color: var(--paper-dim); margin: 14px 0; }
-.pathway-caution, .pathway-gap { font: 13px/1.5 var(--f-body); color: var(--paper-dim); margin: 12px 0; }
-.pathway-evidence { border-left: 2px solid var(--moss-pale); padding: 2px 0 2px 12px; margin: 14px 0; }
-.pathway-outside { font: 13px/1.5 var(--f-body); color: var(--paper-dim); margin: 0 0 8px 18px; }
-.pathway-gap { border-left: 2px dashed var(--clay-pale); padding-left: 10px; }
-.pathway-steps { padding-left: 22px; margin: 18px 0; }
-.pathway-step { border-left: 1px dashed var(--thread-pale); padding: 0 0 22px 14px; }
-.pathway-step::marker { color: var(--clay-pale); font: 17px var(--f-display); }
-.pathway-step h3, .pathway-bridges h3 { font: 23px/1.15 var(--f-display); margin-bottom: 8px; }
-.pathway-step p { font: 13px/1.5 var(--f-body); color: var(--paper-dim); }
-.pathway-bridge { font: 14px/1.5 var(--f-body); margin: 14px 0; }
-.pathway-thread { color: var(--clay-pale); }
-.pathway-role-sequence { display: flex; flex-wrap: wrap; gap: 12px; padding: 0; list-style: none; margin: 16px 0; }
-.pathway-role { flex: 1 1 180px; padding: 14px; border: 1px dashed var(--thread-pale); font: 15px/1.4 var(--f-body); }
-.pathway-role .pathway-thread { display: block; font-size: 26px; margin-top: 8px; }
-.pathway-role button { margin-top: 8px; }
-.pathway-candidate { padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 10px; }
-.pathway-candidate > button[aria-pressed="true"] { color: var(--paper); border-color: var(--moss-pale); }
-.discovery-link { display: inline-block; color: var(--moss-pale); font-size: 13px; margin: 16px 0; }
-.map-trust-note { position: absolute; top: 10px; left: 12px; right: 55px; z-index: 3; max-width: 680px; padding: 9px 12px; background: var(--ink); color: var(--paper-dim); font: 12px/1.4 var(--f-body); border: 1px solid var(--border-bright); }
-.map-trust-note button { color: var(--paper); background: none; border: 0; text-decoration: underline; font: inherit; cursor: pointer; padding: 3px; }
-#discovery-list { position: absolute; inset: 0; z-index: 4; overflow-y: auto; background: var(--ink); padding: 30px clamp(18px, 4vw, 64px) 80px; }
-#discovery-list[hidden] { display: none; }
-.discovery-list-heading { max-width: 760px; display: flex; flex-wrap: wrap; gap: 16px; align-items: start; justify-content: space-between; margin-bottom: 20px; }
-.discovery-list-heading h2 { font: 36px/1.05 var(--f-display); max-width: 18ch; }
-#discovery-list-results { max-width: 760px; }
-#discovery-list-results .pathway-steps { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
-:is(button, input, select, a):focus-visible { outline: 2px solid var(--thread-pale); outline-offset: 3px; }
-button:disabled { opacity: .45; cursor: default; }
-@media (max-width: 600px) {
-  #mobile-fab { width: auto !important; border-radius: 8px !important; padding: 0 14px; font-size: 14px !important; background: var(--paper) !important; }
-  #mobile-fab::after { content: 'Find / filters'; margin-left: 8px; }
-  #mobile-fab.open { transform: none !important; }
-  #mobile-fab.open::after { content: 'Close'; }
-  #mobile-sheet { max-height: 86vh !important; }
-  .sheet-content { padding-bottom: 88px !important; }
-  #mobile-sheet:not(.open) { visibility: hidden; }
-  #discovery-controls { padding: 8px 0; }
-  .pathway-thread { display: inline-block; transform: rotate(90deg); }
-  .map-trust-note { font-size: 11px; }
-  .discovery-list-heading h2 { font-size: 31px; }
-}
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
-
-/* Phase 4: viewport System Health bar. Pinned to the bottom of the map area
-   in Geographic / System Health modes. Updates when the user pans/zooms. */
-.viewport-health {
-  position: fixed;
-  left: var(--sidebar-w); right: 0; bottom: 0;
-  background: rgba(13, 25, 13, 0.97); backdrop-filter: blur(12px);
-  border-top: 1px solid var(--border-bright);
-  z-index: 35; padding: 9px 16px;
-  font-family: var(--f-body); font-size: 11px; color: var(--text-secondary);
-}
-.viewport-health[hidden] { display: none; }
-.vh-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
-.vh-cell { display: flex; flex-direction: column; gap: 1px; min-width: 70px; }
-.vh-cell.vh-missing { flex: 1; min-width: 200px; }
-.vh-num {
-  font-family: var(--f-display); font-style: italic;
-  font-size: 18px; font-weight: 400; color: var(--paper);
-  line-height: 1.05; font-variant-numeric: tabular-nums;
-}
-.vh-lab {
-  font-family: var(--f-mono); font-size: 9px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--text-dim);
-}
-.vh-list {
-  font-size: 11px; color: var(--clay-pale); line-height: 1.4;
-  margin-top: 2px;
-}
-.vh-close {
-  margin-left: auto; padding: 4px 9px;
-  background: transparent; border: 1px solid var(--border);
-  color: var(--text-dim); font-size: 14px; cursor: pointer;
-  border-radius: 6px; line-height: 1;
-}
-.vh-close:hover { color: var(--text-primary); border-color: var(--border-bright); }
-@media (max-width: 480px) {
-  .viewport-health { left: 0; }
-  .vh-row { gap: 10px; font-size: 10px; }
-  .vh-num { font-size: 15px; }
-}
-
-/* ═══════════ SIDEBAR ═══════════ */
-#sidebar {
-  position: absolute; top: 0; left: 0; bottom: 0;
-  width: var(--sidebar-w);
-  background: var(--bg-base);
-  border-right: 1px solid var(--border);
-  display: flex; flex-direction: column;
-  overflow: hidden; z-index: 10;
-}
-#sidebar::after {
-  content: ''; position: absolute; inset: 0; opacity: 0.03; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 128px;
-}
-.sb-scroll { flex: 1; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; scrollbar-color: #253825 transparent; }
-.sb-scroll::-webkit-scrollbar { width: 4px; }
-.sb-scroll::-webkit-scrollbar-thumb { background: #253825; border-radius: 2px; }
-
-.sb-header { padding: 18px 20px 16px; border-bottom: 1px solid var(--border); }
-.sb-mark { display: block; line-height: 0; margin-bottom: 6px; }
-.sb-mark svg { display: block; width: 100%; max-width: 220px; height: auto; }
-.sb-sub {
-  font-family: var(--f-mono); font-size: 10px;
-  color: var(--text-dim); letter-spacing: 0.16em;
-  text-transform: uppercase; font-weight: 500;
-}
-
-.sb-stats {
-  padding: 14px 16px; display: grid;
-  grid-template-columns: 1fr 1fr; gap: 10px;
-  border-bottom: 1px solid var(--border);
-}
-.stat-card {
-  background: var(--bg-surface); border: 1px solid var(--border);
-  border-radius: 10px; padding: 11px 10px; text-align: center;
-  position: relative; overflow: hidden;
-}
-.stat-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.35;
-}
-.stat-value {
-  font-family: var(--f-display); font-style: italic;
-  font-size: 26px; font-weight: 400; color: var(--paper);
-  font-variant-numeric: tabular-nums; line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-.stat-label {
-  font-family: var(--f-mono); font-size: 9px;
-  font-weight: 500; color: var(--text-dim);
-  letter-spacing: 0.14em; text-transform: uppercase; margin-top: 4px;
-}
-#stat-tiers { font-size: 10px !important; line-height: 1.7; color: var(--text-secondary) !important; text-shadow: none !important; font-weight: 700; }
-
-.sb-search { padding: 12px 14px; border-bottom: 1px solid var(--border); }
-.search-wrap { position: relative; }
-.search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 13px; pointer-events: none; }
-.search-input {
-  width: 100%; padding: 8px 10px 8px 32px;
-  background: var(--bg-surface); border: 1px solid var(--border);
-  border-radius: 8px; color: var(--text-primary);
-  font-family: var(--f-body); font-size: 12px; outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.search-input::placeholder { color: var(--text-muted); }
-.search-input:focus { border-color: var(--border-bright); box-shadow: 0 0 0 3px rgba(106,191,108,0.07); }
-
-.sb-label { padding: 13px 20px 7px; font-family: var(--f-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.16em; color: var(--text-muted); text-transform: uppercase; }
-
-#filters { padding: 0 12px 8px; display: flex; flex-direction: column; gap: 2px; }
-.filter-btn {
-  display: flex; align-items: center; gap: 9px;
-  padding: 7px 10px; border-radius: 8px; cursor: pointer;
-  border: 1px solid transparent; background: transparent;
-  color: var(--text-secondary); font-family: var(--f-body);
-  font-size: 12px; text-align: left; transition: all 0.18s ease;
-  width: 100%; position: relative; overflow: hidden;
-}
-.filter-btn:hover { background: var(--bg-elevated); border-color: var(--border); color: var(--text-primary); }
-.filter-btn.active { background: var(--bg-elevated); border-color: var(--border-bright); color: var(--text-primary); }
-.filter-btn.active::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 0 2px 2px 0; background: var(--area-color, var(--accent)); }
-.filter-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
-.filter-label { flex: 1; font-size: 11px; font-weight: 500; }
-.filter-count { font-size: 10px; color: var(--text-dim); font-variant-numeric: tabular-nums; font-weight: 600; }
-
-#tier-filter { padding: 2px 12px 12px; display: flex; gap: 5px; }
-.tier-btn {
-  flex: 1; padding: 6px 4px; border-radius: 7px;
-  border: 1px solid var(--border); background: var(--bg-surface);
-  color: var(--text-dim); font-family: var(--f-body);
-  font-size: 10px; font-weight: 700; cursor: pointer; text-align: center;
-  transition: all 0.18s; letter-spacing: 0.3px;
-}
-.tier-btn:hover { border-color: var(--border-bright); color: var(--text-secondary); }
-.tier-btn.active { background: var(--bg-elevated); }
-.tier-btn[data-tier="A"].active { border-color: #4ade80; color: #4ade80; }
-.tier-btn[data-tier="B"].active { border-color: var(--accent); color: var(--accent); }
-.tier-btn[data-tier="C"].active { border-color: #7c9e6a; color: #7c9e6a; }
-.tier-btn.inactive { opacity: 0.45; }
-
-/* View mode toggle */
-.view-mode-wrap { padding: 0 12px 10px; display: flex; gap: 5px; }
-.view-btn {
-  flex: 1; padding: 7px 6px; border-radius: 7px;
-  border: 1px solid var(--border); background: var(--bg-surface);
-  color: var(--text-dim); font-family: var(--f-body);
-  font-size: 10px; font-weight: 600; cursor: pointer; text-align: center;
-  transition: all 0.18s; letter-spacing: 0.3px;
-}
-.view-btn.active { background: var(--bg-elevated); border-color: var(--border-bright); color: var(--accent); }
-.view-btn:hover { border-color: var(--border-bright); color: var(--text-secondary); }
-
-#regions { padding: 0 12px 12px; display: flex; flex-direction: column; gap: 4px; }
-.region-btn {
-  padding: 9px 12px; border-radius: 8px; cursor: pointer;
-  border: 1px solid var(--border); background: var(--bg-surface);
-  color: var(--text-secondary); font-family: var(--f-body);
-  font-size: 11px; font-weight: 500; text-align: left; transition: all 0.18s;
-}
-.region-btn:hover { background: var(--bg-elevated); border-color: var(--border-bright); color: var(--text-primary); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-.region-btn.reset-btn { text-align: center; font-size: 11px; }
-
-.sb-health { padding: 12px 20px 10px; border-top: 1px solid var(--border); flex-shrink: 0; background: var(--bg-base); }
-.health-label { font-size: 9px; font-weight: 700; letter-spacing: 2.5px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 9px; }
-.health-dots { display: flex; gap: 5px; margin-bottom: 6px; flex-wrap: wrap; }
-.health-dot { width: 10px; height: 10px; border-radius: 50%; transition: opacity 0.4s, transform 0.3s; flex-shrink: 0; }
-.health-dot.present { opacity: 0.9; transform: scale(1.1); }
-.health-dot.absent { opacity: 0.15; filter: grayscale(1); }
-.health-text { font-size: 10px; color: var(--text-dim); }
-
-.sb-hint { padding: 10px 20px; font-size: 10px; color: var(--text-muted); line-height: 1.7; border-top: 1px solid var(--border); flex-shrink: 0; }
-.sb-pdf { padding: 10px 20px 8px; font-size: 11px; border-top: 1px solid var(--border); flex-shrink: 0; background: var(--bg-base); }
-.sb-pdf a { color: var(--accent); text-decoration: none; font-weight: 500; }
-.sb-pdf a:hover { color: var(--earth); text-decoration: underline; }
-.sb-built { padding: 8px 20px 10px; font-size: 10px; color: var(--text-muted); border-top: 1px solid var(--border); flex-shrink: 0; background: var(--bg-base); display: flex; justify-content: space-between; gap: 8px; }
-.sb-built strong { color: var(--text-secondary); font-weight: 600; }
-
-/* High-confidence toggle (a single prominent switch) */
-.hc-toggle-wrap { padding: 8px 12px 10px; }
-.hc-toggle {
-  display: flex; align-items: center; gap: 10px;
-  width: 100%; padding: 8px 11px; border-radius: 8px;
-  border: 1px solid var(--border-bright); background: var(--bg-elevated);
-  color: var(--text-primary); font-family: var(--f-body);
-  font-size: 11px; cursor: pointer; text-align: left;
-}
-.hc-toggle:hover { background: #1a2e1a; }
-.hc-toggle .hc-track {
-  position: relative; width: 28px; height: 16px; border-radius: 9px;
-  background: var(--border); transition: background 0.18s; flex-shrink: 0;
-}
-.hc-toggle .hc-thumb {
-  position: absolute; top: 2px; left: 2px;
-  width: 12px; height: 12px; border-radius: 50%;
-  background: var(--text-secondary); transition: left 0.18s, background 0.18s;
-}
-.hc-toggle.on .hc-track { background: var(--accent-glow); }
-.hc-toggle.on .hc-thumb { left: 14px; background: var(--accent); }
-.hc-toggle .hc-label { flex: 1; font-weight: 600; }
-.hc-toggle .hc-help {
-  font-size: 9px; color: var(--text-dim); margin-top: 2px; line-height: 1.4;
-  font-weight: 400;
-}
-
-/* Tier legend block (visible explanation, distinct from filter buttons) */
-.tier-legend { padding: 4px 14px 12px; }
-.tier-legend-row {
-  display: flex; align-items: baseline; gap: 8px;
-  padding: 4px 0; font-size: 11px; color: var(--text-secondary);
-}
-.tier-legend-row .tlr-tag {
-  display: inline-block; min-width: 14px; padding: 1px 5px;
-  border-radius: 3px; font-size: 9px; font-weight: 700;
-  text-align: center; flex-shrink: 0;
-}
-.tier-legend-row.tier-row-A .tlr-tag { color: #4ade80; border: 1px solid rgba(74,222,128,0.4); }
-.tier-legend-row.tier-row-B .tlr-tag { color: var(--accent); border: 1px solid rgba(106,191,108,0.4); }
-.tier-legend-row.tier-row-C .tlr-tag { color: #7c9e6a; border: 1px solid rgba(124,158,106,0.4); }
-.tier-legend-row.tier-row-D .tlr-tag { color: var(--text-dim); border: 1px solid var(--border); }
-.tier-legend-row.tier-row-D { opacity: 0.6; }
-.tlr-name { font-weight: 600; }
-.tlr-desc { color: var(--text-dim); font-size: 10px; }
-.tlr-count { margin-left: auto; color: var(--text-dim); font-variant-numeric: tabular-nums; font-weight: 600; font-size: 10px; }
-
-/* Detail panel additions: secondary sections, share/correction button row */
-.pop-row { font-size: 11px; color: var(--text-secondary); margin: 4px 0; line-height: 1.55; }
-.pop-row strong { color: var(--text-primary); font-weight: 600; }
-.pop-row a { color: var(--accent); text-decoration: none; }
-.pop-row a:hover { text-decoration: underline; }
-.pop-actions {
-  display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px;
-  padding-top: 12px; border-top: 1px solid var(--border);
-}
-.pop-action-btn {
-  display: inline-flex; align-items: center; gap: 5px;
-  padding: 6px 10px; border-radius: 6px;
-  border: 1px solid var(--border-bright); background: var(--bg-elevated);
-  color: var(--text-secondary); font-family: var(--f-body);
-  font-size: 11px; cursor: pointer; text-decoration: none;
-  transition: background 0.15s, color 0.15s;
-}
-.pop-action-btn:hover { background: #1a2e1a; color: var(--accent); border-color: var(--accent); text-decoration: none; }
-.pop-action-btn.copied { color: var(--accent); border-color: var(--accent); }
-.pop-tier-explainer {
-  font-size: 10px; color: var(--text-dim); margin: 6px 0 10px;
-  padding: 6px 9px; background: var(--bg-surface);
-  border-left: 2px solid var(--border-bright); border-radius: 0 6px 6px 0;
-}
-
-/* ═══════════ TOOLTIP ═══════════ */
-#tooltip {
-  position: fixed; display: none;
-  background: rgba(13,25,13,0.96); backdrop-filter: blur(14px);
-  border: 1px solid var(--border-bright);
-  border-radius: 10px; padding: 9px 12px;
-  font-family: var(--f-body); pointer-events: none;
-  z-index: 100; max-width: 220px; min-width: 140px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-}
-.tt-name { font-family: var(--f-display); font-style: italic; font-size: 16px; font-weight: 400; color: var(--text-primary); margin-bottom: 4px; line-height: 1.25; }
-.tt-meta { font-family: var(--f-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.06em; margin-bottom: 2px; }
-.tt-country { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); }
-
-/* ═══════════ DETAIL PANEL ═══════════ */
-#detail-panel {
-  position: fixed; top: 0; right: -340px; bottom: 0;
-  width: 320px;
-  background: linear-gradient(160deg, rgba(13,25,13,0.98), rgba(8,16,8,0.99));
-  backdrop-filter: blur(18px);
-  border-left: 1px solid var(--border-bright);
-  z-index: 50; overflow-y: auto;
-  transition: right 0.3s cubic-bezier(0.4,0,0.2,1);
-  box-shadow: -8px 0 40px rgba(0,0,0,0.4);
-}
-#detail-panel.open { right: 0; }
-.detail-close {
-  position: absolute; top: 14px; right: 14px;
-  background: var(--bg-elevated); border: 1px solid var(--border);
-  color: var(--text-secondary); font-size: 18px;
-  width: 30px; height: 30px; border-radius: 50%;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  transition: all 0.15s; line-height: 1; padding-bottom: 1px;
-}
-.detail-close:hover { color: var(--accent); border-color: var(--border-bright); }
-
-.pop-inner { padding: 18px 18px 20px; }
-.pop-header { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 9px; }
-.pop-badge {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 3px 9px; border-radius: 20px;
-  font-size: 10px; font-weight: 600; letter-spacing: 0.5px; flex-shrink: 0;
-}
-.pop-badge-dot { width: 5px; height: 5px; border-radius: 50%; }
-.pop-tier-badge {
-  display: inline-flex; align-items: center;
-  padding: 2px 7px; border-radius: 4px;
-  font-size: 9px; font-weight: 700; letter-spacing: 0.8px; margin-left: auto; flex-shrink: 0;
-}
-.tier-A { background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; }
-.tier-B { background: rgba(106,191,108,0.1); border: 1px solid rgba(106,191,108,0.25); color: var(--accent); }
-.tier-C { background: rgba(124,158,106,0.1); border: 1px solid rgba(124,158,106,0.2); color: #7c9e6a; }
-.pop-name { font-family: var(--f-display); font-style: italic; font-weight: 400; font-size: 26px; letter-spacing: -0.01em; margin-bottom: 8px; line-height: 1.2; color: var(--paper); }
-.pop-meta { font-size: 11px; color: var(--text-dim); margin-bottom: 9px; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
-.pop-meta-sep { opacity: 0.3; }
-.pop-source { font-size: 10px; color: var(--text-muted); margin-bottom: 8px; font-style: italic; }
-.pop-desc { font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6; }
-.pop-links { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 4px; }
-.pop-link {
-  display: inline-flex; align-items: center; gap: 4px;
-  font-size: 11px; color: var(--accent); text-decoration: none;
-  font-weight: 500; padding: 3px 0; transition: color 0.15s;
-}
-.pop-link:hover { color: #a0e8a2; text-decoration: underline; }
-.pop-link svg { width: 11px; height: 11px; }
-.pop-correct {
-  font-size: 10px; color: var(--text-muted); text-decoration: none;
-  display: inline-flex; align-items: center; gap: 3px; transition: color 0.15s;
-}
-.pop-correct:hover { color: var(--text-dim); }
-
-/* ═══════════ MOBILE / NARROW ═══════════
-   Below 480px (which includes the iframe-on-homepage embed) the
-   sidebar collapses entirely. The canvas takes the whole viewport,
-   the FAB opens a bottom sheet with section filters. Everything
-   else (HC toggle, tier filter, presets) is still reachable via
-   the sidebar on wider screens; the sheet only carries the most
-   common quick filters because narrow screens cannot hold all of
-   it without becoming a dialog. */
-/* Phase 5 mobile: under 600px the sidebar collapses entirely and a draggable
-   bottom sheet takes over. The map fills the full viewport. The sheet holds
-   the same filters and search the sidebar would, just stacked. */
-@media (max-width: 600px) {
-  :root { --sidebar-w: 0px; }
-  #sidebar { display: none; }
-  #canvas-container { left: 0; }
-  .viewport-health { left: 0; }
-
-  #mobile-fab {
-    display: flex; position: fixed; bottom: 24px; right: 20px; z-index: 30;
-    width: 52px; height: 52px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), #4fc4b0);
-    border: none; cursor: pointer; align-items: center; justify-content: center;
-    box-shadow: 0 4px 20px rgba(106,191,108,0.3);
-    transition: transform 0.2s, box-shadow 0.2s;
-    color: var(--bg-deep); font-size: 22px;
-  }
-  #mobile-fab:active { transform: scale(0.92); }
-  #mobile-fab.open { transform: rotate(45deg); }
-  #mobile-sheet {
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 25;
-    background: var(--bg-base); border-top: 1px solid var(--border-bright);
-    border-radius: 20px 20px 0 0; max-height: 80vh;
-    transform: translateY(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-    display: flex; flex-direction: column; overflow: hidden;
-    box-shadow: 0 -8px 30px rgba(0,0,0,0.45);
-  }
-  #mobile-sheet.open { transform: translateY(0); }
-  .sheet-handle {
-    width: 42px; height: 4px; background: var(--border-bright);
-    border-radius: 2px; margin: 9px auto 4px; flex-shrink: 0;
-    cursor: grab;
-  }
-  .sheet-content { padding: 8px 16px 24px; overflow-y: auto; flex: 1; }
-  .sheet-section-label {
-    font-family: var(--f-mono); font-size: 10px; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--text-muted); margin: 14px 0 6px;
-  }
-  .sheet-section-label:first-child { margin-top: 4px; }
-  .sheet-need-input {
-    width: 100%; padding: 8px 10px;
-    background: var(--bg-surface); border: 1px solid var(--border);
-    border-radius: 8px; color: var(--text-primary);
-    font-family: var(--f-body); font-size: 13px; line-height: 1.45;
-    outline: none; resize: vertical; min-height: 50px;
-  }
-  .sheet-need-row { display: flex; gap: 8px; margin-top: 6px; }
-  .sheet-need-btn {
-    padding: 7px 12px; border-radius: 8px;
-    border: 1px solid var(--border-bright); background: var(--bg-elevated);
-    color: var(--accent); font-family: var(--f-body);
-    font-size: 12px; font-weight: 600; cursor: pointer;
-  }
-  .sheet-tier-row { display: flex; gap: 5px; margin-top: 4px; }
-  .sheet-tier-btn {
-    flex: 1; padding: 7px 6px; border-radius: 7px;
-    border: 1px solid var(--border); background: var(--bg-surface);
-    color: var(--text-dim); font-family: var(--f-body);
-    font-size: 11px; font-weight: 700; cursor: pointer; text-align: center;
-  }
-  .sheet-tier-btn.active { background: var(--bg-elevated); }
-  .sheet-tier-btn[data-tier="A"].active { border-color: #4ade80; color: #4ade80; }
-  .sheet-tier-btn[data-tier="B"].active { border-color: var(--accent); color: var(--accent); }
-  .sheet-tier-btn[data-tier="C"].active { border-color: #7c9e6a; color: #7c9e6a; }
-}
-@media (max-width: 480px) {
-  /* Tighter spacing on the smallest screens. */
-  .vh-row { gap: 8px; font-size: 10px; }
-}
-@media (min-width: 601px) { #mobile-fab, #mobile-sheet { display: none !important; } }
-
-@keyframes counter-up { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
-.stat-animate { animation: counter-up 0.5s cubic-bezier(0.4,0,0.2,1) forwards; }
-</style>
-<link rel="stylesheet" href="assets/css/brand.css?v=ac1ae7a4a9c0">
-<link rel="stylesheet" href="assets/css/commonweave.css?v=61c3d54ad08e">
-<link rel="stylesheet" href="assets/css/map-paper.css?v=0e23940bced8">
-<link rel="stylesheet" href="assets/css/site-shell.css?v=062e302a2cba">
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=bbb05598465e">
+<link rel="stylesheet" href="assets/css/map.css?v=822267f6f1c3">
 </head>
-<body class="cw-page cw-map">
+<body class="cw-map">
 <a class="skip-link" href="#layout" onclick="event.preventDefault();document.getElementById('layout').focus()">Skip to map</a>
 <!-- cw:header:start -->
-<header data-site-header>
+<header data-site-header class="cw-header">
   <nav class="cw-nav" aria-label="Main navigation">
-    <a class="cw-brand" href="index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
-    <div class="cw-primary"><a href="knowledge.html">Knowledge base</a><a href="map.html" aria-current="page">Map</a></div>
-    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
-      <a href="directory.html">Organization directory</a>
-      <a href="participate.html">Contribute or correct</a>
-      <a href="pipeline.html">About the data</a>
-      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
-    </div></details>
+    <a class="cw-brand" href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8H13M19 8H22M2 16H5M11 16H22M8 2V5M8 11V22M16 2V13M16 19V22"/></svg><span>Commonweave</span></a>
+    <ul class="cw-links"><li><a href="map.html" aria-current="page">Map</a></li><li><a href="directory.html">Directory</a></li><li><a href="knowledge.html">Framework</a></li><li><a href="pipeline.html">Data</a></li><li><a href="participate.html">Contribute</a></li></ul>
   </nav>
 </header>
 <!-- cw:header:end -->
-<h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">Commonweave Map</h1>
 
-<!-- ═══════════ LOADING ═══════════ -->
-<div id="loading">
-  <div class="loading-mycelium">
-    <svg viewBox="0 0 120 120">
-      <defs>
-        <filter id="glow-c"><feGaussianBlur stdDeviation="2.5" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-      </defs>
-      <path class="hypha hp" stroke-width="1.3" stroke-dasharray="52" style="--dl:52;animation-delay:0.00s" d="M60,60 C53,47 44,35 32,22"/>
-      <path class="hypha hp" stroke-width="1.2" stroke-dasharray="56" style="--dl:56;animation-delay:0.08s" d="M60,60 C70,49 81,39 94,24"/>
-      <path class="hypha hp" stroke-width="1.1" stroke-dasharray="50" style="--dl:50;animation-delay:0.04s" d="M60,60 C62,46 60,34 56,8"/>
-      <path class="hypha hp" stroke-width="1.2" stroke-dasharray="54" style="--dl:54;animation-delay:0.12s" d="M60,60 C73,60 87,62 110,58"/>
-      <path class="hypha hp" stroke-width="1.2" stroke-dasharray="53" style="--dl:53;animation-delay:0.06s" d="M60,60 C70,71 82,81 96,95"/>
-      <path class="hypha hp" stroke-width="1.1" stroke-dasharray="50" style="--dl:50;animation-delay:0.10s" d="M60,60 C58,74 55,86 52,110"/>
-      <path class="hypha hp" stroke-width="1.2" stroke-dasharray="52" style="--dl:52;animation-delay:0.02s" d="M60,60 C49,71 37,79 22,93"/>
-      <path class="hypha hp" stroke-width="1.1" stroke-dasharray="52" style="--dl:52;animation-delay:0.14s" d="M60,60 C47,59 35,55 10,51"/>
-      <path class="hypha hs" stroke-width="0.9" stroke-dasharray="34" style="--dl:34;animation-delay:0.32s" d="M46,41 C40,35 32,29 18,31"/>
-      <path class="hypha hs" stroke-width="0.9" stroke-dasharray="38" style="--dl:38;animation-delay:0.38s" d="M77,49 C82,41 85,33 88,16"/>
-      <path class="hypha hs" stroke-width="0.85" stroke-dasharray="32" style="--dl:32;animation-delay:0.42s" d="M87,61 C90,52 93,44 104,37"/>
-      <path class="hypha hs" stroke-width="0.85" stroke-dasharray="33" style="--dl:33;animation-delay:0.36s" d="M41,75 C35,70 28,63 17,65"/>
-      <path class="hypha hs" stroke-width="0.8" stroke-dasharray="30" style="--dl:30;animation-delay:0.44s" d="M55,87 C50,88 45,90 38,108"/>
-      <path class="hypha hs" stroke-width="0.85" stroke-dasharray="30" style="--dl:30;animation-delay:0.40s" d="M35,56 C29,50 22,43 12,38"/>
-      <path class="hypha ht" stroke-width="0.6" stroke-dasharray="22" style="--dl:22;animation-delay:0.70s" d="M18,31 C13,27 8,21 5,15"/>
-      <path class="hypha ht" stroke-width="0.6" stroke-dasharray="24" style="--dl:24;animation-delay:0.75s" d="M88,16 C92,10 96,6 103,3"/>
-      <path class="hypha ht" stroke-width="0.6" stroke-dasharray="20" style="--dl:20;animation-delay:0.72s" d="M104,37 C108,30 112,24 116,14"/>
-      <path class="hypha ht" stroke-width="0.6" stroke-dasharray="22" style="--dl:22;animation-delay:0.78s" d="M17,65 C12,62 7,56 4,48"/>
-      <circle class="spore" cx="46" cy="41" r="2"   style="animation-delay:0.30s"/>
-      <circle class="spore" cx="77" cy="49" r="1.8" style="animation-delay:0.36s"/>
-      <circle class="spore" cx="87" cy="61" r="1.8" style="animation-delay:0.40s"/>
-      <circle class="spore" cx="41" cy="75" r="2"   style="animation-delay:0.34s"/>
-      <circle class="spore" cx="55" cy="87" r="1.6" style="animation-delay:0.42s"/>
-      <circle class="spore" cx="35" cy="56" r="1.6" style="animation-delay:0.38s"/>
-      <circle class="spore" cx="18" cy="31" r="1.4" style="animation-delay:0.68s"/>
-      <circle class="spore" cx="88" cy="16" r="1.4" style="animation-delay:0.73s"/>
-      <circle cx="60" cy="60" r="5" fill="var(--clay)" opacity="0.95" filter="url(#glow-c)"/>
-      <circle cx="60" cy="60" r="2" fill="#F2EBDC" opacity="0.95"/>
-    </svg>
-  </div>
-  <div class="loading-title">commonweave<span class="seed">.</span></div>
-  <div class="loading-sub">mapping the networks of change</div>
-  <div class="loading-progress"><div class="loading-progress-bar" id="progress-bar"></div></div>
-  <div class="loading-status" id="loading-status">Loading organizations…</div>
-</div>
-
-<!-- ═══════════ MAIN LAYOUT ═══════════ -->
 <main id="layout" tabindex="-1">
+  <div id="loading">
+    <p class="loading-title">Loading the map</p>
+    <div class="loading-progress"><div class="loading-progress-bar" id="progress-bar"></div></div>
+    <p class="loading-status" id="loading-status">Loading organizations…</p>
+  </div>
+
   <div id="sidebar">
-    <div class="sb-header"><h2>Map</h2><p>Explore organizations and the roles a community project needs.</p></div>
     <div class="sb-scroll">
-      <div class="sb-label">View Mode</div>
-      <div class="view-mode-wrap">
-        <button class="view-btn active" id="btn-network">Network</button>
-        <button class="view-btn" id="btn-geo">Places</button>
-        <button class="view-btn" id="btn-health">Coverage</button>
-        <button class="view-btn" id="btn-list">List</button>
-      </div>
-
-
-      <div class="sb-search" hidden>
-        <div class="search-wrap">
-          <span class="search-icon">⌕</span>
-          <input type="text" class="search-input" id="search-input" placeholder="Search organizations…" autocomplete="off" spellcheck="false">
-        </div>
-      </div>
-
-      <!-- Phase 3: Need-pathway panel. Plain language box that parses out a
-           location, sections, and offers/needs words. Returns ranked matches
-           plus complementary nearby orgs and local gaps. -->
+      <!-- One search panel. On phones the script moves it into the bottom sheet. -->
       <div id="discovery-home"><section class="sb-need" id="discovery-controls" aria-label="Find organizations and possible pathways">
-        <h2 class="discovery-title">Find organizations</h2>
-        <label class="discovery-label" for="need-goal">Start with a goal</label>
-        <select id="need-goal" class="need-input"><option value="">Browse organizations</option></select>
-        <label class="discovery-label" for="need-country">Country</label>
+        <h1 class="discovery-title">Find organizations</h1>
+        <label for="need-goal">What do you want to do?</label>
+        <select id="need-goal" class="need-input"><option value="">Just browse organizations</option></select>
+        <label for="need-country">Country</label>
         <select id="need-country" class="need-input"><option value="">All countries</option></select>
-        <label class="discovery-label" for="need-city">Recorded city (optional)</label>
+        <label for="need-city">City <span class="optional">optional</span></label>
         <input id="need-city" class="need-input" list="need-cities" placeholder="Choose a city from the list" autocomplete="off">
         <datalist id="need-cities"></datalist>
-        <label class="discovery-label" for="need-input">Name or topic (optional)</label>
-        <input class="need-input" id="need-input" placeholder="e.g. cooperative or an organization name" autocomplete="off">
+        <label for="need-input">Name or keyword <span class="optional">optional</span></label>
+        <input class="need-input" id="need-input" placeholder="e.g. cooperative, or an organization name" autocomplete="off">
         <div class="need-row">
-          <button class="need-btn" id="need-go" type="button">Find candidates</button>
-          <button class="need-clear" id="need-clear" type="button">Reset all</button>
+          <button class="need-btn" id="need-go" type="button">Search</button>
+          <button class="need-clear" id="need-clear" type="button">Reset</button>
         </div>
-        <button class="need-clear" id="need-list" type="button">Open full results in List view</button>
-        <p class="need-hint">Locations and categories need review. City search uses recorded city names; pins do not establish distance or service area.</p>
         <p id="need-status" role="status" aria-live="polite"></p>
         <div class="need-result" id="need-result" hidden></div>
+        <button class="need-clear" id="need-list" type="button">Show results as a list</button>
+        <p class="need-hint">City search uses the city name on each record. Pins do not establish distance or service area.</p>
       </section></div>
-      <details class="map-details"><summary>Filters and data details</summary>
-      <div class="sb-stats">
-        <div class="stat-card"><div class="stat-value" id="stat-orgs">-</div><div class="stat-label">Exported records</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-edges">-</div><div class="stat-label">Shared-area links</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-visible">-</div><div class="stat-label">Visible</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-tiers">-</div><div class="stat-label">Tiers</div></div>
-      </div>
-      <p id="tier-quality-note" class="nr-meta" style="padding:0 16px 12px"></p>
-      <div class="sb-label">Categories</div>
-      <div id="filters"></div>
-      <div class="sb-label">Data Quality</div>
-      <div class="hc-toggle-wrap">
-        <button class="hc-toggle on" id="hc-toggle" type="button"
-                aria-pressed="true"
-                title="Show Tier A and B source-backed records. Source tier does not verify alignment, services or current capacity.">
-          <span class="hc-track" aria-hidden="true"><span class="hc-thumb"></span></span>
-          <span class="hc-label">Source-backed records<div class="hc-help">Tier A/B. Services and alignment still need review.</div></span>
-        </button>
-      </div>
-      <div id="tier-filter">
-        <button class="tier-btn active" data-tier="A" title="Curated: manually reviewed entries (currently empty &mdash; community auditing is open)">A Curated</button>
-        <button class="tier-btn active" data-tier="B" title="Source backed: registry and web-research records; services and alignment need review">B Source backed</button>
-        <button class="tier-btn inactive" data-tier="C" title="Inferred: passed keyword scoring, not yet reviewed">C Inferred</button>
-      </div>
-      <div class="tier-legend" id="tier-legend"></div>
-      <div class="sb-label">Guided views</div>
-      <div id="presets"></div>
-      <div class="sb-label">Explore by Section</div>
-      <div id="regions"></div>
+
+      <details class="map-details"><summary>Filter by category and record quality</summary>
+        <h2 class="sb-label">Category</h2>
+        <div id="filters"></div>
+        <h2 class="sb-label">Record quality</h2>
+        <div class="hc-toggle-wrap">
+          <button class="hc-toggle on" id="hc-toggle" type="button"
+                  aria-pressed="true"
+                  title="Show Tier A and B source-backed records. Source tier does not verify alignment, services or current capacity.">
+            <span class="hc-track" aria-hidden="true"><span class="hc-thumb"></span></span>
+            <span class="hc-label">Source-backed records only<span class="hc-help">Tier A and B. Services and alignment still need review.</span></span>
+          </button>
+        </div>
+        <div id="tier-filter">
+          <button class="tier-btn active" data-tier="A" title="Curated: manually reviewed entries (currently empty &mdash; community auditing is open)">A Curated</button>
+          <button class="tier-btn active" data-tier="B" title="Source backed: registry and web-research records; services and alignment need review">B Source backed</button>
+          <button class="tier-btn inactive" data-tier="C" title="Inferred: passed keyword scoring, not yet reviewed">C Inferred</button>
+        </div>
+        <div class="tier-legend" id="tier-legend"></div>
+        <p id="tier-quality-note" class="nr-meta"></p>
+        <h2 class="sb-label">Guided views</h2>
+        <div id="presets"></div>
+        <h2 class="sb-label">Jump to</h2>
+        <div id="regions"></div>
+        <h2 class="sb-label">This map file</h2>
+        <dl class="sb-stats">
+          <div><dt>Records</dt><dd id="stat-orgs">-</dd></div>
+          <div><dt>Shown now</dt><dd id="stat-visible">-</dd></div>
+          <div><dt>Shared-area links</dt><dd id="stat-edges">-</dd></div>
+          <div><dt>By tier</dt><dd id="stat-tiers">-</dd></div>
+        </dl>
       </details>
+      <!-- Kept for the script; the old free-text filter and dataset dots are not shown. -->
+      <div hidden><input type="text" id="search-input" autocomplete="off"><div id="health-dots"></div><div id="health-text"></div></div>
     </div>
-    <div class="sb-health">
-      <div class="health-label">Dataset category coverage</div>
-      <div class="health-dots" id="health-dots"></div>
-      <div class="health-text" id="health-text">- of 10 sections in dataset</div>
-    </div>
-    <div class="sb-pdf"><a href="pipeline.html" title="How the directory gets built">About the data</a></div>
-    <div class="sb-hint">scroll to zoom · drag to pan · click nodes for details</div>
-    <div class="sb-built" id="sb-built">
-      <span>Data last built: <strong id="built-date">-</strong></span>
-      <span title="Number of organizations on the map / total candidates in the directory" id="built-counts">-</span>
-    </div>
+    <p class="sb-built" id="sb-built">
+      <span>Data built <strong id="built-date">-</strong></span>
+      <span id="built-counts">-</span>
+      <a href="pipeline.html">About the data</a>
+    </p>
   </div>
 
   <div id="canvas-container">
-    <div class="map-trust-note">Pins may be city or country approximations. Lines suggest connections unless a source is shown. <button type="button" onclick="window._showDiscoveryList()">Use List view</button></div>
-    <section id="discovery-list" hidden aria-label="Organization results">
-      <div class="discovery-list-heading"><h2>Organizations and possible roles</h2><button class="need-clear" id="list-edit" type="button">Change goal or place</button></div>
-      <div id="discovery-list-results"></div>
-    </section>
-    <!-- Geographic mode: MapLibre vector basemap + deck.gl overlay. Hidden in
-         Network mode. Toggling viewMode swaps display:none between the two. -->
-    <div id="ml-map" style="display:none"></div>
-    <!-- Network mode: existing D3 force canvas. Hidden in Geographic mode. -->
-    <canvas id="viz-canvas"></canvas>
+    <div class="map-toolbar">
+      <div class="view-mode-wrap" role="group" aria-label="How to show results">
+        <button class="view-btn" id="btn-geo" type="button" aria-pressed="false" title="Organizations on a world map">Map</button>
+        <button class="view-btn" id="btn-list" type="button" aria-pressed="false" title="Results as a list, with the roles for a goal">List</button>
+        <button class="view-btn" id="btn-health" type="button" aria-pressed="false" title="How complete the records are in each region">Coverage</button>
+        <button class="view-btn" id="btn-network" type="button" aria-pressed="false" title="Organizations grouped by category, with suggested links">Network</button>
+      </div>
+      <p class="map-trust-note">Pins may be city or country approximations. Lines are suggestions unless a source is shown.</p>
+    </div>
+    <div class="map-stage">
+      <section id="discovery-list" hidden aria-label="Organization results">
+        <div class="discovery-list-heading"><h2>Organizations and possible roles</h2><button class="need-clear" id="list-edit" type="button">Change goal or place</button></div>
+        <div id="discovery-list-results"></div>
+      </section>
+      <!-- Map and Coverage views: MapLibre basemap. Hidden in Network view. -->
+      <div id="ml-map" style="display:none"></div>
+      <!-- Network view: D3 force canvas. -->
+      <canvas id="viz-canvas"></canvas>
+      <!-- Summary of what is in the current map view. Updates on pan and zoom. -->
+      <div id="viewport-health" class="viewport-health" hidden>
+        <span class="vh-cell"><b id="vh-count">-</b> records in view</span>
+        <span class="vh-cell"><b id="vh-sections">-</b> of 10 categories</span>
+        <span class="vh-cell"><b id="vh-verified">-</b> source-backed</span>
+        <span class="vh-cell vh-missing" id="vh-missing-cell"><span id="vh-missing-label">No records in view for:</span> <span class="vh-list" id="vh-missing">-</span></span>
+        <button class="vh-close" id="vh-close" type="button" aria-label="Hide this summary">&times;</button>
+      </div>
+    </div>
   </div>
+
+  <div id="detail-panel"></div>
 </main>
 
-<!-- Mobile -->
-<button id="mobile-fab" aria-label="Open discovery and filters" aria-controls="mobile-sheet" aria-expanded="false">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-    <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
-  </svg>
-</button>
+<!-- Phones: the search panel and filters open in a bottom sheet. -->
+<button id="mobile-fab" type="button" aria-controls="mobile-sheet" aria-expanded="false"><span class="fab-closed">Search and filter</span><span class="fab-opened">Close</span></button>
 <div id="mobile-sheet"><div class="sheet-handle"></div><div class="sheet-content" id="sheet-content"></div></div>
 
-<!-- Tooltip & Detail Panel -->
 <div id="tooltip">
   <div class="tt-name" id="tt-name"></div>
   <div class="tt-meta" id="tt-meta"></div>
   <div class="tt-country" id="tt-country"></div>
 </div>
-<div id="detail-panel"></div>
 <div id="edge-tooltip" class="edge-tooltip"></div>
-
-<!-- Phase 4: viewport System Health bar. Updates on moveend with the
-     visible-bbox section composition, verified ratio, and a few suggested
-     bridge orgs. Only shown in geo / system-health modes. -->
-<div id="viewport-health" class="viewport-health" hidden>
-  <div class="vh-row">
-    <div class="vh-cell vh-count">
-      <span class="vh-num" id="vh-count">-</span>
-      <span class="vh-lab">orgs in view</span>
-    </div>
-    <div class="vh-cell vh-sections">
-      <span class="vh-num" id="vh-sections">-</span>
-      <span class="vh-lab">/ 10 sections</span>
-    </div>
-    <div class="vh-cell vh-verified">
-      <span class="vh-num" id="vh-verified">-</span>
-      <span class="vh-lab">source-backed ratio</span>
-    </div>
-    <div class="vh-cell vh-missing" id="vh-missing-cell">
-      <span class="vh-lab">not recorded here</span>
-      <span class="vh-list" id="vh-missing">-</span>
-    </div>
-    <button class="vh-close" id="vh-close" type="button" title="Hide">×</button>
-  </div>
-</div>
 
 <script src="https://unpkg.com/d3@7/dist/d3.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
@@ -968,7 +191,7 @@ button:disabled { opacity: .45; cursor: default; }
 <script src="assets/js/map/scoring.js?v=93f540fb8718"></script>
 <script src="assets/js/map/circuits-data.js?v=3139dceca5f7"></script>
 <script src="assets/js/map/pathways.js?v=b0e8934e7b98"></script>
-<script src="assets/js/map/search.js?v=fa3b8a686b01"></script>
+<script src="assets/js/map/search.js?v=b64ce610fb97"></script>
 <script>
 'use strict';
 
@@ -1439,9 +662,10 @@ function setupCanvas() {
     // Below 600px the sidebar is hidden (mobile sheet takes over) so the
     // canvas reclaims the full viewport. Keep this in sync with the
     // @media (max-width: 600px) block above.
-    const sidebarW = window.innerWidth > 600 ? 300 : 0;
-    canvas.width = window.innerWidth - sidebarW;
-    canvas.height = window.innerHeight;
+    // Size the drawing surface to the space the stylesheet gives it.
+    const stage = canvas.parentElement;
+    canvas.width = stage.clientWidth || window.innerWidth;
+    canvas.height = stage.clientHeight || window.innerHeight;
     fitView(false);
     render();
   }
@@ -1572,8 +796,7 @@ function updateTooltip(node, cx, cy) {
   const color = AREA_COLORS[node.f] || '#888';
   document.getElementById('tt-name').textContent = (node.n || 'Organization').slice(0, 70);
   document.getElementById('tt-meta').textContent = AREA_SHORT[node.f] || node.f || '';
-  document.getElementById('tt-meta').style.color = color;
-  document.getElementById('tt-country').textContent = [
+    document.getElementById('tt-country').textContent = [
     node.cc || '',
     node.w ? node.w.replace(/^https?:\/\//, '').split('/')[0] : ''
   ].filter(Boolean).join(' · ');
@@ -1604,8 +827,6 @@ function showDetailPanel(node) {
   const website = node.w ? CommonweavePathways.safeUrl(node.w.startsWith('http') ? node.w : 'https://' + node.w) : '';
   const contactUrl = CommonweavePathways.safeUrl(node.cu);
   const websiteDomain = node.w ? node.w.replace(/^https?:\/\//, '').split('/')[0] : '';
-  const badgeBg = color + '1a';
-  const badgeBorder = color + '35';
   const srcLabel = SRC_LABELS[node.src] || (node.src || '').replace(/_/g, ' ');
   const desc = (node.d || '').slice(0, 240) + ((node.d || '').length > 240 ? '\u2026' : '');
 
@@ -1643,10 +864,10 @@ function showDetailPanel(node) {
     <button class="detail-close" aria-label="Close organization details" onclick="window._closeDetail()">&#215;</button>
     <div class="pop-inner">
       <div class="pop-header">
-        <div class="pop-badge" style="background:${badgeBg};border:1px solid ${badgeBorder};color:${color}" title="${escHtml(areaFull)}">
+        <div class="pop-badge" title="${escHtml(areaFull)}">
           <span class="pop-badge-dot" style="background:${color}"></span>${escHtml(areaShort)}
         </div>
-        <div class="pop-tier-badge tier-${tier}" title="${escHtml(tierDesc)}">${escHtml(tierLabel)}</div>
+        <div class="pop-tier-badge tier-${tier}" title="${escHtml(tierDesc)}">Tier ${tier} · ${escHtml(tierLabel)}</div>
       </div>
       <div class="pop-name">${escHtml(node.n || 'Organization')}</div>
       <div class="pop-tier-explainer" title="${escHtml(tierDesc)}">
@@ -1657,20 +878,20 @@ function showDetailPanel(node) {
         ${node.r ? `<span class="pop-meta-sep">&middot;</span><span>$${(node.r/1e6).toFixed(1)}M revenue</span>` : ''}
       </div>
       ${desc ? `<div class="pop-desc">${escHtml(desc)}</div>` : ''}
-      <div class="pop-row"><strong>Section.</strong> ${escHtml(areaFull)}${secondary ? ` <span style="color:var(--text-dim)">(also: ${escHtml(secondary)})</span>` : ''}</div>
+      <div class="pop-row"><strong>Section.</strong> ${escHtml(areaFull)}${secondary ? ` <span class="pop-muted">(also: ${escHtml(secondary)})</span>` : ''}</div>
       ${loc ? `<div class="pop-row"><strong>Recorded location.</strong> ${escHtml(loc)}</div>` : ''}
       <div class="pop-row">Pin precision and current service area are unverified. Confirm the locality before planning a visit or referral.</div>
       ${website ? `<div class="pop-row"><strong>Website.</strong> <a href="${escHtml(website)}" target="_blank" rel="noopener">${escHtml(websiteDomain)} &#8599;</a></div>` : ''}
       ${contactUrl ? `<div class="pop-row"><strong>Contact.</strong> <a href="${escHtml(contactUrl)}" target="_blank" rel="noopener">${escHtml(contactUrl.replace(/^https?:\/\//, '').split('/')[0])} &#8599;</a></div>` : ''}
       ${srcLabel ? `<div class="pop-row"><strong>Source.</strong> ${escHtml(srcLabel)}</div>` : ''}
       ${node.lv ? `<div class="pop-row"><strong>Last verified.</strong> ${escHtml(String(node.lv).slice(0, 10))}</div>` : '<div class="pop-row">No verification date is included in this map record.</div>'}
-      ${node.id ? `<div class="pop-row" style="color:var(--text-dim);font-size:10px"><strong>Id.</strong> ${escHtml(node.id)}</div>` : ''}
+      ${node.id ? `<div class="pop-row pop-muted"><strong>Id.</strong> ${escHtml(node.id)}</div>` : ''}
       <div class="pop-actions">
         <button type="button" class="pop-action-btn" id="copy-share-btn" data-share="${escHtml(shareUrl)}" title="Copy a link to this exact view">
-          &#128279; Copy share link
+          Copy link to this record
         </button>
         <a class="pop-action-btn" href="${corrUrl}" target="_blank" rel="noopener" title="Open a prefilled GitHub issue">
-          &#9998; Suggest correction
+          Suggest a correction
         </a>
       </div>
       ${renderConnections(node)}
@@ -1730,7 +951,7 @@ async function ensureRegionsSource() {
     if (!mlMap.getSource('regions')) {
       mlMap.addSource('regions', { type: 'geojson', data: fc });
     }
-    // Choropleth fill: green ramp on completeness (0..100).
+    // Choropleth fill: yellow at zero, then a blue ramp on completeness (0..100).
     if (!mlMap.getLayer('regions-fill')) {
       mlMap.addLayer({
         id: 'regions-fill',
@@ -1740,13 +961,13 @@ async function ensureRegionsSource() {
         paint: {
           'fill-color': [
             'interpolate', ['linear'], ['get', 'completeness'],
-            0,   'rgba(180, 89, 58, 0.10)',
-            10,  'rgba(184, 196, 168, 0.45)',
-            30,  'rgba(111, 154, 114, 0.55)',
-            60,  'rgba(74, 107, 79, 0.65)',
-            90,  'rgba(47, 74, 51, 0.78)',
+            0,   'rgba(255, 223, 61, 0.28)',
+            10,  'rgba(185, 198, 255, 0.50)',
+            30,  'rgba(127, 151, 247, 0.58)',
+            60,  'rgba(63, 97, 232, 0.66)',
+            90,  'rgba(22, 51, 179, 0.78)',
           ],
-          'fill-outline-color': 'rgba(47, 74, 51, 0.35)',
+          'fill-outline-color': 'rgba(22, 51, 179, 0.35)',
         },
       }, mlMap.getLayer('orgs-clusters') ? 'orgs-clusters' : undefined);
       // ^ insert below the cluster bubbles so points stay readable.
@@ -1758,7 +979,7 @@ async function ensureRegionsSource() {
         source: 'regions',
         layout: { visibility: 'none' },
         paint: {
-          'line-color': 'rgba(47, 74, 51, 0.35)',
+          'line-color': 'rgba(22, 51, 179, 0.35)',
           'line-width': 0.5,
         },
       }, mlMap.getLayer('orgs-clusters') ? 'orgs-clusters' : undefined);
@@ -1807,11 +1028,11 @@ function updateViewportHealth() {
   const missingEl = document.getElementById('vh-missing');
   if (missingEl) {
     if (health.sections_missing.length === 0) {
-      missingEl.textContent = 'all 10 sections represented';
-      missingEl.style.color = 'var(--accent)';
+      missingEl.textContent = 'All 10 categories have records in view.';
+      setText('vh-missing-label', '');
     } else {
-      missingEl.textContent = health.sections_missing.map(s => s.replace(/_/g, ' ')).join(', ');
-      missingEl.style.color = '';
+      missingEl.textContent = health.sections_missing.map(s => AREA_SHORT[s] || s.replace(/_/g, ' ')).join(', ');
+      setText('vh-missing-label', 'No records in view for:');
     }
   }
 }
@@ -2058,7 +1279,7 @@ function copyShareLink(btn) {
   const original = btn.innerHTML;
   const done = () => {
     btn.classList.add('copied');
-    btn.innerHTML = '&#10003; Copied';
+    btn.innerHTML = 'Copied';
     setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = original; }, 1800);
   };
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -2115,8 +1336,8 @@ async function loadWorldData() {
 function drawGeoBackground() {
   if (!worldFeatures || worldFeatures.length === 0) return;
   ctx.save();
-  ctx.strokeStyle = '#B8C4A8';
-  ctx.fillStyle = '#E1E5D8';
+  ctx.strokeStyle = '#aab3c0';
+  ctx.fillStyle = '#e7ebf1';
   ctx.lineWidth = 0.5;
   ctx.setLineDash([]);
   worldFeatures.forEach(feature => {
@@ -2276,8 +1497,8 @@ function drawNodes() {
     ctx.fill();
 
     if (isSelected) {
-      ctx.strokeStyle = '#ffffff';
-      ctx.lineWidth = 1.5 / transform.k;
+      ctx.strokeStyle = '#10161f';
+      ctx.lineWidth = 2 / transform.k;
       ctx.stroke();
     }
 
@@ -2294,9 +1515,9 @@ function drawSectionLabels() {
     const count = sectionCounts[area] || 0;
     if (!count) return;
 
-    ctx.globalAlpha = 0.5;
-    ctx.fillStyle = color;
-    ctx.font = `italic ${Math.floor(20 / transform.k)}px 'Instrument Serif', Georgia, serif`;
+    ctx.globalAlpha = 0.85;
+    ctx.fillStyle = '#10161f';
+    ctx.font = `700 ${Math.floor(18 / transform.k)}px Archivo, system-ui, sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(AREA_SHORT[area], cx, cy - 30 / transform.k);
@@ -2325,7 +1546,7 @@ function updateStats(totalOrgs, totalEdges, tierCounts) {
   animateCounter(document.getElementById('stat-edges'), totalEdges);
   const tc = tierCounts;
   const el = document.getElementById('stat-tiers');
-  if (el) el.innerHTML = `A:${tc.A||0}<br>B:${tc.B||0}<br>C:${tc.C||0}`;
+  if (el) el.textContent = `A ${(tc.A||0).toLocaleString()} · B ${(tc.B||0).toLocaleString()} · C ${(tc.C||0).toLocaleString()}`;
   updateVisibleCount();
 }
 
@@ -2521,12 +1742,13 @@ function setViewMode(mode) {
     pendingNetworkSimulation = null;
     runSimulation(simulation, () => { rebuildQuadtree(); render(); });
   }
-  document.getElementById('btn-network').classList.toggle('active', mode === 'network');
-  document.getElementById('btn-geo').classList.toggle('active', mode === 'geo');
-  document.getElementById('btn-list').classList.toggle('active', mode === 'list');
+  [['btn-network', 'network'], ['btn-geo', 'geo'], ['btn-list', 'list'], ['btn-health', 'health']].forEach(([id, m]) => {
+    const b = document.getElementById(id);
+    if (!b) return;
+    b.classList.toggle('active', mode === m);
+    b.setAttribute('aria-pressed', String(mode === m));
+  });
   document.getElementById('discovery-list').hidden = mode !== 'list';
-  const healthBtn = document.getElementById('btn-health');
-  if (healthBtn) healthBtn.classList.toggle('active', mode === 'health');
   setHoveredNode(null);
   hideTooltip();
   setupRegions();
@@ -2573,19 +1795,20 @@ let geoInited = false;
 // Vector-only basemap. The previous style (liberty) also pulled shaded-relief
 // raster tiles, roughly 2.5 MB of PNGs on a first world view.
 const BASEMAP_STYLE = 'https://tiles.openfreemap.org/styles/positron';
-// Layer id -> [paint property, value]. Paper land, sage water, ink labels.
+// Layer id -> [paint property, value]. A quiet basemap: near-white land,
+// pale blue water, grey borders, so the organization points carry the colour.
 const BASEMAP_TINT = {
-  background: ['background-color', '#EFE8D8'],
-  water: ['fill-color', '#C3D2CB'],
-  park: ['fill-color', '#DCE3CA'],
-  landcover_wood: ['fill-color', '#D6DFC5'],
-  landuse_residential: ['fill-color', '#E9DFC9'],
-  landcover_glacier: ['fill-color', '#F7F3EA'],
-  landcover_ice_shelf: ['fill-color', '#F7F3EA'],
-  building: ['fill-color', '#DCD0B6'],
-  waterway: ['line-color', '#AFC3BB'],
-  boundary_2: ['line-color', '#8E7B4E'],
-  boundary_3: ['line-color', '#C9B98C'],
+  background: ['background-color', '#f6f7f9'],
+  water: ['fill-color', '#cfdcee'],
+  park: ['fill-color', '#e6eee2'],
+  landcover_wood: ['fill-color', '#e3ecde'],
+  landuse_residential: ['fill-color', '#eff1f4'],
+  landcover_glacier: ['fill-color', '#ffffff'],
+  landcover_ice_shelf: ['fill-color', '#ffffff'],
+  building: ['fill-color', '#e1e5eb'],
+  waterway: ['line-color', '#b9cbe3'],
+  boundary_2: ['line-color', '#8792a2'],
+  boundary_3: ['line-color', '#c2c9d3'],
 };
 function tintBasemap() {
   if (!mlMap) return;
@@ -2595,8 +1818,8 @@ function tintBasemap() {
       const tint = BASEMAP_TINT[layer.id];
       if (tint) mlMap.setPaintProperty(layer.id, tint[0], tint[1]);
       if (layer.type === 'symbol' && layer.source === 'openmaptiles') {
-        mlMap.setPaintProperty(layer.id, 'text-color', layer.id.startsWith('water') ? '#5A7A72' : '#2C3A30');
-        mlMap.setPaintProperty(layer.id, 'text-halo-color', 'rgba(242,235,220,0.85)');
+        mlMap.setPaintProperty(layer.id, 'text-color', layer.id.startsWith('water') ? '#5b7598' : '#3b4656');
+        mlMap.setPaintProperty(layer.id, 'text-halo-color', 'rgba(255,255,255,0.9)');
       }
     } catch (e) { /* a missing layer or property must not block the map */ }
   }
@@ -2672,10 +1895,10 @@ function addOrgClusterSource() {
     paint: {
       'circle-color': [
         'step', ['get', 'point_count'],
-        '#9DB894', 50,
-        '#6F9A72', 200,
-        '#4A6B4F', 1000,
-        '#2F4A33'
+        '#b9c6ff', 50,
+        '#7f97f7', 200,
+        '#3f61e8', 1000,
+        '#1633b3'
       ],
       'circle-radius': [
         'step', ['get', 'point_count'],
@@ -2683,7 +1906,7 @@ function addOrgClusterSource() {
       ],
       'circle-opacity': 0.92,
       'circle-stroke-width': 2,
-      'circle-stroke-color': '#F2EBDC',
+      'circle-stroke-color': '#ffffff',
     },
   });
 
@@ -2699,7 +1922,7 @@ function addOrgClusterSource() {
       'text-allow-overlap': true,
     },
     paint: {
-      'text-color': ['step', ['get', 'point_count'], '#16201A', 200, '#F2EBDC'],
+      'text-color': ['step', ['get', 'point_count'], '#10161f', 200, '#ffffff'],
     },
   });
 
@@ -2731,7 +1954,7 @@ function addOrgClusterSource() {
         0.92
       ],
       'circle-stroke-width': 0.8,
-      'circle-stroke-color': 'rgba(22,32,26,0.6)',
+      'circle-stroke-color': 'rgba(16,22,31,0.6)',
     },
   });
 
@@ -3007,7 +2230,7 @@ function updateSelectedOutline() {
         'circle-radius': 8,
         'circle-color': 'rgba(0,0,0,0)',
         'circle-stroke-width': 2.5,
-        'circle-stroke-color': '#16201A',
+        'circle-stroke-color': '#10161f',
       },
     });
   }
@@ -3184,7 +2407,7 @@ function setupRegions() {
 
   const resetBtn = document.createElement('button');
   resetBtn.className = 'region-btn reset-btn';
-  resetBtn.textContent = '\u{1F30D} Reset View';
+  resetBtn.textContent = 'Reset view';
   resetBtn.addEventListener('click', () => fitView(true));
   regionsEl.appendChild(resetBtn);
 
@@ -3266,7 +2489,7 @@ function setupMobile() {
   media.addEventListener('change', moveDiscovery); moveDiscovery();
 
   // ---- Tier filter ----
-  addLabel('Data quality');
+  addLabel('Record quality');
   const tierRow = document.createElement('div');
   tierRow.className = 'sheet-tier-row';
   ['A', 'B', 'C'].forEach(t => {
@@ -3292,20 +2515,22 @@ function setupMobile() {
   content.appendChild(tierRow);
 
   // ---- Section filter ----
-  addLabel('Tap section to filter');
+  addLabel('Category');
   AREAS_ORDERED.forEach(area => {
     const btn = document.createElement('button');
     btn.className = 'filter-btn' + (!activeSection || activeSection === area ? ' active' : '');
     btn.dataset.area = area;
     btn.type = 'button';
-    btn.style.cssText = 'display:flex;align-items:center;gap:8px;width:100%;padding:8px 4px;background:none;border:none;color:var(--text-secondary);font-family:inherit;font-size:13px;cursor:pointer;border-bottom:1px solid var(--border);';
     const dot = document.createElement('span');
-    dot.style.cssText = `width:10px;height:10px;border-radius:50%;background:${AREA_COLORS[area]};flex-shrink:0`;
+    dot.className = 'filter-dot';
+    dot.style.background = AREA_COLORS[area];
     btn.appendChild(dot);
-    const lab = document.createTextNode(' ' + AREA_SHORT[area]);
+    const lab = document.createElement('span');
+    lab.className = 'filter-label';
+    lab.textContent = AREA_SHORT[area];
     btn.appendChild(lab);
     const cnt = document.createElement('span');
-    cnt.style.cssText = 'margin-left:auto;color:var(--text-dim);font-size:11px';
+    cnt.className = 'filter-count';
     cnt.textContent = (sectionCounts[area] || 0).toLocaleString();
     btn.appendChild(cnt);
     btn.addEventListener('click', () => {
@@ -3322,25 +2547,7 @@ function setupMobile() {
     content.appendChild(btn);
   });
 
-  // ---- View mode quick switch ----
-  const viewLabel = addLabel('View');
-  const viewRow = document.createElement('div');
-  viewRow.style.cssText = 'display:flex;gap:6px;margin-top:4px';
-  [['geo', 'Places'], ['list', 'List'], ['network', 'Network'], ['health', 'Coverage']].forEach(([m, lab]) => {
-    const b = document.createElement('button');
-    b.className = 'sheet-need-btn';
-    b.style.cssText = 'flex:1';
-    b.type = 'button';
-    b.textContent = lab;
-    b.addEventListener('click', () => {
-      setViewMode(m);
-      fab.classList.remove('open');
-      sheet.classList.remove('open');
-      fab.setAttribute('aria-expanded', 'false');
-    });
-    viewRow.appendChild(b);
-  });
-  content.prepend(viewLabel, viewRow);
+  // The view switch sits above the map at every width, so the sheet does not repeat it.
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -3460,7 +2667,7 @@ async function main() {
 
 main().catch(e => {
   console.error('Commonweave init error:', e);
-  document.getElementById('loading').innerHTML = `<div style="color:#e05858;font-family:Inter,sans-serif;padding:2rem;text-align:center"><h3>Failed to load network data</h3><p style="margin-top:1rem;font-size:12px;opacity:.7">${e.message}</p></div>`;
+  document.getElementById('loading').innerHTML = `<div class="loading-error"><h2>The map data could not load</h2><p>${e.message}</p><p><a href="directory.html">Search the directory instead</a></p></div>`;
 });
 </script>
 <!-- Cloudflare Web Analytics: cookieless aggregate visit counts. See docs/TRAFFIC-2026-11-03.md -->

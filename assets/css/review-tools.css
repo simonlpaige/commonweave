@@ -1,9 +1,17 @@
-body.cw-review { --bg:var(--paper); --surface:var(--paper-2); --s2:var(--paper-2); --s3:var(--paper-3); --border:#D0C6AE; --border2:#87937D; --text:var(--ink); --muted:var(--ink-soft); --dim:var(--ink-muted); --accent:var(--moss); --warm:var(--moss-mid); --teal:var(--moss-mid); --earth:var(--clay); --red:#98472E; --orange:#8B512F; --yellow:#725C2B; }
-.cw-review h1 { font:clamp(38px,5vw,62px)/1.05 var(--f-display); margin:16px 0 28px; }
-.cw-review h2 { font:30px/1.15 var(--f-display); }
-.cw-review main { max-width:920px; padding:32px 24px 60px; }
-.cw-review button { border-radius:2px; min-height:42px; }
-.cw-review .org-card, .cw-review .region-card { border-radius:2px; box-shadow:none; }
-.cw-review .org-name { font-family:var(--f-display); font-weight:400; }
-.cw-review .progress-wrap { font-size:14px; }
-.cw-review .review-intro { max-width:62ch; margin-bottom:24px; color:var(--ink-soft); }
+/* Review tools (audit/). These pages keep their own component rules and older
+   variable names; this file points those names at the site tokens. */
+body.cw-review {
+  --s2: var(--surface); --s3: var(--surface-2);
+  --border: var(--line); --border2: var(--line-2);
+  --text: var(--ink); --muted: var(--ink-2); --dim: var(--ink-3);
+  --warm: var(--accent-hover); --teal: var(--accent); --earth: var(--mark-ink);
+  --red: var(--bad); --orange: var(--mark-ink); --yellow: var(--mark-ink);
+}
+/* In these tools the old accent meant "aligned", so it maps to the confirm colour. */
+.cw-review main, .cw-review .progress-wrap, .cw-review .toast { --accent: var(--ok); --accent-ink: var(--bg); }
+.cw-review main { max-width: 920px; margin: 0 auto; padding: 32px var(--gutter) 60px; }
+.cw-review h1 { margin: 12px 0 24px; }
+.cw-review h2 { margin-bottom: 12px; }
+.cw-review main button { border-radius: var(--radius); min-height: 42px; cursor: pointer; }
+.cw-review .org-card, .cw-review .region-card { border-radius: var(--radius); box-shadow: none; }
+.cw-review .review-intro { max-width: 62ch; margin-bottom: 24px; color: var(--ink-2); }

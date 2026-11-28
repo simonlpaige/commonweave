@@ -48,78 +48,58 @@ CIRCUIT_ROLE_ORDER = {
 }
 
 
-BRIEFS_CSS = r"""/* Generated support stylesheet for Commonweave circuit briefs. */
-.brief-shell { max-width: 1120px; margin: 0 auto; padding: clamp(42px, 7vw, 92px) clamp(20px, 5vw, 56px) var(--s-9); }
-.brief-hero { display: grid; grid-template-columns: minmax(0, 1fr) 210px; gap: var(--s-7); align-items: start; padding-bottom: var(--s-7); border-bottom: var(--rule); }
-.brief-hero h1 { font-size: clamp(52px, 8vw, 104px); line-height: .92; font-style: italic; max-width: 13ch; margin: var(--s-4) 0 var(--s-5); text-wrap: balance; }
-.brief-hero .lede { color: var(--ink-soft); max-width: 37ch; }
-.status-stamp { border: 2px solid var(--clay); color: var(--clay); padding: 18px 14px; font-family: var(--f-mono); font-size: 11px; line-height: 1.45; letter-spacing: .13em; text-transform: uppercase; transform: rotate(2deg); text-align: center; background: color-mix(in oklab, var(--paper) 88%, transparent); }
-.status-stamp strong { display: block; font-size: 15px; letter-spacing: .08em; margin-bottom: 6px; }
-.brief-meta { display: flex; gap: var(--s-4); flex-wrap: wrap; margin-top: var(--s-5); font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); }
-.brief-section { padding: var(--s-8) 0; border-bottom: var(--rule); }
-.brief-section h2 { font-size: clamp(38px, 5vw, 66px); max-width: 15ch; margin-bottom: var(--s-6); }
-.section-intro { color: var(--ink-soft); font-size: 19px; max-width: 62ch; }
-.circuit-loom { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5); margin-top: var(--s-7); }
-.circuit-loom::before { content: ""; position: absolute; left: 10%; right: 10%; top: 31px; height: 2px; background: var(--thread); z-index: 0; }
-.role-card { position: relative; z-index: 1; border: var(--rule); background: var(--paper); padding: 58px var(--s-5) var(--s-5); min-height: 245px; }
-.role-card::before { content: ""; position: absolute; top: 23px; left: 50%; width: 16px; height: 16px; margin-left: -9px; border-radius: 50%; background: var(--clay); border: 2px solid var(--paper); box-shadow: 0 0 0 1px var(--thread); }
-.role-label { font-family: var(--f-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--clay); }
-.role-card h3 { font-size: clamp(24px, 2.4vw, 33px); margin: var(--s-3) 0; }
-.role-card p { color: var(--ink-muted); font-size: 15px; }
-.role-links { display: flex; gap: var(--s-3); flex-wrap: wrap; margin-top: var(--s-5); font-family: var(--f-mono); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
-.role-links a { text-decoration: none; border-bottom: 1px solid currentColor; }
-.finding { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(260px, .6fr); gap: var(--s-7); align-items: start; }
-.finding blockquote { margin: 0; font-family: var(--f-display); font-style: italic; font-size: clamp(27px, 3.2vw, 44px); line-height: 1.16; color: var(--moss-deep); }
-.field-note { border-left: 3px solid var(--thread); padding-left: var(--s-5); color: var(--ink-soft); }
-.unknowns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--ink); border: var(--rule); margin-top: var(--s-6); }
-.unknown { background: var(--paper); padding: var(--s-5); }
-.unknown b { display: block; font-family: var(--f-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--clay); margin-bottom: var(--s-3); }
-.brief-actions { display: flex; gap: var(--s-3); flex-wrap: wrap; align-items: center; margin-top: var(--s-6); }
-.brief-button { appearance: none; border: 1px solid var(--ink); background: transparent; color: var(--ink); padding: 10px 16px; font: 500 10px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; cursor: pointer; }
-.brief-button.primary { background: var(--moss); border-color: var(--moss); color: var(--paper); }
-.brief-button:hover { background: var(--paper-2); color: var(--moss-deep); }
-.brief-button.primary:hover { background: var(--moss-deep); color: var(--paper); }
-.source-note { color: var(--ink-muted); font-size: 14px; overflow-wrap: anywhere; }
-.source-note code { font-family: var(--f-mono); font-size: 12px; }
-.brief-index-hero { padding-bottom: var(--s-7); border-bottom: var(--rule); }
-.brief-index-hero h1 { font-size: clamp(56px, 9vw, 112px); line-height: .91; font-style: italic; max-width: 12ch; margin: var(--s-4) 0 var(--s-5); }
-.filter-bar { display: grid; grid-template-columns: minmax(220px, 1fr) 220px; gap: var(--s-3); margin: var(--s-7) 0; }
-.filter-bar label { display: grid; gap: 6px; font: 500 10px/1.4 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
-.filter-bar input, .filter-bar select { width: 100%; border: 1px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); padding: 12px 13px; font: 16px/1.3 var(--f-body); }
-.brief-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5); }
-.brief-card { border: var(--rule); padding: var(--s-5); background: color-mix(in oklab, var(--paper) 82%, var(--paper-2)); display: flex; flex-direction: column; }
-.brief-card .card-kicker { display: flex; justify-content: space-between; gap: var(--s-3); font-family: var(--f-mono); font-size: 9px; letter-spacing: .11em; text-transform: uppercase; color: var(--ink-muted); }
-.brief-card h2 { font-size: clamp(30px, 3vw, 44px); margin: var(--s-4) 0; }
-.brief-card ul { list-style: none; margin: 0 0 var(--s-5); padding: 0; color: var(--ink-soft); }
-.brief-card li { padding: 7px 0; border-top: var(--rule-soft); }
-.brief-card > a { margin-top: auto; align-self: flex-start; font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
-.empty-result { display: none; padding: var(--s-7); border: var(--rule); color: var(--ink-soft); }
+BRIEFS_CSS = r"""/* Generated support stylesheet for Commonweave circuit briefs. Tokens come from assets/css/site.css. */
+.brief-shell { max-width: var(--page); margin: 0 auto; padding: 0 var(--gutter); }
+.brief-hero { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 24px 48px; align-items: start; padding: clamp(28px, 5vw, 56px) 0 28px; }
+.brief-hero h1 { max-width: 18ch; margin: 0 0 14px; }
+.brief-kicker { font-size: 15px; color: var(--ink-3); margin: 0 0 10px; }
+.brief-meta { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 16px; font-size: 14px; color: var(--ink-3); }
+.status-stamp { background: var(--mark-soft); border: 1px dashed var(--mark-ink); color: var(--mark-ink); padding: 14px 16px; font-size: 14px; line-height: 1.45; border-radius: var(--radius); }
+.status-stamp strong { display: block; font-size: 16px; margin-bottom: 4px; }
+.brief-section { border-top: 1px solid var(--ink); padding: 28px 0 36px; }
+.brief-section h2 { margin-bottom: 12px; max-width: 26ch; }
+.section-intro { color: var(--ink-2); max-width: 66ch; }
+.circuit-loom { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.role-card { border: 1px solid var(--line-2); border-top: 3px solid var(--ink); border-radius: 0 0 var(--radius) var(--radius); padding: 16px 18px 18px; background: var(--bg); }
+.role-label { font-size: 14px; font-weight: 650; color: var(--ink-3); }
+.role-card h3 { font-size: 20px; font-stretch: 88%; margin: 6px 0 8px; overflow-wrap: anywhere; }
+.role-card p { color: var(--ink-2); font-size: 15px; margin: 0; }
+.role-links { display: flex; gap: 6px 16px; flex-wrap: wrap; margin-top: 14px; font-size: 15px; }
+.finding { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(240px, 1fr); gap: 24px 48px; align-items: start; }
+.finding blockquote { margin: 0; font-size: clamp(19px, 2vw, 23px); line-height: 1.4; font-weight: 500; }
+.field-note { border-left: 4px solid var(--line-2); padding-left: 18px; color: var(--ink-2); font-size: 16px; }
+.unknowns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
+.unknown { background: var(--mark-soft); border-left: 4px solid var(--mark); padding: 14px 16px; font-size: 16px; }
+.unknown b { display: block; margin-bottom: 4px; }
+.brief-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 24px; }
+.brief-button { appearance: none; display: inline-flex; align-items: center; min-height: 44px; padding: 9px 16px; border: 1px solid var(--ink); border-radius: var(--radius); background: var(--bg); color: var(--ink); font-weight: 650; font-size: 16px; text-decoration: none; cursor: pointer; }
+.brief-button:hover { background: var(--surface); color: var(--ink); }
+.brief-button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.brief-button.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--accent-ink); }
+.source-note { color: var(--ink-3); font-size: 14px; overflow-wrap: anywhere; }
+.brief-index-hero { padding: clamp(28px, 5vw, 56px) 0 8px; }
+.brief-index-hero h1 { max-width: 18ch; margin: 0 0 14px; }
+.filter-bar { display: grid; grid-template-columns: minmax(220px, 1fr) 240px; gap: 16px; margin: 24px 0; padding-top: 20px; border-top: 1px solid var(--ink); }
+.filter-bar label { display: grid; gap: 6px; }
+.brief-count { font-size: 15px; color: var(--ink-3); margin: 0 0 12px; }
+.brief-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.brief-card { border: 1px solid var(--line-2); border-radius: var(--radius); padding: 18px 20px; display: flex; flex-direction: column; background: var(--bg); }
+.brief-card .card-kicker { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14px; color: var(--ink-3); }
+.brief-card h2 { font-size: 22px; margin: 8px 0 10px; }
+.brief-card ul { list-style: none; margin: 0 0 14px; padding: 0; color: var(--ink-2); font-size: 15px; }
+.brief-card li { margin: 0; padding: 6px 0; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
+.brief-card > a { margin-top: auto; align-self: flex-start; font-weight: 650; }
+.empty-result { display: none; padding: 20px; background: var(--surface); border-radius: var(--radius); color: var(--ink-2); }
 .empty-result.visible { display: block; }
-body.dark .role-card, body.dark .unknown, body.dark .filter-bar input, body.dark .filter-bar select { background: var(--paper); }
-body.dark .status-stamp { background: var(--paper); }
 @media (max-width: 820px) {
-  .brief-hero { grid-template-columns: 1fr; }
-  .status-stamp { max-width: 210px; transform: none; }
-  .circuit-loom { grid-template-columns: 1fr; }
-  .circuit-loom::before { top: 6%; bottom: 6%; left: 31px; right: auto; width: 2px; height: auto; }
-  .role-card { padding: var(--s-5) var(--s-5) var(--s-5) 62px; min-height: 0; }
-  .role-card::before { left: 23px; top: 50%; margin: -9px 0 0; }
-  .finding, .unknowns, .brief-grid { grid-template-columns: 1fr; }
-  .filter-bar { grid-template-columns: 1fr; }
-}
-@media (max-width: 600px) {
-  .nav-links a:not(.nav-cta) { display: none; }
-  .brief-shell { padding-left: 18px; padding-right: 18px; }
+  .brief-hero, .finding, .unknowns, .brief-grid, .circuit-loom, .filter-bar { grid-template-columns: 1fr; }
 }
 @media print {
-  .site-nav, .site-foot, .brief-actions, .filter-bar { display: none !important; }
-  body { background: #fff !important; color: #111 !important; font-size: 12pt; }
+  .cw-header, .cw-footer, .brief-actions, .filter-bar, .skip-link { display: none !important; }
+  body { background: #fff !important; color: #000 !important; font-size: 11.5pt; }
   .brief-shell { max-width: none; padding: 0; }
-  .brief-hero { grid-template-columns: 1fr 150px; }
-  .brief-hero h1 { font-size: 52pt; }
-  .brief-section { padding: 28pt 0; }
-  .role-card, .unknown { break-inside: avoid; background: #fff !important; }
-  a { color: #111 !important; }
+  .role-card, .unknown { break-inside: avoid; }
+  a { color: #000 !important; }
 }
 """
 
@@ -328,19 +308,6 @@ def flatten_groups(circuits: dict, features: dict[str, dict]) -> list[dict]:
     return groups
 
 
-def logo_markup() -> str:
-    return """<svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="commonweave">
-  <g transform="translate(0,5)">
-    <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="1.6"/>
-    <line x1="6" y1="60" x2="114" y2="60" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
-    <path d="M 30 30 C 50 60, 70 60, 90 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-    <path d="M 90 30 C 70 60, 50 60, 30 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-    <circle cx="60" cy="60" r="3" fill="#B4593A"/>
-  </g>
-  <text x="140" y="80" font-family="Instrument Serif, Source Serif 4, Georgia, serif" font-style="italic" font-size="64" fill="currentColor" letter-spacing="-1.5">commonweave</text>
-</svg>"""
-
-
 def nav_markup(prefix: str = "../") -> str:
     return '<a href="#main-content" class="skip-link">Skip to main content</a>\n' + shared_header(prefix, 'map')
 
@@ -364,13 +331,9 @@ def head_markup(title: str, description: str, canonical: str) -> str:
 <meta property="og:url" content="{html(canonical)}">
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="{html(canonical)}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/brand.css">
-<link rel="stylesheet" href="../assets/css/commonweave.css">
+<link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/site.css">
 <link rel="stylesheet" href="briefs.css">
-<link rel="stylesheet" href="../assets/css/site-shell.css">
 </head>""", OUTPUT_DIR, {(OUTPUT_DIR / 'briefs.css').resolve(): BRIEFS_CSS.encode('utf-8')})
 
 
@@ -446,12 +409,12 @@ def render_brief(group: dict, stats: dict, generated_at: str) -> str:
         for member in group["members"]
     )
     return f"""{head_markup(title, description, canonical)}
-<body class="cw-page">
+<body>
 {nav_markup()}
 <main id="main-content" class="brief-shell" tabindex="-1">
   <header class="brief-hero">
     <div>
-      <div class="eyebrow">Solution-circuit field note &middot; {html(group['location'])}</div>
+      <p class="brief-kicker"><a href="index.html">Circuit briefs</a> / {html(group['location'])}</p>
       <h1>{html(group.get('circuit_name') or 'Possible local circuit')}</h1>
       <p class="lede">{html(group.get('problem') or '')}</p>
       <div class="brief-meta">
@@ -467,7 +430,6 @@ def render_brief(group: dict, stats: dict, generated_at: str) -> str:
   </header>
 
   <section class="brief-section" aria-labelledby="roles-heading">
-    <div class="eyebrow">The possible circuit</div>
     <h2 id="roles-heading">{members}</h2>
     <p class="section-intro">Commonweave's public map data places these organizations nearby and classifies their public work as complementary. The classification may be wrong or stale.</p>
     <div class="circuit-loom">
@@ -477,7 +439,6 @@ def render_brief(group: dict, stats: dict, generated_at: str) -> str:
 
   <section class="brief-section finding" aria-labelledby="finding-heading">
     <div>
-      <div class="eyebrow">Why the system connected them</div>
       <h2 id="finding-heading">A lead worth checking.</h2>
       <blockquote>&ldquo;{html(group.get('explanation') or 'The public descriptions suggest complementary local roles.')}&rdquo;</blockquote>
     </div>
@@ -488,12 +449,11 @@ def render_brief(group: dict, stats: dict, generated_at: str) -> str:
   </section>
 
   <section class="brief-section" aria-labelledby="unknowns-heading">
-    <div class="eyebrow">What the map cannot know</div>
     <h2 id="unknowns-heading">Three questions before anyone acts.</h2>
     <div class="unknowns">
-      <div class="unknown"><b>01 &middot; Accuracy</b>Do these organizations still exist, and are their proposed roles described correctly?</div>
-      <div class="unknown"><b>02 &middot; Consent</b>Do they want to be discoverable and introduced in this way?</div>
-      <div class="unknown"><b>03 &middot; Fit</b>Is there a real local need, trust, and capacity for this circuit—or only geographic proximity?</div>
+      <div class="unknown"><b>Accuracy</b>Do these organizations still exist, and are their proposed roles described correctly?</div>
+      <div class="unknown"><b>Consent</b>Do they want to be discoverable and introduced in this way?</div>
+      <div class="unknown"><b>Fit</b>Is there a real local need, trust, and capacity for this circuit—or only geographic proximity?</div>
     </div>
     <div class="brief-actions">
       <a class="brief-button primary" href="{html(correction)}" target="_blank" rel="noopener">Correct this brief</a>
@@ -541,11 +501,11 @@ def render_index(groups: list[dict], stats: dict, generated_at: str) -> str:
   <a href="{html(group['group_id'])}.html">Open field note &rarr;</a>
 </article>""")
     return f"""{head_markup(title, description, f"{SITE_ORIGIN}/briefs/index.html")}
-<body class="cw-page">
+<body>
 {nav_markup()}
 <main id="main-content" class="brief-shell" tabindex="-1">
   <header class="brief-index-hero">
-    <div class="eyebrow">Commonweave field notes &middot; Map snapshot {html(built)}</div>
+    <p class="brief-kicker">Circuit briefs &middot; map snapshot {html(built)}</p>
     <h1>Possible collaborations, not claimed partnerships.</h1>
     <p class="lede">These {len(groups)} one-page briefs turn public directory data into specific questions: which nearby organizations might fill complementary roles, and what did the map get wrong?</p>
     <p class="section-intro">Every brief is derived and unverified. Nothing here says the listed organizations know one another, endorse Commonweave, or want an introduction. Each page carries its uncertainty and a correction path.</p>
@@ -563,8 +523,8 @@ def render_index(groups: list[dict], stats: dict, generated_at: str) -> str:
         </select>
       </label>
     </div>
-    <div class="eyebrow" id="brief-list-heading"><span id="brief-visible-count">{len(groups)}</span> field notes shown</div>
-    <div class="brief-grid" style="margin-top: var(--s-5);">
+    <p class="brief-count" id="brief-list-heading"><span id="brief-visible-count">{len(groups)}</span> field notes shown</p>
+    <div class="brief-grid">
       {''.join(cards)}
     </div>
     <div id="brief-empty" class="empty-result">No briefs match those filters. Clear the search or choose another country.</div>

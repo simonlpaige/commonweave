@@ -61,7 +61,7 @@ class NavigationTests(unittest.TestCase):
             text = path.read_text(encoding='utf-8')
             self.assertIn(header_markup('../', 'map'), text, path.name)
             self.assertIn(footer_markup('../'), text, path.name)
-            self.assertIn('../assets/css/site-shell.css', text)
+            self.assertIn('../assets/css/site.css', text)
 
 
 if __name__ == '__main__':

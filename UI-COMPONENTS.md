@@ -1,5 +1,7 @@
 # Commonweave UI Components
 
+> **Out of date since 28 November 2026.** The site was rebuilt on one stylesheet (`assets/css/site.css`, plus `assets/css/map.css`). The colour tokens, typography, page layouts and class names below describe the earlier dark and paper designs and no longer exist. The element ids the scripts use are unchanged. Read [`docs/SITE-DESIGN.md`](docs/SITE-DESIGN.md) for the current design.
+
 > Reference doc for the UI overhaul. Every component, its file, its CSS tokens, and its data dependencies. Keep this updated as the overhaul proceeds.
 
 ---

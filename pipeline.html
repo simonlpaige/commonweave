@@ -5,69 +5,55 @@
   <title>About the organization data · Commonweave</title>
   <meta name="description" content="Where Commonweave organization records come from, what review labels mean, and how to help improve the evidence.">
   <link rel="canonical" href="https://commonweave.earth/pipeline.html">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/brand.css?v=ac1ae7a4a9c0"><link rel="stylesheet" href="assets/css/commonweave.css?v=61c3d54ad08e">
-  <style>
-    .data-guide { max-width:1040px; margin:auto; padding:56px clamp(20px,5vw,48px) 40px; }
-    .data-guide h1 { font:clamp(42px,6vw,78px)/1.02 var(--f-display); margin:16px 0 24px; max-width:15ch; }
-    .data-guide .lead { font-size:22px; line-height:1.5; max-width:57ch; }
-    .data-guide h2 { font:34px/1.15 var(--f-display); margin:44px 0 20px; padding-top:24px; border-top:var(--rule-soft); }
-    .data-guide h3 { font:25px/1.15 var(--f-display); margin:24px 0 12px; }
-    .data-guide p { max-width:70ch; }
-    .data-snapshots { display:grid; grid-template-columns:repeat(3,1fr); border:var(--rule-soft); margin:28px 0; }
-    .data-snapshots div { padding:20px; border-right:var(--rule-soft); }
-    .data-snapshots div:last-child { border:0; }
-    .data-snapshots strong { display:block; font:36px/1.2 var(--f-display); }
-    .data-snapshots span { display:block; font-size:15px; color:var(--ink-soft); }
-    .data-note { border-left:3px solid var(--moss); background:var(--paper-2); padding:20px 24px; margin:24px 0; }
-    .data-guide li { margin:12px 0; max-width:70ch; }
-    @media(max-width:600px) { .data-guide { padding-top:32px; } .data-snapshots { grid-template-columns:1fr; } .data-snapshots div { border-right:0; border-bottom:var(--rule-soft); } }
-  </style>
-  <link rel="stylesheet" href="assets/css/site-shell.css?v=062e302a2cba">
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=bbb05598465e">
 </head>
-<body class="cw-page">
+<body>
 <a href="#main-content" class="skip-link">Skip to data notes</a>
 <!-- cw:header:start -->
-<header data-site-header>
+<header data-site-header class="cw-header">
   <nav class="cw-nav" aria-label="Main navigation">
-    <a class="cw-brand" href="index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
-    <div class="cw-primary"><a href="knowledge.html">Knowledge base</a><a href="map.html">Map</a></div>
-    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
-      <a href="directory.html">Organization directory</a>
-      <a href="participate.html">Contribute or correct</a>
-      <a href="pipeline.html" aria-current="page">About the data</a>
-      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
-    </div></details>
+    <a class="cw-brand" href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8H13M19 8H22M2 16H5M11 16H22M8 2V5M8 11V22M16 2V13M16 19V22"/></svg><span>Commonweave</span></a>
+    <ul class="cw-links"><li><a href="map.html">Map</a></li><li><a href="directory.html">Directory</a></li><li><a href="knowledge.html">Framework</a></li><li><a href="pipeline.html" aria-current="page">Data</a></li><li><a href="participate.html">Contribute</a></li></ul>
   </nav>
 </header>
 <!-- cw:header:end -->
-<main class="data-guide" id="main-content">
-  <p><a href="knowledge.html">Knowledge base</a> / About the data</p>
-  <h1>Useful records need evidence.</h1>
-  <p class="lead">Commonweave brings together organization records so people can find possible contributors to community projects. A listing is a starting point for investigation.</p>
+<main class="page" id="main-content">
+  <header class="page-head">
+  <h1>About the data</h1>
+  <p class="lede">Commonweave brings together organization records so people can find possible contributors to community projects. A listing is a starting point for investigation.</p>
+  </header>
+  <div class="prose">
   <p>Public registries, thematic networks, web research and individual contributions supply the records. Their coverage and quality differ. Being registered, appearing in a directory or sharing a category does not establish an organization's current services or suitability.</p>
-  <section aria-labelledby="snapshots-title">
-    <h2 id="snapshots-title">Three published snapshots</h2>
+  </div>
+  <section class="band" aria-labelledby="snapshots-title">
+    <header><h2 id="snapshots-title">Three published snapshots</h2></header>
+    <div class="prose">
     <p>The September 5, 2026 audit counted the actual published files. These exports were built at different times and do not yet form one synchronized release.</p>
-    <div class="data-snapshots">
-      <div><strong>144,731</strong><span>Searchable records</span><span>156 country/territory buckets</span></div>
-      <div><strong>158,715</strong><span>Records in the download</span><span>Release dated April 27, 2026</span></div>
-      <div><strong>29,423</strong><span>Records in the map export</span><span>Some excluded pending tier review</span></div>
-    </div>
+    <dl class="figures" style="margin:20px 0">
+      <div><dd>144,731</dd><dt>Searchable records</dt><dd class="figure-note">156 country/territory buckets</dd></div>
+      <div><dd>158,715</dd><dt>Records in the download</dt><dd class="figure-note">Release dated April 27, 2026</dd></div>
+      <div><dd>29,423</dd><dt>Records in the map export</dt><dd class="figure-note">Some excluded pending tier review</dd></div>
+    </dl>
     <p><a href="doc.html?file=docs/DATA-AUDIT-2026-09-05">Read the audit, methods and limitations</a>. The full check finds missing fields, malformed links and possible duplicates; it does not independently verify every organization.</p>
+    </div>
   </section>
-  <section aria-labelledby="labels-title">
-    <h2 id="labels-title">What the labels mean</h2>
+  <section class="band" aria-labelledby="labels-title">
+    <header><h2 id="labels-title">What the labels mean</h2></header>
+    <div class="prose">
     <ul>
       <li><strong>Source backed:</strong> a source classification is recorded. It is not a review of the organization's services, impact or current capacity.</li>
       <li><strong>Inferred candidate:</strong> automated classification suggested a possible fit. A person still needs to check the evidence.</li>
       <li><strong>Documented relationship:</strong> a relationship source is supplied. Check its date, scope and which organizations it actually covers.</li>
       <li><strong>Proposed plan:</strong> you chose records for roles worth investigating. The diagram does not establish that those organizations collaborate.</li>
     </ul>
-    <div class="data-note"><strong>Locations need care.</strong> The map export lacks coordinate precision. Pins may be city or country approximations. Recorded city search can narrow the records, but pins cannot establish travel distance, eligibility or service area.</div>
+    <div class="note"><strong>Locations need care.</strong> The map export lacks coordinate precision. Pins may be city or country approximations. Recorded city search can narrow the records, but pins cannot establish travel distance, eligibility or service area.</div>
+    </div>
   </section>
-  <section aria-labelledby="review-title">
-    <h2 id="review-title">How a correction becomes useful</h2>
+  <section class="band" aria-labelledby="review-title">
+    <header><h2 id="review-title">How a correction becomes useful</h2></header>
+    <div class="prose">
     <ol>
       <li><strong>Identify the record.</strong> Check its name, country, original source and identity. Similar names may refer to separate organizations or branches.</li>
       <li><strong>Supply evidence for a specific field.</strong> Link the official page or another attributable source, record when it was checked and explain what it supports.</li>
@@ -76,18 +62,34 @@
       <li><strong>Keep the source with the claim.</strong> A rebuild should preserve the evidence and review date. Applying that consistently across all older exports remains work to finish.</li>
     </ol>
     <p><a href="participate.html">Suggest a correction</a> or <a href="doc.html?file=data/CONTRIBUTING-DATA">read the contributor guide</a>.</p>
+    </div>
   </section>
-  <section aria-labelledby="next-title">
-    <h2 id="next-title">What needs work next</h2>
+  <section class="band" aria-labelledby="next-title">
+    <header><h2 id="next-title">What needs work next</h2></header>
+    <div class="prose">
     <p>Repair one locality well enough to help a real project. Verify identities, operating areas and practical roles with the organizations involved. Rebuild the map, directory, links and download from one reviewed source, then measure whether people find useful leads.</p>
     <p>The <a href="doc.html?file=FRAMEWORK-OPERATING-MODEL">operating model</a> proposes a small pilot with a comparison, a maintenance budget and clear reasons to continue or stop. The <a href="doc.html?file=docs/REVIEW-2026-09-05">implementation review</a> separates completed repairs from remaining work.</p>
+    </div>
   </section>
 </main>
 <!-- cw:footer:start -->
 <footer data-site-footer class="cw-footer">
-  <p>A shared framework. Evidence to inspect. Work to improve together.</p>
-  <p class="cw-footer-note">Visits are counted in aggregate with Cloudflare Web Analytics. No cookies, no accounts, no ad tracking.</p>
-  <div><a href="knowledge.html">Knowledge base</a><a href="map.html">Map</a><a href="participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
+  <div class="cw-footer-inner">
+    <div>
+      <p>Commonweave is an open directory of community organizations, with working notes on how their efforts might fit together. Records are leads to check, not endorsements.</p>
+      <p class="cw-footer-note">Visits are counted in aggregate with Cloudflare Web Analytics. No cookies, no accounts, no ad tracking.</p>
+    </div>
+    <ul>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="knowledge.html">Framework</a></li>
+      <li><a href="doc.html?file=CRITIQUE">Critique</a></li>
+      <li><a href="pipeline.html">About the data</a></li>
+      <li><a href="participate.html">Contribute or correct</a></li>
+      <li><a href="https://github.com/simonlpaige/commonweave">GitHub</a></li>
+      <li><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licence and reuse</a></li>
+    </ul>
+  </div>
 </footer>
 <!-- cw:footer:end -->
 <!-- Cloudflare Web Analytics: cookieless aggregate visit counts. See docs/TRAFFIC-2026-11-03.md -->
