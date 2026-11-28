@@ -6,107 +6,29 @@
   <title>Knowledge base · Commonweave</title>
   <meta name="description" content="Read Commonweave's framework, evidence, critiques and practical guides.">
   <link rel="canonical" href="https://commonweave.earth/doc.html">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/brand.css?v=ac1ae7a4a9c0">
-  <link rel="stylesheet" href="assets/css/commonweave.css?v=61c3d54ad08e">
-  <style>
-    .reader { max-width: 1180px; margin: 0 auto; padding: 32px clamp(20px, 4vw, 48px) 80px; }
-    .reader-breadcrumb { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font-size: 15px; color: var(--ink-muted); margin-bottom: 36px; }
-    .reader-breadcrumb a { white-space: nowrap; }
-    .reader-heading { max-width: 800px; margin: 0 0 24px 252px; }
-    .reader-heading h1 { font-size: clamp(38px, 5vw, 64px); line-height: 1.07; color: var(--moss-deep); text-wrap: balance; overflow-wrap: anywhere; }
-    .reader-tools { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 20px 0 0; font-size: 15px; }
-    .reader-outline { position: sticky; top: 88px; padding-right: 16px; max-height: calc(100vh - 110px); overflow-y: auto; border-right: var(--rule-soft); font-size: 14px; }
-    .reader-outline summary { cursor: pointer; padding: 10px 0; font-weight: 600; color: var(--moss-deep); }
-    .reader-outline ul { list-style: none; padding: 0; margin: 8px 0 0; }
-    .reader-outline li { margin: 0; }
-    .reader-outline a { display: block; border-left: 2px solid transparent; padding: 5px 10px; text-decoration: none; color: var(--ink-muted); line-height: 1.45; }
-    .reader-outline a:hover, .reader-outline a[aria-current="location"] { color: var(--moss-deep); border-left-color: var(--moss); background: var(--paper-2); }
-    .reader-outline .toc-h3 { padding-left: 22px; font-size: 13px; }
-    .reader-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: start; }
-    .reader-layout > aside { position: sticky; top: 88px; }
-    .reader-body { min-width: 0; max-width: 76ch; }
-    .reader-notice { margin: 0 0 28px; padding: 16px 20px; border-left: 3px solid var(--thread); background: var(--paper-2); font-size: 15px; color: var(--ink-soft); }
-    .reader-notice p:last-child { margin-bottom: 0; }
-    .reader-status { padding: 24px 0; }
-    .reader-status h2 { font-size: 28px; font-style: normal; margin-bottom: 12px; }
-    .reader-status button { background: var(--moss); color: var(--paper); border: 1px solid var(--moss); font: inherit; padding: 10px 18px; cursor: pointer; }
-    #content { font-size: 18px; line-height: 1.75; overflow-wrap: anywhere; }
-    #content > :first-child { margin-top: 0; }
-    #content h1, #content h2, #content h3, #content h4, #content h5, #content h6, .reader-heading h1 { scroll-margin-top: 120px; }
-    #content h1, #content h2 { font-size: clamp(30px, 3vw, 40px); font-style: normal; line-height: 1.2; margin: 48px 0 18px; color: var(--moss-deep); }
-    #content h3 { font-size: 28px; line-height: 1.2; margin: 32px 0 12px; }
-    #content h4, #content h5, #content h6 { font-family: var(--f-body); font-size: 19px; font-weight: 600; margin: 24px 0 10px; }
-    #content p { max-width: none; margin-bottom: 20px; }
-    #content ul, #content ol { padding-left: 26px; margin: 0 0 24px; }
-    #content li { margin: 7px 0; }
-    #content li > ul, #content li > ol { margin: 8px 0; }
-    #content blockquote { margin: 28px 0; padding: 12px 22px; border-left: 3px solid var(--moss-mid); color: var(--ink-soft); background: var(--paper-2); }
-    #content blockquote p:last-child { margin-bottom: 0; }
-    #content pre { overflow-x: auto; background: var(--paper-2); border: var(--rule-soft); padding: 20px; font-size: 14px; line-height: 1.6; }
-    #content code { font-family: ui-monospace, Consolas, monospace; font-size: .85em; background: var(--paper-2); padding: 2px 4px; }
-    #content pre code { padding: 0; font-size: inherit; }
-    #content hr { border: 0; border-top: var(--rule-soft); margin: 40px 0; }
-    #content img { max-width: 100%; height: auto; }
-    #content input[type="checkbox"] { accent-color: var(--moss); }
-    #content details { margin: 24px 0; padding: 16px; border: var(--rule-soft); }
-    #content summary { cursor: pointer; font-weight: 600; }
-    .reader-table { max-width: 100%; overflow-x: auto; margin: 28px 0; border: var(--rule-soft); }
-    #content table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.55; }
-    #content th, #content td { padding: 12px 14px; min-width: 130px; text-align: left; vertical-align: top; border-bottom: var(--rule-soft); }
-    #content th { background: var(--paper-2); font-weight: 600; }
-    #content tr:last-child td { border-bottom: 0; }
-    .reader-next { border-top: var(--rule-soft); margin-top: 48px; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 16px; }
-    [hidden] { display: none !important; }
-    @media (max-width: 900px) {
-      .reader { padding-top: 24px; }
-      .reader-breadcrumb { margin-bottom: 28px; }
-      .reader-heading { margin-left: 0; }
-      .reader-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-      .reader-layout > aside { position: static; }
-      .reader-outline { position: static; max-height: 40vh; padding: 0 12px; border: var(--rule-soft); }
-      .reader-body { max-width: none; }
-      #content { font-size: 17px; }
-      #content h1, #content h2, #content h3, #content h4, .reader-heading h1 { scroll-margin-top: 140px; }
-    }
-    @media print {
-      [data-site-header], [data-site-footer], .reader-breadcrumb, .reader-tools, .reader-outline, .reader-next { display: none; }
-      body, .reader { padding: 0 !important; background: white; color: black; }
-      .reader-heading { margin-left: 0; }
-      .reader-layout { display: block; }
-      .reader-body { max-width: none; }
-      #content { font-size: 11pt; }
-      #content a { color: black; }
-      .reader-table { overflow: visible; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  </style>
-  <link rel="stylesheet" href="assets/css/site-shell.css?v=062e302a2cba">
+
+
+
   <script defer src="assets/js/vendor/marked-9.1.6.min.js?v=6002af63485b"></script>
   <script defer src="assets/js/vendor/dompurify-3.4.14.min.js?v=c2f26ea4fc0d"></script>
   <script defer src="assets/js/document-reader.js?v=7e6cd85d4050"></script>
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=bbb05598465e">
 </head>
-<body class="cw-page">
+<body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- cw:header:start -->
-<header data-site-header>
+<header data-site-header class="cw-header">
   <nav class="cw-nav" aria-label="Main navigation">
-    <a class="cw-brand" href="index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
-    <div class="cw-primary"><a href="knowledge.html" aria-current="page">Knowledge base</a><a href="map.html">Map</a></div>
-    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
-      <a href="directory.html">Organization directory</a>
-      <a href="participate.html">Contribute or correct</a>
-      <a href="pipeline.html">About the data</a>
-      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
-    </div></details>
+    <a class="cw-brand" href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8H13M19 8H22M2 16H5M11 16H22M8 2V5M8 11V22M16 2V13M16 19V22"/></svg><span>Commonweave</span></a>
+    <ul class="cw-links"><li><a href="map.html">Map</a></li><li><a href="directory.html">Directory</a></li><li><a href="knowledge.html" aria-current="page">Framework</a></li><li><a href="pipeline.html">Data</a></li><li><a href="participate.html">Contribute</a></li></ul>
   </nav>
 </header>
 <!-- cw:header:end -->
   <main id="main-content" class="reader" tabindex="-1">
-    <nav class="reader-breadcrumb" aria-label="Breadcrumb">
-      <a href="knowledge.html">Knowledge base</a><span aria-hidden="true">/</span><span id="breadcrumb-current" aria-current="page">Document</span>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="knowledge.html">Framework</a><span aria-hidden="true">/</span><span id="breadcrumb-current" aria-current="page">Document</span>
     </nav>
     <header class="reader-heading">
       <h1 id="document-heading">Knowledge base</h1>
@@ -135,9 +57,22 @@
   </main>
   <!-- cw:footer:start -->
 <footer data-site-footer class="cw-footer">
-  <p>A shared framework. Evidence to inspect. Work to improve together.</p>
-  <p class="cw-footer-note">Visits are counted in aggregate with Cloudflare Web Analytics. No cookies, no accounts, no ad tracking.</p>
-  <div><a href="knowledge.html">Knowledge base</a><a href="map.html">Map</a><a href="participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
+  <div class="cw-footer-inner">
+    <div>
+      <p>Commonweave is an open directory of community organizations, with working notes on how their efforts might fit together. Records are leads to check, not endorsements.</p>
+      <p class="cw-footer-note">Visits are counted in aggregate with Cloudflare Web Analytics. No cookies, no accounts, no ad tracking.</p>
+    </div>
+    <ul>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="knowledge.html">Framework</a></li>
+      <li><a href="doc.html?file=CRITIQUE">Critique</a></li>
+      <li><a href="pipeline.html">About the data</a></li>
+      <li><a href="participate.html">Contribute or correct</a></li>
+      <li><a href="https://github.com/simonlpaige/commonweave">GitHub</a></li>
+      <li><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licence and reuse</a></li>
+    </ul>
+  </div>
 </footer>
 <!-- cw:footer:end -->
 <!-- Cloudflare Web Analytics: cookieless aggregate visit counts. See docs/TRAFFIC-2026-11-03.md -->

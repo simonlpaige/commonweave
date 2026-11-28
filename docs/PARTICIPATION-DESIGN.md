@@ -1,12 +1,10 @@
 # Participation and directory design
 
-The existing public brand in `assets/css/brand.css` is canonical: paper
-`#F2EBDC`, ink `#16201A`, moss `#2F4A33`, muted ink `#5A6A5C`, and clay
-`#B4593A`. Instrument Serif carries headings; Source Serif 4 carries prose.
-The older forest-dark defaults in UI-COMPONENTS.md do not match the current
-rendered home and directory pages.
+The site design is described in [SITE-DESIGN.md](SITE-DESIGN.md) and lives in
+`assets/css/site.css` (rebuilt 28 November 2026; the paper, moss and serif
+identity this note used to describe is gone).
 
-Keep this identity. Participation should feel like adding a field note:
+Participation should feel like adding a field note:
 one short form, a readable preview, and an explicit next action. Left-align
 labels and body copy, use a narrow reading column alongside the form on
 desktop, and stack on mobile. No automatic motion or decorative counters.

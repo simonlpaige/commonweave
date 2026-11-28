@@ -12,34 +12,11 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Review enrichment proposals","url":"https://commonweave.earth/audit/enrich.html","description":"Review and enrich public Commonweave directory entries with safer source-backed details.","applicationCategory":"CivicTechnology"}</script>
+<link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/site.css?v=bbb05598465e">
+<link rel="stylesheet" href="../assets/css/review-tools.css?v=5546791cdc90">
 <style>
-:root {
-  --bg:      #0d1a0d;
-  --surface: #132013;
-  --s2:      #192819;
-  --s3:      #1f321f;
-  --border:  #253825;
-  --border2: #30483a;
-  --text:    #cce8b0;
-  --muted:   #5e8a52;
-  --dim:     #3d5e35;
-  --accent:  #78c87a;
-  --warm:    #a8c87e;
-  --teal:    #4fc4b0;
-  --earth:   #c4a55d;
-  --red:     #e07070;
-  --orange:  #d4915a;
-  --yellow:  #c4b85a;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; min-height: 100vh; }
 
-nav {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 24px; border-bottom: 1px solid var(--border);
-}
-.nav-logo { color: var(--accent); font-weight: 900; letter-spacing: 3px; font-size: 14px; text-decoration: none; text-transform: lowercase; }
-.nav-sub  { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
 
 .progress-wrap { background: var(--surface); border-bottom: 1px solid var(--border); padding: 10px 24px; }
 .progress-row  { display: flex; align-items: center; gap: 12px; }
@@ -161,26 +138,15 @@ main { max-width: 760px; margin: 0 auto; padding: 24px 20px 100px; }
 .kbd-hint { font-size: 11px; color: var(--dim); margin-top: 12px; text-align: center; }
 .kbd { display: inline-block; background: var(--s3); border: 1px solid var(--border2); border-radius: 4px; padding: 1px 6px; font-family: monospace; font-size: 11px; }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/brand.css?v=ac1ae7a4a9c0">
-<link rel="stylesheet" href="../assets/css/commonweave.css?v=61c3d54ad08e">
-<link rel="stylesheet" href="../assets/css/review-tools.css?v=31f0b4ee0bbe">
-<link rel="stylesheet" href="../assets/css/site-shell.css?v=062e302a2cba">
 </head>
-<body class="cw-page cw-review">
+<body class="cw-review">
 <a class="skip-link" href="#main">Skip to review tools</a>
 
 <!-- cw:header:start -->
-<header data-site-header>
+<header data-site-header class="cw-header">
   <nav class="cw-nav" aria-label="Main navigation">
-    <a class="cw-brand" href="../index.html" aria-label="Commonweave home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 12C20 24 28 24 36 36M36 12C28 24 20 24 12 36"/><circle class="cw-seed" cx="24" cy="24" r="2"/></svg><span>commonweave</span></a>
-    <div class="cw-primary"><a href="../knowledge.html">Knowledge base</a><a href="../map.html">Map</a></div>
-    <details class="cw-more"><summary>More</summary><div class="cw-more-links">
-      <a href="../directory.html">Organization directory</a>
-      <a href="../participate.html" aria-current="page">Contribute or correct</a>
-      <a href="../pipeline.html">About the data</a>
-      <a href="https://github.com/simonlpaige/commonweave">Project on GitHub</a>
-    </div></details>
+    <a class="cw-brand" href="../index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8H13M19 8H22M2 16H5M11 16H22M8 2V5M8 11V22M16 2V13M16 19V22"/></svg><span>Commonweave</span></a>
+    <ul class="cw-links"><li><a href="../map.html">Map</a></li><li><a href="../directory.html">Directory</a></li><li><a href="../knowledge.html">Framework</a></li><li><a href="../pipeline.html">Data</a></li><li><a href="../participate.html" aria-current="page">Contribute</a></li></ul>
   </nav>
 </header>
 <!-- cw:header:end -->
@@ -527,8 +493,21 @@ document.addEventListener('keydown', e => {
 
 <!-- cw:footer:start -->
 <footer data-site-footer class="cw-footer">
-  <p>A shared framework. Evidence to inspect. Work to improve together.</p>
-  <div><a href="../knowledge.html">Knowledge base</a><a href="../map.html">Map</a><a href="../participate.html">Contribute or correct</a><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licensing and reuse</a></div>
+  <div class="cw-footer-inner">
+    <div>
+      <p>Commonweave is an open directory of community organizations, with working notes on how their efforts might fit together. Records are leads to check, not endorsements.</p>
+    </div>
+    <ul>
+      <li><a href="../map.html">Map</a></li>
+      <li><a href="../directory.html">Directory</a></li>
+      <li><a href="../knowledge.html">Framework</a></li>
+      <li><a href="../doc.html?file=CRITIQUE">Critique</a></li>
+      <li><a href="../pipeline.html">About the data</a></li>
+      <li><a href="../participate.html">Contribute or correct</a></li>
+      <li><a href="https://github.com/simonlpaige/commonweave">GitHub</a></li>
+      <li><a href="https://github.com/simonlpaige/commonweave/blob/master/LICENSE">Licence and reuse</a></li>
+    </ul>
+  </div>
 </footer>
 <!-- cw:footer:end -->
 </body>

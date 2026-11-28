@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-11-27T00:00-06:00",
+  "updated": "2026-11-28T00:00-06:00",
   "notes": "Machine-readable list of agent-ready tasks for Commonweave. Pick one. See AGENTS.md for workflow.",
   "tasks": [
     {
@@ -410,6 +410,44 @@
       "acceptance_criteria": [
         "Reviewer consents to how they are credited or stays unnamed",
         "Their disagreements are recorded even where the position is kept",
+        "No outreach is sent by an automated agent"
+      ]
+    },
+    {
+      "id": "cw-data-country-locality-mismatch-001",
+      "title": "Fix map records marked US whose region is not a US state",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "In data/map/orgs.geojson (29,423 points, checked 2026-11-28), 181 records have cc='US' and a state value that is not a US state or territory code, for example 'Bentley Urban Farm, Doncaster, SOUTH YORKSHIRE, US' (org_903162). All 181 come from two sources: transition_network and mutual_aid_hub. They appear in United States searches on the map and in goal pathways. Find where the country is assigned for these two sources and correct it, or mark the country unknown where the source does not say.",
+      "files": [
+        "data/map/orgs.geojson",
+        "data/ingest_transition_network.py",
+        "data/build_map_points.py"
+      ],
+      "acceptance_criteria": [
+        "The count of cc='US' points with a non-US state value is reported before and after",
+        "A country is only assigned where the source record supports it; otherwise it is left blank",
+        "No coordinates or contact details are added for mutual aid groups (see the safety rule in AGENTS.md)",
+        "python data/audit_public_exports.py still runs"
+      ]
+    },
+    {
+      "id": "cw-site-first-use-test-001",
+      "title": "Watch one organizer use the rebuilt home page and map",
+      "type": "map",
+      "agent_ready": false,
+      "difficulty": "medium",
+      "goal": "The site was rebuilt on 2026-11-28 around one task: choose a goal on the home page, pick a place, read the candidates for each role. Nobody outside the project has tried it. Ask one person who organizes locally to find three organizations for a goal of their choosing, on a phone, without help, and record where they stop.",
+      "files": [
+        "index.html",
+        "map.html",
+        "docs/SITE-DESIGN.md"
+      ],
+      "acceptance_criteria": [
+        "The person consents to notes being published, or the notes are anonymized",
+        "The first point of confusion is recorded in their words",
+        "One change is proposed, and the largest obstacle is fixed or filed",
         "No outreach is sent by an automated agent"
       ]
     }
